@@ -1,0 +1,173 @@
+# Synthetische Daten verstehen
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- den Unterschied zwischen synthetischen, echten und erfundenen Daten erklären
+- beschreiben, was eine Korrelationsmatrix ist und was sie ausdrückt
+- erklären, was ein Seed ist und warum er Reproduzierbarkeit ermöglicht
+- mindestens zwei Einsatzgebiete synthetischer Daten in der Forschung nennen
+- das R-Skript `scripts/generate-synthetic.R` in RStudio ausführen und die erzeugte CSV hochladen
+:::
+
+## Worum es geht
+
+Der Workshop-Datensatz enthält nicht nur Deine echten Antworten. Er enthält auch 150–200 Fälle, die von der Lehrperson vor dem Workshop generiert wurden — synthetische Daten mit realistischen Eigenschaften. Warum? Weil wir genug Datenpunkte für sinnvolle Analysen auf Tag 2 und Tag 3 brauchen, unabhängig davon, wie viele Personen heute ihre echten Daten hochladen. In diesem Kapitel verstehst Du, wie diese synthetischen Daten entstanden sind — und Du erzeugst selbst eine kleine Portion davon. Nicht um Daten zu fälschen, sondern um das Prinzip zu verstehen.
+
+## Theorie kompakt
+
+### Synthetisch ≠ erfunden ≠ echt
+
+Es gibt einen wichtigen Unterschied zwischen diesen drei Datentypen:
+
+| Typ | Beschreibung | Wann sinnvoll |
+|---|---|---|
+| **Echte Daten** | Von realen Personen erhobene Antworten | Wenn echte Merkmale der Zielgruppe wichtig sind |
+| **Synthetische Daten** | Computergeneriert, aber mit realistischer statistischer Struktur | Training, Demo, Power-Analyse, Bias-Tests |
+| **Erfundene Daten** | Beliebig eingetippt, keine Struktur | Kaum je sinnvoll in der Wissenschaft |
+
+Synthetisch bedeutet: Die Daten folgen einer definierten statistischen Struktur (Mittelwerte, Standardabweichungen, Korrelationen), die an realistische Werte angelehnt ist. Sie sind nicht "gelogen" — sie sind modellgeneriert, und das Modell ist transparent.
+
+::: {.callout-tip title="Wo kommen synthetische Daten in der Forschung vor?"}
+- **Power-Analyse:** Wie viele Personen brauche ich für eine Studie? Man simuliert Daten mit dem erwarteten Effekt und prüft, wie oft man ihn findet.
+- **Bias-Tests:** Wie verhält sich mein statistisches Verfahren bei schiefen Verteilungen oder Ausreißern? Dafür generiert man kontrollierte Daten.
+- **Datenschutz:** In manchen klinischen Studien werden echte Daten durch synthetische ersetzt, die denselben statistischen Fingerabdruck haben — so können Forschende Analysen teilen, ohne Patientendaten preiszugeben.
+- **Didaktik:** Wie in diesem Workshop.
+:::
+
+### Was ist eine Korrelationsmatrix?
+
+Eine Korrelationsmatrix zeigt, wie stark verschiedene Variablen miteinander zusammenhängen. Der Korrelationskoeffizient *r* liegt zwischen −1 und +1:
+
+- **r = +1:** perfekter positiver Zusammenhang (steigt eine Variable, steigt die andere immer mit)
+- **r = 0:** kein linearer Zusammenhang
+- **r = −1:** perfekter negativer Zusammenhang (steigt eine Variable, fällt die andere)
+
+In der Praxis sind solche Extremwerte selten. Ein Beispiel für den Workshop-Datensatz:
+
+| | Extraversion | Neurotizismus | SWLS | PHQ-2 |
+|---|---|---|---|---|
+| **Extraversion** | 1.00 | −.20 | +.25 | −.15 |
+| **Neurotizismus** | −.20 | 1.00 | −.35 | +.45 |
+| **SWLS** | +.25 | −.35 | 1.00 | −.50 |
+| **PHQ-2** | −.15 | +.45 | −.50 | 1.00 |
+
+Diese Tabelle liest sich so: Neurotizismus und PHQ-2 (depressive Symptome) korrelieren mit *r* = .45 — wer hohe Neurotizismuswerte hat, hat tendenziell auch höhere PHQ-2-Scores. Das ist ein aus der Literatur bekannter Befund. Die synthetischen Daten im Workshop sind so generiert, dass sie diese plausiblen Korrelationsstrukturen widerspiegeln.
+
+::: {.callout-tip title="Beispiel: Wie generiert man eine Zeile synthetischer Daten?"}
+Das R-Skript nutzt eine Funktion namens `mvrnorm()` (multivariate normal random numbers). Man gibt ihr vor:
+- Wie viele Fälle soll sie erzeugen? (n)
+- Was sollen die Mittelwerte sein? (z. B. Mittelwert Extraversion = 3.2)
+- Wie soll die Korrelationsmatrix aussehen?
+
+Dann zieht die Funktion Zufallszahlen, die exakt diese statistische Struktur haben. Das ist wie ein gewichteter Würfelwurf — kein einzelnes Ergebnis ist vorherbestimmt, aber die Verteilung über viele Würfe ist es.
+:::
+
+### Was ist ein Seed?
+
+Zufallszahlen am Computer sind nicht wirklich zufällig — sie sind **pseudozufällig**. Der Computer berechnet eine scheinbar zufällige Folge ausgehend von einem Startwert, dem **Seed**. Wenn Du denselben Seed verwendest, bekommst Du exakt dieselbe Folge von "Zufallszahlen".
+
+```r
+set.seed(42)
+sample(1:100, 5)
+# Ergebnis: 91 21 68 39 57
+
+set.seed(42)
+sample(1:100, 5)
+# Ergebnis: 91 21 68 39 57  — identisch!
+```
+
+Der Seed macht eine zufallsbasierte Analyse **reproduzierbar**: Alle, die denselben Seed und denselben Code haben, bekommen dasselbe Ergebnis. Das ist unverzichtbar für Open Science.
+
+## Anleitung: R-Skript ausführen
+
+Du brauchst dafür **RStudio** und eine lauffähige R-Installation. Falls nicht vorhanden: Melde Dich bei der Lehrperson — das ist kein Problem, und das Skript kann auch auf einem anderen Laptop laufen.
+
+**Du musst nichts coden.** Du führst nur das fertige Skript aus.
+
+### Schritte
+
+1. **RStudio öffnen.** Falls nicht installiert: [posit.co/download/rstudio-desktop](https://posit.co/download/rstudio-desktop/)
+
+2. **Skript öffnen:** In RStudio: "File" → "Open File" → navigiere zu `scripts/generate-synthetic.R` im Workshop-Repo-Ordner auf Deinem Laptop.
+
+3. **Student-ID eintragen:** Ganz oben im Skript findest Du zwei Zeilen, die Du anpassen sollst:
+   ```r
+   STUDENT_ID <- "XX"   # <-- Deine zweistellige ID eintragen, z. B. "07"
+   N_CASES    <- 5      # Anzahl der zu generierenden Fälle — lass das bei 5
+   ```
+   Ersetze `"XX"` durch Deine tatsächliche ID. Speichere das Skript (Strg+S / Cmd+S).
+
+4. **Skript ausführen:** Klicke im Skript-Fenster oben auf "Source" (nicht "Run" Zeile für Zeile — "Source" führt das gesamte Skript aus).
+
+![TODO: Screenshot von RStudio mit dem generate-synthetic.R Skript und dem Source-Button](../img/TODO-rstudio-source-script.png)
+
+5. **Output prüfen:** Im "Console"-Fenster von RStudio erscheint eine Erfolgsmeldung und der Pfad der erzeugten Datei. Die Datei liegt jetzt unter `data/raw/synth-student-XX.csv`.
+
+6. **Datei ansehen:** Öffne die Datei in einem Texteditor. Du solltest 5 Datenzeilen (plus Kopfzeile) sehen, mit `source = "synth_student"` in der zweiten Spalte.
+
+::: {.callout-warning title="Wenn Du hier hängst"}
+**Problem: "Package 'MASS' not found".**
+Im R-Console-Fenster eingeben: `install.packages("MASS")` und Enter drücken. Dann das Skript nochmals mit "Source" starten.
+
+**Problem: "could not find function 'generate_synth'".**
+Das Skript wurde nicht vollständig geladen. Versuche nochmals "Source" — oder öffne die Datei neu (File → Open File).
+
+**Problem: Die erzeugte Datei fehlt.**
+Prüfe, ob der Pfad `data/raw/` auf Deinem Rechner existiert. Das Repository muss vollständig geklont sein. Wenn `data/raw/` nicht vorhanden ist, erstelle den Ordner manuell.
+
+**Problem: RStudio läuft nicht auf meinem Laptop.**
+Die Lehrperson kann das Skript für Dich ausführen oder Dir eine fertige synthetische CSV-Datei geben. Das ist kein Problem.
+:::
+
+### Schritt 7: Synthetische CSV hochladen
+
+Die Datei `data/raw/synth-student-XX.csv` lädst Du auf genau dieselbe Weise hoch wie Deine echte Datendatei — mit einem eigenen Branch und Pull Request. Der Dateiname folgt dem Schema:
+
+```
+synth-student-XX.csv
+```
+
+Der Prozess ist identisch mit Kapitel 04. Der Validierungs-Workflow prüft auch diese Datei.
+
+## Mini-Übung
+
+**Aufgabe:** Öffne `data/raw/synth-student-XX.csv` in einem Texteditor. Schaue Dir die fünf Zeilen an.
+
+1. Was steht in der Spalte `source`? (`synth_student`)
+2. Liegen die BFI-Werte im erlaubten Bereich von 1–5?
+3. Liegen die SWLS-Werte im erlaubten Bereich von 1–7?
+4. Passen die Werte grob zusammen — also erscheinen die generierten Fälle "menschlich plausibel"?
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+1. Die Spalte `source` enthält `synth_student` — das markiert diese Fälle im kombinierten Datensatz als studentisch erzeugte synthetische Daten.
+2. Alle BFI-Werte sollten zwischen 1 und 5 liegen. Das Skript rundet und clipped die Werte auf den gültigen Bereich.
+3. SWLS-Werte sollten zwischen 1 und 7 liegen.
+4. Die Werte sind statistisch generiert — einzelne Fälle können etwas "extremer" wirken als typische echte Antworten, aber insgesamt folgen sie der vordefinierten Korrelationsstruktur. Kleine Stichproben (n = 5) können mehr Streuung zeigen als der große Seed-Datensatz.
+
+</details>
+
+## Selbstcheck
+
+1. Was ist der Unterschied zwischen synthetischen und erfundenen Daten?
+2. Warum braucht man einen Seed für reproduzierbare Simulationen?
+3. Nenne zwei Einsatzbereiche synthetischer Daten in der Forschung.
+4. Was bedeutet es, wenn zwei Variablen eine Korrelation von r = −.50 haben?
+
+::: {.callout-important title="Klausurrelevant"}
+Synthetische Daten, Seed, Reproduzierbarkeit, Korrelationsmatrix, Korrelationskoeffizient r, Power-Analyse, Datenschutz durch Synthese
+:::
+
+## Weiterführend (optional)
+
+- Jordon, J., Szpruch, L., Houssiau, F. et al. (2022). Synthetic Data — what, why and how? [arxiv.org/abs/2205.03257](https://arxiv.org/abs/2205.03257)
+- R-Dokumentation zu `set.seed()`: [stat.ethz.ch/R-manual/R-devel/library/base/html/Random.html](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Random.html)
+- MASS-Paket für multivariate Normalverteilung: [MASS-Dokumentation](https://cran.r-project.org/web/packages/MASS/)
+
+---
+
+Das war Tag 1. Morgen — also in einer Woche am 28.05.2026 — öffnest Du den kombinierten Datensatz mit allen echten und synthetischen Daten und fängst an, wirklich zu analysieren. Bis dahin: Prüfe, ob Dein Pull Request gemergt wurde, und schau Dir an, wie viele Datenpunkte im Repo angekommen sind.
+
+Vorschau auf [Tag 2 — Daten verstehen & aufbereiten](../tag2/00-uebersicht.qmd).

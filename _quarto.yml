@@ -1,0 +1,49 @@
+project:
+  type: book
+
+book:
+  title: "M15 — Quantitative Forschungsmethoden"
+  subtitle: "Workshop HMU Potsdam, Mai/Juni 2026"
+  author: "Prof. Dr. Daniel Schad"
+  date: "2026-05"
+  repo-url: https://github.com/
+  repo-actions: [edit, issue]
+  chapters:
+    - index.qmd
+    - part: "Tag 1 — 21.05.2026: Foundations & Erhebung"
+      chapters:
+        - tag1/00-uebersicht.qmd
+        - tag1/01-open-science.qmd
+        - tag1/02-messen.qmd
+        - tag1/03-erhebung-praktisch.qmd
+        - tag1/04-github-upload.qmd
+        - tag1/05-synthetic-data.qmd
+    - part: "Tag 2 — 28.05.2026: Daten verstehen & aufbereiten"
+      chapters:
+        - tag2/00-uebersicht.qmd
+        - tag2/01-datensatz-laden.qmd
+        - tag2/02-stichprobe-und-bias.qmd
+        - tag2/03-reliabilitaet.qmd
+        - tag2/04-efa-cfa.qmd
+        - tag2/05-effektgroessen.qmd
+    - part: "Tag 3 — 04.06.2026: Multivariate Verfahren"
+      chapters:
+        - tag3/00-uebersicht.qmd
+        - tag3/01-multiple-regression.qmd
+        - tag3/02-moderation.qmd
+        - tag3/03-bootstrap-mediation.qmd
+        - tag3/04-bayes-vs-frequentist.qmd
+        - tag3/05-logistic.qmd
+        - tag3/06-meta-cluster.qmd
+    - materials/codebook.qmd
+    - exam-prep/lernzielkatalog.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-copy: true
+    callout-appearance: default

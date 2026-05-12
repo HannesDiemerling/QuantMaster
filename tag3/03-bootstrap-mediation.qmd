@@ -1,0 +1,209 @@
+# Mediation & Bootstrap
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- erklären, was Mediation bedeutet, und den Unterschied zwischen direktem, indirektem und totalem Effekt benennen
+- begründen, warum Bootstrap-Konfidenzintervalle für den indirekten Effekt besser geeignet sind als der Sobel-Test
+- eine Mediationsanalyse im JASP-SEM-Modul durchführen
+- einen indirekten Effekt anhand des Bootstrap-KI interpretieren
+- ein Pfaddiagramm einer einfachen Mediation lesen und beschriften
+:::
+
+## Worum es geht
+
+In der multiplen Regression hast Du gesehen: Neurotizismus sagt Lebenszufriedenheit vorher. Aber *warum* ist das so? Ist es ein direkter Mechanismus — oder läuft der Effekt über einen Dritten?
+
+Eine Möglichkeit: Neurotizismus erhöht Angstsymptome, und diese erhöhte Angst senkt die Lebenszufriedenheit. Das wäre Mediation: X wirkt *über* M auf Y. Wenn wir das wissen, wird Intervention konkreter. Statt "Neurotizismus behandeln" (schwer veränderbar) könnte man sagen: "Die Angst als vermittelnden Mechanismus behandeln."
+
+Mediationsanalysen sind in der klinischen Forschung weit verbreitet, etwa in Therapieprozess-Studien ("Wirkt CBT auf Depression über die Veränderung dysfunktionaler Kognitionen?"). Du solltest sowohl die Logik als auch die technische Umsetzung in JASP beherrschen.
+
+## Theorie kompakt
+
+### Das Mediationsmodell
+
+In einem einfachen Mediationsmodell gibt es drei Pfade:
+
+- **Pfad a:** X → M (Prädiktor beeinflusst Mediator)
+- **Pfad b:** M → Y (Mediator beeinflusst Kriterium, unter Kontrolle von X)
+- **Pfad c':** X → Y (direkter Effekt von X auf Y, unter Kontrolle von M)
+- **Pfad c:** X → Y (totaler Effekt von X auf Y, ohne Kontrolle von M)
+
+```
+X ──(a)──→ M ──(b)──→ Y
+│                       ↑
+└──────────(c')─────────┘
+```
+
+Der **indirekte Effekt** ist das Produkt: *a* × *b*. Er zeigt, wie viel von X auf Y *über* M läuft.
+
+Der **totale Effekt** ist die Summe: *c* = *c'* + (*a* × *b*).
+
+### Vollständige vs. partielle Mediation
+
+- **Vollständige Mediation:** Der direkte Effekt *c'* verschwindet (wird nicht mehr signifikant), wenn M im Modell ist. X wirkt nur noch über M.
+- **Partielle Mediation:** *c'* bleibt signifikant, aber der indirekte Effekt ist ebenfalls signifikant. X hat sowohl einen direkten als auch einen indirekten Weg zu Y.
+
+In der Praxis ist vollständige Mediation selten und wird von modernen Methodologen kritisch betrachtet. Partial Mediation und die Größe des indirekten Effekts sind meist das Interessante.
+
+### Proportion Mediated
+
+Ein praktisches Maß:
+
+$$PM = \frac{a \times b}{c}$$
+
+Es gibt an, welcher Anteil des totalen Effekts über den Mediator verläuft. PM = 0,40 bedeutet: 40 % des Gesamteffekts von X auf Y sind mediiert.
+
+### Warum Bootstrap statt Sobel-Test?
+
+Der klassische Sobel-Test prüft die Signifikanz des indirekten Effekts *a × b*. Problem: Er nimmt an, dass *a × b* normalverteilt ist. Das ist aber **nicht* der Fall — das Produkt zweier normalverteilter Größen hat eine schiefe, nicht-normale Verteilung.
+
+**Bootstrap** löst das elegant:
+
+1. Aus dem Datensatz werden 1000 (oder mehr) zufällige Stichproben mit Zurücklegen gezogen (Resampling).
+2. In jeder Stichprobe werden Pfad *a* und Pfad *b* neu berechnet, das Produkt *a × b* gespeichert.
+3. Die Verteilung dieser 1000 indirekten Effekte gibt ein realistisches Bild davon, wie präzise der Schätzer ist.
+4. Aus dieser Verteilung wird ein 95 %-Konfidenzintervall bestimmt.
+
+**Interpretation:** Wenn das 95 %-Bootstrap-KI die Null nicht einschließt, ist der indirekte Effekt signifikant (p < .05, aber wir berichten lieber das KI als den p-Wert).
+
+::: {.callout-tip title="Beispiel aus dem Datensatz"}
+Fragestellung: Mediiert Angstsymptomatik (`GAD2_total`) den Zusammenhang zwischen Neurotizismus (`BFI_N_mean`) und Lebenszufriedenheit (`SWLS_total`)?
+
+- **Pfad a:** BFI_N_mean → GAD2_total: Erwarte positiven Effekt (mehr Neurotizismus → mehr Angstsymptome)
+- **Pfad b:** GAD2_total → SWLS_total (unter Kontrolle von BFI_N_mean): Erwarte negativen Effekt (mehr Angst → weniger Lebenszufriedenheit)
+- **Indirekter Effekt** (*a × b*): negativ — Neurotizismus senkt über Angst die Lebenszufriedenheit
+
+Wenn das 95 %-Bootstrap-KI für *a × b* die Null nicht enthält: indirekte Mediation wird unterstützt.
+:::
+
+## JASP-Walkthrough
+
+### Vorbereitung
+
+Stelle sicher, dass `data/combined/m15-combined.csv` geladen ist und folgende Variablen verfügbar sind: `BFI_N_mean`, `GAD2_total`, `SWLS_total`.
+
+Falls `GAD2_total` noch keine Computed Column ist: Anlegen als `GAD2_1 + GAD2_2` (Summe der beiden Items, jeweils 0–3, also Gesamtrange 0–6).
+
+### Schritt 1: SEM-Modul aufrufen
+
+- Klicke oben im Menü auf **SEM** (Structural Equation Modeling).
+- Wähle **Mediation Analysis**.
+
+::: {.callout-warning title="Hinweis: JASP-Version"}
+In älteren JASP-Versionen (< 0.17) heißt der Pfad manchmal **SEM → Structural Equation Modeling** und Du musst das Modell manuell als Syntax eingeben. In aktuellen Versionen gibt es eine eigene "Mediation Analysis"-Oberfläche. Falls Du die Mediation-Analyse nicht findest: Melde Dich bei der Lehrperson.
+:::
+
+### Schritt 2: Variablen zuweisen
+
+Im Mediation-Analysis-Panel:
+
+- **Predictor (X):** `BFI_N_mean`
+- **Mediator (M):** `GAD2_total`
+- **Outcome (Y):** `SWLS_total`
+
+![TODO: Screenshot Mediation Analysis Panel in JASP](../img/TODO-jasp-mediation-panel.png)
+
+### Schritt 3: Bootstrap-CIs aktivieren
+
+- Scrolle zu **Inference** oder **Confidence Intervals**.
+- Aktiviere **Bootstrap confidence intervals**.
+- Setze **Number of bootstrap samples** auf **1000** (oder 5000 für genauere Schätzung, dauert länger).
+- Wähle **95 %** als Konfidenzintervall.
+
+![TODO: Screenshot Bootstrap-Einstellungen in JASP Mediation](../img/TODO-jasp-mediation-bootstrap.png)
+
+### Schritt 4: Pfaddiagramm anzeigen
+
+- Aktiviere **Path diagram** unter den Plot-Optionen.
+- JASP zeichnet X, M und Y mit den Pfadkoeffizienten.
+- Das Diagramm kannst Du per Rechtsklick speichern.
+
+![TODO: Screenshot Pfaddiagramm aus JASP Mediation](../img/TODO-jasp-mediation-pathdiagram.png)
+
+### Schritt 5: Ergebnisse lesen
+
+JASP gibt Dir eine Tabelle mit mehreren Zeilen:
+
+| Effekt | Bezeichnung | Was es ist |
+|---|---|---|
+| Total effect (c) | totaler Effekt | Effekt von X auf Y ohne Mediator |
+| Direct effect (c') | direkter Effekt | Effekt von X auf Y unter Kontrolle von M |
+| Indirect effect (a×b) | indirekter Effekt | Effekt über den Mediator |
+| a | Pfad a | Effekt von X auf M |
+| b | Pfad b | Effekt von M auf Y (kontrolliert für X) |
+
+Für jede Zeile gibt es einen Schätzer, ein SE, ein Bootstrap-KI (Lower, Upper) und optional einen p-Wert.
+
+::: {.callout-warning title="Wenn Du hier hängst"}
+**Problem: Ich finde "Mediation Analysis" nicht im SEM-Menü.**
+Lösung: In einigen JASP-Versionen ist es unter SEM → "Structural Equation Modeling". Dann kannst Du alternativ das Modell als zwei Regressionen nachbauen: Regression 1: M ~ X (gibt Dir *a*). Regression 2: Y ~ X + M (gibt Dir *c'* und *b*). Den indirekten Effekt berechnest Du dann manuell als Produkt *a × b*. Ohne Bootstrap ist das aber eine Näherung.
+
+**Problem: Das Bootstrap läuft sehr lange.**
+Lösung: 1000 Samples sind genug für Kursarbeit. Falls es mehr als 2 Minuten dauert: Auf 500 reduzieren.
+
+**Problem: Das Bootstrap-KI schließt Null ein, der p-Wert für den indirekten Effekt ist aber < .05.**
+Lösung: Das Bootstrap-KI ist die zuverlässigere Aussage. Berichte das KI und schreib: "Das Bootstrap-KI schließt Null ein ([lower, upper]), weshalb der indirekte Effekt als nicht signifikant bewertet wird."
+
+**Problem: Pfad a ist signifikant, Pfad b ist es nicht. Was bedeutet das?**
+Lösung: Wenn entweder Pfad a oder Pfad b nicht signifikant ist, ist auch der indirekte Effekt in der Regel nicht signifikant. Prüfe das Bootstrap-KI. Wenn es die Null einschließt: keine Mediation nachgewiesen.
+:::
+
+## Wie berichtet man eine Mediation?
+
+Ein guter APA-konformer Bericht sieht so aus:
+
+> Um zu prüfen, ob Angstsymptomatik (GAD2_total) den Zusammenhang zwischen Neurotizismus (BFI_N_mean) und Lebenszufriedenheit (SWLS_total) mediiert, wurde eine einfache Mediationsanalyse mit 1000 Bootstrap-Samples durchgeführt. Neurotizismus sagte GAD2_total positiv vorher (Pfad a = ..., SE = ..., p = ...). GAD2_total sagte SWLS_total negativ vorher, wenn für Neurotizismus kontrolliert wurde (Pfad b = ..., SE = ..., p = ...). Der indirekte Effekt war statistisch signifikant (*a × b* = ..., 95 % Bootstrap-KI [lower, upper]). Der direkte Effekt (c' = ...) war [signifikant/nicht signifikant], was auf eine [partielle/vollständige] Mediation hindeutet.
+
+## Mini-Übung
+
+**Aufgabe:** Teste dasselbe Mediationsmodell, aber ersetze den Mediator: Verwende `PHQ2_total` (depressive Symptomatik) statt `GAD2_total` als Mediator.
+
+Fragestellung: Mediiert depressive Symptomatik den Zusammenhang zwischen Neurotizismus und Lebenszufriedenheit?
+
+1. Passe die Variablenzuweisung im Mediation-Panel an.
+2. Führe die Bootstrap-Analyse mit 1000 Samples erneut durch.
+3. Vergleiche: Ist der indirekte Effekt über `PHQ2_total` größer oder kleiner als über `GAD2_total`?
+4. Welcher Mediator erklärt mehr von der Beziehung zwischen Neurotizismus und Lebenszufriedenheit?
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+**Vorgehen:**
+
+1. SEM → Mediation Analysis.
+2. X = `BFI_N_mean`, M = `PHQ2_total`, Y = `SWLS_total`.
+3. Bootstrap: 1000 Samples, 95 % KI aktivieren.
+4. Ergebnisse aus beiden Mediationsmodellen vergleichen.
+
+**Erwartete Ergebnisse:**
+
+Beide Mediatoren (GAD2 und PHQ2) sollten einen signifikanten indirekten Effekt zeigen — Neurotizismus erhöht sowohl Angst als auch Depressivität, und beide senken die Lebenszufriedenheit.
+
+Der Vergleich der indirekten Effekte ist inhaltlich interessant: In der Persönlichkeits- und Klinischen Psychologie wird oft diskutiert, ob Neurotizismus stärker über depressive oder über ängstliche Symptome auf Wohlbefinden wirkt. Mit dem Workshop-Datensatz wirst Du sehen, welcher Mediator den stärkeren indirekten Effekt hat.
+
+**Wichtig:** Wenn Du beide Mediatoren *gleichzeitig* testen willst, ist das ein Parallel-Mediationsmodell — das geht auch in JASP, indem Du beide als Mediator einträgst. Dann werden die indirekten Effekte unter gegenseitiger Kontrolle geschätzt.
+
+</details>
+
+## Selbstcheck
+
+1. Was ist der Unterschied zwischen direktem Effekt (*c'*) und totalem Effekt (*c*)?
+2. Was bedeutet es, wenn das 95 %-Bootstrap-KI für den indirekten Effekt die Null *nicht* enthält?
+3. Warum ist Bootstrap besser als der Sobel-Test für die Prüfung des indirekten Effekts?
+4. Pfad a = 0,45, Pfad b = –0,38. Berechne den indirekten Effekt.
+5. Ein Modell zeigt: totaler Effekt = –0,52, direkter Effekt = –0,18 (nicht signifikant), indirekter Effekt = –0,34. Was schlussfolgert Du über die Art der Mediation?
+
+::: {.callout-important title="Klausurrelevant"}
+Mediation, Mediator, direkter Effekt, indirekter Effekt, totaler Effekt, Pfad a, Pfad b, Bootstrap-Konfidenzintervall, vollständige Mediation, partielle Mediation, Proportion Mediated, Sobel-Test (Schwächen), Resampling
+:::
+
+## Weiterführend (optional)
+
+- Hayes, A. F. (2022). *Introduction to Mediation, Moderation, and Conditional Process Analysis* (3rd ed.). Guilford. — Kapitel 3–6 für einfache Mediation; das Buch ist der Standard.
+- [Tino Stöckigt erklärt Mediation auf Deutsch (YouTube)](https://www.youtube.com/watch?v=nXjM3sCx2jI) — gute deutschsprachige Einführung.
+- Preacher, K. J., & Hayes, A. F. (2008). Asymptotic and resampling strategies for assessing and comparing indirect effects in multiple mediator models. *Behavior Research Methods*, 40(3), 879–891. — das Methoden-Paper hinter Bootstrap-Mediation.
+
+---
+
+Weiter zu: [Bayes vs. Frequentismus](04-bayes-vs-frequentist.qmd)

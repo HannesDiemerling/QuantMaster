@@ -1,0 +1,132 @@
+# Bayes vs. Frequentismus
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- den grundlegenden Unterschied zwischen frequentistischer und bayesianischer Inferenz erklären
+- den Bayes-Faktor (BF) definieren und typische Schwellenwerte einordnen
+- eine bayesianische lineare Regression in JASP durchführen
+- erläutern, wann bayesianische Methoden Vorteile gegenüber dem p-Wert-Ansatz haben
+:::
+
+::: {.callout-note title="Demo-Kapitel"}
+Dieses Kapitel hat Demo-Charakter. Du bekommst einen Überblick und führst die Analyse einmal durch — ohne den Anspruch, die Bayes-Statistik in voller Tiefe zu verstehen. Das würde einen eigenen Workshop füllen. Ziel ist: Du weißt, dass es Bayes gibt, Du kannst einen BF lesen, und Du erkennst, wann der Ansatz nützlich ist.
+:::
+
+## Worum es geht
+
+Bisher hast Du frequentistisch gearbeitet: p-Wert, Signifikanzschwelle α = .05, Nullhypothese ablehnen oder nicht. Das ist der Mainstream in der Psychologie — aber nicht der einzige Weg.
+
+Bayesianische Statistik fragt eine andere Frage: Wie wahrscheinlich ist meine Hypothese angesichts der Daten? Das klingt ähnlich, ist aber fundamental anders. In der klinischen Forschung gewinnt Bayes an Bedeutung, etwa bei kleinen Stichproben, bei der Kumulation von Evidenz über Studien hinweg und bei der expliziten Einbeziehung von Vorwissen.
+
+## Theorie kompakt
+
+### Frequentistisch: Was der p-Wert wirklich bedeutet
+
+Der **p-Wert** ist die Wahrscheinlichkeit, Daten so extrem wie die beobachteten (oder noch extremer) zu erhalten, *wenn die Nullhypothese wahr wäre*.
+
+Das ist *nicht* die Wahrscheinlichkeit, dass H₀ wahr ist. Das ist *nicht* die Wahrscheinlichkeit, dass der Effekt echt ist. Und ein p < .05 sagt nichts über die Größe des Effekts aus.
+
+Wichtig: Ein nicht-signifikanter p-Wert bedeutet nicht "Effekt ist Null" — er bedeutet nur "die Daten liefern keine ausreichende Evidenz gegen H₀".
+
+### Bayesianisch: Prior, Likelihood, Posterior
+
+Bayes-Theorem:
+
+$$P(H | D) = \frac{P(D | H) \cdot P(H)}{P(D)}$$
+
+- **Prior** *P(H)*: Mein Vorwissen über die Hypothese, *bevor* ich die Daten gesehen habe.
+- **Likelihood** *P(D|H)*: Wie wahrscheinlich sind die Daten, wenn H gilt?
+- **Posterior** *P(H|D)*: Mein aktualisiertes Wissen, *nach* den Daten.
+
+Bayes aktualisiert also systematisch — Vorwissen wird durch die Daten in eine Posterior-Überzeugung überführt.
+
+### Der Bayes-Faktor (BF)
+
+Der **Bayes-Faktor** BF₁₀ vergleicht zwei Modelle: Modell 1 (Effekt vorhanden, H₁) vs. Modell 0 (kein Effekt, H₀).
+
+$$BF_{10} = \frac{P(D | H_1)}{P(D | H_0)}$$
+
+**Interpretation:**
+
+| BF₁₀ | Interpretation |
+|---|---|
+| < 1/10 | Starke Evidenz für H₀ |
+| 1/10 bis 1/3 | Moderate Evidenz für H₀ |
+| 1/3 bis 3 | Anekdotische oder keine klare Evidenz |
+| 3 bis 10 | Moderate Evidenz für H₁ |
+| > 10 | Starke Evidenz für H₁ |
+| > 100 | Extreme Evidenz für H₁ |
+
+BF₁₀ = 5 bedeutet: Die Daten sind 5 Mal wahrscheinlicher unter H₁ als unter H₀.
+
+::: {.callout-tip title="Beispiel aus dem Datensatz"}
+Du rechnest dieselbe Regression wie in Kapitel 01: `SWLS_total` vorhergesagt durch `BFI_N_mean` und `BFI_E_mean`. Frequentistisch hattest Du p-Werte und β. Bayesianisch bekommst Du für denselben Prädiktor einen BF — der Dir sagt, wie stark die Evidenz dafür ist, dass dieser Prädiktor tatsächlich etwas beiträgt.
+:::
+
+## JASP-Walkthrough
+
+### Schritt 1: Bayesianische Regression öffnen
+
+- Klicke auf **Regression** → **Bayesian Linear Regression**.
+
+### Schritt 2: Variablen zuweisen
+
+- **Dependent Variable:** `SWLS_total`
+- **Covariates:** `BFI_N_mean`, `BFI_E_mean`, `age`
+
+![TODO: Screenshot Bayesian Linear Regression in JASP](../img/TODO-jasp-bayes-regression.png)
+
+### Schritt 3: Prior-Einstellung
+
+- Der Default-Prior in JASP ist der **JZS-Prior** (Jeffreys-Zellner-Siow) — ein statistisch gut begründeter Prior, der in der Bayes-Regression gebräuchlich ist.
+- Du kannst ihn auf dem Default-Wert lassen. JASP zeigt Dir, welcher Prior gesetzt ist.
+
+### Schritt 4: Modellvergleich ansehen
+
+JASP berechnet automatisch verschiedene Modelle (alle Kombinationen der Prädiktoren) und vergleicht sie per BF.
+
+- Schau auf die Tabelle **Model Comparison**: Welches Modell hat den höchsten BF?
+- Der BF wird relativ zum Nullmodell (ohne Prädiktoren) ausgegeben.
+
+### Schritt 5: Posterior Plots
+
+- Aktiviere **Posterior Distributions** unter den Plot-Optionen.
+- JASP zeigt für jeden Prädiktor die Posterior-Verteilung des Koeffizienten — Du siehst buchstäblich, wie sicher das Modell über den Effekt ist.
+
+![TODO: Screenshot Posterior Distribution in JASP](../img/TODO-jasp-bayes-posterior.png)
+
+### Schritt 6: Vergleich mit frequentistischem Ergebnis
+
+Öffne Deine Ergebnisse aus Kapitel 01 und vergleiche:
+
+- Welche Prädiktoren waren frequentistisch signifikant?
+- Haben dieselben Prädiktoren einen BF > 3?
+- Gibt es Unterschiede? Was würden die verschiedenen Frameworks schlussfolgern?
+
+::: {.callout-warning title="Wenn Du hier hängst"}
+**Problem: Die Modell-Tabelle listet sehr viele Modelle.**
+Lösung: Schau nur auf das beste Modell (höchster BF) und das Nullmodell. Der Rest ist für jetzt optional.
+
+**Problem: Ich verstehe den Prior nicht.**
+Lösung: Für heute genügt: Der JZS-Prior ist ein "fairer" Prior, der keine bestimmte Effektgröße bevorzugt. Wenn Du keine eigenen Vorannahmen hast, ist er eine gute Wahl.
+:::
+
+## Selbstcheck
+
+1. Was ist der Unterschied zwischen einem p-Wert und einem Bayes-Faktor?
+2. BF₁₀ = 8,3 für den Prädiktor `BFI_N_mean`. Was bedeutet das?
+3. Wann ist bayesianische Analyse besonders nützlich im Vergleich zum frequentistischen Ansatz?
+
+::: {.callout-important title="Klausurrelevant"}
+Bayes-Faktor (BF), Prior, Posterior, Likelihood, Nullhypothese, frequentistisch vs. bayesianisch, BF-Schwellenwerte (3/10), p-Wert (Definition und Grenzen)
+:::
+
+## Weiterführend (optional)
+
+- Wagenmakers, E.-J. (2007). A practical solution to the pervasive problems of p values. *Psychonomic Bulletin & Review*, 14(5), 779–804. — klassisches Paper zur Kritik am p-Wert.
+- [JASP-Team: Bayes Factor Introduction (YouTube)](https://www.youtube.com/watch?v=9TDjifpGj-k)
+
+---
+
+Weiter zu: [Logistische Regression](05-logistic.qmd)

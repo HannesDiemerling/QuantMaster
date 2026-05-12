@@ -1,0 +1,194 @@
+# Effektgrößen & praktische Bedeutsamkeit
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- den Unterschied zwischen statistischer Signifikanz und praktischer Bedeutsamkeit erklären
+- Cohens d berechnen, in JASP ausgeben und anhand der Konventionen (0.2 / 0.5 / 0.8) einordnen
+- Eta-Quadrat (η²) als Effektgröße für ANOVA-Ergebnisse interpretieren
+- Pearsons r als Effektgröße von der Nutzung als Korrelationskoeffizient unterscheiden
+- den Bayes-Faktor als Alternativmaß für Evidenz nennen und grob einordnen (wird Tag 3 vertieft)
+- einen unabhängigen t-Test und eine einfaktorielle ANOVA in JASP vollständig durchführen
+:::
+
+## Worum es geht
+
+„Der Unterschied ist statistisch signifikant." Dieser Satz ist in wissenschaftlichen Publikationen allgegenwärtig — und oft wird er missverstanden. Statistisch signifikant bedeutet lediglich: Das Ergebnis ist unwahrscheinlich, wenn es keinen Effekt gäbe. Es sagt **nichts** darüber aus, ob der Effekt groß, klinisch relevant oder praxisrelevant ist.
+
+Stell Dir vor, eine Psychotherapiestudie mit 10.000 Personen zeigt, dass eine neue Therapie den Depressionswert um 0.2 Punkte auf einer 100-Punkte-Skala senkt — hochsignifikant (p < 0.001), weil die Stichprobe so groß ist. Klinisch ist das bedeutungslos. **Effektgrößen** lösen dieses Problem: Sie quantifizieren die Stärke eines Befunds unabhängig von der Stichprobengröße.
+
+## Theorie kompakt
+
+### p-Wert vs. Effektgröße
+
+| | p-Wert | Effektgröße |
+|---|---|---|
+| Frage | Wie wahrscheinlich ist dieses Ergebnis bei H0? | Wie stark ist der Effekt? |
+| Abhängig von n? | Ja — größere n senken p auch bei kleinen Effekten | Nein |
+| Beispiel | p = 0.003 | d = 0.21 (kleiner Effekt) |
+
+Ein kleines p mit kleiner Effektgröße: statistisch auffällig, praktisch irrelevant.
+Ein großes p mit großer Effektgröße: möglicher Effekt, aber zu wenig Power, um ihn nachzuweisen.
+
+### Cohens d
+
+Cohens d misst den standardisierten Mittelwertunterschied zwischen zwei Gruppen:
+
+```
+d = (M1 − M2) / SD_gepooled
+```
+
+**Interpretation nach Cohen (1988):**
+
+| d-Wert | Effektstärke |
+|---|---|
+| 0.20 | Klein |
+| 0.50 | Mittel |
+| 0.80 | Groß |
+
+In der Psychotherapieforschung gelten Effekte > 0.50 als klinisch potenziell relevant. Bei d = 0.20 würde man eine sehr große Stichprobe benötigen, um den Effekt zuverlässig nachzuweisen.
+
+::: {.callout-tip title="Beispiel"}
+Gruppe "Frauen" hat SWLS_mean = 4.8, Gruppe "Männer" hat SWLS_mean = 4.3, gepoolte SD = 1.0. Dann: d = (4.8 − 4.3) / 1.0 = 0.50. Das ist ein mittlerer Effekt nach Cohens Konventionen.
+:::
+
+### Eta-Quadrat (η²)
+
+Eta-Quadrat wird für ANOVA-Ergebnisse berichtet und beschreibt den Anteil der Varianz, der durch die Gruppenvariable erklärt wird:
+
+```
+η² = SS_zwischen / SS_gesamt
+```
+
+**Interpretation:**
+
+| η²-Wert | Effektstärke |
+|---|---|
+| 0.01 | Klein |
+| 0.06 | Mittel |
+| 0.14 | Groß |
+
+### Pearsons r als Effektgröße
+
+Pearsons r kann auch als Effektgröße verwendet werden (nicht nur als Korrelationsmaß). Die Skala ist dieselbe, die Interpretation ändert sich leicht:
+
+| r-Wert | Effektstärke |
+|---|---|
+| 0.10 | Klein |
+| 0.30 | Mittel |
+| 0.50 | Groß |
+
+### Bayes-Faktor: kurze Vorschau
+
+Der **Bayes-Faktor (BF)** ist eine Alternative zum p-Wert. Er quantifiziert, wie viel wahrscheinlicher die Daten unter der Alternativhypothese (H1) als unter der Nullhypothese (H0) sind.
+
+```
+BF10 > 3:    Moderate Evidenz für H1
+BF10 > 10:   Starke Evidenz für H1
+BF10 < 1/3:  Moderate Evidenz für H0
+```
+
+Das ist heute nur eine Vorschau. Tag 3 widmet sich Bayes-Inferenz ausführlich (`04-bayes-vs-frequentist.qmd`).
+
+## JASP-Walkthrough
+
+### Analyse 1: t-Test — SWLS nach Geschlecht
+
+Wir testen: Unterscheidet sich die Lebenszufriedenheit (SWLS_mean) zwischen den Geschlechtsgruppen?
+
+1. Analyses → **T-Tests** → **Independent Samples T-Test**
+2. **Dependent Variable**: `SWLS_mean` in das Feld ziehen
+3. **Grouping Variable**: `gender` in das Feld ziehen
+4. Unter **Additional Statistics** aktivieren:
+   - Effect size (Cohen's d)
+   - Descriptives
+5. Unter **Tests** aktivieren:
+   - Student (klassischer t-Test)
+   - Bayes Factor (für die Vorschau)
+6. Analyze anklicken und Output lesen
+
+![TODO: Screenshot von JASP Independent Samples t-Test Output](../img/TODO-jasp-ttest-swls-gender.png)
+
+**Was Du abliest:**
+
+- **t-Wert** und **p-Wert**: Ist der Unterschied signifikant?
+- **Cohen's d**: Wie groß ist der Effekt?
+- **BF10**: Wie stark ist die Evidenz für einen Unterschied?
+- **Descriptives**: Mittelwert und SD pro Gruppe
+
+::: {.callout-warning title="Wenn Du hier hängst"}
+**Problem:** JASP meldet "Grouping variable has more than 2 levels."
+**Lösung:** Die Variable `gender` in Deinem Datensatz hat mehr als zwei Ausprägungen (z. B. "m", "w", "divers"). Für den t-Test auf zwei Gruppen filtern (z. B. nur "m" und "w" behalten), oder stattdessen eine ANOVA rechnen (nächster Schritt).
+
+**Problem:** Cohen's d erscheint nicht in der Ausgabe.
+**Lösung:** Unter "Additional Statistics" das Häkchen bei "Effect size" muss gesetzt sein, bevor Du auf Analyze klickst. Danach neu ausführen.
+:::
+
+### Analyse 2: ANOVA — BFI-Neurotizismus nach Semester
+
+Wir testen: Unterscheidet sich der Neurotizismus (BFI_N_mean) je nach Studiensemester?
+
+1. Analyses → **ANOVA** → **ANOVA**
+2. **Dependent Variable**: `BFI_N_mean`
+3. **Fixed Factors**: `semester`
+4. Unter **Additional Options** aktivieren:
+   - Estimates of effect size → η² (Eta squared)
+   - Descriptive statistics
+5. Unter **Post Hoc Tests**: `semester` in das Feld ziehen, Tukey aktivieren (vergleicht alle Gruppen paarweise)
+6. Output lesen
+
+![TODO: Screenshot von JASP ANOVA Output mit η²](../img/TODO-jasp-anova-neurotizismus-semester.png)
+
+**Was Du abliest:**
+
+- **F-Wert** und **p-Wert**: Gibt es irgendwo einen signifikanten Unterschied?
+- **η²**: Wie viel Varianz erklärt das Semester?
+- **Post-Hoc-Tabelle**: Welche Semester-Gruppen unterscheiden sich voneinander?
+
+::: {.callout-tip title="Interpretation im Workshop-Kontext"}
+Mit einer kleinen Stichprobe (n ≈ 30–50 echte Fälle) wirst Du wahrscheinlich keinen signifikanten Semester-Effekt finden — das ist zu erwarten und kein Analysefehler. Wichtiger ist der η²-Wert: Auch wenn p > 0.05 ist, zeigt ein kleines η² = 0.02, dass das Semester kaum Varianz im Neurotizismus erklärt. Das ist ein Befund.
+:::
+
+## Mini-Übung
+
+**Aufgabe:** Führe einen t-Test durch, der prüft, ob Personen mit hoher vs. niedriger Therapieerfahrung (`therapy_exp`) sich in ihrer Gewissenhaftigkeit (`BFI_G_mean`) unterscheiden. Teile `therapy_exp` zunächst in zwei Gruppen auf (0 = keine Erfahrung, 1+ = Erfahrung vorhanden) und führe dann den t-Test durch. Wie groß ist Cohens d?
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+1. Computed Column anlegen: `therapy_gruppe` = `therapy_exp > 0` (ergibt 0 oder 1, oder "FALSE"/"TRUE")
+   - Alternativ: Filter nutzen und manuell umkodieren
+2. Independent Samples t-Test
+3. Dependent Variable: BFI_G_mean
+4. Grouping Variable: therapy_gruppe
+5. Additional Statistics: Effect size (Cohen's d) aktivieren
+
+Typische Befunde:
+- Kleiner bis kein Effekt erwartet (Gewissenhaftigkeit und Therapieerfahrung sind theoretisch schwach verknüpft)
+- d < 0.30 wäre plausibel
+- Das Ergebnis ist hier das Diskutieren wert: Wäre ein Zusammenhang inhaltlich sinnvoll? Welche Confounds gibt es?
+
+</details>
+
+## Selbstcheck
+
+1. Du findest p = 0.002 und Cohens d = 0.18. Wie interpretierst Du diesen Befund?
+2. Was ist der Unterschied zwischen Cohens d und η²? Wann verwendest Du welches Maß?
+3. Du findest BF10 = 0.4. Was bedeutet das?
+
+::: {.callout-important title="Klausurrelevant"}
+p-Wert vs. Effektgröße (Unterschied, Unabhängigkeit von n), Cohens d (Formel, Konventionen 0.2/0.5/0.8), Eta-Quadrat (Konventionen 0.01/0.06/0.14), Bayes-Faktor (grobe Einordnung), klinische vs. statistische Signifikanz
+:::
+
+## Weiterführend (optional)
+
+- Cohen (1988): Statistical Power Analysis for the Behavioral Sciences — das Ursprungswerk zu den Konventionen
+- Lakens (2013): Calculating and reporting effect sizes to facilitate cumulative science — moderner Überblick, frei verfügbar
+
+---
+
+Das war Tag 2. Morgen geht es weiter mit [multivariaten Verfahren an Tag 3](../tag3/00-uebersicht.qmd) — Multiple Regression, Moderation, Mediation und ein erster Blick auf Bayesianische Inferenz.
+
+::: {.callout-note title="Hausaufgabe bis Tag 3 (max. 30 min)"}
+Formuliere eine Forschungsfrage der Form: „Welcher Big-Five-Faktor sagt die Lebenszufriedenheit (SWLS_mean) am ehesten vorher?" Rechne in JASP eine **bivariate Korrelation** zwischen einem BFI-Subskalen-Mittelwert Deiner Wahl und SWLS_mean (Analyses → Regression → Correlation Matrix). Notiere den r-Wert und ob er signifikant ist. Das werden wir am dritten Tag als Ausgangspunkt für die multiple Regression nehmen.
+:::

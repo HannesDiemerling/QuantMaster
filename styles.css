@@ -1,0 +1,34 @@
+/* M15 Workshop Styles */
+
+.callout-note {
+  border-left-color: #2c7bb6;
+}
+
+.callout-tip {
+  border-left-color: #1a9641;
+}
+
+.callout-warning {
+  border-left-color: #d7191c;
+}
+
+.callout-important {
+  border-left-color: #fdae61;
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: #2c7bb6;
+  padding: 0.5em 0;
+}
+
+details[open] summary {
+  margin-bottom: 0.5em;
+}
+
+details > *:not(summary) {
+  border-left: 3px solid #2c7bb6;
+  padding-left: 1em;
+  margin-left: 0.5em;
+}

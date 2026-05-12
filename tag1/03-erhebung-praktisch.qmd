@@ -1,0 +1,170 @@
+# Fragebogen ausfüllen & CSV erstellen
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- einen Papier-Fragebogen korrekt ausfüllen und die Antworten in ein standardisiertes CSV-Format übertragen
+- die Regeln für das CSV-Format erklären (UTF-8, Komma-Trenner, Punkt als Dezimaltrenner, leere Felder für fehlende Werte)
+- erklären, warum Pseudonymisierung bei dieser Datenerhebung wichtig ist
+- eine fertige CSV-Datei benennen und für den Upload vorbereiten
+:::
+
+## Worum es geht
+
+Jetzt wird es konkret: Du füllst Deinen eigenen Fragebogen aus und überträgst die Antworten in eine Datei, die wir gemeinsam analysieren werden. Das klingt unspektakulär — ist aber didaktisch zentral. Du erlebst am eigenen Leib, was es bedeutet, Rohdaten zu erheben: Was passiert, wenn ein Item unklar formuliert ist? Was, wenn Du eine Frage überspringen möchtest? Und wie aufwendig es ist, 37 Spalten korrekt und vollständig auszufüllen. Dieses Verständnis ist die Grundlage für alles, was wir danach über Datenqualität, fehlende Werte und Stichprobenbias lernen.
+
+::: {.callout-warning title="Einverständnis zuerst"}
+Bevor Du loslegst: Hast Du die Einverständniserklärung unterschrieben und abgegeben? Wenn nicht, jetzt kurz zur Lehrperson. Du kannst auch alternativ nur synthetische Daten generieren (Kapitel 05) — dann überspringst Du die Schritte zur echten Datenerhebung hier. Beides ist vollständig in Ordnung.
+:::
+
+## Theorie kompakt
+
+### Pseudonymisierung
+
+In diesem Workshop erheben wir Daten in einem öffentlichen GitHub-Repository. Das bedeutet: Deine Antworten sind theoretisch von überall einsehbar. Deshalb gibt es klare Regeln:
+
+- **Kein echter Name** in keiner Datei
+- **Deine Student-ID** (eine zweistellige Zahl, die die Lehrperson Dir zugeteilt hat) ersetzt Deinen Namen in allen Dateien
+- **Kein Geburtsdatum** — nur Alter in Jahren
+- **Recht auf Rückzug** bis zum Zeitpunkt des Merges Deines Pull Requests — die Lehrperson kann Deinen Datensatz dann einfach nicht zusammenführen
+
+::: {.callout-tip title="Was wird aus Deinen Daten?"}
+Der zusammengeführte Datensatz `data/combined/m15-combined.csv` wird gemeinsam im Seminar analysiert. Er enthält keine Rückschlüsse auf einzelne Personen, weil die IDs zufällig vergeben werden. Nach Ende des Semesters wird das Repo archiviert oder auf privat gestellt — Details dazu in der Einverständniserklärung.
+:::
+
+### Das CSV-Format
+
+CSV steht für *Comma-Separated Values* — eine einfache Textdatei, in der jede Zeile eine Person darstellt und Spalten durch Kommas getrennt sind. Unser Format hat einige wichtige Regeln:
+
+| Regel | Richtig | Falsch |
+|---|---|---|
+| Zeichensatz | UTF-8 | UTF-16, ANSI, Latin-1 |
+| Spaltentrenner | Komma (`,`) | Semikolon (`;`), Tab |
+| Dezimaltrenner | Punkt (`.`) | Komma (`,`) |
+| Fehlende Werte | leeres Feld (`,,`) | `NA`, `99`, `?` |
+| Textwerte mit Komma | In Anführungszeichen (`"männlich, divers"`) | Ohne Anführungszeichen |
+
+::: {.callout-warning title="Excel-Falle"}
+Wenn Du Excel zum Bearbeiten der CSV-Datei nutzt: Vorsicht! Excel speichert CSV-Dateien je nach Systemeinstellung mit Semikolon statt Komma (Deutsches Windows-System). Beim Speichern immer "CSV UTF-8 (Komma-getrennt)" wählen — nicht nur "CSV". Alternativ nutzt Du einen einfachen Texteditor wie Notepad++ oder VS Code.
+:::
+
+## Schritt-für-Schritt-Anleitung
+
+### Schritt 1: Papier-Fragebogen ausfüllen
+
+Du hast von der Lehrperson ein gedrucktes Exemplar des Fragebogens bekommen (oder Du öffnest `materials/fragebogen.qmd` auf der Workshop-Site). Fülle alle Abschnitte vollständig aus:
+
+1. **Demografische Angaben:** Alter, Geschlecht, Semester, Statistik-Vorkenntnisse (1–4), Therapieerfahrung (ja/nein)
+2. **BFI-K:** 21 Items, jeweils 1–5 ankreuzen
+3. **SWLS:** 5 Items, jeweils 1–7 ankreuzen
+4. **PHQ-2:** 2 Items, jeweils 0–3 ankreuzen
+5. **GAD-2:** 2 Items, jeweils 0–3 ankreuzen
+
+::: {.callout-tip title="Was wenn ich ein Item nicht beantworten möchte?"}
+Das ist völlig in Ordnung. Lass das Feld auf dem Papier einfach leer. In der CSV-Datei wird das dann ein leeres Feld (`,,`). Fehlende Werte sind ein natürlicher Bestandteil echter Daten — genau das schauen wir uns auf Tag 2 an.
+:::
+
+### Schritt 2: CSV-Template herunterladen
+
+Lade die Datei `materials/csv-template.csv` aus dem Repository herunter. Sie enthält eine Kopfzeile mit allen 37 Spaltennamen und eine leere Zeile für Deine Daten.
+
+Die Spaltennamen lauten (in dieser Reihenfolge):
+
+```
+id, source, student_id, age, gender, semester, stats_prior, therapy_exp,
+BFI_E1, BFI_E2, BFI_E3, BFI_E4,
+BFI_V1, BFI_V2, BFI_V3, BFI_V4,
+BFI_G1, BFI_G2, BFI_G3, BFI_G4,
+BFI_N1, BFI_N2, BFI_N3, BFI_N4,
+BFI_O1, BFI_O2, BFI_O3, BFI_O4, BFI_O5,
+SWLS_1, SWLS_2, SWLS_3, SWLS_4, SWLS_5,
+PHQ2_1, PHQ2_2,
+GAD2_1, GAD2_2
+```
+
+### Schritt 3: Antworten eintragen
+
+Öffne die CSV-Datei in einem Texteditor (empfohlen) oder in Excel. Fülle die zweite Zeile (nach der Kopfzeile) mit Deinen Antworten aus.
+
+Einige Spalten füllst Du wie folgt aus:
+
+| Spalte | Wert | Hinweis |
+|---|---|---|
+| `id` | leer lassen | wird automatisch beim Merge vergeben |
+| `source` | `echt` | für eigene echte Antworten |
+| `student_id` | Deine zweistellige ID | z. B. `07` |
+| `age` | Alter in ganzen Jahren | z. B. `26` |
+| `gender` | `m`, `w`, `d`, oder `keine_angabe` | |
+| `semester` | Semesterzahl | z. B. `1` |
+| `stats_prior` | 1, 2, 3 oder 4 | 1 = keine Vorkenntnisse, 4 = viel |
+| `therapy_exp` | `ja` oder `nein` | Therapieerfahrung (beruflich oder privat) |
+| BFI_E1–GAD2_2 | jeweiliger Skalenwert | genau wie auf dem Papier angekreuzt |
+
+::: {.callout-tip title="Beispielzeile (erste Zeile nach dem Header)"}
+```
+,echt,07,26,w,1,2,nein,3,4,2,5,4,4,3,4,3,4,4,3,2,4,2,3,4,3,4,2,4,5,6,5,4,6,1,0,1,1
+```
+
+Hier: student_id = 07, Alter 26, weiblich, 1. Semester, Stats-Vorwissen 2/4, keine Therapieerfahrung — danach folgen alle 29 Item-Werte.
+:::
+
+### Schritt 4: Datei prüfen und benennen
+
+Bevor Du die Datei speicherst, prüfe:
+
+- [ ] Exakt eine Datenzeile (plus Kopfzeile)
+- [ ] Alle 37 Spalten ausgefüllt oder bewusst leer gelassen
+- [ ] Kein Name oder identifizierendes Merkmal in der Datei
+- [ ] Datei-Encoding: UTF-8
+
+Benenne die Datei nach diesem Schema:
+
+```
+echt-student-XX.csv
+```
+
+Wobei `XX` Deine zweistellige Student-ID ist (also z. B. `echt-student-07.csv`).
+
+::: {.callout-warning title="Wenn Du hier hängst"}
+**Problem: Meine Datei hat Semikolons statt Kommas.**
+Das passiert bei Excel auf deutschsprachigen Windows-Systemen. Lösung: Öffne die Datei in Notepad (Windows) oder TextEdit (Mac), ersetze alle `;` durch `,` und speichere als "Alle Dateien" mit `.csv`-Endung.
+
+**Problem: Ich weiß nicht, welche ID ich habe.**
+Warte kurz und frage die Lehrperson. Die IDs werden ganz am Anfang des Tages vergeben.
+
+**Problem: Ich habe einen Fehler in einem Item gemacht.**
+Kein Problem — öffne die Datei nochmals im Editor und korrigiere den Wert. Solange die Datei noch nicht hochgeladen und gemergt ist, kannst Du beliebig korrigieren.
+:::
+
+## Mini-Übung
+
+**Aufgabe:** Öffne Deine fertige CSV-Datei in einem Texteditor (nicht Excel) und überprüfe: Wie viele Kommas enthält Deine Datenzeile? (Tipp: Es müssen genau 36 sein — denn 37 Spalten = 36 Trennzeichen.)
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+Zähle die Kommas in der zweiten Zeile. Bei 37 Spalten sind genau 36 Kommas nötig. Wenn Du weniger findest, fehlt eine Spalte oder ein Trennzeichen. Wenn Du mehr findest, enthält einer Deiner Werte ein Komma ohne Anführungszeichen.
+
+Alternativ: Öffne die Datei in Excel und überprüfe, ob Spalte 37 (`GAD2_2`) noch Daten enthält und keine Spalte 38 erscheint.
+
+</details>
+
+## Selbstcheck
+
+1. Warum enthält die Datei kein Feld mit Deinem echten Namen?
+2. Was bedeutet "UTF-8" und warum ist es wichtig?
+3. Wie wird ein fehlendes Wert in unserem CSV-Format dargestellt?
+4. Was passiert, wenn Du einen Komma-Wert eingibst, ohne Anführungszeichen zu verwenden?
+
+::: {.callout-important title="Klausurrelevant"}
+CSV-Format, UTF-8, Pseudonymisierung, fehlende Werte, Datenstruktur (Zeilen = Fälle, Spalten = Variablen)
+:::
+
+## Weiterführend (optional)
+
+- W3C-Spezifikation für CSV: [w3.org/TR/tabular-data-primer](https://www.w3.org/TR/tabular-data-primer/)
+- Codebook des Workshops: `materials/codebook.qmd`
+
+---
+
+Weiter geht es mit [CSV via GitHub hochladen](04-github-upload.qmd) — dort lernst Du, wie Du Deine fertige Datei in das gemeinsame Repository bringst.

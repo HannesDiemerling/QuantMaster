@@ -1,0 +1,149 @@
+# CSV via GitHub hochladen
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- erklären, warum Versionskontrolle und GitHub in der Wissenschaft eingesetzt werden
+- die Grundbegriffe Repository, Branch, Commit und Pull Request beschreiben
+- eine CSV-Datei via GitHub Desktop in das Workshop-Repository hochladen
+- einen Pull Request öffnen und beschreiben, was dann automatisch passiert
+- typische Fehler beim Upload erkennen und beheben
+:::
+
+## Worum es geht
+
+Wenn zwanzig Personen gleichzeitig Daten in dasselbe System einspielen, braucht es einen geordneten Prozess — sonst überschreiben sich Dateien gegenseitig, und niemand weiß mehr, welche Version die richtige ist. GitHub löst genau dieses Problem. Und: In der modernen Wissenschaft ist die Fähigkeit, Daten und Code in einem versionierten Repository zu verwalten, keine optionale Extra-Kompetenz mehr, sondern Teil reproduzierbarer Forschungspraxis. Du lernst heute einen Workflow kennen, der in Forschungsteams weltweit eingesetzt wird — an einem konkreten, überschaubaren Beispiel.
+
+## Theorie kompakt
+
+### Was ist ein Repository?
+
+Ein **Repository** (kurz: Repo) ist ein Ordner, dessen gesamte Versionsgeschichte gespeichert wird. Jede Änderung, die Du machst und "commitest", wird mit einem Zeitstempel und einer Beschreibung festgehalten. Das bedeutet: Nichts geht jemals verloren, und jeder Schritt ist nachvollziehbar.
+
+Das Workshop-Repo liegt auf GitHub unter einer Adresse, die Dir die Lehrperson mitteilt. Es enthält den Workshop-Inhalt (diese Seiten), die Daten-Ordner und die Skripte.
+
+### Branch, Commit, Pull Request
+
+Diese drei Begriffe sind das Kern-Vokabular für den Upload-Workflow:
+
+| Begriff | Bedeutung | Analogie |
+|---|---|---|
+| **Branch** | Eine parallele Kopie des Repos, auf der Du ungestört arbeiten kannst | Eigenes Blatt Papier neben dem Originaldokument |
+| **Commit** | Das Speichern einer Änderung mit Beschreibung | "Gespeichert & beschriftet" |
+| **Pull Request (PR)** | Dein Antrag, Deinen Branch in den Hauptbranch zu mergen | "Bitte meine Änderungen übernehmen" |
+
+Der Workflow ist immer gleich: Du erstellst einen Branch → legst Deine Datei dort ab → commitest → öffnest einen Pull Request → die Lehrperson (oder ein automatischer Check) mergt den PR in den Hauptbranch.
+
+::: {.callout-tip title="Warum nicht direkt in den Hauptbranch?"}
+Der Hauptbranch (`main`) ist der Stand, der auf der öffentlichen GitHub Pages Site gebaut wird. Würde jede Person direkt dort speichern, würde jede fehlerhafte Datei sofort live gehen. Der PR-Prozess gibt die Möglichkeit, Dateien automatisch zu prüfen (Validation-Workflow) bevor sie in den gemeinsamen Datensatz eingehen.
+:::
+
+### Was passiert nach meinem PR?
+
+1. Du öffnest den Pull Request
+2. GitHub startet automatisch den Validierungs-Workflow (`validate-pr.yml`): prüft Dateiname, Spaltenanzahl, erlaubte Werte
+3. Wenn der Check grün ist: Die Lehrperson mergt den PR
+4. GitHub startet den Merge-Workflow (`merge-data.yml`): Deine Zeile wird in `data/combined/m15-combined.csv` eingefügt
+5. Die Site wird automatisch neu gebaut
+
+Wenn der Check rot ist: Du siehst im PR, was schiefgelaufen ist (z. B. "Falsche Spaltenanzahl"), und kannst die Datei korrigieren und nochmals committen.
+
+## JASP-Walkthrough: Datei hochladen
+
+Es gibt zwei Wege — über GitHub Desktop (empfohlen für Einsteiger) oder direkt über die Web-Oberfläche. Wähle den Weg, der Dir besser liegt.
+
+---
+
+### Weg 1: GitHub Desktop
+
+1. **Repository klonen:** Öffne GitHub Desktop. Klicke auf "File" → "Clone Repository". Gib die URL des Workshop-Repos ein. Wähle einen lokalen Ordner auf Deinem Laptop.
+
+![TODO: Screenshot von GitHub Desktop Clone-Dialog](../img/TODO-github-desktop-clone.png)
+
+2. **Neuen Branch erstellen:** Klicke in GitHub Desktop auf das Branch-Dropdown (zeigt "main") → "New Branch". Nenne den Branch `upload/student-XX` (mit Deiner ID, z. B. `upload/student-07`).
+
+![TODO: Screenshot von GitHub Desktop Branch-Erstellung](../img/TODO-github-desktop-branch.png)
+
+3. **Datei in den richtigen Ordner legen:** Öffne den geklonten Repo-Ordner auf Deinem Computer (in GitHub Desktop: "Show in Explorer" / "Show in Finder"). Lege Deine fertige Datei in den Unterordner `data/raw/`. Prüfe, dass die Datei korrekt heißt (`echt-student-XX.csv`).
+
+4. **Änderung committen:** GitHub Desktop zeigt Deine neue Datei unter "Changes" an. Schreibe in das Commit-Nachricht-Feld:
+   ```
+   feat(data): add echt-student-07.csv
+   ```
+   Klicke dann auf "Commit to upload/student-07".
+
+![TODO: Screenshot von GitHub Desktop Commit-Dialog](../img/TODO-github-desktop-commit.png)
+
+5. **Branch pushen:** Klicke auf "Publish branch" (erscheint nach dem Commit). Damit wird Dein Branch auf GitHub hochgeladen.
+
+6. **Pull Request öffnen:** GitHub Desktop zeigt nach dem Push einen blauen Button "Create Pull Request". Klicke darauf — Dein Browser öffnet die GitHub-Seite. Schreibe einen kurzen Titel ("Daten student-07") und klicke "Create pull request".
+
+![TODO: Screenshot von GitHub PR-Erstellungsdialog](../img/TODO-github-pr-create.png)
+
+---
+
+### Weg 2: Web-Oberfläche (Alternative)
+
+1. Öffne das Workshop-Repo im Browser
+2. Navigiere zu `data/raw/`
+3. Klicke "Add file" → "Upload files"
+4. Ziehe Deine CSV-Datei in das Upload-Fenster
+5. Scrolle nach unten zu "Commit changes" — GitHub erstellt automatisch einen neuen Branch
+6. Ändere den Branch-Namen auf `upload/student-XX`
+7. Klicke "Propose changes"
+8. Auf der nächsten Seite: "Create pull request"
+
+![TODO: Screenshot von GitHub Web Upload-Interface](../img/TODO-github-web-upload.png)
+
+---
+
+::: {.callout-warning title="Wenn Du hier hängst"}
+**Problem: "Permission denied" beim Push.**
+Du hast keine Schreibrechte auf das Repo. Entweder hast Du es noch nicht gefurkt, oder Du musst als Mitarbeiter eingetragen werden. Die Lehrperson trägt alle Personen zu Beginn des Tages ein — oder nutze den "Fork"-Weg (Repo forken, dann PR vom Fork aus stellen).
+
+**Problem: Der Validierungs-Check schlägt fehl.**
+Schau Dir die Fehlermeldung im PR-Tab "Checks" an. Typische Fehler:
+- Falscher Dateiname (Leerzeichen, Großbuchstaben) → Datei umbenennen und nochmals committen
+- Falsche Spaltenanzahl → Datei in einem Texteditor öffnen, Kommas zählen
+- Unbekannter Wert in `source` → Muss exakt `echt` lauten (Kleinbuchstaben)
+
+**Problem: Ich habe den falschen Ordner gewählt.**
+Leg die Datei einfach nochmals in den richtigen Ordner (`data/raw/`) und committe erneut. GitHub Desktop zeigt dann sowohl die "falsche" als auch die "richtige" Datei als Änderungen — committe beide.
+
+**Problem: GitHub Desktop läuft nicht auf meinem Laptop.**
+Nutze die Web-Oberfläche (Weg 2) — sie braucht keine Installation.
+:::
+
+## Mini-Übung
+
+**Aufgabe:** Öffne Deinen Pull Request im Browser. Gehe auf den Tab "Files changed". Was siehst Du dort? Überprüfe, ob die Datei an der richtigen Stelle im Repository liegt (`data/raw/echt-student-XX.csv`).
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+Im Tab "Files changed" zeigt GitHub die Unterschiede zwischen dem Hauptbranch und Deinem Branch. Du siehst Deine neue Datei grün markiert — jede Zeile Deiner CSV-Datei erscheint als "hinzugefügte Zeile".
+
+Prüfe, ob der Pfad oben links lautet: `data/raw/echt-student-07.csv` (mit Deiner ID). Wenn die Datei an einer anderen Stelle liegt, kannst Du den Branch löschen und den Prozess wiederholen.
+
+</details>
+
+## Selbstcheck
+
+1. Was ist der Unterschied zwischen einem Branch und einem Commit?
+2. Warum wird nicht direkt in den Hauptbranch (`main`) committet?
+3. Was prüft der automatische Validierungs-Workflow bei einem PR?
+4. Wie heißt das korrekte Benennungsschema für Deine echte Datendatei?
+
+::: {.callout-important title="Klausurrelevant"}
+Repository, Branch, Commit, Pull Request, Versionskontrolle, Reproduzierbarkeit, Open Data
+:::
+
+## Weiterführend (optional)
+
+- GitHub-Dokumentation: [docs.github.com/de](https://docs.github.com/de)
+- GitHub Desktop Guide: [docs.github.com/de/desktop](https://docs.github.com/de/desktop)
+- "Version Control with Git" (Software Carpentry): [swcarpentry.github.io/git-novice](https://swcarpentry.github.io/git-novice/)
+
+---
+
+Fast geschafft für heute! Weiter geht es mit [Synthetische Daten verstehen](05-synthetic-data.qmd) — dort lernst Du, was hinter dem Seed-Datensatz steckt, den die Lehrperson bereits ins Repo eingespielt hat.

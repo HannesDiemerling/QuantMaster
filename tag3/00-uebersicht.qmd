@@ -1,0 +1,81 @@
+# Tag 3 — Überblick: Multivariate Verfahren
+
+::: {.callout-note title="Lernziele für heute"}
+Nach diesem Tag kannst Du …
+
+- eine multiple Regression in JASP durchführen und die Koeffizienten korrekt interpretieren
+- erklären, was Moderation bedeutet, und eine Interaktion in JASP modellieren
+- eine Mediationsanalyse mit Bootstrap-Konfidenzintervallen in JASP durchführen
+- den Unterschied zwischen frequentistischer und bayesianischer Inferenz benennen
+- logistische Regression als Verfahren für dichotome Kriterien einordnen
+- Clusteranalyse und Metaanalyse als Verfahren konzeptuell beschreiben
+:::
+
+## Was heute passiert
+
+Heute ist der inhaltliche Höhepunkt des Workshops. Du verlässt die Welt der einzelnen Zusammenhänge und trittst ein in den multivariaten Raum: Mehrere Variablen gleichzeitig, Wechselwirkungen zwischen ihnen, vermittelte Effekte. Das ist genau das, womit echte Psychotherapieforschung arbeitet.
+
+Die Kapitel bauen aufeinander auf — von der multiplen Regression über Moderation und Mediation bis hin zu bayesianischer Inferenz und kurzen Demos zu logistischer Regression, Clusteranalyse und Metaanalyse. Alle Analysen laufen auf `data/combined/m15-combined.csv` mit den Subskalen-Scores, die Du an Tag 2 berechnet hast.
+
+## Kurze Rekapitulation Tag 2
+
+Was lief letzte Woche:
+
+- **Datensatz laden:** `m15-combined.csv` in JASP geöffnet, Variablentypen gesetzt, Reverse Items umgekodiert
+- **Subskalen berechnet:** `BFI_E_mean`, `BFI_V_mean`, `BFI_G_mean`, `BFI_N_mean`, `BFI_O_mean`, `SWLS_total`, `PHQ2_total`, `GAD2_total` als Computed Columns
+- **Missings & Bias:** Fehlende Werte diagnostiziert, echte und synthetische Daten verglichen
+- **Reliabilität:** Cronbachs Alpha und McDonalds Omega berechnet und interpretiert
+- **EFA:** Explorative Faktorenanalyse für BFI-Subskalen durchgeführt
+- **Effektgrößen:** Cohens d und η² aus t-Tests und ANOVAs bestimmt
+
+::: {.callout-warning title="Technik-Check vor dem Start"}
+- [ ] **JASP geöffnet?** Wenn nicht, jetzt starten.
+- [ ] **Datensatz geladen?** `data/combined/m15-combined.csv` in JASP. Wenn die Subscores fehlen, kurz die Computed Columns aus Tag 2 nachbauen oder beim Lehrenden melden.
+- [ ] **Subscores vorhanden?** `BFI_E_mean`, `BFI_N_mean`, `SWLS_total` usw. müssen als Spalten sichtbar sein.
+:::
+
+## Von Korrelation zur Regression zur Moderation
+
+Ein kurzer konzeptueller Bogen, bevor es in die Kapitel geht:
+
+**Korrelation** (Tag 2, Hausaufgabe): Zwei Variablen hängen zusammen. Stärke: *r*. Richtung: positiv oder negativ. Aber: keine Kontrolle anderer Variablen, keine Kausalaussage.
+
+**Multiple Regression**: Eine Zielvariable wird durch mehrere Prädiktoren gleichzeitig vorhergesagt. Die Gewichte (*b* und *β*) sagen Dir, wie viel jede Variable beiträgt — *unter Kontrolle der anderen*. Das ist der entscheidende Schritt.
+
+**Moderation**: Der Effekt von X auf Y hängt von einer dritten Variable M ab. "Extraversion sagt Lebenszufriedenheit vorher — aber nur bei niedrigem Neurotizismus." Das ist ein Interaktionseffekt.
+
+**Mediation**: X beeinflusst Y *über* einen Mediator M. "Neurotizismus führt zu mehr Angst, und das wiederum senkt die Lebenszufriedenheit." Hier geht es um vermittelte Mechanismen.
+
+**Bayes**: Eine alternative Inferenzlogik — statt p-Werten arbeitet man mit Bayes-Faktoren und Posterior-Verteilungen.
+
+**Logistische Regression, Cluster, Meta**: Kurze Demos — wichtig für den Überblick, aber kein Vertiefungsanspruch heute.
+
+## Tagesplan
+
+| Zeit | Modus | Inhalt | Kapitel |
+|---|---|---|---|
+| 09:45–10:30 | **Plenum** | Sprung in den multivariaten Raum, gemeinsame Live-Regression als Aufwärmer | — |
+| 10:30–12:00 | Self-Study | Multiple Regression: Koeffizienten, R², Voraussetzungen, Modellvergleich | `01-multiple-regression.qmd` |
+| 12:00–12:30 | **Plenum** | Moderation und Mediation konzeptuell, am Whiteboard | — |
+| 12:30–13:30 | Mittagspause | | |
+| 13:30–14:30 | Self-Study | Moderation mit zentrierten Variablen, Interaktionsplot | `02-moderation.qmd` |
+| 14:30–15:15 | Self-Study | Mediation mit Bootstrap-CIs im SEM-Modul | `03-bootstrap-mediation.qmd` |
+| 15:15–15:45 | **Plenum** | Bayes vs. Frequentismus — die kürzest mögliche Erklärung | — |
+| 15:45–16:30 | Self-Study | Bayes-Regression; logistische Regression; Cluster + Meta als Demo | `04-bayes-vs-frequentist.qmd`, `05-logistic.qmd`, `06-meta-cluster.qmd` |
+| 16:30–17:00 | **Plenum** | Abschluss, Klausurvorbereitung, Feedback, offene Fragen | — |
+
+## Die drei Tage im Überblick
+
+| Tag | Datum | Schwerpunkt |
+|---|---|---|
+| Tag 1 | 21.05.2026 | Grundlagen, Erhebung, GitHub-Workflow |
+| Tag 2 | 28.05.2026 | Daten verstehen: Aufbereitung, Reliabilität, Faktorenanalyse, Effektgrößen |
+| **Tag 3** — heute | 04.06.2026 | Multivariate Verfahren: Regression, Moderation, Mediation, Bayes |
+
+::: {.callout-tip title="Self-paced bedeutet: Dein Tempo"}
+Die Self-Study-Phasen sind so geplant, dass Du ohne Wartezeiten durcharbeiten kannst. Wenn Du bei Kapitel 01 fertig bist und es noch keine Plenum-Phase gibt: einfach mit Kapitel 02 weitermachen. Wenn Du hängst: Lehrperson fragen. Niemand muss auf die Plenum-Phase warten, um weiterzumachen.
+:::
+
+---
+
+Bereit? Dann starten wir mit dem Kernstück: [Multiple Regression](01-multiple-regression.qmd).

@@ -1,0 +1,25 @@
+# Quarto build output
+_book/
+_site/
+.quarto/
+
+# R
+.Rproj.user/
+.Rhistory
+.RData
+*.Rproj
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Seed-Daten der Lehrperson (gross, nicht fuer oeffentliches Repo)
+data/seed/*.csv
+
+# Lokale Notizen
+*.local.md

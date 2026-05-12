@@ -1,0 +1,174 @@
+# Moderation
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- erklären, was ein Moderationseffekt ist und wie er sich von einem Haupteffekt unterscheidet
+- das Moderationsmodell als Regressionsgleichung mit Interaktionsterm aufschreiben
+- begründen, warum Prädiktoren vor der Interaktionsanalyse zentriert werden sollten
+- einen Interaktionsplot in JASP erstellen und die Simple Slopes interpretieren
+- ein Moderationsergebnis in eigenen Worten berichten
+:::
+
+## Worum es geht
+
+Stell Dir vor, Du fragst: "Sagt Extraversion die Lebenszufriedenheit vorher?" In der multiplen Regression aus Kapitel 01 hast Du eine Antwort — einen *β*-Koeffizienten. Aber vielleicht ist die Wahrheit komplizierter: Extraversion hilft vielleicht nur dann für Lebenszufriedenheit, wenn der Neurotizismus niedrig ist. Bei hohem Neurotizismus könnte Extraversion sogar belastet wirken.
+
+Diese Frage — "Hängt der Effekt von X auf Y davon ab, wie stark M ausgeprägt ist?" — ist eine Moderationsfrage. Moderation ist im klinischen Kontext hochrelevant: "Wirkt diese Intervention — aber nur bei bestimmten Patientengruppen?" Das ist die Logik moderierter Behandlungseffekte (Moderatoren von Therapieoutcomes).
+
+## Theorie kompakt
+
+### Das Moderationsmodell
+
+Eine Moderation liegt vor, wenn eine dritte Variable M (Moderator) den Zusammenhang zwischen X (Prädiktor) und Y (Kriterium) verändert — also beeinflusst, *wie stark* oder *in welche Richtung* der Effekt läuft.
+
+Das Regressionsmodell mit Moderation lautet:
+
+$$\hat{Y} = b_0 + b_1 \cdot X + b_2 \cdot M + b_3 \cdot (X \times M)$$
+
+Der Term *X × M* ist der **Interaktionsterm**. Er ist das Produkt aus X und M. Ein signifikantes *b₃* bedeutet: Der Effekt von X auf Y hängt von M ab (oder umgekehrt — Interaktionen sind symmetrisch).
+
+### Haupteffekte vs. Interaktionseffekt
+
+- *b₁* (Haupteffekt von X): Effekt von X auf Y, wenn M = 0 ist. Nach der Zentrierung: Effekt bei M = Mittelwert.
+- *b₂* (Haupteffekt von M): Effekt von M auf Y, wenn X = 0 ist. Nach der Zentrierung: Effekt bei X = Mittelwert.
+- *b₃* (Interaktionseffekt): Gibt an, wie stark sich der Effekt von X ändert, wenn M um eine Einheit steigt.
+
+::: {.callout-tip title="Intuition: Simple Slopes"}
+Der Interaktionsplot zeigt Regressionsgerade von X auf Y — einmal für niedrige Werte von M (z. B. M – 1 SD), einmal für den Mittelwert von M, und einmal für hohe Werte von M (z. B. M + 1 SD).
+
+Wenn die drei Geraden unterschiedlich steil sind (oder sich kreuzen), gibt es eine Moderation. Je unterschiedlicher die Steigungen, desto stärker der Effekt.
+:::
+
+### Warum zentrieren?
+
+Wenn X und M nicht zentriert sind, ist der Interaktionsterm X × M oft sehr hoch mit X und M korreliert. Das erzeugt **Multikollinearität** und macht die Haupteffekte schwer interpretierbar.
+
+**Mean Centering**: Von jedem Wert wird der Mittelwert der Variable abgezogen.
+
+$$X_{zent} = X - \bar{X}$$
+
+Nach der Zentrierung bedeutet X = 0 "Durchschnittsperson", und die Haupteffekte *b₁* und *b₂* sind sinnvoll interpretierbar als Effekte bei einem durchschnittlichen Moderator bzw. Prädiktor.
+
+**Praktisch in JASP:** Computed Columns anlegen — Formel: `BFI_E_mean - mean(BFI_E_mean)`.
+
+::: {.callout-tip title="Beispiel aus dem Datensatz"}
+Fragestellung: Moderiert Neurotizismus (`BFI_N_mean`) den Zusammenhang zwischen Extraversion (`BFI_E_mean`) und Lebenszufriedenheit (`SWLS_total`)?
+
+Hypothese: Bei niedrigem Neurotizismus sagt Extraversion Lebenszufriedenheit positiv vorher. Bei hohem Neurotizismus ist dieser Effekt schwächer oder kehrt sich um — weil hohes N die positiven Ressourcen der Extraversion überlagert.
+
+Wenn die Hypothese stimmt: Der Interaktionsterm `BFI_E_zent × BFI_N_zent` ist signifikant, und die drei Simple-Slope-Linien im Plot haben unterschiedliche Steigungen.
+:::
+
+## JASP-Walkthrough
+
+### Schritt 1: Zentrierte Variablen anlegen
+
+Du brauchst zentrierte Versionen von `BFI_E_mean` und `BFI_N_mean`.
+
+1. In der JASP-Datentabelle: Klicke auf das **+**-Symbol (Computed Column hinzufügen).
+2. Neue Spalte benennen: `BFI_E_zent`.
+3. Formel eingeben: `BFI_E_mean - mean(BFI_E_mean)`
+4. Dasselbe für `BFI_N_zent`: `BFI_N_mean - mean(BFI_N_mean)`
+5. Prüfe: Der Mittelwert der neuen Spalten sollte ≈ 0 sein (Descriptives → kurz checken).
+
+![TODO: Screenshot Computed Column Formel in JASP](../img/TODO-jasp-moderation-computed.png)
+
+### Schritt 2: Regression mit Interaktionsterm öffnen
+
+- Klicke auf **Regression** → **Linear Regression**.
+- **Dependent Variable:** `SWLS_total`.
+- **Covariates:** `BFI_E_zent`, `BFI_N_zent`.
+
+### Schritt 3: Interaktionsterm hinzufügen
+
+- Markiere gleichzeitig `BFI_E_zent` und `BFI_N_zent` in der Variablenliste (Strg+Klick oder Shift+Klick).
+- Klicke auf **Add Interaction** (erscheint, wenn mehrere Variablen markiert sind) — oder ziehe beide zusammen in das Covariates-Feld und JASP bietet die Interaktion an.
+- Im Block erscheint jetzt: `BFI_E_zent`, `BFI_N_zent`, `BFI_E_zent ✕ BFI_N_zent`.
+
+![TODO: Screenshot Interaktionsterm in JASP](../img/TODO-jasp-moderation-interaction.png)
+
+### Schritt 4: Standardisierte Koeffizienten und VIF aktivieren
+
+- Unter **Coefficients**: Aktiviere **Standardized** und **Confidence intervals**.
+- Unter **Collinearity diagnostics**: Aktiviere **VIF**.
+
+### Schritt 5: Interaktionsplot erstellen
+
+- Scrolle zu **Plots**.
+- Aktiviere **Estimated marginal means** (oder "Interaction plots" je nach JASP-Version).
+- Wähle unter "Horizontal axis": `BFI_E_zent`.
+- Wähle unter "Separate lines": `BFI_N_zent`.
+- JASP zeichnet die Geraden für M – 1 SD, M (Mittelwert) und M + 1 SD.
+
+![TODO: Screenshot Interaktionsplot in JASP](../img/TODO-jasp-moderation-plot.png)
+
+### Schritt 6: Ergebnisse lesen
+
+Schaue auf drei Dinge:
+
+1. **Ist der Interaktionsterm signifikant?** Schau auf *b₃* (den Koeffizienten für `BFI_E_zent ✕ BFI_N_zent`) und seinen p-Wert.
+2. **Wie sehen die Simple Slopes aus?** Sind die drei Linien im Plot unterschiedlich steil?
+3. **Wie viel Varianz erklärt das Modell?** R² im Vergleich zum Modell ohne Interaktion.
+
+::: {.callout-warning title="Wenn Du hier hängst"}
+**Problem: Ich finde keinen "Add Interaction"-Button.**
+Lösung: Stelle sicher, dass Du in der Variablenliste *beide* Variablen gleichzeitig ausgewählt hast (Strg+Klick). Der Button erscheint nur dann. Alternativ: in manchen JASP-Versionen gibt es unter "Model" eine Dropdown-Option für Interaktionen.
+
+**Problem: Der Interaktionsplot zeigt drei parallele Linien.**
+Lösung: Parallele Linien bedeuten *keine* Interaktion — die Steigungen sind gleich. Das ist ein valides Ergebnis (kein Moderationseffekt). Schreibe: "Der Interaktionsterm war nicht signifikant (*b₃* = ..., *p* = ...), die Hypothese einer Moderation wird nicht unterstützt."
+
+**Problem: VIF für den Interaktionsterm ist sehr hoch.**
+Lösung: Das ist normal — auch nach der Zentrierung kann der Interaktionsterm mit den Haupteffekten korrelieren. Wichtig ist, dass die Haupteffekte (VIF für `BFI_E_zent` und `BFI_N_zent`) unkritisch sind.
+
+**Problem: Ich habe vergessen zu zentrieren.**
+Lösung: Kein Drama. Lege die Computed Columns nach (Schritt 1). Die Analyse mit nicht-zentrierten Variablen wäre inhaltlich problematisch, aber die Interaktion selbst wäre dieselbe — die Haupteffekte wären nur schwer interpretierbar.
+:::
+
+## Mini-Übung
+
+**Aufgabe:** Teste, ob Gewissenhaftigkeit (`BFI_G_mean`) den Zusammenhang zwischen Neurotizismus (`BFI_N_mean`) und Lebenszufriedenheit (`SWLS_total`) moderiert. Logik: Vielleicht dämpft hohe Gewissenhaftigkeit den negativen Effekt von Neurotizismus — als eine Art Ressource.
+
+1. Lege zentrierte Variablen an: `BFI_N_zent` (schon vorhanden) und `BFI_G_zent`.
+2. Rechne das Regressionsmodell mit `BFI_N_zent`, `BFI_G_zent` und dem Interaktionsterm.
+3. Ist die Interaktion signifikant?
+4. Erstelle den Interaktionsplot.
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+**Vorgehen:**
+
+1. Computed Column `BFI_G_zent` anlegen: `BFI_G_mean - mean(BFI_G_mean)`.
+2. Regression → Linear Regression → Dependent: `SWLS_total` → Covariates: `BFI_N_zent`, `BFI_G_zent` + Interaktionsterm `BFI_N_zent ✕ BFI_G_zent`.
+3. Standardized Coefficients und VIF aktivieren.
+4. Plot: Horizontal axis = `BFI_N_zent`, Separate lines = `BFI_G_zent`.
+
+**Erwartetes Ergebnis:**
+
+Der Interaktionsterm könnte signifikant sein — die Hypothese "Gewissenhaftigkeit als Puffer für Neurotizismus" hat theoretische Grundlage (Ressourcenmodelle der Persönlichkeit). Wenn ja: Im Interaktionsplot sollten die Simple Slopes bei hoher Gewissenhaftigkeit eine flachere negative Steigung zeigen als bei niedriger Gewissenhaftigkeit.
+
+Falls der Interaktionsterm nicht signifikant ist: Das ist auch ein valides Ergebnis — schreib es so auf.
+
+</details>
+
+## Selbstcheck
+
+1. Was ist der Unterschied zwischen einem Haupteffekt und einem Interaktionseffekt?
+2. Warum werden Prädiktoren vor einer Moderationsanalyse zentriert?
+3. Du erhältst: *b* für `BFI_E_zent ✕ BFI_N_zent` = –0,18, *p* = .03. Was bedeutet das inhaltlich?
+4. Im Interaktionsplot sehen die drei Linien nahezu parallel aus. Was schlussfolgert Du?
+5. Ein Kollege sagt: "Ein signifikanter Interaktionsterm bedeutet, dass X Y verursacht, wenn M hoch ist." Was ist daran falsch?
+
+::: {.callout-important title="Klausurrelevant"}
+Moderation, Interaktionseffekt, Moderator, Interaktionsterm, Mean Centering (Zentrierung), Simple Slopes, Interaktionsplot, Haupteffekt, Regressionsmodell mit Interaktion
+:::
+
+## Weiterführend (optional)
+
+- Hayes, A. F. (2022). *Introduction to Mediation, Moderation, and Conditional Process Analysis* (3rd ed.). Guilford. — Das Standardwerk. Kapitel 7–9 für Moderation.
+- [StatQuest: Interaction Terms in Regression (YouTube)](https://www.youtube.com/watch?v=OyN6jPm8JFY)
+
+---
+
+Weiter zu: [Mediation & Bootstrap](03-bootstrap-mediation.qmd)

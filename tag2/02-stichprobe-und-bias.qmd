@@ -1,0 +1,141 @@
+# Stichprobe, Missingness & Bias
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- die drei Typen fehlender Werte (MCAR, MAR, MNAR) voneinander unterscheiden und einordnen
+- Missingness-Muster in JASP diagnostizieren und pro Variable quantifizieren
+- Strategien zum Umgang mit fehlenden Werten (listwise deletion, pairwise, Imputation) konzeptuell vergleichen
+- Stichprobenbias am Beispiel eines Convenience Samples erklären
+- echte und synthetische Fälle im kombinierten Datensatz über die JASP-Filterfunktion vergleichen
+- die Relevanz von Stichprobenverzerrung für die externe Validität psychotherapeutischer Studien einschätzen
+:::
+
+## Worum es geht
+
+Selbst der sorgfältigst erhobene Datensatz hat Lücken. Jemand überspringt eine Frage, ein Item wird übersehen, eine CSV enthält eine Leerzeile. Das ist normal. Problematisch wird es erst, wenn diese Lücken **systematisch** sind — also wenn bestimmte Personen oder bestimmte Fragen überproportional häufig fehlen.
+
+Gleichzeitig stellen wir uns heute die Frage: Wer ist eigentlich in unserem Datensatz? Master-Studierende der Psychotherapie an einer Privatuniversität in Potsdam sind keine Zufallsstichprobe der deutschen Bevölkerung. Was bedeutet das für die Generalisierbarkeit unserer Befunde? Diese Fragen sind in der Psychotherapieforschung nicht akademisch — sie entscheiden, ob eine Studie klinisch relevant ist.
+
+## Theorie kompakt
+
+### Teil 1: Fehlende Werte
+
+Fehlende Werte werden in drei Klassen eingeteilt, je nachdem **warum** sie fehlen:
+
+| Typ | Name | Bedeutung | Beispiel |
+|---|---|---|---|
+| **MCAR** | Missing Completely At Random | Fehlen ist zufällig, unabhängig von allen Variablen | Fragebogen-Seite beim Drucken abgeschnitten |
+| **MAR** | Missing At Random | Fehlen hängt von anderen gemessenen Variablen ab, nicht vom fehlenden Wert selbst | Ältere Teilnehmende lassen Technik-Fragen häufiger aus |
+| **MNAR** | Missing Not At Random | Fehlen hängt vom Wert der fehlenden Variable selbst ab | Personen mit hohem PHQ-2-Score lassen genau diese Fragen aus |
+
+MCAR ist das harmloseste Szenario: eine einfache Analyse der Vervollständigten reicht. MNAR ist das schwierigste: ohne zusätzliche Annahmen lässt sich der Bias kaum korrigieren.
+
+::: {.callout-tip title="Beispiel"}
+Im BFI-K-Datensatz fehlt BFI_N3 bei 8 von 120 Fällen. Wenn diese 8 Personen zufällig über den Datensatz verteilt sind — jung, alt, hohe und niedrige Neurotizismus-Werte — spricht das für MCAR. Wenn aber gerade die Personen mit sehr hohem Neurotizismus BFI_N3 ausgelassen haben, liegt MNAR vor: die fehlenden Werte sind kein Zufall, sondern ein Signal.
+:::
+
+**Strategien zum Umgang:**
+
+- **Listwise Deletion:** Alle Fälle mit irgendwelchen Missings ausschließen. Einfach, aber verschwenderisch und potenziell verzerrt.
+- **Pairwise Deletion:** Für jede Analyse nur die jeweils verfügbaren Fälle verwenden. Mehr Power, aber inkonsistente Stichprobengrößen.
+- **Imputation:** Fehlende Werte durch plausible Schätzwerte ersetzen (z. B. Mittelwert, Multiple Imputation). Methodisch aufwendiger, aber ehrlicher.
+
+Im Workshop verwenden wir pairwise deletion als Voreinstellung — JASP macht das automatisch.
+
+### Teil 2: Stichprobenbias
+
+Eine **Convenience Sample** (anfallende Stichprobe) wie die unsere hat strukturelle Eigenschaften:
+
+- Definiertes Alter (Master-Studierende, meist 22–35)
+- Definierter Bildungshintergrund (Hochschule)
+- Selbstselektion: Wer ins Seminar kommt, ist motiviert
+
+Das ist kein Fehler, sondern ein Merkmal — das wir kennen und benennen müssen. **Externe Validität** fragt: Auf welche Population lassen sich unsere Befunde übertragen?
+
+**Selbstselektion** entsteht, wenn die Teilnahme an einer Studie von Eigenschaften abhängt, die die untersuchten Variablen beeinflussen. Wer freiwillig an einem Psychotherapie-Studium teilnimmt, hat möglicherweise andere Persönlichkeitsprofile als die Allgemeinbevölkerung — und das beeinflusst z. B. BFI-Neurotizismus-Werte.
+
+::: {.callout-tip title="Beispiel"}
+In einer Studie zur Wirksamkeit von kognitiver Verhaltenstherapie bei Depression rekrutiert eine Klinik ausschließlich per Aushang in ihrer eigenen Ambulanz. Die Teilnehmenden sind damit bereits help-seeking — sie suchen aktiv Hilfe. Das ist eine andere Population als Personen mit Depression in der Allgemeinbevölkerung, die keine Behandlung suchen. Befunde aus dieser Studie lassen sich nur eingeschränkt verallgemeinern.
+:::
+
+## JASP-Walkthrough
+
+### Teil 1: Missingness diagnostizieren
+
+1. Analyses → **Descriptives** → **Descriptive Statistics**
+2. Alle BFI_*-, SWLS_*-, PHQ2_*-, GAD2_*-Rohvariablen (also **nicht** die berechneten Subskalen) in das Variables-Feld ziehen
+3. Unter **Statistics**: **Missing values** aktivieren (JASP zeigt dann „Valid" und „Missing" pro Variable)
+4. Ausgabe anschauen: Welche Variable hat die meisten Missings? Gibt es ein Muster?
+
+![TODO: Screenshot von JASP Descriptives mit Missing-Values-Spalte](../img/TODO-jasp-missing-values.png)
+
+5. Für eine visuellere Übersicht: Unter **Plots** → **Missing value plot** aktivieren (zeigt Missingness-Muster als Heatmap)
+
+::: {.callout-warning title="Wenn Du hier hängst"}
+**Problem:** JASP zeigt keine Spalte für Missing Values.
+**Lösung:** Unter Statistics muss das Häkchen bei „Missing values" gesetzt sein. Es ist standardmäßig nicht aktiv.
+
+**Problem:** Alle Variablen zeigen 0 Missings.
+**Lösung:** Das kann vorkommen, wenn der Datensatz vollständig ist — oder wenn Missings beim Einlesen als 0 eingelesen wurden. Prüfe in der Datentabelle, ob es verdächtig viele Nullwerte gibt.
+:::
+
+### Teil 2: Stichprobenvergleich echt vs. synthetisch
+
+Die Variable `source` hat drei Werte: `echt`, `synth_seed`, `synth_student`. Wir vergleichen `echt` mit `synth_seed`.
+
+**Filterfunktion nutzen:**
+
+1. Im oberen Menü auf das **Trichter-Symbol** klicken (Filter)
+2. Filterausdruck eingeben: `source == "echt"`
+3. Analyses → Descriptives → Descriptive Statistics
+4. Variablen: `age`, `BFI_N_mean`, `SWLS_mean`
+5. Ausgabe abspeichern (Screenshot oder Notiz)
+6. Filter wechseln auf: `source == "synth_seed"`
+7. Dieselben Analyses wiederholen
+8. Ergebnisse vergleichen: Unterscheiden sich Mittelwerte und Streuungen?
+
+![TODO: Screenshot von JASP Filter-Dialog](../img/TODO-jasp-filter.png)
+
+::: {.callout-tip title="Was Du sehen solltest"}
+Synthetische Seed-Daten wurden mit moderaten Korrelationsstrukturen generiert. Mögliche Unterschiede zu echten Daten: leicht engere Streuung, symmetrischere Verteilungen, keine extremen Ausreißer. Wenn die echten Daten deutlich schiefer sind, ist das ein echter Datenbefund — und eine Diskussionsgrundlage für Bias.
+:::
+
+## Mini-Übung
+
+**Aufgabe:** Vergleiche den Mittelwert von `BFI_E_mean` (Extraversion) zwischen den Gruppen `echt` und `synth_seed`. Notiere beide Mittelwerte. Was fällt Dir auf? Könnte dieser Unterschied auf Stichprobenbias hindeuten?
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+1. Filter auf `source == "echt"` setzen
+2. Descriptives → BFI_E_mean → Mean notieren (z. B. 3.21)
+3. Filter auf `source == "synth_seed"` setzen
+4. Mean erneut ablesen (z. B. 3.05)
+5. Unterschied interpretieren:
+   - Wenn die echten Werte höher sind: Master-Studierende könnten eine etwas extravertiertere Gruppe sein als der Durchschnitt (Selbstselektion durch Studiengang?)
+   - Wenn die synthetischen Werte höher sind: Hinweis, dass die Seed-Generierung andere Verteilungsannahmen hatte
+   - Wenn kein Unterschied: Das wäre ebenfalls ein Befund — passt die Simulation gut?
+
+Ein statistisch belastbarer Vergleich erfordert einen Gruppenvergleich (t-Test oder ähnliches), den wir in `05-effektgroessen.qmd` durchführen.
+
+</details>
+
+## Selbstcheck
+
+1. Was ist der Unterschied zwischen MCAR und MNAR? Welcher Typ ist für eine Analyse problematischer?
+2. Was versteht man unter externer Validität, und warum schränkt ein Convenience Sample sie ein?
+3. Warum reicht es nicht, einfach alle Fälle mit fehlenden Werten zu löschen?
+
+::: {.callout-important title="Klausurrelevant"}
+MCAR / MAR / MNAR (Definitionen und Beispiele), listwise vs. pairwise deletion, Convenience Sample, externe Validität, Selbstselektion als Bias-Quelle
+:::
+
+## Weiterführend (optional)
+
+- Sterne & White (2009): Multiple imputation for missing data in epidemiological and clinical research — guter Überblick für Fortgeschrittene
+- Rubin (1976): Inference and missing data — die klassische Taxonomie (MCAR/MAR/MNAR)
+
+---
+
+Weiter geht es mit [Reliabilität: Cronbachs Alpha & McDonald's Omega](03-reliabilitaet.qmd).

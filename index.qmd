@@ -1,0 +1,55 @@
+# Willkommen zum Workshop {.unnumbered}
+
+Herzlich willkommen zum quantitativen Teil des Moduls **M15 — Multivariate Verfahren, Forschungsmethoden & Psychotherapieforschung** im Masterstudiengang Psychotherapie an der HMU Health and Medical University Potsdam.
+
+## Was Dich erwartet
+
+Dieser Workshop erstreckt sich über drei Präsenztage:
+
+| Tag | Datum | Thema |
+|-----|-------|-------|
+| Tag 1 | 21.05.2026 | Foundations & Erhebung |
+| Tag 2 | 28.05.2026 | Daten verstehen & aufbereiten |
+| Tag 3 | 04.06.2026 | Multivariate Verfahren |
+
+## Wie Du mit dieser Site arbeitest
+
+Diese Site ist Dein **primäres Lernmaterial**. Du arbeitest überwiegend selbständig durch die Kapitel — der Lehrende ist als Coach und Ansprechpartner da, hält aber keinen klassischen Frontalvortrag.
+
+Jedes Kapitel ist so aufgebaut, dass Du es **alleine durcharbeiten** kannst:
+
+- Lernziele am Anfang — so weißt Du, worauf es ankommt
+- Theorie kompakt erklärt mit Beispielen aus dem Workshop-Datensatz
+- Schritt-für-Schritt-Anleitung für JASP
+- Mini-Übung mit Lösungs-Toggle
+- Selbstcheck-Fragen am Ende
+
+## Software und Zugänge
+
+Du brauchst für diesen Workshop:
+
+1. **JASP** — kostenlos unter [jasp-stats.org](https://jasp-stats.org) (bitte vor Tag 1 installieren)
+2. **GitHub-Account** — kostenlos unter [github.com](https://github.com)
+3. **GitHub Desktop** (empfohlen) oder direkte Nutzung der GitHub-Weboberfläche
+
+::: {.callout-important title="Vor Tag 1 erledigen"}
+- JASP installieren und einmal starten
+- GitHub-Account anlegen und Benutzernamen an die Lehrperson mailen
+- Einverständniserklärung unter `materials/einverstaendnis.qmd` lesen
+:::
+
+## Datensatz
+
+Im Laufe des Workshops arbeiten wir mit einem gemeinsamen Datensatz, der sich aus mehreren Quellen zusammensetzt:
+
+- Einem **Seed-Datensatz** (150–200 synthetische Fälle), den die Lehrperson vorbereitet hat
+- Euren **eigenen Fragebogen-Antworten** (Tag 1)
+- Einigen **zusätzlichen synthetischen Fällen**, die Ihr selbst generiert (Tag 1, zum Verständnis)
+
+Der kombinierte Datensatz liegt dann unter `data/combined/m15-combined.csv` und wird in JASP geöffnet.
+
+## Viel Erfolg!
+
+Quantitative Methoden sind kein Selbstzweck — sie helfen uns, Fragen über psychische Gesundheit und therapeutische Wirksamkeit präziser zu beantworten. Nutze die drei Tage, um ein solides Fundament für Deine Master-Arbeit und die spätere Forschungspraxis zu legen.
+
+Bei Fragen: einfach melden!

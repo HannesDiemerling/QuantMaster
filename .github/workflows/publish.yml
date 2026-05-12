@@ -1,0 +1,13 @@
+# Dieser Workflow wurde durch build-site.yml ersetzt.
+# Nur noch manuell ausfuehrbar (kein automatischer Trigger).
+name: Deploy (veraltet)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Info
+        run: echo "Bitte build-site.yml verwenden."

@@ -1,0 +1,3 @@
+# Dieser Ordner enthaelt den Seed-Datensatz der Lehrperson.
+# Dateien hier werden NICHT ins Repository commitet (siehe .gitignore).
+# Bitte seed-batch01.csv etc. direkt hier ablegen vor Workshop-Start.

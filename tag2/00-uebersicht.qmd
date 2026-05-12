@@ -1,0 +1,73 @@
+# Tag 2 — Überblick: Daten verstehen & aufbereiten
+
+::: {.callout-note title="Lernziele für heute"}
+Nach diesem Tag kannst Du …
+
+- den kombinierten Workshop-Datensatz in JASP laden und Variablentypen korrekt setzen
+- Reverse-kodierte Items identifizieren und in JASP umkodieren
+- Subskalen-Mittelwerte als Computed Columns berechnen
+- fehlende Werte diagnostizieren und einordnen (MCAR, MAR, MNAR)
+- Stichprobenbias zwischen echten und synthetischen Daten erkennen und benennen
+- die interne Konsistenz einer Skala mit Cronbachs Alpha und McDonald's Omega berechnen und interpretieren
+- eine explorative Faktorenanalyse in JASP durchführen und Faktorladungen lesen
+- Effektgrößen (Cohens d, η²) berechnen und von statistischer Signifikanz abgrenzen
+:::
+
+## Was heute passiert
+
+Tag 1 war Erhebung — heute geht es ans Eingemachte. Der kombinierte Datensatz aus echten Antworten und synthetischen Fällen liegt jetzt vor. Die nächsten Stunden drehen sich um eine zentrale Frage: **Kannst Du diesem Datensatz vertrauen?** Und falls ja, was steckt drin?
+
+Das klingt abstrakt, ist aber hochgradig praxisrelevant: In der Psychotherapieforschung ist die Qualität der Messung Voraussetzung für jede sinnvolle Schlussfolgerung. Ein Instrument, das heute etwas anderes misst als morgen, taugt nicht viel — egal wie elegant die anschließende Statistik ist.
+
+## Kurze Rekapitulation Tag 1
+
+Was lief letzte Woche:
+
+- **Open Science & Messtheorie:** Reproduzierbarkeit, Konstrukte, Operationalisierung, Skalenniveaus
+- **Erhebung:** Papier-Fragebogen ausgefüllt, Daten in CSV eingetragen
+- **GitHub-Upload:** CSV via Pull Request ins Repo hochgeladen
+- **Synthetische Daten:** R-Skript ausgeführt, eigene Mini-Fälle generiert und hochgeladen
+
+Falls Dein Pull Request noch nicht gemergt wurde oder Du noch Fragen zum Upload hast: kurz bei der Lehrperson melden, bevor Du in die heutigen Kapitel einsteigst.
+
+::: {.callout-tip title="Datensatz-Check"}
+Bevor Du loslegst: Wurde der kombinierte Datensatz schon erzeugt? Er liegt unter `data/combined/m15-combined.csv`. Wenn die Datei fehlt oder leer ist, sofort melden — ohne diesen Datensatz kommt heute nichts zusammen.
+:::
+
+## Tagesplan
+
+| Zeit | Modus | Inhalt | Kapitel |
+|---|---|---|---|
+| 09:45–10:30 | **Plenum** | Combined-Datensatz vorstellen, Datenstruktur live durchgehen, Recode-Demo für Reverse Items | — |
+| 10:30–12:00 | Self-Study | Datensatz in JASP laden, Variablentypen setzen, Reverse Coding, Subskalen berechnen, Deskriptiva | `01-datensatz-laden.qmd` |
+| 12:00–12:30 | **Plenum** | Übergang: Missingness und Stichprobenbias konzeptuell einordnen | — |
+| 12:30–13:30 | Mittagspause | | |
+| 13:30–14:30 | Self-Study | Missingness diagnostizieren, Bias-Vergleich echt vs. synthetisch | `02-stichprobe-und-bias.qmd` |
+| 14:30–15:15 | Self-Study | Reliabilitäten berechnen: Cronbachs Alpha, McDonald's Omega, Item-Trennschärfe | `03-reliabilitaet.qmd` |
+| 15:15–15:45 | **Plenum** | EFA konzeptuell: Was bedeuten Faktoren? Warum Rotation? | — |
+| 15:45–16:30 | Self-Study | EFA durchführen und interpretieren; Effektgrößen aus t-Tests und ANOVA | `04-efa-cfa.qmd`, `05-effektgroessen.qmd` |
+| 16:45–17:00 | **Plenum** | Reflexion + Ausblick auf multivariate Modelle an Tag 3 | — |
+
+## Materialien-Checkliste
+
+::: {.callout-warning title="Technik-Check"}
+- [ ] **JASP geöffnet?** Wenn nicht, jetzt starten
+- [ ] **Datei vorhanden?** `data/combined/m15-combined.csv` auf Deinem Rechner
+- [ ] **Repository lokal?** Entweder per GitHub Desktop geklont oder direkt als Download
+:::
+
+## Die drei Tage im Überblick
+
+| Tag | Datum | Schwerpunkt |
+|---|---|---|
+| Tag 1 | 21.05.2026 | Grundlagen, Erhebung, GitHub-Workflow |
+| **Tag 2** — heute | 28.05.2026 | Daten verstehen: Aufbereitung, Reliabilität, Faktorenanalyse, Effektgrößen |
+| Tag 3 | 04.06.2026 | Multivariate Verfahren: Regression, Moderation, Mediation, Bayes |
+
+::: {.callout-tip title="Self-paced bedeutet: Dein Tempo"}
+Wenn Du bei einem Kapitel schneller fertig bist als der Zeitplan vorsieht: einfach weitermachen. Wenn Du hängst: Lehrperson fragen oder kurz auf die Plenum-Phase warten — die Knackpunkte werden dort aufgegriffen.
+:::
+
+---
+
+Bereit? Dann starten wir mit dem ersten Kapitel: [Datensatz in JASP laden](01-datensatz-laden.qmd).

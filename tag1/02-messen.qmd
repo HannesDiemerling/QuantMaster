@@ -1,0 +1,142 @@
+# Messtheorie & BFI-K verstehen
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- die Begriffe Konstrukt, Operationalisierung und Indikator erklären und voneinander abgrenzen
+- die vier Skalenniveaus (nominal, ordinal, intervall, ratio) benennen und korrekt Beispiele aus dem BFI-K zuordnen
+- erklären, was Reverse Coding ist, warum es eingesetzt wird und woran man es erkennt
+- die fünf Dimensionen des BFI-K benennen und ihre Bedeutung beschreiben
+- JASP öffnen, einen Datensatz laden, Variablentypen prüfen und Deskriptivstatistiken für eine einzelne Variable berechnen
+:::
+
+## Worum es geht
+
+Bevor wir irgendetwas analysieren, müssen wir verstehen, was wir überhaupt messen. "Neurotizismus" ist kein Blutdruck, den man ablesen kann — es ist ein psychologisches Konstrukt, das wir nur indirekt über Fragebogenitems zugänglich machen. Diese Übersetzung von abstraktem Konstrukt zu konkreter Zahl nennt sich Operationalisierung. Wie gut diese Übersetzung gelingt, entscheidet über die Qualität jeder Studie. In diesem Kapitel lernst Du die theoretischen Grundlagen und wendest sie direkt auf den BFI-K an, den Fragebogen, mit dem Du gleich Deine eigenen Daten erhebt.
+
+## Theorie kompakt
+
+### Konstrukt, Operationalisierung, Indikator
+
+Ein **Konstrukt** ist eine theoretische Idee, die nicht direkt messbar ist: Intelligenz, Depressivität, Extraversion. Wir können Konstrukte nicht direkt beobachten — wir schließen auf sie, indem wir beobachtbare **Indikatoren** erheben.
+
+**Operationalisierung** ist der Prozess, mit dem wir festlegen, wie wir ein Konstrukt messen wollen. Für das Konstrukt "Extraversion" könnte die Operationalisierung lauten: "Durchschnittlicher Rohwert der Items BFI_E1 bis BFI_E4 auf einer 5-stufigen Likert-Skala."
+
+::: {.callout-tip title="Beispiel: Lebenszufriedenheit"}
+Das Konstrukt "Lebenszufriedenheit" operationalisieren wir im Workshop über die **SWLS** (Satisfaction with Life Scale). Die fünf Items (SWLS_1 bis SWLS_5) sind Indikatoren — einzelne beobachtbare Antworten, aus denen wir auf das nicht direkt messbare Konstrukt schließen. Das Item "In den meisten Bereichen entspricht mein Leben meinen Idealvorstellungen" (SWLS_1) ist ein Indikator für Lebenszufriedenheit, aber kein vollständiges Maß dafür.
+:::
+
+### Skalenniveaus
+
+Die Art, wie eine Variable gemessen wird, bestimmt, welche statistischen Verfahren zulässig sind. Vier Niveaus:
+
+| Niveau | Eigenschaft | Beispiel im Workshop |
+|---|---|---|
+| **Nominal** | Kategorien ohne Rangordnung | `gender` (männlich, weiblich, divers, ...) |
+| **Ordinal** | Rangordnung, aber ungleiche Abstände | `stats_prior` (keine/wenig/moderate/viel Vorkenntnisse) |
+| **Intervall** | Gleiche Abstände, kein echter Nullpunkt | BFI-K-Items (1–5 Likert; *umstritten*) |
+| **Ratio** | Gleiche Abstände, echter Nullpunkt | `age` in Jahren |
+
+::: {.callout-warning title="Likert-Skalen: Intervall oder Ordinal?"}
+Ob Likert-Items als Intervallskala behandelt werden dürfen, ist in der Methodenliteratur umstritten. Die Praxis — und damit auch JASP — behandelt Summenwerte oder Mittelwerte aus mehreren Likert-Items meist als annähernd intervallskaliert. Einzelne Items sollten streng genommen ordinal behandelt werden. Für diesen Workshop gehen wir pragmatisch vor: Summenwerte aus Subskalen behandeln wir wie Intervallskalen.
+:::
+
+### Reverse Coding
+
+Bei vielen Fragebögen sind einzelne Items **umgepolt** formuliert: Eine hohe Zustimmung zeigt gerade *wenig* von dem Konstrukt an, das die Skala misst.
+
+Beispiel aus dem BFI-K — Neurotizismus-Skala:
+- Item BFI_N2: "Ich bin entspannt und lasse mich durch Stress nicht aus der Ruhe bringen." (5er Likert)
+- Wer hier 5 ankreuzt (stimme voll zu), ist *wenig* neurotisch — nicht viel.
+
+Um alle Items einer Subskala addieren zu können, muss das Reverse-Item umgepolt werden:
+
+$$\text{umgepolter Wert} = (\text{Skalenmaximalwert} + 1) - \text{Originalwert}$$
+
+Für eine 5er Likert-Skala also: umgepolter Wert = 6 − Originalwert. Ein 5 wird zu 1, ein 4 zu 2 und so weiter.
+
+::: {.callout-tip title="Warum gibt es Reverse-Items?"}
+Reverse-Items sollen **Zustimmungstendenzen** (Acquiescence Bias) reduzieren. Wenn alle Items in dieselbe Richtung formuliert sind, neigen manche Personen dazu, einfach immer oder fast immer zuzustimmen — egal was inhaltlich steht. Durch abwechselnde Formulierungsrichtungen wird erzwungen, dass jemand tatsächlich überlegt, was er antwortet.
+:::
+
+Welche Items im BFI-K umgepolt werden müssen, findest Du im Codebook unter `materials/codebook.csv`. Im Rohdatensatz sind die Werte **nicht** bereits umgepolt — das Umpolen ist Lehrinhalt auf Tag 2.
+
+### Der BFI-K — Big Five Inventory Kurzversion
+
+Der BFI-K (Rammstedt & John, 2005) ist eine 21-Item-Kurzversion des Big Five Inventory. Er misst fünf Persönlichkeitsdimensionen, die aus der Persönlichkeitspsychologie gut belegt sind:
+
+| Kürzel | Dimension | Kurzbeschreibung | Items im Workshop |
+|---|---|---|---|
+| **E** | Extraversion | Geselligkeit, Aktivität, Gesprächigkeit | BFI_E1 – BFI_E4 |
+| **V** | Verträglichkeit | Kooperation, Empathie, Hilfsbereitschaft | BFI_V1 – BFI_V4 |
+| **G** | Gewissenhaftigkeit | Ordnung, Zuverlässigkeit, Selbstdisziplin | BFI_G1 – BFI_G4 |
+| **N** | Neurotizismus | Emotionale Instabilität, Ängstlichkeit | BFI_N1 – BFI_N4 |
+| **O** | Offenheit | Kreativität, Intellekt, Neugier | BFI_O1 – BFI_O5 |
+
+Alle Items verwenden eine 5-stufige Likert-Skala: 1 = "stimme gar nicht zu" bis 5 = "stimme voll zu".
+
+::: {.callout-tip title="Klinische Relevanz"}
+Neurotizismus ist einer der robustesten Prädiktoren für psychische Erkrankungen. Hohe N-Werte korrelieren mit erhöhtem Risiko für Angststörungen, depressive Störungen und Substanzmissbrauch. In der Psychotherapieforschung wird Neurotizismus regelmäßig als Kovariable oder Moderatorvariable eingesetzt, weil er Therapieerfolg und Dropout-Raten vorhersagt.
+:::
+
+## JASP-Walkthrough: BFI_E1 in JASP ansehen
+
+In diesem ersten Walkthrough öffnest Du den Workshop-Datensatz in JASP und schaust Dir eine einzelne Variable an.
+
+1. **JASP öffnen.** Starte JASP auf Deinem Laptop.
+2. **Datensatz laden:** Klicke oben links auf das JASP-Logo → "Open" → "Computer" → navigiere zu `data/combined/m15-combined.csv` im Workshop-Repository. Falls der Datensatz noch nicht existiert (heute, Tag 1), verwende zunächst die Datei `materials/csv-template.csv`.
+3. **Variablenübersicht ansehen:** JASP zeigt oben im Spreadsheet alle Spalten. Klicke auf den kleinen Pfeil neben dem Spaltennamen `BFI_E1`, um den Variablentyp zu sehen.
+4. **Variablentyp prüfen:** JASP unterscheidet "Nominal", "Ordinal" und "Scale". Für BFI_E1 sollte "Ordinal" oder "Scale" eingestellt sein. Klicke ggf. auf das Symbol, um es zu ändern.
+5. **Deskriptive Statistiken berechnen:** Klicke oben auf "Analyses" → "Descriptives" → "Descriptive Statistics". Ziehe `BFI_E1` in das Feld "Variables". JASP zeigt Dir Mittelwert, Median, Standardabweichung, Minimum und Maximum.
+
+![TODO: Screenshot von JASP Descriptives Panel mit BFI_E1](../img/TODO-jasp-descriptives-bfi_e1.png)
+
+6. **Histogramm ansehen:** Aktiviere unter "Plots" die Option "Distribution plots". Du siehst jetzt, wie die Antworten auf BFI_E1 verteilt sind.
+
+::: {.callout-warning title="Wenn Du hier hängst"}
+**Problem: JASP findet die Datei nicht.**
+Stelle sicher, dass Du das Repository bereits auf Deinen Laptop heruntergeladen (geklont) hast. Der Datei-Pfad muss auf Deinem lokalen Rechner existieren — nicht auf GitHub.
+
+**Problem: Alle Werte erscheinen als 0 oder die Datei ist leer.**
+Das ist normal auf Tag 1 — der kombinierte Datensatz wird erst nach dem Merge der PRs befüllt. Nutze vorerst `materials/csv-template.csv` oder warte nach Deinem eigenen Upload.
+
+**Problem: JASP zeigt Variablen als "nominal", obwohl sie numerisch sein sollten.**
+Klicke auf das kleine Symbol links neben dem Variablennamen (Kreis/Ruler-Icon) und ändere den Typ manuell auf "Scale" oder "Ordinal".
+:::
+
+## Mini-Übung
+
+**Aufgabe:** Öffne den Datensatz in JASP und berechne die Deskriptivstatistiken für alle vier Extraversion-Items (BFI_E1 bis BFI_E4). Welches Item hat den höchsten Mittelwert? Welches die größte Streuung?
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+1. "Analyses" → "Descriptives" → "Descriptive Statistics"
+2. Alle vier Variablen BFI_E1, BFI_E2, BFI_E3, BFI_E4 in das Feld "Variables" ziehen
+3. JASP gibt eine Tabelle mit Mittelwert (*M*) und Standardabweichung (*SD*) für jedes Item aus
+4. Das Item mit dem höchsten *M* hat im Schnitt die meiste Zustimmung erhalten — das Item mit der größten *SD* hat die meiste Antwort-Variation (manche stimmen stark zu, andere gar nicht)
+
+Das genaue Ergebnis hängt vom Datensatz ab — auf Tag 1 mit wenigen Einträgen werden die Werte noch schwanken. Wichtig ist, dass Du die Schritte korrekt ausführen kannst.
+
+</details>
+
+## Selbstcheck
+
+1. Was ist der Unterschied zwischen einem Konstrukt und einem Indikator? Gib ein Beispiel aus dem BFI-K.
+2. Warum gilt `gender` als nominalskaliert und `age` als ratioskaliert?
+3. Bei einer 5er Likert-Skala: Ein Reverse-Item hat den Rohwert 3. Welchen umgepolten Wert berechnet man?
+4. Welche der fünf Big-Five-Dimensionen ist laut Forschung am stärksten mit psychischen Störungen assoziiert?
+
+::: {.callout-important title="Klausurrelevant"}
+Konstrukt, Operationalisierung, Indikator, Skalenniveaus (nominal/ordinal/intervall/ratio), Reverse Coding, BFI-K Dimensionen (E/V/G/N/O), Likert-Skala
+:::
+
+## Weiterführend (optional)
+
+- Rammstedt, B., & John, O. P. (2005). Kurzversion des Big Five Inventory (BFI-K). *Diagnostica*, 51(4), 195–206.
+- Stevens, S. S. (1946). On the theory of scales of measurement. *Science*, 103(2684), 677–680.
+- JASP-Dokumentation: [jasp-stats.org/faq](https://jasp-stats.org/faq/)
+
+---
+
+Weiter geht es nach der Mittagspause mit [Fragebogen ausfüllen & CSV erstellen](03-erhebung-praktisch.qmd) — da wirst Du Deine eigenen Daten erheben.

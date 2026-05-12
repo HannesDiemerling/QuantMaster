@@ -1,0 +1,118 @@
+# Open Science & Evidenzbeurteilung
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- erklären, was die Replikationskrise in der Psychologie ist und warum sie entstanden ist
+- die drei Säulen von Open Science (Preregistrierung, Open Data, Open Materials) benennen und einordnen
+- problematische Forschungspraktiken wie p-Hacking und HARKing erkennen und beschreiben
+- Kriterien nennen, nach denen Du die Qualität einer Studie beurteilen kannst
+- den Bezug zu Wirksamkeitsstudien in der Psychotherapieforschung herstellen
+:::
+
+## Worum es geht
+
+Bevor wir anfangen, Daten zu erheben und zu analysieren, stellen wir uns eine unbequeme Frage: Wie viel können wir psychologischen Studien eigentlich glauben? In den letzten 15 Jahren hat die Psychologie eine handfeste Vertrauenskrise durchlebt — und sie hat die Wissenschaft am Ende stärker gemacht. Diese Krise zu kennen ist kein akademisches Randthema: Als angehende Psychotherapeutin oder angehender Psychotherapeut wirst Du regelmäßig entscheiden müssen, welchen Studien Du vertraust und welche Therapiemethoden Du einsetzt. Evidenzbasierte Praxis beginnt mit der Fähigkeit, Evidenz kritisch zu beurteilen.
+
+## Theorie kompakt
+
+### Die Replikationskrise
+
+2011 versuchte ein Team von Forschenden, 100 klassische Befunde der Psychologie zu replizieren — also dieselbe Studie nochmals durchzuführen, um zu prüfen, ob das Ergebnis standhält. Das Ergebnis war erschütternd: Nur etwa 36 bis 39 Prozent der Studien zeigten in der Replikation ein signifikantes Ergebnis, das dem Original ähnelte (Open Science Collaboration, 2015).
+
+Wie konnte das passieren? Mehrere Faktoren spielten zusammen:
+
+**Publikationsbias:** Fachzeitschriften veröffentlichten bevorzugt Studien mit signifikanten Ergebnissen (*p* < .05). Studien ohne signifikantes Ergebnis verschwanden in der Schublade. Dadurch entstand ein verzerrtes Bild der Forschungslage — die Literatur zeigte mehr positive Befunde, als es in der Wirklichkeit gab.
+
+**p-Hacking:** Forschende analysierten ihre Daten auf vielfältige Weisen, bis ein signifikantes Ergebnis erschien: mehr Versuchspersonen hinzufügen, andere Kontrollvariablen aufnehmen, Ausreißer entfernen. Jede dieser Entscheidungen erhöhte die Wahrscheinlichkeit, zufällig ein signifikantes Ergebnis zu finden — selbst wenn in Wirklichkeit kein Effekt vorhanden war.
+
+**HARKing** (*Hypothesizing After Results are Known*): Forschende formulierten ihre Hypothesen erst *nach* der Datenanalyse um, sodass sie zur gefundenen Antwort passten — und präsentierten das anschließend so, als ob diese Hypothese von Anfang an bestanden hätte.
+
+::: {.callout-tip title="Beispiel aus der Psychotherapieforschung"}
+Stell Dir vor, eine Studie vergleicht Verhaltenstherapie mit einer Kontrollbedingung bei Depression. Die Forschenden messen sieben verschiedene Outcomemaße (BDI, HAMD, PHQ-9, Wohlbefinden, Lebensqualität ...). Nur das PHQ-9 zeigt p = .03. Im Paper wird das PHQ-9 als das "primäre Outcomemaß" bezeichnet — obwohl es erst nach der Analyse dazu erklärt wurde. Das ist HARKing in der Psychotherapieforschung.
+:::
+
+### Open Science als Antwort
+
+Open Science ist kein einzelnes Werkzeug, sondern eine Kultur der Transparenz. Drei Praktiken stehen im Zentrum:
+
+**Preregistrierung:** Forschende legen *vor* der Datenerhebung schriftlich fest, welche Hypothesen sie testen, welche Variablen sie erheben, welche Analysemethoden sie verwenden und wie viele Personen sie einschließen. Diese Dokumentation wird auf einer Plattform wie dem Open Science Framework (OSF, [osf.io](https://osf.io)) mit Zeitstempel gespeichert. Damit ist p-Hacking und HARKing im Nachhinein prüfbar.
+
+**Open Data:** Der verwendete Datensatz wird nach Publikation (anonymisiert, mit Einverständnis der Teilnehmenden) öffentlich zugänglich gemacht. Andere Forschende können dieselbe Analyse reproduzieren oder neue Fragen am selben Datensatz stellen.
+
+**Open Materials:** Alle Materialien, die zur Studie gehören — Fragebögen, Stimuli, Analysecode — werden ebenfalls veröffentlicht. Das ist genau das, was wir in diesem Workshop tun: Der Fragebogen liegt in `materials/fragebogen.qmd`, der Datensatz landet in `data/combined/`, und dieser Workshop selbst ist ein öffentliches GitHub-Repository.
+
+### Wie beurteile ich die Qualität einer Studie?
+
+Eine gute Faustregel ist die **PICO-Struktur** (Population, Intervention, Comparison, Outcome) kombiniert mit Transparenzkriterien:
+
+| Kriterium | Frage |
+|---|---|
+| **Stichprobe** | Ist die Stichprobe repräsentativ? Wie groß? |
+| **Design** | Randomisiert? Kontrollgruppe vorhanden? |
+| **Preregistrierung** | Hypothesen und Analyseplan vorab festgelegt? |
+| **Effektgröße** | Wie groß ist der Effekt — nicht nur ob er signifikant ist? |
+| **Replikation** | Wurde der Befund repliziert? Von unabhängigen Gruppen? |
+| **Interessenkonflikte** | Wer hat die Studie finanziert? |
+
+::: {.callout-tip title="Beispiel: Wirksamkeitsstudie vs. Wirkungsstudie"}
+In der Psychotherapieforschung unterscheidet man **Efficacy-Studien** (unter optimalen, kontrollierten Bedingungen — randomisierte klinische Studien) von **Effectiveness-Studien** (unter Alltagsbedingungen in der realen Versorgung). Ein Befund aus einer Efficacy-Studie mit hochselektierter Stichprobe lässt sich nicht eins zu eins auf die Praxis übertragen. Beide Studientypen zu kennen und richtig einzuordnen ist eine Kernkompetenz in der evidenzbasierten Psychotherapie.
+:::
+
+### Forschungsethik
+
+Neben methodischer Qualität gibt es ethische Fragen:
+
+- Wurden Teilnehmende informiert und gaben freiwillig ihr Einverständnis?
+- Sind die Daten ausreichend anonymisiert?
+- Werden vulnerable Gruppen besonders geschützt?
+- Werden auch negative oder unerwünschte Effekte einer Therapie berichtet?
+
+In diesem Workshop erheben wir Daten von Studierenden, die in einem Seminar teilnehmen. Das ist kein neutrales Setting. Deshalb gibt es eine Einverständniserklärung, eine Alternative (nur synthetische Daten hochladen) und eine klare Regelung zur Pseudonymisierung.
+
+## Diskussionsaufgabe
+
+::: {.callout-note title="Aufgabe"}
+Kein JASP heute Morgen — stattdessen eine kurze Reflexion.
+
+**Aufgabe:** Lies den folgenden Kurzabschnitt und beantworte die drei Fragen darunter.
+
+> Eine viel zitierte Studie aus den 1990er-Jahren zeigte, dass eine bestimmte Form der kognitiven Umstrukturierung bei sozialer Phobie hochsignifikant wirksam war (*p* = .001). Die Studie wurde nie repliziert. Ein Cochrane-Review aus dem Jahr 2018 schloss die Studie wegen fehlender Randomisierung aus.
+
+1. Welche der oben genannten Qualitätskriterien sind hier problematisch?
+2. Was hättest Du gebraucht, um dieser Studie mehr zu vertrauen?
+3. Würdest Du die Methode trotzdem anwenden, wenn Deine klinische Erfahrung positiv ist? Warum oder warum nicht?
+:::
+
+<details>
+<summary>Leitgedanken anzeigen</summary>
+
+**Zu 1:** Fehlende Randomisierung ist ein schwerwiegendes Design-Problem — ohne Zufallszuweisung können Unterschiede zwischen den Gruppen auf Selektionseffekte zurückgehen, nicht auf die Intervention. Außerdem fehlt eine Replikation, und *p* = .001 allein sagt nichts über die Effektgröße aus.
+
+**Zu 2:** Mindestens eine unabhängige Replikation mit ähnlichem Design, eine Angabe zur Effektgröße (z. B. Cohen's *d*), ein vorab registrierter Analyseplan und ein offener Datensatz zur Nachprüfung.
+
+**Zu 3:** Das ist eine offene, diskussionswürdige Frage. Klinische Erfahrung ist wichtig, aber sie leidet unter denselben Verzerrungseffekten wie schlechte Forschung — wir erinnern uns besonders an Erfolge. Evidenzbasierte Praxis bedeutet, beides zu verbinden: klinisches Urteil *und* systematische Evidenz.
+
+</details>
+
+## Selbstcheck
+
+1. Was ist der Unterschied zwischen p-Hacking und HARKing?
+2. Warum führt Publikationsbias zu einem verzerrten Bild in der Literatur?
+3. Was genau verhindert Preregistrierung — und was verhindert sie *nicht*?
+4. Welche zwei Studientypen unterscheidet die Psychotherapieforschung, und was ist der Unterschied?
+
+::: {.callout-important title="Klausurrelevant"}
+Replikationskrise, Publikationsbias, p-Hacking, HARKing, Preregistrierung, Open Data, Efficacy vs. Effectiveness, Evidenzbasierte Praxis
+:::
+
+## Weiterführend (optional)
+
+- Open Science Collaboration (2015). *Estimating the reproducibility of psychological science.* Science, 349(6251). [doi.org/10.1126/science.aac4716](https://doi.org/10.1126/science.aac4716)
+- Center for Open Science: [cos.io](https://www.cos.io)
+- Open Science Framework: [osf.io](https://osf.io)
+- Simmons, J. P., Nelson, L. D., & Simonsohn, U. (2011). False-positive psychology. *Psychological Science*, 22(11), 1359–1366.
+
+---
+
+Weiter geht es mit [Messtheorie & BFI-K verstehen](02-messen.qmd), wo Du lernst, wie psychologische Konstrukte gemessen werden.

@@ -1,0 +1,171 @@
+# Reliabilität: Cronbachs Alpha & McDonald's Omega
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- den Begriff Reliabilität definieren und von Validität abgrenzen
+- Cronbachs Alpha berechnen, den Wert interpretieren und seine Grenzen benennen
+- McDonald's Omega als Alternative zu Alpha erklären und in JASP ausgeben
+- Item-Trennschärfe (rit) interpretieren und schwache Items identifizieren
+- eine Reliabilitätsanalyse für eine BFI-K-Subskala in JASP vollständig durchführen
+:::
+
+## Worum es geht
+
+Ein Messinstrument ist nur dann nützlich, wenn es **zuverlässig** misst — also bei gleichen Bedingungen gleiche Ergebnisse liefert. In der klassischen Testtheorie nennt man das Reliabilität. Sie ist eine Voraussetzung für Validität: Ein unzuverlässiges Instrument kann nicht valide sein, weil es nicht klar misst, was es messen soll.
+
+Für die Psychotherapieforschung ist das unmittelbar praktisch: Wenn ein Instrument wie der BFI-K in einer Stichprobe eine niedrige interne Konsistenz zeigt, bedeutet das entweder, dass die Items nicht gut zusammenpassen — oder dass die Stichprobe die Konstrukte anders interpretiert als erwartet. Beides ist ein Signal, nicht einfach ein Fehler.
+
+## Theorie kompakt
+
+### Was ist Reliabilität?
+
+Reliabilität ist der Anteil der **wahren Varianz** an der Gesamtvarianz eines Messwerts. Formal:
+
+```
+Reliabilität = Wahre Varianz / (Wahre Varianz + Fehlervarianz)
+```
+
+Werte zwischen 0 und 1. Je näher an 1, desto zuverlässiger das Instrument.
+
+Es gibt verschiedene Arten von Reliabilität:
+
+| Art | Methode | Wann relevant? |
+|---|---|---|
+| **Interne Konsistenz** | Cronbachs α, McDonald's ω | Items einer Skala messen dasselbe Konstrukt |
+| **Retest-Reliabilität** | Korrelation zweier Zeitpunkte | Konstrukt soll stabil sein über Zeit |
+| **Interrater-Reliabilität** | Cohen's κ | Mehrere Personen codieren dasselbe |
+
+Wir fokussieren heute auf **interne Konsistenz**, weil wir einen Einmalmessdatensatz haben.
+
+### Cronbachs Alpha
+
+Cronbachs Alpha (α) misst, wie stark die Items einer Skala miteinander korrelieren. Vereinfacht:
+
+```
+α = (k / (k−1)) × (1 − Σ Itemvarianzen / Gesamtvarianz)
+```
+
+wobei k = Anzahl Items.
+
+**Interpretation:**
+
+| α-Wert | Bewertung |
+|---|---|
+| > 0.90 | Exzellent (manchmal zu hoch: Redundanz?) |
+| 0.80–0.90 | Gut |
+| 0.70–0.80 | Akzeptabel |
+| 0.60–0.70 | Fraglich |
+| < 0.60 | Problematisch |
+
+::: {.callout-tip title="Beispiel"}
+Die Extraversions-Subskala des BFI-K hat 4 Items (BFI_E1, BFI_E2, BFI_E3_r, BFI_E4). Wenn alle vier Items gut miteinander korrelieren — weil sie alle Extraversion messen — ergibt sich ein hohes Alpha. Typische BFI-K-Werte in deutschen Stichproben liegen für Extraversion bei α ≈ 0.77.
+:::
+
+**Kritik an Alpha:** Alpha setzt voraus, dass alle Items gleich stark zum Konstrukt beitragen (tau-äquivalentes Modell). Das ist selten wirklich der Fall.
+
+### McDonald's Omega
+
+Omega (ω) ist eine Alternative, die unterschiedlich starke Faktorladungen erlaubt. Es ist statistisch moderner und empfehlenswerter, wenn die Items nicht gleichwertig sind.
+
+In der Praxis: Bei guten Instrumenten liegen α und ω nah beieinander. Wenn sie stark abweichen, ist das ein Hinweis, dass die Tau-Äquivalenzannahme verletzt ist.
+
+### Item-Trennschärfe
+
+Die **korrigierte Item-Total-Korrelation** (rit) misst, wie gut ein einzelnes Item die Gesamtskala repräsentiert. Ein Item mit rit < 0.3 trägt wenig zur Skala bei.
+
+Die Korrektur ("korrigiert") bedeutet: Das Item selbst wird aus dem Gesamtscore herausgerechnet, bevor die Korrelation berechnet wird — sonst würde das Item mit sich selbst korrelieren.
+
+::: {.callout-warning title="Wenn Du hier hängst"}
+**Problem:** Alpha ist sehr niedrig (< 0.50) für BFI-Extraversion.
+**Lösung 1:** Prüfe, ob BFI_E3 korrekt umgekodiert wurde. Das häufigste Problem bei BFI-K ist vergessenes Reverse Coding.
+**Lösung 2:** Sieh in der Item-Trennschärfe-Tabelle nach, welches Item die niedrigste rit hat — das könnte der Übeltäter sein.
+:::
+
+## JASP-Walkthrough
+
+### Reliabilitätsanalyse für BFI-Extraversion
+
+1. Analyses → **Reliability** → **Classical Reliability Analysis**
+2. In das Feld **Variables** die Items der Extraversions-Subskala ziehen: `BFI_E1`, `BFI_E2`, `BFI_E3_r`, `BFI_E4`
+
+::: {.callout-warning title="Wichtig"}
+Benutze `BFI_E3_r` (die umgekodierte Version), nicht `BFI_E3`. Wenn Du vergisst umzukodieren, wird Alpha künstlich niedrig.
+:::
+
+3. Unter **Scale Statistics** aktivieren:
+   - Cronbach's α
+   - McDonald's ω
+   - Average interitem correlation (Mittlere Inter-Item-Korrelation)
+
+4. Unter **Individual Item Statistics** aktivieren:
+   - Item-rest correlation (= Item-Trennschärfe, rit)
+   - Cronbach's α if item dropped (zeigt, wie Alpha ohne dieses Item wäre)
+
+5. Output ansehen
+
+![TODO: Screenshot von JASP Reliability Analysis Output](../img/TODO-jasp-reliability-output.png)
+
+**Was Du in der Ausgabe abliest:**
+
+- Ganz oben: der Alpha- und Omega-Wert für die gesamte Skala
+- In der Item-Tabelle: rit pro Item — Werte unter 0.3 sind auffällig
+- "α if item dropped": wenn dieser Wert für ein Item höher ist als das Gesamt-Alpha, würde die Skala ohne dieses Item zuverlässiger sein
+
+### Reliabilitätsanalyse für SWLS
+
+Wiederhole die Analyse für die Lebenszufriedenheitsskala:
+
+1. Variables: `SWLS_1`, `SWLS_2`, `SWLS_3`, `SWLS_4`, `SWLS_5`
+2. Dieselben Einstellungen wie oben
+3. Typischer Befund: SWLS hat sehr hohe interne Konsistenz (α ≈ 0.87 in deutschen Stichproben)
+
+![TODO: Screenshot von JASP SWLS Reliability Output](../img/TODO-jasp-reliability-swls.png)
+
+::: {.callout-tip title="Vergleich der Instrumente"}
+Vergleiche die Ergebnisse für Extraversion und SWLS. Die SWLS sollte höhere Konsistenz zeigen, weil alle fünf Items direkt Lebenszufriedenheit abfragen (sehr homogen). Der BFI-K misst ein breiter angelegtes Konstrukt mit heterogeneren Items — deshalb ist ein niedrigeres Alpha normal und kein Qualitätsproblem.
+:::
+
+## Mini-Übung
+
+**Aufgabe:** Führe eine Reliabilitätsanalyse für die BFI-K-Neurotizismus-Subskala durch. Welches Item hat die niedrigste Trennschärfe? Würde die Skala ohne dieses Item besser werden?
+
+Variablen: `BFI_N1`, `BFI_N2_r`, `BFI_N3`, `BFI_N4_r`
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+1. Analyses → Reliability → Classical Reliability Analysis
+2. Variables: `BFI_N1`, `BFI_N2_r`, `BFI_N3`, `BFI_N4_r`
+3. Scale Statistics: Cronbach's α, McDonald's ω
+4. Individual Item Statistics: Item-rest correlation, α if item dropped
+
+Typische Befunde für BFI-K Neurotizismus:
+- α ≈ 0.72–0.78
+- rit-Werte meist zwischen 0.40 und 0.60 für alle Items
+- Kein Item fällt drastisch heraus
+
+Wenn ein Item eine rit < 0.30 hat: Prüfe zuerst, ob die Umkodierung korrekt war. BFI_N2_r und BFI_N4_r sind Reverse Items — hier passieren die meisten Fehler.
+
+Wenn "α if item dropped" für ein Item deutlich höher ist als Gesamt-Alpha: Das Item schwächt die Skala. Für die Zwecke des Workshops belassen wir alle Items, aber in einer echten Studie würde man das melden.
+
+</details>
+
+## Selbstcheck
+
+1. Was misst Cronbachs Alpha, und welcher Wert gilt als Mindestanforderung?
+2. Warum ist McDonald's Omega methodisch moderner als Cronbachs Alpha?
+3. Was bedeutet eine Item-Trennschärfe (rit) von 0.15, und was würdest Du in diesem Fall tun?
+
+::: {.callout-important title="Klausurrelevant"}
+Reliabilität vs. Validität, Cronbachs Alpha (Formel vereinfacht, Interpretation), McDonald's Omega (Vorteil gegenüber Alpha), Item-Trennschärfe rit (Interpretation, kritischer Wert), interne Konsistenz
+:::
+
+## Weiterführend (optional)
+
+- Revelle & Zinbarg (2009): Coefficients Alpha, Beta, Omega, and the glb — warum Omega Alpha übertrifft
+- McDonald (1999): Test Theory — das Standardwerk zu Omega
+
+---
+
+Weiter geht es mit [Explorative Faktorenanalyse](04-efa-cfa.qmd).

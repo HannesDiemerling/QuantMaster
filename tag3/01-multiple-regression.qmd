@@ -1,0 +1,232 @@
+# Multiple Regression
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- den Unterschied zwischen einfacher und multipler Regression erklären
+- unstandardisierte (*b*) und standardisierte (*β*) Regressionskoeffizienten voneinander abgrenzen und interpretieren
+- R² und adjustiertes R² als Maße des Modell-Fits lesen und einordnen
+- die Voraussetzungen multipler Regression prüfen (Normalverteilung der Residuen, Homoskedastizität, Multikollinearität)
+- in JASP zwei Modelle hierarchisch vergleichen und ΔR² interpretieren
+- eine JASP-Ausgabe zur multiplen Regression vollständig lesen
+:::
+
+## Worum es geht
+
+An Tag 2 hast Du bivariate Korrelationen berechnet und als Hausaufgabe untersucht, welcher Big-Five-Faktor am stärksten mit Lebenszufriedenheit (`SWLS_total`) zusammenhängt. Das war ein guter Einstieg — aber Korrelationen haben eine wichtige Schwäche: Sie berücksichtigen nicht, was sonst noch eine Rolle spielt.
+
+Multiple Regression löst genau dieses Problem. Sie erlaubt Dir zu sagen: "Neurotizismus sagt Lebenszufriedenheit vorher — *auch dann noch*, wenn ich Extraversion, Alter und andere Variablen statistisch konstant halte." In der Psychotherapieforschung ist das alltäglich: Welche Faktoren sagen Therapieerfolg vorher, wenn man gleichzeitig für Diagnose, Schwere der Symptome und Therapieform kontrolliert?
+
+Heute rechnest Du Dein erstes multivariates Modell auf echten (bzw. echten + synthetischen) Daten aus dem Workshop.
+
+## Theorie kompakt
+
+### Das Modell
+
+Eine einfache lineare Regression hat die Form:
+
+$$\hat{Y} = b_0 + b_1 \cdot X_1$$
+
+Mit *Y*: vorhergesagter Wert (Kriterium), *b₀*: Intercept (Y-Wert wenn X = 0), *b₁*: Regressionsgewicht (wie viel ändert sich Y, wenn X um 1 Einheit steigt).
+
+Multiple Regression erweitert das um weitere Prädiktoren:
+
+$$\hat{Y} = b_0 + b_1 \cdot X_1 + b_2 \cdot X_2 + \ldots + b_k \cdot X_k$$
+
+Die Koeffizienten *b₁*, *b₂*, ... werden so bestimmt, dass die Summe der quadrierten Residuen (Abweichungen zwischen vorhergesagten und tatsächlichen Y-Werten) minimal wird. Das nennt man **Ordinary Least Squares (OLS)**.
+
+### Unstandardisierte vs. standardisierte Koeffizienten
+
+**Unstandardisierte Koeffizienten (*b*)** behalten die Originalmetrik der Variablen. Ein *b* von –2,3 für Neurotizismus bedeutet: "Wenn `BFI_N_mean` um 1 Punkt steigt, sinkt `SWLS_total` durchschnittlich um 2,3 Punkte — unter Kontrolle aller anderen Prädiktoren im Modell."
+
+**Standardisierte Koeffizienten (*β*, auch Beta)** sind dimensionslos — alle Variablen wurden auf Mittelwert 0 und Standardabweichung 1 skaliert. Vorteil: Du kannst die Stärke verschiedener Prädiktoren direkt vergleichen, auch wenn sie unterschiedliche Skalen haben. Ein *β* = –0,42 ist stärker als ein *β* = 0,18.
+
+Merke: *β* ist ein Vergleichsmaß, *b* ist das inhaltlich interpretierbare Gewicht.
+
+### R² — erklärte Varianz
+
+R² (Determinationskoeffizient) gibt an, welchen Anteil der Gesamtvarianz in Y das Modell erklärt:
+
+$$R^2 = \frac{SS_{Regression}}{SS_{Total}}$$
+
+R² = 0,35 bedeutet: Das Modell erklärt 35 % der Varianz in `SWLS_total`. Die restlichen 65 % gehen auf andere, nicht erfasste Einflüsse zurück.
+
+**Adjustiertes R²** korrigiert für die Anzahl der Prädiktoren. Jede neue Variable erhöht R² leicht — selbst wenn sie nichts beiträgt. Adjustiertes R² straft unnötige Prädiktoren ab und ist daher beim Modellvergleich ehrlicher.
+
+### Voraussetzungen
+
+Damit die Schätzungen unverzerrt und die Signifikanztests gültig sind, gelten folgende Voraussetzungen:
+
+| Voraussetzung | Was heißt das? | Wie prüfen? |
+|---|---|---|
+| Linearität | Der Zusammenhang zwischen X und Y ist linear | Residuals-vs-Fitted-Plot |
+| Normalverteilung der Residuen | Die Abweichungen sind normalverteilt | Q-Q-Plot der Residuen |
+| Homoskedastizität | Die Streuung der Residuen ist über alle Prädiktorwerte konstant | Residuals-vs-Fitted-Plot |
+| Keine Multikollinearität | Prädiktoren sind nicht zu stark untereinander korreliert | VIF (Variance Inflation Factor) |
+| Unabhängigkeit der Beobachtungen | Jede Zeile ist eine eigene Person | Studiendesign |
+
+**VIF-Faustregel:** VIF < 5 ist unkritisch. VIF zwischen 5 und 10 ist problematisch. VIF > 10 ist ein klares Problem.
+
+### Hierarchischer Modellvergleich
+
+Beim hierarchischen Ansatz baust Du das Modell in Stufen auf. Zuerst ein einfaches Modell (z. B. nur `age`), dann ein erweitertes (z. B. `age` + `BFI_N_mean` + `BFI_E_mean`).
+
+Das Wichtige: **ΔR²** zeigt Dir, wie viel zusätzliche Varianz die neu hinzugefügten Prädiktoren erklären. Der zugehörige F-Test prüft, ob diese Verbesserung statistisch bedeutsam ist.
+
+::: {.callout-tip title="Beispiel aus dem Datensatz"}
+Fragestellung: Welche Persönlichkeitsfaktoren sagen Lebenszufriedenheit (`SWLS_total`) vorher?
+
+Modell 1 (Baseline): Nur `age` als Prädiktor. Hypothese: Ältere Menschen sind vielleicht zufriedener oder unzufriedener — aber der Effekt dürfte klein sein.
+
+Modell 2 (Erweiterung): `age` + `BFI_N_mean` + `BFI_E_mean`. Hypothese: Neurotizismus sollte Lebenszufriedenheit negativ vorhersagen (negative Affektivität), Extraversion positiv (positive Affektivität, soziale Ressourcen).
+
+Erwartetes Ergebnis: ΔR² beim Schritt von Modell 1 zu Modell 2 sollte substanziell sein. `BFI_N_mean` sollte einen negativen *β*, `BFI_E_mean` einen positiven *β* aufweisen.
+:::
+
+## JASP-Walkthrough
+
+### Vorbereitung
+
+Stelle sicher, dass `data/combined/m15-combined.csv` in JASP geladen ist und die Computed Columns aus Tag 2 vorhanden sind (`BFI_E_mean`, `BFI_N_mean`, `SWLS_total`).
+
+### Schritt 1: Regression öffnen
+
+Klicke oben im Menü auf **Regression** → **Linear Regression**.
+
+Ein neues Analyse-Panel öffnet sich auf der linken Seite.
+
+![TODO: Screenshot des Regression-Menüs in JASP](../img/TODO-jasp-regression-menu.png)
+
+### Schritt 2: Variablen zuweisen
+
+- Ziehe `SWLS_total` in das Feld **Dependent Variable** (Kriterium).
+- Lasse das Feld **Covariates** zunächst leer.
+
+### Schritt 3: Modell 1 anlegen
+
+- Klicke auf **Add New Block** (oder es gibt bereits Block 1).
+- Ziehe `age` in den Block 1 unter **Covariates**.
+- Das ist Dein Ausgangsmodell (Baseline).
+
+### Schritt 4: Modell 2 anlegen
+
+- Klicke auf **Add New Block** — jetzt erscheint Block 2.
+- Ziehe `BFI_N_mean` und `BFI_E_mean` in Block 2.
+- JASP wertet Block 1 und Block 2 als hierarchische Modelle und zeigt Dir ΔR².
+
+![TODO: Screenshot der Block-Struktur in JASP Linear Regression](../img/TODO-jasp-regression-blocks.png)
+
+### Schritt 5: Standardisierte Koeffizienten aktivieren
+
+- Scrolle in den Optionen zu **Coefficients**.
+- Aktiviere **Standardized** (gibt Dir *β*-Werte zusätzlich zu den *b*-Werten).
+- Aktiviere außerdem **Confidence intervals** (95 %-KI um die Schätzer).
+
+### Schritt 6: Residuen-Diagnostik
+
+- Scrolle zu **Residuals**.
+- Aktiviere **Q-Q plot standardized residuals** — damit prüfst Du die Normalverteilung.
+- Aktiviere **Residuals vs. fitted** — damit prüfst Du Linearität und Homoskedastizität.
+
+![TODO: Screenshot Q-Q-Plot und Residuals-vs-Fitted](../img/TODO-jasp-regression-residuals.png)
+
+### Schritt 7: Multikollinearität prüfen
+
+- Scrolle zu **Collinearity diagnostics**.
+- Aktiviere **VIF** (Variance Inflation Factor).
+- Der VIF-Wert erscheint in der Koeffizienten-Tabelle.
+
+### Schritt 8: Ergebnisse lesen
+
+JASP zeigt Dir mehrere Tabellen:
+
+**Model Summary:** R, R², adj. R², F, df, p — je Modell.
+
+**ANOVA:** F-Test für das Gesamtmodell.
+
+**Coefficients:** Für jede Variable *b*, SE, t, p, optional *β* und KI.
+
+**Model Comparison:** ΔR², ΔF, df, p — der entscheidende Vergleich zwischen Modell 1 und Modell 2.
+
+::: {.callout-warning title="Wenn Du hier hängst"}
+**Problem: Ich sehe keinen zweiten Block.**
+Lösung: Unter dem Block-1-Feld gibt es einen Button "Add New Block" oder ein "+" — klick darauf.
+
+**Problem: `SWLS_total` steht nicht zur Verfügung.**
+Lösung: Die Computed Column wurde noch nicht angelegt. Kurz zu Tag 2, Kapitel 01 springen und die Berechnungsformel nachbauen (Summe aus `SWLS_1` bis `SWLS_5`).
+
+**Problem: VIF wird nicht angezeigt.**
+Lösung: Collinearity diagnostics erst aktivieren, nachdem mindestens eine Variable im Block ist. Reihenfolge: erst Variablen zuweisen, dann Optionen setzen.
+
+**Problem: Der Q-Q-Plot sieht "schlecht" aus — viele Punkte weichen von der Linie ab.**
+Lösung: Das ist mit einem kleinen Datensatz normal. Notiere es als Einschränkung. Für die Interpretation der Koeffizienten ist leichte Abweichung tolerierbar, wenn n > 30.
+:::
+
+## Output-Interpretation: Was sagt das Modell?
+
+Lies die Ergebnisse so:
+
+**Model Summary:** Vergleiche R² von Modell 1 und Modell 2. Modell 1 erklärt vielleicht 2–5 % der Varianz (Alter allein sagt wenig vorher). Modell 2 sollte deutlich mehr erklären — bei Persönlichkeitsvariablen und Lebenszufriedenheit sind R² um 0,20–0,40 realistisch.
+
+**ΔR²:** Wie viel hat der zweite Block (Neurotizismus + Extraversion) zusätzlich erklärt? Ist dieses Inkrement signifikant (p < .05)?
+
+**Koeffizienten Modell 2:**
+- `BFI_N_mean`: Erwarte ein negatives *b* und *β*. Je höher der Neurotizismus, desto geringer die Lebenszufriedenheit. Das ist gut belegt in der Literatur.
+- `BFI_E_mean`: Erwarte ein positives *b* und *β*. Extraversion ist mit positiver Affektivität und sozialer Eingebundenheit verknüpft.
+- `age`: Schau, ob der Koeffizient noch signifikant ist, wenn die Persönlichkeitsvariablen kontrolliert werden. Oft verschwindet ein ursprünglich vorhandener Alterseffekt.
+
+**VIF:** Beide Werte sollten deutlich unter 5 liegen. Neurotizismus und Extraversion korrelieren moderat negativ miteinander (Menschen mit hohem N haben tendenziell niedrigeres E) — aber der VIF sollte trotzdem unkritisch sein.
+
+::: {.callout-tip title="Faustregeln für die Interpretation"}
+- *β* > |0,40|: starker Prädiktor
+- *β* zwischen |0,20| und |0,40|: mittlerer Prädiktor
+- *β* < |0,20|: schwacher Prädiktor (aber nicht bedeutungslos, wenn signifikant)
+- R² < 0,10: schwacher Modell-Fit
+- R² zwischen 0,10 und 0,30: mittlerer Fit
+- R² > 0,30: guter Fit (für Persönlichkeitsforschung realistisch)
+:::
+
+## Mini-Übung
+
+**Aufgabe:** Erweitere das Modell um zwei weitere Prädiktoren. Füge `BFI_G_mean` (Gewissenhaftigkeit) und `BFI_O_mean` (Offenheit) zu Block 2 hinzu (oder lege einen Block 3 an). Beantworte folgende Fragen:
+
+1. Ändert sich R² substanziell?
+2. Welcher Big-Five-Faktor hat das größte *β* im Gesamtmodell?
+3. Steigt der VIF für einen der Prädiktoren auf einen kritischen Wert?
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+**Vorgehen:** Klicke auf "Add New Block" oder füge `BFI_G_mean` und `BFI_O_mean` zum bestehenden Block 2 hinzu. Lies dann die aktualisierte Model Summary.
+
+**Erwartete Ergebnisse:**
+
+- R² steigt typischerweise nur leicht an (etwa +0,02 bis +0,05), weil Gewissenhaftigkeit und Offenheit schwächere Zusammenhänge mit `SWLS_total` haben.
+- Das größte |*β*| gehört meist `BFI_N_mean` (Neurotizismus ist der stärkste Big-Five-Prädiktor von Lebenszufriedenheit — das ist gut repliziert).
+- VIF bleibt unkritisch (< 3 für alle Prädiktoren), weil die Big-Five-Skalen zwar korrelieren, aber nicht stark genug für Multikollinearität.
+
+**Inhaltliche Schlussfolgerung:** Neurotizismus ist der dominierende Prädiktor. Das passt zum Konzept der negativen Affektivität — Menschen mit hohem N erleben mehr negative Emotionen, was direkt auf Lebenszufriedenheit durchschlägt.
+
+</details>
+
+## Selbstcheck
+
+1. Was ist der Unterschied zwischen einem unstandardisierten Koeffizienten *b* und einem standardisierten Koeffizienten *β*? Wann nutzt Du welchen?
+2. Ein Modell mit 3 Prädiktoren hat R² = 0,28. Was bedeutet das inhaltlich?
+3. Der VIF für `BFI_N_mean` beträgt 7,4. Was tust Du?
+4. Du vergleichst Modell 1 (nur `age`) mit Modell 2 (`age` + `BFI_N_mean` + `BFI_E_mean`). ΔR² = 0,19, p < .001. Was schlussfolgert Du?
+5. Warum ist adjustiertes R² beim Modellvergleich ehrlicher als R²?
+
+::: {.callout-important title="Klausurrelevant"}
+Multiple Regression, Kriterium, Prädiktor, Regressionsgewicht, unstandardisiertes *b*, standardisiertes *β*, R², adjustiertes R², Residuen, Homoskedastizität, Normalverteilung der Residuen, VIF, Multikollinearität, hierarchischer Modellvergleich, ΔR², Modell-Fit
+:::
+
+## Weiterführend (optional)
+
+- Field, A. (2024). *Discovering Statistics Using IBM SPSS Statistics* (6th ed.). Sage. — Kapitel 9 (Multiple Regression) ist eines der besten deutschsprachig verständlichen Einführungskapitel, auch wenn das Buch auf Englisch ist.
+- [StatQuest: Multiple Regression (YouTube)](https://www.youtube.com/watch?v=zITIFTsivN8) — visuelle Intuition in 15 Minuten.
+- Gelman, A., & Hill, J. (2007). *Data Analysis Using Regression and Multilevel/Hierarchical Models*. Cambridge. — für alle, die tiefer einsteigen wollen.
+
+---
+
+Weiter zu: [Moderation](02-moderation.qmd)

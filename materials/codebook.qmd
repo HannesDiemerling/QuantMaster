@@ -1,0 +1,154 @@
+---
+title: "Codebook — M15 Datensatz"
+---
+
+# Codebook
+
+Dieses Codebook beschreibt alle Variablen im Workshop-Datensatz `data/combined/m15-combined.csv`.
+Es ist die verbindliche Quelle fur Variablennamen, Skalierung und Reverse-Coding.
+
+::: {.callout-note title="CSV-Format"}
+UTF-8, Komma-getrennt, Punkt als Dezimaltrenner, fehlende Werte = leere Zelle.
+Insgesamt **37 Spalten** je Zeile.
+:::
+
+::: {.callout-warning title="Reverse Items"}
+Die Rohwerte im Datensatz sind **nicht** umgepolt. Umpolung ist Lehrinhalt in Tag 2.
+Formel: `rekodierter Wert = Maximalwert + 1 - Rohwert`
+
+Fur BFI-K (Skala 1-5): `6 - Rohwert`
+
+Betroffen: **BFI_E3, BFI_V1, BFI_G2, BFI_N2, BFI_N4, BFI_O4**
+:::
+
+---
+
+## Verwaltungsvariablen
+
+| Variable | Label | Typ | Werte | Hinweis |
+|---|---|---|---|---|
+| `id` | Eindeutige Fallnummer | numeric | 1, 2, 3 ... | Vom Lehrenden vergeben |
+| `source` | Datenquelle | categorical | `echt` / `synth_seed` / `synth_student` | `echt` = echte Studierendendaten; `synth_seed` = Lehrenden-Datensatz; `synth_student` = synthetische Studierendendaten |
+| `student_id` | Pseudonym | character | z.B. `s-01` | Keine echten Namen |
+
+---
+
+## Demografische Variablen
+
+| Variable | Label | Typ | Werte |
+|---|---|---|---|
+| `age` | Alter in Jahren | numeric | 18-65 |
+| `gender` | Geschlecht | categorical | `w` / `m` / `d` / `na` |
+| `semester` | Fachsemester | numeric | 1-10 |
+| `stats_prior` | Statistik-Vorwissen | ordinal | 1 (keins) bis 5 (sehr gut) |
+| `therapy_exp` | Praxiserfahrung in Monaten | numeric | 0-120 |
+
+---
+
+## BFI-K — Big Five Inventory Kurzform
+
+Instruktion: *"Wie sehr treffen die folgenden Aussagen auf Sie zu?"*
+Skala: 1 = stimme gar nicht zu, 2 = stimme eher nicht zu, 3 = teils/teils, 4 = stimme eher zu, 5 = stimme voll zu
+
+### Extraversion (E)
+
+| Variable | Item | Reverse |
+|---|---|---|
+| `BFI_E1` | Ich bin jemand, der gesellig und umganglich ist. | Nein |
+| `BFI_E2` | Ich bin jemand, der zuruckhaltend ist. | Nein |
+| `BFI_E3` | Ich bin jemand, der eher introvertiert als extrovertiert ist. | **Ja** (6 - Rohwert) |
+| `BFI_E4` | Ich bin jemand, der aktiv und lebhaft ist. | Nein |
+
+### Vertraglichkeit (V)
+
+| Variable | Item | Reverse |
+|---|---|---|
+| `BFI_V1` | Ich bin jemand, der manchmal unhoflich und schroff mit anderen ist. | **Ja** (6 - Rohwert) |
+| `BFI_V2` | Ich bin jemand, der hilfsbereit und uneigennutzig gegenuber anderen ist. | Nein |
+| `BFI_V3` | Ich bin jemand, der vergebend ist. | Nein |
+| `BFI_V4` | Ich bin jemand, der rucksichtsvoll und einfuhlsam mit anderen umgeht. | Nein |
+
+### Gewissenhaftigkeit (G)
+
+| Variable | Item | Reverse |
+|---|---|---|
+| `BFI_G1` | Ich bin jemand, der grundlich arbeitet. | Nein |
+| `BFI_G2` | Ich bin jemand, der manchmal nicht so sorgfaltig ist. | **Ja** (6 - Rohwert) |
+| `BFI_G3` | Ich bin jemand, der Plane macht und diese auch durchfuhrt. | Nein |
+| `BFI_G4` | Ich bin jemand, der effizient ist und Dinge immer erledigt. | Nein |
+
+### Neurotizismus (N)
+
+| Variable | Item | Reverse |
+|---|---|---|
+| `BFI_N1` | Ich bin jemand, der leicht nervos und unsicher wird. | Nein |
+| `BFI_N2` | Ich bin jemand, der entspannt ist und gut mit Stress umgehen kann. | **Ja** (6 - Rohwert) |
+| `BFI_N3` | Ich bin jemand, der leicht trubsinnig wird. | Nein |
+| `BFI_N4` | Ich bin jemand, der stabil und ausgeglichen ist. | **Ja** (6 - Rohwert) |
+
+### Offenheit (O)
+
+| Variable | Item | Reverse |
+|---|---|---|
+| `BFI_O1` | Ich bin jemand, der einfallsreich ist -- ich denke mir immer etwas aus. | Nein |
+| `BFI_O2` | Ich bin jemand, der eine lebhafte Phantasie und Vorstellung hat. | Nein |
+| `BFI_O3` | Ich bin jemand, der tiefsinnig ist. | Nein |
+| `BFI_O4` | Ich bin jemand, der nur wenig kunstlerisches Interesse hat. | **Ja** (6 - Rohwert) |
+| `BFI_O5` | Ich bin jemand, der originell ist und neue Ideen entwickelt. | Nein |
+
+::: {.callout-tip title="Subskalenscore berechnen"}
+Nach dem Umkodieren der Reverse Items: Mittelwert uber alle vier bzw. funf Items der Subskala.
+Beispiel Extraversion: `E_mean = mean(c(BFI_E1, 6-BFI_E2, 6-BFI_E3, BFI_E4))`
+
+Achtung: BFI_E2 ist im BFI-K **kein** Reverse-Item. Nur die in der Tabelle markierten Items umkodieren.
+:::
+
+---
+
+## SWLS — Satisfaction With Life Scale
+
+Instruktion: *"Bitte gib an, wie sehr du den folgenden Aussagen zustimmst."*
+Skala: 1 = stimme gar nicht zu bis 7 = stimme vollig zu
+
+| Variable | Item | Reverse |
+|---|---|---|
+| `SWLS_1` | Mein Leben entspricht in den meisten Bereichen meinen Idealvorstellungen. | Nein |
+| `SWLS_2` | Meine Lebensbedingungen sind ausgezeichnet. | Nein |
+| `SWLS_3` | Ich bin mit meinem Leben zufrieden. | Nein |
+| `SWLS_4` | Bisher habe ich die wesentlichen Dinge erlangt, die ich mir fur mein Leben wunsche. | Nein |
+| `SWLS_5` | Wenn ich mein Leben noch einmal leben konnte, wurde ich kaum etwas andern. | Nein |
+
+Gesamtscore: Summe uber alle 5 Items (5-35). Hohere Werte = hohere Lebenszufriedenheit.
+
+---
+
+## PHQ-2 und GAD-2
+
+Instruktion: *"Wie haufig haben Sie sich in den letzten 2 Wochen durch folgende Probleme beeintrachtigt gefuhlt?"*
+Skala: 0 = gar nicht, 1 = an einzelnen Tagen, 2 = an mehr als der Halfte der Tage, 3 = beinahe jeden Tag
+
+### PHQ-2 (Depressive Symptomatik)
+
+| Variable | Item |
+|---|---|
+| `PHQ2_1` | Wie haufig hatten Sie wenig Interesse oder Freude an Ihren Tatigkeiten? |
+| `PHQ2_2` | Wie haufig fuhlten Sie sich niedergeschlagen, deprimiert oder hoffnungslos? |
+
+Gesamtscore: Summe (0-6). Cutoff klinisch auffalliger Bereich: >= 3.
+
+### GAD-2 (Angst-Symptomatik)
+
+| Variable | Item |
+|---|---|
+| `GAD2_1` | Wie haufig fuhlten Sie sich nervos, angstlich oder angespannt? |
+| `GAD2_2` | Wie haufig waren Sie nicht in der Lage, Sorgen zu stoppen oder zu kontrollieren? |
+
+Gesamtscore: Summe (0-6). Cutoff klinisch auffalliger Bereich: >= 3.
+
+---
+
+## Quellenangaben
+
+- **BFI-K:** Rammstedt, B. & John, O. P. (2005). Kurzversion des Big Five Inventory (BFI-K). *Diagnostica, 51*(4), 195-206.
+- **SWLS:** Diener, E. et al. (1985). The Satisfaction With Life Scale. *Journal of Personality Assessment, 49*, 71-75. Deutsche Version: Glaesmer, H. et al. (2011).
+- **PHQ-2 / GAD-2:** Kroenke, K. et al. (2003) / Kroenke, K. et al. (2007). Public Domain.

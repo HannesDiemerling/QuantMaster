@@ -1,0 +1,182 @@
+# Explorative Faktorenanalyse (EFA)
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- erklären, was eine Faktorenanalyse ist und welches Problem sie löst
+- den Unterschied zwischen EFA (explorativ) und CFA (konfirmatorisch) in einem Satz beschreiben
+- eine Parallelanalyse zur Bestimmung der Faktorenanzahl in JASP durchführen und interpretieren
+- eine EFA mit Oblimin-Rotation in JASP ausführen
+- Faktorladungen ablesen und inhaltlich interpretieren
+- ein Path Diagram lesen
+:::
+
+## Worum es geht
+
+Stell Dir vor, Du hast 21 BFI-K-Items erhoben und möchtest herausfinden, ob diese 21 Variablen sich auf wenige zugrundeliegende Dimensionen reduzieren lassen. Genau das leistet die Faktorenanalyse: Sie sucht nach **latenten Variablen** — Faktoren — die die Korrelationsstruktur der Items erklären.
+
+Das ist in der Psychotherapieforschung ein Alltagswerkzeug: Fragebögen werden vor ihrer breiten Anwendung faktorenanalytisch überprüft. Stimmt die angenommene Struktur? Wie viele Dimensionen stecken wirklich im Instrument? Lädt ein Item auf den richtigen Faktor?
+
+Für den BFI-K haben wir eine klare Theorie: fünf Faktoren, einen für jede Big-Five-Dimension. Die EFA heute ist eine empirische Überprüfung dieser Theorie.
+
+## Theorie kompakt
+
+### Latente Variablen
+
+Faktoren sind nicht direkt beobachtbar. Sie existieren als theoretische Konstrukte, die aus dem Muster der Korrelationen erschlossen werden. Ein Item wie „Ich bin kommunikativ, gesprächig" wird hoch auf Extraversion laden, weil Extraversion die latente Variable ist, die erklärt, warum Menschen, die bei diesem Item hohe Werte haben, auch bei anderen Extraversions-Items hoch sind.
+
+**Faktorladung** = die Korrelation eines Items mit einem Faktor. Ladungen zwischen –1 und +1.
+
+Faustregel: Ladungen > 0.40 gelten als substanziell.
+
+### EFA vs. CFA
+
+| | EFA | CFA |
+|---|---|---|
+| Frage | Welche Faktorstruktur steckt in den Daten? | Passt eine vorher festgelegte Struktur zu den Daten? |
+| Einsatz | Instrument-Entwicklung, Erkundung | Theorie-Test, Validierungsstudien |
+| JASP-Modul | Factor Analysis → Exploratory | Factor Analysis → Confirmatory (SEM) |
+| Heute | Vollständiger Walkthrough | Nur Ausblick (1 Absatz) |
+
+CFA kommt in fortgeschrittenen Strukturgleichungsmodellen zum Einsatz — das ist eine Demo in Tag 3.
+
+### Rotation
+
+Faktoren sind mathematisch gesehen zunächst ungedreht und interpretierbar schwierig. **Rotation** dreht die Faktorachsen, damit die Ladungsstruktur einfacher wird — idealerweise lädt jedes Item hoch auf genau einen Faktor.
+
+| Rotationstyp | Annahme | Empfehlung |
+|---|---|---|
+| **Varimax** | Faktoren sind unkorreliert (orthogonal) | Wenn Faktoren theoretisch unabhängig sind |
+| **Oblimin / Promax** | Faktoren dürfen korrelieren (oblique) | Wenn Faktoren inhaltlich verwandt sind |
+
+Für den BFI-K gilt: Die Big Five korrelieren tatsächlich miteinander (z. B. Verträglichkeit und Gewissenhaftigkeit). Deshalb verwenden wir **Oblimin** — eine oblique Rotation, die korrelierte Faktoren erlaubt.
+
+### Parallelanalyse
+
+Wie viele Faktoren soll man extrahieren? Eine Entscheidungsregel: die **Parallelanalyse**. Sie vergleicht die tatsächlichen Eigenwerte mit den Eigenwerten aus zufälligen Daten gleicher Größe. Faktoren werden extrahiert, solange der echte Eigenwert den zufälligen übersteigt.
+
+::: {.callout-tip title="Beispiel"}
+Du hast 21 BFI-K-Items. Die Parallelanalyse zeigt, dass die ersten fünf Eigenwerte Deiner Daten über dem zufälligen Niveau liegen, der sechste aber darunter. Ergebnis: 5 Faktoren extrahieren — was genau der Big-Five-Theorie entspricht.
+:::
+
+## JASP-Walkthrough
+
+### Schritt 1: EFA starten
+
+1. Analyses → **Factor** → **Exploratory Factor Analysis**
+2. In das Variables-Feld alle 21 BFI-K-Items ziehen:
+   - `BFI_E1`, `BFI_E2`, `BFI_E3_r`, `BFI_E4`
+   - `BFI_V1_r`, `BFI_V2`, `BFI_V3`, `BFI_V4`
+   - `BFI_G1`, `BFI_G2_r`, `BFI_G3`, `BFI_G4`
+   - `BFI_N1`, `BFI_N2_r`, `BFI_N3`, `BFI_N4_r`
+   - `BFI_O1`, `BFI_O2`, `BFI_O3`, `BFI_O4`, `BFI_O5`
+
+::: {.callout-warning title="Wichtig"}
+Verwende die umkodierten Variablen (mit _r-Suffix) für Reverse Items. Wenn Du die Originalvariablen nimmst, laden Reverse Items auf den falschen Pol des Faktors.
+:::
+
+### Schritt 2: Einstellungen vornehmen
+
+3. Unter **Number of Factors**: **Based on parallel analysis** auswählen
+4. Unter **Rotation**: **Oblimin** auswählen (gehört zur Kategorie "Oblique")
+5. Unter **Output**: Aktiviere:
+   - Factor Loadings (Faktorladungen)
+   - Factor Correlations (Korrelationen zwischen den Faktoren)
+   - Path Diagram
+
+![TODO: Screenshot von JASP EFA Einstellungen](../img/TODO-jasp-efa-settings.png)
+
+### Schritt 3: Ergebnisse lesen
+
+6. Output ansehen: **Parallel Analysis Plot**
+   - Horizontale Achse: Faktorenanzahl
+   - Zwei Linien: tatsächliche Eigenwerte (solid) und zufällige (gestrichelt)
+   - Ablesepunkt: wo die Linien sich kreuzen → das ist die empfohlene Faktorenzahl
+
+7. **Faktorladungsmatrix** anschauen:
+   - Zeilen = Items, Spalten = Faktoren (F1, F2, F3, ...)
+   - Pro Zeile: auf welchem Faktor lädt das Item am stärksten?
+   - Faustregel: Ladung > 0.40 gilt als substanziell, < 0.30 = vernachlässigbar
+   - Kreuzladungen (ein Item lädt substanziell auf zwei Faktoren) sind ein Warnsignal
+
+![TODO: Screenshot von JASP EFA Faktorladungsmatrix](../img/TODO-jasp-efa-loadings.png)
+
+8. **Path Diagram** ansehen:
+   - Ellipsen = latente Faktoren
+   - Rechtecke = Items
+   - Pfeile = Ladungen (Dicke zeigt Stärke)
+   - Ideal: jedes Item hat einen dicken Pfeil zu genau einem Faktor
+
+![TODO: Screenshot von JASP EFA Path Diagram](../img/TODO-jasp-efa-pathdiagram.png)
+
+::: {.callout-warning title="Wenn Du hier hängst"}
+**Problem:** Die Parallelanalyse schlägt 6 oder 7 Faktoren vor, nicht 5.
+**Lösung:** Das ist möglich, besonders bei kleinen Stichproben. Versuche, die Lösung mit 5 Faktoren manuell zu erzwingen: Unter "Number of Factors" → "Fixed number" → 5 eingeben. Vergleiche dann die Interpretation.
+
+**Problem:** Viele Items laden auf mehrere Faktoren gleichzeitig (Kreuzladungen).
+**Lösung:** Bei kleinen Stichproben (n < 100) ist das häufiger. Es schwächt die Eindeutigkeit der Faktorstruktur. Im Workshop ist das ein Diskussionspunkt, kein Fehler.
+
+**Problem:** Der Path Diagram erscheint leer oder wird nicht angezeigt.
+**Lösung:** JASP benötigt manchmal einen Moment. Falls es anhält: Analyses-Fenster schließen und nochmal öffnen.
+:::
+
+### Schritt 4: Interpretation
+
+Prüfe für jeden extrahierten Faktor:
+
+- Welche Items laden substanziell (> 0.40)?
+- Lassen sich diese Items einem der fünf Big-Five-Dimensionen zuordnen?
+- Gibt es Items mit starken Kreuzladungen?
+
+Typische Befunde bei BFI-K:
+
+| Erwarteter Faktor | Typisch ladende Items |
+|---|---|
+| Extraversion | BFI_E1, BFI_E2, BFI_E3_r, BFI_E4 |
+| Verträglichkeit | BFI_V1_r, BFI_V2, BFI_V3, BFI_V4 |
+| Gewissenhaftigkeit | BFI_G1, BFI_G2_r, BFI_G3, BFI_G4 |
+| Neurotizismus | BFI_N1, BFI_N2_r, BFI_N3, BFI_N4_r |
+| Offenheit | BFI_O1, BFI_O2, BFI_O3, BFI_O4, BFI_O5 |
+
+### Kurzer Ausblick: CFA und Strukturgleichungsmodelle
+
+Die EFA war explorativ — sie hat uns gezeigt, welche Faktorstruktur die Daten nahelegen. Die **Konfirmatorische Faktorenanalyse (CFA)** geht einen Schritt weiter: Sie testet, ob eine vorab festgelegte Struktur (z. B. „genau 5 Faktoren, jedes Item lädt nur auf seinen vorgesehenen Faktor") statistisch zu den Daten passt.
+
+CFA ist Teil der **Strukturgleichungsmodelle (SEM)** — einem mächtigen Werkzeug, das Messmodelle und Pfadmodelle kombiniert. In JASP unter Analyses → SEM. Das ist Demo-Material für Tag 3.
+
+## Mini-Übung
+
+**Aufgabe:** Führe eine EFA nur mit den 5 SWLS-Items durch (`SWLS_1` bis `SWLS_5`). Wie viele Faktoren schlägt die Parallelanalyse vor? Was sagt das über die Struktur der SWLS?
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+1. Factor → Exploratory Factor Analysis
+2. Variables: SWLS_1, SWLS_2, SWLS_3, SWLS_4, SWLS_5
+3. Number of Factors: Based on parallel analysis
+4. Rotation: Oblimin
+
+Erwartetes Ergebnis: Die Parallelanalyse schlägt **1 Faktor** vor. Alle fünf Items laden hoch auf diesen einen Faktor (Ladungen typischerweise 0.60–0.85).
+
+Das bestätigt, was die Theorie sagt: Die SWLS ist **eindimensional** — alle Items messen dasselbe Konstrukt (Lebenszufriedenheit), nicht verschiedene Unterdimensionen. Das erklärt auch das hohe Cronbachs Alpha aus dem vorherigen Kapitel.
+
+</details>
+
+## Selbstcheck
+
+1. Was ist der Unterschied zwischen einer EFA und einer CFA?
+2. Warum verwendet man bei BFI-K Oblimin-Rotation statt Varimax?
+3. Was bedeutet eine Faktorladung von 0.65, und was bedeutet eine von –0.50?
+
+::: {.callout-important title="Klausurrelevant"}
+Latente Variable, Faktorladung (Interpretation, Faustregel > 0.40), EFA vs. CFA, Parallelanalyse (Zweck), Oblimin vs. Varimax (Unterschied), Kreuzladung als Problem, einfache vs. komplexe Struktur
+:::
+
+## Weiterführend (optional)
+
+- Fabrigar et al. (1999): Evaluating the use of exploratory factor analysis in psychological research — klassischer Überblick
+- Brown (2006): Confirmatory Factor Analysis for Applied Research — für den nächsten Schritt Richtung CFA/SEM
+
+---
+
+Weiter geht es mit [Effektgrößen & praktische Bedeutsamkeit](05-effektgroessen.qmd).

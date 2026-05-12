@@ -1,0 +1,194 @@
+# Datensatz in JASP laden
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- den kombinierten Workshop-Datensatz in JASP öffnen und die Struktur überblicken
+- Variablentypen (nominal, ordinal, scale) korrekt setzen
+- Reverse-kodierte Items im BFI-K identifizieren und mit Computed Columns umkodieren
+- Subskalen-Mittelwerte für alle fünf Big-Five-Dimensionen und für die SWLS berechnen
+- deskriptive Statistiken für alle Subskalen ausgeben und erste Befunde beschreiben
+:::
+
+## Worum es geht
+
+Bevor Du eine einzige Analyse rechnen kannst, muss der Datensatz in JASP korrekt eingelesen und vorbereitet sein. Das klingt nach Verwaltungsarbeit — ist aber eigentlich das Herzstück empirischer Forschung. Ein falscher Variablentyp, ein vergessenes Reverse Item oder ein falsch berechneter Subskalen-Score führen zu Ergebnissen, die schlicht falsch sind, ohne dass JASP Dich warnt.
+
+In der Psychotherapieforschung ist sorgfältige Datenvorbereitung besonders wichtig: Fragebögen wie der BFI-K haben absichtlich gedrehte Items eingebaut — sie testen, ob Antwortende tatsächlich lesen. Wer diese Items nicht umkodiert, misst etwas anderes als beabsichtigt.
+
+## Theorie kompakt
+
+### Variablentypen
+
+JASP unterscheidet drei Typen:
+
+| Typ | Bedeutung | Beispiel |
+|---|---|---|
+| **Nominal** | Kategorien ohne Rangordnung | `gender`, `source` |
+| **Ordinal** | Kategorien mit Rangordnung, Abstände unbekannt | Semester-Stufe |
+| **Scale** | Metrisch, Abstände gleichwertig | Alter, Likert-Summen |
+
+Likert-Skalen (wie BFI_E1 = 1–5) werden in JASP für Analysen meist als **Scale** behandelt, auch wenn das theoretisch diskutierbar ist.
+
+### Reverse Coding
+
+Einige BFI-K-Items sind so formuliert, dass hohe Zustimmung **niedrige** Ausprägung auf der Dimension bedeutet. Beispiel: BFI_E3 lautet (sinngemäß) „Ich bin eher zurückhaltend und still." Wer hier eine 5 ankreuzt, ist **introvertiert**, nicht extrovertiert. Ohne Umkodierung würde der Extraversions-Score verfälscht.
+
+Die Formel für 5er-Likert-Skalen (Werte 1–5):
+
+```
+umgekodierter Wert = 6 − ursprünglicher Wert
+```
+
+Für 7er-Likert-Skalen (wie SWLS): `8 − ursprünglicher Wert`. Die SWLS hat keine Reverse Items, aber die Formel lohnt sich zu merken.
+
+**Reverse-kodierte Items im BFI-K:**
+
+| Item | Dimension |
+|---|---|
+| BFI_E3 | Extraversion |
+| BFI_V1 | Verträglichkeit |
+| BFI_G2 | Gewissenhaftigkeit |
+| BFI_N2 | Neurotizismus |
+| BFI_N4 | Neurotizismus |
+
+::: {.callout-tip title="Beispiel"}
+BFI_E3 hat den Rohwert 4. Der umgekodierte Wert ist: 6 − 4 = **2**. Diese Person antwortete eher zustimmend auf ein Introversions-Item — nach Umkodierung ergibt sich ein niedriger Extraversions-Wert, was korrekt ist.
+:::
+
+### Subskalen-Mittelwerte
+
+Ein Subskalen-Score fasst mehrere Items zu einem einzelnen Wert zusammen. Der einfachste Weg ist der **Mittelwert** aller Items einer Dimension — also z. B. Extraversion = Mittelwert aus BFI_E1, BFI_E2, BFI_E3_r (umgekodiert), BFI_E4.
+
+## JASP-Walkthrough
+
+### Schritt 1: Datensatz öffnen
+
+1. JASP starten
+2. Oben links auf das **Hamburger-Menü** (drei Striche) klicken → **Open** → **Computer**
+3. Datei `data/combined/m15-combined.csv` auswählen
+4. JASP zeigt eine Tabelle mit Zeilen (Fälle) und Spalten (Variablen)
+
+![TODO: Screenshot von JASP nach dem Öffnen des Datensatzes](../img/TODO-jasp-open-dataset.png)
+
+### Schritt 2: Variablentypen prüfen und setzen
+
+JASP erkennt Typen beim Import automatisch — aber nicht immer korrekt. Prüfe folgende Variablen:
+
+1. Auf das **Daten-Symbol** (Spreadsheet-Icon) oben klicken, um die Variablen-Ansicht zu öffnen
+2. Prüfe für jede Variable das Symbol links vom Spaltennamen:
+   - Lineal-Symbol = Scale
+   - Balken-Symbol = Ordinal
+   - Kreis-Symbol = Nominal
+3. Setze diese Variablen manuell auf **Nominal**:
+   - `gender`
+   - `source`
+   - `student_id`
+4. `semester` auf **Ordinal** setzen (Rangordnung vorhanden, aber keine gleichmäßigen Abstände)
+5. Alle BFI_*, SWLS_*, PHQ2_*, GAD2_*-Variablen sowie `age` und `stats_prior` auf **Scale** setzen
+
+::: {.callout-warning title="Wenn Du hier hängst"}
+**Problem:** JASP hat `gender` als Scale eingelesen (weil es als Zahl codiert ist).
+**Lösung:** Auf das Spalten-Symbol neben `gender` klicken und auf Nominal umschalten. Sonst rechnet JASP damit wie mit einer Messzahl — das ist falsch.
+
+**Problem:** Die Datei öffnet sich nicht oder zeigt komische Zeichen.
+**Lösung:** Sicherstellen, dass die Datei UTF-8-kodiert und Komma-getrennt ist. Im Zweifel die Datei erst in einem Texteditor (z. B. Notepad++) anschauen.
+:::
+
+### Schritt 3: Reverse Items umkodieren (Computed Columns)
+
+JASP erlaubt es, neue Variablen auf Basis von Formeln zu berechnen.
+
+1. In der Datentabelle ganz rechts auf das **+**-Symbol klicken → **Computed Column**
+2. Neuen Spaltennamen eingeben: `BFI_E3_r`
+3. Im Formel-Feld eingeben: `6 - BFI_E3`
+4. Auf **Speichern** (Häkchen) klicken
+5. Prüfe in der Tabelle: wenn BFI_E3 = 2, sollte BFI_E3_r = 4 sein
+
+Wiederhole diesen Schritt für alle fünf Reverse Items:
+
+| Neue Variable | Formel |
+|---|---|
+| `BFI_E3_r` | `6 - BFI_E3` |
+| `BFI_V1_r` | `6 - BFI_V1` |
+| `BFI_G2_r` | `6 - BFI_G2` |
+| `BFI_N2_r` | `6 - BFI_N2` |
+| `BFI_N4_r` | `6 - BFI_N4` |
+
+![TODO: Screenshot von JASP Computed Column Dialog](../img/TODO-jasp-computed-column.png)
+
+::: {.callout-warning title="Wenn Du hier hängst"}
+**Problem:** Die Formel ergibt immer NaN oder leere Zellen.
+**Lösung:** Prüfe, ob das ursprüngliche Item (z. B. BFI_E3) als Scale eingestellt ist. Nominal- oder Ordinal-Variablen können nicht direkt mit Zahlen verrechnet werden.
+:::
+
+### Schritt 4: Subskalen-Mittelwerte berechnen
+
+Für jede Big-Five-Dimension einen Mittelwert berechnen. Wichtig: Die umkodierten Versionen der Reverse Items verwenden.
+
+| Neue Variable | Formel |
+|---|---|
+| `BFI_E_mean` | `mean(BFI_E1, BFI_E2, BFI_E3_r, BFI_E4)` |
+| `BFI_V_mean` | `mean(BFI_V1_r, BFI_V2, BFI_V3, BFI_V4)` |
+| `BFI_G_mean` | `mean(BFI_G1, BFI_G2_r, BFI_G3, BFI_G4)` |
+| `BFI_N_mean` | `mean(BFI_N1, BFI_N2_r, BFI_N3, BFI_N4_r)` |
+| `BFI_O_mean` | `mean(BFI_O1, BFI_O2, BFI_O3, BFI_O4, BFI_O5)` |
+| `SWLS_mean` | `mean(SWLS_1, SWLS_2, SWLS_3, SWLS_4, SWLS_5)` |
+
+Tipp: Die `mean()`-Funktion in JASP ignoriert fehlende Werte standardmäßig, solange mindestens ein Wert vorhanden ist. Das ist für unsere Zwecke vorerst gut genug.
+
+### Schritt 5: Deskriptive Statistiken ausgeben
+
+1. Menü **Analyses** → **Descriptives** → **Descriptive Statistics** anklicken
+2. In das Feld **Variables** ziehen: alle sechs Subskalen-Mittelwerte (`BFI_E_mean` bis `SWLS_mean`) sowie `age`
+3. Unter **Statistics** aktivieren: Mean, Std. Deviation, Minimum, Maximum, Skewness
+4. Unter **Plots** aktivieren: Distribution Plots
+
+![TODO: Screenshot von JASP Descriptive Statistics Output](../img/TODO-jasp-descriptives-output.png)
+
+::: {.callout-tip title="Was Du sehen solltest"}
+Typische Werte im kombinierten Datensatz:
+
+- BFI-Subskalen: Mittelwerte um 3 (Mitte der 5er-Skala), Standardabweichungen etwa 0.6–0.9
+- SWLS_mean: Mittelwert ca. 4–5 (auf 7er-Skala), da Studierende meist moderate bis hohe Lebenszufriedenheit berichten
+- PHQ2 und GAD2: eher niedrige Mittelwerte (0–1), da keine klinische Population
+:::
+
+## Mini-Übung
+
+**Aufgabe:** Berechne den PHQ-2-Gesamtscore als Summenscore (nicht Mittelwert): `PHQ2_sum = PHQ2_1 + PHQ2_2`. Wie viele Personen haben einen PHQ2_sum von 3 oder höher (klinischer Schwellenwert)?
+
+Tipp: Erstelle zuerst die neue Variable via Computed Column, dann nutze **Descriptives** mit Frequency Tables für PHQ2_sum.
+
+<details>
+<summary>Lösung anzeigen</summary>
+
+1. Neue Computed Column anlegen: Name `PHQ2_sum`, Formel: `PHQ2_1 + PHQ2_2`
+2. Die Variable auf **Scale** setzen
+3. Analyses → Descriptives → Descriptive Statistics
+4. PHQ2_sum in Variables ziehen
+5. Unter Statistics: Frequency Tables aktivieren
+6. In der Frequency Table die Zeilen für Werte ≥ 3 ablesen und Häufigkeiten addieren
+
+Ein PHQ-2-Score von 3 oder höher gilt als Hinweis auf ein mögliches depressives Syndrom (Kroenke et al., 2003). Im Workshop-Datensatz ist dieser Anteil wegen der synthetischen Fälle möglicherweise niedrig — das ist kein Problem, sondern ein Diskussionspunkt.
+
+</details>
+
+## Selbstcheck
+
+1. Welche fünf BFI-K-Items müssen umgekodiert werden, und warum?
+2. Was ist der Unterschied zwischen einem Summen- und einem Mittelwertsscore? Wann nimmst Du welchen?
+3. Warum ist es wichtig, `gender` als Nominal einzustellen, bevor Du Analysen rechnest?
+
+::: {.callout-important title="Klausurrelevant"}
+Reverse Coding (Formel, betroffene Items), Variablentypen in JASP (nominal/ordinal/scale), Subskalen-Score vs. Einzelitem, Computed Columns in JASP
+:::
+
+## Weiterführend (optional)
+
+- Rammstedt & John (2005): Kurzversion des Big Five Inventory — das Originalmanual zum BFI-K
+- JASP-Dokumentation: [jasp-stats.org/documentation](https://jasp-stats.org/documentation) → Computed Columns
+
+---
+
+Weiter geht es mit [Stichprobe, Missingness & Bias](02-stichprobe-und-bias.qmd).

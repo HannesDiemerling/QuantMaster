@@ -1,0 +1,122 @@
+---
+title: "M15 Workshop — Fragebogen"
+format:
+  pdf:
+    geometry: margin=2cm
+    fontsize: 11pt
+    keep-tex: false
+    documentclass: article
+    papersize: a4
+---
+
+\thispagestyle{empty}
+
+**HMU Health and Medical University Potsdam** \hfill **M15 — Quantitative Forschungsmethoden**
+
+\vspace{0.5em}
+\hrule
+\vspace{1em}
+
+**Teilnehmenden-ID:** \_\_\_\_\_\_\_\_\_\_\_\_\_\_ \hfill **Datum:** \_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\vspace{1em}
+
+Bitte beantworte alle Fragen sorgfaltig und vollstandig. Es gibt keine richtigen oder falschen Antworten.
+Deine Angaben werden pseudonymisiert und ausschliesslich fur Lehr- und Lernzwecke verwendet.
+
+\vspace{1em}
+
+---
+
+## Abschnitt 1: Angaben zur Person
+
+| | |
+|---|---|
+| **Alter** (in Jahren): | \_\_\_\_\_ |
+| **Geschlecht**: | $\square$ weiblich \quad $\square$ mannlich \quad $\square$ divers \quad $\square$ keine Angabe |
+| **Fachsemester** (im Master): | \_\_\_\_\_ |
+| **Statistik-Vorwissen** (1 = keins, 5 = sehr gut): | $\square$ 1 \quad $\square$ 2 \quad $\square$ 3 \quad $\square$ 4 \quad $\square$ 5 |
+| **Therapeutische Praxiserfahrung** (Monate): | \_\_\_\_\_ |
+
+\vspace{1em}
+
+---
+
+## Abschnitt 2: Personlichkeit (BFI-K)
+
+*Wie sehr treffen die folgenden Aussagen auf dich zu?*
+
+**Skala:** 1 = stimme gar nicht zu, 2 = stimme eher nicht zu, 3 = teils/teils, 4 = stimme eher zu, 5 = stimme voll zu
+
+\vspace{0.5em}
+
+Ich bin jemand, der ...
+
+| Nr. | Aussage | 1 | 2 | 3 | 4 | 5 |
+|---|---|:---:|:---:|:---:|:---:|:---:|
+| E1 | ... gesellig und umganglich ist. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| E2 | ... zuruckhaltend ist. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| E3 | ... eher introvertiert als extrovertiert ist. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| E4 | ... aktiv und lebhaft ist. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| V1 | ... manchmal unhoflich und schroff mit anderen ist. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| V2 | ... hilfsbereit und uneigennutzig gegenuber anderen ist. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| V3 | ... vergebend ist. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| V4 | ... rucksichtsvoll und einfuhlsam mit anderen umgeht. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| G1 | ... grundlich arbeitet. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| G2 | ... manchmal nicht so sorgfaltig ist. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| G3 | ... Plane macht und diese auch durchfuhrt. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| G4 | ... effizient ist und Dinge immer erledigt. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| N1 | ... leicht nervos und unsicher wird. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| N2 | ... entspannt ist und gut mit Stress umgehen kann. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| N3 | ... leicht trubsinnig wird. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| N4 | ... stabil und ausgeglichen ist. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| O1 | ... einfallsreich ist -- ich denke mir immer etwas aus. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| O2 | ... eine lebhafte Phantasie und Vorstellung hat. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| O3 | ... tiefsinnig ist. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| O4 | ... nur wenig kunstlerisches Interesse hat. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| O5 | ... originell ist und neue Ideen entwickelt. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+
+\vspace{1em}
+
+---
+
+## Abschnitt 3: Lebenszufriedenheit (SWLS)
+
+*Bitte gib an, wie sehr du den folgenden Aussagen zustimmst.*
+
+**Skala:** 1 = stimme gar nicht zu, 2, 3, 4, 5, 6, 7 = stimme vollig zu
+
+| Nr. | Aussage | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| S1 | Mein Leben entspricht in den meisten Bereichen meinen Idealvorstellungen. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| S2 | Meine Lebensbedingungen sind ausgezeichnet. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| S3 | Ich bin mit meinem Leben zufrieden. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| S4 | Bisher habe ich die wesentlichen Dinge erlangt, die ich mir fur mein Leben wunsche. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+| S5 | Wenn ich mein Leben noch einmal leben konnte, wurde ich kaum etwas andern. | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ | $\square$ |
+
+\vspace{1em}
+
+---
+
+## Abschnitt 4: Wohlbefinden (PHQ-2 und GAD-2)
+
+*Wie haufig hast du dich in den letzten 2 Wochen durch folgende Dinge beeintrachtigt gefuhlt?*
+
+**Skala:** 0 = gar nicht, 1 = an einzelnen Tagen, 2 = an mehr als der Halfte der Tage, 3 = beinahe jeden Tag
+
+| Nr. | Frage | 0 | 1 | 2 | 3 |
+|---|---|:---:|:---:|:---:|:---:|
+| P1 | Wenig Interesse oder Freude an deinen Tatigkeiten? | $\square$ | $\square$ | $\square$ | $\square$ |
+| P2 | Niedergeschlagen, deprimiert oder hoffnungslos gefuhlt? | $\square$ | $\square$ | $\square$ | $\square$ |
+| G1 | Nervos, angstlich oder angespannt gefuhlt? | $\square$ | $\square$ | $\square$ | $\square$ |
+| G2 | Nicht in der Lage, Sorgen zu stoppen oder zu kontrollieren? | $\square$ | $\square$ | $\square$ | $\square$ |
+
+\vspace{1.5em}
+
+---
+
+\small
+
+**Datenschutzhinweis:** Deine Antworten werden pseudonymisiert gespeichert -- kein echter Name wird erhoben. Die Daten werden in einem offentlichen GitHub-Repository fur Lehr- und Lernzwecke im Rahmen des Moduls M15 genutzt. Du kannst deine Daten bis zum Zeitpunkt des PR-Merges durch Kontaktaufnahme mit der Lehrperson zuruckziehen. Alternativ kannst du ausschliesslich synthetische Daten einreichen.
+
+\normalsize

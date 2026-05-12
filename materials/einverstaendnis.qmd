@@ -1,0 +1,91 @@
+---
+title: "Einverstandniserklarung -- M15 Workshop"
+format:
+  pdf:
+    geometry: margin=2.5cm
+    fontsize: 11pt
+    keep-tex: false
+    documentclass: article
+    papersize: a4
+---
+
+\thispagestyle{empty}
+
+\begin{center}
+{\Large \textbf{Einverstandniserklarung zur Datenerhebung}}\\[0.5em]
+{\large Modul M15 -- Quantitative Forschungsmethoden \& Multivariate Verfahren}\\[0.3em]
+HMU Health and Medical University Potsdam, Fakultat Gesundheit\\
+Masterstudiengang Psychotherapie (M.Sc.)\\[0.3em]
+Workshoptermine: 21.05.2026, 28.05.2026, 04.06.2026
+\end{center}
+
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+## Was wird erhoben?
+
+Im Rahmen des Workshops fullen Teilnehmende einen Fragebogen mit folgenden Instrumenten aus:
+
+- **Demografie:** Alter (in Jahren, kein Geburtsdatum), Geschlecht, Fachsemester, Statistik-Vorwissen, therapeutische Praxiserfahrung
+- **BFI-K:** Big Five Inventory Kurzform (Personlichkeitseigenschaften, 21 Items)
+- **SWLS:** Satisfaction With Life Scale (Lebenszufriedenheit, 5 Items)
+- **PHQ-2:** Patientengesundheitsfragebogen, 2 Items (Screening depressiver Symptome)
+- **GAD-2:** Generalized Anxiety Disorder Scale, 2 Items (Screening von Angstsymptomen)
+
+Erhebungsdauer: ca. 5 Minuten.
+
+## Pseudonymisierung
+
+- Es werden **keine echten Namen** erhoben.
+- Jede teilnehmende Person erhalt eine **Teilnehmenden-ID**, die vom Lehrenden vergeben wird (z.B. `s-01`).
+- Die Daten sind damit zwar nicht vollstandig anonym, aber pseudonymisiert.
+
+## Speicherort -- offentliches Repository
+
+::: {.callout-warning}
+Die Daten werden in einem **offentlich zuganglichen GitHub-Repository** gespeichert. Wer das Repository kennt (URL), kann die Daten einsehen. Bitte beachte dies bei deiner Entscheidung zur Teilnahme.
+:::
+
+Das Repository dient ausschliesslich zu Lehr- und Lernzwecken innerhalb des Moduls M15. Die Daten werden nicht fur wissenschaftliche Veroffentlichungen genutzt.
+
+## Freiwilligkeit und Recht auf Ruckzug
+
+- Die Teilnahme ist **freiwillig**. Es entstehen keinerlei Nachteile bei Ablehnung.
+- Du kannst deine Daten **bis zum Zeitpunkt des PR-Merges** zuruckziehen, indem du die Lehrperson (Prof. Dr. Daniel Schad) kontaktierst.
+- Nach dem Merge sind die Daten im kombinierten Datensatz enthalten und konnen nicht mehr einzeln identifiziert werden.
+- **Alternative:** Du kannst anstelle eigener Antworten ausschliesslich synthetische (computergenierte) Daten einreichen. Dabei werden keine echten personlichen Informationen ubertragen. Diese Alternative ist vollwertig fur die Lernziele des Workshops.
+
+## Datennutzung
+
+Die erhobenen Daten werden verwendet fur:
+
+- Statistische Analysen im Rahmen des Workshops (deskriptive Statistik, Reliabilitatstests, Faktorenanalyse, Regression)
+- Veranschaulichung methodischer Konzepte (z.B. Stichprobenbias, fehlende Werte)
+- Keine Weitergabe an Dritte, keine kommerzielle Nutzung
+
+\vspace{1.5em}
+\hrule
+\vspace{1em}
+
+## Einverstandnis
+
+Ich habe die oben stehenden Informationen gelesen und verstanden. Ich nehme freiwillig an der Datenerhebung teil und bin damit einverstanden, dass meine pseudonymisierten Antworten in dem oben beschriebenen offentlichen GitHub-Repository gespeichert und im Workshop verwendet werden.
+
+$\square$ Ich nehme mit **eigenen Fragebogenantworten** teil.
+
+$\square$ Ich nehme ausschliesslich mit **synthetischen Daten** teil (keine eigenen Antworten).
+
+\vspace{2em}
+
+**Teilnehmenden-ID (vom Lehrenden vergeben):** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\vspace{2em}
+
+**Ort, Datum:** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ \hfill **Unterschrift:** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\vspace{2em}
+
+\small
+Bei Fragen: Prof. Dr. Daniel Schad, HMU Potsdam, Fakultat Gesundheit.
+\normalsize

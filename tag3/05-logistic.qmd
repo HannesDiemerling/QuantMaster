@@ -1,0 +1,127 @@
+# Logistische Regression
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- erklären, wann logistische Regression anstelle linearer Regression eingesetzt wird
+- Odds und Odds Ratios berechnen und interpretieren
+- eine logistische Regression in JASP durchführen und die Ausgabe lesen
+- eine Klassifikationstabelle mit Sensitivität und Spezifität interpretieren
+:::
+
+::: {.callout-note title="Demo-Kapitel"}
+Dieses Kapitel hat Demo-Charakter. Logistische Regression ist ein wichtiges Verfahren, das Du kennen sollst — aber die Tiefe der Ausarbeitung entspricht einer Einführung, nicht einer vollständigen Vertiefung.
+:::
+
+## Worum es geht
+
+Alle bisherigen Regressionen hatten ein kontinuierliches Kriterium (`SWLS_total` auf einer 5–35-Skala). Was aber, wenn das Kriterium dichotom ist — also nur zwei Ausprägungen hat?
+
+Beispiel: Hat eine Person klinisch relevante depressive Symptomatik (ja/nein)? Lineare Regression ist hier ungeeignet, weil sie Werte außerhalb von 0 und 1 vorhersagen kann (z. B. –0,3 oder 1,7), was inhaltlich keinen Sinn ergibt. Logistische Regression modelliert stattdessen die **Wahrscheinlichkeit** der "Ja"-Kategorie — und hält diese mathematisch zwischen 0 und 1.
+
+In der klinischen Praxis ist das alltäglich: Wer hat ein erhöhtes Risiko für Rückfall? Wer profitiert von Therapie A vs. Therapie B? Die Antwort ist fast immer dichotom.
+
+## Theorie kompakt
+
+### Odds und Log-Odds
+
+Die **Odds** (Chancen) sind das Verhältnis von Wahrscheinlichkeit des Ereignisses zu Gegenwahrscheinlichkeit:
+
+$$\text{Odds} = \frac{P(\text{Ereignis})}{1 - P(\text{Ereignis})}$$
+
+Odds = 3 bedeutet: Das Ereignis ist 3× so wahrscheinlich wie das Nicht-Ereignis.
+
+Das logistische Regressionsmodell modelliert den natürlichen Logarithmus der Odds (Log-Odds oder **Logit**):
+
+$$\text{logit}(p) = b_0 + b_1 \cdot X_1 + b_2 \cdot X_2 + \ldots$$
+
+### Odds Ratio (OR)
+
+Der Koeffizient *b* in der logistischen Regression gibt die Veränderung im Log-Odds an — das ist schwer zu interpretieren. Daher wird *b* meist als **Odds Ratio** berichtet: OR = e^b.
+
+- OR = 1,0: Kein Effekt
+- OR > 1,0: Erhöhte Odds für das Ereignis (Risikofaktor)
+- OR < 1,0: Verringerte Odds (Schutzfaktor)
+- OR = 2,5: Die Odds verdoppeln sich fast mit jeder Einheitszunahme in X.
+
+### Modell-Fit
+
+Da es kein "echtes" R² für logistische Regression gibt, werden Pseudo-R²-Maße verwendet (z. B. Nagelkerkes R²). Außerdem: **-2 Log-Likelihood** (kleiner = besser) und der **Hosmer-Lemeshow-Test** für Goodness of Fit.
+
+### Klassifikationstabelle
+
+Die **Klassifikationstabelle** zeigt, wie gut das Modell die Beobachtungen korrekt klassifiziert:
+
+- **Sensitivität:** Anteil der korrekt erkannten positiven Fälle (richtig positive / alle tatsächlich positiven)
+- **Spezifität:** Anteil der korrekt erkannten negativen Fälle (richtig negative / alle tatsächlich negativen)
+
+::: {.callout-tip title="Beispiel aus dem Datensatz"}
+Fragestellung: Welche Faktoren erhöhen das Risiko für klinisch relevante depressive Symptomatik?
+
+Du definierst: PHQ2_total ≥ 3 = klinisch relevant (PHQ-2-Cutoff in der Literatur), also 1; sonst 0. Als Prädiktoren: `BFI_N_mean`, `BFI_E_mean`, `age`.
+
+Erwartung: Hoher Neurotizismus erhöht das Odds, klinisch relevante Symptome zu haben (OR > 1). Hohe Extraversion senkt es (OR < 1).
+:::
+
+## JASP-Walkthrough
+
+### Schritt 1: Dichotome Kriteriumsvariable anlegen
+
+Du brauchst eine Spalte `PHQ2_hoch`, die 1 ist wenn PHQ2_total ≥ 3, sonst 0.
+
+1. In der JASP-Datentabelle: Neues Computed Column mit dem Namen `PHQ2_hoch`.
+2. Formel: `ifElse(PHQ2_total >= 3, 1, 0)`
+3. Setze den Variablentyp auf **Nominal** (nicht Scale).
+
+![TODO: Screenshot Computed Column für dichotomes Kriterium](../img/TODO-jasp-logistic-computed.png)
+
+### Schritt 2: Logistische Regression öffnen
+
+- Klicke auf **Regression** → **Logistic Regression**.
+- **Dependent Variable:** `PHQ2_hoch` (nominales dichotomes Kriterium).
+- **Covariates:** `BFI_N_mean`, `BFI_E_mean`, `age`.
+
+### Schritt 3: Odds Ratios aktivieren
+
+- Unter **Coefficients**: Aktiviere **Odds ratios** (zeigt e^b statt *b*).
+- Aktiviere außerdem **Confidence intervals** für die OR.
+
+### Schritt 4: Klassifikationstabelle anzeigen
+
+- Unter **Performance Diagnostics**: Aktiviere **Confusion matrix** (Klassifikationstabelle).
+- Schau auf Sensitivität, Spezifität und Gesamtklassifikationsrate.
+
+![TODO: Screenshot Klassifikationstabelle JASP Logistic Regression](../img/TODO-jasp-logistic-classification.png)
+
+### Schritt 5: Ergebnisse lesen
+
+- **Coefficients-Tabelle:** Für jeden Prädiktor: *b*, SE, Wald-Statistik, p, OR (mit KI).
+- **Model Summary:** -2LL, Nagelkerkes R², Chi-Quadrat-Test.
+- **Klassifikationstabelle:** Anteil korrekt klassifizierter Fälle.
+
+::: {.callout-warning title="Wenn Du hier hängst"}
+**Problem: `PHQ2_hoch` lässt sich nicht als Dependent Variable zuweisen.**
+Lösung: Stelle sicher, dass die Variable als Nominal (nicht Scale) kodiert ist. Klicke auf das Variablen-Icon in der Spaltenüberschrift und wähle "Nominal".
+
+**Problem: Die Klassifikationstabelle zeigt sehr schlechte Werte.**
+Lösung: Mit einem kleinen, synthetisch erweiterten Datensatz und wenigen echten positiven Fällen kann die Klassifikation schlecht sein — das ist ein Datensatz-Artefakt, kein Fehler.
+:::
+
+## Selbstcheck
+
+1. Warum ist lineare Regression für ein dichotomes Kriterium ungeeignet?
+2. Ein Prädiktor hat OR = 3,2. Was bedeutet das inhaltlich?
+3. Sensitivität = 0,70, Spezifität = 0,85. Was bedeutet das im klinischen Kontext?
+
+::: {.callout-important title="Klausurrelevant"}
+Logistische Regression, dichotomes Kriterium, Odds, Odds Ratio, Log-Odds, Logit, Sensitivität, Spezifität, Klassifikationstabelle, Pseudo-R²
+:::
+
+## Weiterführend (optional)
+
+- Hosmer, D. W., Lemeshow, S., & Sturdivant, R. X. (2013). *Applied Logistic Regression* (3rd ed.). Wiley.
+- [StatQuest: Logistic Regression (YouTube)](https://www.youtube.com/watch?v=yIYKR4sgzI8)
+
+---
+
+Weiter zu: [Metaanalyse & Clusteranalyse](06-meta-cluster.qmd)

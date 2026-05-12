@@ -1,0 +1,286 @@
+---
+title: "Lernzielkatalog M15"
+subtitle: "Quantitative Forschungsmethoden & Multivariate Verfahren"
+---
+
+# Lernzielkatalog
+
+Dieser Katalog listet alle pruefungsrelevanten Kompetenzen und Verfahren aus dem Workshop M15.
+Er dient als Orientierung bei der Vorbereitung auf die Modulprufung.
+
+::: {.callout-important title="Hinweis zur Prufungsvorbereitung"}
+Nicht alle Themen werden gleich tief gepruft. Verfahren, die als **Demo** markiert sind,
+werden konzeptuell gepruft (Verstandnis, keine JASP-Ausfuhrung). Alle anderen Verfahren
+konnen auch anhand einer JASP-Ausgabe gepruft werden.
+
+Fur jedes Verfahren findest Du den Link zum entsprechenden Kapitel im Workshop.
+:::
+
+::: {.callout-note title="Klausurtypische Aufgabenformate"}
+- **Output-Interpretation:** Eine JASP-Ausgabe wird gezeigt, Du erklarst die Kennwerte.
+- **Konzeptfrage:** Was bedeutet X, warum macht man Y?
+- **Voraussetzungs-Check:** Welche Voraussetzungen muss Verfahren X erfullen?
+- **Entscheidungsaufgabe:** Welches Verfahren ist fur Fragestellung Y geeignet?
+:::
+
+---
+
+## Tag 1
+
+### Open Science & Reproduzierbarkeit
+
+**Konnen sollst Du:**
+
+- Den Begriff Reproduzierbarkeit definieren und von Replizierbarkeit abgrenzen
+- Kernelemente von Open Science benennen (Preregistrierung, Open Data, Open Materials)
+- Die Bedeutung von Transparenz fur die Qualitat wissenschaftlicher Evidenz erklaren
+- Den Begriff p-Hacking und seine Auswirkungen beschreiben
+- Einschatzen, warum Psychotherapieforschung besonders auf robuste Methoden angewiesen ist
+
+**Wo im Workshop:** Tag 1, `tag1/01-open-science.qmd`
+
+**Klausurtypische Aufgaben:** Konzeptfragen zu Reproduzierbarkeit, Unterschied Replication/Reproduction, Kritische Einordnung einer hypothetischen Studie
+
+---
+
+### Messtheorie & Operationalisierung
+
+**Konnen sollst Du:**
+
+- Konstrukt, Indikator und latente Variable voneinander abgrenzen
+- Die vier Messniveaus (nominal, ordinal, intervall, ratio) mit Beispielen beschreiben
+- Erklaren, was Reliabilitat und Validitat bedeuten und wie sie sich unterscheiden
+- Den Aufbau des BFI-K beschreiben (Subskalen, Itemanzahl, Skalierung)
+- Reverse-Coding verstehen und manuell durchfuhren (Formel: 6 - Rohwert fur 5er-Skala)
+
+**Wo im Workshop:** Tag 1, `tag1/02-messen.qmd`
+
+**Klausurtypische Aufgaben:** Reverse-Coding-Berechnung, Messniveau bestimmen, Konstrukt vs. Indikator unterscheiden
+
+---
+
+## Tag 2
+
+### Reliabilitat (Cronbachs Alpha, McDonald's Omega)
+
+**Konnen sollst Du:**
+
+- Reliabilitat als Abwesenheit von Messfehler erklaren
+- Cronbachs Alpha und McDonald's Omega interpretieren (Richtwerte: > .70 akzeptabel, > .80 gut)
+- Den Unterschied zwischen Alpha und Omega benennen (Alpha: tau-aquivalent; Omega: allgemeiner)
+- Item-Trennscharf aus einer JASP-Ausgabe ablesen und einordnen
+- Entscheiden, ob eine Subskala ausreichend reliabel ist
+
+**Wo im Workshop:** Tag 2, `tag2/03-reliabilitaet.qmd`
+
+**Klausurtypische Aufgaben:** JASP-Output interpretieren, Richtwerte benennen, Subskala beurteilen
+
+---
+
+### Stichproben & Bias (fehlende Werte, MCAR/MAR/MNAR)
+
+**Konnen sollst Du:**
+
+- Die drei Mechanismen fehlender Werte (MCAR, MAR, MNAR) erklaren und Beispiele nennen
+- Den Unterschied zwischen Stichprobenbias und zufalligem Stichprobenfehler beschreiben
+- Ein Missingness-Pattern in einer Deskriptiv-Ausgabe erkennen
+- Verfahren zum Umgang mit fehlenden Werten benennen (listenweiser Ausschluss, Imputation)
+- Einschatzen, wann ein Datensatz als verzerrt gelten kann
+
+**Wo im Workshop:** Tag 2, `tag2/02-stichprobe-und-bias.qmd`
+
+**Klausurtypische Aufgaben:** MCAR/MAR/MNAR-Szenario zuordnen, Stichprobenbias erkennen, Konsequenzen beschreiben
+
+---
+
+### Explorative Faktorenanalyse (EFA)
+
+**Konnen sollst Du:**
+
+- Das Ziel der EFA (Dimensionsreduktion, Faktorenextraktion) erklaren
+- Parallelanalyse und Scree-Plot zur Faktoranzahl-Bestimmung interpretieren
+- Oblimin-Rotation und den Unterschied zu orthogonalen Rotationen (Varimax) erklaren
+- Faktorladungen aus einer JASP-Ausgabe lesen und inhaltlich interpretieren
+- Einen Faktor benennen anhand der Items mit hohen Ladungen
+
+**Wo im Workshop:** Tag 2, `tag2/04-efa-cfa.qmd`
+
+**Klausurtypische Aufgaben:** JASP-Output interpretieren, Faktor benennen, Rotationsverfahren erklaren
+
+---
+
+### Effektgrossen (Cohen's d, eta-Quadrat, r)
+
+**Konnen sollst Du:**
+
+- Erklaren, warum Effektgrossen wichtiger als p-Werte sind
+- Cohen's d berechnen und interpretieren (klein: .20, mittel: .50, gross: .80)
+- eta-Quadrat aus einer ANOVA-Ausgabe ablesen und einordnen
+- Korrelationskoeffizient r als Effektgross einsetzen
+- Den Zusammenhang zwischen Stichprobengrosse, Effekt und Signifikanz erklaren
+
+**Wo im Workshop:** Tag 2, `tag2/05-effektgroessen.qmd`
+
+**Klausurtypische Aufgaben:** Effektgross berechnen, Richtwerte benennen, Output-Interpretation
+
+---
+
+## Tag 3
+
+### Multiple Regression
+
+**Konnen sollst Du:**
+
+- Multiple Regression von einfacher Regression abgrenzen
+- Voraussetzungen pruefen (Linearitat, Homoskedastizitat, Normalverteilung der Residuen, keine Multikollinearitat)
+- Standardisierte (beta) und unstandardisierte (B) Koeffizienten interpretieren
+- R-Quadrat und adjustiertes R-Quadrat erklaren und ablesen
+- Einen hierarchischen Modellvergleich (Block-Entry) interpretieren
+
+**Wo im Workshop:** Tag 3, `tag3/01-multiple-regression.qmd`
+
+**Klausurtypische Aufgaben:** JASP-Output vollstandig lesen, beta-Koeffizient interpretieren, Modellvergleich beurteilen
+
+---
+
+### Moderation
+
+**Konnen sollst Du:**
+
+- Das Konzept der Interaktion zwischen zwei Pradiktoren erklaren
+- Erklaren, warum Variablen vor der Moderation zentriert werden sollten
+- Einen Interaktionsterm in einer Regressionstabelle identifizieren
+- Einen Interaktionsplot lesen und beschreiben (Simple Slopes)
+- Eine Moderationshypothese formulieren
+
+**Wo im Workshop:** Tag 3, `tag3/02-moderation.qmd`
+
+**Klausurtypische Aufgaben:** Moderationsplot interpretieren, Interaktionsterm erklaren, Hypothese formulieren
+
+---
+
+### Mediation & Bootstrap
+
+**Konnen sollst Du:**
+
+- Das Mediationsmodell (X -> M -> Y) erklaren und von Moderation unterscheiden
+- Direkten, indirekten und totalen Effekt benennen und interpretieren
+- Erklaren, warum Bootstrap-Konfidenzintervalle fur Mediationseffekte besser geeignet sind als klassische Signifikanztests
+- Bootstrap-CIs aus einer JASP-Ausgabe ablesen und interpretieren
+- Vollstandige vs. partielle Mediation unterscheiden
+
+**Wo im Workshop:** Tag 3, `tag3/03-bootstrap-mediation.qmd`
+
+**Klausurtypische Aufgaben:** Mediationsmodell skizzieren, Bootstrap-CI interpretieren, direkten vs. indirekten Effekt benennen
+
+---
+
+### Bayesianische Inferenz & Bayes-Faktor
+
+**Konnen sollst Du:**
+
+- Den Unterschied zwischen frequentistischer und bayesianischer Inferenz erklaren
+- Bayes-Faktor (BF10) interpretieren (BF > 3: moderater Beleg fur H1; BF < 1/3: Beleg fur H0)
+- Erklaren, was ein Prior ist und wie er die Posteriorverteilung beeinflusst
+- Erklaren, warum der Bayes-Faktor bei kleinen Stichproben besonders vorteilhaft sein kann
+- Eine bayesianische Regressions-Ausgabe in JASP grob einordnen
+
+**Wo im Workshop:** Tag 3, `tag3/04-bayes-vs-frequentist.qmd`
+
+**Klausurtypische Aufgaben:** Bayes-Faktor interpretieren, frequentistisch vs. bayesianisch gegenueberstellen, Richtwerte benennen
+
+---
+
+### Logistische Regression
+
+**Konnen sollst Du:**
+
+- Erklaren, wann logistische statt linearer Regression verwendet wird (binares Outcome)
+- Odds und Odds Ratio erklaren und interpretieren (OR > 1 = erhohtes Risiko)
+- Den Unterschied zwischen B und Odds Ratio in der JASP-Ausgabe verstehen
+- Nagelkerkes R-Quadrat als Modellgutemass einordnen
+- Eine Klassifikationstabelle (Sensitivitat, Spezifitat) lesen
+
+**Wo im Workshop:** Tag 3, `tag3/05-logistic.qmd`
+
+**Klausurtypische Aufgaben:** Odds Ratio interpretieren, JASP-Output lesen, Anwendungsfall benennen
+
+---
+
+### Clusteranalyse (Demo)
+
+::: {.callout-note title="Demo-Verfahren"}
+Dieses Verfahren wird im Workshop als Demo vorgestellt, nicht selbst durchgefuhrt.
+Klausurfragen sind konzeptuell.
+:::
+
+**Konnen sollst Du:**
+
+- Das Ziel von Clusteranalysen beschreiben (Gruppen ohne vorherige Kategorien finden)
+- k-Means-Algorithmus konzeptuell erklaren (Iterationen, Zentroide)
+- Erklaren, wie die optimale Anzahl von Clustern bestimmt werden kann (Elbow-Methode)
+- Einen Anwendungsfall in der Psychotherapieforschung nennen (z.B. Patientenprofile)
+- Clusteranalyse von EFA abgrenzen (Personen vs. Variablen gruppieren)
+
+**Wo im Workshop:** Tag 3, `tag3/06-meta-cluster.qmd`
+
+**Klausurtypische Aufgaben:** k-Means erklaren, Anwendungsfall beschreiben, Abgrenzung zu anderen Verfahren
+
+---
+
+### Metaanalyse (Demo)
+
+::: {.callout-note title="Demo-Verfahren"}
+Dieses Verfahren wird im Workshop als Demo vorgestellt, nicht selbst durchgefuhrt.
+Klausurfragen sind konzeptuell.
+:::
+
+**Konnen sollst Du:**
+
+- Das Ziel einer Metaanalyse erklaren (Zusammenfassung von Studien-Effekten)
+- Forest-Plot lesen: Effektgross, Konfidenzintervall, Gewichtung je Studie
+- Den Unterschied zwischen Fixed-Effects- und Random-Effects-Modell benennen
+- Heterogenitat (I-Quadrat) erklaren (0 % = homogen; > 75 % = stark heterogen)
+- Erklaren, warum Metaanalysen in der Psychotherapieforschung bedeutsam sind
+
+**Wo im Workshop:** Tag 3, `tag3/06-meta-cluster.qmd`
+
+**Klausurtypische Aufgaben:** Forest-Plot lesen, I-Quadrat interpretieren, Zweck einer Metaanalyse erklaren
+
+---
+
+### Strukturgleichungsmodelle / Konfirmatorische Faktorenanalyse (Demo)
+
+::: {.callout-note title="Demo-Verfahren"}
+Der CFA-Teil der EFA wird als Demo vorgestellt. Grundkonzepte sind pruefungsrelevant.
+:::
+
+**Konnen sollst Du:**
+
+- Den Unterschied zwischen EFA (explorativ) und CFA (konfirmatorisch) erklaren
+- Ein einfaches CFA-Pfaddiagramm lesen (latente Variable, Indikatoren, Residuen)
+- Fit-Indizes benennen und einordnen: CFI (> .95), RMSEA (< .06), SRMR (< .08)
+- Erklaren, was ein Strukturgleichungsmodell leistet, das eine Regression nicht kann
+- Den Begriff Messinvarianz konzeptuell einordnen
+
+**Wo im Workshop:** Tag 2, `tag2/04-efa-cfa.qmd` (CFA-Teil)
+
+**Klausurtypische Aufgaben:** EFA vs. CFA unterscheiden, Fit-Index interpretieren, Pfaddiagramm beschreiben
+
+---
+
+## Ubergreifende Kompetenzen
+
+Neben den verfahrensspezifischen Zielen werden folgende allgemeine Kompetenzen gepruft:
+
+- **JASP bedienen:** Datensatz laden, Variablentypen setzen, Analysen starten, Output exportieren
+- **Skalenniveau beurteilen:** Welches Verfahren ist fur welches Messniveau geeignet?
+- **Ergebnisse berichten:** Kennwerte in APA-Format darstellen (z.B. *t*(38) = 2.14, *p* = .039, *d* = 0.68)
+- **Kritisch einschatzen:** Stichprobengrosse, Effektgrosse, Signifikanz im Zusammenhang sehen
+- **Forschungsfragen operationalisieren:** Von der inhaltlichen Frage zum statistischen Test
+
+::: {.callout-tip title="Letzte Tipps"}
+- Gehe die JASP-Outputs aus den Kapiteln noch einmal durch und erklare jeden Kennwert laut.
+- Fur Demo-Verfahren reicht es, die Konzepte sicher zu benennen -- kein JASP notig.
+- Die Reverse-Coding-Formel (6 - Rohwert) und Richtwerte fur Effektgrossen sind Pflichtwissen.
+:::

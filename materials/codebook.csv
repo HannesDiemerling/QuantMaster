@@ -1,0 +1,39 @@
+variable,label,instrument,scale_type,values,reverse_coded,notes
+id,Eindeutige Fallnummer,Admin,numeric,"1, 2, 3...",FALSE,Vom Lehrenden vergeben
+source,Datenquelle,Admin,categorical,"echt|synth_seed|synth_student",FALSE,Drei Levels: echte Studierendendaten / Seed des Lehrenden / synthetische Studierendendaten
+student_id,Pseudonym der Person,Admin,character,,FALSE,Keine echten Namen; ID vom Lehrenden vergeben
+age,Alter in Jahren,Demografie,numeric,18-65,FALSE,Kein Geburtsdatum erhoben
+gender,Geschlecht,Demografie,categorical,"w|m|d|na",FALSE,w = weiblich; m = mannlich; d = divers; na = keine Angabe
+semester,Fachsemester,Demografie,numeric,1-10,FALSE,Semester im Masterstudiengang
+stats_prior,Statistik-Vorwissen (1 = keins bis 5 = sehr gut),Demografie,ordinal,1-5,FALSE,Selbsteinschatzung
+therapy_exp,Therapeutische Praxiserfahrung in Monaten,Demografie,numeric,0-120,FALSE,Praktikum / Begleitende Praxis
+BFI_E1,Ich bin jemand der gesellig und umganglich ist.,BFI-K,ordinal,1-5,FALSE,Extraversion Item 1
+BFI_E2,Ich bin jemand der zuruckhaltend ist.,BFI-K,ordinal,1-5,FALSE,Extraversion Item 2
+BFI_E3,Ich bin jemand der eher introvertiert als extrovertiert ist.,BFI-K,ordinal,1-5,TRUE,Extraversion Item 3 -- Reverse: 6 - BFI_E3
+BFI_E4,Ich bin jemand der aktiv und lebhaft ist.,BFI-K,ordinal,1-5,FALSE,Extraversion Item 4
+BFI_V1,Ich bin jemand der manchmal unhoflich und schroff mit anderen ist.,BFI-K,ordinal,1-5,TRUE,Vertraglichkeit Item 1 -- Reverse: 6 - BFI_V1
+BFI_V2,Ich bin jemand der hilfsbereit und uneigennützig gegenuber anderen ist.,BFI-K,ordinal,1-5,FALSE,Vertraglichkeit Item 2
+BFI_V3,Ich bin jemand der vergebend ist.,BFI-K,ordinal,1-5,FALSE,Vertraglichkeit Item 3
+BFI_V4,Ich bin jemand der rucksichtsvoll und einfuhlsam mit anderen umgeht.,BFI-K,ordinal,1-5,FALSE,Vertraglichkeit Item 4
+BFI_G1,Ich bin jemand der grundlich arbeitet.,BFI-K,ordinal,1-5,FALSE,Gewissenhaftigkeit Item 1
+BFI_G2,Ich bin jemand der manchmal nicht so sorgfaltig ist.,BFI-K,ordinal,1-5,TRUE,Gewissenhaftigkeit Item 2 -- Reverse: 6 - BFI_G2
+BFI_G3,Ich bin jemand der Plane macht und diese auch durchfuhrt.,BFI-K,ordinal,1-5,FALSE,Gewissenhaftigkeit Item 3
+BFI_G4,Ich bin jemand der effizient ist und Dinge immer erledigt.,BFI-K,ordinal,1-5,FALSE,Gewissenhaftigkeit Item 4
+BFI_N1,Ich bin jemand der leicht nervos und unsicher wird.,BFI-K,ordinal,1-5,FALSE,Neurotizismus Item 1
+BFI_N2,Ich bin jemand der entspannt ist und gut mit Stress umgehen kann.,BFI-K,ordinal,1-5,TRUE,Neurotizismus Item 2 -- Reverse: 6 - BFI_N2
+BFI_N3,Ich bin jemand der leicht trubsinnig wird.,BFI-K,ordinal,1-5,FALSE,Neurotizismus Item 3
+BFI_N4,Ich bin jemand der stabil und ausgeglichen ist.,BFI-K,ordinal,1-5,TRUE,Neurotizismus Item 4 -- Reverse: 6 - BFI_N4
+BFI_O1,Ich bin jemand der einfallsreich ist -- ich denke mir immer etwas aus.,BFI-K,ordinal,1-5,FALSE,Offenheit Item 1
+BFI_O2,Ich bin jemand der eine lebhafte Phantasie und Vorstellung hat.,BFI-K,ordinal,1-5,FALSE,Offenheit Item 2
+BFI_O3,Ich bin jemand der tiefsinnig ist.,BFI-K,ordinal,1-5,FALSE,Offenheit Item 3
+BFI_O4,Ich bin jemand der nur wenig kunstlerisches Interesse hat.,BFI-K,ordinal,1-5,TRUE,Offenheit Item 4 -- Reverse: 6 - BFI_O4
+BFI_O5,Ich bin jemand der originell ist und neue Ideen entwickelt.,BFI-K,ordinal,1-5,FALSE,Offenheit Item 5
+SWLS_1,Mein Leben entspricht in den meisten Bereichen meinen Idealvorstellungen.,SWLS,ordinal,1-7,FALSE,Lebenszufriedenheit Item 1
+SWLS_2,Meine Lebensbedingungen sind ausgezeichnet.,SWLS,ordinal,1-7,FALSE,Lebenszufriedenheit Item 2
+SWLS_3,Ich bin mit meinem Leben zufrieden.,SWLS,ordinal,1-7,FALSE,Lebenszufriedenheit Item 3
+SWLS_4,Bisher habe ich die wesentlichen Dinge erlangt die ich mir fur mein Leben wunsche.,SWLS,ordinal,1-7,FALSE,Lebenszufriedenheit Item 4
+SWLS_5,Wenn ich mein Leben noch einmal leben konnte wurden ich kaum etwas andern.,SWLS,ordinal,1-7,FALSE,Lebenszufriedenheit Item 5
+PHQ2_1,Wie haufig hatten Sie in den letzten 2 Wochen wenig Interesse oder Freude an Ihren Tatigkeiten?,PHQ-2,ordinal,0-3,FALSE,0 = gar nicht; 1 = an einzelnen Tagen; 2 = an mehr als der Halfte der Tage; 3 = beinahe jeden Tag
+PHQ2_2,Wie haufig fuhlten Sie sich in den letzten 2 Wochen niedergeschlagen deprimiert oder hoffnungslos?,PHQ-2,ordinal,0-3,FALSE,Gleiche Skala wie PHQ2_1
+GAD2_1,Wie haufig fuhlten Sie sich in den letzten 2 Wochen nervos angstlich oder angespannt?,GAD-2,ordinal,0-3,FALSE,0 = gar nicht; 1 = an einzelnen Tagen; 2 = an mehr als der Halfte der Tage; 3 = beinahe jeden Tag
+GAD2_2,Wie haufig waren Sie in den letzten 2 Wochen nicht in der Lage Sorgen zu stoppen oder zu kontrollieren?,GAD-2,ordinal,0-3,FALSE,Gleiche Skala wie GAD2_1

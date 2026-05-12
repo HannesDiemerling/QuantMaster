@@ -1,0 +1,203 @@
+# Metaanalyse & Clusteranalyse (Demo)
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- erklären, was Clusteranalyse ist und wozu sie eingesetzt wird
+- k-Means-Clustering konzeptuell beschreiben und in JASP durchführen
+- erklären, was eine Metaanalyse leistet und wie ein Forest Plot gelesen wird
+- Heterogenität (I²) als Maß in einer Metaanalyse einordnen
+- Hierarchische Lineare Modelle (HLM) als verwandtes Verfahren für geclusterte Daten benennen
+:::
+
+::: {.callout-note title="Demo-Kapitel"}
+Dieses Kapitel stellt zwei Verfahren im Demo-Modus vor. Clusteranalyse und Metaanalyse sind eigenständige Themengebiete, die je einen eigenen Workshop füllen könnten. Das Ziel hier ist konzeptuelles Verständnis und eine erste praktische Berührung — kein Vertiefungsanspruch.
+:::
+
+## Worum es geht
+
+Bisher hast Du Verfahren verwendet, die Variablen in Beziehung setzen. Heute schauen wir kurz auf zwei andere Klassen von Verfahren:
+
+**Clusteranalyse** gruppiert nicht Variablen, sondern Personen (oder andere Einheiten) — ohne vorher zu wissen, wie viele Gruppen es gibt. Das ist *unüberwachtes Lernen*: Du lässt den Algorithmus Muster finden.
+
+**Metaanalyse** fasst Ergebnisse aus mehreren Einzelstudien quantitativ zusammen, um einen stabileren Gesamtschätzer zu erhalten. Das ist das höchste Evidenzniveau in der EBM-Hierarchie — und ein Werkzeug, mit dem Du als angehende Therapieforscherin oder -forscher oft konfrontiert sein wirst.
+
+---
+
+## Teil 1 — Clusteranalyse
+
+### Was ist Clusteranalyse?
+
+Clusteranalyse ist ein Verfahren des unüberwachten Lernens (Unsupervised Learning). Du gibst dem Algorithmus Variablen und sagst: "Finde Gruppen von Personen, die sich ähnlich sind." Du weißt vorher nicht, ob es 2, 3 oder 5 Gruppen gibt — das prüfst Du empirisch.
+
+Typische Anwendung in der Psychologie: Identifikation von Persönlichkeitstypen, Patientensubgruppen, Therapierespondern vs. Non-Respondern.
+
+### k-Means-Algorithmus
+
+Beim **k-Means-Clustering** gibst Du die Anzahl der Cluster (*k*) vor. Der Algorithmus:
+
+1. Platziert *k* zufällige Startpunkte (Centroids) im Variablenraum.
+2. Weist jede Person dem nächstgelegenen Centroid zu.
+3. Berechnet neue Centroids als Mittelwert der Personen im jeweiligen Cluster.
+4. Wiederholt 2–3 bis zur Stabilität.
+
+Das Ergebnis: Jede Person ist einem Cluster zugeordnet. Cluster-Mittelwerte zeigen, wie sich die Gruppen inhaltlich unterscheiden.
+
+**Wichtig:** k-Means ist nicht deterministisch (abhängig von Startwerten) und hängt von der Metrik ab — Variablen mit größerer Varianz dominieren. Daher sollten Variablen vor k-Means standardisiert werden.
+
+::: {.callout-tip title="Beispiel aus dem Datensatz"}
+Fragestellung: Gibt es verschiedene Persönlichkeits-Wohlbefinden-Profile in der Stichprobe?
+
+Eingabe: `BFI_N_mean`, `BFI_E_mean`, `SWLS_total` — drei Dimensionen, die inhaltlich gut für Profilbildung geeignet sind.
+
+Hypothese (explorativ): Vielleicht gibt es einen "resilienten" Cluster (niedrig N, hoch E, hoch SWLS), einen "vulnerablen" Cluster (hoch N, niedrig E, niedrig SWLS) und einen intermediären.
+:::
+
+### JASP-Walkthrough: k-Means
+
+#### Schritt 1: Machine Learning Modul öffnen
+
+- Klicke im oberen Menü auf **Machine Learning**.
+- Wähle **Clustering** → **K-Means Clustering**.
+
+![TODO: Screenshot Machine Learning Menü in JASP](../img/TODO-jasp-cluster-menu.png)
+
+#### Schritt 2: Variablen zuweisen
+
+- **Features:** `BFI_N_mean`, `BFI_E_mean`, `SWLS_total`
+- **Number of clusters:** Starte mit k = 3.
+
+#### Schritt 3: Optionen setzen
+
+- Aktiviere **Cluster means** — zeigt die Mittelwerte je Cluster.
+- Aktiviere **Cluster plot** — visuelle Darstellung.
+- Aktiviere **Elbow method** (falls verfügbar) — hilft bei der Wahl von *k*.
+
+![TODO: Screenshot k-Means Output in JASP](../img/TODO-jasp-cluster-output.png)
+
+#### Schritt 4: Ergebnisse interpretieren
+
+Schau auf die **Cluster-Mittelwerte-Tabelle**:
+
+- Welcher Cluster hat die höchsten Neurotizismus-Werte?
+- Welcher Cluster hat die höchste Lebenszufriedenheit?
+- Korrespondiert das mit dem resilienten/vulnerablen Profil?
+
+::: {.callout-warning title="Wenn Du hier hängst"}
+**Problem: "Machine Learning" ist nicht im Menü.**
+Lösung: In manchen JASP-Installationen ist das Machine-Learning-Modul nicht aktiviert. Gehe zu Hamburger-Menü (oben rechts) → Add-On Modules → Machine Learning aktivieren. Dann JASP neu starten.
+
+**Problem: Die Cluster sehen willkürlich aus.**
+Lösung: k-Means mit kleinen Datensätzen ist instabil. Führe die Analyse 2–3× aus und schau, ob sich ähnliche Muster ergeben. Das ist normal — notiere es als Einschränkung.
+:::
+
+### Mini-Übung: k variieren
+
+Versuche k = 2 und k = 4. Wie verändern sich die Cluster? Gibt es eine "natürliche" Gruppenanzahl?
+
+---
+
+## Teil 2 — Metaanalyse
+
+### Was ist eine Metaanalyse?
+
+Eine Metaanalyse fasst die Ergebnisse mehrerer Primärstudien zur selben Fragestellung quantitativ zusammen. Statt eines einzelnen Effektschätzers mit großem Konfidenzintervall bekommt man einen gepoolten Schätzer mit kleinerem Intervall — wenn die Studien gut zusammenpassen.
+
+In der Psychotherapieforschung sind Metaanalysen das wichtigste Instrument zur Beantwortung von Wirksamkeitsfragen: "Wie wirksam ist CBT bei sozialer Angststörung — über alle RCTs hinweg?"
+
+### Forest Plot
+
+Der **Forest Plot** ist die Standardgrafik der Metaanalyse:
+
+- Jede Zeile ist eine Primärstudie.
+- Jedes Quadrat ist der Effektschätzer der Studie (Größe des Quadrats ∝ Gewicht der Studie).
+- Die horizontalen Linien sind die Konfidenzintervalle.
+- Die Raute am Ende ist der gepoolte Gesamtschätzer.
+
+Wenn das KI einer Studie die Null-Linie (senkrechte Linie bei 0) einschließt: kein signifikanter Effekt in dieser Studie.
+
+### Heterogenität: I²
+
+**I²** misst, wie viel der Varianz zwischen den Studien auf echte Unterschiede zurückgeht (vs. Stichprobenfehler):
+
+- I² < 25 %: geringe Heterogenität
+- I² = 25–75 %: moderate Heterogenität
+- I² > 75 %: hohe Heterogenität
+
+Hohe Heterogenität bedeutet: Die Studien schätzen vielleicht verschiedene Dinge — zum Beispiel weil die Stichproben, Messinstrumente oder Kontexte sich stark unterscheiden. In diesem Fall ist ein einfacher gepoolter Schätzer problematisch.
+
+### JASP-Walkthrough: Metaanalyse mit Dummy-Daten
+
+Für die Demo verwenden wir einen kleinen Dummy-Datensatz (5 Studien), den Du direkt in JASP eingibst oder aus `materials/` lädst.
+
+#### Dummy-Datensatz (manuell eingeben oder laden)
+
+| Studie | d | SE |
+|---|---|---|
+| Studie_1 | 0.52 | 0.18 |
+| Studie_2 | 0.41 | 0.22 |
+| Studie_3 | 0.78 | 0.31 |
+| Studie_4 | 0.29 | 0.15 |
+| Studie_5 | 0.63 | 0.25 |
+
+Hierbei ist *d* Cohens d (standardisierte Effektgröße) und SE der Standardfehler.
+
+#### Schritt 1: Metaanalyse-Modul öffnen
+
+- Klicke auf **Meta-Analysis** (falls sichtbar) oder suche im Menü.
+- Wähle **Classical Meta-Analysis**.
+
+![TODO: Screenshot Meta-Analysis Modul in JASP](../img/TODO-jasp-meta-menu.png)
+
+#### Schritt 2: Variablen zuweisen
+
+- **Effect size:** `d`
+- **Effect size standard error:** `SE`
+- Aktiviere **Forest plot**.
+
+#### Schritt 3: Ergebnisse lesen
+
+- Gepoolter Effektschätzer (Gesamtdiamant im Forest Plot)
+- I²: Wie heterogen sind die Studien?
+- Q-Test: Globaler Test auf Heterogenität
+
+::: {.callout-warning title="Wenn Du hier hängst"}
+**Problem: Kein Meta-Analysis-Modul sichtbar.**
+Lösung: Über Hamburger-Menü → Add-On Modules → JAMPS (JASP Meta-Analysis Package) aktivieren.
+:::
+
+---
+
+## Verwandtes Verfahren: Hierarchische Lineare Modelle (HLM)
+
+Als kurzer Ausblick: **Hierarchische Lineare Modelle** (auch Mixed Models oder Mehrebenenmodelle) eignen sich, wenn Daten eine geclusterte Struktur haben — zum Beispiel Patienten, die in verschiedenen Praxen behandelt wurden (Praxen als Cluster), oder Messwiederholungen (Zeitpunkte geclustert in Personen).
+
+HLM sind das statistische Werkzeug der Wahl für viele klinische Längsschnittstudien. Sie sind konzeptuell verwandt mit der Metaanalyse (Studien als Cluster) und der k-Means-Analyse (Identifikation von Gruppenstrukturen). In JASP gibt es ein Mixed Models-Modul — für heute aber nur zur Kenntnis.
+
+## Selbstcheck
+
+1. Was ist der Unterschied zwischen überwachtem (supervised) und unüberwachtem (unsupervised) Lernen?
+2. Wie wählt man ein sinnvolles *k* beim k-Means-Clustering?
+3. Was zeigt ein Forest Plot, und wo findet man den gepoolten Effektschätzer?
+4. I² = 82 %. Was bedeutet das für die Interpretation des gepoolten Effekts?
+5. Nenne ein Beispiel aus der Psychotherapieforschung, wo HLM sinnvoller wäre als multiple Regression.
+
+::: {.callout-important title="Klausurrelevant"}
+Clusteranalyse, k-Means, unüberwachtes Lernen, Centroid, Metaanalyse, Forest Plot, gepoolter Effektschätzer, Heterogenität, I², Q-Test, Hierarchische Lineare Modelle, Mehrebenenmodelle
+:::
+
+## Weiterführend (optional)
+
+- Borenstein, M., Hedges, L. V., Higgins, J. P. T., & Rothstein, H. R. (2009). *Introduction to Meta-Analysis*. Wiley.
+- Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning* (2nd ed.). Springer. — Kapitel 14 für Clusteranalyse.
+- [Crash Course Statistics: Meta-Analysis (YouTube)](https://www.youtube.com/watch?v=PbODigCZqL8)
+
+---
+
+::: {.callout-note title="Das war Tag 3!"}
+Herzlichen Glückwunsch — Du hast alle drei Tage des Workshops durchgearbeitet. Du hast heute multiple Regression, Moderation, Mediation, bayesianische Inferenz, logistische Regression, Clusteranalyse und Metaanalyse in JASP kennengelernt.
+
+Im abschließenden Plenum werden wir Schlaglichter auf das Gelernte werfen, klausurrelevante Themen zusammenfassen und offene Fragen beantworten.
+
+Für die Klausurvorbereitung empfiehlt sich: [Lernzielkatalog](../exam-prep/lernzielkatalog.qmd).
+:::

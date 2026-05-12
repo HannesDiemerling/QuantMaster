@@ -1,0 +1,72 @@
+# Tag 1 — Überblick: Foundations & Erhebung
+
+::: {.callout-note title="Lernziele für heute"}
+Nach diesem Tag kannst Du …
+
+- erklären, was reproduzierbare Forschung bedeutet und warum sie in der Psychotherapieforschung wichtig ist
+- die Grundbegriffe der Messtheorie (Konstrukt, Operationalisierung, Skalenniveau, Reverse Coding) anwenden
+- den BFI-K kennen und seine fünf Dimensionen benennen
+- einen Fragebogen ausfüllen und die Antworten korrekt in eine CSV-Datei eintragen
+- eine CSV-Datei via GitHub in das Workshop-Repository hochladen
+- erklären, was synthetische Daten sind und warum sie in der Forschung eingesetzt werden
+:::
+
+## Was heute passiert
+
+Heute ist der Startschuss. Du lernst nicht nur Theorie — Du erhebst echte (pseudonymisierte) Daten, die wir in den nächsten beiden Tagen gemeinsam analysieren werden. Das macht den Unterschied: Du arbeitest nicht mit einem anonymen Übungsdatensatz, sondern mit Daten, die Du selbst erhoben hast.
+
+Gleichzeitig lernst Du den technischen Workflow kennen: Wie kommen Daten von einem Papier-Fragebogen in ein gemeinsames, versioniertes Repository auf GitHub? Das ist kein IT-Kurs, aber diese Schritte gehören heute zur Wissenschaftspraxis dazu.
+
+## Tagesplan
+
+| Zeit | Modus | Inhalt | Kapitel |
+|---|---|---|---|
+| 09:45–10:30 | **Plenum** | Begrüßung, Vorstellung des Workshops, Demo der Site, Einverständnis austeilen, JASP-Installation prüfen, GitHub-Accounts checken | — |
+| 10:30–11:15 | Self-Study | Open Science & Evidenzbeurteilung | `01-open-science.qmd` |
+| 11:15–12:00 | Self-Study | Messtheorie & BFI-K verstehen | `02-messen.qmd` |
+| 12:00–12:30 | **Plenum** | Knackpunkte aus dem Vormittag; kurze Live-Demo: einen Subscale-Score in JASP berechnen | — |
+| 12:30–13:30 | Mittagspause | | |
+| 13:30–14:30 | Self-Study | Fragebogen am eigenen Tisch ausfüllen, dann in CSV-Template eintragen | `03-erhebung-praktisch.qmd` |
+| 14:30–15:15 | Self-Study | CSV via GitHub hochladen, Pull Request öffnen | `04-github-upload.qmd` |
+| 15:15–15:45 | **Plenum** | Wer hängt wo? Häufige Git-Stolperer, Live-Merge eines PRs | — |
+| 15:45–16:45 | Self-Study | Synthetische Daten verstehen, R-Skript ausführen, eigene Fälle hochladen | `05-synthetic-data.qmd` |
+| 16:45–17:00 | **Plenum** | Reflexion: Was bedeutet "reproduzierbar"? Vorausblick auf Tag 2 | — |
+
+## Materialien-Checkliste
+
+Bevor Du loslegst, kurz prüfen:
+
+::: {.callout-warning title="Technik-Check"}
+- [ ] **JASP installiert?** Download unter [jasp-stats.org](https://jasp-stats.org) — Version 0.18 oder neuer
+- [ ] **GitHub-Account?** Kostenlos unter [github.com](https://github.com)
+- [ ] **GitHub Desktop installiert?** Download unter [desktop.github.com](https://desktop.github.com) — oder Du nutzt die Web-Oberfläche
+- [ ] **Repository gefunden?** Die Lehrperson gibt Dir den Link zum Workshop-Repo
+
+Wenn irgendetwas davon nicht klappt: sofort melden! Am besten jetzt, vor dem Start.
+:::
+
+::: {.callout-note title="Papier-Materialien"}
+- [ ] Einverständniserklärung unterschrieben und abgegeben (bekommst Du im Plenum)
+- [ ] Deine Student-ID notiert (gibt Dir die Lehrperson — ersetzt Deinen Namen in allen Dateien)
+- [ ] Papier-Fragebogen bereit (bekommst Du auch im Plenum)
+:::
+
+## Die drei Tage im Überblick
+
+Damit Du weißt, wo heute im Gesamtbild steht:
+
+| Tag | Datum | Schwerpunkt |
+|---|---|---|
+| **Tag 1** — heute | 21.05.2026 | Grundlagen, Erhebung, GitHub-Workflow |
+| **Tag 2** | 28.05.2026 | Daten verstehen: Deskriptiva, Reliabilität, Faktorenanalyse, Effektgrößen |
+| **Tag 3** | 04.06.2026 | Multivariate Verfahren: Regression, Moderation, Mediation, Bayes |
+
+Zwischen den Terminen liegt jeweils eine Woche. Das gibt Dir Zeit, das Gelernte zu verarbeiten — und das Repo hat Zeit, alle Daten zusammenzuführen.
+
+::: {.callout-tip title="Self-paced bedeutet: Dein Tempo"}
+Die Self-Study-Phasen sind bewusst so geplant, dass Du ohne Wartezeiten durcharbeiten kannst. Wenn Du schneller bist als der Zeitplan: super, mach einfach weiter. Wenn Du langsamer bist: auch okay — die Lehrperson ist da und hilft. Niemand wird abgehängt.
+:::
+
+---
+
+Bereit? Dann geht es los mit dem ersten Kapitel: [Open Science & Evidenzbeurteilung](01-open-science.qmd).
