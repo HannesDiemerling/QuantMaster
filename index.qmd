@@ -1,5 +1,6 @@
 # Willkommen zum Workshop {.unnumbered}
 
+
 Herzlich willkommen zum quantitativen Teil des Moduls **M15 — Multivariate Verfahren, Forschungsmethoden & Psychotherapieforschung** im Masterstudiengang Psychotherapie an der HMU Health and Medical University Potsdam.
 
 ## Was Dich erwartet
