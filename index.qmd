@@ -36,7 +36,7 @@ Du brauchst für diesen Workshop:
 ::: {.callout-important title="Vor Tag 1 erledigen"}
 - JASP installieren und einmal starten
 - GitHub-Account anlegen und Benutzernamen an die Lehrperson mailen
-- Einverständniserklärung lesen (siehe Kapitel [Einverständniserklärung](materials/einverstaendnis.qmd))
+- Einverständniserklärung lesen — liegt im Repo unter [materials/einverstaendnis.pdf](materials/einverstaendnis.pdf) (im Browser herunterladen und mitbringen)
 :::
 
 ## Datensatz

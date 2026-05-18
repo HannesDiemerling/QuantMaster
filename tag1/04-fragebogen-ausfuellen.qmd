@@ -25,7 +25,7 @@ Frag die Lehrperson — am Pult liegen gedruckte Exemplare.
 
 ## Aufgabe
 
-### 1. Bewusst ausfüllen
+### 1. Ausfüllen
 
 Lies jedes Item, denk kurz nach, kreuze auf der 5-Punkt-Skala an:
 
@@ -33,7 +33,11 @@ Lies jedes Item, denk kurz nach, kreuze auf der 5-Punkt-Skala an:
 |---|---|---|---|---|
 | trifft gar nicht zu | trifft eher nicht zu | weder noch | trifft eher zu | trifft voll zu |
 
-Nicht ratschen, nicht überlegen, was sozial erwünscht ist. Antworte ehrlich — die Daten landen pseudonym im Datensatz, niemand vergleicht sie mit Deinem Namen.
+::: {.callout-important title="Du musst nicht ehrlich antworten"}
+Der gesamte Datensatz ist **öffentlich** — alle Studierenden des Workshops (und im Prinzip die ganze Welt) sehen Deine Zeile. Deshalb gibt es **keine** Pflicht, die Items wahrheitsgemäß auszufüllen. Du darfst eine Persönlichkeit erfinden, ein Profil simulieren oder Dich an einer fiktiven Figur orientieren. Wichtig ist nur, dass die Werte **plausibel** sind (1–5), damit der Datensatz für die Analysen an Tag 2 und 3 nutzbar bleibt.
+
+Wer ehrlich antworten möchte, darf das natürlich auch.
+:::
 
 ### 2. Reverse-Items rekodieren
 
@@ -57,10 +61,14 @@ $$
 
 Trag unten auf dem Bogen ein:
 
-- **Probandennummer:** 10 (oder die nächste freie in Deinem zugewiesenen Datensatz — die genaue Zahl erfährst Du in [Kapitel 6](06-datensatz-laden.qmd))
+- **Probandennummer:** eine **selbstgewählte Kennziffer** — irgendeine ganze Zahl, die nicht zwischen 1 und 9 liegt (diese sind in den vorgenerierten Datensätzen schon vergeben). Beispiel: 42, 137, 9999. Schreib sie Dir auf — Du brauchst sie später, falls Du Deine Zeile wiederfinden willst.
 - **Geschlecht** als Code: 1 weiblich, 2 männlich, 3 divers
 - **Alter** in Jahren
 - **Bildungsgrad** als Code: 1 ohne Abschl., 2 Hauptschule, 3 Realschule, 4 (Fach-)Abitur, 5 Bachelor, 6 Master/Diplom/Staatsex., 7 Promotion
+
+::: {.callout-tip title="Wozu die selbstgewählte Kennziffer?"}
+Sie folgt demselben Schema wie die Probandennummern der vorgenerierten Daten (eine ganze Zahl). Niemand außer Dir weiß, welche Nummer Deine ist — der Datensatz ist so für Außenstehende **theoretisch anonym**, für Dich aber nachvollziehbar. Genau dieser Zwischenstand zwischen „völlig anonym" und „vollständig pseudonym" ist auch der Grund, warum Punkt 1 keine Pflicht zur Ehrlichkeit fordert.
+:::
 
 ### 4. In die CSV-Vorlage übertragen
 

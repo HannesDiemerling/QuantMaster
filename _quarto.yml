@@ -40,7 +40,6 @@ book:
     - part: "Referenz"
       chapters:
         - materials/codebook.qmd
-        - materials/einverstaendnis.qmd
 
 format:
   html:

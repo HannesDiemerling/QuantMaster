@@ -24,7 +24,7 @@ Füge **eine neue Zeile am Ende** ein. Inhalt aus Deinem Papier-Fragebogen:
 
 | Spalte | Inhalt |
 |---|---|
-| `probandennummer` | 10 (oder die nächste freie Nummer in Deinem Datensatz) |
+| `probandennummer` | Deine **selbstgewählte Kennziffer** aus [Kapitel 4](04-fragebogen-ausfuellen.qmd) (irgendeine ganze Zahl, nicht 1–9) |
 | `geschlecht` | 1 / 2 / 3 (Code) |
 | `alter` | Deine Jahre |
 | `bildungsgrad` | 1–7 (Code) |

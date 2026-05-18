@@ -70,7 +70,7 @@ Deine Rechte:
 
 ## Aufgabe
 
-1. Lies das Einverständnisformular ([Einverständniserklärung](../materials/einverstaendnis.qmd)).
+1. Lies das Einverständnisformular ([materials/einverstaendnis.pdf](../materials/einverstaendnis.pdf)) — die Lehrperson bringt es zusätzlich ausgedruckt mit.
 2. Entscheide, ob Du teilnimmst.
 3. Wenn ja: unterschreiben, bei der Lehrperson abgeben.
 4. Wenn nein: kein Problem — überspringe später das Eintragen Deiner eigenen Antwortzeile und arbeite nur mit den vorgenerierten Daten.
