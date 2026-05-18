@@ -32,8 +32,31 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Render Quarto Project
+      - name: Install TinyTeX (für die Einverstaendnis-PDF)
+        run: quarto install tinytex --no-prompt
+
+      - name: Render Einverstaendnis to PDF
+        run: |
+          set -e
+          quarto render materials/einverstaendnis.qmd --to pdf
+          # Falls die PDF nicht direkt in materials/ liegt, dorthin verschieben –
+          # damit das anschliessende Book-Render sie via resources:-Glob abholt.
+          if [ ! -f materials/einverstaendnis.pdf ]; then
+            FOUND=$(find . -name "einverstaendnis.pdf" -not -path "./_site/*" | head -n1)
+            if [ -n "$FOUND" ]; then
+              mv "$FOUND" materials/einverstaendnis.pdf
+            else
+              echo "ERROR: einverstaendnis.pdf wurde nicht erzeugt." >&2
+              find . -name "einverstaendnis.pdf" -ls
+              exit 1
+            fi
+          fi
+          ls -la materials/einverstaendnis.pdf
+
+      - name: Render Quarto Book (HTML)
         uses: quarto-dev/quarto-actions/render@v2
+        with:
+          to: html
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3

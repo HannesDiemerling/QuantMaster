@@ -1,0 +1,97 @@
+---
+title: "Einverständniserklärung zur Teilnahme am Workshop-Datensatz"
+subtitle: "Workshop M15 — Quantitative Forschungsmethoden & Multivariate Verfahren · HMU Potsdam"
+date: ""
+format:
+  pdf:
+    documentclass: scrartcl
+    papersize: a4
+    geometry:
+      - margin=2.5cm
+    fontsize: 11pt
+    toc: false
+    number-sections: false
+    colorlinks: true
+lang: de
+---
+
+**HMU Health and Medical University Potsdam · Masterstudiengang Psychotherapie**
+Termine: 21.05.2026, 28.05.2026, 04.06.2026 · Verantwortlich: Prof. Dr. Daniel Schad
+
+## Worum geht es?
+
+Im Rahmen dieses Workshops simulieren wir einen vollständigen empirischen Forschungsprozess. Du füllst dafür auf Papier den **BFI-K** (Big Five Inventory — Kurzversion, Rammstedt & John 2005) aus, ein etabliertes Persönlichkeits-Instrument mit 21 Items.
+
+Anschließend überträgst Du Deine Antworten zusammen mit ein paar demografischen Angaben (Alter, Geschlecht, Bildungsabschluss) in den Workshop-Datensatz, der in einem **öffentlichen** GitHub-Repository der HMU liegt.
+
+## Welche Daten werden erhoben?
+
+| Variable | Inhalt |
+|---|---|
+| Probandennummer | eine von Dir **selbstgewählte Kennziffer** (irgendeine ganze Zahl, nicht 1–9) — kein Klarname |
+| Geschlecht | weiblich / männlich / divers |
+| Alter | in Jahren |
+| Bildungsabschluss | höchster Abschluss (Kodes 1–7) |
+| BFI-K | 21 Likert-Antworten (1–5) |
+
+Es werden **keine** identifizierenden Daten erhoben — also kein Name, keine E-Mail-Adresse, keine Matrikelnummer, keine IP-Adresse.
+
+## Wo landen die Daten?
+
+In einem **öffentlichen GitHub-Repository** der Lehrveranstaltung, unter `data/student-uploads/` (Deine ausgefüllte Datei) und später im Gesamtdatensatz, den die Studierenden an Tag 2 selbst aus den Uploads zusammenführen. Das Repository ist frei einsehbar.
+
+## Pseudonymisierung und Wahrheitsgehalt
+
+Weil der Datensatz öffentlich ist, gibt es **keine Pflicht, die BFI-K-Items wahrheitsgemäß auszufüllen**. Du darfst eine Persönlichkeit erfinden, sofern die Werte plausibel (1–5) sind. Da Du Deine Probandennummer selbst wählst, ist Deine Zeile für Außenstehende theoretisch anonym — aber für Dich selbst weiterhin nachvollziehbar (Du kannst sie wiederfinden, falls Du sie zurückziehen willst).
+
+Wer ehrlich antworten möchte, darf das natürlich auch. Eine vollständige Anonymisierung kann bei kleinen Stichproben mit Demografie nicht garantiert werden.
+
+## Was passiert mit den Daten?
+
+- Die Daten dienen ausschließlich **Lehrzwecken** in diesem Workshop.
+- Sie werden **nicht** für Publikationen, kommerzielle Zwecke oder externe Forschungsprojekte genutzt.
+- Sie verbleiben dauerhaft im öffentlichen Repository, sofern Du Deine Einwilligung nicht zurückziehst.
+
+## Freiwilligkeit und Widerruf
+
+- Die Teilnahme ist **freiwillig**. Es entstehen Dir keine Nachteile, wenn Du Dich gegen die Übertragung Deiner eigenen Daten entscheidest.
+- **Alternative:** Du kannst alle Workshop-Aufgaben mit den vorgenerierten Datensätzen bearbeiten, ohne Deine eigene Antwortzeile hochzuladen.
+- Du kannst Deine Einwilligung **bis zum Ende von Tag 1 (21.05.2026, 17:00)** ohne Angabe von Gründen widerrufen. Sag der Lehrperson Bescheid und nenn Deine Kennziffer — Deine Zeile wird dann aus dem Repository entfernt.
+
+## Deine Rechte (DSGVO)
+
+Du hast das Recht auf:
+
+- **Auskunft** über die zu Dir gespeicherten Daten
+- **Berichtigung** unrichtiger Daten
+- **Löschung** Deiner Daten (bis Workshop-Ende Tag 1)
+- **Beschwerde** bei der zuständigen Datenschutz-Aufsichtsbehörde
+
+## Kontakt
+
+Prof. Dr. Daniel Schad — Lehrender Modul M15
+HMU Health and Medical University Potsdam
+
+\vspace{1.5em}
+\hrule
+\vspace{1.5em}
+
+## Einwilligung
+
+Ich habe die obigen Informationen gelesen und verstanden. Ich willige ein, dass
+
+- meine BFI-K-Antworten,
+- mein Alter, mein Geschlecht und mein Bildungsabschluss
+
+unter der von mir gewählten Kennziffer in den öffentlichen Workshop-Datensatz aufgenommen werden.
+
+\vspace{1.5em}
+
+| | |
+|---|---|
+| Ort, Datum: | _______________________________ |
+| Unterschrift: | _______________________________ |
+
+\vspace{1em}
+
+*Wenn Du nicht teilnehmen möchtest: Gib dieses Formular einfach nicht unterschrieben ab. Du kannst alle Übungen mit den vorgenerierten Datensätzen durchführen.*
