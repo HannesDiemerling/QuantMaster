@@ -1,0 +1,43 @@
+# Tagesabschluss {#sec-tag1-abschluss}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel hast Du …
+
+- Deine Erfahrungen des Tages kurz reflektiert,
+- offene Fragen für die Lehrperson notiert,
+- einen klaren Ausblick auf Tag 2.
+:::
+
+## Was wir heute erreicht haben
+
+- Du hast Open Science und Forschungsethik praktisch erfahren — nicht nur theoretisch gelesen.
+- Du hast den BFI-K ausgefüllt und Reverse-Items von Hand rekodiert.
+- Du hast einen vollständigen GitHub-Workflow durchlaufen: Repo verstehen, Datei runterladen, lokal bearbeiten, hochladen.
+- Du hast in JASP einen Datensatz auf zwei absichtliche Fehler durchsucht und bereinigt.
+- Deine Daten sind Teil eines gemeinsamen Datensatzes, der jetzt zur Analyse bereitsteht.
+
+## Was Tag 2 bringt
+
+| Block | Thema |
+|---|---|
+| Vormittag | Den kombinierten Datensatz in JASP öffnen und seine Struktur verstehen; deskriptive Statistik (Verteilungen, Boxplots) |
+| Mittag | — |
+| Nachmittag | Reliabilität (Cronbach's α, McDonald's ω); Subskalen-Mittelwerte berechnen; Korrelationsmatrix; erste inferenzstatistische Vergleiche (t-Tests, ANOVA) mit Effektgrößen; konzeptueller Einstieg in Faktorenanalyse |
+
+## Reflexionsaufgabe (5 Minuten, privat)
+
+Nimm Dir kurz Stift und Zettel und notiere für Dich allein:
+
+1. **Eine Sache, die mir heute klar wurde.**
+2. **Eine Sache, die noch unklar ist.**
+3. **Eine Sache, die ich an meiner Master-Arbeit so ähnlich machen würde.**
+
+Diese Notizen sind **privat** — nichts wird hochgeladen. Wenn Du magst, sprich Punkt 2 mit der Lehrperson durch, bevor Du gehst.
+
+## Vor dem Gehen
+
+- Hast Du Deine Upload-Datei erfolgreich im Repo?
+- Hast Du das Einverständnisformular abgegeben (falls Du Deine Daten beigetragen hast)?
+- Ist Deine JASP-Installation funktionsfähig — Du brauchst sie an Tag 2 wieder.
+
+Bis nächste Woche.

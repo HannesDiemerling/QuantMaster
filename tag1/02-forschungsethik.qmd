@@ -1,0 +1,86 @@
+# Forschungsethik & Dein Einverständnis {#sec-tag1-ethik}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- die Grundprinzipien der Forschungsethik in eigenen Worten benennen,
+- erklären, was eine informierte Einwilligung enthält,
+- den Unterschied zwischen Anonymisierung und Pseudonymisierung erläutern,
+- entscheiden, ob Du Deine eigenen Daten in den Workshop-Datensatz aufnimmst.
+:::
+
+## Worum es geht
+
+Gleich wirst Du selbst Daten beisteuern. Bevor das passiert, brauchst Du — wie in jeder echten Studie — eine **informierte Einwilligung**. Dieses Kapitel erklärt, warum Forschungsethik mehr ist als ein Häkchen auf einem Formular.
+
+## Wo das alles herkommt
+
+Die moderne Forschungsethik baut auf zwei zentralen Dokumenten auf:
+
+- **Helsinki-Deklaration** (1964, mehrfach revidiert) — ethische Standards für medizinische Forschung am Menschen. Kernidee: Das Wohl der Versuchsperson hat Vorrang vor den Interessen der Wissenschaft.
+- **Belmont Report** (1979) — formuliert drei Prinzipien, die bis heute den Maßstab bilden:
+  - *Respect for Persons* (Achtung der Person — informierte Einwilligung)
+  - *Beneficence* (Nutzen maximieren, Schaden minimieren)
+  - *Justice* (Gerechte Verteilung von Risiken und Nutzen)
+
+Diese Prinzipien sind nicht bloß historisch — sie strukturieren bis heute Ethikkommissionen, Fördergeber und Journals.
+
+## Was muss in einer informierten Einwilligung stehen?
+
+Eine vollständige Einwilligungserklärung enthält:
+
+1. **Was wird erhoben?** (Welche Daten, welche Instrumente)
+2. **Wozu?** (Forschungsfrage, Studienzweck)
+3. **Wie lange werden die Daten gespeichert? Wo? Von wem?**
+4. **Wer hat Zugriff?**
+5. **Welche Risiken bestehen?**
+6. **Wie wird Anonymität oder Pseudonymität gewährleistet?**
+7. **Recht auf Widerruf** — jederzeit, ohne Begründung, ohne Nachteile.
+8. **Kontaktangaben** für Rückfragen.
+9. **Unterschrift** der teilnehmenden Person und Datum.
+
+## DSGVO in zwei Sätzen
+
+Die **DSGVO** (Datenschutz-Grundverordnung) regelt seit 2018 EU-weit, wie personenbezogene Daten verarbeitet werden dürfen. Für Forschung gilt: Du brauchst eine Rechtsgrundlage (in der Regel die **Einwilligung**), und Personen haben Rechte auf Auskunft, Berichtigung und Löschung.
+
+## Anonymisierung vs. Pseudonymisierung
+
+| | Anonymisierung | Pseudonymisierung |
+|---|---|---|
+| **Idee** | Bezug zur Person *grundsätzlich* nicht mehr herstellbar | Bezug nur über einen separat aufbewahrten Schlüssel herstellbar |
+| **Beispiel** | aggregierte Statistiken ohne Demografie | Probandennummer 7, Demografie und Antworten erhalten |
+| **DSGVO** | strenggenommen *keine* personenbezogenen Daten mehr | bleibt personenbezogen — DSGVO gilt weiter |
+
+Bei kleinen Stichproben mit Demografie ist eine echte Anonymisierung selten möglich — Du selbst könntest Deine eigene Zeile vermutlich wiedererkennen.
+
+## Konkret für diesen Workshop
+
+Was wir tun:
+
+- **Erheben:** BFI-K + 3 Demografie-Variablen (Geschlecht, Alter, Bildung).
+- **Speichern:** in einem öffentlichen GitHub-Repo, unter `data/student-uploads/` und `data/combined/m15-gesamt.csv`.
+- **Pseudonymisieren:** Du bekommst eine Probandennummer, kein Klarname, keine E-Mail.
+- **Verwenden:** ausschließlich für die Lehre in diesem Workshop.
+
+Deine Rechte:
+
+- **Freiwillig:** Du kannst alle Aufgaben mit den vorgenerierten Datensätzen erledigen, ohne Deine eigenen Daten beizutragen.
+- **Widerruf:** Bis Ende Tag 1 kannst Du Deine Zeile entfernen lassen.
+- **Auskunft, Berichtigung, Löschung:** wie in §13–17 DSGVO geregelt.
+
+## Aufgabe
+
+1. Lies das Einverständnisformular ([Einverständniserklärung](../materials/einverstaendnis.qmd)).
+2. Entscheide, ob Du teilnimmst.
+3. Wenn ja: unterschreiben, bei der Lehrperson abgeben.
+4. Wenn nein: kein Problem — überspringe später das Eintragen Deiner eigenen Antwortzeile und arbeite nur mit den vorgenerierten Daten.
+
+::: {.callout-tip title="Faustregel"}
+Wenn Du Dich nicht sicher fühlst — frag die Lehrperson, lieber jetzt als später.
+:::
+
+## Selbstcheck
+
+1. Welche Angaben muss eine informierte Einwilligung mindestens enthalten?
+2. Wo ist der Unterschied zwischen Anonymisierung und Pseudonymisierung?
+3. Was passiert, wenn Du Deine Teilnahme nach Tag 1 zurückziehen willst?

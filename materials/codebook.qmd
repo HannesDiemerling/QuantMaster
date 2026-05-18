@@ -1,154 +1,122 @@
 ---
-title: "Codebook — M15 Datensatz"
+title: "Codebook"
 ---
 
-# Codebook
+# Codebook {.unnumbered}
 
-Dieses Codebook beschreibt alle Variablen im Workshop-Datensatz `data/combined/m15-combined.csv`.
-Es ist die verbindliche Quelle fur Variablennamen, Skalierung und Reverse-Coding.
+Dieses Codebook ist die **verbindliche Beschreibung** des Workshop-Datensatzes. Jede Spalte, jede Kodierung, jeder erlaubte Wertebereich steht hier — Single Source of Truth.
 
-::: {.callout-note title="CSV-Format"}
-UTF-8, Komma-getrennt, Punkt als Dezimaltrenner, fehlende Werte = leere Zelle.
-Insgesamt **37 Spalten** je Zeile.
-:::
+Die maschinenlesbare Variante liegt unter [materials/codebook.csv](codebook.csv) und wird von den Workflows (`scripts/generate-datasets.R`, `scripts/merge-uploads.R`) automatisch gelesen.
 
-::: {.callout-warning title="Reverse Items"}
-Die Rohwerte im Datensatz sind **nicht** umgepolt. Umpolung ist Lehrinhalt in Tag 2.
-Formel: `rekodierter Wert = Maximalwert + 1 - Rohwert`
+## Datenformat
 
-Fur BFI-K (Skala 1-5): `6 - Rohwert`
-
-Betroffen: **BFI_E3, BFI_V1, BFI_G2, BFI_N2, BFI_N4, BFI_O4**
-:::
-
----
-
-## Verwaltungsvariablen
-
-| Variable | Label | Typ | Werte | Hinweis |
-|---|---|---|---|---|
-| `id` | Eindeutige Fallnummer | numeric | 1, 2, 3 ... | Vom Lehrenden vergeben |
-| `source` | Datenquelle | categorical | `echt` / `synth_seed` / `synth_student` | `echt` = echte Studierendendaten; `synth_seed` = Lehrenden-Datensatz; `synth_student` = synthetische Studierendendaten |
-| `student_id` | Pseudonym | character | z.B. `s-01` | Keine echten Namen |
-
----
-
-## Demografische Variablen
-
-| Variable | Label | Typ | Werte |
-|---|---|---|---|
-| `age` | Alter in Jahren | numeric | 18-65 |
-| `gender` | Geschlecht | categorical | `w` / `m` / `d` / `na` |
-| `semester` | Fachsemester | numeric | 1-10 |
-| `stats_prior` | Statistik-Vorwissen | ordinal | 1 (keins) bis 5 (sehr gut) |
-| `therapy_exp` | Praxiserfahrung in Monaten | numeric | 0-120 |
-
----
-
-## BFI-K — Big Five Inventory Kurzform
-
-Instruktion: *"Wie sehr treffen die folgenden Aussagen auf Sie zu?"*
-Skala: 1 = stimme gar nicht zu, 2 = stimme eher nicht zu, 3 = teils/teils, 4 = stimme eher zu, 5 = stimme voll zu
-
-### Extraversion (E)
-
-| Variable | Item | Reverse |
-|---|---|---|
-| `BFI_E1` | Ich bin jemand, der gesellig und umganglich ist. | Nein |
-| `BFI_E2` | Ich bin jemand, der zuruckhaltend ist. | Nein |
-| `BFI_E3` | Ich bin jemand, der eher introvertiert als extrovertiert ist. | **Ja** (6 - Rohwert) |
-| `BFI_E4` | Ich bin jemand, der aktiv und lebhaft ist. | Nein |
-
-### Vertraglichkeit (V)
-
-| Variable | Item | Reverse |
-|---|---|---|
-| `BFI_V1` | Ich bin jemand, der manchmal unhoflich und schroff mit anderen ist. | **Ja** (6 - Rohwert) |
-| `BFI_V2` | Ich bin jemand, der hilfsbereit und uneigennutzig gegenuber anderen ist. | Nein |
-| `BFI_V3` | Ich bin jemand, der vergebend ist. | Nein |
-| `BFI_V4` | Ich bin jemand, der rucksichtsvoll und einfuhlsam mit anderen umgeht. | Nein |
-
-### Gewissenhaftigkeit (G)
-
-| Variable | Item | Reverse |
-|---|---|---|
-| `BFI_G1` | Ich bin jemand, der grundlich arbeitet. | Nein |
-| `BFI_G2` | Ich bin jemand, der manchmal nicht so sorgfaltig ist. | **Ja** (6 - Rohwert) |
-| `BFI_G3` | Ich bin jemand, der Plane macht und diese auch durchfuhrt. | Nein |
-| `BFI_G4` | Ich bin jemand, der effizient ist und Dinge immer erledigt. | Nein |
-
-### Neurotizismus (N)
-
-| Variable | Item | Reverse |
-|---|---|---|
-| `BFI_N1` | Ich bin jemand, der leicht nervos und unsicher wird. | Nein |
-| `BFI_N2` | Ich bin jemand, der entspannt ist und gut mit Stress umgehen kann. | **Ja** (6 - Rohwert) |
-| `BFI_N3` | Ich bin jemand, der leicht trubsinnig wird. | Nein |
-| `BFI_N4` | Ich bin jemand, der stabil und ausgeglichen ist. | **Ja** (6 - Rohwert) |
-
-### Offenheit (O)
-
-| Variable | Item | Reverse |
-|---|---|---|
-| `BFI_O1` | Ich bin jemand, der einfallsreich ist -- ich denke mir immer etwas aus. | Nein |
-| `BFI_O2` | Ich bin jemand, der eine lebhafte Phantasie und Vorstellung hat. | Nein |
-| `BFI_O3` | Ich bin jemand, der tiefsinnig ist. | Nein |
-| `BFI_O4` | Ich bin jemand, der nur wenig kunstlerisches Interesse hat. | **Ja** (6 - Rohwert) |
-| `BFI_O5` | Ich bin jemand, der originell ist und neue Ideen entwickelt. | Nein |
-
-::: {.callout-tip title="Subskalenscore berechnen"}
-Nach dem Umkodieren der Reverse Items: Mittelwert uber alle vier bzw. funf Items der Subskala.
-Beispiel Extraversion: `E_mean = mean(c(BFI_E1, 6-BFI_E2, 6-BFI_E3, BFI_E4))`
-
-Achtung: BFI_E2 ist im BFI-K **kein** Reverse-Item. Nur die in der Tabelle markierten Items umkodieren.
-:::
-
----
-
-## SWLS — Satisfaction With Life Scale
-
-Instruktion: *"Bitte gib an, wie sehr du den folgenden Aussagen zustimmst."*
-Skala: 1 = stimme gar nicht zu bis 7 = stimme vollig zu
-
-| Variable | Item | Reverse |
-|---|---|---|
-| `SWLS_1` | Mein Leben entspricht in den meisten Bereichen meinen Idealvorstellungen. | Nein |
-| `SWLS_2` | Meine Lebensbedingungen sind ausgezeichnet. | Nein |
-| `SWLS_3` | Ich bin mit meinem Leben zufrieden. | Nein |
-| `SWLS_4` | Bisher habe ich die wesentlichen Dinge erlangt, die ich mir fur mein Leben wunsche. | Nein |
-| `SWLS_5` | Wenn ich mein Leben noch einmal leben konnte, wurde ich kaum etwas andern. | Nein |
-
-Gesamtscore: Summe uber alle 5 Items (5-35). Hohere Werte = hohere Lebenszufriedenheit.
-
----
-
-## PHQ-2 und GAD-2
-
-Instruktion: *"Wie haufig haben Sie sich in den letzten 2 Wochen durch folgende Probleme beeintrachtigt gefuhlt?"*
-Skala: 0 = gar nicht, 1 = an einzelnen Tagen, 2 = an mehr als der Halfte der Tage, 3 = beinahe jeden Tag
-
-### PHQ-2 (Depressive Symptomatik)
-
-| Variable | Item |
+| Eigenschaft | Wert |
 |---|---|
-| `PHQ2_1` | Wie haufig hatten Sie wenig Interesse oder Freude an Ihren Tatigkeiten? |
-| `PHQ2_2` | Wie haufig fuhlten Sie sich niedergeschlagen, deprimiert oder hoffnungslos? |
+| Format | CSV, UTF-8 |
+| Trennzeichen | Komma `,` |
+| Dezimaltrenner | Punkt `.` |
+| Header-Zeile | ja (eine Zeile mit Spaltennamen) |
+| Fehlende Werte | leeres Feld (nicht `NA`, nicht `-99`) |
 
-Gesamtscore: Summe (0-6). Cutoff klinisch auffalliger Bereich: >= 3.
+## Spalten im Überblick
 
-### GAD-2 (Angst-Symptomatik)
+| # | Variable | Typ | Skala | Wertebereich | Instrument |
+|--:|---|---|---|---|---|
+| 1 | `probandennummer` | int | nominal | 1–99 | — |
+| 2 | `geschlecht` | int | nominal | 1, 2, 3 | — |
+| 3 | `alter` | int | metrisch | 18–99 | — |
+| 4 | `bildungsgrad` | int | ordinal | 1–7 | — |
+| 5–8 | `BFI_E1` … `BFI_E4` | int | ordinal | 1–5 | BFI-K |
+| 9–12 | `BFI_V1` … `BFI_V4` | int | ordinal | 1–5 | BFI-K |
+| 13–16 | `BFI_G1` … `BFI_G4` | int | ordinal | 1–5 | BFI-K |
+| 17–20 | `BFI_N1` … `BFI_N4` | int | ordinal | 1–5 | BFI-K |
+| 21–25 | `BFI_O1` … `BFI_O5` | int | ordinal | 1–5 | BFI-K |
 
-| Variable | Item |
-|---|---|
-| `GAD2_1` | Wie haufig fuhlten Sie sich nervos, angstlich oder angespannt? |
-| `GAD2_2` | Wie haufig waren Sie nicht in der Lage, Sorgen zu stoppen oder zu kontrollieren? |
+**Gesamt:** 4 Demografie-Spalten + 21 BFI-K-Items = **25 Spalten**.
 
-Gesamtscore: Summe (0-6). Cutoff klinisch auffalliger Bereich: >= 3.
+## Kodierung der Demografie-Variablen
 
----
+### `probandennummer`
 
-## Quellenangaben
+- Ganzzahl, innerhalb eines Datensatzes eindeutig.
+- In den vorgenerierten Datensätzen: 1–9.
+- Deine eigene Zeile bekommt 10 (oder die nächstfreie Nummer).
 
-- **BFI-K:** Rammstedt, B. & John, O. P. (2005). Kurzversion des Big Five Inventory (BFI-K). *Diagnostica, 51*(4), 195-206.
-- **SWLS:** Diener, E. et al. (1985). The Satisfaction With Life Scale. *Journal of Personality Assessment, 49*, 71-75. Deutsche Version: Glaesmer, H. et al. (2011).
-- **PHQ-2 / GAD-2:** Kroenke, K. et al. (2003) / Kroenke, K. et al. (2007). Public Domain.
+### `geschlecht`
+
+| Code | Bedeutung |
+|---:|---|
+| 1 | weiblich |
+| 2 | männlich |
+| 3 | divers |
+
+### `alter`
+
+- Ganzzahl, Jahre, plausibler Bereich 18–99.
+- Werte außerhalb dieses Bereichs gelten als Fehler.
+
+### `bildungsgrad`
+
+| Code | Bedeutung |
+|---:|---|
+| 1 | ohne Abschluss |
+| 2 | Hauptschulabschluss |
+| 3 | Realschulabschluss |
+| 4 | (Fach-)Abitur |
+| 5 | Bachelor |
+| 6 | Master / Diplom / Staatsexamen |
+| 7 | Promotion |
+
+## BFI-K — Big Five Inventory, Kurzversion
+
+Quelle: Rammstedt, B. & John, O. P. (2005). Kurzversion des Big Five Inventory (BFI-K). *Diagnostica*, 51(4), 195–206.
+
+21 Items, 5-Punkt-Likert-Skala:
+
+| Code | Bedeutung |
+|---:|---|
+| 1 | trifft gar nicht zu |
+| 2 | trifft eher nicht zu |
+| 3 | weder noch |
+| 4 | trifft eher zu |
+| 5 | trifft voll zu |
+
+Fünf Skalen:
+
+| Skala | Items | davon Reverse |
+|---|---|---|
+| Extraversion (E) | `BFI_E1`–`BFI_E4` | `BFI_E1`, `BFI_E4` |
+| Verträglichkeit (V) | `BFI_V1`–`BFI_V4` | `BFI_V1` |
+| Gewissenhaftigkeit (G) | `BFI_G1`–`BFI_G4` | `BFI_G1`, `BFI_G2` |
+| Neurotizismus (N) | `BFI_N1`–`BFI_N4` | `BFI_N1` |
+| Offenheit (O) | `BFI_O1`–`BFI_O5` | `BFI_O4` |
+
+::: {.callout-important title="Bereits rekodiert"}
+In den **vorgenerierten Datensätzen** (`data/generated/datensatz-XX.csv`) sind alle BFI-K-Items **bereits rekodiert**: Reverse-Items wurden umgepolt, sodass eine hohe Zahl in jedem Item eine hohe Ausprägung der jeweiligen Skala bedeutet.
+
+Wenn Du Deine **eigenen handschriftlichen Antworten** überträgst, musst Du die Reverse-Items vorher selbst umpolen (Formel: `rekodiert = 6 − Originalwert`).
+:::
+
+## Rekodierungsformel
+
+Bei einer 5-stufigen Likert-Skala:
+
+$$
+\text{rekodiert} = 6 - \text{Originalwert}
+$$
+
+| Original | Rekodiert |
+|:---:|:---:|
+| 1 | 5 |
+| 2 | 4 |
+| 3 | 3 |
+| 4 | 2 |
+| 5 | 1 |
+
+## Hinweise zur Datenintegrität
+
+- **Nur erlaubte Werte:** Jede Zelle muss innerhalb des im Codebook definierten Wertebereichs liegen.
+- **Eindeutige Probandennummern:** innerhalb einer Datei keine Duplikate.
+- **Vollständige Demografie:** Geschlecht, Alter und Bildungsgrad müssen ausgefüllt sein.
+
+Die zehn vorgenerierten Übungsdatensätze enthalten **absichtlich pro Datei zwei Fehler** aus diesen Kategorien — das Finden ist Teil der Übung an Tag 1.

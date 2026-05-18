@@ -1,0 +1,74 @@
+# Deinen Datensatz herunterladen {#sec-tag1-laden}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel hast Du …
+
+- Deine persönliche Datensatz-Nummer,
+- die zugehörige CSV-Datei lokal auf Deinem Laptop,
+- ein klares Bild davon, was als nächstes mit dieser Datei passiert.
+:::
+
+## Worum es geht
+
+Im Repo liegen unter `data/generated/` zehn Datensätze, jeder mit 9 Probanden und genau 2 absichtlichen Fehlern. Du bekommst einen davon zugewiesen, lädst ihn herunter und nimmst ihn mit nach JASP.
+
+## Zuweisung
+
+Die Zuweisung erfolgt **alphabetisch nach Nachnamen, Modulo 10**:
+
+| Rang in der Teilnehmerliste | Datensatz |
+|---:|---:|
+| 1. | 1 |
+| 2. | 2 |
+| … | … |
+| 10. | 10 |
+| 11. | 1 |
+| 12. | 2 |
+| … | … |
+
+Die Lehrperson hängt zu Tagesbeginn eine Liste an der Tafel oder ins Repo. Merke Dir Deine Nummer als zweistellige Zahl: `01`, `02`, …, `10`.
+
+::: {.callout-tip title="Doppelt zugewiesen ist Absicht"}
+Wenn mehr als 10 Teilnehmende dabei sind, bearbeiten zwei (oder mehr) Personen denselben vorgenerierten Datensatz. Das ist gewollt — am Ende lässt sich vergleichen, ob alle dieselben Fehler gefunden und gleich behandelt haben.
+:::
+
+## Aufgabe
+
+### 1. Datensatz finden
+
+1. Öffne im Browser das Workshop-Repo.
+2. Navigiere zu `data/generated/`.
+3. Klick auf `datensatz-XX.csv`, wobei `XX` Deine Nummer ist (z. B. `datensatz-03.csv`).
+
+GitHub zeigt Dir den CSV-Inhalt als Tabelle.
+
+### 2. Herunterladen
+
+- Klicke auf den Button **„Download raw file"** (oben rechts, Pfeil-nach-unten-Symbol) — alternativ Rechtsklick auf den Dateinamen → „Save link as …".
+- Speichere die Datei in einem Workshop-Ordner Deiner Wahl, **ohne den Namen zu ändern**. Sie heißt also weiterhin `datensatz-XX.csv`.
+
+### 3. Datei prüfen
+
+Öffne die Datei kurz mit einem Texteditor (oder direkt in JASP). Du solltest sehen:
+
+- Eine Header-Zeile mit 25 Spaltennamen (`probandennummer, geschlecht, alter, …, BFI_O5`)
+- 9 Datenzeilen mit Probandennummern 1–9
+- Zwei der Zeilen enthalten irgendwo einen kleinen Defekt — den findest Du gleich.
+
+::: {.callout-important title="Bitte nicht in Excel öffnen und doppelklicken"}
+Excel interpretiert manchmal Spalten falsch (z. B. wandelt `01` in `1` oder vermischt Komma/Semikolon). Für die Bereinigung nutzt Du **JASP**. Wenn Du die Datei unbedingt vorher anschauen willst: ein Texteditor (Notepad, VS Code, BBEdit) ist sicherer.
+:::
+
+## Was bringt diese Aufgabe?
+
+Du erlebst hier die kleinste sinnvolle Variante eines echten Datentransfers in einem Forschungsprojekt:
+
+- Daten liegen versioniert an einem zentralen Ort.
+- Jede Person hat einen klar zugewiesenen Teil.
+- Was lokal passiert (Bereinigung, Ergänzung), wird später wieder in den zentralen Stand zurückgeführt.
+
+## Selbstcheck
+
+1. Welche Datensatznummer hast Du, und wie heißt Deine Datei?
+2. Was passiert, wenn mehrere Studierende denselben Datensatz bearbeiten — gibt es dadurch doppelte Zeilen im Gesamtdatensatz? (Hinweis: das regelt der Merge-Workflow in [Kapitel 8](08-hochladen-kombinieren.qmd).)
+3. In welchem Ordner liegen die vorgenerierten Datensätze?

@@ -1,0 +1,98 @@
+# Eigene Daten ergänzen, hochladen, alles kombinieren {#sec-tag1-upload}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel hast Du …
+
+- Deine eigene Antwortzeile an den bereinigten Datensatz angehängt,
+- die Datei korrekt benannt im Repo hochgeladen,
+- gesehen, wie der GitHub-Workflow den Gesamtdatensatz automatisch baut,
+- den eigenen Beitrag im `data/combined/m15-gesamt.csv` wiedergefunden.
+:::
+
+## Worum es geht
+
+Letzter Schritt im Workflow: Du hängst Deine eigene Zeile an den bereinigten Datensatz an, lädst ihn ins Repo hoch, und eine GitHub Action fügt alle Uploads zu einem Gesamtdatensatz zusammen. Damit endet Tag 1 inhaltlich — und Du hast einen Datensatz, mit dem wir an Tag 2 weiterarbeiten.
+
+## Schritt 1: Eigene Zeile anhängen
+
+Öffne `datensatz-XX-bereinigt.csv` in einem Editor Deiner Wahl:
+
+- **Texteditor:** VS Code, Notepad++, BBEdit
+- **Tabellen-Tool:** Excel oder LibreOffice Calc — vorsichtig sein mit automatischen Konvertierungen
+- **JASP:** geht auch, ist aber zum reinen Tippen umständlich
+
+Füge **eine neue Zeile am Ende** ein. Inhalt aus Deinem Papier-Fragebogen:
+
+| Spalte | Inhalt |
+|---|---|
+| `probandennummer` | 10 (oder die nächste freie Nummer in Deinem Datensatz) |
+| `geschlecht` | 1 / 2 / 3 (Code) |
+| `alter` | Deine Jahre |
+| `bildungsgrad` | 1–7 (Code) |
+| `BFI_E1` … `BFI_O5` | Deine **rekodierten** Werte (aus [Kapitel 4](04-fragebogen-ausfuellen.qmd)) |
+
+::: {.callout-important title="Rekodiert, nicht Original"}
+Für die Items, die Reverse sind (`BFI_E1`, `BFI_E4`, `BFI_V1`, `BFI_G1`, `BFI_G2`, `BFI_N1`, `BFI_O4`), trägst Du den **rekodierten** Wert (`6 − Original`) ein — damit alle Zeilen im Datensatz dieselbe Polung haben.
+:::
+
+Speichern als `datensatz-XX-kombiniert.csv` (mit Deiner Nummer).
+
+## Schritt 2: Datei korrekt benennen
+
+Die Dateinamen folgen einem festen Schema, damit der Workflow die Herkunft erkennen kann:
+
+```
+datensatz-<XX>-<deinKuerzel>.csv
+```
+
+- `<XX>` ist Deine zweistellige Datensatz-Nummer.
+- `<deinKuerzel>` sind zwei oder drei Kleinbuchstaben (z. B. Initialen).
+- Beispiel: `datensatz-03-mm.csv` (Datensatz 3, Max Mustermann).
+
+## Schritt 3: Hochladen ins Repo
+
+Im Browser auf github.com:
+
+1. Im Repo zum Ordner `data/student-uploads/` navigieren.
+2. **Add file → Upload files** anklicken.
+3. Deine `datensatz-XX-<kuerzel>.csv` per Drag-and-Drop hineinziehen.
+4. Unten eine **Commit-Message** eintippen, z. B. *„upload datensatz 03 von mm"*.
+5. Wenn Dir die Option angeboten wird: **„Commit directly to the `main` branch"** auswählen.
+6. **Commit changes** klicken.
+
+::: {.callout-tip title="Wenn nur „Create a new branch and start a pull request" möglich ist"}
+Dann hast Du nicht die Schreibrechte auf `main`. Wähle den vorgeschlagenen Branch-Workflow, der ist gleichwertig — die Lehrperson merged Deinen Pull Request anschließend.
+:::
+
+## Schritt 4: Was nun automatisch passiert
+
+Sobald Deine Datei in `data/student-uploads/` ankommt, startet GitHub den Workflow **„Merge student uploads"** (`.github/workflows/merge-uploads.yml`). Er:
+
+1. Liest alle CSVs in `data/student-uploads/`.
+2. Validiert das Schema (25 Spalten, korrekte Namen — siehe `materials/codebook.csv`).
+3. Konkateniert sie, fügt zwei Spalten hinzu (`herkunft_datensatz`, `quelle_datei`).
+4. Entfernt Duplikate aus den vorgenerierten Stichproben: Wenn zwei Personen denselben Datensatz hochgeladen haben, bleibt für jede vorgenerierte Probandennummer nur eine Zeile übrig. Eure eigenen Antwortzeilen (Probandennummer ≥ 10) bleiben alle.
+5. Schreibt das Ergebnis nach `data/combined/m15-gesamt.csv`.
+
+Du kannst den Lauf live im **Actions**-Tab des Repos beobachten — ein grünes Häkchen zeigt Erfolg.
+
+## Schritt 5: Eigenen Beitrag prüfen
+
+1. Öffne im Repo `data/combined/m15-gesamt.csv`.
+2. Such Deine Zeile (am Probandennummer ≥ 10 und Dateinamen `quelle_datei`).
+3. Stimmen Demografie und ein paar BFI-Werte mit Deinem Fragebogen überein?
+
+Wenn nein: korrigiere lokal Deine Upload-Datei und committe sie erneut. Der Workflow läuft automatisch neu.
+
+## Aufgabe
+
+1. Eigene Zeile in den bereinigten Datensatz einfügen.
+2. Datei korrekt benannt unter `data/student-uploads/` hochladen.
+3. Im **Actions**-Tab prüfen, ob der Workflow grün durchläuft.
+4. Im `data/combined/m15-gesamt.csv` Deine Zeile finden.
+
+## Selbstcheck
+
+1. Warum legt der Workflow den Gesamtdatensatz in einem separaten Ordner ab (`data/combined/`) statt direkt in `data/student-uploads/`?
+2. Was passiert, wenn zwei Studierende denselben vorgenerierten Datensatz hochladen — gibt es dann doppelte Zeilen für die Probanden 1–9?
+3. Wie heißt Deine Upload-Datei genau, und wohin gehört sie?

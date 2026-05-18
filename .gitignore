@@ -1,25 +1,32 @@
-# Quarto build output
-_book/
+# Quarto
 _site/
+_freeze/
 .quarto/
+*.html
+!index.html
 
 # R
 .Rproj.user/
 .Rhistory
 .RData
+.Ruserdata
 *.Rproj
 
 # Python
 __pycache__/
 *.pyc
 .venv/
+venv/
+.ipynb_checkpoints/
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Seed-Daten der Lehrperson (gross, nicht fuer oeffentliches Repo)
-data/seed/*.csv
+# Editors
+.vscode/
+.idea/
+*.swp
 
-# Lokale Notizen
-*.local.md
+# JASP working files
+*.jasp~

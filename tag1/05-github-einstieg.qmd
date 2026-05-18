@@ -1,0 +1,96 @@
+# GitHub-Einstieg {#sec-tag1-github}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- die Begriffe Repository, Branch, Commit, Pull Request und Merge erklären,
+- entscheiden, ob Du im Browser, mit GitHub Desktop oder per Kommandozeile arbeitest,
+- das Workshop-Repo öffnen und Dich darin orientieren.
+:::
+
+## Worum es geht
+
+GitHub ist die Plattform, auf der unser Repo und unsere Workshop-Site leben. Du musst kein Git-Profi werden — aber Du brauchst ein mentales Modell, was passiert, wenn Du eine Datei „committest" oder „pullst".
+
+## Git vs. GitHub
+
+| | Git | GitHub |
+|---|---|---|
+| **Was** | ein Versionskontrollsystem (Software) | eine Plattform, die Git-Repositories online hostet |
+| **Läuft wo** | lokal auf Deinem Rechner | im Web (github.com) |
+| **Brauchst Du es?** | im Hintergrund: ja | bei uns: ja, das ist unsere zentrale Stelle |
+
+Kurzform: Git macht die Versionierung, GitHub macht die Zusammenarbeit.
+
+## Die wichtigsten Begriffe
+
+| Begriff | Bedeutung |
+|---|---|
+| **Repository** (kurz: Repo) | Projekt-Ordner mit Versionsgeschichte. |
+| **Branch** | parallele Entwicklungsspur. Der Hauptstrang heißt meist `main`. |
+| **Commit** | gespeicherter Schnappschuss mit Begründung („Commit-Message"). |
+| **Push** | lokale Commits zu GitHub hochladen. |
+| **Pull** | Änderungen von GitHub lokal holen. |
+| **Pull Request (PR)** | Vorschlag, Änderungen aus einem Branch in einen anderen zu übernehmen. Dient dem Review. |
+| **Merge** | Zusammenführen zweier Branches. |
+| **Collaborator** | Person mit Schreibrechten am Repo. |
+
+## Drei Wege, mit dem Repo zu arbeiten
+
+Für diesen Workshop reicht jeder dieser Wege. Wähl, was zu Dir passt — der Lehrende hilft bei der Wahl.
+
+### Weg 1 — github.com im Browser *(empfohlen für diesen Workshop)*
+
+- Du arbeitest direkt auf der Webseite.
+- Dateien hochladen über „Add file → Upload files".
+- Editieren in der Browser-Maske (Stift-Symbol).
+- Kein Git auf dem Laptop nötig.
+
+### Weg 2 — GitHub Desktop
+
+- Grafische App ([desktop.github.com](https://desktop.github.com)).
+- Repository wird auf Deinen Laptop **geklont** — Du arbeitest mit lokalen Dateien.
+- „Commit" und „Push" sind je ein Button.
+
+### Weg 3 — Kommandozeile
+
+- Klassisches Git, also `git clone`, `git add`, `git commit`, `git push`.
+- Nur sinnvoll, wenn Du das schon kennst oder lernen möchtest.
+
+## Das Workshop-Repo
+
+Unser Repository enthält:
+
+```
+QuantMaster/
+├── index.qmd               # Landing-Page der Site
+├── tag1/ … tag3/           # die Workshop-Kapitel
+├── materials/              # Codebook, Fragebogen, Einverständnis, CSV-Template
+├── data/
+│   ├── generated/          # 10 vorgenerierte Datensätze
+│   ├── student-uploads/    # ← HIER lädst Du gleich Deine Datei hoch
+│   └── combined/           # Gesamtdatensatz (vom Workflow automatisch erzeugt)
+└── scripts/                # R-Skripte (Datensatzgenerierung, Merge)
+```
+
+Die `README.md` enthält dieselbe Übersicht und einen Quick-Start für Studierende und Lehrperson.
+
+## Aufgabe
+
+1. **GitHub-Account prüfen.** Du brauchst einen Account auf [github.com](https://github.com). Wenn noch nicht vorhanden: anlegen.
+2. **Collaborator-Einladung annehmen.** Bitte die Lehrperson, Dich als Collaborator zum Workshop-Repo hinzuzufügen. Du bekommst eine E-Mail mit einem Bestätigungslink — den anklicken.
+3. **Repo öffnen.** Öffne das Workshop-Repo im Browser.
+4. **Orientierung.** Klick Dich einmal durch:
+   - `data/generated/` — die 10 vorgenerierten Datensätze
+   - `materials/codebook.csv` — die verbindliche Spaltenbeschreibung
+   - `tag1/` — die heutigen Kapitel als `.qmd`-Quelldateien
+
+::: {.callout-tip title="Wenn Du keine Schreibrechte siehst"}
+Manchmal dauert es, bis GitHub die Einladung verarbeitet hat. Lade die Seite neu — oder bitte die Lehrperson, den Zugang zu prüfen.
+:::
+
+## Selbstcheck
+
+1. Was ist der Unterschied zwischen einem Commit und einem Pull Request?
+2. Wozu dient ein Branch?
+3. In welchen drei Verzeichnissen passiert die Datenarbeit dieses Workshops?

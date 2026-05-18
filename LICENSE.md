@@ -1,14 +1,20 @@
 # Creative Commons Attribution 4.0 International (CC BY 4.0)
 
-Copyright (c) 2026 Prof. Dr. Daniel Schad, HMU Health and Medical University Potsdam
+Die **Inhalte** dieses Repositories (Texte, Aufgaben, Kapitel, Materialien) stehen unter der Lizenz **Creative Commons Attribution 4.0 International (CC BY 4.0)**.
 
-This work is licensed under the Creative Commons Attribution 4.0 International License.
+Du darfst:
 
-You are free to:
-- **Share** — copy and redistribute the material in any medium or format
-- **Adapt** — remix, transform, and build upon the material for any purpose, even commercially
+- **Teilen** — das Material in jedwedem Format oder Medium vervielfältigen und weiterverbreiten
+- **Bearbeiten** — das Material remixen, verändern und darauf aufbauen — und zwar für beliebige Zwecke, sogar kommerziell
 
-Under the following terms:
-- **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made.
+Unter folgenden Bedingungen:
 
-Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+- **Namensnennung** — Du musst angemessene Urheber- und Rechteangaben machen, einen Link zur Lizenz beifügen und angeben, ob Änderungen vorgenommen wurden.
+
+**Volltext:** <https://creativecommons.org/licenses/by/4.0/legalcode.de>
+
+Empfohlene Zitation:
+
+> Schad, D. (2026). *M15 — Quantitative Forschungsmethoden & Multivariate Verfahren* [Workshop-Materialien]. HMU Health and Medical University Potsdam. CC BY 4.0.
+
+Für den **Code** dieses Repositories gilt die MIT-Lizenz, siehe `LICENSE-CODE.md`.

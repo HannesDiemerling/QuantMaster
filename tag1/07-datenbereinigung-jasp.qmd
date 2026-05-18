@@ -1,0 +1,141 @@
+# Datenbereinigung in JASP {#sec-tag1-bereinigung}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- einen Datensatz in JASP öffnen und die Variable-Typen korrekt setzen,
+- mit Descriptive Statistics auffällige Werte identifizieren,
+- die 2 absichtlichen Fehler in Deinem Datensatz finden,
+- begründen, ob Du einen Fehler korrigierst, auf fehlend setzt oder die Zeile entfernst,
+- die bereinigte Version als CSV exportieren.
+:::
+
+## Worum es geht
+
+Jeder Datensatz enthält **genau zwei** absichtliche Fehler — irgendwo zwischen Demografie und BFI-K-Items. Deine Aufgabe: sie systematisch finden und sauber behandeln. Das ist die Mikro-Variante echter Datenbereinigung, wie sie jedem statistischen Modell vorausgeht.
+
+## JASP-Oberfläche in 30 Sekunden
+
+JASP ist in drei Bereiche aufgeteilt:
+
+| Bereich | Inhalt |
+|---|---|
+| **Oben** | Menüleiste (File, Analyses, …) |
+| **Links unten** | Datenansicht (Spreadsheet-ähnlich) — hier siehst Du Deine Variablen |
+| **Rechts** | Output mit Analyse-Ergebnissen |
+
+Wichtig: Wenn Du auf den **Spaltenkopf** doppelklickst, öffnet sich der Variablen-Editor (Typ, Label, Werte-Labels). Mit Rechtsklick auf eine Zelle kommst Du in den Editiermodus für einzelne Werte.
+
+## Schritt 1: Datensatz öffnen
+
+1. JASP starten.
+2. **File → Open → Computer → Browse** und Deine `datensatz-XX.csv` auswählen.
+3. JASP zeigt die Tabelle. Oben siehst Du die Variablennamen — alle 25 Spalten sollten da sein.
+
+## Schritt 2: Variable-Typen setzen
+
+JASP rät den Typ — aber rate nicht zurück, prüfe einmal:
+
+| Variable | Korrekter Typ in JASP |
+|---|---|
+| `probandennummer` | Nominal |
+| `geschlecht` | Nominal |
+| `alter` | Scale (kontinuierlich) |
+| `bildungsgrad` | Ordinal |
+| `BFI_E1`–`BFI_O5` | Scale (üblich bei Likert-Skalen-Auswertung) |
+
+Klick auf den kleinen Typ-Indikator links neben dem Spaltennamen, um den Typ umzuschalten.
+
+## Schritt 3: Descriptive Statistics
+
+Jetzt schauen wir uns die Daten an — bevor wir analysieren:
+
+1. **Analyses → Descriptives → Descriptive Statistics** öffnen.
+2. Alle Variablen ins rechte Feld ziehen.
+3. In den Optionen aktivieren:
+   - **Distribution Plots** (Histogramme / Bar Charts für jede Variable)
+   - **Frequency Tables for Nominal Variables** (Häufigkeitstabellen)
+
+JASP berechnet:
+
+- Min, Max, Mean, SD, Median für Scale-Variablen
+- Häufigkeitstabellen für Nominal- / Ordinal-Variablen
+- Anzahl fehlender Werte je Variable
+
+## Schritt 4: Drei Such-Strategien
+
+### Strategie A — Wertebereich prüfen
+
+Geh die Descriptives-Tabelle von oben nach unten durch und vergleiche **Min** und **Max** mit dem Codebook:
+
+| Variable | Erlaubter Bereich |
+|---|---|
+| `probandennummer` | 1–99 |
+| `geschlecht` | 1–3 |
+| `alter` | 18–99 (in unserer Stichprobe realistisch 18–65) |
+| `bildungsgrad` | 1–7 |
+| `BFI_*` | 1–5 |
+
+**Ein BFI-Item mit Max = 7? Treffer.** **Alter = 200? Treffer.**
+
+### Strategie B — Häufigkeitstabellen
+
+Bei `geschlecht`, `bildungsgrad`, `probandennummer`: prüfe die Frequency Tables.
+
+- Taucht in `geschlecht` ein Code 9 auf? Ungültig.
+- Hat `probandennummer` einen Wert mit Häufigkeit 2? **Doppelte Nummer** — kommt sonst nie vor.
+
+### Strategie C — Missings
+
+Die Descriptives-Tabelle enthält die Spalte **Missing**. Steht dort irgendwo eine 1 (oder mehr), während Du keine fehlenden Werte erwartest: hingucken.
+
+## Schritt 5: Fehler behandeln
+
+Du hast drei legitime Optionen, je nach Fehlertyp:
+
+| Vorgehen | Wann? |
+|---|---|
+| **Korrigieren** | Nur wenn der „richtige" Wert klar erkennbar ist (selten) |
+| **Auf fehlend setzen** (Zelle leeren) | Wenn der wahre Wert nicht rekonstruierbar ist, der Rest der Zeile aber brauchbar |
+| **Zeile komplett entfernen** | Wenn der Fall insgesamt unbrauchbar oder mehrfach defekt ist |
+
+**Für unsere Übung:** Setze die fehlerhaften Werte auf **fehlend** (leere Zelle) und behalte die Zeilen. So bleibt die Stichprobengröße konstant — Du verlierst Informationen nur in der konkreten Zelle.
+
+### Beispiele
+
+- **`BFI_E2 = 7`** → Zelle leeren (Wert ist außerhalb 1–5 und nicht reparierbar).
+- **`alter = 200`** → Zelle leeren.
+- **Zwei Zeilen mit `probandennummer = 4`** → Wenn der Rest plausibel ist, vergib eine neue eindeutige Nummer (z. B. 8a, oder einfach eine bisher ungenutzte 1–9). Falls Du Dir unsicher bist: setze die Probandennummer der zweiten Zeile auf eine offensichtlich neue Zahl.
+- **`bildungsgrad` leer** → so lassen. Das ist bereits ein fehlender Wert.
+
+In JASP änderst Du einen Wert per **Doppelklick** auf die Zelle → Wert ändern oder löschen → Enter.
+
+## Schritt 6: Exportieren
+
+JASP speichert Analysen in `.jasp`-Dateien — das brauchen wir nicht. **Wir brauchen die bereinigte CSV.**
+
+1. **File → Export Data**.
+2. Format: **CSV**.
+3. Dateiname: `datensatz-XX-bereinigt.csv` (mit Deiner Nummer).
+4. Speichern an einem Ort, an dem Du sie wiederfindest.
+
+::: {.callout-tip title="Häufiges Problem"}
+Wenn JASP beim Export Werte plötzlich als Kommazahlen schreibt (z. B. `3.00` statt `3`): das ist meistens kein Problem für unseren Workflow. Wenn Du es sauberer haben willst: in der CSV per Texteditor `.00` ersetzen oder die Spalte vorher als Integer markieren.
+:::
+
+## Aufgabe
+
+1. Öffne Deinen Datensatz in JASP.
+2. Setze die Variable-Typen.
+3. Lass Descriptives über alle Variablen laufen.
+4. Identifiziere die **zwei** absichtlichen Fehler.
+5. Behandle sie (auf fehlend setzen oder neue Nummer vergeben).
+6. Exportiere das Ergebnis als `datensatz-XX-bereinigt.csv`.
+
+Wenn Du Dir bei einem Fehler unsicher bist — frag die Lehrperson, **bevor** Du eine Zeile löschst.
+
+## Selbstcheck
+
+1. Welche zwei Fehler hast Du gefunden? Wo lagen sie (Zeile, Spalte)?
+2. Warum ist „Wert auf fehlend setzen" oft besser als „Zeile löschen"?
+3. Wo gehört die exportierte CSV-Datei hin — und in welchem Format?

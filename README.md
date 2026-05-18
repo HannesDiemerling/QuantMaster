@@ -1,91 +1,62 @@
-# M15 — Quantitative Forschungsmethoden
+# M15 — Quantitative Forschungsmethoden & Multivariate Verfahren
 
-Workshop-Materialien für **M15 — Multivariate Verfahren, Forschungsmethoden & Psychotherapieforschung**, Masterstudiengang Psychotherapie, HMU Health and Medical University Potsdam.
+Workshop zum Modul **M15 — Multivariate Verfahren, Forschungsmethoden & Psychotherapieforschung**, Masterstudiengang Psychotherapie, HMU Health and Medical University Potsdam.
 
-**Site:** [Workshop-Site aufrufen](https://hannes-diemerling.github.io/QuantMaster/) *(Link nach erstem Deploy aktiv)*
-
----
+- **Termine:** 21.05.2026, 28.05.2026, 04.06.2026 — jeweils 09:45–17:00
+- **Format:** Präsenz, Laptop-pflichtig, self-paced über eine Quarto-Site
+- **Software:** [JASP](https://jasp-stats.org)
+- **Verantwortlich:** Prof. Dr. Daniel Schad
 
 ## Quick-Start für Studierende
 
-1. Gehe zur [Workshop-Site](https://hannes-diemerling.github.io/QuantMaster/)
-2. Installiere [JASP](https://jasp-stats.org) auf Deinem Laptop
-3. Lege einen [GitHub-Account](https://github.com) an
-4. Installiere [GitHub Desktop](https://desktop.github.com) (empfohlen)
-5. Am ersten Kurstag: Fragebogen ausfüllen, CSV hochladen — Anleitung unter `tag1/03-erhebung-praktisch.qmd` und `tag1/04-github-upload.qmd`
+1. **Vor Tag 1:**
+   - JASP installieren (siehe [jasp-stats.org](https://jasp-stats.org))
+   - GitHub-Account anlegen und Benutzernamen per Mail an die Lehrperson schicken
+2. **An Tag 1:** Workshop-Site öffnen (Link bekommst Du am ersten Tag), und mit Kapitel 0 starten.
+3. Alle Inhalte sind auf der Site — diese Repository ist die Quelle dieser Site.
 
-### CSV hochladen (Kurzanleitung)
+Die gerenderte Site liegt unter GitHub Pages dieses Repos. Falls Du sie lokal bauen willst:
 
+```bash
+quarto render
 ```
-1. Diese Repository auf GitHub forken oder Branch anlegen
-2. Deine ausgefüllte CSV-Datei nach data/raw/ hochladen
-   - Echtdaten:     data/raw/echt-student-XX.csv
-   - Synthetisch:   data/raw/synth-student-XX.csv
-3. Pull Request öffnen
-4. Warten bis Validation-Check grün ist
-5. Lehrperson merged den PR
-```
-
----
 
 ## Quick-Start für die Lehrperson
 
-### Seed-Datensatz einspielen
+| Aufgabe | Befehl / Ort |
+|---|---|
+| Site lokal rendern | `quarto render` |
+| Vorgenerierte Datensätze neu bauen | `Rscript scripts/generate-datasets.R` oder Workflow `Generate seed datasets` manuell triggern |
+| Studierenden-Uploads zusammenführen | Passiert automatisch via Workflow `Merge student uploads`, sobald in `data/student-uploads/` etwas committed wird |
+| Fehler-Übersicht der vorgenerierten Datensätze | `scripts/error-overview.md` (wird automatisch erzeugt, **nicht** in der Site verlinkt) |
 
-```bash
-# Seed-Datensatz (150-200 Faelle) nach data/seed/ legen
-# Dateiname-Schema: data/seed/seed-batch01.csv
-# Format: UTF-8, Komma-getrennt, Punkt als Dezimaltrenner
-```
-
-### Workshop-Site lokal bauen
-
-```bash
-# Quarto installieren: https://quarto.org/docs/get-started/
-quarto render
-
-# Oder nur eine Vorschau:
-quarto preview
-```
-
-### Neuen Branch fuer Studierenden-PRs anlegen
-
-GitHub-Einstellungen: Branch protection für `main` aktivieren, sodass nur die Lehrperson mergen kann.
-
----
-
-## Struktur
+## Repository-Struktur
 
 ```
-m15-quant-workshop/
-├── tag1/          # Tag 1: Foundations & Erhebung (5 Kapitel)
-├── tag2/          # Tag 2: Daten verstehen & aufbereiten (5 Kapitel)
-├── tag3/          # Tag 3: Multivariate Verfahren (6 Kapitel)
-├── materials/     # Fragebogen, Codebook, CSV-Vorlage, Einverstaendnis
-├── scripts/       # R-Skripte fuer Datengeneration und -aufbereitung
+.
+├── _quarto.yml                   # Quarto-Buch-Konfiguration
+├── index.qmd                     # Landing Page
+├── tag1/                         # Tag-1-Kapitel (00 … 09)
+├── tag2/                         # Tag-2-Übersicht (Platzhalter)
+├── tag3/                         # Tag-3-Übersicht (Platzhalter)
+├── materials/                    # BFI-K-Fragebogen, Codebook, Einverständnis, CSV-Template
 ├── data/
-│   ├── seed/      # Vom Lehrenden bereitgestellte Seed-Daten (nicht im Repo)
-│   ├── raw/       # Studierenden-Uploads
-│   └── combined/  # Automatisch zusammengefuehrter Datensatz
-├── jasp/          # JASP-Vorlagen
-└── exam-prep/     # Lernzielkatalog
+│   ├── generated/                # 10 vorgenerierte Datensätze (vom Workflow erzeugt)
+│   ├── student-uploads/          # Hier laden Studierende ihre bereinigten + erweiterten Datensätze hoch
+│   └── combined/                 # Gesamtdatensatz, automatisch zusammengeführt
+├── scripts/
+│   ├── generate-datasets.R       # erzeugt die 10 Datensätze deterministisch
+│   ├── merge-uploads.R           # kombiniert Uploads
+│   ├── validate-upload.R         # Schema-Check (optional)
+│   └── error-overview.md         # INTERN: welche Fehler stecken in welchem Datensatz
+└── .github/workflows/            # CI/CD: Site-Build + Daten-Workflows
 ```
 
----
+## Lizenz
 
-## Lizenzen
+- **Inhalte (Texte, Aufgaben, Materialien):** CC BY 4.0 — siehe `LICENSE.md`
+- **Code (Skripte, Workflows):** MIT — siehe `LICENSE-CODE.md`
 
-- Inhalte: [CC BY 4.0](LICENSE.md)
-- Code: [MIT](LICENSE-CODE.md)
+## Kontakt
 
----
-
-## Termine
-
-| Tag | Datum | Thema |
-|-----|-------|-------|
-| Tag 1 | 21.05.2026 | Foundations & Erhebung |
-| Tag 2 | 28.05.2026 | Daten verstehen & aufbereiten |
-| Tag 3 | 04.06.2026 | Multivariate Verfahren |
-
-Je 09:45–17:00 Uhr, HMU Potsdam.
+Fragen zum Workshop: an die Lehrperson direkt oder per GitHub-Issue.
