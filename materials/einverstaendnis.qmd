@@ -1,15 +1,5 @@
 ---
 title: "Einverständniserklärung"
-format:
-  html:
-    toc: false
-  pdf:
-    documentclass: scrartcl
-    papersize: a4
-    geometry:
-      - margin=2.5cm
-    fontsize: 11pt
-    toc: false
 ---
 
 # Einverständniserklärung zur Teilnahme am Workshop-Datensatz {.unnumbered}

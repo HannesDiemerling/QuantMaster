@@ -59,8 +59,8 @@ Im Browser auf github.com:
 5. Wenn Dir die Option angeboten wird: **„Commit directly to the `main` branch"** auswählen.
 6. **Commit changes** klicken.
 
-::: {.callout-tip title="Wenn nur „Create a new branch and start a pull request" möglich ist"}
-Dann hast Du nicht die Schreibrechte auf `main`. Wähle den vorgeschlagenen Branch-Workflow, der ist gleichwertig — die Lehrperson merged Deinen Pull Request anschließend.
+::: {.callout-tip title="Wenn nur die Pull-Request-Option angeboten wird"}
+Dann hast Du nicht die Schreibrechte auf `main`. Wähle den vorgeschlagenen Branch-Workflow (*„Create a new branch and start a pull request"*) — der ist gleichwertig, die Lehrperson merged Deinen Pull Request anschließend.
 :::
 
 ## Schritt 4: Eigenen Upload kontrollieren

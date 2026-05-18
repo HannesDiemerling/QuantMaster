@@ -54,13 +54,6 @@ format:
     callout-appearance: default
     fig-responsive: true
     link-external-newwindow: true
-  pdf:
-    documentclass: scrreprt
-    papersize: a4
-    geometry:
-      - margin=2.5cm
-    fontsize: 11pt
-    toc: true
 
 execute:
   freeze: auto
