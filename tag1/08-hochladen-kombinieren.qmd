@@ -1,17 +1,16 @@
-# Eigene Daten ergänzen, hochladen, alles kombinieren {#sec-tag1-upload}
+# Eigene Daten ergänzen und hochladen {#sec-tag1-upload}
 
 ::: {.callout-note title="Lernziele"}
 Nach diesem Kapitel hast Du …
 
 - Deine eigene Antwortzeile an den bereinigten Datensatz angehängt,
 - die Datei korrekt benannt im Repo hochgeladen,
-- gesehen, wie der GitHub-Workflow den Gesamtdatensatz automatisch baut,
-- den eigenen Beitrag im `data/combined/m15-gesamt.csv` wiedergefunden.
+- verstanden, was an Tag 2 mit den Uploads passiert.
 :::
 
 ## Worum es geht
 
-Letzter Schritt im Workflow: Du hängst Deine eigene Zeile an den bereinigten Datensatz an, lädst ihn ins Repo hoch, und eine GitHub Action fügt alle Uploads zu einem Gesamtdatensatz zusammen. Damit endet Tag 1 inhaltlich — und Du hast einen Datensatz, mit dem wir an Tag 2 weiterarbeiten.
+Letzter Schritt heute: Du hängst Deine eigene Zeile an den bereinigten Datensatz an und lädst die Datei ins Repo hoch. Mehr nicht. Das Zusammenführen der Uploads zu einem Gesamtdatensatz **machst Du an Tag 2 selbst** — das ist dann Lehrinhalt.
 
 ## Schritt 1: Eigene Zeile anhängen
 
@@ -39,7 +38,7 @@ Speichern als `datensatz-XX-kombiniert.csv` (mit Deiner Nummer).
 
 ## Schritt 2: Datei korrekt benennen
 
-Die Dateinamen folgen einem festen Schema, damit der Workflow die Herkunft erkennen kann:
+Die Dateinamen folgen einem festen Schema, damit man später die Herkunft erkennen kann:
 
 ```
 datensatz-<XX>-<deinKuerzel>.csv
@@ -64,35 +63,28 @@ Im Browser auf github.com:
 Dann hast Du nicht die Schreibrechte auf `main`. Wähle den vorgeschlagenen Branch-Workflow, der ist gleichwertig — die Lehrperson merged Deinen Pull Request anschließend.
 :::
 
-## Schritt 4: Was nun automatisch passiert
+## Schritt 4: Eigenen Upload kontrollieren
 
-Sobald Deine Datei in `data/student-uploads/` ankommt, startet GitHub den Workflow **„Merge student uploads"** (`.github/workflows/merge-uploads.yml`). Er:
+1. Wechsel im Repo in den Ordner `data/student-uploads/`.
+2. Klick Deine Datei an — sie sollte mit 10 Zeilen + Headerzeile angezeigt werden.
+3. Schau kurz, ob Demografie und ein paar BFI-Werte stimmen.
 
-1. Liest alle CSVs in `data/student-uploads/`.
-2. Validiert das Schema (25 Spalten, korrekte Namen — siehe `materials/codebook.csv`).
-3. Konkateniert sie, fügt zwei Spalten hinzu (`herkunft_datensatz`, `quelle_datei`).
-4. Entfernt Duplikate aus den vorgenerierten Stichproben: Wenn zwei Personen denselben Datensatz hochgeladen haben, bleibt für jede vorgenerierte Probandennummer nur eine Zeile übrig. Eure eigenen Antwortzeilen (Probandennummer ≥ 10) bleiben alle.
-5. Schreibt das Ergebnis nach `data/combined/m15-gesamt.csv`.
+Wenn Du einen Fehler entdeckst: korrigiere lokal und lade die Datei einfach erneut hoch (gleicher Name → GitHub überschreibt sie).
 
-Du kannst den Lauf live im **Actions**-Tab des Repos beobachten — ein grünes Häkchen zeigt Erfolg.
+## Was später passiert
 
-## Schritt 5: Eigenen Beitrag prüfen
+Die Uploads aller Studierenden bleiben erstmal genau dort: in `data/student-uploads/`. Niemand und nichts mergt sie automatisch.
 
-1. Öffne im Repo `data/combined/m15-gesamt.csv`.
-2. Such Deine Zeile (am Probandennummer ≥ 10 und Dateinamen `quelle_datei`).
-3. Stimmen Demografie und ein paar BFI-Werte mit Deinem Fragebogen überein?
-
-Wenn nein: korrigiere lokal Deine Upload-Datei und committe sie erneut. Der Workflow läuft automatisch neu.
+**An Tag 2 ist das Kombinieren selbst Lehrstoff:** Du lernst, wie man mehrere CSVs zu einem Gesamtdatensatz zusammenführt — inklusive der Frage, was mit doppelten Probandennummern aus demselben Seed-Datensatz passiert. Das gehört zur Datenarbeit dazu, deshalb übernimmt es kein Workflow für Dich.
 
 ## Aufgabe
 
 1. Eigene Zeile in den bereinigten Datensatz einfügen.
 2. Datei korrekt benannt unter `data/student-uploads/` hochladen.
-3. Im **Actions**-Tab prüfen, ob der Workflow grün durchläuft.
-4. Im `data/combined/m15-gesamt.csv` Deine Zeile finden.
+3. Im Repo prüfen, dass Deine Datei dort liegt und die Zeilenzahl stimmt.
 
 ## Selbstcheck
 
-1. Warum legt der Workflow den Gesamtdatensatz in einem separaten Ordner ab (`data/combined/`) statt direkt in `data/student-uploads/`?
-2. Was passiert, wenn zwei Studierende denselben vorgenerierten Datensatz hochladen — gibt es dann doppelte Zeilen für die Probanden 1–9?
-3. Wie heißt Deine Upload-Datei genau, und wohin gehört sie?
+1. Wie heißt Deine Upload-Datei genau, und in welchem Ordner liegt sie?
+2. Warum trägst Du Deine eigenen Reverse-Items rekodiert ein, obwohl die anderen Zeilen schon rekodiert sind?
+3. Was passiert nach dem Hochladen automatisch — und was machst Du dafür an Tag 2 selbst?

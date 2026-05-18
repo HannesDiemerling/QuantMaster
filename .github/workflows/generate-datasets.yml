@@ -1,10 +1,9 @@
-name: Generate seed datasets
+name: Generate seed datasets (manual)
 
+# Wird NUR manuell gestartet (Actions-Tab > "Run workflow"). Kein Auto-Trigger.
+# Zweck: Die 10 vorgenerierten Uebungsdatensaetze fuer Tag 1 deterministisch
+# erzeugen, damit die Lehrperson sie vor dem Workshop ins Repo committen kann.
 on:
-  push:
-    paths:
-      - "scripts/generate-datasets.R"
-      - ".github/workflows/generate-datasets.yml"
   workflow_dispatch:
 
 permissions:

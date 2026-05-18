@@ -45,8 +45,8 @@ Du brauchst für diesen Workshop:
 
 - An Tag 1 füllst Du den BFI-K (Big Five Inventory, Kurzversion) selbst aus.
 - Du bekommst einen von zehn vorgenerierten Übungsdatensätzen, findest Fehler und bereinigst ihn in JASP.
-- Deine eigene Antwortzeile hängst Du an und lädst alles ins Repo hoch.
-- Eine GitHub Action kombiniert die Uploads aller Studierenden zu `data/combined/m15-gesamt.csv` — der Datensatz, mit dem wir an Tag 2 und 3 weiterarbeiten.
+- Deine eigene Antwortzeile hängst Du an und lädst die Datei nach `data/student-uploads/` hoch.
+- An Tag 2 führst Du die Uploads aller Studierenden selbst zu einem Gesamtdatensatz zusammen — das ist Teil des Lehrstoffs, kein Automatismus. Mit diesem Datensatz arbeiten wir an Tag 2 und 3 weiter.
 
 ## Viel Erfolg
 

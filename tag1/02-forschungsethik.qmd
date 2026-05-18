@@ -58,7 +58,7 @@ Bei kleinen Stichproben mit Demografie ist eine echte Anonymisierung selten mög
 Was wir tun:
 
 - **Erheben:** BFI-K + 3 Demografie-Variablen (Geschlecht, Alter, Bildung).
-- **Speichern:** in einem öffentlichen GitHub-Repo, unter `data/student-uploads/` und `data/combined/m15-gesamt.csv`.
+- **Speichern:** in einem öffentlichen GitHub-Repo, unter `data/student-uploads/` (Deine eigene Datei) sowie später im an Tag 2 selbst zusammengeführten Gesamtdatensatz.
 - **Pseudonymisieren:** Du bekommst eine Probandennummer, kein Klarname, keine E-Mail.
 - **Verwenden:** ausschließlich für die Lehre in diesem Workshop.
 

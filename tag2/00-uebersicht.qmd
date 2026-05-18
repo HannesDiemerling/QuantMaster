@@ -10,17 +10,18 @@ Tag 2 ist als **Skizze** in die Site eingebunden. Die einzelnen Kapitel werden i
 
 ## Worum es geht
 
-Heute arbeitest Du mit dem gemeinsamen Datensatz, der am Ende von Tag 1 entstanden ist (`data/combined/m15-gesamt.csv`). Du lernst, ihn zu *verstehen* — also: Verteilungen anzuschauen, Skalenwerte zu bilden, Reliabilität zu prüfen — und führst erste inferenzstatistische Vergleiche durch.
+Heute machst Du als Erstes etwas, das an Tag 1 absichtlich offen geblieben ist: **die Studierenden-Uploads aus `data/student-uploads/` selbst zu einem Gesamtdatensatz zusammenführen**. Anschließend lernst Du, diesen Datensatz zu *verstehen* — also Verteilungen anzuschauen, Skalenwerte zu bilden, Reliabilität zu prüfen — und führst erste inferenzstatistische Vergleiche durch.
 
 ## Geplante Kapitel
 
 | Kapitel | Thema |
 |---|---|
-| 01 | Den kombinierten Datensatz in JASP öffnen, Variablen-Typen setzen, Struktur prüfen |
+| 01 | Uploads aus `data/student-uploads/` herunterladen und zu einem Gesamtdatensatz kombinieren (inkl. Umgang mit Duplikaten aus dem Seed) |
 | 02 | Stichprobenbias und Umgang mit fehlenden Werten — was bedeutet *N* in unserer Stichprobe? |
-| 03 | Reliabilitätsanalyse: Cronbach's α und McDonald's ω für die fünf BFI-K-Skalen |
-| 04 | Konzept Faktorenanalyse + EFA mit JASP (Bezug: Validität, Konstruktstruktur) |
-| 05 | Effektgrößen: Cohen's *d* (für *t*-Test) und η² (für ANOVA) — warum man sie immer berichtet |
+| 03 | Den kombinierten Datensatz in JASP öffnen, Variablen-Typen setzen, Struktur prüfen |
+| 04 | Reliabilitätsanalyse: Cronbach's α und McDonald's ω für die fünf BFI-K-Skalen |
+| 05 | Konzept Faktorenanalyse + EFA mit JASP (Bezug: Validität, Konstruktstruktur) |
+| 06 | Effektgrößen: Cohen's *d* (für *t*-Test) und η² (für ANOVA) — warum man sie immer berichtet |
 
 Begleitend erstellst Du:
 
@@ -32,13 +33,14 @@ Begleitend erstellst Du:
 ## Was Du dafür brauchst
 
 - Laptop mit JASP (idealerweise aktualisiert seit Tag 1)
-- Den Datensatz aus `data/combined/m15-gesamt.csv` (lädst Du zu Beginn herunter)
+- Zugriff auf das Workshop-Repo, insbesondere `data/student-uploads/`
 - Dein Codebook ([codebook.qmd](../materials/codebook.qmd)) griffbereit
 - Deine offenen Fragen aus Tag 1 — die klären wir am Vormittag
 
 ## Was Du am Ende des Tages erreicht hast
 
-- Du kennst die Verteilungsstruktur unserer Stichprobe.
+- Du hast den Gesamtdatensatz aus den Einzel-Uploads selbst kombiniert.
+- Du kennst die Verteilungsstruktur der Stichprobe.
 - Du weißt, wie reliabel die BFI-K-Skalen *bei uns* messen.
 - Du hast die Big-Five-Korrelationsstruktur einmal selbst gerechnet.
 - Du kannst einen *t*-Test mit Effektgröße sauber interpretieren und berichten.

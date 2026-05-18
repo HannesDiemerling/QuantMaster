@@ -6,7 +6,7 @@ title: "Codebook"
 
 Dieses Codebook ist die **verbindliche Beschreibung** des Workshop-Datensatzes. Jede Spalte, jede Kodierung, jeder erlaubte Wertebereich steht hier — Single Source of Truth.
 
-Die maschinenlesbare Variante liegt unter [materials/codebook.csv](codebook.csv) und wird von den Workflows (`scripts/generate-datasets.R`, `scripts/merge-uploads.R`) automatisch gelesen.
+Die maschinenlesbare Variante liegt unter [materials/codebook.csv](codebook.csv) und wird von `scripts/generate-datasets.R` (Vorbereitung der Übungsdatensätze) als verbindliche Spaltenbeschreibung gelesen.
 
 ## Datenformat
 

@@ -31,7 +31,7 @@ Begleitend:
 ## Was Du dafür brauchst
 
 - Laptop mit JASP
-- Den Datensatz aus `data/combined/m15-gesamt.csv` und Deine Skalenwerte aus Tag 2
+- Den Gesamtdatensatz und Deine Skalenwerte, die Du an Tag 2 selbst aus den Uploads zusammengestellt hast
 - Bereitschaft, formal etwas anspruchsvoller zu denken — wir interpretieren Modellkoeffizienten, nicht nur Mittelwertsunterschiede
 
 ## Was Du am Ende des Tages erreicht hast

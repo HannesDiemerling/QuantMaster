@@ -39,7 +39,7 @@ Es werden **keine** identifizierenden Daten erhoben — also kein Name, keine E-
 
 ## Wo landen die Daten?
 
-In einem **öffentlichen GitHub-Repository** der Lehrveranstaltung, unter `data/student-uploads/` und nach automatischem Zusammenführen in `data/combined/m15-gesamt.csv`. Die Repository ist frei einsehbar.
+In einem **öffentlichen GitHub-Repository** der Lehrveranstaltung, unter `data/student-uploads/` (Deine ausgefüllte Datei) und später im Gesamtdatensatz, den die Studierenden an Tag 2 selbst aus den Uploads zusammenführen. Das Repository ist frei einsehbar.
 
 ## Pseudonymisierung
 
