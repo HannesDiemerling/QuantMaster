@@ -1,6 +1,6 @@
 # MIT License
 
-Copyright (c) 2026 Prof. Dr. Daniel Schad, HMU Health and Medical University Potsdam
+Copyright (c) 2026 Hannes Diemerling, HMU Health and Medical University Potsdam
 
 Hiermit wird unentgeltlich jeder Person, die eine Kopie dieser Software und der zugehörigen Dokumentationsdateien (die "Software") erhält, die Erlaubnis erteilt, uneingeschränkt mit der Software zu handeln, einschließlich und ohne Einschränkung der Rechte, sie zu nutzen, zu kopieren, zu modifizieren, zusammenzuführen, zu veröffentlichen, zu verbreiten, zu unterlizenzieren und/oder Kopien der Software zu verkaufen, und Personen, denen die Software überlassen wird, dies zu erlauben, vorbehaltlich folgender Bedingungen:
 

@@ -5,7 +5,7 @@ Workshop zum Modul **M15 — Multivariate Verfahren, Forschungsmethoden & Psycho
 - **Termine:** 21.05.2026, 28.05.2026, 04.06.2026 — jeweils 09:45–17:00
 - **Format:** Präsenz, Laptop-pflichtig, self-paced über eine Quarto-Site
 - **Software:** [JASP](https://jasp-stats.org)
-- **Verantwortlich:** Prof. Dr. Daniel Schad
+- **Verantwortlich:** Hannes Diemerling
 
 ## Quick-Start für Studierende
 

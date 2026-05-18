@@ -16,7 +16,7 @@ lang: de
 ---
 
 **HMU Health and Medical University Potsdam · Masterstudiengang Psychotherapie**
-Termine: 21.05.2026, 28.05.2026, 04.06.2026 · Verantwortlich: Prof. Dr. Daniel Schad
+Termine: 21.05.2026, 28.05.2026, 04.06.2026 · Verantwortlich: Hannes Diemerling
 
 ## Worum geht es?
 
@@ -69,8 +69,9 @@ Du hast das Recht auf:
 
 ## Kontakt
 
-Prof. Dr. Daniel Schad — Lehrender Modul M15
+Hannes Diemerling — Lehrender Workshop M15
 HMU Health and Medical University Potsdam
+E-Mail: hannes.diemerling@gmail.com
 
 \vspace{1.5em}
 \hrule

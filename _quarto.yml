@@ -14,7 +14,7 @@ project:
 book:
   title: "M15 — Quantitative Forschungsmethoden"
   subtitle: "Workshop HMU Potsdam — Mai/Juni 2026"
-  author: "Prof. Dr. Daniel Schad"
+  author: "Hannes Diemerling"
   date: "2026-05"
   repo-url: https://github.com/hannesdiemerling/QuantMaster
   repo-actions: [edit, issue]

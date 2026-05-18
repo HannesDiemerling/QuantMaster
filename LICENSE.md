@@ -15,6 +15,6 @@ Unter folgenden Bedingungen:
 
 Empfohlene Zitation:
 
-> Schad, D. (2026). *M15 — Quantitative Forschungsmethoden & Multivariate Verfahren* [Workshop-Materialien]. HMU Health and Medical University Potsdam. CC BY 4.0.
+> Diemerling, H. (2026). *M15 — Quantitative Forschungsmethoden & Multivariate Verfahren* [Workshop-Materialien]. HMU Health and Medical University Potsdam. CC BY 4.0.
 
 Für den **Code** dieses Repositories gilt die MIT-Lizenz, siehe `LICENSE-CODE.md`.
