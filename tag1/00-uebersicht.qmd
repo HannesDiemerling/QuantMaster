@@ -12,20 +12,6 @@ Nach diesem Kapitel weißt Du …
 
 Heute baust Du Dein technisches Setup auf und erlebst einen vollständigen Forschungsworkflow: vom Ausfüllen eines Fragebogens über die Versionierung im Repo bis zum gemeinsamen, sauberen Datensatz. Du lernst dabei, wie Open Science und Forschungsethik in der Praxis aussehen und wie ein psychometrischer Fragebogen funktioniert.
 
-## Tagesablauf
-
-| Zeit | Modus | Inhalt | Kapitel |
-|---|---|---|---|
-| 09:45–10:30 | **Plenum** | Begrüßung, Site live, Einverständnis austeilen, Setup-Check | — |
-| 10:30–12:00 | Self-Study | Open Science & Forschungsethik | [01](01-open-science.qmd), [02](02-forschungsethik.qmd) |
-| 12:00–12:30 | **Plenum** | Übergang: Warum BFI-K, was ist Testkonstruktion? | — |
-| 12:30–13:30 | Mittag | | |
-| 13:30–14:30 | Self-Study | Messtheorie, BFI-K, eigenen Fragebogen ausfüllen | [03](03-messtheorie-bfi-k.qmd), [04](04-fragebogen-ausfuellen.qmd) |
-| 14:30–15:30 | Self-Study | GitHub-Einstieg, Datensatz herunterladen | [05](05-github-einstieg.qmd), [06](06-datensatz-laden.qmd) |
-| 15:30–15:45 | **Plenum** | JASP-Demo: Oberfläche, Datei öffnen | — |
-| 15:45–16:45 | Self-Study | Datenbereinigung in JASP, Upload | [07](07-datenbereinigung-jasp.qmd), [08](08-hochladen-kombinieren.qmd) |
-| 16:45–17:00 | **Plenum** | Reflexion, Ausblick auf Tag 2 | [09](09-tagesabschluss.qmd) |
-
 ## Was Du heute erreicht hast
 
 Am Ende des Tages …
@@ -38,8 +24,8 @@ Am Ende des Tages …
 ## Was Du dafür brauchst
 
 - Laptop mit installiertem [JASP](https://jasp-stats.org)
-- GitHub-Account (Benutzername vorab an die Lehrperson)
+- GitHub-Account
 - Stift für den Papier-Fragebogen
-- Das ausgeteilte **Einverständnisformular** und den **BFI-K-Fragebogen** (beides auf Papier)
+- **Einverständnisformular** und den **BFI-K-Fragebogen**
 
 Wenn etwas fehlt: jetzt direkt die Lehrperson ansprechen — bevor Du startest.

@@ -24,11 +24,11 @@ Füge **eine neue Zeile am Ende** ein. Inhalt aus Deinem Papier-Fragebogen:
 
 | Spalte | Inhalt |
 |---|---|
-| `probandennummer` | Deine **selbstgewählte Kennziffer** aus [Kapitel 4](04-fragebogen-ausfuellen.qmd) (irgendeine ganze Zahl, nicht 1–9) |
+| `probandennummer` | Deine **selbstgewählte Kennziffer** aus [Kapitel 5](05-fragebogen-ausfuellen.qmd) (irgendeine ganze Zahl, nicht 1–9) |
 | `geschlecht` | 1 / 2 / 3 (Code) |
 | `alter` | Deine Jahre |
 | `bildungsgrad` | 1–7 (Code) |
-| `BFI_E1` … `BFI_O5` | Deine **rekodierten** Werte (aus [Kapitel 4](04-fragebogen-ausfuellen.qmd)) |
+| `BFI_E1` … `BFI_O5` | Deine **rekodierten** Werte (aus [Kapitel 5](05-fragebogen-ausfuellen.qmd)) |
 
 ::: {.callout-important title="Rekodiert, nicht Original"}
 Für die Items, die Reverse sind (`BFI_E1`, `BFI_E4`, `BFI_V1`, `BFI_G1`, `BFI_G2`, `BFI_N1`, `BFI_O4`), trägst Du den **rekodierten** Wert (`6 − Original`) ein — damit alle Zeilen im Datensatz dieselbe Polung haben.

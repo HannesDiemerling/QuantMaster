@@ -31,8 +31,8 @@ book:
         - tag1/01-open-science.qmd
         - tag1/02-forschungsethik.qmd
         - tag1/03-messtheorie-bfi-k.qmd
-        - tag1/04-fragebogen-ausfuellen.qmd
-        - tag1/05-github-einstieg.qmd
+        - tag1/04-github-einstieg.qmd
+        - tag1/05-fragebogen-ausfuellen.qmd
         - tag1/06-datensatz-laden.qmd
         - tag1/07-datenbereinigung-jasp.qmd
         - tag1/08-hochladen-kombinieren.qmd

@@ -23,7 +23,6 @@ Die moderne Forschungsethik baut auf zwei zentralen Dokumenten auf:
   - *Beneficence* (Nutzen maximieren, Schaden minimieren)
   - *Justice* (Gerechte Verteilung von Risiken und Nutzen)
 
-Diese Prinzipien sind nicht bloß historisch — sie strukturieren bis heute Ethikkommissionen, Fördergeber und Journals.
 
 ## Was muss in einer informierten Einwilligung stehen?
 
@@ -49,9 +48,9 @@ Die **DSGVO** (Datenschutz-Grundverordnung) regelt seit 2018 EU-weit, wie person
 |---|---|---|
 | **Idee** | Bezug zur Person *grundsätzlich* nicht mehr herstellbar | Bezug nur über einen separat aufbewahrten Schlüssel herstellbar |
 | **Beispiel** | aggregierte Statistiken ohne Demografie | Probandennummer 7, Demografie und Antworten erhalten |
-| **DSGVO** | strenggenommen *keine* personenbezogenen Daten mehr | bleibt personenbezogen — DSGVO gilt weiter |
+| **DSGVO** | strenggenommen *keine* personenbezogenen Daten mehr | bleibt personenbezogen : DSGVO gilt  |
 
-Bei kleinen Stichproben mit Demografie ist eine echte Anonymisierung selten möglich — Du selbst könntest Deine eigene Zeile vermutlich wiedererkennen.
+Bei kleinen Stichproben mit Demografie ist eine echte Anonymisierung selten möglich, Du selbst könntest Deine eigene Zeile vermutlich wiedererkennen.
 
 ## Konkret für diesen Workshop
 
@@ -70,13 +69,13 @@ Deine Rechte:
 
 ## Aufgabe
 
-1. Lies das Einverständnisformular ([materials/einverstaendnis.pdf](../materials/einverstaendnis.pdf)) — die Lehrperson bringt es zusätzlich ausgedruckt mit.
+1. Lies das Einverständnisformular ([materials/einverstaendnis.pdf](../materials/einverstaendnis.pdf)), die Lehrperson bringt es zusätzlich ausgedruckt mit.
 2. Entscheide, ob Du teilnimmst.
 3. Wenn ja: unterschreiben, bei der Lehrperson abgeben.
-4. Wenn nein: kein Problem — überspringe später das Eintragen Deiner eigenen Antwortzeile und arbeite nur mit den vorgenerierten Daten.
+4. Wenn nein: kein Problem, überspringe später das Eintragen Deiner eigenen Antwortzeile und arbeite nur mit den vorgenerierten Daten.
 
 ::: {.callout-tip title="Faustregel"}
-Wenn Du Dich nicht sicher fühlst — frag die Lehrperson, lieber jetzt als später.
+Wenn Du Dich nicht sicher fühlst, frag die Lehrperson, lieber jetzt als später.
 :::
 
 ## Selbstcheck

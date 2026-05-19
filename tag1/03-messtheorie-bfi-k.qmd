@@ -11,7 +11,7 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Wir messen gleich „Persönlichkeit" — mit 21 Fragen. Damit das mehr ist als ein Persönlichkeitsquiz aus einer Zeitschrift, brauchst Du das absolute Minimum an Testtheorie. Dieses Kapitel ist kompakt, aber tragfähig — Du baust später Tag 2 darauf auf (Cronbach's α, Faktorenanalyse).
+Wir messen gleich „Persönlichkeit", mit 21 Fragen. Damit das mehr ist als ein Persönlichkeitsquiz aus einer Zeitschrift, brauchst Du das absolute Minimum an Testtheorie. Dieses Kapitel ist kompakt, aber tragfähig, Du baust später Tag 2 darauf auf (Cronbach's α, Faktorenanalyse).
 
 ## Klassische Testtheorie in einem Satz
 
@@ -19,14 +19,14 @@ $$
 X = T + E
 $$
 
-Der **beobachtete Wert** $X$ einer Antwort ist die Summe aus einem **wahren Wert** $T$ (was die Person „eigentlich" hat) und einem **Messfehler** $E$ (alles, was wir nicht kontrolliert haben — Tagesform, Stimmung, Aufmerksamkeit). Das ist mathematisch banal — aber konzeptuell der Anker, an dem alle weiteren Begriffe hängen.
+Der **beobachtete Wert** $X$ einer Antwort ist die Summe aus einem **wahren Wert** $T$ (was die Person „eigentlich" hat) und einem **Messfehler** $E$ (alles, was wir nicht kontrolliert haben, Tagesform, Stimmung, Aufmerksamkeit). Das ist mathematisch banal, aber konzeptuell der Anker, an dem alle weiteren Begriffe hängen.
 
 ## Item, Skala, Subskala
 
 | Begriff | Bedeutung | Beispiel |
 |---|---|---|
 | **Item** | eine einzelne Frage | „Ich bin gesprächig." |
-| **Skala** | Gruppe von Items, die ein gemeinsames Konstrukt messen | „Extraversion" — 4 Items |
+| **Skala** | Gruppe von Items, die ein gemeinsames Konstrukt messen | „Extraversion", 4 Items |
 | **Subskala** | Skala innerhalb eines größeren Instruments | Extraversion *innerhalb* des BFI-K |
 
 ## Die drei Hauptgütekriterien
@@ -39,11 +39,11 @@ Der **beobachtete Wert** $X$ einer Antwort ist die Summe aus einem **wahren Wert
 
 Vertiefung folgt an **Tag 2** (Cronbach's α, McDonald's ω, Validitätsbefunde).
 
-## Reverse-Items — was und warum?
+## Reverse-Items, was und warum?
 
 Manche Items sind so formuliert, dass eine *hohe* Zustimmung eine *niedrige* Ausprägung der Skala bedeutet. Beispiel:
 
-> „Ich bin eher zurückhaltend, reserviert." — Wer hier 5 ankreuzt, ist *weniger* extravertiert.
+> „Ich bin eher zurückhaltend, reserviert.", Wer hier 5 ankreuzt, ist *weniger* extravertiert.
 
 Solche **Reverse-Items** dienen zwei Zwecken:
 
@@ -51,7 +51,7 @@ Solche **Reverse-Items** dienen zwei Zwecken:
 2. **Konstruktbreite erfassen.** Extraversion *ist* nicht nur „gesprächig sein", sondern auch das *Fehlen* von Zurückhaltung.
 
 ::: {.callout-important title="Rekodierung VOR der Aggregation"}
-Vor der Berechnung eines Skalenmittelwertes **müssen** alle Items in dieselbe Richtung gepolt werden. Sonst löschen sich Reverse-Items gegen die anderen Items teilweise aus — und Du misst Lärm statt Konstrukt.
+Vor der Berechnung eines Skalenmittelwertes **müssen** alle Items in dieselbe Richtung gepolt werden. Sonst löschen sich Reverse-Items gegen die anderen Items teilweise aus, und Du misst Lärm statt Konstrukt.
 
 Formel bei 5-Punkt-Likert: **`rekodiert = 6 − Originalwert`**.
 :::
@@ -70,7 +70,7 @@ Das Big-Five-Modell ist die heute dominierende Taxonomie der Persönlichkeit. F�
 
 (Im Deutschen oft als „OCEAN" oder „OGEVN" sortiert. Wir nutzen die Buchstaben O, G, E, V, N im Codebook.)
 
-Das Modell hat sich faktorenanalytisch in vielen Sprachen und Kulturen wiederholt gezeigt — eine der stabilsten Befunde der Persönlichkeitsforschung.
+Das Modell hat sich faktorenanalytisch in vielen Sprachen und Kulturen wiederholt gezeigt, eine der stabilsten Befunde der Persönlichkeitsforschung.
 
 ## Der BFI-K
 
@@ -84,14 +84,14 @@ Quelle: Rammstedt, B. & John, O. P. (2005). Kurzversion des Big Five Inventory (
 | Bearbeitungszeit | ca. 2–3 Minuten |
 | Einsatzgebiete | Forschung mit knappem Erhebungsbudget, Massenbefragungen, Reliabilitätsstudien |
 
-Der BFI-K ist die kompakte Schwester des BFI-44. Er opfert Detailreichtum für Erhebungstempo — ideal, wenn Persönlichkeit nur eine von mehreren Variablen in einer größeren Studie ist.
+Der BFI-K ist die kompakte Schwester des BFI-44. Er opfert Detailreichtum für Erhebungstempo, ideal, wenn Persönlichkeit nur eine von mehreren Variablen in einer größeren Studie ist.
 
 ## Bezug zur Klausur
 
-Die Begriffe **Reliabilität**, **Validität**, **Reverse-Item**, **Rekodierung** und die fünf Big-Five-Faktoren solltest Du nach diesem Workshop sauber erklären können.
+Die Begriffe **Reverse-Item** und **Rekodierung** und die fünf Big-Five-Faktoren solltest Du nach diesem Seminar sauber erklären können.
 
 ## Selbstcheck
 
-1. Was misst Reliabilität — und worin unterscheidet sie sich von Validität?
+1. Was misst Reliabilität, und worin unterscheidet sie sich von Validität?
 2. Warum wird ein Reverse-Item *vor* der Aggregation umgepolt? Was passiert sonst?
 3. Welche fünf Faktoren misst der BFI-K, und wie viele Items hat er insgesamt?
