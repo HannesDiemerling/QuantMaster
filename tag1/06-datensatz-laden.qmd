@@ -29,7 +29,7 @@ Die Zuweisung erfolgt **alphabetisch nach Nachnamen, Modulo 10**:
 Die Lehrperson hängt zu Tagesbeginn eine Liste an der Tafel oder ins Repo. Merke Dir Deine Nummer als zweistellige Zahl: `01`, `02`, …, `10`.
 
 ::: {.callout-tip title="Doppelt zugewiesen ist Absicht"}
-Wenn mehr als 10 Teilnehmende dabei sind, bearbeiten zwei (oder mehr) Personen denselben vorgenerierten Datensatz. Das ist gewollt — am Ende lässt sich vergleichen, ob alle dieselben Fehler gefunden und gleich behandelt haben.
+Wenn mehr als 10 Teilnehmende dabei sind, bearbeiten zwei (oder mehr) Personen denselben vorgenerierten Datensatz. 
 :::
 
 ## Aufgabe
