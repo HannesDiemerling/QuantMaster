@@ -1,97 +1,67 @@
-# Fragebogen ausfüllen & rekodieren {#sec-tag1-fragebogen}
+# Fragebogen & Einverständnis als Demo {#sec-tag1-fragebogen}
 
 ::: {.callout-note title="Lernziele"}
 Nach diesem Kapitel hast Du …
 
-- den BFI-K auf Papier vollständig ausgefüllt,
-- die Reverse-Items selbst rekodiert,
-- Deine Werte in die CSV-Vorlage übertragen,
-- die Rekodierungsformel verinnerlicht.
+- den BFI-K-Fragebogen als Erhebungsinstrument einmal in der Hand gehabt,
+- die Einverständniserklärung am PC unterschrieben und an die Lehrperson geschickt,
+- den Ablauf einer echten Datenerhebung durchgespielt — auch wenn keine echten Daten erhoben werden.
 :::
 
 ## Worum es geht
 
-Jetzt füllst Du den Big-Five-Kurzfragebogen selbst aus — auf Papier. Anschließend rekodierst Du die Reverse-Items von Hand. Das ist anstrengender, als ein Tool zu klicken — und genau deshalb sinnvoll: Du verstehst danach, was im Hintergrund passiert.
+Dieser Workshop ist eine **Demo**, keine echte Datenerhebung. Du musst den BFI-K nicht ehrlich ausfüllen — Ziel ist, dass Du den Workflow einmal so durchläufst, wie er in einer echten Studie aussehen würde. Konkret heißt das:
 
-## Was Du brauchst
+1. Du **siehst Dir das Erhebungsinstrument an** (BFI-K als PDF).
+2. Du **unterschreibst die Einverständniserklärung am PC** und schickst sie der Lehrperson zu — genau wie eine Versuchsperson das in einer echten Studie täte.
 
-- Den **BFI-K-Fragebogen als PDF** — liegt im Repo unter [`materials/bfi-k-fragebogen.pdf`](../materials/bfi-k-fragebogen.pdf). Im Browser herunterladen, ausdrucken (1 Seite pro Person).
-- Einen Stift
-- Die **CSV-Vorlage** [`materials/csv-template-eigene-daten.csv`](../materials/csv-template-eigene-daten.csv) — öffnest Du erst nach dem Ausfüllen
-
-::: {.callout-tip title="Wenn Du nicht drucken kannst"}
-Frag die Lehrperson — am Pult liegen gedruckte Exemplare.
-:::
+Echte BFI-K-Antworten brauchst Du nicht. Wenn Du in den späteren Kapiteln eine eigene Zeile in den Datensatz schreibst, darfst Du Dir Werte ausdenken (siehe Kapitel 8).
 
 ## Aufgabe
 
-### 1. Ausfüllen
+### 1. BFI-K als Beispiel ansehen
 
-Lies jedes Item, denk kurz nach, kreuze auf der 5-Punkt-Skala an:
+Lade die PDF herunter und überflieg sie kurz — Du sollst ein Gefühl dafür bekommen, wie ein psychometrisches Erhebungsinstrument aussieht:
 
-| 1 | 2 | 3 | 4 | 5 |
-|---|---|---|---|---|
-| trifft gar nicht zu | trifft eher nicht zu | weder noch | trifft eher zu | trifft voll zu |
+[**materials/bfi-k-fragebogen.pdf**](../materials/bfi-k-fragebogen.pdf) (im Browser öffnen oder lokal speichern)
 
-::: {.callout-important title="Du musst nicht ehrlich antworten"}
-Der gesamte Datensatz ist **öffentlich** — alle Studierenden des Workshops (und im Prinzip die ganze Welt) sehen Deine Zeile. Deshalb gibt es **keine** Pflicht, die Items wahrheitsgemäß auszufüllen. Du darfst eine Persönlichkeit erfinden, ein Profil simulieren oder Dich an einer fiktiven Figur orientieren. Wichtig ist nur, dass die Werte **plausibel** sind (1–5), damit der Datensatz für die Analysen an Tag 2 und 3 nutzbar bleibt.
+Du musst nichts ankreuzen. Achte beim Lesen darauf, wie Reverse-Items markiert sind und wie die Rekodierungsformel funktioniert — beides hast Du in [Kapitel 3](03-messtheorie-bfi-k.qmd) kennengelernt.
 
-Wer ehrlich antworten möchte, darf das natürlich auch.
+### 2. Einverständnis am PC ausfüllen und unterschreiben
+
+Lade die Einverständnis-PDF herunter:
+
+[**materials/einverstaendnis.pdf**](../materials/einverstaendnis.pdf)
+
+Öffne sie in einem PDF-Tool, das digitales Ausfüllen erlaubt:
+
+- **macOS:** *Vorschau* → Markup-Werkzeuge → Unterschrift (Trackpad oder Bild)
+- **Windows:** *Adobe Acrobat Reader* (kostenlos) → *Fill & Sign* → Unterschrift hinzufügen. Alternativ in *Microsoft Edge* öffnen und Felder per Texteingabe ausfüllen.
+- **Linux:** *Xournal++* (Annotations) oder *Okular*
+
+Trag ein:
+
+- Ort und Datum
+- Deine Unterschrift (Maus, Trackpad, Touch oder eingefügtes Bild Deiner Unterschrift)
+
+Speichere die ausgefüllte PDF lokal ab.
+
+### 3. Per E-Mail an die Lehrperson schicken
+
+Schick die unterzeichnete PDF an:
+
+**[hannes.diemerling@gmail.com](mailto:hannes.diemerling@gmail.com)**
+
+Betreff: *„M15 Workshop — Einverständnis [Deine Kennziffer]"*
+
+Damit hast Du den vollen Einverständnis-Workflow einer echten Studie durchgespielt: PDF lesen, ausfüllen, unterschreiben, an die Studienleitung zurücksenden.
+
+::: {.callout-tip title="Das ist Übung, nichts Echtes"}
+Weil keine echten Daten erhoben werden, ist auch die Einwilligung nur eine Demonstration. Du brauchst keine reale Identifizierbarkeit zu fürchten — niemand wertet Deine Mail aus, sie dient nur dazu, dass Du den Vorgang einmal erlebt hast.
 :::
-
-### 2. Reverse-Items rekodieren
-
-Im Fragebogen sind Reverse-Items mit **(R)** markiert. Für jedes dieser Items trägst Du in die rechte Spalte den rekodierten Wert ein:
-
-$$
-\text{rekodiert} = 6 - \text{Originalwert}
-$$
-
-| Original | Rekodiert |
-|:---:|:---:|
-| 1 | 5 |
-| 2 | 4 |
-| 3 | 3 |
-| 4 | 2 |
-| 5 | 1 |
-
-**Beispiel.** Item `BFI_E1` ist Reverse. Du hast 2 angekreuzt → rekodiert: $6 − 2 = 4$. Du trägst also 4 in die rechte Spalte ein.
-
-### 3. Demografie ergänzen
-
-Trag unten auf dem Bogen ein:
-
-- **Probandennummer:** eine **selbstgewählte Kennziffer** — irgendeine ganze Zahl, die nicht zwischen 1 und 9 liegt (diese sind in den vorgenerierten Datensätzen schon vergeben). Beispiel: 42, 137, 9999. Schreib sie Dir auf — Du brauchst sie später, falls Du Deine Zeile wiederfinden willst.
-- **Geschlecht** als Code: 1 weiblich, 2 männlich, 3 divers
-- **Alter** in Jahren
-- **Bildungsgrad** als Code: 1 ohne Abschl., 2 Hauptschule, 3 Realschule, 4 (Fach-)Abitur, 5 Bachelor, 6 Master/Diplom/Staatsex., 7 Promotion
-
-::: {.callout-tip title="Wozu die selbstgewählte Kennziffer?"}
-Sie folgt demselben Schema wie die Probandennummern der vorgenerierten Daten (eine ganze Zahl). Niemand außer Dir weiß, welche Nummer Deine ist — der Datensatz ist so für Außenstehende **theoretisch anonym**, für Dich aber nachvollziehbar. Genau dieser Zwischenstand zwischen „völlig anonym" und „vollständig pseudonym" ist auch der Grund, warum Punkt 1 keine Pflicht zur Ehrlichkeit fordert.
-:::
-
-### 4. In die CSV-Vorlage übertragen
-
-Öffne `materials/csv-template-eigene-daten.csv` in einem Editor Deiner Wahl (Texteditor, Excel, LibreOffice — JASP ist zum reinen Tippen nicht ideal).
-
-Trage **eine Zeile** ein:
-
-- Demografie wie oben
-- Für **Reverse-Items**: den **rekodierten** Wert (nicht den Original!)
-- Für **alle anderen Items**: den Originalwert
-
-Speichere die Datei mit demselben Namen lokal auf Deinem Laptop. Hochgeladen wird sie erst in [Kapitel 8](08-hochladen-kombinieren.qmd).
-
-::: {.callout-tip title="Häufiger Stolperstein"}
-Vergiss nicht: In den vorgenerierten Datensätzen sind die Items **bereits rekodiert** — Du musst nur **Deine eigene Zeile** umpolen, nicht die anderen neun.
-:::
-
-## Warum das wichtig ist
-
-Wenn Du jetzt vier Items einer Skala mittelst, ohne vorher die Reverse-Items umzupolen, bekommst Du einen Wert, der irgendwo zwischen den beiden Polen liegt — er repräsentiert weder „hohe Extraversion" noch „niedrige Extraversion", sondern Datenmüll. Das fühlt sich rechnerisch unauffällig an, ist aber inhaltlich falsch.
 
 ## Selbstcheck
 
-1. Wie lautet die Rekodierungsformel bei einer 5-stufigen Likert-Skala?
-2. Was passiert mit dem Skalenmittelwert, wenn ein Reverse-Item *nicht* rekodiert wird?
-3. Warum sind in den vorgenerierten Datensätzen die Items schon rekodiert — Deine eigene Zeile aber (noch) nicht?
+1. Welche Angaben enthält das Einverständnisformular, das Du gerade unterschrieben hast?
+2. Wie sähe der Workflow bei einer echten Erhebung anders aus — was würde dort zusätzlich passieren (Stichwort: Ethikkommission, Pseudonymisierungs-Schlüssel)?
+3. Warum macht es Sinn, ein Einverständnis als PDF mit digitaler Unterschrift zu führen — und wo sind die Grenzen davon?

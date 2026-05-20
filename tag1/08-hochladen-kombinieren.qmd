@@ -20,7 +20,7 @@ Letzter Schritt heute: Du hängst Deine eigene Zeile an den bereinigten Datensat
 - **JASP:** geht auch, ist aber zum reinen Tippen umständlich
 - **Tabellen-Tool:** Excel oder LibreOffice Calc, vorsichtig sein mit automatischen Konvertierungen 
 
-Füge **eine neue Zeile am Ende** ein. Inhalt aus Deinem Papier-Fragebogen:
+Füge **eine neue Zeile am Ende** ein. Da der Workshop eine Demo ist, denkst Du Dir plausible Werte aus (1–5 für BFI-Items):
 
 | Spalte | Inhalt |
 |---|---|

@@ -5,7 +5,7 @@ _freeze/
 *.html
 !index.html
 
-# CI-generated PDF (gebaut aus materials/einverstaendnis.qmd via Workflow)
+# CI-generated PDF (gebaut aus materials/einverstaendnis.qmd via Publish-Workflow)
 materials/einverstaendnis.pdf
 
 # R

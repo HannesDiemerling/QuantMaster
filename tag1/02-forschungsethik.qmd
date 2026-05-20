@@ -69,10 +69,8 @@ Deine Rechte:
 
 ## Aufgabe
 
-1. Lies das Einverständnisformular ([materials/einverstaendnis.pdf](../materials/einverstaendnis.pdf)), die Lehrperson bringt es zusätzlich ausgedruckt mit.
-2. Entscheide, ob Du teilnimmst.
-3. Wenn ja: unterschreiben, bei der Lehrperson abgeben.
-4. Wenn nein: kein Problem, überspringe später das Eintragen Deiner eigenen Antwortzeile und arbeite nur mit den vorgenerierten Daten.
+1. Lies das Einverständnisformular ([materials/einverstaendnis.pdf](../materials/einverstaendnis.pdf)).
+2. Das **praktische Unterschreiben + Mailen** machst Du in [Kapitel 5](05-fragebogen-ausfuellen.qmd) — dort lädst Du die PDF runter, unterschreibst sie am PC und schickst sie an die Lehrperson. Das hier ist nur der Theorieteil zur Forschungsethik.
 
 ::: {.callout-tip title="Faustregel"}
 Wenn Du Dich nicht sicher fühlst, frag die Lehrperson, lieber jetzt als später.

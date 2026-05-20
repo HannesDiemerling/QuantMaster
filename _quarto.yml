@@ -7,6 +7,8 @@ project:
     - "tag2/*.qmd"
     - "tag3/*.qmd"
     - "materials/codebook.qmd"
+    # materials/einverstaendnis.qmd wird separat als PDF im Publish-Workflow
+    # gebaut (TinyTeX) — hier bewusst NICHT gelistet.
   resources:
     - "materials/*.pdf"
     - "materials/*.csv"

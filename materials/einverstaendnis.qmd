@@ -20,9 +20,9 @@ Termine: 21.05.2026, 28.05.2026, 04.06.2026 · Verantwortlich: Hannes Diemerling
 
 ## Worum geht es?
 
-Im Rahmen dieses Workshops simulieren wir einen vollständigen empirischen Forschungsprozess. Du füllst dafür auf Papier den **BFI-K** (Big Five Inventory — Kurzversion, Rammstedt & John 2005) aus, ein etabliertes Persönlichkeits-Instrument mit 21 Items.
+Im Rahmen dieses Workshops simulieren wir einen vollständigen empirischen Forschungsprozess. Als Erhebungsinstrument dient der **BFI-K** (Big Five Inventory — Kurzversion, Rammstedt & John 2005), ein etabliertes Persönlichkeits-Instrument mit 21 Items.
 
-Anschließend überträgst Du Deine Antworten zusammen mit ein paar demografischen Angaben (Alter, Geschlecht, Bildungsabschluss) in den Workshop-Datensatz, der in einem **öffentlichen** GitHub-Repository der HMU liegt.
+Da der Workshop eine **Demo** ist, brauchst Du den BFI-K nicht ehrlich auszufüllen. Wenn Du mitmachen möchtest, denkst Du Dir plausible Werte aus und überträgst sie zusammen mit ein paar demografischen Angaben (Alter, Geschlecht, Bildungsabschluss) in den Workshop-Datensatz, der in einem **öffentlichen** GitHub-Repository der HMU liegt.
 
 ## Welche Daten werden erhoben?
 

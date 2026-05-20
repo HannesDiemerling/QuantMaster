@@ -25,7 +25,6 @@ Am Ende des Tages …
 
 - Laptop mit installiertem [JASP](https://jasp-stats.org)
 - GitHub-Account
-- Stift für den Papier-Fragebogen
-- **Einverständnisformular** und den **BFI-K-Fragebogen**
+- PDF-Tool zum Ausfüllen + digitalen Unterschreiben (Vorschau auf Mac, Adobe Acrobat Reader auf Windows, Xournal++ auf Linux)
 
 Wenn etwas fehlt: jetzt direkt die Lehrperson ansprechen — bevor Du startest.
