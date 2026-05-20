@@ -1,26 +1,26 @@
-variable,label,type,scale,min,max,values,instrument,reverse_coded
-probandennummer,Probandennummer,int,nominal,1,99,,demo,
-geschlecht,Geschlecht,int,nominal,1,3,"1=weiblich; 2=männlich; 3=divers",demo,
-alter,Alter in Jahren,int,metrisch,18,99,,demo,
-bildungsgrad,Höchster Bildungsabschluss,int,ordinal,1,7,"1=ohne Abschluss; 2=Hauptschulabschluss; 3=Realschulabschluss; 4=(Fach-)Abitur; 5=Bachelor; 6=Master/Diplom/Staatsexamen; 7=Promotion",demo,
-BFI_E1,"Extraversion Item 1 (ich bin gesprächig)",int,ordinal,1,5,1-5 Likert,BFI-K,JA
-BFI_E2,"Extraversion Item 2 (ich gehe aus mir heraus, bin gesellig)",int,ordinal,1,5,1-5 Likert,BFI-K,NEIN
-BFI_E3,Extraversion Item 3,int,ordinal,1,5,1-5 Likert,BFI-K,NEIN
-BFI_E4,Extraversion Item 4,int,ordinal,1,5,1-5 Likert,BFI-K,JA
-BFI_V1,Verträglichkeit Item 1,int,ordinal,1,5,1-5 Likert,BFI-K,JA
-BFI_V2,Verträglichkeit Item 2,int,ordinal,1,5,1-5 Likert,BFI-K,NEIN
-BFI_V3,Verträglichkeit Item 3,int,ordinal,1,5,1-5 Likert,BFI-K,NEIN
-BFI_V4,Verträglichkeit Item 4,int,ordinal,1,5,1-5 Likert,BFI-K,NEIN
-BFI_G1,Gewissenhaftigkeit Item 1,int,ordinal,1,5,1-5 Likert,BFI-K,JA
-BFI_G2,Gewissenhaftigkeit Item 2,int,ordinal,1,5,1-5 Likert,BFI-K,JA
-BFI_G3,Gewissenhaftigkeit Item 3,int,ordinal,1,5,1-5 Likert,BFI-K,NEIN
-BFI_G4,Gewissenhaftigkeit Item 4,int,ordinal,1,5,1-5 Likert,BFI-K,NEIN
-BFI_N1,Neurotizismus Item 1,int,ordinal,1,5,1-5 Likert,BFI-K,JA
-BFI_N2,Neurotizismus Item 2,int,ordinal,1,5,1-5 Likert,BFI-K,NEIN
-BFI_N3,Neurotizismus Item 3,int,ordinal,1,5,1-5 Likert,BFI-K,NEIN
-BFI_N4,Neurotizismus Item 4,int,ordinal,1,5,1-5 Likert,BFI-K,NEIN
-BFI_O1,Offenheit Item 1,int,ordinal,1,5,1-5 Likert,BFI-K,NEIN
-BFI_O2,Offenheit Item 2,int,ordinal,1,5,1-5 Likert,BFI-K,NEIN
-BFI_O3,Offenheit Item 3,int,ordinal,1,5,1-5 Likert,BFI-K,NEIN
-BFI_O4,Offenheit Item 4,int,ordinal,1,5,1-5 Likert,BFI-K,JA
-BFI_O5,Offenheit Item 5,int,ordinal,1,5,1-5 Likert,BFI-K,NEIN
+variable,label,type,scale,min,max,values,instrument,factor,reverse_coded
+probandennummer,Probandennummer,int,nominal,1,99999,,demo,,
+geschlecht,Geschlecht,int,nominal,1,3,"1=weiblich; 2=männlich; 3=divers",demo,,
+alter,Alter in Jahren,int,metrisch,18,99,,demo,,
+bildungsgrad,Höchster Bildungsabschluss,int,ordinal,1,7,"1=ohne Abschluss; 2=Hauptschulabschluss; 3=Realschulabschluss; 4=(Fach-)Abitur; 5=Bachelor; 6=Master/Diplom/Staatsexamen; 7=Promotion",demo,,
+BFI_01,Item 01: bin eher zurückhaltend reserviert,int,ordinal,1,5,1-5 Likert,BFI-K,E,JA
+BFI_02,Item 02: neige dazu andere zu kritisieren,int,ordinal,1,5,1-5 Likert,BFI-K,V,JA
+BFI_03,Item 03: erledige Aufgaben gründlich,int,ordinal,1,5,1-5 Likert,BFI-K,G,NEIN
+BFI_04,Item 04: werde leicht deprimiert niedergeschlagen,int,ordinal,1,5,1-5 Likert,BFI-K,N,NEIN
+BFI_05,Item 05: bin vielseitig interessiert,int,ordinal,1,5,1-5 Likert,BFI-K,O,NEIN
+BFI_06,Item 06: bin begeisterungsfähig und kann andere leicht mitreißen,int,ordinal,1,5,1-5 Likert,BFI-K,E,NEIN
+BFI_07,Item 07: schenke anderen leicht Vertrauen glaube an das Gute im Menschen,int,ordinal,1,5,1-5 Likert,BFI-K,V,NEIN
+BFI_08,Item 08: bin bequem neige zur Faulheit,int,ordinal,1,5,1-5 Likert,BFI-K,G,JA
+BFI_09,Item 09: bin entspannt lasse mich durch Stress nicht aus der Ruhe bringen,int,ordinal,1,5,1-5 Likert,BFI-K,N,JA
+BFI_10,Item 10: bin tiefsinnig denke gerne über Sachen nach,int,ordinal,1,5,1-5 Likert,BFI-K,O,NEIN
+BFI_11,"Item 11: bin eher der ""stille Typ"" wortkarg",int,ordinal,1,5,1-5 Likert,BFI-K,E,JA
+BFI_12,Item 12: kann mich kalt und distanziert verhalten,int,ordinal,1,5,1-5 Likert,BFI-K,V,JA
+BFI_13,Item 13: bin tüchtig und arbeite flott,int,ordinal,1,5,1-5 Likert,BFI-K,G,NEIN
+BFI_14,Item 14: mache mir viele Sorgen,int,ordinal,1,5,1-5 Likert,BFI-K,N,NEIN
+BFI_15,Item 15: habe eine aktive Vorstellungskraft bin phantasievoll,int,ordinal,1,5,1-5 Likert,BFI-K,O,NEIN
+BFI_16,Item 16: gehe aus mir heraus bin gesellig,int,ordinal,1,5,1-5 Likert,BFI-K,E,NEIN
+BFI_17,Item 17: kann mich schroff und abweisend anderen gegenüber verhalten,int,ordinal,1,5,1-5 Likert,BFI-K,V,JA
+BFI_18,Item 18: mache Pläne und führe sie auch durch,int,ordinal,1,5,1-5 Likert,BFI-K,G,NEIN
+BFI_19,Item 19: werde leicht nervös und unsicher,int,ordinal,1,5,1-5 Likert,BFI-K,N,NEIN
+BFI_20,Item 20: schätze künstlerische und ästhetische Eindrücke,int,ordinal,1,5,1-5 Likert,BFI-K,O,NEIN
+BFI_21,Item 21: habe nur wenig künstlerisches Interesse,int,ordinal,1,5,1-5 Likert,BFI-K,O,JA

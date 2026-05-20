@@ -42,7 +42,7 @@ JASP rät den Typ — aber rate nicht zurück, prüfe einmal:
 | `geschlecht` | Nominal |
 | `alter` | Scale (kontinuierlich) |
 | `bildungsgrad` | Ordinal |
-| `BFI_E1`–`BFI_O5` | Scale (üblich bei Likert-Skalen-Auswertung) |
+| `BFI_01`–`BFI_21` | Scale (üblich bei Likert-Skalen-Auswertung) |
 
 Klick auf den kleinen Typ-Indikator links neben dem Spaltennamen, um den Typ umzuschalten.
 
@@ -103,7 +103,7 @@ Du hast drei legitime Optionen, je nach Fehlertyp:
 
 ### Beispiele
 
-- **`BFI_E2 = 7`** → Zelle leeren (Wert ist außerhalb 1–5 und nicht reparierbar).
+- **`BFI_07 = 7`** → Zelle leeren (Wert ist außerhalb 1–5 und nicht reparierbar).
 - **`alter = 200`** → Zelle leeren.
 - **Zwei Zeilen mit `probandennummer = 4`** → Wenn der Rest plausibel ist, vergib eine neue eindeutige Nummer (z. B. 8a, oder einfach eine bisher ungenutzte 1–9). Falls Du Dir unsicher bist: setze die Probandennummer der zweiten Zeile auf eine offensichtlich neue Zahl.
 - **`bildungsgrad` leer** → so lassen. Das ist bereits ein fehlender Wert.

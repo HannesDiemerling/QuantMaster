@@ -41,9 +41,9 @@ Vertiefung folgt an **Tag 2** (Cronbach's α, McDonald's ω, Validitätsbefunde)
 
 ## Reverse-Items, was und warum?
 
-Manche Items sind so formuliert, dass eine *hohe* Zustimmung eine *niedrige* Ausprägung der Skala bedeutet. Beispiel:
+Manche Items sind so formuliert, dass eine *hohe* Zustimmung eine *niedrige* Ausprägung der Skala bedeutet. Beispiel aus dem BFI-K (Item 1, Skala Extraversion):
 
-> „Ich bin eher zurückhaltend, reserviert.", Wer hier 5 ankreuzt, ist *weniger* extravertiert.
+> „Ich bin eher zurückhaltend, reserviert." — Wer hier 5 („sehr zutreffend") ankreuzt, ist *weniger* extravertiert.
 
 Solche **Reverse-Items** dienen zwei Zwecken:
 
@@ -78,13 +78,27 @@ Quelle: Rammstedt, B. & John, O. P. (2005). Kurzversion des Big Five Inventory (
 
 | Eigenschaft | Wert |
 |---|---|
-| Itemzahl | 21 |
-| Antwortskala | 5-Punkt-Likert |
+| Itemzahl | 21, fortlaufend nummeriert |
+| Antwortskala | 5-Punkt-Likert: 1 = sehr unzutreffend … 5 = sehr zutreffend |
 | Skalen | E, V, G, N (je 4 Items), O (5 Items) |
 | Bearbeitungszeit | ca. 2–3 Minuten |
 | Einsatzgebiete | Forschung mit knappem Erhebungsbudget, Massenbefragungen, Reliabilitätsstudien |
 
 Der BFI-K ist die kompakte Schwester des BFI-44. Er opfert Detailreichtum für Erhebungstempo, ideal, wenn Persönlichkeit nur eine von mehreren Variablen in einer größeren Studie ist.
+
+### Skalen-Zuordnung
+
+Der Auswertungsschlüssel des BFI-K, **R** markiert ein Reverse-Item:
+
+| Skala | Items |
+|---|---|
+| Extraversion (E) | 1R, 6, 11R, 16 |
+| Verträglichkeit (V) | 2R, 7, 12R, 17R |
+| Gewissenhaftigkeit (G) | 3, 8R, 13, 18 |
+| Neurotizismus (N) | 4, 9R, 14, 19 |
+| Offenheit (O) | 5, 10, 15, 20, 21R |
+
+Im Datensatz heißen die Spalten `BFI_01` bis `BFI_21` (siehe [Codebook](../materials/codebook.qmd)).
 
 ## Bezug zur Klausur
 

@@ -22,15 +22,11 @@ Die maschinenlesbare Variante liegt unter [materials/codebook.csv](codebook.csv)
 
 | # | Variable | Typ | Skala | Wertebereich | Instrument |
 |--:|---|---|---|---|---|
-| 1 | `probandennummer` | int | nominal | 1–99 | — |
+| 1 | `probandennummer` | int | nominal | ganze Zahl | — |
 | 2 | `geschlecht` | int | nominal | 1, 2, 3 | — |
 | 3 | `alter` | int | metrisch | 18–99 | — |
 | 4 | `bildungsgrad` | int | ordinal | 1–7 | — |
-| 5–8 | `BFI_E1` … `BFI_E4` | int | ordinal | 1–5 | BFI-K |
-| 9–12 | `BFI_V1` … `BFI_V4` | int | ordinal | 1–5 | BFI-K |
-| 13–16 | `BFI_G1` … `BFI_G4` | int | ordinal | 1–5 | BFI-K |
-| 17–20 | `BFI_N1` … `BFI_N4` | int | ordinal | 1–5 | BFI-K |
-| 21–25 | `BFI_O1` … `BFI_O5` | int | ordinal | 1–5 | BFI-K |
+| 5–25 | `BFI_01` … `BFI_21` | int | ordinal | 1–5 | BFI-K |
 
 **Gesamt:** 4 Demografie-Spalten + 21 BFI-K-Items = **25 Spalten**.
 
@@ -40,7 +36,7 @@ Die maschinenlesbare Variante liegt unter [materials/codebook.csv](codebook.csv)
 
 - Ganzzahl, innerhalb eines Datensatzes eindeutig.
 - In den vorgenerierten Datensätzen: 1–9.
-- Deine eigene Zeile bekommt 10 (oder die nächstfreie Nummer).
+- Deine eigene Zeile bekommt eine selbstgewählte Kennziffer (irgendeine ganze Zahl ≠ 1–9).
 
 ### `geschlecht`
 
@@ -71,30 +67,34 @@ Die maschinenlesbare Variante liegt unter [materials/codebook.csv](codebook.csv)
 
 Quelle: Rammstedt, B. & John, O. P. (2005). Kurzversion des Big Five Inventory (BFI-K). *Diagnostica*, 51(4), 195–206.
 
-21 Items, 5-Punkt-Likert-Skala:
+21 Items, fortlaufend nummeriert wie im Originalbogen. 5-Punkt-Likert-Skala:
 
 | Code | Bedeutung |
 |---:|---|
-| 1 | trifft gar nicht zu |
-| 2 | trifft eher nicht zu |
+| 1 | sehr unzutreffend |
+| 2 | eher unzutreffend |
 | 3 | weder noch |
-| 4 | trifft eher zu |
-| 5 | trifft voll zu |
+| 4 | eher zutreffend |
+| 5 | sehr zutreffend |
 
-Fünf Skalen:
+### Skalen-Zuordnung (Auswertungsschlüssel)
 
-| Skala | Items | davon Reverse |
+Jeder Faktor wird über mehrere Items gebildet. **R** = Reverse-Item (vor der Aggregation umpolen).
+
+| Skala | Items | Reverse-Items |
 |---|---|---|
-| Extraversion (E) | `BFI_E1`–`BFI_E4` | `BFI_E1`, `BFI_E4` |
-| Verträglichkeit (V) | `BFI_V1`–`BFI_V4` | `BFI_V1` |
-| Gewissenhaftigkeit (G) | `BFI_G1`–`BFI_G4` | `BFI_G1`, `BFI_G2` |
-| Neurotizismus (N) | `BFI_N1`–`BFI_N4` | `BFI_N1` |
-| Offenheit (O) | `BFI_O1`–`BFI_O5` | `BFI_O4` |
+| Extraversion (E) | 1R, 6, 11R, 16 | 1, 11 |
+| Verträglichkeit (V) | 2R, 7, 12R, 17R | 2, 12, 17 |
+| Gewissenhaftigkeit (G) | 3, 8R, 13, 18 | 8 |
+| Neurotizismus (N) | 4, 9R, 14, 19 | 9 |
+| Offenheit (O) | 5, 10, 15, 20, 21R | 21 |
+
+In den Spaltennamen entspricht Item *n* der Spalte `BFI_<nn>` (z. B. Item 6 → `BFI_06`, Item 11 → `BFI_11`).
 
 ::: {.callout-important title="Bereits rekodiert"}
 In den **vorgenerierten Datensätzen** (`data/generated/datensatz-XX.csv`) sind alle BFI-K-Items **bereits rekodiert**: Reverse-Items wurden umgepolt, sodass eine hohe Zahl in jedem Item eine hohe Ausprägung der jeweiligen Skala bedeutet.
 
-Wenn Du Deine **eigenen handschriftlichen Antworten** überträgst, musst Du die Reverse-Items vorher selbst umpolen (Formel: `rekodiert = 6 − Originalwert`).
+Wenn Du eine **eigene Zeile** mit Original-Antworten erfasst, musst Du die Reverse-Items vorher selbst umpolen (Formel: `rekodiert = 6 − Originalwert`).
 :::
 
 ## Rekodierungsformel

@@ -51,7 +51,7 @@ GitHub zeigt Dir den CSV-Inhalt als Tabelle.
 
 Öffne die Datei kurz mit einem Texteditor (oder direkt in JASP). Du solltest sehen:
 
-- Eine Header-Zeile mit 25 Spaltennamen (`probandennummer, geschlecht, alter, …, BFI_O5`)
+- Eine Header-Zeile mit 25 Spaltennamen (`probandennummer, geschlecht, alter, bildungsgrad, BFI_01, …, BFI_21`)
 - 9 Datenzeilen mit Probandennummern 1–9
 - Zwei der Zeilen enthalten irgendwo einen kleinen Defekt — den findest Du gleich.
 

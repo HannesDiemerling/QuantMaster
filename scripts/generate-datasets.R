@@ -21,14 +21,22 @@ N_PER_DATASET <- 9
 OUT_DIR       <- "data/generated"
 ERROR_DOC     <- "scripts/error-overview.md"
 
-BFI_ITEMS <- c(
-  paste0("BFI_E", 1:4),
-  paste0("BFI_V", 1:4),
-  paste0("BFI_G", 1:4),
-  paste0("BFI_N", 1:4),
-  paste0("BFI_O", 1:5)
+# BFI-K-Items sind im Originalbogen 1..21 fortlaufend nummeriert
+# (Rammstedt & John 2005). Die Skalen-Zuordnung pro Item:
+#   E (Extraversion):       1R, 6, 11R, 16
+#   V (Vertraeglichkeit):   2R, 7, 12R, 17R
+#   G (Gewissenhaftigkeit): 3, 8R, 13, 18
+#   N (Neurotizismus):      4, 9R, 14, 19
+#   O (Offenheit):          5, 10, 15, 20, 21R
+BFI_ITEMS <- sprintf("BFI_%02d", 1:21)
+FACTOR_OF <- c(
+  "E", "V", "G", "N", "O",   # Items 1..5
+  "E", "V", "G", "N", "O",   # Items 6..10
+  "E", "V", "G", "N", "O",   # Items 11..15
+  "E", "V", "G", "N", "O",   # Items 16..20
+  "O"                        # Item 21
 )
-FACTOR_OF <- c(rep("E", 4), rep("V", 4), rep("G", 4), rep("N", 4), rep("O", 5))
+stopifnot(length(BFI_ITEMS) == 21, length(FACTOR_OF) == 21)
 
 # Korrelationsmatrix der 21 BFI-K-Items (vereinfacht):
 #   innerhalb eines Faktors: r = 0.40
