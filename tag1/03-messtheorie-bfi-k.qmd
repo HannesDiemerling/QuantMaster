@@ -37,7 +37,7 @@ Der **beobachtete Wert** $X$ einer Antwort ist die Summe aus einem **wahren Wert
 | **Reliabilität** | Wie messgenau ist der Test? | wiederholtes Messen liefert ähnliche Werte → Retest-Reliabilität |
 | **Validität** | Misst der Test das, was er messen soll? | Selbstbericht Extraversion korreliert mit Fremdbericht → Konvergenzvalidität |
 
-Vertiefung folgt an **Tag 2** (Cronbach's α, McDonald's ω, Validitätsbefunde).
+Vertiefung folgt an **Tag 2** (Cronbach's α, Validitätsbefunde etc.).
 
 ## Reverse-Items, was und warum?
 
