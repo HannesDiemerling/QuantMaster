@@ -16,9 +16,9 @@ Letzter Schritt heute: Du hängst Deine eigene Zeile an den bereinigten Datensat
 
 Öffne `datensatz-XX-bereinigt.csv` in einem Editor Deiner Wahl:
 
-- **Texteditor:** VS Code, Notepad++, BBEdit
-- **Tabellen-Tool:** Excel oder LibreOffice Calc — vorsichtig sein mit automatischen Konvertierungen
+- **Texteditor:** VS Code, Notepad++, BBEdit (Erste Wahl)
 - **JASP:** geht auch, ist aber zum reinen Tippen umständlich
+- **Tabellen-Tool:** Excel oder LibreOffice Calc, vorsichtig sein mit automatischen Konvertierungen 
 
 Füge **eine neue Zeile am Ende** ein. Inhalt aus Deinem Papier-Fragebogen:
 
