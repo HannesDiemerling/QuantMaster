@@ -1,0 +1,93 @@
+# Stichprobe & Bias {#sec-tag2-stichprobe}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- die wichtigsten Bias-Typen in Stichproben benennen,
+- die Demografie unseres Workshop-Datensatzes beschreiben und einordnen,
+- begründen, warum wir aus unseren Ergebnissen *keine* Aussage über „die Bevölkerung" ableiten,
+- erklären, was ein Stichprobenfehler von einem Stichprobenbias unterscheidet.
+:::
+
+## Worum es geht
+
+Bevor Du rechnest, musst Du wissen, **wer** in Deinem Datensatz drinsteckt — und genauso wichtig: wer **nicht**. In unserem Fall ist die Antwort besonders unsauber, weil unser Datensatz aus zwei Quellen besteht:
+
+- **Simulierte Probanden** (`data/generated/`) — mit einer Verteilung, die ich für plausibel gehalten habe (überwiegend weiblich, jung, hoch gebildet — typisch für Psychologie-Studierende).
+- **„Studierenden-Antworten"** — ausgedacht, weil der Workshop eine Demo ist (siehe [Tag 1, Kapitel 5](../tag1/05-fragebogen-ausfuellen.qmd)).
+
+Wir nehmen die inhaltliche Interpretation der Daten heute deshalb **nicht zu ernst**. Methodisch arbeitet Ihr aber sauber.
+
+## Vier Bias-Typen, die Du kennen solltest
+
+| Bias-Typ | Idee | Beispiel |
+|---|---|---|
+| **Selection Bias** | Wer ist in der Stichprobe? Wer nicht? | „Online-Studie zu Computer-Affinität" — wer ist nicht online, fehlt komplett. |
+| **Self-Selection Bias** | Wer entscheidet sich selbst zum Mitmachen? | Studis-Pool mit Freiwilligen → eher gewissenhafte Menschen melden sich. |
+| **Non-Response Bias** | Wer bricht ab oder antwortet nicht? | Lange Fragebögen — niedrige Werte auf Gewissenhaftigkeit fehlen anteilig häufiger. |
+| **Mode Effects** | Wie wurde erhoben? | Papier vs. Online vs. Interview liefern systematisch unterschiedliche Antworten. |
+
+Ein **Stichprobenfehler** (Sampling Error) ist die rein zufällige Schwankung von Stichproben — der wird mit größerem *N* kleiner. Ein **Bias** wird mit größerem *N* **nicht** kleiner. Das ist der Unterschied, der in der Klausur gerne abgefragt wird.
+
+## Wer ist in unserem Datensatz?
+
+### Schritt 1 — Demografie deskriptiv
+
+In JASP:
+
+1. **Analyses → Descriptives → Descriptive Statistics**.
+2. Zieh `geschlecht`, `alter` und `bildungsgrad` in das Variablenfeld.
+3. Optionen: **Frequency tables for nominal variables** an, **Distribution plots** an.
+
+Schau die Verteilungen an. Notier Dir für jede Variable:
+
+- **`geschlecht`:** Verteilung weiblich / männlich / divers — wie schief?
+- **`alter`:** Range, Mittelwert, Median, Streuung. Gibt es Ausreißer?
+- **`bildungsgrad`:** Welche Stufen sind überhaupt vertreten? Welche fehlen?
+
+### Schritt 2 — Vergleich mit der Zielpopulation
+
+Wir tun gleich so, als wäre unsere Zielpopulation „junge Erwachsene in Deutschland". Vergleiche grob:
+
+| Merkmal | Unsere Stichprobe | Deutschland 20–30 Jahre (grob) |
+|---|---|---|
+| Geschlecht | überwiegend weiblich | ca. 50:50 |
+| Alter | sehr jung | breiter |
+| Bildung | überwiegend ≥ Bachelor | nur ein Teil der Altersgruppe |
+
+Auch ohne exakte Zahlen ist klar: unsere Stichprobe ist **kein Querschnitt** der Bevölkerung. Sie ist eine Stichprobe von Psychologie-Studierenden (synthetisch nachgebaut). Das ist nicht schlimm, aber es bedeutet, dass jede Aussage „so ist der Mensch" Quatsch ist — Aussagen müssen heißen: „so sind diese Studierenden".
+
+## Stichprobengröße und statistische Aussagen
+
+Unsere Stichprobe ist *klein* (typischerweise zwischen 90 und 120 Zeilen, je nach Teilnehmerzahl). Das hat zwei Konsequenzen:
+
+- **Geringe Power:** kleine, aber tatsächlich existierende Effekte können wir nicht statistisch nachweisen — sie versacken im Rauschen.
+- **Instabile Schätzer:** Mittelwerte und Korrelationen schwanken stark, wenn nur ein paar Zeilen anders aussehen würden.
+
+Berichte deshalb in Ergebnissen immer **Effektgröße + Konfidenzintervall**, nicht nur den p-Wert. Mehr dazu in Kapitel [06](06-t-tests.qmd).
+
+## Fehlende Werte (Missings)
+
+Erinnerung aus Tag 1: Bei der Bereinigung hast Du Werte „auf fehlend gesetzt", wenn sie nicht reparierbar waren. Solche fehlenden Werte verteilen sich nicht zufällig — sie haben oft ein Muster (z. B. *„Personen, die müde waren, lassen das letzte Item öfter offen"*). Drei Arten unterscheidet die Literatur:
+
+| Bezeichnung | Bedeutung |
+|---|---|
+| **MCAR** (Missing Completely At Random) | Fehlen rein zufällig — angenehm, aber selten realistisch. |
+| **MAR** (Missing At Random) | Fehlen abhängig von *beobachteten* Variablen (z. B. ältere Personen lassen häufiger Items aus). |
+| **MNAR** (Missing Not At Random) | Fehlen abhängig vom *unbeobachteten* Wert selbst (z. B. depressive Personen überspringen Items zu depressiven Symptomen). |
+
+JASP zeigt Dir in der Descriptives-Tabelle eine Spalte **Missing** je Variable. Schau einmal hin: gibt es Items mit deutlich mehr Missings als andere? Das kann auf MAR oder MNAR hindeuten — und ist Anlass, im echten Forschungskontext genauer hinzuschauen.
+
+## Aufgabe
+
+1. Berechne Descriptives für alle Variablen und schau Dir die Demografie genau an.
+2. Notiere in einem kurzen Text (3–5 Sätze) **wer in unserem Datensatz steckt** und welche Bias-Typen aus der Tabelle oben besonders relevant sein könnten.
+3. Schau für jedes BFI-Item, ob es viele Missings gibt. Identifiziere die zwei Items mit den meisten fehlenden Werten und überleg, ob ein inhaltliches Muster denkbar ist.
+
+(Diese Notiz brauchst Du für Dich selbst — sie wird nicht hochgeladen, aber Du nutzt sie als Diskussionsbasis am Abend.)
+
+## Selbstcheck
+
+1. Was unterscheidet einen Stichprobenfehler von einem Stichprobenbias?
+2. Warum reicht ein Mittelwert allein nicht, um „die Persönlichkeit junger Erwachsener" zu beschreiben?
+3. Welche Bias-Typen sind in unserem Workshop-Datensatz besonders einschlägig — und welche eher nicht (Stichwort: kein echter Online-Fragebogen, sondern ausgedacht)?

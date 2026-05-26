@@ -1,0 +1,120 @@
+# Deskriptive Statistik & Plots {#sec-tag2-deskriptive}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- die zentralen deskriptiven Kennzahlen (M, Median, SD, IQR, Schiefe, Kurtosis) benennen und in JASP berechnen,
+- für jede Variablen-Art den passenden Plot-Typ wählen,
+- mindestens fünf verschiedene Visualisierungen in JASP erzeugen und sinnvoll interpretieren,
+- erklären, warum ein Mittelwert alleine ohne Streuung in einer Publikation peinlich wäre.
+:::
+
+## Worum es geht
+
+Deskriptive Statistik ist das Werkzeug, mit dem Du Deine Daten **erstmal verstehen** lernst, bevor Du irgendwas testest. Wenn Du an Tag 3 Regressionen rechnest, ohne vorher gesehen zu haben, wie Deine Variablen verteilt sind, wirst Du fast garantiert Modellannahmen verletzen — ohne es zu merken.
+
+Plane für diesen Block mindestens **90 Minuten** ein.
+
+## Die zentralen Kennzahlen
+
+| Kennzahl | Bedeutet | Wofür gut |
+|---|---|---|
+| **M** (arithm. Mittel) | Durchschnitt | metrisch, einigermaßen symmetrische Verteilungen |
+| **Median** | mittlerer Wert | robust gegen Ausreißer, immer interpretierbar bei ordinal+ |
+| **Mode (Modus)** | häufigster Wert | nominal, ordinal |
+| **SD** | mittlere Abweichung vom M | Streuung bei metrischen Daten |
+| **Variance** | SD² | wird in Tests verwendet (z. B. ANOVA) |
+| **IQR** | Q3 − Q1 | robuste Streuung, geht mit Boxplot |
+| **Min / Max / Range** | Spannweite | Plausibilitätscheck |
+| **Skewness** | Schiefe (positiv = rechtsschief) | Verteilungsform |
+| **Kurtosis** | Spitzheit / Flachheit | Verteilungsform |
+
+::: {.callout-tip title="Faustregel beim Berichten"}
+Berichte je nach Variable mindestens **zwei** Kennzahlen: eine für **zentrale Tendenz** (M oder Median) **und** eine für **Streuung** (SD oder IQR). Ein einzelner Mittelwert ohne Streuung ist eine halbe Aussage.
+:::
+
+## Welcher Plot zu welcher Variablen-Art?
+
+| Variablen-Art | Geeignete Plots |
+|---|---|
+| Nominal (Geschlecht, Quelle) | Bar Chart, Pie Chart |
+| Ordinal (Bildungsgrad, BFI-Item) | Bar Chart, Boxplot |
+| Metrisch (Alter, Skalenwert) | Histogramm, Density Plot, Boxplot, Violin Plot, Q-Q-Plot |
+| Zwei metrische Variablen | Scatter Plot (Streudiagramm) |
+| Eine metrische + eine Gruppe | Boxplot nach Gruppe, Violin Plot, Raincloud Plot |
+
+JASP zeigt all diese Plots unter **Descriptives → Distribution Plots** bzw. unter **Plots → Boxplot / Q-Q Plot / Density**.
+
+## Deine Plot-Reihe — Aufgabe (mind. 8 Plots)
+
+Heute baust Du **eine Reihe von Plots** und schickst die Sammlung am Ende des Kapitels per Mail an die Lehrperson. Geht so vor:
+
+### Schritt 1 — Demografie
+
+1. **Bar Chart** für `geschlecht`
+2. **Bar Chart** für `bildungsgrad`
+3. **Histogramm** für `alter`, mit Vorschlag für Bin-Breite
+4. **Boxplot** für `alter`, optional gruppiert nach `geschlecht`
+
+In JASP findest Du Bar Charts unter **Descriptives → Distribution Plots**, Histogramme unter derselben Kachel. Für gruppierte Boxplots: **Descriptives → Split by** mit `geschlecht`.
+
+### Schritt 2 — BFI-Items
+
+5. **Histogramme oder Bar Charts** für mindestens 4 ausgewählte BFI-Items — je eines pro Skala (z. B. `BFI_06` für Extraversion, `BFI_07` für Verträglichkeit, `BFI_13` für Gewissenhaftigkeit, `BFI_14` für Neurotizismus, `BFI_15` für Offenheit).
+6. **Q-Q-Plot** für ein Item Deiner Wahl. Frage: liegt die Verteilung in der Nähe der Diagonalen, oder weicht sie systematisch ab?
+
+### Schritt 3 — Werte über die Quelle
+
+7. **Boxplot von `alter` nach `quelle_datensatz`** (also: gibt es Unterschiede zwischen den synthetischen Quelldatensätzen?). Erwarte hier keinen relevanten Unterschied — die Datensätze wurden mit ähnlichen Verteilungen erzeugt. Aber: Du übst die Methode.
+
+### Schritt 4 — Streudiagramme
+
+8. **Scatter Plot** von `alter` gegen ein BFI-Item Deiner Wahl. Was siehst Du?
+
+Bonus-Plots, falls Du Lust hast:
+
+9. **Density Plot** mehrerer BFI-Items übereinander
+10. **Heatmap** der Korrelationen (geht bequemer in Kapitel [05](05-korrelation.qmd))
+
+## Plots exportieren
+
+Jeden Plot in JASP exportierst Du über **Rechtsklick → Save image as → PNG / SVG / PDF**. Speichere alle Plots in einen Ordner `m15-plots/`.
+
+Alternative: das gesamte JASP-Output kannst Du als **PDF exportieren** (`File → Export Results → PDF`). Das ist schneller, aber unflexibler.
+
+## Aufgabe & Mail-Versand
+
+::: {.callout-important title="Plots an die Lehrperson schicken"}
+1. Bau die acht (oder mehr) Plots oben.
+2. Sammle sie in einem Ordner oder fasse sie in einem PDF zusammen.
+3. Schick die Datei(en) an:
+
+**[hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)**
+
+Betreff: *„M15 Workshop Tag 2 — Plots [Deine Kennziffer]"*
+
+Das ist der zweite Mail-Schritt im Workshop. Die Lehrperson nutzt die Plots, um nachher in der Plenums-Phase mit Dir kurz das Interessanteste zu besprechen — also vorher schicken, nicht erst am Abend.
+:::
+
+## Stärken und Schwächen deskriptiver Statistik
+
+**Stärken:**
+
+- macht Daten überhaupt erst „lesbar"
+- deckt Plausibilitätsprobleme früh auf (ohne deskriptiven Block wären Tag-1-Bereinigungsfehler unentdeckt geblieben)
+- Plots zeigen, was Tests in Zahlen verstecken (Stichwort: Anscombe-Quartett)
+
+**Schwächen:**
+
+- **keine** Inferenz — Du kannst aus deskriptiven Werten nicht auf eine Population schließen
+- **keine** Aussage über Unterschiede oder Zusammenhänge
+- Wahl der Kennzahl beeinflusst, was „zu sehen" ist (M vs. Median bei schiefen Verteilungen sieht sehr unterschiedlich aus)
+
+Deshalb gilt: **Deskriptive ist die Voraussetzung jeder Analyse — aber niemals das Ergebnis.**
+
+## Selbstcheck
+
+1. Wann ist der Median dem Mittelwert vorzuziehen?
+2. Was siehst Du in einem Boxplot, das in einem Histogramm nicht direkt sichtbar ist (und umgekehrt)?
+3. Welche Plot-Art würdest Du für `bildungsgrad` wählen — und warum *nicht* ein Histogramm?
+4. Warum reicht „SD = 1.2" als Streumaß-Angabe nicht, wenn die Verteilung extrem schief ist?

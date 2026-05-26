@@ -1,54 +1,51 @@
 # Tag 2 — Übersicht {#sec-tag2-uebersicht}
 
-::: {.callout-important title="Im Aufbau"}
-Tag 2 ist als **Skizze** in die Site eingebunden. Die einzelnen Kapitel werden in einer eigenen Iteration vor dem 28.05.2026 ausgearbeitet. Die folgende Outline gibt Dir einen Vorgeschmack auf das, was Dich erwartet.
+::: {.callout-note title="Lernziele"}
+Nach diesem Tag …
+
+- hast Du die Studierenden-Uploads selbst zu einem Gesamtdatensatz kombiniert,
+- kannst Du eine Stichprobe deskriptiv beschreiben und ihre Grenzen kritisch einordnen,
+- berechnest Du Subskalen, Korrelationen und Mittelwertsvergleiche in JASP,
+- verstehst Du, warum Effektgrößen und nicht nur p-Werte berichtet werden,
+- weißt Du, wo Korrelation aufhört und Kausalität anfängt.
 :::
 
-## Termin
+## Tagesablauf
 
-**28.05.2026, 09:45–17:00** — HMU Potsdam, Präsenz
+| Zeit | Modus | Inhalt | Kapitel |
+|---|---|---|---|
+| 09:45–10:15 | **Plenum** | Rückblick Tag 1, Tagesüberblick, JASP-Update klären | — |
+| 10:15–12:00 | Self-Study | Uploads herunterladen, kombinieren, eindeutige IDs erzeugen, Stichprobenbias reflektieren | [01](01-uploads-kombinieren.qmd), [02](02-stichprobe-bias.qmd) |
+| 12:00–13:00 | Mittag | | |
+| 13:00–15:00 | Self-Study | Deskriptive Statistik, Plots, Subskalen, Reliabilität | [03](03-deskriptive-plots.qmd), [04](04-skalen-bilden.qmd) |
+| 15:00–17:00 | Self-Study | Korrelation, *t*-Tests, ANOVA, Effektgrößen | [05](05-korrelation.qmd), [06](06-t-tests.qmd), [07](07-anova.qmd) |
+| ca. 16:45 | **Plenum** | Reflexion, Ausblick Tag 3 | [08](08-tagesabschluss.qmd) |
+
+Die zweite Hälfte des Tages (Korrelation, *t*-Tests, ANOVA) ist absichtlich vollgepackt — plane mindestens **4 Stunden** dafür ein. Wenn Du nicht alles schaffst, ist das kein Problem; arbeite Block 07 (ANOVA) gerne zu Hause nach.
 
 ## Worum es geht
 
-Heute machst Du als Erstes etwas, das an Tag 1 absichtlich offen geblieben ist: **die Studierenden-Uploads aus `data/student-uploads/` selbst zu einem Gesamtdatensatz zusammenführen**. Anschließend lernst Du, diesen Datensatz zu *verstehen* — also Verteilungen anzuschauen, Skalenwerte zu bilden, Reliabilität zu prüfen — und führst erste inferenzstatistische Vergleiche durch.
+Heute machst Du das, was an Tag 1 absichtlich offen geblieben ist: **die Studierenden-Uploads selbst zu einem Gesamtdatensatz zusammenführen**. Damit erlebst Du eines der unspektakulärsten, aber wichtigsten Themen empirischer Forschung — wie aus „mehreren Tabellen" *eine* Tabelle wird, mit der man arbeiten kann.
 
-## Geplante Kapitel
-
-| Kapitel | Thema |
-|---|---|
-| 01 | Uploads aus `data/student-uploads/` herunterladen und zu einem Gesamtdatensatz kombinieren (inkl. Umgang mit Duplikaten aus dem Seed) |
-| 02 | Stichprobenbias und Umgang mit fehlenden Werten — was bedeutet *N* in unserer Stichprobe? |
-| 03 | Den kombinierten Datensatz in JASP öffnen, Variablen-Typen setzen, Struktur prüfen |
-| 04 | Reliabilitätsanalyse: Cronbach's α und McDonald's ω für die fünf BFI-K-Skalen |
-| 05 | Konzept Faktorenanalyse + EFA mit JASP (Bezug: Validität, Konstruktstruktur) |
-| 06 | Effektgrößen: Cohen's *d* (für *t*-Test) und η² (für ANOVA) — warum man sie immer berichtet |
-
-Begleitend erstellst Du:
-
-- Histogramme und Boxplots der wichtigsten Variablen
-- Subskalen-Mittelwerte (Computed Columns in JASP)
-- eine Korrelationsmatrix der fünf Big-Five-Faktoren
-- mindestens einen *t*-Test mit Effektgröße und mindestens eine ANOVA
+Danach lernst Du, den Datensatz zu *verstehen*: Verteilungen anschauen, Skalenwerte bilden, Subgruppen vergleichen. Das ist die Vorstufe zu allem, was Du an Tag 3 mit multivariaten Modellen machst.
 
 ## Was Du dafür brauchst
 
-- Laptop mit JASP (idealerweise aktualisiert seit Tag 1)
-- Zugriff auf das Workshop-Repo, insbesondere `data/student-uploads/`
-- Dein Codebook ([codebook.qmd](../materials/codebook.qmd)) griffbereit
-- Deine offenen Fragen aus Tag 1 — die klären wir am Vormittag
+- Laptop mit **aktuellem JASP** (mindestens Version 0.19, idealerweise die neueste; die hat eine CSV-Vorschau beim Import — falls Du noch eine ältere Version hast, jetzt updaten unter [jasp-stats.org](https://jasp-stats.org))
+- Zugang zum Workshop-Repo, insbesondere zum Ordner `data/student-uploads/`
+- Codebook griffbereit ([materials/codebook.qmd](../materials/codebook.qmd))
+- Optional: ein Tabellenkalkulationsprogramm (Excel, LibreOffice Calc) oder einen guten Texteditor (VS Code, Notepad++) für den Kombinations-Schritt
+- Etwas Geduld am Vormittag — Datenarbeit ist langweiliger, als sie tatsächlich wichtig ist
 
 ## Was Du am Ende des Tages erreicht hast
 
-- Du hast den Gesamtdatensatz aus den Einzel-Uploads selbst kombiniert.
-- Du kennst die Verteilungsstruktur der Stichprobe.
-- Du weißt, wie reliabel die BFI-K-Skalen *bei uns* messen.
-- Du hast die Big-Five-Korrelationsstruktur einmal selbst gerechnet.
-- Du kannst einen *t*-Test mit Effektgröße sauber interpretieren und berichten.
-- Du verstehst, was eine Faktorenanalyse *konzeptionell* leistet.
+- Aus mehreren einzelnen Uploads ist *ein* sauber kombinierter Datensatz geworden, in dem keine Probandennummern doppelt vorkommen.
+- Du kennst die Verteilungsstruktur unserer Stichprobe (Demografie, BFI-K-Items).
+- Du hast eine Reihe von Plots produziert und an die Lehrperson geschickt.
+- Du hast Subskalen (E, V, G, N, O) berechnet und ihre Reliabilität geprüft.
+- Du hast Korrelationen interpretiert — und weißt, was sie *nicht* sagen.
+- Du hast *t*-Tests und (optional) ANOVAs mit Effektgrößen gerechnet und kannst die Ergebnisse in einem Satz zusammenfassen.
 
-## Vorbereitung
+## Erinnerung: Demo-Charakter
 
-Nichts zwingendes. Hilfreich:
-
-- Tag 1 noch einmal überfliegen, vor allem [Kapitel 3 (Messtheorie & BFI-K)](../tag1/03-messtheorie-bfi-k.qmd).
-- JASP einmal öffnen und prüfen, dass es noch läuft.
+Tag 1 war eine Demonstration eines echten Forschungs-Workflows — keine echte Erhebung. Die Daten, mit denen Du heute arbeitest, sind ein Mix aus simulierten (`data/generated/`) und ausgedachten Studierenden-Antworten. Sei deshalb mit Inhaltsinterpretationen vorsichtig — Methodisch geht es trotzdem völlig sauber zu.

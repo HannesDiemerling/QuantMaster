@@ -42,6 +42,14 @@ book:
     - part: "Tag 2 — 28.05.2026 · Datensatz verstehen & deskriptiv analysieren"
       chapters:
         - tag2/00-uebersicht.qmd
+        - tag2/01-uploads-kombinieren.qmd
+        - tag2/02-stichprobe-bias.qmd
+        - tag2/03-deskriptive-plots.qmd
+        - tag2/04-skalen-bilden.qmd
+        - tag2/05-korrelation.qmd
+        - tag2/06-t-tests.qmd
+        - tag2/07-anova.qmd
+        - tag2/08-tagesabschluss.qmd
     - part: "Tag 3 — 04.06.2026 · Multivariate Verfahren"
       chapters:
         - tag3/00-uebersicht.qmd

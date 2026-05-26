@@ -1,0 +1,185 @@
+# t-Tests & Effektgrößen {#sec-tag2-ttest}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- die drei Varianten des *t*-Tests sicher unterscheiden (Einstichproben, unabhängig, abhängig),
+- die Voraussetzungen jedes Tests in JASP prüfen und die Welch-Korrektur einsetzen,
+- Cohen's *d* berechnen und einordnen,
+- ein *t*-Test-Ergebnis vollständig berichten — also nicht nur den p-Wert,
+- erkennen, wann ein nicht-parametrischer Test (Mann-Whitney) sinnvoller ist.
+:::
+
+## Worum es geht
+
+Der *t*-Test ist der Klassiker für Mittelwertsvergleiche. Egal ob in der Bachelor-Arbeit oder in einer klinischen Studie — sobald Du zwei Gruppen vergleichst oder ein Vorher-Nachher misst, läuft Dir der *t*-Test über den Weg. Heute lernst Du alle Varianten, ihre Voraussetzungen, und vor allem: wie Du Ergebnisse **inhaltlich** statt nur statistisch interpretierst.
+
+Dieser Block ist mit Kapitel [05](05-korrelation.qmd) und [07](07-anova.qmd) der inhaltlich anspruchsvollste Teil des Tages — plane mindestens **2 Stunden** dafür ein, lieber mehr.
+
+## Die drei t-Test-Varianten
+
+| Test | Wann verwenden? | Beispiel |
+|---|---|---|
+| **Einstichproben-t-Test** | Vergleich eines Mittelwerts mit einem festen Wert | Liegt der Mittelwert unserer Stichprobe in Extraversion oberhalb von 3 (Skalenmitte)? |
+| **Unabhängiger t-Test** | Zwei unabhängige Gruppen | Unterscheiden sich Frauen und Männer in Verträglichkeit? |
+| **Abhängiger t-Test** (paired) | Zwei *gepaarte* Messungen | Skalenwert bei Item-Mittel mit/ohne Reverse-Item — bei *uns* heute nicht relevant, weil wir keine echten Wiederholungsmessungen haben |
+
+Heute fokussierst Du Dich auf Variante 1 und 2. Variante 3 (paired) lernst Du am Beispiel hinter Tag 3 nochmal kennen.
+
+## Wofür ist der t-Test eigentlich da?
+
+Der t-Test prüft, ob der Mittelwertsunterschied, den Du in Deiner Stichprobe siehst, **größer ist, als man durch Zufall erwarten würde**, wenn in der Wirklichkeit gar kein Unterschied bestünde.
+
+Konkret:
+
+- **Nullhypothese H0:** Die Mittelwerte sind gleich (Differenz = 0).
+- **Alternativhypothese H1:** Die Mittelwerte sind verschieden.
+- Der p-Wert ist die *Wahrscheinlichkeit*, einen so großen (oder größeren) Unterschied unter H0 rein zufällig zu sehen.
+
+Wenn $p < \alpha$ (typischerweise .05), verwerfen wir H0. Das heißt **nicht**, dass H1 wahr ist — es heißt nur, dass H0 unwahrscheinlich erscheint, gegeben unsere Daten.
+
+::: {.callout-important title="Was der p-Wert *nicht* ist"}
+- *Nicht* die Wahrscheinlichkeit, dass H0 wahr ist.
+- *Nicht* die Wahrscheinlichkeit, dass das Ergebnis bei Replikation gleich aussieht.
+- *Nicht* die Größe oder Wichtigkeit des Effekts.
+
+Deshalb gilt: berichte **immer** den p-Wert *zusammen* mit der Effektgröße und dem Konfidenzintervall.
+:::
+
+## Annahmen — und warum sie wichtig sind
+
+Der klassische t-Test (Student's t) hat drei Annahmen:
+
+1. **Skalenniveau:** abhängige Variable mindestens *intervallskaliert* (metrisch).
+2. **Normalverteilung:** die Werte sind in jeder Gruppe annähernd normalverteilt. Bei großem $N$ (> 30) verzeihlich (Zentraler Grenzwertsatz).
+3. **Varianzhomogenität:** die beiden Gruppen haben ungefähr gleiche Streuung.
+
+**Was tun, wenn Annahmen verletzt sind?**
+
+| Verletzung | Lösung |
+|---|---|
+| Varianzhomogenität verletzt | **Welch's t-Test** (in JASP per Häkchen — fast immer besser als der Levene-Test-Umweg) |
+| Normalverteilung deutlich verletzt + kleines N | **Mann-Whitney U-Test** (nicht-parametrisch) |
+| Skalenniveau nur ordinal | Mann-Whitney U-Test |
+| Ausreißer | Robustere Alternativen (Yuen's t mit Trimmen) — siehe JASP-Option |
+
+::: {.callout-tip title="Faustregel"}
+Wenn Du keine Zeit für Annahmen-Diagnose hast oder Du Dir unsicher bist: **immer Welch's t-Test** rechnen. Er ist im schlimmsten Fall fast so präzise wie Student's t und im besten Fall deutlich robuster.
+:::
+
+## Effektgröße — Cohen's d
+
+Der p-Wert sagt, *ob* es einen Unterschied gibt. Cohen's *d* sagt, *wie groß* er ist.
+
+$$
+d = \frac{M_1 - M_2}{SD_{pooled}}
+$$
+
+Also: Mittelwertsunterschied in Einheiten der gepoolten Standardabweichung.
+
+**Faustregeln (Cohen 1988):**
+
+| $|d|$ | Bezeichnung |
+|---:|---|
+| 0.2 | klein |
+| 0.5 | mittel |
+| 0.8 | groß |
+
+Beispiel: $d = 0.5$ heißt, die Gruppen unterscheiden sich um *eine halbe Standardabweichung*. Das ist im Bildungs- und Persönlichkeitskontext schon ordentlich.
+
+JASP zeigt Cohen's *d* mit Konfidenzintervall — schau es Dir **immer** an. Ein signifikanter t-Test bei $N = 200$ kann ein klitzekleines $d$ haben (was statistisch da, aber praktisch irrelevant ist), während ein nicht-signifikantes Ergebnis bei $N = 18$ ein riesiges $d$ haben kann (was inhaltlich relevant ist, aber statistisch nicht abgesichert).
+
+## In JASP rechnen
+
+### Einstichproben-t-Test
+
+**Frage:** Liegt der mittlere Extraversionswert unserer Stichprobe oberhalb von 3?
+
+1. **Analyses → T-Tests → One-Sample T-Test**.
+2. `E_mean` ins Variablenfeld ziehen.
+3. **Test value:** 3.
+4. **Alternative hypothesis:** „measure > test value" wenn Du wirklich nur „oberhalb" testen willst (gerichtete Hypothese) — sonst zweiseitig.
+5. Aktiviere in den Options:
+   - **Descriptive statistics** (M, SD pro Gruppe)
+   - **Effect size** (Cohen's d) mit **Confidence interval**
+   - **Normality plots** (Q-Q-Plot)
+   - **Descriptives plots**
+
+### Unabhängiger t-Test
+
+**Frage:** Unterscheiden sich Frauen und Männer im Verträglichkeitswert?
+
+1. **Analyses → T-Tests → Independent Samples T-Test**.
+2. Dependent variable: `V_mean`. Grouping variable: `geschlecht`.
+3. Wenn `geschlecht` drei Stufen hat (1, 2, 3), kannst Du in JASP unter „Filters" die Stufe 3 (divers) ausschließen oder sie als eigene Gruppe lassen — bei sehr kleinem $n$ macht ein Vergleich aber wenig Sinn.
+4. Aktiviere in den Options:
+   - **Student** und **Welch** (Häkchen bei beiden — JASP zeigt sie nebeneinander)
+   - **Mann-Whitney** (zur Absicherung)
+   - **Effect size: Cohen's d, with confidence interval**
+   - **Descriptive statistics + Descriptives plots**
+   - **Normality test: Shapiro-Wilk** (deskriptiv interessant, aber nicht überbewerten)
+   - **Equality of variances: Levene's test** (informativ, aber direkt Welch nehmen)
+
+### Wie das Ergebnis berichten
+
+In APA-ähnlicher Form sieht ein t-Test-Bericht so aus:
+
+> Frauen ($M = 3.42$, $SD = 0.72$, $n = 64$) und Männer ($M = 3.09$, $SD = 0.81$, $n = 28$) unterschieden sich im Verträglichkeitswert, $t(46.3) = 1.89$, $p = .065$, $d = 0.43$, 95 %-KI [-0.03, 0.88]. Der Effekt entspricht einer kleinen bis mittleren Größe nach Cohen, das Konfidenzintervall schließt den Nulleffekt aber knapp nicht aus.
+
+Beachte: vollständige Information, nicht nur das p.
+
+## Beispielhypothesen für unsere Stichprobe
+
+Du rechnest **mindestens fünf** der folgenden t-Tests:
+
+| # | Hypothese | Test | Variablen |
+|---:|---|---|---|
+| T1 | Mittlere Extraversion liegt nicht bei 3. | One-Sample, zweiseitig | `E_mean` vs. 3 |
+| T2 | Frauen sind verträglicher als Männer. | Independent, gerichtet | `V_mean` ~ `geschlecht` |
+| T3 | Personen mit Master oder mehr (Bildung ≥ 6) sind offener als Personen mit weniger. | Independent | `O_mean` ~ Bildungsgruppe |
+| T4 | Mittlerer Neurotizismus liegt unter 3 (Skalenmitte). | One-Sample, einseitig | `N_mean` vs. 3 |
+| T5 | Personen unter 25 Jahren sind extravertierter als Personen ab 25. | Independent | `E_mean` ~ Altersgruppe |
+| T6 | Personen, die einen vorgenerierten Datensatz aus der ersten Hälfte (1–5) bearbeitet haben, unterscheiden sich nicht in Gewissenhaftigkeit von denen aus der zweiten Hälfte (6–10). | Independent | `G_mean` ~ `quelle_datensatz` < 6 |
+
+Für die Gruppierung in T3 und T5 baust Du Dir eine neue Spalte per Compute Column:
+
+```r
+# Altersgruppe (T5)
+ifelse(alter < 25, "jung", "aelter")
+
+# Bildungsgruppe (T3)
+ifelse(bildungsgrad >= 6, "hoch", "niedriger")
+```
+
+::: {.callout-tip title="Vorsicht mit gerichteten Hypothesen"}
+Eine gerichtete Hypothese darf Du **nur** dann formulieren, wenn es vorher inhaltlich begründet ist (Theorie oder Vorbefunde) — *nicht* erst, wenn Du die Daten schon gesehen hast. Sonst spielst Du Dir den p-Wert künstlich klein. In der Klausur: ungerichtet (zweiseitig) ist die sichere Defaultwahl.
+:::
+
+## Stärken und Schwächen des t-Tests
+
+**Stärken:**
+
+- intuitiv, einfach zu kommunizieren
+- gut etabliert, alle reviewen das problemlos
+- robust bei größeren Stichproben
+
+**Schwächen:**
+
+- **nur** Mittelwertsvergleich — sagt nichts über Varianzen, Verteilungsformen, Quantile
+- empfindlich gegen Ausreißer und starke Schiefe
+- bei kleinen $N$: Effekt unsicher, Power gering
+- vergleicht nur **zwei** Gruppen — für mehr nimm ANOVA (Kapitel [07](07-anova.qmd))
+
+## Aufgabe
+
+1. Rechne mindestens **fünf** der oben gelisteten t-Tests in JASP. Nutze Welch's t als Default.
+2. Für jeden Test notiere kurz: Hypothese in Worten, $t$, df, $p$, $d$ mit KI, Schlussfolgerung in einem Satz.
+3. Wähl einen Test aus, in dem **keine Signifikanz** zustande kommt, aber das Cohen's *d* eine mittlere Größe zeigt. Erklär in zwei Sätzen, warum das passiert (Stichwort: Power) und was Du im Bericht trotzdem schreiben würdest.
+4. Wähl einen Test aus, in dem **die Annahme der Normalverteilung deutlich verletzt** ist (Shapiro-Wilk signifikant, Q-Q-Plot krumm). Rechne den Mann-Whitney als robuste Alternative und vergleiche die p-Werte. Stimmt die Schlussfolgerung überein?
+
+## Selbstcheck
+
+1. Wann nimmst Du Welch's t statt Student's t — und warum eigentlich *immer*?
+2. Was sagt ein Cohen's $d = 0.20$? Reicht das, um einen Befund spannend zu finden?
+3. Du hast einen *t*-Test mit $p = .03$ und $d = 0.08$. Was steht in Deinem Ergebnisbericht?
+4. Welches Verfahren wählst Du, wenn die abhängige Variable ordinal ist (z. B. ein einzelnes BFI-Item)?

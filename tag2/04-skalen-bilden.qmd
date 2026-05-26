@@ -1,0 +1,166 @@
+# Subskalen bilden & Reliabilität prüfen {#sec-tag2-skalen}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- aus den 21 BFI-K-Items die fünf Skalenwerte (E, V, G, N, O) in JASP berechnen,
+- begründen, warum man Items mittelt (statt summiert) und warum überhaupt aggregiert,
+- Cronbach's α und McDonald's ω in JASP berechnen und interpretieren,
+- erklären, was eine niedrige Reliabilität für nachfolgende Tests bedeutet.
+:::
+
+## Worum es geht
+
+Bis jetzt hattest Du 21 einzelne BFI-Items. Für die Theorie hinter dem BFI-K stehen aber **fünf Konstrukte** (Big Five) — und für die Analyse arbeitest Du mit fünf Skalenwerten, nicht mit 21 Items einzeln. Heute baust Du diese Skalenwerte.
+
+Damit der Schritt sauber ist, prüfst Du anschließend für jede Skala die **Reliabilität** — also wie konsistent die Items innerhalb derselben Skala miteinander zusammenhängen.
+
+## Warum aggregieren?
+
+Drei Gründe, warum man Item-Mittelwerte bildet:
+
+1. **Konstruktbreite:** Extraversion ist mehr als ein einzelnes „bin gesellig"-Item. Vier Items deckt das Konstrukt breiter ab und schwächt einzelne Item-Marotten ab.
+2. **Messfehler:** Jedes Item misst mit Fehler. Bei Aggregation über mehrere Items mittelt sich der Fehler heraus (klassische Testtheorie: $X = T + E$ → mit mehr Items steigt der Anteil von $T$ am Mittelwert).
+3. **Anschluss an Literatur und Praxis:** Big-Five-Profile werden auf Skalen-Ebene berichtet — sonst wird's unlesbar.
+
+::: {.callout-important title="Voraussetzung — Reverse-Items rekodiert"}
+Aggregation ist nur sinnvoll, wenn alle Items in dieselbe Richtung gepolt sind. In unseren Datensätzen sind die Reverse-Items **bereits rekodiert**. Wenn Du in einem anderen Projekt arbeitest, bei dem Reverse-Items noch in Originalrichtung sind, musst Du das vor dem Aggregieren in JASP per Compute Column erledigen.
+:::
+
+## Mittelwert vs. Summe — was nehmen?
+
+Beides gleich aussagekräftig, solange alle Items dasselbe Antwortformat haben (hier: 1–5).
+
+| | Vorteil | Nachteil |
+|---|---|---|
+| **Mittelwert** | Skala bleibt auf 1–5 — direkt mit Items vergleichbar | technisch etwas mehr Aufwand bei Missings |
+| **Summe** | einfacher zu rechnen | Skala ändert sich (E z. B. 4–20) — weniger intuitiv |
+
+Wir nehmen den **Mittelwert** — leichter zu interpretieren und beim Missings-Handling robuster (JASP rechnet den Mittelwert auch, wenn ein Item fehlt; bei einer Summe würde es eine NA bleiben).
+
+## Skalenwerte in JASP berechnen
+
+Erinnerung der Zuordnung (aus dem [Codebook](../materials/codebook.qmd)):
+
+| Skala | Items |
+|---|---|
+| Extraversion (E) | `BFI_01`, `BFI_06`, `BFI_11`, `BFI_16` |
+| Verträglichkeit (V) | `BFI_02`, `BFI_07`, `BFI_12`, `BFI_17` |
+| Gewissenhaftigkeit (G) | `BFI_03`, `BFI_08`, `BFI_13`, `BFI_18` |
+| Neurotizismus (N) | `BFI_04`, `BFI_09`, `BFI_14`, `BFI_19` |
+| Offenheit (O) | `BFI_05`, `BFI_10`, `BFI_15`, `BFI_20`, `BFI_21` |
+
+Für jede Skala legst Du in JASP eine neue Spalte an.
+
+### Vorgehen pro Skala
+
+1. Oben rechts in der Datentabelle den blauen **„+"-Button** drücken („Compute Column").
+2. Spaltenname eintragen: `E_mean`.
+3. In den **R-Modus** wechseln.
+4. Formel eintragen:
+
+```r
+(BFI_01 + BFI_06 + BFI_11 + BFI_16) / 4
+```
+
+5. **Compute column**.
+
+Wiederhol das Ganze für `V_mean`, `G_mean`, `N_mean` und `O_mean`:
+
+```r
+# V_mean
+(BFI_02 + BFI_07 + BFI_12 + BFI_17) / 4
+
+# G_mean
+(BFI_03 + BFI_08 + BFI_13 + BFI_18) / 4
+
+# N_mean
+(BFI_04 + BFI_09 + BFI_14 + BFI_19) / 4
+
+# O_mean
+(BFI_05 + BFI_10 + BFI_15 + BFI_20 + BFI_21) / 5
+```
+
+Nach dem Berechnen: Variable-Typ jeder neuen Spalte auf **Scale** setzen (sollte JASP automatisch tun, aber prüfen).
+
+### Plausibilitäts-Check
+
+Lass Descriptives über die fünf neuen Variablen laufen. Erwartung:
+
+- alle Werte zwischen **1.0 und 5.0**
+- Mittelwerte ungefähr im mittleren Bereich (≈ 3) — die simulierten Daten sind ohne extreme Schiefe
+- SD ungefähr 0.5–1.0
+
+Wenn ein Skalenmittelwert systematisch außerhalb liegt: meistens hast Du ein Item vergessen oder eines doppelt eingebaut.
+
+## Reliabilität — Cronbach's α und McDonald's ω
+
+Die Reliabilität misst, wie **konsistent** die Items einer Skala denselben latenten Wert messen. Zwei gängige Maße:
+
+| Maß | Idee | Wann verwenden? |
+|---|---|---|
+| **Cronbach's α** | Mittelwert aller möglichen Split-Half-Korrelationen | Klassisch, wird in fast jeder Publikation berichtet |
+| **McDonald's ω** | basiert auf einem konfirmatorischen Faktorenmodell | Methodisch sauberer, weil weniger restriktive Annahmen |
+
+**Faustregel:**
+
+| α (oder ω) | Bewertung |
+|---:|---|
+| ≥ .90 | exzellent |
+| .80–.89 | gut |
+| .70–.79 | akzeptabel (gerade so) |
+| .60–.69 | fragwürdig |
+| < .60 | unbrauchbar |
+
+Im BFI-K sind die Skalen *kurz* (4–5 Items). Erwarte deshalb keine α-Werte über .85. Werte um .70 sind realistisch und in der Validierungs-Studie auch berichtet.
+
+### In JASP
+
+1. **Analyses → Reliability → Single-Test Reliability Analysis** (klassische Variante; in neueren JASP-Versionen evtl. unter „Frequentist Reliability").
+2. Zieh die **Items einer Skala** in das Feld „Variables" (z. B. `BFI_01`, `BFI_06`, `BFI_11`, `BFI_16` für Extraversion).
+3. In den Options:
+   - **Cronbach's α** an
+   - **McDonald's ω** an
+   - **Item statistics** (zeigt M, SD pro Item)
+   - **Item-rest correlation** (Korrelation jedes Items mit der Skala ohne dieses Item — zeigt, ob ein Item „nicht reinpasst")
+   - **„α if item dropped"** (zeigt, wie sich α verändert, wenn man das Item rausnimmt)
+
+4. Wiederhole für alle fünf Skalen.
+
+### Interpretation
+
+- Steht in der Spalte **„α if item dropped"** ein Wert *höher* als der Gesamt-α, ist das Item ein Kandidat zum Rauswerfen — es passt nicht zur Skala.
+- Bei kurzen Skalen wirst Du das aber selten machen, weil die Skala dann zu klein wird (z. B. 3 statt 4 Items).
+- **Item-rest correlation** unter .30 → das Item misst was anderes.
+
+In unseren simulierten Daten solltest Du brauchbare α-Werte sehen (etwa .70–.80), weil ich beim Erzeugen eine moderate Within-Faktor-Korrelation (r ≈ .40) und schwache Between-Faktor-Korrelationen (r ≈ .10) eingestellt habe.
+
+## Stärken und Schwächen der Aggregation
+
+**Stärken:**
+
+- Konstrukt-Ebene statt Item-Ebene → näher an der Theorie
+- weniger Multiple-Testing-Probleme (5 statt 21 abhängige Variablen)
+- robuster gegen einzelne Item-Ausreißer
+
+**Schwächen:**
+
+- Information geht verloren (Item-Profile innerhalb einer Skala verschwinden)
+- Aggregation setzt voraus, dass die Items *wirklich* dasselbe messen — was Du genau deshalb mit Reliabilität prüfst
+- Cronbach's α überschätzt die Reliabilität, wenn Items unterschiedlich gewichtet werden sollten (deshalb ω)
+
+## Aufgabe
+
+1. Bau die fünf Skalenmittelwerte `E_mean`, `V_mean`, `G_mean`, `N_mean`, `O_mean` per Compute Column.
+2. Lass Descriptives drüber laufen und prüf die Werte auf Plausibilität.
+3. Berechne für jede Skala Cronbach's α und McDonald's ω.
+4. Notiere für Dich:
+   - Welche Skala hat die höchste, welche die niedrigste Reliabilität?
+   - Gibt es ein Item, bei dem „α if dropped" deutlich über dem Gesamt-α liegt?
+
+## Selbstcheck
+
+1. Warum bilden wir Skalen-Mittelwerte und arbeiten nicht direkt mit den 21 Einzelitems weiter?
+2. Was sagt ein Cronbach's α von .55 über die Skala — und über alle Tests, die Du mit dieser Skala rechnest?
+3. Wann ist McDonald's ω dem klassischen α vorzuziehen?
+4. Was bedeutet eine Item-rest-Korrelation von .12 für genau dieses Item?

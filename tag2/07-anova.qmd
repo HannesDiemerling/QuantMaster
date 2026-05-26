@@ -1,0 +1,135 @@
+# ANOVA & post-hoc {#sec-tag2-anova}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- erklären, warum man für mehr als zwei Gruppen keine t-Tests stapelt, sondern eine ANOVA rechnet,
+- in JASP eine einfaktorielle ANOVA durchführen und das Ergebnis lesen,
+- die Effektgröße $\eta^2$ (Eta-Quadrat) interpretieren,
+- den passenden post-hoc-Test wählen und das Multiple-Testing-Problem benennen.
+:::
+
+::: {.callout-tip title="Optional / zeitabhängig"}
+Wenn Du nach den Kapiteln [05](05-korrelation.qmd) und [06](06-t-tests.qmd) zeitlich noch in der Spur bist, mach diesen Block heute. Falls nicht — kein Drama, Du kannst ihn zu Hause nachholen und bringst die Ergebnisse zu Tag 3 mit.
+:::
+
+## Worum es geht
+
+Sobald Du **mehr als zwei Gruppen** vergleichst — z. B. Bildungsgrad mit sieben Stufen, oder die zehn Quell-Datensätze — reicht der t-Test nicht mehr. Stapelst Du einfach mehrere t-Tests übereinander, vervielfachst Du die Fehlerwahrscheinlichkeit (Multiple-Testing-Problem). Die **Analysis of Variance (ANOVA)** löst das mit einem einzigen Globaltest, gefolgt von gezielten Folgetests.
+
+## Multiple-Testing-Problem in einem Satz
+
+Wenn Du bei $\alpha = .05$ einen einzelnen Test rechnest, ist Deine Fehlerwahrscheinlichkeit 5 %. Bei drei unabhängigen t-Tests steigt die Wahrscheinlichkeit, *mindestens einen* fälschlich signifikanten Befund zu sehen, auf rund $1 - (1 - .05)^3 \approx .14$ — also fast jedes siebte Mal. Die ANOVA schützt davor, indem sie *zuerst* einen Globaltest macht.
+
+## Die Logik der ANOVA
+
+Die ANOVA zerlegt die Gesamtvarianz der Daten in zwei Teile:
+
+- **Zwischen-Gruppen-Varianz** ($MS_\text{between}$): Wie unterscheiden sich die Gruppenmittelwerte voneinander?
+- **Innerhalb-Gruppen-Varianz** ($MS_\text{within}$): Wie viel Streuung gibt es *innerhalb* jeder Gruppe?
+
+Der **F-Wert** ist das Verhältnis:
+
+$$
+F = \frac{MS_\text{between}}{MS_\text{within}}
+$$
+
+Ist $F$ groß (Unterschiede zwischen den Gruppen sind groß im Verhältnis zur Streuung innerhalb der Gruppen), dann ist das Ergebnis signifikant.
+
+## Effektgröße — $\eta^2$ und $\omega^2$
+
+Wie beim t-Test gilt: der p-Wert reicht nicht. Du brauchst eine Effektgröße.
+
+| Maß | Bedeutet | Daumenregel |
+|---:|---|---|
+| **$\eta^2$ (Eta-Quadrat)** | Anteil der Gesamtvarianz, der durch die Gruppen erklärt wird | klein .01, mittel .06, groß .14 |
+| **$\omega^2$ (Omega-Quadrat)** | unverzerrte Variante von $\eta^2$ | dieselben Daumenwerte, präziser bei kleinem $N$ |
+| **partielles $\eta^2_p$** | bei mehrfaktorieller ANOVA: Anteil pro Faktor | gleiche Daumenregel, vorsichtig bei Vergleichen über Studien hinweg |
+
+In JASP werden $\eta^2$ und $\omega^2$ optional in der ANOVA-Tabelle angezeigt.
+
+## In JASP rechnen
+
+**Frage:** Unterscheiden sich Personen verschiedener Bildungsstufen in Offenheit?
+
+1. **Analyses → ANOVA → ANOVA** (klassische einfaktorielle).
+2. Dependent variable: `O_mean`. Fixed factors: `bildungsgrad`.
+3. Aktiviere in den Options:
+   - **Descriptive statistics** (zeigt M, SD pro Gruppe)
+   - **Effect size: $\eta^2$, $\omega^2$**
+   - **Assumption checks → Homogeneity of variances** (Levene), **Q-Q plot of residuals**
+   - **Post-hoc tests → Tukey** (siehe unten)
+   - **Descriptive plot** (Linien-Plot der Gruppenmittelwerte)
+
+### Annahmen prüfen
+
+Die ANOVA setzt drei Dinge voraus:
+
+| Annahme | Prüfung |
+|---|---|
+| Abhängige Variable metrisch | Skalenniveau prüfen |
+| Residuen normalverteilt | Q-Q-Plot |
+| Varianzhomogenität über Gruppen | Levene's Test |
+
+Bei verletzter Varianzhomogenität: **Welch-ANOVA** (in JASP unter „ANOVA → Type → Welch" oder direkt unter „ANOVA → Welch's F"). Bei stark verletzter Normalverteilung und kleinem $N$: **Kruskal-Wallis-Test** (nicht-parametrische Variante; in JASP unter „Nonparametric Statistics").
+
+## Post-hoc-Tests
+
+Ein signifikanter Global-F sagt: „Irgendwo unter den Gruppen ist ein Unterschied." Er sagt nicht: *welche* Gruppen sich unterscheiden. Dafür brauchst Du post-hoc-Vergleiche.
+
+| Post-hoc | Anwendung | Charakteristik |
+|---|---|---|
+| **Tukey HSD** | alle paarweisen Vergleiche, gleiche Gruppengrößen | gute Power, Standard-Empfehlung |
+| **Scheffé** | sehr konservativ, beliebige Kontraste | Power gering, breit verteidigbar |
+| **Bonferroni** | wenige geplante Vergleiche | konservativ, aber transparent |
+| **Holm** | wie Bonferroni, sequenziell | gleiche Kontrolle, mehr Power |
+| **Games-Howell** | bei Varianzungleichheit | Welch-Variante des Tukey |
+
+JASP-Default: **Tukey**. Wenn Welch-ANOVA gerechnet wurde, nimm **Games-Howell**.
+
+## Beispielhypothesen für unsere Stichprobe
+
+| # | Hypothese | Variablen |
+|---:|---|---|
+| A1 | Personen unterschiedlicher Bildungsgrade unterscheiden sich in Offenheit. | `O_mean` ~ `bildungsgrad` |
+| A2 | Personen unterschiedlicher Bildungsgrade unterscheiden sich in Gewissenhaftigkeit. | `G_mean` ~ `bildungsgrad` |
+| A3 | Die zehn vorgenerierten Quell-Datensätze unterscheiden sich nicht in Extraversion. | `E_mean` ~ `quelle_datensatz` |
+| A4 | Die drei Geschlechter-Kategorien (1, 2, 3) unterscheiden sich nicht in Neurotizismus. | `N_mean` ~ `geschlecht` |
+
+A3 ist ein wichtiger **Sanity-Check** — die Datensätze wurden mit derselben Verteilung erzeugt, sollten sich also *nicht* unterscheiden. Wenn doch: zufällige Stichprobenstreuung (ein paar Datensätze ziehen halt extremere Werte) oder Du hast in Kapitel [01](01-uploads-kombinieren.qmd) beim Kombinieren etwas falsch zugeordnet. Schau hin.
+
+## Ein vollständiger Bericht
+
+> Personen unterschiedlicher Bildungsgrade unterschieden sich in Offenheit signifikant, $F(6, 87) = 2.41$, $p = .034$, $\eta^2 = .14$. Tukey-Post-hoc-Vergleiche zeigten, dass Personen mit Promotion (Bildung = 7, $M = 4.12$) deutlich höhere Offenheitswerte hatten als Personen mit Realschulabschluss (Bildung = 3, $M = 3.32$), $p_{\text{tukey}} = .029$. Die übrigen paarweisen Vergleiche waren nicht signifikant.
+
+Was steht drin: $F$, $df$ Zähler und Nenner, $p$, $\eta^2$, paarweise Befunde mit korrigierten p-Werten.
+
+## Stärken und Schwächen der ANOVA
+
+**Stärken:**
+
+- ein Globaltest, kontrolliert das Multiple-Testing-Problem
+- erweiterbar auf mehrere Faktoren (zwei-, dreifaktorielle ANOVA mit Interaktionen) — wird an Tag 3 wichtig
+- Effektgröße ($\eta^2$) gibt die *Stärke* des Gruppenunterschieds
+
+**Schwächen:**
+
+- sensibel gegen unbalancierte Gruppengrößen und Varianzheterogenität
+- der Globaltest sagt *ob*, nicht *welche* Gruppen — post-hoc nötig
+- nur **Mittelwertsvergleich**, keine Aussage über Verteilungsform
+- bei kleinen Stichproben pro Gruppe sehr geringe Power
+
+## Aufgabe
+
+1. Rechne **mindestens zwei** der Beispiel-ANOVAs (A1 und A3 sind die spannendsten).
+2. Prüf die Annahmen (Levene, Q-Q-Plot der Residuen). Notier kurz, ob sie erfüllt sind.
+3. Führe Tukey-Post-hoc durch und identifiziere die spezifisch unterschiedlichen Paare.
+4. Schreib für eine der ANOVAs den vollständigen Ergebnisbericht (in dem Stil wie oben — Satz mit $F$, $df$, $p$, $\eta^2$, post-hoc).
+5. **Wenn Du Zeit hast:** rechne A4 *zweimal* — einmal klassisch und einmal als Kruskal-Wallis. Vergleiche die Ergebnisse.
+
+## Selbstcheck
+
+1. Warum stapelt man bei drei Gruppen nicht einfach drei t-Tests?
+2. Was sagt ein signifikanter F-Wert *nicht*?
+3. Wann nimmst Du Games-Howell statt Tukey?
+4. Du hast $F(2, 87) = 4.50$, $p = .013$, $\eta^2 = .09$ und alle drei post-hoc-Vergleiche sind nicht signifikant. Wie kann das sein?

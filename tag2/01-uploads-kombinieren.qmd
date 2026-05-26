@@ -1,0 +1,177 @@
+# Uploads herunterladen & in JASP kombinieren {#sec-tag2-kombinieren}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel hast Du …
+
+- alle Studierenden-Uploads aus dem Repo lokal gespeichert,
+- sie zu *einer* CSV-Datei zusammengeführt und die Herkunft jeder Zeile markiert,
+- den Gesamtdatensatz in JASP geöffnet und die CSV-Vorschau korrekt konfiguriert,
+- eine eindeutige Probanden-ID gebaut, sodass keine Doppelvergaben mehr im Datensatz stehen.
+:::
+
+## Worum es geht
+
+Im Repo unter `data/student-uploads/` liegen die einzelnen Datensätze, die alle Studierenden an Tag 1 hochgeladen haben — pro Person eine Datei nach dem Schema `datensatz-<XX>-<kürzel>.csv`. Jede dieser Dateien enthält 9 vorgenerierte Probanden mit den Nummern 1–9 plus eine eigene Antwortzeile mit selbstgewählter Kennziffer.
+
+Heute baust Du daraus *einen* Datensatz. Klingt banal, ist es aber nicht: es entstehen typische Probleme — gleiche Probandennummern in verschiedenen Quelldateien, unterschiedliche Spaltentypen, fehlende Werte. Du lernst, wie man die sauber löst.
+
+## Das Problem mit den Probandennummern
+
+::: {.callout-important title="Designentscheidung von Tag 1 — bewusst suboptimal"}
+Die zehn vorgenerierten Datensätze nutzen jeweils die Probandennummern 1–9. Werden Datensätze 01 und 02 von zwei Studierenden bearbeitet und hochgeladen, taucht „Probandennummer 3" gleich vier Mal im Gesamtdatensatz auf — obwohl es vier **verschiedene** synthetische Probanden sind.
+
+Das ist ein **Design-Fehler**, den wir bewusst stehen lassen haben — damit Du heute selbst lernst, ihn zu erkennen und zu beheben. In einer echten Studie würde man Probandennummern global eindeutig vergeben (z. B. `siteID-personID`), nicht pro Quelldatei zurücksetzen.
+:::
+
+## Schritt 1: Alle Uploads herunterladen
+
+Es gibt drei realistische Wege:
+
+### Variante A — Einzeln im Browser
+
+1. Öffne das Repo auf github.com und navigiere zu `data/student-uploads/`.
+2. Klick jede CSV an, dann „**Download raw file**" (Pfeil-Symbol oben rechts).
+3. Speichere alles in einem lokalen Ordner, z. B. `~/Workshop/uploads/`.
+
+Funktioniert sicher, ist bei vielen Dateien aber mühsam.
+
+### Variante B — Repo komplett als ZIP
+
+1. Auf der Repo-Startseite: grüner Button **„Code"** → **„Download ZIP"**.
+2. Entpacken — der gesamte Repo-Inhalt liegt dann lokal. Du findest die Uploads unter `data/student-uploads/`.
+
+Schneller, aber lädt auch alles andere mit.
+
+### Variante C — Git Clone (für die, die Git installiert haben)
+
+```bash
+git clone https://github.com/hannesdiemerling/QuantMaster.git
+cd QuantMaster/data/student-uploads
+```
+
+Bequem, wenn Du Tag 1 schon mit Git gearbeitet hast.
+
+## Schritt 2: Dateien zu einer CSV zusammenführen
+
+Du brauchst **eine** CSV-Datei mit allen Zeilen aus allen Uploads, plus eine **zusätzliche Spalte**, die die Herkunft markiert.
+
+### Empfohlene Spalten
+
+Hänge an die 25 bestehenden Spalten zwei neue an:
+
+| Spalte | Inhalt | Beispiel |
+|---|---|---|
+| `quelle_datensatz` | Datensatz-Nummer aus dem Dateinamen (1–10) | `3` (für `datensatz-03-mm.csv`) |
+| `quelle_kuerzel`  | das Kürzel der bearbeitenden Person | `mm` |
+
+### Variante 1 — Texteditor (empfohlen, kontrollierbar)
+
+1. Öffne die erste Upload-Datei in einem Editor (VS Code / Notepad++).
+2. Trag in der Header-Zeile am Ende `,quelle_datensatz,quelle_kuerzel` an.
+3. Ergänze in jeder Datenzeile am Ende `,<datensatz-nr>,<kuerzel>`. Bei `datensatz-03-mm.csv` also `,3,mm`.
+4. Speichere die Datei.
+5. Für jede weitere Upload-Datei: Header-Zeile **weglassen**, nur die Datenzeilen kopieren und unten an Datei 1 anhängen — wieder mit den passenden Werten für `quelle_datensatz` und `quelle_kuerzel`.
+6. Speichere das Ergebnis als `m15-gesamt.csv`.
+
+::: {.callout-tip title="Falle bei Excel/LibreOffice"}
+Tabellen-Tools formatieren beim Speichern gerne Spalten um (z. B. Zahlen → Datum bei `01-03`, Komma → Semikolon bei deutschen Locales). Wenn Du Excel oder LibreOffice nutzt, **prüf nach dem Speichern** die CSV im Texteditor: stimmen Trennzeichen (Komma!) und Spaltenzahl (27)?
+:::
+
+### Variante 2 — Excel/LibreOffice
+
+1. Datei 1 öffnen.
+2. Im Tabellenblatt ganz rechts die zwei neuen Spalten anlegen.
+3. Datei 2 öffnen → Datenzeilen (ohne Header) markieren → kopieren → in Datei 1 unter die letzte Zeile einfügen.
+4. Für jede neue Quelldatei die zwei Herkunfts-Werte ergänzen.
+5. Wiederholen für alle Uploads.
+6. **Speichern unter** → `CSV (kommagetrennt, UTF-8)` als `m15-gesamt.csv`.
+
+## Schritt 3: In JASP öffnen — CSV-Vorschau nutzen
+
+Öffne die neue Datei in JASP:
+
+1. **File → Open → Computer → Browse** und `m15-gesamt.csv` wählen.
+2. **In der aktuellen JASP-Version (ab 0.19)** öffnet sich eine **CSV-Vorschau** — ein Dialog, in dem Du Trennzeichen, Encoding, Header und Dezimaltrenner prüfen und korrigieren kannst, bevor JASP die Daten endgültig einliest.
+
+Kontrolliere:
+
+| Einstellung | Sollwert |
+|---|---|
+| Field separator | `,` (Komma) |
+| Decimal separator | `.` (Punkt) |
+| Encoding | UTF-8 |
+| Header in first row | Ja |
+| Quote character | `"` |
+
+Wenn die Vorschau eine plausible Tabelle zeigt mit 27 Spalten, **Continue / Open**. Wenn nicht: Trennzeichen umstellen, Encoding auf UTF-8 ändern, erneut prüfen.
+
+## Schritt 4: Variable-Typen in JASP setzen
+
+Nach dem Import: Klick einmal über jede Spalte, um den Typ zu kontrollieren.
+
+| Variable | Typ in JASP |
+|---|---|
+| `probandennummer` | Nominal |
+| `geschlecht` | Nominal |
+| `alter` | Scale |
+| `bildungsgrad` | Ordinal |
+| `BFI_01` … `BFI_21` | Scale |
+| `quelle_datensatz` | Nominal |
+| `quelle_kuerzel` | Nominal |
+
+::: {.callout-tip title="Werte-Labels setzen (optional, aber sinnvoll)"}
+In JASP kannst Du auf den Spaltenkopf klicken und unter **„Value labels"** sprechende Labels vergeben. Beispiel für `geschlecht`: 1 = weiblich, 2 = männlich, 3 = divers. Das macht Tabellen und Plots später besser lesbar.
+:::
+
+## Schritt 5: Eindeutige Probanden-ID bauen
+
+Jetzt das Highlight: Wir lösen das Probandennummer-Problem in **JASP** selbst — ohne die CSV nochmal anzufassen.
+
+1. Wähle in der Datenansicht oben rechts den blauen **„+"-Button** („Compute Column" / „Berechnete Spalte hinzufügen").
+2. Spaltenname: `id`.
+3. Wechsle in den **R-Modus** des Compute-Editors (Knopf oben rechts im Editor).
+4. Formel:
+
+```r
+quelle_datensatz * 100 + probandennummer
+```
+
+5. Auf **Compute column** klicken.
+
+Die Logik: bei zwei Personen mit demselben Datensatz und Probandennummer (z. B. zwei Mal `datensatz-03` mit `probandennummer = 3`) wäre dieser Wert immer noch identisch — und das wäre dann ein **echter** Duplikat (zwei Studierende haben die gleiche vorgenerierte Zeile bereinigt). Für Probandennummern, die **wirklich verschieden** sind (unterschiedlicher Quelldatensatz), wird die ID automatisch unterschiedlich.
+
+::: {.callout-tip title="Falls Du eine globalere ID willst"}
+Wenn Du wirklich jede Zeile eindeutig kennzeichnen willst (auch über echte Duplikate hinweg), nutze stattdessen die Zeilennummer als ID. Im R-Modus von Compute Column funktioniert das mit:
+
+```r
+seq_along(probandennummer)
+```
+
+Dann hat jede Zeile eine fortlaufende Nummer 1 … N. Für die Statistik ist das aber meistens egal — die R-Formel oben reicht.
+:::
+
+## Schritt 6: Plausibilitäts-Check
+
+Bevor wir weitermachen:
+
+- Geh in **Analyses → Descriptives → Descriptive Statistics**.
+- Zieh alle Variablen rein.
+- Aktiviere **Frequency tables for nominal variables**.
+
+Schau die Häufigkeitstabelle für `quelle_datensatz` an — kommen wirklich alle Quellen vor, und stimmt die Anzahl Zeilen pro Quelle mit Deiner Erwartung überein?
+
+Schau auf das Minimum/Maximum der BFI-Items — alles zwischen 1 und 5? Wenn ja: Datensatz ist sauber. Wenn nicht: zurück zu Schritt 2 und nachsehen, ob Du in der Konsolidierung einen Fehler eingebaut hast.
+
+## Aufgabe
+
+1. Lade alle CSVs aus `data/student-uploads/` herunter.
+2. Führe sie zu `m15-gesamt.csv` zusammen, mit den zusätzlichen Spalten `quelle_datensatz` und `quelle_kuerzel`.
+3. Öffne die Datei in JASP, kontrolliere die CSV-Vorschau, setze die Variable-Typen.
+4. Baue per Compute Column die Spalte `id`.
+5. Lass Descriptives über alle Variablen laufen und prüfe die Plausibilität.
+
+## Selbstcheck
+
+1. Warum war es ein Designfehler, die Probandennummer pro Quelldatensatz zurückzusetzen — und welche Strategie wäre in einer echten Studie besser gewesen?
+2. Welche zwei Informationen müssen mindestens ergänzt werden, damit später nachvollziehbar bleibt, woher eine Zeile stammt?
+3. Was ist der Unterschied zwischen einer „echten" und einer „technischen" Doppelnummer in unserem Datensatz?

@@ -1,0 +1,152 @@
+# Korrelation & Kausalität {#sec-tag2-korrelation}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- Pearson- und Spearman-Korrelationen in JASP berechnen und interpretieren,
+- ein Streudiagramm sinnvoll lesen,
+- die wichtigsten Mechanismen benennen, warum aus einer Korrelation **keine** Kausalität folgt,
+- für unsere Variablen sinnvolle gerichtete Hypothesen formulieren und testen,
+- erklären, warum Du eine signifikante Korrelation niemals ohne Effektgröße berichten würdest.
+:::
+
+## Worum es geht
+
+Eine **Korrelation** misst, wie stark sich zwei Variablen *gemeinsam* ändern. Sie ist eines der am häufigsten genutzten Werkzeuge in der empirischen Psychologie — und gleichzeitig eines der am häufigsten *missinterpretierten*. Dieses Kapitel hat zwei Ziele: Du kannst Korrelationen rechnen und Du wirst zu einem skeptischen Leser von Korrelationsbefunden.
+
+## Pearson r — der Klassiker
+
+Pearson's $r$ misst den **linearen** Zusammenhang zweier metrischer Variablen.
+
+$$
+r = \frac{\sum_i (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_i (x_i - \bar{x})^2 \cdot \sum_i (y_i - \bar{y})^2}}
+$$
+
+Das ist die standardisierte Kovarianz — Wertebereich immer $-1 \leq r \leq +1$:
+
+| $r$ | Bedeutung |
+|---:|---|
+| $+1.0$ | perfekter positiver linearer Zusammenhang |
+| $\;+0.7$ | starker positiver Zusammenhang |
+| $\;+0.3$ | mittlerer positiver Zusammenhang |
+| $\;+0.1$ | schwacher positiver Zusammenhang |
+| $\;\;0.0$ | kein linearer Zusammenhang |
+| $-0.5$ | mittlerer negativer Zusammenhang |
+| $-1.0$ | perfekter negativer Zusammenhang |
+
+**Faustregel nach Cohen (1988)** zur Effektgröße — auf die kommen wir noch zurück:
+
+| $|r|$ | Bezeichnung |
+|---:|---|
+| .10 | klein |
+| .30 | mittel |
+| .50 | groß |
+
+## Spearman ρ — die robuste Alternative
+
+Wenn die Beziehung **nicht** linear ist, sondern nur **monoton**, oder wenn Daten ordinal sind oder Ausreißer enthalten, ist Spearman's $\rho$ besser. Es ist im Prinzip Pearson r — aber auf den **Rängen** der Daten statt den Rohwerten.
+
+| Wann? | Welcher Koeffizient? |
+|---|---|
+| beide Variablen metrisch, Zusammenhang ungefähr linear, keine Extreme | Pearson |
+| ordinal, oder klare Nichtlinearität, oder starke Ausreißer | Spearman |
+
+Bei den BFI-Skalenmittelwerten ist Pearson meistens passend; bei einzelnen BFI-Items (ordinal, 1–5) wäre Spearman streng genommen sauberer.
+
+## Wie viele Daten brauchst Du?
+
+Mit kleinen Stichproben sind Korrelationen instabil. Eine Stichprobenkorrelation mit $r = .30$ und $N = 30$ hat ein Konfidenzintervall von etwa $[-.06, .58]$ — d. h. es ist gut möglich, dass der wahre Wert eigentlich Null ist. Schau in JASP **immer** auf das **Konfidenzintervall**, nicht nur auf den Punktschätzer.
+
+## In JASP rechnen
+
+1. **Analyses → Regression → Correlation Matrix**
+2. Variablen ins Feld ziehen — beispielsweise alle fünf `*_mean` zusammen plus `alter`.
+3. In den Options:
+   - **Pearson's r** (Standard) — bei den Skalenmittelwerten
+   - **Spearman's ρ** (zusätzlich, wenn Ordinaldaten)
+   - **Report significance** an
+   - **Confidence intervals** an, mit 95 %
+   - **Sample size** an
+   - **Plots: scatterplots** an — zeigt die paarweisen Streudiagramme
+   - **Display pairwise** an, wenn Du eine Korrelationsmatrix-Ausgabe willst
+
+Die Ergebnistabelle zeigt dann pro Variablen-Paar $r$, $p$-Wert, $N$ und das Konfidenzintervall.
+
+## Streudiagramm lesen
+
+Ein Scatter Plot zeigt mehr als die Zahl $r$. Achte beim Lesen auf:
+
+- **Form:** Punktwolke wirklich linear? Oder eine umgekehrte U-Form?
+- **Streuung:** Punkte eng zusammen oder weit gestreut?
+- **Ausreißer:** Liegen einzelne Punkte weit weg vom Hauptmuster?
+- **Subgruppen:** Sieht's vielleicht so aus, als wären's zwei Wolken (Simpson-Paradox-Risiko)?
+
+Anscombe (1973) zeigt eindrücklich, dass vier Datensätze mit **identischen** Korrelationen visuell völlig unterschiedlich aussehen können. Deshalb: erst das Streudiagramm, dann die Korrelation.
+
+## Beispielhypothesen mit unseren Variablen
+
+Hier kommen sechs Hypothesen, die *inhaltlich* Sinn ergeben — formuliert so, wie Du sie in einer Hausarbeit aufstellen würdest. Du rechnest alle in JASP und schaust Dir die Ergebnisse an.
+
+| # | Hypothese | Berechnung | Erwartung (aus der Literatur) |
+|---:|---|---|---|
+| H1 | Verträglichkeit und Neurotizismus hängen *negativ* zusammen. | Pearson `V_mean` × `N_mean` | mittel-negativ ($r \approx -.20$) |
+| H2 | Offenheit und Extraversion hängen *positiv* zusammen. | Pearson `O_mean` × `E_mean` | schwach-positiv ($r \approx +.15$) |
+| H3 | Gewissenhaftigkeit und Alter hängen *positiv* zusammen. | Pearson `G_mean` × `alter` | klein bis mittel positiv |
+| H4 | Neurotizismus und Bildungsgrad hängen *negativ* zusammen. | Spearman `N_mean` × `bildungsgrad` | klein negativ |
+| H5 | Innerhalb der Extraversions-Skala korrelieren alle Items mindestens mit $r > .20$ miteinander. | Korrelationsmatrix der 4 E-Items | nach Konstruktion ja |
+| H6 | Items aus *unterschiedlichen* Skalen korrelieren nur schwach. | Korrelationsmatrix `BFI_06` (E) × `BFI_07` (V) × `BFI_08` (G) × `BFI_09` (N) × `BFI_10` (O) | $r \approx 0$–$.20$ |
+
+Rechne alle sechs in JASP. Schreib Dir zu jedem Ergebnis eine Zeile auf:
+
+> *„H1: $r = -.18$, $p = .046$, 95 %-KI [−.36, −.00]. Die Hypothese ist im Sinne der Effektrichtung bestätigt, das Konfidenzintervall ist aber so breit, dass auch eine sehr kleine wahre Korrelation plausibel bleibt."*
+
+## Korrelation ≠ Kausalität — das wichtigste Kapitel
+
+Wenn $X$ und $Y$ korrelieren, gibt es mindestens **fünf** mögliche Erklärungen:
+
+| Mechanismus | Beispiel |
+|---|---|
+| **$X$ verursacht $Y$** | Mehr Schlaf → bessere Stimmung |
+| **$Y$ verursacht $X$** | Bessere Stimmung → mehr Schlaf |
+| **Drittvariable $Z$ verursacht beides** | Ferien (Z) → mehr Schlaf (X) und bessere Stimmung (Y) |
+| **Selektion** | Studie nur unter Schichtarbeitenden — alles dort hängt mit Schichtdienst zusammen |
+| **Zufall** | bei vielen getesteten Paaren wird statistisch irgendwas signifikant |
+
+Aus einer Korrelation kannst Du **nicht** entscheiden, welcher Mechanismus es ist. Dafür brauchst Du:
+
+- entweder ein **Experiment** (manipuliere $X$, miss $Y$),
+- oder ein **theoretisch fundiertes Modell** plus zusätzliche Designs (Längsschnitt, Instrumentalvariablen, …).
+
+::: {.callout-important title="Berühmte Beispiele"}
+- *Schokoladen-Konsum* pro Land und *Nobelpreise* pro Land sind hoch korreliert. Die naheliegende Drittvariable: BIP pro Kopf.
+- *Schuhgröße* und *Lesefähigkeit* bei Kindern korrelieren stark positiv. Die Drittvariable: Alter.
+- *Eiskonsum* und *Ertrinkungsunfälle* korrelieren saisonal — beide steigen im Sommer.
+:::
+
+## Stärken und Schwächen der Korrelation
+
+**Stärken:**
+
+- intuitiv lesbar, eine einzige Zahl pro Variablenpaar
+- standardisiert, vergleichbar über Datensätze hinweg
+- methodisch sauber für *Zusammenhangs*-Aussagen
+
+**Schwächen:**
+
+- nur **lineare** (Pearson) bzw. **monotone** (Spearman) Zusammenhänge
+- **keine** kausale Aussage
+- empfindlich gegen Ausreißer (bei Pearson)
+- Range-Restriction: wenn Du nur die Mitte einer Variable beobachtest, unterschätzt $r$ den wahren Zusammenhang
+
+## Aufgabe
+
+1. Berechne in JASP die **vollständige Korrelationsmatrix** der fünf Skalenmittelwerte `E_mean, V_mean, G_mean, N_mean, O_mean` — mit Konfidenzintervallen und paarweisen Streudiagrammen.
+2. Rechne die sechs Beispielhypothesen oben. Notiere für jede: Ergebnis, Effektgröße, KI, Schlussfolgerung in einem Satz.
+3. Wähl Dir aus den signifikanten Befunden einen aus. Formuliere **drei alternative Erklärungen**, warum die beobachtete Korrelation auch *ohne* einen direkten kausalen Effekt entstanden sein könnte.
+
+## Selbstcheck
+
+1. Welcher Korrelationskoeffizient eignet sich für eine Beziehung, die deutlich nicht-linear, aber monoton ist?
+2. Eine Korrelation von $r = .50$ mit $N = 12$ und $p = .10$ — was sagst Du dazu?
+3. Warum reicht ein signifikanter $r$-Wert *nicht*, um eine Wirkrichtung zu behaupten?
+4. Wann ist ein Streudiagramm hilfreicher als die Zahl $r$ selbst?

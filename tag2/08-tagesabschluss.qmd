@@ -1,0 +1,72 @@
+# Tagesabschluss {#sec-tag2-abschluss}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel hast Du …
+
+- Deine Erfahrungen des Tages kurz reflektiert,
+- offene Fragen für den Lehrenden notiert,
+- einen klaren Ausblick auf Tag 3.
+:::
+
+## Was wir heute erreicht haben
+
+- Du hast einzelne Studierenden-Uploads zu einem Gesamtdatensatz **selbst** zusammengeführt — inkl. der knackigen Aufgabe, doppelte Probandennummern technisch sauber aufzulösen.
+- Du hast die Stichprobenstruktur deskriptiv beschrieben und kannst typische Bias-Typen einordnen.
+- Du hast eine Plot-Reihe gebaut und an die Lehrperson geschickt.
+- Du hast Subskalen (E, V, G, N, O) gebildet und ihre Reliabilität geprüft.
+- Du hast Korrelationen interpretiert — und gleichzeitig die Falle „Korrelation = Kausalität" verstanden.
+- Du hast *t*-Tests mit Effektgrößen gerechnet und (idealerweise) eine erste ANOVA mit post-hoc.
+
+Das ist ein voller Tag — wenn Du nicht alles bis ins letzte Detail geschafft hast, ist das normal. Was offen blieb, machst Du zwischen heute und Tag 3 fertig.
+
+## Methodisches Big Picture
+
+Schau Dir an, in welcher Reihenfolge wir heute gearbeitet haben:
+
+1. **Daten zusammenführen** — saubere Basis für alles.
+2. **Beschreiben** — was steckt drin?
+3. **Aggregieren** — von 21 Items auf 5 Skalen.
+4. **Zusammenhang prüfen** — Korrelationen.
+5. **Unterschiede prüfen** — t-Tests / ANOVA.
+
+Genau diese Reihenfolge ist der Default für fast jede empirische Auswertung. Wenn Du in Deiner Master-Arbeit eine Analyse-Sektion schreibst, wird sie diesem Aufbau folgen.
+
+## Was Tag 3 bringt
+
+Tag 3 hebt das Ganze auf die **multivariate Ebene**: Modelle, in denen *mehrere* Prädiktoren gleichzeitig in eine Erklärung eingehen.
+
+| Block | Thema |
+|---|---|
+| Vormittag | Multiple Regression — Voraussetzungen, Modellvergleich, Interpretation |
+| Übergang | Moderation (Interaktionseffekte), Centering |
+| Mittag | — |
+| Nachmittag | Bootstrap & Mediation, logistische Regression, Bayes vs. Frequentismus |
+| Abschluss | Klausurvorbereitung, Workshop-Reflexion |
+
+Wenn Du Tag 2 sauber abgearbeitet hast, bist Du dafür gut vorbereitet — die Mathematik wird kaum komplizierter, nur reichhaltiger.
+
+## Reflexionsaufgabe (5 Minuten, privat)
+
+Notiere für Dich allein:
+
+1. **Eine Sache, die mir heute methodisch klar wurde.**
+2. **Eine Sache, bei der ich noch unsicher bin.**
+3. **Eine Sache, die ich an meiner Master-Arbeit genauso machen würde.**
+
+Diese Notizen sind privat — nichts wird hochgeladen. Wenn Du magst, sprich Punkt 2 mit der Lehrperson durch.
+
+## Aufgaben bis Tag 3 (nichts Verpflichtendes)
+
+Wenn Du Energie hast:
+
+- Tag-2-Kapitel überfliegen, das Vokabular sitzen lassen (Cohen's d, $\eta^2$, Welch's t, Tukey-HSD).
+- Den eigenen Datensatz aufheben — wir nehmen ihn an Tag 3 wieder zur Hand.
+- JASP gegebenenfalls weiter auf der aktuellen Version halten.
+
+## Mail-Check
+
+- Hast Du Deine **Plot-Reihe** an [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de) geschickt? (Siehe Kapitel [03](03-deskriptive-plots.qmd).)
+
+Wenn nein: jetzt schnell, bevor Du gehst.
+
+Bis Tag 3.
