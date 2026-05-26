@@ -10,18 +10,6 @@ Nach diesem Tag …
 - weißt Du, wo Korrelation aufhört und Kausalität anfängt.
 :::
 
-## Tagesablauf
-
-| Zeit | Modus | Inhalt | Kapitel |
-|---|---|---|---|
-| 09:45–10:15 | **Plenum** | Rückblick Tag 1, Tagesüberblick, JASP-Update klären | — |
-| 10:15–12:00 | Self-Study | Uploads herunterladen, kombinieren, eindeutige IDs erzeugen, Stichprobenbias reflektieren | [01](01-uploads-kombinieren.qmd), [02](02-stichprobe-bias.qmd) |
-| 12:00–13:00 | Mittag | | |
-| 13:00–15:00 | Self-Study | Deskriptive Statistik, Plots, Subskalen, Reliabilität | [03](03-deskriptive-plots.qmd), [04](04-skalen-bilden.qmd) |
-| 15:00–17:00 | Self-Study | Korrelation, *t*-Tests, ANOVA, Effektgrößen | [05](05-korrelation.qmd), [06](06-t-tests.qmd), [07](07-anova.qmd) |
-| ca. 16:45 | **Plenum** | Reflexion, Ausblick Tag 3 | [08](08-tagesabschluss.qmd) |
-
-Die zweite Hälfte des Tages (Korrelation, *t*-Tests, ANOVA) ist absichtlich vollgepackt — plane mindestens **4 Stunden** dafür ein. Wenn Du nicht alles schaffst, ist das kein Problem; arbeite Block 07 (ANOVA) gerne zu Hause nach.
 
 ## Worum es geht
 
