@@ -5,8 +5,9 @@ _freeze/
 *.html
 !index.html
 
-# CI-generated PDF (gebaut aus materials/einverstaendnis.qmd via Publish-Workflow)
-materials/einverstaendnis.pdf
+# (Hinweis: materials/einverstaendnis.pdf wird NICHT mehr im CI erzeugt —
+# lokal mit `quarto render materials/einverstaendnis.qmd --to pdf` bauen und
+# committen, genauso wie bei der BFI-K-PDF.)
 
 # R
 .Rproj.user/
