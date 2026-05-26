@@ -10,6 +10,7 @@ Nach diesem Tag …
 - weißt Du, wo Korrelation aufhört und Kausalität anfängt.
 :::
 
+
 ## Worum es geht
 
 Heute machst Du das, was an Tag 1 absichtlich offen geblieben ist: **die Studierenden-Uploads selbst zu einem Gesamtdatensatz zusammenführen**. Damit erlebst Du eines der unspektakulärsten, aber wichtigsten Themen empirischer Forschung — wie aus „mehreren Tabellen" *eine* Tabelle wird, mit der man arbeiten kann.
