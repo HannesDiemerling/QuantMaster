@@ -34,6 +34,10 @@ jobs:
 
       - name: Install TinyTeX (für die Einverstaendnis-PDF)
         run: quarto install tinytex --no-prompt
+        env:
+          # Quarto fragt GitHubs Release-API nach dem neuesten TinyTeX-Build.
+          # Ohne Token rennt das in 403/rate-limit auf shared runner IPs.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Render Einverstaendnis to PDF
         run: |
