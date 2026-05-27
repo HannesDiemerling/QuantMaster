@@ -172,10 +172,40 @@ Eine gerichtete Hypothese darf Du **nur** dann formulieren, wenn es vorher inhal
 
 ## Aufgabe
 
-1. Rechne mindestens **fünf** der oben gelisteten t-Tests in JASP. Nutze Welch's t als Default.
-2. Für jeden Test notiere kurz: Hypothese in Worten, $t$, df, $p$, $d$ mit KI, Schlussfolgerung in einem Satz.
-3. Wähl einen Test aus, in dem **keine Signifikanz** zustande kommt, aber das Cohen's *d* eine mittlere Größe zeigt. Erklär in zwei Sätzen, warum das passiert (Stichwort: Power) und was Du im Bericht trotzdem schreiben würdest.
-4. Wähl einen Test aus, in dem **die Annahme der Normalverteilung deutlich verletzt** ist (Shapiro-Wilk signifikant, Q-Q-Plot krumm). Rechne den Mann-Whitney als robuste Alternative und vergleiche die p-Werte. Stimmt die Schlussfolgerung überein?
+**Pflichtteil (mach jeder) — genau 3 t-Tests:**
+
+Rechne in JASP **genau diese drei** (immer mit Welch + Effektgröße Cohen's *d* + Konfidenzintervall):
+
+| # | Test-Typ | Variablen | Hypothese |
+|--:|---|---|---|
+| t1 | One-Sample (zweiseitig) | `E_mean` vs. 3 | Mittlere Extraversion liegt nicht bei der Skalenmitte |
+| t2 | Independent (zweiseitig) | `V_mean` ~ `geschlecht` (1 vs. 2) | Frauen und Männer unterscheiden sich in Verträglichkeit |
+| t3 | Independent (zweiseitig) | `O_mean` ~ Bildungsgruppe | Personen mit Bildung ≥ 6 (Master/Promotion) unterscheiden sich in Offenheit von denen mit ≤ 5 |
+
+Für t3 brauchst Du eine neue Spalte via Compute Column (R-Modus):
+```r
+ifelse(bildungsgrad >= 6, "hoch", "niedriger")
+```
+
+Notiere für jeden der drei Tests **eine Zeile** im Format:
+*„t#: t(df) = X.XX, p = .XXX, d = X.XX, 95 %-KI [X.XX, X.XX], n = XX, Schluss: …"*
+
+**Bonus (für die Schnellen):**
+
+- **Bonus-t-Test** Deiner Wahl mit einer Hypothese, die Du Dir *selbst* überlegst. Halte fest, warum sie inhaltlich Sinn ergibt.
+- Für **t2** zusätzlich den **Mann-Whitney U-Test** rechnen und die p-Werte vergleichen.
+- Für **t3** den Q-Q-Plot der Residuen ansehen — Normalverteilungsannahme erfüllt?
+
+::: {.callout-important title="Abgabe per Mail"}
+Sobald die 3 Pflicht-Tests stehen, schick:
+
+1. **Screenshot oder PDF-Export der drei t-Test-Outputs** (alle mit Welch-Zeile + Cohen's *d*).
+2. **Deine 3 Ergebnis-Zeilen** im Format oben (gerne im Mail-Text).
+3. **Eine 2-Sätze-Reflexion** zu *einem* der Tests: Welche praktische Schlussfolgerung würdest Du daraus ziehen, und welche Vorbehalte hättest Du gegenüber dieser Schlussfolgerung?
+
+An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
+Betreff: *„M15 Tag 2 — Kap 06 — [Deine Kennziffer]"*
+:::
 
 ## Selbstcheck
 

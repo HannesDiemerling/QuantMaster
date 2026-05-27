@@ -80,11 +80,31 @@ JASP zeigt Dir in der Descriptives-Tabelle eine Spalte **Missing** je Variable. 
 
 ## Aufgabe
 
-1. Berechne Descriptives für alle Variablen und schau Dir die Demografie genau an.
-2. Notiere in einem kurzen Text (3–5 Sätze) **wer in unserem Datensatz steckt** und welche Bias-Typen aus der Tabelle oben besonders relevant sein könnten.
-3. Schau für jedes BFI-Item, ob es viele Missings gibt. Identifiziere die zwei Items mit den meisten fehlenden Werten und überleg, ob ein inhaltliches Muster denkbar ist.
+**Pflichtteil (mach jeder):**
 
-(Diese Notiz brauchst Du für Dich selbst — sie wird nicht hochgeladen, aber Du nutzt sie als Diskussionsbasis am Abend.)
+1. Erzeuge in JASP **drei Demografie-Plots** mit `Descriptives → Distribution Plots`:
+   - Bar Chart `geschlecht`
+   - Bar Chart `bildungsgrad`
+   - Histogramm `alter`
+2. Schreib eine **kurze Notiz (3–5 Sätze)**: *Wer steckt in unserem Datensatz?* Beziehe Dich auf mindestens zwei der vier Bias-Typen aus der Tabelle.
+3. Schau in der Descriptives-Tabelle die **Missing**-Spalte je Variable an und benenne die **zwei BFI-Items mit den meisten fehlenden Werten**.
+
+**Bonus (für die Schnellen):**
+
+- Boxplot `alter` gruppiert nach `geschlecht`.
+- Bar Chart `bildungsgrad` gruppiert nach `quelle_datensatz` (Split-Plot) — sind die zehn vorgenerierten Datensätze in der Bildung vergleichbar verteilt?
+- Eine 2-Sätze-Reflexion: Welcher Bias-Typ aus der Tabelle ist in unserer Demo-Stichprobe *eher kein* Problem — und warum?
+
+::: {.callout-important title="Abgabe per Mail"}
+Sobald Pflicht 1–3 stehen, schick:
+
+1. **Die 3 Demografie-Plots** (PNG, SVG oder als PDF-Sammelexport).
+2. **Deine 3–5-Sätze-Notiz** zur Stichprobenstruktur und Bias-Reflexion (gerne im Mail-Text).
+3. **Eine Zeile mit den zwei Items**, die am meisten Missings haben (z. B. *„`BFI_07` (4 Missings), `BFI_12` (3 Missings)"*).
+
+An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
+Betreff: *„M15 Tag 2 — Kap 02 — [Deine Kennziffer]"*
+:::
 
 ## Selbstcheck
 

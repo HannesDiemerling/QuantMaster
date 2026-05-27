@@ -34,6 +34,19 @@ Danach lernst Du, den Datensatz zu *verstehen*: Verteilungen anschauen, Skalenwe
 - Du hast Korrelationen interpretiert — und weißt, was sie *nicht* sagen.
 - Du hast *t*-Tests und (optional) ANOVAs mit Effektgrößen gerechnet und kannst die Ergebnisse in einem Satz zusammenfassen.
 
+## Abgabe nach jedem Kapitel
+
+Jedes der Kapitel 01–07 endet mit einer **Abgabe per Mail**. Dort findest Du:
+
+- einen **Pflichtteil** mit einer eindeutig bezifferten Anzahl von Outputs (Plots, Tabellen, Notizen),
+- einen **Bonusteil** für die Schnellen mit zusätzlichen Aufgaben.
+
+Alle Mails gehen an [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de) mit einheitlichem Betreff-Schema:
+
+> *„M15 Tag 2 — Kap NN — [Deine Kennziffer]"*
+
+Schick die Abgabe direkt nach jedem Kapitel, nicht erst gesammelt am Ende. So kann ich Dir bei Bedarf zwischendurch Rückmeldung geben.
+
 ## Erinnerung: Demo-Charakter
 
 Tag 1 war eine Demonstration eines echten Forschungs-Workflows — keine echte Erhebung. Die Daten, mit denen Du heute arbeitest, sind ein Mix aus simulierten (`data/generated/`) und ausgedachten Studierenden-Antworten. Sei deshalb mit Inhaltsinterpretationen vorsichtig — Methodisch geht es trotzdem völlig sauber zu.

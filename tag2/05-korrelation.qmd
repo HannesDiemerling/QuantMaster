@@ -140,9 +140,30 @@ Aus einer Korrelation kannst Du **nicht** entscheiden, welcher Mechanismus es is
 
 ## Aufgabe
 
-1. Berechne in JASP die **vollständige Korrelationsmatrix** der fünf Skalenmittelwerte `E_mean, V_mean, G_mean, N_mean, O_mean` — mit Konfidenzintervallen und paarweisen Streudiagrammen.
-2. Rechne die sechs Beispielhypothesen oben. Notiere für jede: Ergebnis, Effektgröße, KI, Schlussfolgerung in einem Satz.
-3. Wähl Dir aus den signifikanten Befunden einen aus. Formuliere **drei alternative Erklärungen**, warum die beobachtete Korrelation auch *ohne* einen direkten kausalen Effekt entstanden sein könnte.
+**Pflichtteil (mach jeder):**
+
+1. **Korrelationsmatrix der 5 Skalenmittelwerte** (`E_mean, V_mean, G_mean, N_mean, O_mean`) in JASP rechnen — mit aktivierten Optionen *Confidence intervals (95%)*, *Report significance*, *Sample size*, *Scatterplots*.
+2. **Die 6 Hypothesen H1–H6 oben** in derselben Reihenfolge durchrechnen. Pro Hypothese **eine Zeile** notieren im Format:
+   *„H#: r = .XX, p = .XXX, 95 %-KI [.XX, .XX], n = XX, Schluss: …"*
+3. Wähl Dir **eine** signifikante Korrelation aus Schritt 2 aus und formuliere zu ihr **drei alternative Erklärungen** (Drittvariable, umgekehrte Wirkrichtung, Zufall) in je einem Satz.
+
+**Bonus (für die Schnellen):**
+
+- Wiederhole H1 zusätzlich **als Spearman** statt Pearson — Unterschied im r-Wert?
+- Rechne eine **partielle Korrelation** zwischen zwei Skalen unter Kontrolle von `alter` (Analyses → Regression → Correlation Matrix → *Partial correlation*).
+- Erzeuge ein **gerichtetes Streudiagramm** (`Descriptives → Scatter` oder im Output direkt) für die Hypothese aus Schritt 3 — füge per Annotation ein, wo die mögliche Drittvariable wirken könnte.
+
+::: {.callout-important title="Abgabe per Mail"}
+Sobald Pflicht 1–3 stehen, schick:
+
+1. **Screenshot oder PDF-Export der Korrelationsmatrix** (komplette Tabelle inkl. Konfidenzintervalle).
+2. **Screenshot oder PDF der Scatter-Plot-Matrix** der 5 Skalen (entsteht automatisch, wenn Du in den Optionen *Scatterplots* aktiviert hast).
+3. **Deine 6 Hypothesen-Zeilen** (gerne im Mail-Text — eine pro Zeile, mit der Notation oben).
+4. **Deine 3 alternativen Erklärungen** zur ausgewählten Hypothese.
+
+An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
+Betreff: *„M15 Tag 2 — Kap 05 — [Deine Kennziffer]"*
+:::
 
 ## Selbstcheck
 

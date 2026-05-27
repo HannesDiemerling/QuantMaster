@@ -151,12 +151,28 @@ In unseren simulierten Daten solltest Du brauchbare α-Werte sehen (etwa .70–.
 
 ## Aufgabe
 
-1. Bau die fünf Skalenmittelwerte `E_mean`, `V_mean`, `G_mean`, `N_mean`, `O_mean` per Compute Column.
-2. Lass Descriptives drüber laufen und prüf die Werte auf Plausibilität.
-3. Berechne für jede Skala Cronbach's α und McDonald's ω.
-4. Notiere für Dich:
-   - Welche Skala hat die höchste, welche die niedrigste Reliabilität?
-   - Gibt es ein Item, bei dem „α if dropped" deutlich über dem Gesamt-α liegt?
+**Pflichtteil (mach jeder):**
+
+1. Bau **fünf neue Spalten** per Compute Column: `E_mean`, `V_mean`, `G_mean`, `N_mean`, `O_mean`.
+2. Lass Descriptives über genau diese fünf Variablen laufen — alle Werte zwischen 1 und 5?
+3. Berechne für **alle fünf Skalen** Cronbach's α und McDonald's ω. Optionen aktivieren: **Item statistics**, **Item-rest correlation**, **α if item dropped**.
+4. Notiere in zwei Sätzen: *welche Skala* die höchste und welche die niedrigste Reliabilität hat — und ob es ein Item gibt, bei dem „α if dropped" deutlich über dem Gesamt-α liegt.
+
+**Bonus (für die Schnellen):**
+
+- **Pearson-Korrelation der fünf Skalenmittelwerte untereinander** (`Analyses → Regression → Correlation Matrix` mit den 5 `*_mean`-Variablen). Was siehst Du?
+- Wiederhole die Reliabilität nur für **Personen ab Bildungsgrad 5** (Filter setzen) — verändert sich α deutlich?
+
+::: {.callout-important title="Abgabe per Mail"}
+Sobald Du Pflicht 1–4 hast, schick als Nachweis:
+
+1. **Screenshot der Descriptives-Tabelle** mit den fünf Skalen-Mittelwerten (M, SD, Min, Max).
+2. **Screenshot oder PDF-Export der Reliabilitätstabelle** mit Cronbach's α + McDonald's ω je Skala.
+3. **Deine 2-Sätze-Notiz** zur höchsten/niedrigsten Skala und zu auffälligen Items (gerne im Mail-Text).
+
+An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
+Betreff: *„M15 Tag 2 — Kap 04 — [Deine Kennziffer]"*
+:::
 
 ## Selbstcheck
 

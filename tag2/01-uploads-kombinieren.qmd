@@ -164,11 +164,28 @@ Schau auf das Minimum/Maximum der BFI-Items — alles zwischen 1 und 5? Wenn ja:
 
 ## Aufgabe
 
-1. Lade alle CSVs aus `data/student-uploads/` herunter.
-2. Führe sie zu `m15-gesamt.csv` zusammen, mit den zusätzlichen Spalten `quelle_datensatz` und `quelle_kuerzel`.
-3. Öffne die Datei in JASP, kontrolliere die CSV-Vorschau, setze die Variable-Typen.
-4. Baue per Compute Column die Spalte `id`.
-5. Lass Descriptives über alle Variablen laufen und prüfe die Plausibilität.
+**Pflichtteil (mach jeder):**
+
+1. Alle CSVs aus `data/student-uploads/` herunterladen.
+2. Zu *einer* Datei `m15-gesamt.csv` zusammenführen, inkl. den zwei neuen Spalten `quelle_datensatz` und `quelle_kuerzel`.
+3. In JASP öffnen, CSV-Vorschau prüfen, Variable-Typen wie in der Tabelle oben setzen.
+4. Per Compute Column die Spalte `id` bauen (`quelle_datensatz * 100 + probandennummer`).
+5. Descriptives über alle Variablen laufen lassen, **Frequency Table** für `quelle_datensatz` aktivieren.
+
+**Bonus (für die Schnellen):**
+
+- Compute Column `id_global` per `seq_along(probandennummer)` zusätzlich anlegen — vergleichen, wie sich die beiden IDs unterscheiden.
+- In Descriptives **Missing**-Spalte prüfen und in einer 1-Satz-Notiz festhalten, in welcher Spalte (falls überhaupt) die meisten Missings stehen.
+
+::: {.callout-important title="Abgabe per Mail"}
+Sobald Du Pflicht 1–5 abgehakt hast, schick als Nachweis:
+
+1. **Screenshot der JASP-Datenansicht** (kompletter Header sichtbar inkl. der neuen Spalten `quelle_datensatz`, `quelle_kuerzel`, `id`)
+2. **Screenshot oder PDF-Export der Frequency Table für `quelle_datensatz`** (zeigt, dass alle Quellen mit den erwarteten Zeilen-Zahlen vorkommen)
+
+An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
+Betreff: *„M15 Tag 2 — Kap 01 — [Deine Kennziffer]"*
+:::
 
 ## Selbstcheck
 

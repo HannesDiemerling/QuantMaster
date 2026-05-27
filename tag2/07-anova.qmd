@@ -121,11 +121,38 @@ Was steht drin: $F$, $df$ Zähler und Nenner, $p$, $\eta^2$, paarweise Befunde m
 
 ## Aufgabe
 
-1. Rechne **mindestens zwei** der Beispiel-ANOVAs (A1 und A3 sind die spannendsten).
-2. Prüf die Annahmen (Levene, Q-Q-Plot der Residuen). Notier kurz, ob sie erfüllt sind.
-3. Führe Tukey-Post-hoc durch und identifiziere die spezifisch unterschiedlichen Paare.
-4. Schreib für eine der ANOVAs den vollständigen Ergebnisbericht (in dem Stil wie oben — Satz mit $F$, $df$, $p$, $\eta^2$, post-hoc).
-5. **Wenn Du Zeit hast:** rechne A4 *zweimal* — einmal klassisch und einmal als Kruskal-Wallis. Vergleiche die Ergebnisse.
+**Pflichtteil (mach jeder) — genau 2 ANOVAs:**
+
+Rechne in JASP **A1** und **A3** aus der Tabelle oben:
+
+| # | Test | Variablen |
+|--:|---|---|
+| A1 | Einfaktorielle ANOVA | `O_mean` ~ `bildungsgrad` |
+| A3 | Einfaktorielle ANOVA (Sanity-Check) | `E_mean` ~ `quelle_datensatz` |
+
+Für **beide** in den Optionen aktivieren: Descriptive statistics, Effect size $\eta^2$ + $\omega^2$, Assumption checks (Homogeneity + Q-Q-Plot of residuals), Post-hoc Tukey, Descriptive plot.
+
+Notiere pro ANOVA in **einer Zeile** den vollständigen Bericht:
+*„A#: F(df1, df2) = X.XX, p = .XXX, η² = .XX, Levene p = .XXX, Schluss: …"*
+
+Bei **A1** außerdem: nenne die **paarweisen Tukey-Vergleiche, die signifikant sind** (falls vorhanden).
+
+**Bonus (für die Schnellen):**
+
+- Rechne **A2** zusätzlich (`G_mean` ~ `bildungsgrad`) — derselbe Faktor, andere abhängige Variable. Gleicher Befund?
+- Bei A1: **Kruskal-Wallis-Test** als nicht-parametrische Alternative — ändert sich der p-Wert deutlich?
+- Bei A3: erkläre in zwei Sätzen, **warum der Sanity-Check als nicht-signifikant erwartet wurde** — und was ein signifikanter Befund über unseren Kombinations-Schritt aus Kap 01 sagen würde.
+
+::: {.callout-important title="Abgabe per Mail"}
+Sobald die zwei ANOVAs stehen, schick:
+
+1. **Screenshot oder PDF-Export der zwei ANOVA-Outputs**, jeweils inkl. Post-hoc-Tabelle und Annahmen-Check.
+2. **Deine 2 Ergebnis-Zeilen** im Format oben (plus die signifikanten Tukey-Paare bei A1).
+3. **Ein 2-Sätze-Kommentar** zu Sanity-Check A3: stimmt der erwartete Nullbefund, und was würdest Du tun, wenn er signifikant wäre?
+
+An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
+Betreff: *„M15 Tag 2 — Kap 07 — [Deine Kennziffer]"*
+:::
 
 ## Selbstcheck
 

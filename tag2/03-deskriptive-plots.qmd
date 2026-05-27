@@ -45,36 +45,17 @@ Berichte je nach Variable mindestens **zwei** Kennzahlen: eine für **zentrale T
 
 JASP zeigt all diese Plots unter **Descriptives → Distribution Plots** bzw. unter **Plots → Boxplot / Q-Q Plot / Density**.
 
-## Deine Plot-Reihe — Aufgabe (mind. 8 Plots)
+## Wo in JASP welche Plots liegen
 
-Heute baust Du **eine Reihe von Plots** und schickst die Sammlung am Ende des Kapitels per Mail an die Lehrperson. Geht so vor:
+| Plot-Typ | JASP-Pfad |
+|---|---|
+| Bar Chart, Histogramm, Pie Chart | Descriptives → **Distribution Plots** |
+| Boxplot, Violin Plot, Raincloud | Descriptives → **Boxplot** (Plot-Sektion) |
+| Boxplot/Histogramm nach Gruppe | Descriptives → **Split** (oben rechts) |
+| Q-Q-Plot | Descriptives → **Q-Q Plot** |
+| Scatter Plot | Descriptives → **Scatter Plots** (in neueren Versionen) oder Regression → Correlation → Scatter |
 
-### Schritt 1 — Demografie
-
-1. **Bar Chart** für `geschlecht`
-2. **Bar Chart** für `bildungsgrad`
-3. **Histogramm** für `alter`, mit Vorschlag für Bin-Breite
-4. **Boxplot** für `alter`, optional gruppiert nach `geschlecht`
-
-In JASP findest Du Bar Charts unter **Descriptives → Distribution Plots**, Histogramme unter derselben Kachel. Für gruppierte Boxplots: **Descriptives → Split by** mit `geschlecht`.
-
-### Schritt 2 — BFI-Items
-
-5. **Histogramme oder Bar Charts** für mindestens 4 ausgewählte BFI-Items — je eines pro Skala (z. B. `BFI_06` für Extraversion, `BFI_07` für Verträglichkeit, `BFI_13` für Gewissenhaftigkeit, `BFI_14` für Neurotizismus, `BFI_15` für Offenheit).
-6. **Q-Q-Plot** für ein Item Deiner Wahl. Frage: liegt die Verteilung in der Nähe der Diagonalen, oder weicht sie systematisch ab?
-
-### Schritt 3 — Werte über die Quelle
-
-7. **Boxplot von `alter` nach `quelle_datensatz`** (also: gibt es Unterschiede zwischen den synthetischen Quelldatensätzen?). Erwarte hier keinen relevanten Unterschied — die Datensätze wurden mit ähnlichen Verteilungen erzeugt. Aber: Du übst die Methode.
-
-### Schritt 4 — Streudiagramme
-
-8. **Scatter Plot** von `alter` gegen ein BFI-Item Deiner Wahl. Was siehst Du?
-
-Bonus-Plots, falls Du Lust hast:
-
-9. **Density Plot** mehrerer BFI-Items übereinander
-10. **Heatmap** der Korrelationen (geht bequemer in Kapitel [05](05-korrelation.qmd))
+Die konkrete Plot-Liste, die Du heute baust, steht unten in **Aufgabe**.
 
 ## Plots exportieren
 
@@ -82,18 +63,38 @@ Jeden Plot in JASP exportierst Du über **Rechtsklick → Save image as → PNG 
 
 Alternative: das gesamte JASP-Output kannst Du als **PDF exportieren** (`File → Export Results → PDF`). Das ist schneller, aber unflexibler.
 
-## Aufgabe & Mail-Versand
+## Aufgabe
 
-::: {.callout-important title="Plots an die Lehrperson schicken"}
-1. Bau die acht (oder mehr) Plots oben.
-2. Sammle sie in einem Ordner oder fasse sie in einem PDF zusammen.
-3. Schick die Datei(en) an:
+**Pflichtteil (mach jeder) — genau 8 Plots:**
 
-**[hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)**
+| # | Plot |
+|--:|---|
+| 1 | Bar Chart `geschlecht` |
+| 2 | Bar Chart `bildungsgrad` |
+| 3 | Histogramm `alter` |
+| 4 | Boxplot `alter`, gruppiert nach `geschlecht` |
+| 5 | Histogramm eines BFI-Items Deiner Wahl |
+| 6 | Q-Q-Plot eines BFI-Items (gerne dasselbe wie Plot 5) |
+| 7 | Boxplot `alter` nach `quelle_datensatz` |
+| 8 | Scatter Plot `alter` × ein BFI-Item Deiner Wahl |
 
-Betreff: *„M15 Workshop Tag 2 — Plots [Deine Kennziffer]"*
+**Bonus (für die Schnellen):**
 
-Das ist der zweite Mail-Schritt im Workshop. Die Lehrperson nutzt die Plots, um nachher in der Plenums-Phase mit Dir kurz das Interessanteste zu besprechen — also vorher schicken, nicht erst am Abend.
+- Plot 9: Density-Overlay mehrerer BFI-Items aus derselben Skala (z. B. `BFI_01`, `BFI_06`, `BFI_11`, `BFI_16` für Extraversion)
+- Plot 10: Bar Charts der 4 E-Items nebeneinander (Split-Plot) — zeigt visuell, ob Antworten konsistent zwischen den E-Items sind
+- Plot 11: Boxplot von `bildungsgrad` (auch wenn ordinal — als Anschauung)
+- Notiere zu jedem Bonus-Plot in einem Satz: was Du siehst.
+
+::: {.callout-important title="Abgabe per Mail"}
+Sobald die 8 Pflichtplots stehen, schick die Sammlung als:
+
+- **Variante A:** Ein einziges PDF (`File → Export Results → PDF` in JASP exportiert das gesamte Output mit allen Plots).
+- **Variante B:** Einzelne PNG-Dateien (Rechtsklick auf jeden Plot → *Save image as*).
+
+An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
+Betreff: *„M15 Tag 2 — Kap 03 Plots — [Deine Kennziffer]"*
+
+Bitte **vor** dem 16:45-Plenum schicken — die Lehrperson schaut Dir dabei zu, was sich aus Deinen Plots am ehesten besprechen lässt.
 :::
 
 ## Stärken und Schwächen deskriptiver Statistik
