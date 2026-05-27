@@ -46,13 +46,37 @@ Wenn $p < \alpha$ (typischerweise .05), verwerfen wir H0. Das heißt **nicht**, 
 Deshalb gilt: berichte **immer** den p-Wert *zusammen* mit der Effektgröße und dem Konfidenzintervall.
 :::
 
+### Zwei Fehlerarten, die im Hintergrund mitlaufen
+
+Beim Testen gibt es immer zwei Möglichkeiten, danebenzuliegen:
+
+| Bezeichnung | Was passiert | Wahrscheinlichkeit |
+|---|---|---|
+| **Fehler erster Art** (Typ-I, α-Fehler) | Du verwirfst H0, obwohl sie eigentlich stimmt — falscher Alarm | $\alpha$ (üblich: .05) |
+| **Fehler zweiter Art** (Typ-II, β-Fehler) | Du behältst H0, obwohl H1 eigentlich stimmt — verpasster Effekt | $\beta$ (oft nicht direkt kontrolliert) |
+
+Aus $\beta$ ergibt sich die **Power** eines Tests als $1 - \beta$ — die Wahrscheinlichkeit, einen *real existierenden* Effekt auch zu finden. Die Power hängt ab von:
+
+- **Stichprobengröße $N$** (mehr Daten → mehr Power)
+- **Effektgröße in der Population** (großer Effekt → leichter zu finden)
+- **Streuung der Daten** (weniger Rauschen → mehr Power)
+- **Signifikanzniveau $\alpha$** (lockerer → mehr Power, aber auch mehr falsche Alarme)
+
+Faustregel: für mittlere Effekte ($d = 0.5$) und $\alpha = .05$ brauchst Du pro Gruppe etwa **64 Personen** für 80 % Power. Unsere Workshop-Stichprobe ist deshalb deutlich underpowered für kleine bis mittlere Effekte — Du wirst echte Effekte häufiger übersehen, als Dir lieb ist.
+
 ## Annahmen — und warum sie wichtig sind
 
 Der klassische t-Test (Student's t) hat drei Annahmen:
 
 1. **Skalenniveau:** abhängige Variable mindestens *intervallskaliert* (metrisch).
-2. **Normalverteilung:** die Werte sind in jeder Gruppe annähernd normalverteilt. Bei großem $N$ (> 30) verzeihlich (Zentraler Grenzwertsatz).
+2. **Normalverteilung:** die Werte sind in jeder Gruppe annähernd normalverteilt.
 3. **Varianzhomogenität:** die beiden Gruppen haben ungefähr gleiche Streuung.
+
+::: {.callout-tip title="Warum die Normalverteilungs-Annahme bei größerem N erstaunlich verzeihlich ist"}
+Es gibt einen weiteren mathematischen Satz mit erstaunlichen Konsequenzen: den **Zentralen Grenzwertsatz**. Er besagt, dass die *Verteilung des Stichprobenmittelwerts* mit wachsendem $N$ immer näher an eine **Normalverteilung** rückt — und zwar **unabhängig davon, wie die ursprüngliche Variable selbst verteilt ist**.
+
+Auch wenn Deine Einzelantworten extrem schief sind: sobald $N$ ausreichend groß ist (Faustregel: $N > 30$ pro Gruppe), verhalten sich die *Mittelwerte* fast normal — und genau die testet der t-Test. Deshalb ist der t-Test in der Praxis viel robuster gegen Normalverteilungsverletzungen, als sein Name vermuten lässt. Bei sehr kleinen Stichproben gilt die Verzeihlichkeit allerdings *nicht* — dann ist die Annahme wieder kritisch.
+:::
 
 **Was tun, wenn Annahmen verletzt sind?**
 

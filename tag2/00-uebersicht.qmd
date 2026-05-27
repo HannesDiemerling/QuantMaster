@@ -22,8 +22,7 @@ Danach lernst Du, den Datensatz zu *verstehen*: Verteilungen anschauen, Skalenwe
 - Laptop mit **aktuellem JASP** (mindestens Version 0.19, idealerweise die neueste; die hat eine CSV-Vorschau beim Import — falls Du noch eine ältere Version hast, jetzt updaten unter [jasp-stats.org](https://jasp-stats.org))
 - Zugang zum Workshop-Repo, insbesondere zum Ordner `data/student-uploads/`
 - Codebook griffbereit ([materials/codebook.qmd](../materials/codebook.qmd))
-- Optional: ein Tabellenkalkulationsprogramm (Excel, LibreOffice Calc) oder einen guten Texteditor (VS Code, Notepad++) für den Kombinations-Schritt
-- Etwas Geduld am Vormittag — Datenarbeit ist langweiliger, als sie tatsächlich wichtig ist
+- Optional: einen guten Texteditor (VS Code, Notepad++) für den Kombinations-Schritt
 
 ## Was Du am Ende des Tages erreicht hast
 
@@ -36,7 +35,7 @@ Danach lernst Du, den Datensatz zu *verstehen*: Verteilungen anschauen, Skalenwe
 
 ## Abgabe nach jedem Kapitel
 
-Jedes der Kapitel 01–07 endet mit einer **Abgabe per Mail**. Dort findest Du:
+Jedes der Kapitel 13–19 endet mit einer **Abgabe per Mail**. Dort findest Du:
 
 - einen **Pflichtteil** mit einer eindeutig bezifferten Anzahl von Outputs (Plots, Tabellen, Notizen),
 - einen **Bonusteil** für die Schnellen mit zusätzlichen Aufgaben.

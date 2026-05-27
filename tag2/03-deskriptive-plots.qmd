@@ -15,6 +15,21 @@ Deskriptive Statistik ist das Werkzeug, mit dem Du Deine Daten **erstmal versteh
 
 Plane für diesen Block mindestens **90 Minuten** ein.
 
+## Skalenniveau — welche Kennzahl ist überhaupt erlaubt?
+
+Bevor Du irgendwelche Kennzahlen berechnest, eine ältere, aber sehr nützliche Unterscheidung. Variablen lassen sich in vier **Skalenniveaus** einteilen — sie bestimmen, welche Rechenoperationen sinnvoll sind:
+
+| Niveau | Eigenschaft | Beispiel aus unserem Datensatz | Was darfst Du rechnen? |
+|---|---|---|---|
+| **Nominal** | nur Unterscheidung, keine Ordnung | `geschlecht`, `quelle_datensatz` | Häufigkeiten, Modus |
+| **Ordinal** | Reihenfolge, aber keine gleichmäßigen Abstände | `bildungsgrad`, einzelne BFI-Items | + Median, Quantile |
+| **Intervall** | gleichmäßige Abstände, kein absoluter Nullpunkt | Temperatur in °C — bei uns: Skalen-Mittelwerte mit etwas Wohlwollen | + Mittelwert, SD |
+| **Verhältnis** (ratio) | wie Intervall, plus absoluter Nullpunkt | `alter` in Jahren | + Verhältnisse, Quotienten |
+
+::: {.callout-tip title="Streit-Klassiker"}
+Likert-Items wie unsere BFI-Items sind streng genommen **ordinal** — die Abstände zwischen *„weder noch"* und *„eher zutreffend"* sind nicht objektiv gleich groß zu *„eher zutreffend"* / *„sehr zutreffend"*. In der Praxis behandelt man sie in psychologischer Forschung trotzdem fast immer wie Intervalldaten, weil das die Auswertungsmöglichkeiten dramatisch erweitert (Mittelwert, Korrelation, Regression) — und weil die Verzerrung in der Regel klein ist. Es gibt aber Spezialfälle, in denen Du auf strikt ordinale Verfahren (Spearman, Kruskal-Wallis) zurückgreifen würdest.
+:::
+
 ## Die zentralen Kennzahlen
 
 | Kennzahl | Bedeutet | Wofür gut |
@@ -33,15 +48,37 @@ Plane für diesen Block mindestens **90 Minuten** ein.
 Berichte je nach Variable mindestens **zwei** Kennzahlen: eine für **zentrale Tendenz** (M oder Median) **und** eine für **Streuung** (SD oder IQR). Ein einzelner Mittelwert ohne Streuung ist eine halbe Aussage.
 :::
 
-## Welcher Plot zu welcher Variablen-Art?
+### Wert in Einheiten der Streuung: der z-Wert
 
-| Variablen-Art | Geeignete Plots |
+Wenn Du wissen willst, **wie weit ein einzelner Wert vom Durchschnitt entfernt liegt**, hilft Dir der z-Wert:
+
+$$
+z = \frac{x - M}{SD}
+$$
+
+Ein $z = 1$ bedeutet: dieser Wert liegt eine Standardabweichung *über* dem Mittel. Ein $z = -2$ bedeutet: zwei Standardabweichungen *unter* dem Mittel. Bei einer halbwegs normalverteilten Variable gilt grob:
+
+- ca. 68 % der Werte liegen zwischen $z = -1$ und $z = +1$
+- ca. 95 % liegen zwischen $z = -2$ und $z = +2$
+- ca. 99 % liegen zwischen $z = -3$ und $z = +3$
+
+Diese **Standardisierung** macht Werte verschiedener Variablen vergleichbar. Wenn jemand bei der Skala Extraversion ein $z = +1.5$ hat und gleichzeitig bei Offenheit ein $z = +0.2$, weißt Du: für diese Person ist Extraversion deutlich ausgeprägter als Offenheit, *relativ zum Durchschnitt der Gruppe*.
+
+### Die Normalverteilung — das ständige Hintergrundbild
+
+Viele statistische Verfahren (t-Test, ANOVA, Regression) gehen davon aus, dass Werte ungefähr **normalverteilt** sind. Die Normalverteilung ist die symmetrische Glockenform, die Du aus dem Schulunterricht kennst. Sie hat zwei Parameter: Mittelwert $\mu$ und Standardabweichung $\sigma$.
+
+Wenn ein Q-Q-Plot (siehe unten) zeigt, dass Deine Daten in etwa entlang der Diagonalen liegen, sind sie näherungsweise normalverteilt. Liegen sie deutlich schief oder gekrümmt, eher nicht — das ist für die Wahl der nachfolgenden Tests wichtig.
+
+## Welcher Plot zu welchem Skalenniveau?
+
+| Niveau / Konstellation | Geeignete Plots |
 |---|---|
 | Nominal (Geschlecht, Quelle) | Bar Chart, Pie Chart |
 | Ordinal (Bildungsgrad, BFI-Item) | Bar Chart, Boxplot |
-| Metrisch (Alter, Skalenwert) | Histogramm, Density Plot, Boxplot, Violin Plot, Q-Q-Plot |
+| Intervall/Verhältnis (Alter, Skalen-Mittelwerte) | Histogramm, Density Plot, Boxplot, Violin Plot, Q-Q-Plot |
 | Zwei metrische Variablen | Scatter Plot (Streudiagramm) |
-| Eine metrische + eine Gruppe | Boxplot nach Gruppe, Violin Plot, Raincloud Plot |
+| Eine metrische Variable + eine Gruppe | Boxplot nach Gruppe, Violin Plot, Raincloud Plot |
 
 JASP zeigt all diese Plots unter **Descriptives → Distribution Plots** bzw. unter **Plots → Boxplot / Q-Q Plot / Density**.
 

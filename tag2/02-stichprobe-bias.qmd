@@ -18,6 +18,25 @@ Bevor Du rechnest, musst Du wissen, **wer** in Deinem Datensatz drinsteckt — u
 
 Wir nehmen die inhaltliche Interpretation der Daten heute deshalb **nicht zu ernst**. Methodisch arbeitet Ihr aber sauber.
 
+## Population, Stichprobe — und was sich mit *N* ändert
+
+Zwei Begriffe, die im Alltag oft synonym verwendet werden, in der Statistik aber strikt getrennt sind:
+
+- **Population:** die *Gesamtheit* aller Fälle, über die Du eine Aussage treffen willst (z. B. „alle deutschen Erwachsenen 18–30"). Population-Kennwerte (echtes Mittel $\mu$, echte Streuung $\sigma$) sind in der Praxis **unbekannt**.
+- **Stichprobe:** die *Teilmenge*, die Du tatsächlich gemessen hast. Stichproben-Kennwerte ($M$, $SD$) sind **bekannt** — sie sind Schätzer für die Populationsgrößen.
+
+Der ganze Sinn von inferenzieller Statistik (t-Test, ANOVA, Regression — alles ab Kapitel [05](05-korrelation.qmd)) ist es, von der Stichprobe auf die Population zu schließen.
+
+Dabei spielt die Stichprobengröße eine Schlüsselrolle. Es gibt einen mathematischen Satz, der sagt:
+
+> Wenn Du Deine Stichprobe immer größer machst, **konvergiert** das Stichprobenmittel $M$ gegen das wahre Populationsmittel $\mu$.
+
+Das ist das **Gesetz der großen Zahlen**. In einfachen Worten: viele Daten sind mit hoher Sicherheit nah an der Wahrheit, wenige Daten können weit daneben liegen — aber rein zufällig. Aus 12 Personen einen Bevölkerungs-Mittelwert schätzen ist deshalb nicht falsch, aber unsicher; aus 12.000 ist es ziemlich präzise.
+
+::: {.callout-important title="Die wichtige Einschränkung"}
+Das Gesetz der großen Zahlen funktioniert **nur**, wenn die Stichprobe *unverzerrt* ist. Bei einem **Bias** (siehe nächster Abschnitt) bringt Dir mehr *N* gar nichts — Du näherst Dich nur immer präziser dem **falschen** Wert. Genau das ist das Tückische an Bias: man merkt es nicht durch Mehr-Daten-Sammeln.
+:::
+
 ## Vier Bias-Typen, die Du kennen solltest
 
 | Bias-Typ | Idee | Beispiel |

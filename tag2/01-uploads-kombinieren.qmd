@@ -20,7 +20,7 @@ Heute baust Du daraus *einen* Datensatz. Klingt banal, ist es aber nicht: es ent
 ::: {.callout-important title="Designentscheidung von Tag 1 — bewusst suboptimal"}
 Die zehn vorgenerierten Datensätze nutzen jeweils die Probandennummern 1–9. Werden Datensätze 01 und 02 von zwei Studierenden bearbeitet und hochgeladen, taucht „Probandennummer 3" gleich vier Mal im Gesamtdatensatz auf — obwohl es vier **verschiedene** synthetische Probanden sind.
 
-Das ist ein **Design-Fehler**, den wir bewusst stehen lassen haben — damit Du heute selbst lernst, ihn zu erkennen und zu beheben. In einer echten Studie würde man Probandennummern global eindeutig vergeben (z. B. `siteID-personID`), nicht pro Quelldatei zurücksetzen.
+Das ist ein **Design-Fehler**, der in der Realität öfter vorkommt, als man denkt.Heute wirst du selbst lernen, so einen Fehler zu erkennen und zu beheben. In einer echten Studie würde man Probandennummern global eindeutig vergeben (z. B. `siteID-personID`), nicht pro Quelldatei zurücksetzen.
 :::
 
 ## Schritt 1: Alle Uploads herunterladen
