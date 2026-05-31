@@ -55,12 +55,22 @@ $R^2 = .25$ heißt: 25 % der Streuung in $Y$ werden erklärt, 75 % nicht. In der
 | Voraussetzung | Prüfung in JASP | Was tun, wenn verletzt? |
 |---|---|---|
 | **Linearität** | Residuals vs. Predicted Plot — kein gebogenes Muster | Term quadrieren, transformieren |
-| **Normalverteilung der Residuen** | Q-Q-Plot der standardisierten Residuen | bei großem $N$ unkritisch (Grenzwertsatz) |
+| **Normalverteilung der Residuen** | Q-Q-Plot der standardisierten Residuen | bei großem $N$ für Tests/KI meist tolerierbar (s. Hinweis unten); sonst transformieren |
 | **Homoskedastizität** (gleiche Streuung) | Residuals vs. Predicted — gleichmäßiges Band | robuste Standardfehler, transformieren |
 | **Keine extreme Multikollinearität** | **VIF** (Variance Inflation Factor) | VIF > 5–10 → Prädiktoren zusammenfassen/entfernen |
 | **Unabhängige Beobachtungen** | aus dem Design, nicht aus Daten | bei Klumpung: Mehrebenenmodell (Kap. 07) |
 
 **Multikollinearität** heißt: zwei Prädiktoren messen fast dasselbe. Dann „streiten" sie sich um die erklärte Varianz, und die einzelnen $b$ werden instabil. Der **VIF** zeigt das: Werte nahe 1 sind ideal, über 5 wird's heikel.
+
+::: {.callout-important title="Was der Grenzwertsatz hier wirklich sagt"}
+Ein großes $N$ macht Deine **Residuen nicht normalverteilt** — eine schiefe Verteilung bleibt schief, egal wie viele Fälle Du hast.
+
+Der **Zentrale Grenzwertsatz** sagt etwas Spezifischeres: Die **Summe (bzw. der Mittelwert) vieler unabhängiger Zufallsvariablen** mit endlicher Varianz ist bei wachsendem $N$ annähernd **normalverteilt** — und zwar *unabhängig davon*, wie die einzelnen Variablen selbst verteilt sind.
+
+Warum hilft das der Regression? Weil ein Regressionskoeffizient $b$ **selbst so eine Summe ist** — im Kern eine gewichtete Summe der vielen unabhängigen Fehlerbeiträge über alle Fälle. Genau deshalb nähert sich die **Stichprobenverteilung von $b$** mit wachsendem $N$ einer Normalverteilung an, *auch wenn die Residuen schief sind*. Und nur das brauchen **p-Werte und Konfidenzintervalle**: Sie setzen voraus, dass der *Schätzer* normalverteilt ist — nicht die Daten oder die Residuen.
+
+Bei **kleinem** $N$ (wie bei uns, $N \approx 90$, und erst recht darunter) ist diese Annäherung noch nicht gut — dann schaust Du den Q-Q-Plot genauer an und ziehst ggf. eine Transformation oder ein robustes Verfahren in Betracht.
+:::
 
 ## In JASP rechnen
 
