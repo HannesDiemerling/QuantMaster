@@ -22,25 +22,6 @@ Heute lernst Du die Werkzeuge dafür — die **multivariaten Verfahren**. Das is
 Manche von Euch haben Regression schon im Bachelor gerechnet, andere sehen sie heute zum ersten Mal. Jedes Kapitel startet deshalb bei den Grundideen und wird dann konkret. Wer schnell ist, findet in jedem Kapitel einen **Bonus**-Teil. Wer mehr Zeit braucht, macht den Pflichtteil sauber und holt den Rest zu Hause nach. Beides ist völlig in Ordnung.
 :::
 
-## Tagesablauf
-
-| Zeit | Modus | Inhalt | Kapitel |
-|---|---|---|---|
-| 09:45–10:15 | **Plenum** | Begrüßung, Rückblick Tag 2, was multivariat bedeutet | — |
-| 10:15–11:15 | Self-Study | Multiple Regression — das Arbeitspferd | 01 |
-| 11:15–12:00 | Self-Study | Moderation (Interaktionen) | 02 |
-| 12:00–12:45 | Self-Study | Mediation & Bootstrap | 03 |
-| 12:45–13:30 | Mittag | | |
-| 13:30–14:10 | Self-Study | Logistische Regression | 04 |
-| 14:10–14:55 | Self-Study | Bayes vs. Frequentismus | 05 |
-| 14:55–15:30 | Self-Study | Machine Learning & neuronale Netze in JASP | 06 |
-| 15:30–15:55 | Self-Study | Mehrebenen- & gemischte Modelle (Mixed Models) | 07 |
-| 15:55–16:10 | **Plenum** | Weitere Verfahren im Überblick (Demos) | 08 |
-| nach Bedarf | Self-Study | Zusammenfassung & Nachschlagewerk | 09 |
-| zum Schluss | **Plenum** | Workshop-Abschluss, Reflexion | 10 |
-
-Die Lehrperson ist während der Self-Study-Phasen durchgehend ansprechbar. Wenn Du irgendwo hängst: fragen, nicht verzweifeln.
-
 ## Eine wichtige Sache über unseren Datensatz {#sec-tag3-datenhinweis}
 
 Du arbeitest heute weiter mit dem **Gesamtdatensatz** (`m15-gesamt.csv`, rund 90 Personen) und Deinen fünf Skalenmittelwerten `E_mean`, `V_mean`, `G_mean`, `N_mean`, `O_mean` aus Tag 2. Bevor wir loslegen, musst Du wissen, **wie diese Daten entstanden sind** — sonst interpretierst Du heute Ergebnisse falsch.
