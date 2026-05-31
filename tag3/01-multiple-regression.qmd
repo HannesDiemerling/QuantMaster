@@ -1,0 +1,157 @@
+# Multiple Regression {#sec-tag3-regression}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- den Unterschied zwischen einfacher und multipler Regression erklären,
+- ein multiples Regressionsmodell in JASP aufstellen, schätzen und vollständig berichten,
+- die Koeffizienten ($b$, $\beta$), $R^2$ und das $F$ des Gesamtmodells korrekt interpretieren,
+- die zentralen Voraussetzungen (Linearität, Normalverteilung der Residuen, Homoskedastizität, keine starke Multikollinearität) in JASP prüfen,
+- zwei Modelle gegeneinander vergleichen (hierarchische Regression, $\Delta R^2$).
+:::
+
+## Worum es geht
+
+Die **Regression** ist das Arbeitspferd der quantitativen Psychologie. Die Idee ist denkbar einfach: Du sagst eine **abhängige Variable** (Kriterium, $Y$) aus einer oder mehreren **unabhängigen Variablen** (Prädiktoren, $X$) vorher. Bei der *einfachen* Regression ist es ein Prädiktor, bei der *multiplen* sind es mehrere — und genau das ist der Sprung ins Multivariate.
+
+Der entscheidende Mehrwert der multiplen Regression: Jeder Koeffizient sagt Dir den Effekt eines Prädiktors, **während alle anderen Prädiktoren konstant gehalten werden**. Du rechnest also Störeinflüsse statistisch heraus.
+
+## Von der Korrelation zur Regression
+
+Eine einfache Regression mit *einem* Prädiktor ist eng mit der Korrelation aus Tag 2 verwandt — sie beschreibt dieselbe Information, nur als **Gerade** statt als eine Zahl:
+
+$$
+\hat{Y} = b_0 + b_1 X
+$$
+
+- $b_0$ (**Intercept**): vorhergesagter $Y$-Wert, wenn $X = 0$.
+- $b_1$ (**Steigung / Slope**): um wie viele Einheiten $Y$ steigt, wenn $X$ um **eine** Einheit steigt.
+
+Die multiple Regression erweitert das auf mehrere Prädiktoren:
+
+$$
+\hat{Y} = b_0 + b_1 X_1 + b_2 X_2 + \dots + b_k X_k
+$$
+
+Jedes $b_j$ ist der **partielle** Effekt von $X_j$ — der Beitrag dieses Prädiktors, der **über die anderen hinausgeht**.
+
+## Die wichtigsten Kennzahlen
+
+| Kennzahl | Was sie bedeutet |
+|---|---|
+| **$b$ (unstandardisiert)** | Effekt in den *Originaleinheiten* von $X$ und $Y$. „Pro +1 in $X_1$ ändert sich $Y$ um $b_1$." |
+| **$\beta$ (standardisiert)** | Effekt in *Standardabweichungen*. Macht Prädiktoren mit verschiedenen Skalen vergleichbar. |
+| **$R^2$** | Anteil der Varianz in $Y$, den das Modell **gemeinsam** erklärt (0 bis 1). |
+| **adjustiertes $R^2$** | $R^2$, das für die Zahl der Prädiktoren bestraft. **Bei mehreren Prädiktoren immer dieses berichten.** |
+| **$F$-Test** | Testet, ob das Modell als Ganzes besser ist als „nur der Mittelwert". |
+| **$p$ pro Koeffizient** | Testet, ob ein einzelner Prädiktor (bei Kontrolle der anderen) von 0 verschieden ist. |
+
+::: {.callout-tip title="$R^2$ richtig einordnen"}
+$R^2 = .25$ heißt: 25 % der Streuung in $Y$ werden erklärt, 75 % nicht. In der Persönlichkeits- und Sozialpsychologie sind $R^2$-Werte von .05–.30 ganz normal — Menschen sind nicht deterministisch. Erwarte keine .80 wie in der Physik.
+:::
+
+## Voraussetzungen — und wie Du sie prüfst
+
+| Voraussetzung | Prüfung in JASP | Was tun, wenn verletzt? |
+|---|---|---|
+| **Linearität** | Residuals vs. Predicted Plot — kein gebogenes Muster | Term quadrieren, transformieren |
+| **Normalverteilung der Residuen** | Q-Q-Plot der standardisierten Residuen | bei großem $N$ unkritisch (Grenzwertsatz) |
+| **Homoskedastizität** (gleiche Streuung) | Residuals vs. Predicted — gleichmäßiges Band | robuste Standardfehler, transformieren |
+| **Keine extreme Multikollinearität** | **VIF** (Variance Inflation Factor) | VIF > 5–10 → Prädiktoren zusammenfassen/entfernen |
+| **Unabhängige Beobachtungen** | aus dem Design, nicht aus Daten | bei Klumpung: Mehrebenenmodell (Kap. 07) |
+
+**Multikollinearität** heißt: zwei Prädiktoren messen fast dasselbe. Dann „streiten" sie sich um die erklärte Varianz, und die einzelnen $b$ werden instabil. Der **VIF** zeigt das: Werte nahe 1 sind ideal, über 5 wird's heikel.
+
+## In JASP rechnen
+
+1. **Analyses → Regression → Linear Regression**.
+2. **Dependent Variable:** das Kriterium $Y$ (z. B. `N_mean`).
+3. **Covariates:** die metrischen Prädiktoren (z. B. `E_mean`, `V_mean`, `G_mean`, `O_mean`).
+   - Kategoriale Prädiktoren mit mehr als zwei Stufen kommen unter **Factors** (JASP bildet automatisch Dummy-Variablen).
+4. In den Optionen aktivieren:
+   - **Model fit** und **R squared change** (für Modellvergleiche)
+   - **Estimates** mit **Confidence intervals** und **Standardized coefficients** ($\beta$)
+   - **Collinearity diagnostics** (VIF)
+   - unter **Plots:** **Residuals vs. Predicted** und **Q-Q plot standardized residuals**
+
+### Hierarchische Regression — Modelle vergleichen
+
+Oft willst Du wissen: *Bringt ein zusätzlicher Block von Prädiktoren überhaupt etwas?* Dafür baust Du in JASP unter **„Model"** mehrere Blöcke:
+
+- **Block 0 / Modell 1:** nur die Kontrollvariablen (z. B. `alter`, `geschlecht`).
+- **Modell 2:** zusätzlich die interessierenden Prädiktoren (z. B. die anderen Skalen).
+
+JASP zeigt dann **$\Delta R^2$** und einen $F$-Test dafür: *Erklärt Modell 2 signifikant mehr als Modell 1?*
+
+## Worked Example — was unsere Daten hergeben
+
+Erinnere Dich an den [Datenhinweis](00-uebersicht.qmd#sec-tag3-datenhinweis): Die fünf Big-Five-Skalen korrelieren untereinander **schwach positiv**, Demografie hängt mit **nichts** zusammen. Das gibt zwei lehrreiche Modelle:
+
+**Modell A — sollte (teilweise) etwas finden.** Wir sagen Neurotizismus aus den vier anderen Skalen vorher:
+
+$$
+\widehat{\texttt{N\_mean}} = b_0 + b_1\,\texttt{E\_mean} + b_2\,\texttt{V\_mean} + b_3\,\texttt{G\_mean} + b_4\,\texttt{O\_mean}
+$$
+
+Weil alle Skalen leicht positiv zusammenhängen, **bündelt** dieses Modell mehrere kleine Signale. Erwartung: ein kleines, aber von Null verschiedenes $R^2$ (grob .05–.20) und ein eher signifikantes Gesamt-$F$. Einzelne $b$ können trotzdem knapp nicht-signifikant sein — bei $N \approx 90$ ist das normal.
+
+**Modell B — sollte (fast) nichts finden.** Wir sagen dieselbe Skala aus der Demografie vorher:
+
+$$
+\widehat{\texttt{N\_mean}} = b_0 + b_1\,\texttt{alter} + b_2\,\texttt{bildungsgrad} + b_3\,\texttt{geschlecht}
+$$
+
+Erwartung: $R^2 \approx 0$, kein signifikanter Prädiktor, $F$ nicht signifikant. **Das ist das korrekte Ergebnis** — in diesen Daten gibt es diesen Zusammenhang nicht. Wenn doch ein Koeffizient knapp signifikant wird, ist das mit hoher Wahrscheinlichkeit ein **Fehler erster Art** (Zufallstreffer).
+
+::: {.callout-important title="Die eigentliche Lektion"}
+Modell A und Modell B nebeneinander zeigen Dir den Kern sauberer Forschung: Ein Verfahren findet nur dann etwas, wenn in den Daten **wirklich** etwas ist. Ein Nullbefund (Modell B) ist **kein Versagen Deiner Analyse**, sondern eine ehrliche Aussage über die Welt. Du berichtest ihn genauso selbstbewusst wie einen Effekt.
+:::
+
+## Wie das Ergebnis berichten
+
+> Ein multiples Regressionsmodell mit den vier Skalen Extraversion, Verträglichkeit, Gewissenhaftigkeit und Offenheit als Prädiktoren von Neurotizismus war signifikant, $F(4, 85) = 3.10$, $p = .020$, $R^2 = .13$, adj. $R^2 = .09$. Den stärksten partiellen Beitrag leistete Verträglichkeit, $b = 0.21$, $\beta = .24$, $p = .031$, 95 %-KI [0.02, 0.40]. Die übrigen Prädiktoren waren nicht signifikant. Die Residuen waren annähernd normalverteilt (Q-Q-Plot), die VIF-Werte lagen unter 1.5 (keine Multikollinearität).
+
+Was drinsteht: Gesamttest ($F$, $p$, $R^2$, adj. $R^2$), die Koeffizienten mit $b$, $\beta$, $p$, KI, und ein Satz zu den Annahmen.
+
+## Stärken und Schwächen
+
+**Stärken:**
+
+- kontrolliert mehrere Einflüsse gleichzeitig (partielle Effekte)
+- liefert sowohl Vorhersage ($\hat{Y}$) als auch Erklärung (Koeffizienten)
+- Grundlage für fast alles, was danach kommt (Moderation, Mediation, logistische Regression)
+
+**Schwächen:**
+
+- modelliert nur **lineare** Zusammenhänge (es sei denn, Du baust Terme ein)
+- empfindlich gegen Ausreißer und Multikollinearität
+- $R^2$ steigt **immer**, wenn Du Prädiktoren hinzufügst — deshalb adj. $R^2$
+- **keine** Kausalaussage allein aus den Koeffizienten (Tag 2 lässt grüßen)
+
+## Aufgabe
+
+**Pflichtteil (mach jeder):**
+
+1. Rechne **Modell A**: `N_mean` ~ `E_mean` + `V_mean` + `G_mean` + `O_mean`. Aktiviere Model fit, standardisierte Koeffizienten, Konfidenzintervalle, VIF und den **Q-Q-Plot der Residuen**.
+2. Rechne **Modell B**: `N_mean` ~ `alter` + `bildungsgrad` + `geschlecht`.
+3. Notiere **eine Berichtszeile pro Modell** im Format:
+   *„Modell X: F(df1, df2) = …, p = …, R² = …, adj. R² = …; stärkster Prädiktor: … (β = …, p = …); Schluss: …"*
+
+**Bonus (für die Schnellen):**
+
+- Bau Modell A als **hierarchische Regression**: Block 1 = Demografie, Block 2 = + die vier Skalen. Wie groß ist $\Delta R^2$, und ist es signifikant?
+- Tausch das Kriterium: sag `O_mean` aus den anderen vier Skalen vorher. Anderer stärkster Prädiktor?
+
+::: {.callout-important title="Abgabe per Mail — nur EIN Output"}
+Schick **eine einzige Datei**: den **Q-Q-Plot der standardisierten Residuen aus Modell A** (Screenshot oder PDF-Export). Schreib in den Mail-Text Deine **zwei Berichtszeilen** (Modell A und Modell B) und **einen Satz**, warum Modell B (fast) nichts findet.
+
+An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
+Betreff: *„M15 Tag 3 — Kap 01 — [Deine Kennziffer]"*
+:::
+
+## Selbstcheck
+
+1. Was bedeutet es, dass ein Regressionskoeffizient ein *partieller* Effekt ist?
+2. Warum berichtest Du bei mehreren Prädiktoren das adjustierte statt des normalen $R^2$?
+3. Ein VIF von 8 für zwei Prädiktoren — was ist das Problem und was tust Du?
+4. Modell B aus dem Beispiel wird nicht signifikant. Ist Deine Analyse gescheitert? Begründe.

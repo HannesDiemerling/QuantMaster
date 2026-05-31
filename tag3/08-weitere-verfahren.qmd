@@ -1,0 +1,91 @@
+# Weitere Verfahren im Überblick {#sec-tag3-weitere}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- die wichtigsten verbleibenden multivariaten Verfahren benennen und **einordnen**,
+- für eine gegebene Fragestellung das passende Verfahren auswählen,
+- jedes Verfahren in JASP **finden** und weißt grob, was es ausgibt.
+:::
+
+## Worum es geht
+
+Dieses Kapitel ist eine **Landkarte**, kein Trainingslager. Die folgenden Verfahren wirst Du in Master-Arbeit oder Forschungspraktikum vielleicht brauchen — heute geht es darum, dass Du sie **erkennst**, ihren Zweck verstehst und sie in JASP wiederfindest. Die Lehrperson zeigt ein, zwei davon als kurze Live-Demo. Tiefer einsteigen kannst Du jederzeit später.
+
+## Faktorenanalyse: EFA und PCA
+
+**Frage:** Lassen sich viele Items auf wenige zugrunde liegende **Dimensionen** zurückführen?
+
+- **Explorative Faktorenanalyse (EFA):** Du weißt *nicht* vorab, wie viele Faktoren es gibt, und lässt sie aus den Daten auftauchen. Für unseren BFI-K würdest Du erwarten, dass sich grob **fünf** Faktoren zeigen (die Big Five) — bei $N \approx 90$ und 21 Items aber nur unscharf.
+- **Hauptkomponentenanalyse (PCA):** verwandt, aber datenreduzierend statt modellbasiert; gut zum Zusammenfassen, nicht zum Theorie-Testen.
+
+**In JASP:** Analyses → **Factor** → Exploratory Factor Analysis bzw. Principal Component Analysis. Achte auf **Scree-Plot**, **Eigenwerte > 1** (Kaiser-Kriterium) und die **Faktorladungen** (welches Item lädt auf welchem Faktor).
+
+## CFA und Strukturgleichungsmodelle (SEM)
+
+**Frage:** Passt eine **vorab festgelegte** Struktur zu den Daten?
+
+- **Konfirmatorische Faktorenanalyse (CFA):** Du gibst vor, welche Items zu welchem Faktor gehören (beim BFI-K: Items → 5 Faktoren), und prüfst, **wie gut** dieses Modell passt — über **Fit-Indizes** (CFI, TLI > .95; RMSEA, SRMR < .08).
+- **Strukturgleichungsmodelle (SEM):** verbinden mehrere Regressionen und latente Variablen in *einem* Modell. Mediation (Kapitel 03) ist ein einfacher SEM-Spezialfall.
+
+**In JASP:** Analyses → **SEM** → Confirmatory Factor Analysis bzw. Structural Equation Modeling (im Hintergrund `lavaan`). Modelle werden in einer kurzen Syntax beschrieben.
+
+::: {.callout-tip title="Warum CFA mehr verlangt als EFA"}
+SEM und CFA sind hungrig nach Daten — Faustregeln reichen von „≥ 10 Fälle pro geschätztem Parameter" bis „$N \geq 200$". Mit unseren ~90 Personen sind sie nur **demonstrativ** sinnvoll, nicht belastbar. Gut zu wissen, bevor Du sie in einer Arbeit einplanst.
+:::
+
+## Netzwerkanalyse
+
+**Frage:** Wie hängen viele Variablen **paarweise** zusammen, wenn man alle anderen kontrolliert?
+
+Statt latenter Faktoren zeichnet die **Netzwerkanalyse** Variablen als Knoten und ihre (partiellen) Zusammenhänge als Kanten. In der klinischen Psychologie populär, um Symptome als sich gegenseitig beeinflussendes System zu modellieren (statt als Ausdruck einer Krankheit „dahinter").
+
+**In JASP:** Analyses → **Network**. Du bekommst einen Netzwerk-Plot und **Zentralitätsmaße** (welcher Knoten ist am stärksten verbunden).
+
+## Clusteranalyse
+
+**Frage:** Gibt es **Untergruppen** von Personen mit ähnlichem Profil — *ohne* vorgegebene Zielvariable?
+
+Clustering ist **unüberwacht** (kein $Y$). Über die fünf Big-Five-Skalen könntest Du nach „Persönlichkeitstypen" suchen. Methoden: **k-means**, hierarchisches Clustering, modellbasiertes Clustering.
+
+**In JASP:** Analyses → **Machine Learning → Clustering** (vgl. Bonus in Kapitel 06). Bei zufällig-kontinuierlichen Daten wie unseren sind „Typen" mit Vorsicht zu genießen — Cluster lassen sich *immer* finden, ob sie *real* sind, ist eine andere Frage.
+
+## Meta-Analyse
+
+**Frage:** Was sagt die **Gesamtheit** vorhandener Studien zu einem Effekt?
+
+Eine **Meta-Analyse** fasst Effektgrößen aus vielen Studien zu einer Gesamtschätzung zusammen, gewichtet nach Präzision (große Studien zählen mehr), und untersucht **Heterogenität** ($I^2$) und **Publikationsbias** (Funnel Plot). Sie ist die höchste Evidenzstufe für eine Effektfrage — und ein realistisches Format für eine Master-Arbeit, **ohne eigene Erhebung**.
+
+**In JASP:** Analyses → **Meta-Analysis**. Du gibst Effektgrößen und Standardfehler je Studie ein und erhältst **Forest Plot**, Gesamteffekt und Heterogenitätsmaße.
+
+## Schnell-Entscheidungshilfe
+
+| Deine Frage | Verfahren |
+|---|---|
+| Wie viele Dimensionen stecken in vielen Items? | EFA / PCA |
+| Passt meine *theoretische* Faktorstruktur? | CFA |
+| Mehrere Gleichungen + latente Variablen zusammen? | SEM |
+| Wie hängen Variablen als System zusammen? | Netzwerkanalyse |
+| Gibt es Personen-Untergruppen ohne Zielvariable? | Clusteranalyse |
+| Was sagen *alle* Studien zusammen? | Meta-Analyse |
+| Binäres Ergebnis vorhersagen? | logistische Regression (Kap. 04) |
+| Genestete / Längsschnittdaten? | Mixed Model (Kap. 07) |
+| Bestmögliche Vorhersage, viele Daten? | Machine Learning (Kap. 06) |
+
+## Aufgabe (optional — Demo-Charakter)
+
+Dieses Kapitel hat **keinen** Pflicht-Upload. Wenn Du Lust hast:
+
+- Wähl **eines** der Verfahren und führ es in JASP einmal mit unseren Daten aus (EFA über die 21 Items bietet sich an — Scree-Plot ansehen, kommen ~5 Faktoren raus?).
+- Notiere Dir in einem Satz, was Du siehst.
+
+::: {.callout-tip title="Freiwillige Abgabe — nur EIN Plot"}
+Wenn Du magst, schick **einen** Plot Deiner Wahl (z. B. den **Scree-Plot der EFA**) mit einem Satz Interpretation an [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de), Betreff *„M15 Tag 3 — Kap 08 — [Deine Kennziffer]"*. Pflicht ist es nicht.
+:::
+
+## Selbstcheck
+
+1. Was unterscheidet eine explorative von einer konfirmatorischen Faktorenanalyse?
+2. Wofür brauchst Du SEM, das eine einzelne Regression nicht kann?
+3. Welches Verfahren wählst Du, um ohne eigene Erhebung den Stand der Forschung zu einem Effekt zusammenzufassen?
+4. Warum sind CFA/SEM mit $N = 90$ nur eingeschränkt aussagekräftig?

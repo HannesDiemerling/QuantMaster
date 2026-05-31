@@ -1,49 +1,86 @@
 # Tag 3 — Übersicht {#sec-tag3-uebersicht}
 
-::: {.callout-important title="Im Aufbau"}
-Tag 3 ist als **Skizze** in die Site eingebunden. Die einzelnen Kapitel werden in einer eigenen Iteration vor dem 04.06.2026 ausgearbeitet. Die folgende Outline gibt Dir einen Vorgeschmack auf das, was Dich erwartet.
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel weißt Du …
+
+- was Dich an Tag 3 erwartet und in welcher Reihenfolge,
+- warum die multivariaten Verfahren der logische nächste Schritt nach Tag 2 sind,
+- was Du am Ende des Workshops alles selbst kannst — und wo Du in Master-Arbeit und Forschungspraktikum daran anknüpfst.
 :::
 
 ## Termin
 
-**04.06.2026, 09:45–17:00** — HMU Potsdam, Präsenz
+**04.06.2026, 09:45–ca. 16:00** — HMU Potsdam, Präsenz. Wir haben heute **gut sechs Arbeitsstunden** Stoff. Du arbeitest erfahrungsgemäß zügig, deshalb ist der Tag dicht gepackt — aber jeder Block ist in sich abgeschlossen, und das letzte Kapitel ist bewusst als **Nachschlagewerk** angelegt, das Du auch nach dem Workshop benutzt.
 
 ## Worum es geht
 
-Heute kommen die **multivariaten Verfahren** dazu — also Modelle, die mehr als eine Prädiktorvariable einbeziehen oder mehr als eine abhängige Variable gleichzeitig betrachten. Du arbeitest weiter mit dem Workshop-Datensatz und lernst, wie Regression, Moderation, Mediation und Logistik in JASP konkret aussehen. Den Abschluss bilden Bayes-Inferenz, kurze Demos zu weiteren Verfahren und ein Ausblick auf die Klausur.
+An Tag 2 hast Du Zusammenhänge zwischen **zwei** Variablen untersucht (Korrelation) und Mittelwerte zwischen **zwei oder mehr** Gruppen verglichen (*t*-Test, ANOVA). Das reicht selten. In echten Fragestellungen wirken **viele Einflüsse gleichzeitig**: Hängt Gewissenhaftigkeit mit Offenheit zusammen, *wenn man das Alter herausrechnet*? Verstärkt eine dritte Variable den Effekt? Läuft ein Effekt *über* eine Zwischenvariable?
 
-## Geplante Kapitel
+Heute lernst Du die Werkzeuge dafür — die **multivariaten Verfahren**. Das ist der Methodenkasten, mit dem die allermeisten Master-Arbeiten und Forschungsprojekte in der Psychologie tatsächlich arbeiten.
 
-| Kapitel | Thema |
-|---|---|
-| 01 | Multiple Regression: Voraussetzungen, Interpretation, Modellvergleich |
-| 02 | Moderation (Interaktionseffekte) und Centering |
-| 03 | Bootstrap und Mediation — Resampling als Werkzeug für robuste Inferenz |
-| 04 | Bayes vs. Frequentismus — was ist ein Posterior, ein Bayes-Faktor? |
-| 05 | Logistische Regression — wenn die abhängige Variable binär ist |
-| 06 | Demos: CFA / SEM, hierarchische Modelle, Clusteranalyse, Metaanalyse |
+::: {.callout-tip title="Unterschiedliche Wissensstände — ausdrücklich erwünscht"}
+Manche von Euch haben Regression schon im Bachelor gerechnet, andere sehen sie heute zum ersten Mal. Jedes Kapitel startet deshalb bei den Grundideen und wird dann konkret. Wer schnell ist, findet in jedem Kapitel einen **Bonus**-Teil. Wer mehr Zeit braucht, macht den Pflichtteil sauber und holt den Rest zu Hause nach. Beides ist völlig in Ordnung.
+:::
 
-Begleitend:
+## Tagesablauf
 
-- Klausurvorbereitung — Sammlung der zentralen Begriffe und typische Fragen
-- Zusammenführung des Workshops: Wie hängen die drei Tage zusammen?
+| Zeit | Modus | Inhalt | Kapitel |
+|---|---|---|---|
+| 09:45–10:15 | **Plenum** | Begrüßung, Rückblick Tag 2, was multivariat bedeutet | — |
+| 10:15–11:15 | Self-Study | Multiple Regression — das Arbeitspferd | 01 |
+| 11:15–12:00 | Self-Study | Moderation (Interaktionen) | 02 |
+| 12:00–12:45 | Self-Study | Mediation & Bootstrap | 03 |
+| 12:45–13:30 | Mittag | | |
+| 13:30–14:10 | Self-Study | Logistische Regression | 04 |
+| 14:10–14:55 | Self-Study | Bayes vs. Frequentismus | 05 |
+| 14:55–15:30 | Self-Study | Machine Learning & neuronale Netze in JASP | 06 |
+| 15:30–15:55 | Self-Study | Mehrebenen- & gemischte Modelle (Mixed Models) | 07 |
+| 15:55–16:10 | **Plenum** | Weitere Verfahren im Überblick (Demos) | 08 |
+| nach Bedarf | Self-Study | Zusammenfassung & Nachschlagewerk; Klausurvorbereitung | 09 |
+| zum Schluss | **Plenum** | Workshop-Abschluss, Reflexion | 10 |
+
+Die Lehrperson ist während der Self-Study-Phasen durchgehend ansprechbar. Wenn Du irgendwo hängst: fragen, nicht verzweifeln.
+
+## Eine wichtige Sache über unseren Datensatz {#sec-tag3-datenhinweis}
+
+Du arbeitest heute weiter mit dem **Gesamtdatensatz** (`m15-gesamt.csv`, rund 90 Personen) und Deinen fünf Skalenmittelwerten `E_mean`, `V_mean`, `G_mean`, `N_mean`, `O_mean` aus Tag 2. Bevor wir loslegen, musst Du wissen, **wie diese Daten entstanden sind** — sonst interpretierst Du heute Ergebnisse falsch.
+
+Die vorgenerierten Datensätze wurden per Simulation erzeugt (`scripts/generate-datasets.R`). Dabei wurden **zwei Strukturen bewusst eingebaut** und eine bewusst weggelassen:
+
+::: {.callout-important title="Was in den Daten *wirklich* steckt"}
+1. **Innerhalb** jeder Big-Five-Skala hängen die Items moderat zusammen (Konstruktion: $r \approx .40$). → Die Reliabilität ist brauchbar, die Skalen „funktionieren".
+2. **Zwischen** den fünf Skalen gibt es einen **schwach positiven** Zusammenhang (Konstruktion: $r \approx .10$ auf Item-Ebene, ca. $r \approx .15$–$.20$ auf Skalen-Ebene). → Die Big-Five-Skalen korrelieren untereinander leicht positiv. **Das ist das einzige echte Signal zwischen verschiedenen Konstrukten.**
+3. **Demografie und Persönlichkeit sind komplett unabhängig** generiert. Alter, Geschlecht und Bildungsgrad hängen in diesen Daten mit **keiner** Persönlichkeitsskala zusammen — es gibt dort schlicht keinen wahren Effekt.
+:::
+
+Daraus folgt etwas für heute, das in echten Studien genauso gilt:
+
+- **Hypothesen zwischen den Skalen** (z. B. „Wer offener ist, ist auch extravertierter") haben eine **reale, wenn auch kleine Grundlage** — die solltest Du teilweise *bestätigt* sehen, vor allem wenn Du mehrere Skalen gemeinsam in ein Modell packst (Kapitel 01).
+- **Hypothesen mit Demografie** (z. B. „Ältere sind gewissenhafter") sind in *diesen* Daten **wahre Nulleffekte**. Wenn so ein Test nicht signifikant wird, ist das **kein Misserfolg**, sondern das *richtige* Ergebnis. Ein sauberer Nullbefund ist ein vollwertiges wissenschaftliches Resultat.
+- Unsere Stichprobe ist mit ~90 Personen **klein**. Kleine, echte Effekte werden wir oft *nicht* signifikant kriegen (geringe Power), und ab und zu wird ein Nulleffekt rein zufällig „signifikant" (Fehler erster Art). Beides üben wir heute zu erkennen.
+
+Diese ehrliche Haltung — Effekte melden *und* Nullbefunde aushalten, ohne nachträglich an den Hypothesen zu drehen — ist genau das, was Open Science meint. Behalt sie heute bei jedem Test im Kopf.
 
 ## Was Du dafür brauchst
 
-- Laptop mit JASP
-- Den Gesamtdatensatz und Deine Skalenwerte, die Du an Tag 2 selbst aus den Uploads zusammengestellt hast
-- Bereitschaft, formal etwas anspruchsvoller zu denken — wir interpretieren Modellkoeffizienten, nicht nur Mittelwertsunterschiede
+- Laptop mit **JASP** (aktuelle Version). Für Kapitel 06 brauchst Du das **Machine-Learning-Modul** und für Kapitel 05 das **Summary-Statistics-/Bayesian**-Modul — beide schaltest Du über das blaue **„+"** oben rechts in JASP frei (kostenlos, integriert).
+- Den **Gesamtdatensatz** mit Deinen fünf Skalenmittelwerten aus Tag 2. Falls Du die `*_mean`-Spalten noch nicht hast: zuerst Kapitel [Tag 2 · 04](../tag2/04-skalen-bilden.qmd) nachholen.
+- Bereitschaft, **Modellkoeffizienten zu interpretieren**, nicht nur p-Werte abzulesen.
 
-## Was Du am Ende des Tages erreicht hast
+## Was Du am Ende des Tages — und des Workshops — kannst
 
-- Du kannst ein lineares Regressionsmodell aufstellen, schätzen und interpretieren.
-- Du verstehst, was eine Interaktion ist und wann Du sie testen würdest.
-- Du weißt, was ein Mediator von einem Moderator unterscheidet.
-- Du hast einmal eine logistische Regression gerechnet und kannst Odds Ratios lesen.
-- Du kennst die Grundideen von Bayes-Inferenz und kannst sie gegen den frequentistischen Ansatz abgrenzen.
-- Du bist auf die Klausur vorbereitet.
+- Ein **multiples Regressionsmodell** aufstellen, prüfen, vergleichen und sauber berichten.
+- **Moderation** (Interaktion) und **Mediation** unterscheiden und beide in JASP rechnen.
+- **Bootstrap** als robustes Verfahren einsetzen und erklären, was es leistet.
+- Eine **logistische Regression** rechnen und **Odds Ratios** lesen.
+- **Bayesianisch** denken: Posterior, Bayes-Faktor, und worin sich das vom klassischen p-Wert unterscheidet.
+- Einen ersten **Machine-Learning-Workflow** (inkl. eines kleinen **neuronalen Netzes**) in JASP durchführen und verstehen, was Kreuzvalidierung soll.
+- Ein **gemischtes / Mehrebenen-Modell** (Mixed Model) einordnen und wissen, wann genestete Daten ein solches Modell verlangen.
+- Die **weiteren Verfahren** (CFA/SEM, Faktorenanalyse, Cluster, Netzwerk, Meta-Analyse) einordnen und weißt, *wann* Du welches brauchst.
+- Den **gesamten empirischen Workflow** von der Erhebung bis zur multivariaten Analyse einmal komplett durchlaufen haben — die Blaupause für Deine Master-Arbeit.
 
 ## Vorbereitung
 
-- Tag 2 wiederholen, vor allem Korrelationen und *t*-Tests.
-- Wer mag: einen kurzen Blick auf das Kapitel zu linearer Regression im JASP-Manual oder in einem Stats-Lehrbuch werfen — wir starten aber bei Null.
+- Tag 2 kurz wiederholen, vor allem Korrelation, *t*-Test, Effektgrößen.
+- Den Datenhinweis oben (@sec-tag3-datenhinweis) wirklich verstanden haben — er trägt durch den ganzen Tag.
+- Wer mag: einen Blick in die JASP-Module „Regression" und „Machine Learning" werfen. Wir starten aber bei Null.

@@ -160,7 +160,7 @@ Du rechnest **mindestens fünf** der folgenden t-Tests:
 |---:|---|---|---|
 | T1 | Mittlere Extraversion liegt nicht bei 3. | One-Sample, zweiseitig | `E_mean` vs. 3 |
 | T2 | Frauen sind verträglicher als Männer. | Independent, gerichtet | `V_mean` ~ `geschlecht` |
-| T3 | Personen mit Master oder mehr (Bildung ≥ 6) sind offener als Personen mit weniger. | Independent | `O_mean` ~ Bildungsgruppe |
+| T3 | Personen mit Bachelor oder mehr (Bildung ≥ 5) sind offener als Personen mit weniger. | Independent | `O_mean` ~ Bildungsgruppe |
 | T4 | Mittlerer Neurotizismus liegt unter 3 (Skalenmitte). | One-Sample, einseitig | `N_mean` vs. 3 |
 | T5 | Personen unter 25 Jahren sind extravertierter als Personen ab 25. | Independent | `E_mean` ~ Altersgruppe |
 | T6 | Personen, die einen vorgenerierten Datensatz aus der ersten Hälfte (1–5) bearbeitet haben, unterscheiden sich nicht in Gewissenhaftigkeit von denen aus der zweiten Hälfte (6–10). | Independent | `G_mean` ~ `quelle_datensatz` < 6 |
@@ -172,7 +172,7 @@ Für die Gruppierung in T3 und T5 baust Du Dir eine neue Spalte per Compute Colu
 ifelse(alter < 25, "jung", "aelter")
 
 # Bildungsgruppe (T3)
-ifelse(bildungsgrad >= 6, "hoch", "niedriger")
+ifelse(bildungsgrad >= 5, "hoch", "niedriger")
 ```
 
 ::: {.callout-tip title="Vorsicht mit gerichteten Hypothesen"}

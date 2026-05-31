@@ -1,0 +1,53 @@
+# Workshop-Abschluss {#sec-tag3-abschluss}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel hast Du …
+
+- den gesamten Workshop reflektiert,
+- einen klaren Blick darauf, was Du jetzt selbst kannst,
+- die offenen Fragen für die Lehrperson gesammelt.
+:::
+
+## Was Du in drei Tagen geschafft hast
+
+Halt kurz inne — das ist viel:
+
+- Du hast einen **vollständigen Forschungsworkflow** durchlaufen: von der Erhebung über Versionierung, Bereinigung und Aggregation bis zur multivariaten Modellierung.
+- Du beherrschst die **Standardverfahren** der quantitativen Psychologie: Korrelation, *t*-Test, ANOVA, multiple Regression — inklusive Effektgrößen und sauberem Berichten.
+- Du hast die **fortgeschrittenen** Werkzeuge kennengelernt: Moderation, Mediation, Bootstrap, logistische Regression.
+- Du hast in **moderne** Methoden hineingeschaut: Bayes-Inferenz, Machine Learning mit neuronalem Netz, Mixed Models.
+- Du kannst die **restliche Verfahrenslandkarte** (Faktorenanalyse, SEM, Netzwerk, Cluster, Meta-Analyse) einordnen.
+- Vor allem: Du hast eine **wissenschaftliche Haltung** geübt — Effekte ehrlich melden, Nullbefunde aushalten, nicht an Hypothesen drehen, Reproduzierbarkeit ernst nehmen.
+
+Niemand erwartet, dass alles davon sofort sitzt. Das [Nachschlagewerk](09-zusammenfassung.qmd) ist genau dafür da, dass Du wiederkommst.
+
+## Das Wichtigste in einem Satz
+
+> Ein Verfahren ist nur so gut wie die Frage, die Du ihm stellst, und die Daten, die Du ihm gibst — und ein ehrlicher Nullbefund ist ein vollwertiges Ergebnis.
+
+## Wie es weitergeht
+
+- **Master-Arbeit / Forschungspraktikum:** Du hast jetzt die Blaupause (Kapitel [09](09-zusammenfassung.qmd)) und das Handwerkszeug. Wenn Du planst, fang bei Frage und Power an — nicht bei der Methode.
+- **Klausur:** Geh die 14 typischen Fragen und die Selbstchecks durch. Das Vokabular sollte sitzen.
+- **JASP:** Bleib dran. Die Module sind kostenlos, die Oberfläche dieselbe, die Du jetzt kennst.
+
+## Reflexionsaufgabe (5 Minuten, privat)
+
+Notiere für Dich allein:
+
+1. **Das wichtigste Werkzeug**, das ich aus diesem Workshop mitnehme.
+2. **Eine Sache**, bei der ich noch unsicher bin — die ich vor der Klausur klären will.
+3. **Wie** ich an meine eigene erste Analyse herangehen würde, wenn ich morgen anfinge.
+
+Diese Notizen bleiben bei Dir. Punkt 2 darfst Du gern jetzt noch mit der Lehrperson besprechen.
+
+## Letzte Abgabe & Feedback
+
+- Hast Du die **Pflicht-Abgaben** der Kapitel 01–07 verschickt (je **ein** Output pro Kapitel)? Wenn nicht: jetzt nachholen.
+- Feedback zum Workshop ist ausdrücklich willkommen — kurz per Mail an [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de) genügt.
+
+## Danke
+
+Danke für drei intensive Tage, fürs Mitmachen, fürs kritische Nachfragen und fürs Aushalten der vielen Nullbefunde. Genau diese Mischung aus Können und Skepsis ist es, die gute Forschung ausmacht.
+
+Viel Erfolg bei der Klausur — und bei Deiner ersten eigenen Studie.

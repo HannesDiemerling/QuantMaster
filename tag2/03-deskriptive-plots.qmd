@@ -118,8 +118,8 @@ Alternative: das gesamte JASP-Output kannst Du als **PDF exportieren** (`File �
 **Bonus (für die Schnellen):**
 
 - Plot 9: Density-Overlay mehrerer BFI-Items aus derselben Skala (z. B. `BFI_01`, `BFI_06`, `BFI_11`, `BFI_16` für Extraversion)
-- Plot 10: Bar Charts der 4 E-Items nebeneinander (Split-Plot) — zeigt visuell, ob Antworten konsistent zwischen den E-Items sind
-- Plot 11: Boxplot von `bildungsgrad` (auch wenn ordinal — als Anschauung)
+- Plot 10: Bar Charts der 4 E-Items — zeigt visuell, ob Antworten konsistent zwischen den E-Items sind
+- Plot 11: Histogramm von `bildungsgrad` (auch wenn ordinal — als Anschauung)
 - Notiere zu jedem Bonus-Plot in einem Satz: was Du siehst.
 
 ::: {.callout-important title="Abgabe per Mail"}

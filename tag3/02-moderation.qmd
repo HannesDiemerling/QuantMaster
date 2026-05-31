@@ -1,0 +1,129 @@
+# Moderation & Interaktionen {#sec-tag3-moderation}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- erklären, was ein Moderator ist und wie er sich von einem normalen Prädiktor unterscheidet,
+- einen Interaktionsterm in JASP bilden und das Modell interpretieren,
+- begründen, warum man Prädiktoren vor der Interaktion **zentriert**,
+- eine signifikante Interaktion mit einem Simple-Slopes-Gedanken erläutern,
+- einschätzen, warum Interaktionen besonders viele Daten brauchen.
+:::
+
+## Worum es geht
+
+Bis jetzt haben wir angenommen, dass ein Prädiktor *überall* gleich wirkt. Eine **Moderation** stellt genau das in Frage: Sie fragt, ob der Effekt von $X$ auf $Y$ **von einer dritten Variable abhängt**. Diese dritte Variable heißt **Moderator** $W$.
+
+> *Beispiel:* Der Effekt von Gewissenhaftigkeit auf Studienerfolg ist vielleicht bei jüngeren Studierenden stärker als bei älteren. Dann **moderiert** das Alter den Effekt der Gewissenhaftigkeit.
+
+Im Modell schlägt sich das als **Interaktionsterm** $X \times W$ nieder:
+
+$$
+\hat{Y} = b_0 + b_1 X + b_2 W + b_3\,(X \times W)
+$$
+
+Der entscheidende Koeffizient ist $b_3$: Ist er von Null verschieden, **hängt die Wirkung von $X$ vom Wert von $W$ ab**. Das ist die Moderation.
+
+## Moderator vs. Mediator — nicht verwechseln
+
+Das ist die häufigste Verwechslung im ganzen Workshop, deshalb gleich hier sauber:
+
+| | **Moderation** | **Mediation** (nächstes Kapitel) |
+|---|---|---|
+| Frage | *Wann / für wen* ist der Effekt stark? | *Wie / über was* läuft der Effekt? |
+| Rolle der 3. Variable | verändert die **Stärke** des Effekts | überträgt den Effekt als **Zwischenschritt** |
+| Bild | $W$ dreht am Regler von $X \to Y$ | $X \to M \to Y$ |
+| Schlüsselbegriff | **Interaktion** | **indirekter Effekt** |
+
+## Warum zentrieren?
+
+Wenn Du $X$ und $W$ multiplizierst, sind die Einzeleffekte ($b_1$, $b_2$) im Interaktionsmodell nur noch interpretierbar **am Punkt, an dem die jeweils andere Variable = 0 ist**. Bei einer Skala von 1–5 ist „0" aber außerhalb des sinnvollen Bereichs — der Wert wäre Unsinn.
+
+Die Lösung: **Zentrieren**. Du ziehst von jedem Prädiktor seinen Mittelwert ab, sodass der neue Mittelwert 0 ist. Dann bedeutet „$X = 0$" gerade „$X$ = Durchschnitt", und die Haupteffekte werden wieder sinnvoll interpretierbar. Als Nebeneffekt sinkt die (rechnerische) Multikollinearität zwischen den Termen.
+
+In JASP per **Compute Column** (R-Modus), für jeden beteiligten Prädiktor eine zentrierte Version:
+
+```r
+# zentrierte Extraversion
+E_mean - mean(E_mean, na.rm = TRUE)
+
+# zentrierte Gewissenhaftigkeit
+G_mean - mean(G_mean, na.rm = TRUE)
+```
+
+::: {.callout-tip title="Zentrieren ändert die Interaktion selbst nicht"}
+$b_3$ (der Interaktionskoeffizient) und seine Signifikanz bleiben durch Zentrieren **unverändert**. Zentriert wird nur, damit die **Haupteffekte** und der **Intercept** interpretierbar werden. Standardisieren (z-Transformation) tut dasselbe plus Vergleichbarkeit der Skalen.
+:::
+
+## In JASP rechnen
+
+1. **Analyses → Regression → Linear Regression**.
+2. **Dependent Variable:** $Y$ (z. B. `N_mean`).
+3. **Covariates:** die **zentrierten** Prädiktoren (z. B. `E_c`, `G_c`).
+4. Unter **„Model"**: beide Prädiktoren markieren und über das Auswahlmenü als **Interaktionsterm** ins Modell ziehen (in JASP wählst Du beide Terme aus und fügst sie als „Interaction" hinzu). Dein Modell enthält dann: `E_c`, `G_c` **und** `E_c * G_c`.
+5. Optionen: Estimates mit KI, standardisierte Koeffizienten, Model fit.
+
+Der Output zeigt drei Zeilen: die zwei Haupteffekte und die Interaktion `E_c * G_c`. **Auf die Interaktionszeile schaust Du zuerst.**
+
+## Eine signifikante Interaktion interpretieren
+
+Angenommen $b_3 > 0$ und signifikant. Dann gilt: Je höher $W$, desto **steiler** der Effekt von $X$ auf $Y$. Anschaulich macht man das mit **Simple Slopes** — man rechnet die Steigung von $X \to Y$ getrennt für niedrige, mittlere und hohe Werte von $W$ (üblich: $-1\,SD$, Mittelwert, $+1\,SD$).
+
+Ein **Interaktionsplot** zeigt das als mehrere Geraden: Laufen sie parallel → keine Interaktion. Spreizen oder kreuzen sie sich → Interaktion. Dieser eine Plot ist das, was Du am Ende abgibst.
+
+## Was unsere Daten hergeben — Erwartung
+
+Achtung, ehrlich bleiben (@sec-tag3-datenhinweis): In unseren simulierten Daten ist **keine Interaktion eingebaut**. Es gibt zwischen den Skalen nur schwache *lineare* Zusammenhänge, keine moderierenden. Daher ist die ehrliche Erwartung:
+
+- Der Interaktionsterm wird **meistens nicht signifikant**.
+- Genau das ist das **korrekte** Ergebnis.
+
+Das ist didaktisch Absicht: **Interaktionen sind notorisch schwer nachzuweisen.** Sie brauchen viel mehr Power als Haupteffekte — als Faustregel das **Vierfache** der Stichprobe, die Du für einen gleich großen Haupteffekt bräuchtest. Mit $N \approx 90$ bist Du für Interaktionen klar unterversorgt. Du lernst hier also vor allem **das Verfahren und seine Interpretation** — und die wichtige Lektion, dass ein nicht-signifikanter Interaktionsterm der Normalfall ist und kein Drama.
+
+::: {.callout-tip title="Falls Deine Interaktion doch signifikant wird"}
+Bei rund einem von zwanzig Tests passiert das rein zufällig (Fehler erster Art). Bevor Du eine Geschichte darum baust: erst replizieren, dann glauben. Genau diese Skepsis trainiert der Workshop.
+:::
+
+## Stärken und Schwächen
+
+**Stärken:**
+
+- beantwortet die oft *eigentlich* interessante Frage: *für wen / wann* wirkt etwas?
+- direkt in die Regression integriert — kein neues Verfahren nötig
+- der Interaktionsplot kommuniziert das Ergebnis sehr anschaulich
+
+**Schwächen:**
+
+- **hoher Power-Bedarf** — kleine Stichproben finden echte Interaktionen selten
+- ohne Zentrierung schwer interpretierbare Haupteffekte
+- viele mögliche Interaktionen → Multiple-Testing-Gefahr, wenn man „herumprobiert"
+- Interpretation anspruchsvoller als bei Haupteffekten
+
+## Aufgabe
+
+**Pflichtteil (mach jeder):**
+
+1. Bau zwei zentrierte Spalten `E_c` und `G_c` per Compute Column.
+2. Rechne in JASP das Modell `N_mean` ~ `E_c` + `G_c` + `E_c * G_c`.
+3. Lies die **Interaktionszeile** ab ($b_3$, $p$, KI) und notiere **eine** Berichtszeile:
+   *„Interaktion E×G auf N: b = …, p = …, 95 %-KI […]; Schluss: (keine) Moderation."*
+4. Erzeuge **einen Interaktionsplot** (in JASP unter Plots / bzw. über die „Simple slopes"-Option, falls vorhanden — sonst beschreibe in einem Satz, wie die Geraden zueinander stehen).
+
+**Bonus (für die Schnellen):**
+
+- Wiederhole mit einem anderen Paar (z. B. `O_c * V_c` auf `G_mean`). Auch null?
+- Erkläre in zwei Sätzen, warum ein nicht-signifikanter Interaktionsterm hier **erwartbar** war (Verweis auf Datengenerierung und Power).
+
+::: {.callout-important title="Abgabe per Mail — nur EIN Plot"}
+Schick **den einen Interaktionsplot** (Screenshot/Export). In den Mail-Text: Deine **eine Berichtszeile** zur Interaktion und **ein Satz** zur Power-Problematik.
+
+An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
+Betreff: *„M15 Tag 3 — Kap 02 — [Deine Kennziffer]"*
+:::
+
+## Selbstcheck
+
+1. Was unterscheidet einen Moderator von einem Mediator?
+2. Warum zentrierst Du Prädiktoren vor dem Bilden eines Interaktionsterms — und was bleibt dabei unverändert?
+3. Du siehst im Interaktionsplot drei parallele Geraden. Was heißt das?
+4. Warum brauchen Interaktionen so viel mehr Power als Haupteffekte?

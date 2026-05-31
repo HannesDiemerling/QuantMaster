@@ -1,0 +1,136 @@
+# Machine Learning & neuronale Netze {#sec-tag3-ml}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- den Unterschied zwischen **Erklären** (klassische Statistik) und **Vorhersagen** (Machine Learning) erklären,
+- die Begriffe Trainings-/Testdaten, Kreuzvalidierung und Overfitting sicher benutzen,
+- in JASP ein Random-Forest- und ein **neuronales Netz** rechnen,
+- die Modellgüte fair (auf ungesehenen Daten) beurteilen,
+- einschätzen, wann Machine Learning sinnvoll ist — und wann klassische Statistik die bessere Wahl bleibt.
+:::
+
+## Worum es geht
+
+Die Verfahren der letzten Kapitel hatten ein Ziel: **erklären**. Sie liefern interpretierbare Koeffizienten („pro +1 in $X$ steigt $Y$ um $b$"). **Machine Learning (ML)** dreht den Fokus um: Es will möglichst gut **vorhersagen**, oft mit komplexen, nicht-linearen Modellen — auch wenn die einzelnen „Stellschrauben" dann nicht mehr einfach interpretierbar sind.
+
+| | **Klassische Statistik** | **Machine Learning** |
+|---|---|---|
+| Ziel | Erklären, Hypothesen testen | Vorhersagen auf neuen Daten |
+| Wichtigste Frage | „Ist der Effekt da, wie groß?" | „Wie gut trifft das Modell ungesehene Fälle?" |
+| Ergebnis | Koeffizienten, p-Werte, BF | Vorhersagegüte (Accuracy, RMSE, AUC) |
+| Gefahr | Fehlspezifikation | **Overfitting** |
+| Modellgröße | klein, interpretierbar | groß, oft Blackbox |
+
+JASP bündelt ML im **Machine-Learning-Modul** (über das **„+"** aktivieren). Du brauchst keine Zeile Code.
+
+## Die zentrale Idee: Vorhersage auf ungesehenen Daten
+
+Ein Modell, das die **vorhandenen** Daten perfekt beschreibt, ist wertlos, wenn es bei **neuen** Daten versagt. Das nennt man **Overfitting**: Das Modell hat das Rauschen mitgelernt statt das Muster.
+
+Die Gegenmaßnahme ist methodisch sauber und einfach:
+
+1. **Train/Test-Split:** Teile die Daten z. B. 70 % Training / 30 % Test. Trainiere nur auf dem Trainingsteil, beurteile **nur** auf dem ungesehenen Testteil.
+2. **Kreuzvalidierung (k-fold):** Teile die Daten in $k$ Blöcke (z. B. 5). Trainiere auf 4, teste auf dem 5., rotiere durch, mittle die Güte. Nutzt die Daten effizienter — wichtig bei kleinem $N$.
+
+::: {.callout-tip title="Warum das die wichtigste Idee des Kapitels ist"}
+Die ehrliche Güte eines Modells ist **immer** die auf Daten, die es beim Training **nicht gesehen** hat. Wer ein Modell auf denselben Daten lobt, auf denen er es trainiert hat, betrügt sich selbst. Diese Trennung von Trainieren und Bewerten ist der Kern von ML — und ein Prinzip, das auch in die klassische Forschung gehört.
+:::
+
+## Ein paar ML-Verfahren in JASP
+
+JASP bietet für **Regression** (metrisches Ziel) und **Classification** (kategoriales Ziel) jeweils u. a.:
+
+| Verfahren | Kurz |
+|---|---|
+| **Regularized (LASSO/Ridge/Elastic Net)** | lineare Regression mit „Bestrafung", schrumpft unwichtige Koeffizienten gegen 0 |
+| **Decision Tree** | Folge von Ja/Nein-Fragen; sehr interpretierbar, aber instabil |
+| **Random Forest** | viele Bäume gemittelt; robust, liefert **Variable Importance** |
+| **Boosting** | Bäume, die sequenziell die Fehler der Vorgänger ausbessern; oft sehr treffsicher |
+| **K-Nearest Neighbors** | sagt anhand der ähnlichsten Nachbarn vorher |
+| **Neural Network** | Schichten von „Neuronen", lernen flexible nicht-lineare Muster |
+| **Clustering** (k-means u. a.) | findet Gruppen **ohne** Zielvariable (unüberwacht) |
+
+### Neuronale Netze — in zwei Absätzen
+
+Ein **neuronales Netz** ist eine Kette von Rechenschichten. Jede „Neuron"-Einheit bildet eine gewichtete Summe ihrer Eingänge, schickt sie durch eine nicht-lineare **Aktivierungsfunktion** und gibt sie weiter. Durch das Stapeln mehrerer Schichten kann das Netz **beliebig komplexe, nicht-lineare** Zusammenhänge abbilden. Beim Training werden die Gewichte schrittweise so angepasst, dass der Vorhersagefehler sinkt (Backpropagation).
+
+Genau diese Flexibilität ist Stärke **und** Gefahr: Mit genug Neuronen lernt ein Netz **alles** — auch das Rauschen. Bei kleinen Datensätzen (wie unserem, $N \approx 90$) overfittet ein Netz extrem leicht. Deshalb beurteilst Du es **ausschließlich** auf den Testdaten und hältst es klein (wenige Neuronen, eine Schicht).
+
+## In JASP rechnen
+
+Wir bleiben beim Beispiel „hoher vs. niedriger Neurotizismus" (`N_hoch` aus Kapitel 04), jetzt als **Vorhersageproblem**.
+
+### Random Forest (Classification)
+
+1. **Analyses → Machine Learning → Classification → Random Forest**.
+2. **Target:** `N_hoch`. **Features / Predictors:** `E_mean`, `V_mean`, `G_mean`, `O_mean`.
+3. Optionen:
+   - **Data split:** z. B. 70/30 oder **k-fold cross-validation** mit 5 Folds.
+   - **Variable importance table / plot** anzeigen.
+   - **Confusion matrix** und **ROC/AUC** auf den Testdaten.
+
+### Neuronales Netz (Classification)
+
+1. **Analyses → Machine Learning → Classification → Neural Network**.
+2. Dieselben Target/Features.
+3. Optionen: eine kleine Architektur (z. B. **1 hidden layer mit 2–4 Knoten**), Kreuzvalidierung, **Confusion matrix** und **AUC** auf den Testdaten. Optional den **Network-Plot** (zeigt Eingänge, verdeckte Schicht, Ausgang).
+
+Vergleich beider Modelle: Welches hat auf den **Testdaten** die höhere AUC?
+
+## Was unsere Daten hergeben — Erwartung
+
+Sei nicht enttäuscht (@sec-tag3-datenhinweis): Unsere Daten haben **wenig echtes Signal** (schwache Inter-Skalen-Korrelationen) und sind **klein**. Erwartung:
+
+- Test-AUC realistisch um **.55–.65** — knapp über Zufall.
+- Random Forest und neuronales Netz schlagen die **logistische Regression aus Kapitel 04 kaum** — oft sind sie sogar etwas schlechter, weil sie bei wenig Signal und kleinem $N$ leichter overfitten.
+- **Demografische Features** (Alter, Bildung) verbessern nichts — sie tragen kein Signal.
+
+::: {.callout-important title="Die Lektion über ML"}
+Machine Learning **erzeugt kein Signal, das nicht in den Daten ist.** Komplexere Modelle sind nicht automatisch besser — bei kleinen Stichproben mit schwachem Effekt ist eine schlichte, gut verstandene Regression oft die *bessere* und ehrlichere Wahl. „Wir haben ein neuronales Netz benutzt" ist kein Qualitätssiegel. Das Werkzeug muss zum Problem passen.
+:::
+
+ML entfaltet seine Stärke bei **großen** Datensätzen (Tausende Fälle) mit **vielen** Prädiktoren und **nicht-linearen** Mustern — dann schlägt es klassische Verfahren teils deutlich. Genau das wirst Du in datenintensiven Projekten erleben.
+
+## Stärken und Schwächen
+
+**Stärken:**
+
+- erfasst komplexe, nicht-lineare Muster und Interaktionen automatisch
+- ehrliche Gütebeurteilung durch Train/Test-Trennung eingebaut
+- Variable Importance gibt Hinweise, welche Prädiktoren tragen
+
+**Schwächen:**
+
+- **Overfitting**-Gefahr, besonders bei kleinem $N$
+- viele Modelle sind **Blackboxes** — schlechte Interpretierbarkeit
+- keine klassischen p-Werte/Koeffizienten → für hypothesentestende Fragen ungeeignet
+- braucht für seine Stärken meist **viel** mehr Daten, als wir haben
+
+## Aufgabe
+
+**Pflichtteil (mach jeder):**
+
+1. Rechne eine **Random-Forest-Classification** für `N_hoch` mit den vier Skalen als Features, **mit Train/Test-Split oder 5-fold-CV**. Lies die **Test-AUC** und die **Variable Importance** ab.
+2. Rechne dasselbe als **kleines neuronales Netz** (1 Hidden Layer, 2–4 Knoten).
+3. Notiere **eine** Vergleichszeile:
+   *„Test-AUC: Random Forest = …, Neural Net = …, logist. Regression (Kap. 04) = …; wichtigstes Feature: …; Schluss: …"*
+
+**Bonus (für die Schnellen):**
+
+- Füg `alter` und `bildungsgrad` als zusätzliche Features hinzu. Wird die Test-AUC **besser**? Erkläre das Ergebnis.
+- Rechne ein **k-means-Clustering** (Machine Learning → Clustering) über die fünf Skalen — wie viele Cluster schlägt JASP vor, und sind sie inhaltlich plausibel?
+
+::: {.callout-important title="Abgabe per Mail — nur EIN Plot"}
+Schick **einen** Plot: den **Variable-Importance-Plot des Random Forest** *oder* den **Network-Plot des neuronalen Netzes** (Screenshot/Export). In den Mail-Text: Deine **eine Vergleichszeile** und **ein Satz**, ob das komplexere Modell hier wirklich geholfen hat (und warum).
+
+An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
+Betreff: *„M15 Tag 3 — Kap 06 — [Deine Kennziffer]"*
+:::
+
+## Selbstcheck
+
+1. Was ist der Unterschied zwischen „erklären" und „vorhersagen"?
+2. Was ist Overfitting, und wie schützt Dich Kreuzvalidierung davor?
+3. Warum beurteilst Du ein Modell **nie** auf den Trainingsdaten?
+4. Dein neuronales Netz schlägt die einfache Regression nicht. Ist das ein Fehler? Begründe mit Blick auf $N$ und Signalstärke.

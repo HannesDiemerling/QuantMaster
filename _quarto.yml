@@ -53,6 +53,16 @@ book:
     - part: "Tag 3 — 04.06.2026 · Multivariate Verfahren"
       chapters:
         - tag3/00-uebersicht.qmd
+        - tag3/01-multiple-regression.qmd
+        - tag3/02-moderation.qmd
+        - tag3/03-mediation-bootstrap.qmd
+        - tag3/04-logistische-regression.qmd
+        - tag3/05-bayes.qmd
+        - tag3/06-machine-learning.qmd
+        - tag3/07-mixed-models.qmd
+        - tag3/08-weitere-verfahren.qmd
+        - tag3/09-zusammenfassung.qmd
+        - tag3/10-tagesabschluss.qmd
     - part: "Referenz"
       chapters:
         - materials/codebook.qmd

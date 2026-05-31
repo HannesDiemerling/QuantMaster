@@ -1,0 +1,171 @@
+# Zusammenfassung & Nachschlagewerk {#sec-tag3-nachschlagewerk}
+
+::: {.callout-note title="Wozu dieses Kapitel"}
+Das ist Dein **Nachschlagewerk** — gedacht zum Wiederkommen, nicht zum einmaligen Durchlesen. Es fasst die drei Workshop-Tage zusammen, gibt Dir Entscheidungshilfen, ein Begriffslexikon, JASP-Menüpfade, Berichtsvorlagen und eine Klausurvorbereitung. Setz Dir hier ein Lesezeichen.
+:::
+
+## Der rote Faden: was wir in drei Tagen gemacht haben
+
+Der Workshop hat **einen vollständigen empirischen Forschungszyklus** nachgebaut — genau die Schrittfolge, der auch Deine Master-Arbeit folgen wird.
+
+| Tag | Phase | Was Du getan hast |
+|---|---|---|
+| **1** | Setup & Erhebung | Open Science verstanden, Einverständnis, BFI-K ausgefüllt & rekodiert, GitHub-Workflow, Datensatz geladen, in JASP bereinigt, hochgeladen |
+| **2** | Aufbereiten & beschreiben | Uploads kombiniert, Stichprobe & Bias bewertet, deskriptive Plots, Skalen gebildet, Reliabilität, Korrelation, *t*-Test, ANOVA |
+| **3** | Multivariat modellieren | Multiple Regression, Moderation, Mediation & Bootstrap, logistische Regression, Bayes, Machine Learning, Mixed Models, Verfahrenslandkarte |
+
+::: {.callout-tip title="Die Schrittfolge ist universell"}
+**Erheben → bereinigen → beschreiben → aggregieren → Zusammenhänge → Unterschiede → Modelle.** Fast jede quantitative Arbeit folgt dieser Reihenfolge. Wenn Du in Deiner Methoden- und Ergebnis-Sektion nicht weißt, womit anfangen: hier entlang.
+:::
+
+## Was die drei Tage über *Daten* gelehrt haben
+
+Eine Sache zieht sich durch alles: **Ein Verfahren findet nur, was in den Daten steckt.** Unsere simulierten Daten hatten ein schwaches echtes Signal (Skalen hängen leicht zusammen) und einen echten Nulleffekt (Demografie hängt mit nichts zusammen). Entsprechend:
+
+- Manche Hypothesen wurden **gestützt** — die zwischen den Skalen, vor allem gebündelt in der Regression.
+- Viele wurden **nicht** signifikant — und das war **richtig so**, kein Misserfolg.
+- Ab und zu wäre ein Zufallstreffer (Fehler erster Art) möglich gewesen.
+
+Diese Haltung — Ergebnisse ehrlich melden, Nullbefunde aushalten, Hypothesen *nicht* nachträglich anpassen — ist der Kern guter Wissenschaft. Sie ist wichtiger als jedes einzelne Verfahren.
+
+## Entscheidungshilfe: welches Verfahren wann?
+
+| Deine Frage | Abhängige Variable | Verfahren | Kapitel |
+|---|---|---|---|
+| Mittelwert gegen festen Wert? | metrisch | Einstichproben-*t*-Test | T2·06 |
+| Zwei Gruppen vergleichen? | metrisch | Unabhängiger *t*-Test | T2·06 |
+| Mehr als zwei Gruppen? | metrisch | ANOVA + post-hoc | T2·07 |
+| Zusammenhang zweier Variablen? | metrisch | Korrelation | T2·05 |
+| Eine Variable aus mehreren vorhersagen? | metrisch | Multiple Regression | T3·01 |
+| Hängt der Effekt von einer 3. Variable ab? | metrisch | Moderation | T3·02 |
+| Läuft der Effekt über eine Zwischenvariable? | metrisch | Mediation + Bootstrap | T3·03 |
+| Ja/Nein-Ergebnis vorhersagen? | binär | Logistische Regression | T3·04 |
+| Evidenz *für* die Null zeigen? | beliebig | Bayes-Faktor | T3·05 |
+| Bestmögliche Vorhersage, viele Daten? | beliebig | Machine Learning | T3·06 |
+| Genestete / wiederholte Messungen? | metrisch | Mixed Model | T3·07 |
+| Struktur hinter vielen Items? | — | EFA / CFA | T3·08 |
+| Studienlage zusammenfassen? | — | Meta-Analyse | T3·08 |
+
+## Effektgrößen — Daumenregeln auf einen Blick
+
+| Maß | klein | mittel | groß | Verfahren |
+|---|---|---|---|---|
+| **Cohen's *d*** | 0.20 | 0.50 | 0.80 | *t*-Test |
+| **Korrelation \|r\|** | .10 | .30 | .50 | Korrelation |
+| **$\eta^2$** | .01 | .06 | .14 | ANOVA |
+| **$R^2$** (Psych. realistisch) | .02 | .13 | .26 | Regression |
+| **Odds Ratio** | ~1.5 | ~2.5 | ~4.0 | logist. Regression |
+| **Bayes-Faktor $BF_{10}$** | 3–10 moderat | 10–30 stark | >100 extrem | Bayes |
+
+**Immer** zusammen mit der Effektgröße berichten: das **Konfidenzintervall** (bzw. Credible Interval) und die **Stichprobengröße $n$**.
+
+## JASP-Schnellzugriff (Menüpfade)
+
+| Verfahren | Pfad in JASP |
+|---|---|
+| Deskriptive Statistik | Descriptives → Descriptive Statistics |
+| Reliabilität (α, ω) | Reliability → Single-Test Reliability |
+| Korrelation | Regression → Correlation Matrix |
+| *t*-Test | T-Tests → (One-Sample / Independent / Paired) |
+| ANOVA | ANOVA → ANOVA |
+| Multiple Regression | Regression → Linear Regression |
+| Moderation | Regression → Linear Regression (+ Interaktionsterm) |
+| Mediation | SEM → Mediation Analysis (Bootstrap) |
+| Logistische Regression | Regression → Logistic Regression |
+| Bayes-*t*-Test / -Korrelation / -Regression | jeweils „Bayesian …" neben der frequentistischen Variante |
+| Machine Learning | Machine Learning → Regression / Classification / Clustering |
+| Mixed Model | Mixed Models → Linear Mixed Models |
+| Faktorenanalyse | Factor → EFA / PCA |
+| CFA / SEM | SEM → CFA / SEM |
+| Netzwerk | Network |
+| Meta-Analyse | Meta-Analysis |
+
+Module, die nicht sichtbar sind, schaltest Du über das blaue **„+"** oben rechts frei.
+
+## Berichtsvorlagen (zum Kopieren)
+
+**Korrelation:**
+> *r*(N−2) = .XX, *p* = .XXX, 95 %-KI [.XX, .XX], *n* = XX.
+
+**Unabhängiger *t*-Test:**
+> Gruppe A (*M* = …, *SD* = …, *n* = …) und Gruppe B (*M* = …, *SD* = …, *n* = …) unterschieden sich, *t*(df) = …, *p* = …, *d* = …, 95 %-KI […, …].
+
+**ANOVA:**
+> *F*(df₁, df₂) = …, *p* = …, η² = …; Tukey: … vs. … signifikant (*p* = …).
+
+**Multiple Regression:**
+> Das Modell war signifikant, *F*(df₁, df₂) = …, *p* = …, *R²* = …, adj. *R²* = …. Stärkster Prädiktor: … (*b* = …, *β* = …, *p* = …, KI […, …]).
+
+**Logistische Regression:**
+> χ²(df) = …, *p* = …, Nagelkerke-*R²* = …, AUC = …; … OR = … [KI], *p* = …
+
+**Bayes:**
+> $BF_{10}$ = … (→ … Evidenz für H1 / H0).
+
+## Begriffslexikon (Klausur-relevant)
+
+**Reproduzierbarkeit** — gleiche Daten + gleiche Analyse → gleiches Ergebnis. **Replizierbarkeit** — neue Daten, gleiche Methode → gleiches Ergebnis.
+
+**Reliabilität** — Messgenauigkeit/Konsistenz (Cronbach's α, McDonald's ω). **Validität** — misst der Test, was er soll? **Objektivität** — unabhängig vom Durchführenden.
+
+**Reverse-Item** — gegenläufig gepoltes Item; vor dem Aggregieren umkodieren (6 − Wert bei 5er-Skala).
+
+**p-Wert** — Wahrscheinlichkeit so extremer Daten *unter H0*. **Nicht** die Wahrscheinlichkeit, dass H0 stimmt.
+
+**Fehler 1. Art (α)** — H0 fälschlich verworfen. **Fehler 2. Art (β)** — echter Effekt übersehen. **Power** = 1 − β.
+
+**Konfidenzintervall** — Bereich plausibler Werte für den Parameter. **Credible Interval** — bayesianisches Pendant, direkt als „95 % Wahrscheinlichkeit, dass der Parameter hier liegt" interpretierbar.
+
+**Effektgröße** — *Größe* eines Effekts, unabhängig von *n* (Cohen's d, r, η², R²).
+
+**Multikollinearität** — Prädiktoren messen fast dasselbe (VIF prüfen).
+
+**partieller Effekt** — Beitrag eines Prädiktors bei Konstanthalten der anderen.
+
+**Moderator** — verändert die *Stärke* eines Effekts (Interaktion). **Mediator** — überträgt einen Effekt als *Zwischenschritt* (indirekter Effekt).
+
+**Bootstrap** — Konfidenzintervalle durch wiederholtes Ziehen *mit Zurücklegen*.
+
+**Odds / Odds Ratio** — Chance $p/(1-p)$ bzw. deren Verhältnis; zentrale Effektgröße der logistischen Regression.
+
+**Prior / Likelihood / Posterior** — Vorwissen / Datenbeitrag / aktualisierter Glaube. **Bayes-Faktor** — Wettverhältnis zweier Hypothesen.
+
+**Overfitting** — Modell lernt Rauschen mit; erkennbar an guter Trainings-, schlechter Testgüte. **Kreuzvalidierung** — Gütebewertung auf ungesehenen Daten.
+
+**ICC** — Anteil der Varianz, der auf Gruppenzugehörigkeit zurückgeht; motiviert Mixed Models.
+
+**Fixed vs. Random Effect** — durchschnittlicher Effekt vs. Streuung zwischen Gruppen.
+
+## Typische Klausurfragen (zum Selbsttest)
+
+1. Erkläre den Unterschied zwischen Reproduzierbarkeit und Replizierbarkeit.
+2. Warum muss ein Reverse-Item *vor* der Skalenbildung umkodiert werden?
+3. Was sagt — und was sagt *nicht* — ein p-Wert von .03?
+4. Du hast *p* = .001, aber *d* = 0.05 bei *n* = 5000. Wie berichtest und interpretierst Du das?
+5. Wann nimmst Du Welch's statt Student's *t*-Test?
+6. Warum stapelt man bei vier Gruppen keine sechs *t*-Tests?
+7. Was ist ein partieller Regressionskoeffizient?
+8. Unterscheide Moderation und Mediation an einem eigenen Beispiel.
+9. Was bedeutet ein Odds Ratio von 0.5?
+10. Welche Aussage erlaubt der Bayes-Faktor, die der p-Wert nicht erlaubt?
+11. Was ist Overfitting, und wie schützt Kreuzvalidierung davor?
+12. Wann brauchst Du ein Mixed Model statt einer normalen Regression?
+13. Nenne drei Gründe, warum aus einer Korrelation keine Kausalität folgt.
+14. Was ist statistische Power, und wovon hängt sie ab?
+
+::: {.callout-tip title="Lernstrategie"}
+Wenn Du jede dieser 14 Fragen in **2–3 Sätzen** frei beantworten kannst, bist Du für den quantitativen Teil gut gerüstet. Geh die Selbstcheck-Fragen am Ende jedes Kapitels als Ergänzung durch.
+:::
+
+## Blaupause für Deine Master-Arbeit / Dein Forschungspraktikum
+
+1. **Frage & Hypothesen** zuerst — *vor* der Datenerhebung, am besten präregistriert.
+2. **Design & Power** — wie viele Personen brauchst Du für den erwarteten Effekt? (Underpowered = vergeudete Mühe.)
+3. **Erhebung** sauber dokumentieren, **Ethik/Einverständnis** klären, Daten **pseudonymisieren**.
+4. **Aufbereiten** — bereinigen, Reliabilität, Skalen bilden; jeden Schritt versionieren.
+5. **Deskriptiv** beschreiben, *bevor* Du testest.
+6. **Konfirmatorisch** genau die vorab geplanten Tests rechnen; **explorativ** Gefundenes klar als solches kennzeichnen.
+7. **Effektgrößen + KI** immer mitberichten; Nullbefunde ehrlich darstellen (ggf. Bayes-Faktor).
+8. **Reproduzierbar** veröffentlichen — Daten, Code/JASP-Datei, Material offen, wo möglich.
+
+Genau diesen Weg bist Du im Workshop einmal komplett gegangen. Du hast die Blaupause jetzt nicht nur gelesen, sondern **gemacht**.

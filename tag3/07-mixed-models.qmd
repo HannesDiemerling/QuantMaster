@@ -1,0 +1,121 @@
+# Mehrebenen- & gemischte Modelle {#sec-tag3-mixed}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- erkennen, wann Daten **genestet** (hierarchisch) sind und warum normale Regression dann unzulässig ist,
+- feste (fixed) von zufälligen (random) Effekten unterscheiden,
+- erklären, was ein Random Intercept und ein Random Slope ist,
+- den **ICC** (Intraklassenkorrelation) interpretieren,
+- ein einfaches Linear Mixed Model in JASP rechnen und das Ergebnis lesen.
+:::
+
+## Worum es geht
+
+Eine Kernannahme aller bisherigen Verfahren war: Die Beobachtungen sind **unabhängig**. In der Forschungspraxis stimmt das oft **nicht**:
+
+- Schüler:innen sind in **Klassen** genestet, Klassen in **Schulen**.
+- Patient:innen werden von **Therapeut:innen** behandelt — mehrere pro Therapeut:in.
+- Eine Person wird **mehrfach** gemessen (Längsschnitt, Tagebuchstudie, EMA): die Messungen einer Person sind genestet **in der Person**.
+
+In all diesen Fällen ähneln sich Beobachtungen **innerhalb** einer Gruppe stärker als zwischen Gruppen. Ignorierst Du das und rechnest eine normale Regression, sind Deine Standardfehler **zu klein** und Du findest scheinbare Effekte, die keine sind. **Mixed Models** (auch: Mehrebenen-, hierarchische oder Multilevel-Modelle) lösen das.
+
+## Feste und zufällige Effekte
+
+Der Name „gemischtes Modell" kommt daher, dass es **zwei Arten** von Effekten mischt:
+
+| Effekt | Bedeutung | Beispiel |
+|---|---|---|
+| **Fester Effekt** (fixed) | der durchschnittliche Zusammenhang über **alle** Gruppen — das, was Dich inhaltlich interessiert | „Über alle Therapeut:innen hinweg senkt die Intervention die Symptomlast um $b$." |
+| **Zufälliger Effekt** (random) | wie stark einzelne **Gruppen** vom Durchschnitt abweichen — als Streuung, nicht als Einzelkoeffizient | „Therapeut:innen unterscheiden sich in ihrem Ausgangsniveau." |
+
+### Random Intercept vs. Random Slope
+
+- **Random Intercept:** Jede Gruppe hat ihr **eigenes Ausgangsniveau**. (Manche Therapeut:innen haben grundsätzlich Patient:innen mit höherer Symptomlast.)
+- **Random Slope:** Der **Effekt eines Prädiktors** darf zwischen Gruppen variieren. (Die Intervention wirkt bei manchen Therapeut:innen stärker als bei anderen.)
+
+Du gibst dem Modell also nicht für jede Gruppe einen eigenen Koeffizienten (das wären bei 100 Gruppen 100 Koeffizienten), sondern modellierst die **Verteilung** dieser Abweichungen — sparsam und stabil.
+
+## Der ICC — wie viel Nestung steckt drin?
+
+Die **Intraklassenkorrelation (ICC)** beantwortet die erste Frage, die Du Dir bei genesteten Daten stellst:
+
+$$
+\text{ICC} = \frac{\text{Varianz zwischen den Gruppen}}{\text{Varianz zwischen} + \text{Varianz innerhalb}}
+$$
+
+| ICC | Bedeutung |
+|---|---|
+| ≈ 0 | Gruppen unterscheiden sich kaum → normale Regression wäre okay |
+| .05–.20 | spürbare Nestung → Mixed Model nötig |
+| > .30 | starke Nestung → Mixed Model unbedingt, Gruppenebene wichtig |
+
+Der ICC sagt also: **Wie viel Prozent der Gesamtstreuung geht auf die Gruppenzugehörigkeit zurück?** Schon kleine ICCs (>.05) verzerren normale Tests merklich, wenn die Gruppen groß sind.
+
+## In JASP rechnen
+
+Mixed Models stecken im Modul **„Linear Mixed Models"** (über das **„+"** aktivieren; nutzt im Hintergrund `lme4`).
+
+1. **Analyses → Mixed Models → Linear Mixed Models**.
+2. **Dependent Variable:** das metrische Kriterium (z. B. `O_mean`).
+3. **Fixed Effects:** die interessierenden Prädiktoren (z. B. `E_mean`).
+4. **Random Effects → Grouping factor:** die Gruppenvariable (bei uns `quelle_datensatz`). Standardmäßig wird ein **Random Intercept** je Gruppe geschätzt; einen **Random Slope** fügst Du hinzu, indem Du den Prädiktor im Random-Effects-Block aktivierst.
+5. Output lesen:
+   - **Fixed effects:** Koeffizienten wie in der normalen Regression, aber mit korrigierten Standardfehlern.
+   - **Random effects (variance components):** die Varianz zwischen Gruppen → daraus berechnest/abliest Du den ICC.
+
+## Was unsere Daten hergeben — Erwartung
+
+Unsere Personen sind in **10 Quell-Datensätze** (`quelle_datensatz`) genestet — eine echte Gruppenstruktur. Aber (@sec-tag3-datenhinweis): Alle 10 Datensätze wurden aus **derselben** Verteilung erzeugt. Also:
+
+- Die **Varianz zwischen** den Datensätzen ist (bis auf Stichprobenzufall) ≈ 0.
+- Der **ICC** liegt nahe **0**.
+- Der feste Effekt von `E_mean` auf `O_mean` entspricht ungefähr dem aus einer normalen Regression.
+
+Das ist genau die richtige, ehrliche Lehre: Das Mixed Model **bestätigt**, dass hier keine relevante Nestung vorliegt. Du hast damit ein Werkzeug, das Dir *sagt*, ob Du es überhaupt brauchst — und es korrekt bedienen gelernt. In echten genesteten Daten (Klassen, Therapeut:innen, Messwiederholungen) wäre der ICC deutlich größer und das Modell unverzichtbar.
+
+::: {.callout-tip title="Der kleine Bruder: Repeated-Measures-ANOVA"}
+Für den Spezialfall „jede Person mehrfach unter wenigen Bedingungen gemessen" gibt es die **Repeated-Measures-ANOVA** (in JASP unter ANOVA → Repeated Measures). Sie ist einfacher, aber unflexibler. Mixed Models verallgemeinern sie: Sie kommen mit unbalancierten Daten, fehlenden Messzeitpunkten und kontinuierlicher Zeit zurecht — weshalb sie in der modernen Längsschnittforschung Standard sind.
+:::
+
+## Stärken und Schwächen
+
+**Stärken:**
+
+- der korrekte Weg für **genestete** und **Längsschnitt**-Daten
+- trennt sauber, was auf Personen- und was auf Gruppenebene passiert
+- nutzt unvollständige Daten effizient (keine listenweise Fallausschlüsse nötig)
+
+**Schwächen:**
+
+- konzeptuell anspruchsvoller; die Wahl der Random-Struktur will überlegt sein
+- braucht **genug Gruppen** (Faustregel ≥ 20–30 Cluster), sonst ist die Varianzschätzung instabil
+- Modelle konvergieren bei komplexer Random-Struktur nicht immer
+
+## Aufgabe
+
+**Pflichtteil (mach jeder):**
+
+1. Rechne in JASP ein Linear Mixed Model: **Dependent** `O_mean`, **Fixed Effect** `E_mean`, **Grouping factor (Random Intercept)** `quelle_datensatz`.
+2. Lies ab: den festen Effekt von `E_mean` und die **Varianzkomponente** für `quelle_datensatz`.
+3. Notiere **eine** Berichtszeile:
+   *„Mixed Model O~E (Random Intercept Quelle): fester Effekt b = …, Gruppenvarianz ≈ …, ICC ≈ …; Schluss: (keine) relevante Nestung."*
+
+**Bonus (für die Schnellen):**
+
+- Rechne dieselbe Beziehung als **normale lineare Regression** (ohne Random Effect). Wie nah liegt der Koeffizient am Mixed Model? Warum ist das hier zu erwarten?
+- Erkläre in zwei Sätzen, wie der ICC aussähe, wenn die zehn Datensätze aus **verschiedenen** Populationen stammten.
+
+::: {.callout-important title="Abgabe per Mail — nur EIN Output"}
+Schick **einen** Output: die **Tabelle der Random-Effects-Varianzkomponenten** (mit der Gruppenvarianz für `quelle_datensatz`). In den Mail-Text: Deine **eine Berichtszeile** inkl. geschätztem ICC und **ein Satz**, ob ein Mixed Model hier nötig war.
+
+An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
+Betreff: *„M15 Tag 3 — Kap 07 — [Deine Kennziffer]"*
+:::
+
+## Selbstcheck
+
+1. Woran erkennst Du, dass Daten genestet sind, und warum ist normale Regression dann problematisch?
+2. Was ist der Unterschied zwischen einem Random Intercept und einem Random Slope?
+3. Was sagt ein ICC von .25?
+4. Warum ist ein ICC nahe 0 in unseren Daten zu erwarten — und was folgt daraus für die Modellwahl?

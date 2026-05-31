@@ -1,0 +1,139 @@
+# Mediation & Bootstrap {#sec-tag3-mediation}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- erklären, was ein Mediator ist und was ein indirekter Effekt bedeutet,
+- den Unterschied zwischen totalem, direktem und indirektem Effekt benennen,
+- verstehen, was der **Bootstrap** macht und warum er für Mediation der Standard ist,
+- eine Mediationsanalyse in JASP rechnen und das Bootstrap-Konfidenzintervall lesen,
+- einschätzen, warum Mediation mit kleinen Stichproben heikel ist.
+:::
+
+## Worum es geht
+
+Eine **Mediation** fragt nach dem **Mechanismus**: Läuft der Effekt von $X$ auf $Y$ **über** eine Zwischenvariable $M$ (den Mediator)? Während die Moderation fragte *wann* ein Effekt auftritt, fragt die Mediation *wie* — über welchen Pfad.
+
+> *Beispiel:* Gewissenhaftigkeit ($X$) führt zu besseren Lernstrategien ($M$), und diese führen zu besseren Noten ($Y$). Der Effekt von Gewissenhaftigkeit auf Noten läuft dann (teilweise) **durch** die Lernstrategien.
+
+Das klassische Mediationsdiagramm:
+
+```
+        M
+      ↗   ↘
+   a /     \ b
+    /       ↘
+  X --------→ Y
+       c'
+```
+
+- **$a$**: Effekt von $X$ auf $M$
+- **$b$**: Effekt von $M$ auf $Y$ (bei Kontrolle von $X$)
+- **$c'$** (direkter Effekt): Effekt von $X$ auf $Y$, der **nicht** über $M$ läuft
+- **indirekter Effekt** $= a \times b$: der Teil, der **über** $M$ läuft
+- **totaler Effekt** $c = c' + a \times b$
+
+Die Kernfrage der Mediation ist: **Ist der indirekte Effekt $a \times b$ von Null verschieden?**
+
+## Drei Effekte sauber unterscheiden
+
+| Effekt | Symbol | Bedeutung |
+|---|---|---|
+| **Total** | $c$ | Gesamtwirkung von $X$ auf $Y$ (ohne $M$ im Modell) |
+| **Direkt** | $c'$ | Wirkung von $X$ auf $Y$, die **übrig bleibt**, wenn $M$ drin ist |
+| **Indirekt** | $a \times b$ | Wirkung von $X$ auf $Y$, die **über** $M$ läuft |
+
+- Ist $c'$ ≈ 0, der indirekte Effekt aber deutlich → **vollständige Mediation**.
+- Sind beide deutlich → **partielle Mediation**.
+
+## Warum Bootstrap? — das eigentliche Thema
+
+Der indirekte Effekt $a \times b$ ist ein **Produkt** zweier geschätzter Zahlen. Solche Produkte sind **nicht normalverteilt** — schief und mit ungewöhnlicher Form. Der klassische Test (der eine Normalverteilung annimmt, „Sobel-Test") liegt deshalb oft daneben.
+
+Die Lösung ist der **Bootstrap** — ein **Resampling-Verfahren**. Die Idee ist verblüffend einfach und mächtig:
+
+1. Nimm Deine $N$ Beobachtungen.
+2. **Ziehe mit Zurücklegen** eine neue Stichprobe derselben Größe $N$. (Manche Personen kommen doppelt vor, andere gar nicht — das ist gewollt.)
+3. Berechne in dieser Bootstrap-Stichprobe den indirekten Effekt $a \times b$.
+4. Wiederhole das **sehr oft** (z. B. 5 000-mal).
+5. Du hast jetzt 5 000 Werte für $a \times b$ — das ist die empirische **Verteilung** des indirekten Effekts.
+6. Das **95 %-Konfidenzintervall** sind einfach das 2.5 %- und das 97.5 %-Perzentil dieser 5 000 Werte.
+
+::: {.callout-tip title="Die Grundidee des Bootstrap in einem Satz"}
+Statt eine Formel für die Streuung einer Schätzung zu *unterstellen*, lässt der Bootstrap die Daten die Streuung **selbst zeigen** — indem er die Stichprobenziehung viele Male simuliert. Deshalb funktioniert er auch dort, wo es keine saubere Formel gibt.
+:::
+
+**Entscheidungsregel:** Schließt das Bootstrap-KI die **Null nicht ein**, ist der indirekte Effekt signifikant — es gibt Mediation. Schließt es die Null ein, kannst Du Mediation nicht belegen.
+
+Der Bootstrap ist weit über die Mediation hinaus nützlich: für Effektgrößen, Mediane, Korrelationen, eigentlich jede Statistik, deren theoretische Verteilung Du nicht kennst.
+
+## In JASP rechnen
+
+Mediation steckt in JASP im **SEM-Modul** (Strukturgleichungsmodelle — dazu mehr in Kapitel 07).
+
+1. Falls nötig, **SEM-Modul** über das **„+"** aktivieren.
+2. **Analyses → SEM → Mediation Analysis**.
+3. Felder zuweisen:
+   - **Predictor (X):** z. B. `G_mean`
+   - **Mediator (M):** z. B. `E_mean`
+   - **Outcome (Y):** z. B. `O_mean`
+4. In den Optionen:
+   - **Bootstrap** einschalten, **Replications** auf 5 000 (mehr = stabiler, dauert länger).
+   - **Confidence interval** auf 95 %, Methode **Percentile** (oder Bias-corrected).
+5. Ausführen. Der Output zeigt $a$, $b$, $c'$ (direkt), den **indirekten Effekt** und den **totalen Effekt**, jeweils mit Bootstrap-KI.
+
+## Was unsere Daten hergeben — Erwartung
+
+Wieder ehrlich (@sec-tag3-datenhinweis): In den Daten gibt es **keinen** eingebauten Mediationsmechanismus, nur schwach positive Korrelationen zwischen allen Skalen. Konkret heißt das:
+
+- Die Pfade $a$ und $b$ sind je *für sich* klein-positiv (weil alle Skalen leicht zusammenhängen).
+- Ihr **Produkt** $a \times b$ ist dann **sehr klein**.
+- Bei $N \approx 90$ wird das Bootstrap-KI dieses winzigen Produkts die **Null fast sicher einschließen**.
+
+Erwartung also: **kein signifikanter indirekter Effekt**. Und auch das ist das **korrekte** Ergebnis. Du lernst hier das Verfahren, die Logik des Bootstrap und — erneut — dass ein sauberer Nullbefund Teil seriöser Forschung ist.
+
+::: {.callout-important title="Mediation braucht große Stichproben"}
+Für einen mittleren indirekten Effekt mit ordentlicher Power braucht man oft **$N > 150$**, nicht selten mehrere Hundert. Mediation mit $N = 30$ aus einer Bachelor-Erhebung ist mit Vorsicht zu genießen — das ist eine der häufigsten Überinterpretationen in studentischen Arbeiten. Jetzt weißt Du, warum.
+:::
+
+## Stärken und Schwächen
+
+**Stärken:**
+
+- macht **Mechanismen** explizit und testbar
+- der Bootstrap liefert robuste KIs ohne Verteilungsannahme an das Produkt
+- in JASP per Klick verfügbar, kein Programmieren nötig
+
+**Schwächen:**
+
+- **kausale** Interpretation steht und fällt mit dem Design — Mediation aus Querschnittsdaten ist *statistisch* möglich, *kausal* aber kaum belastbar (alle drei Variablen zur selben Zeit gemessen)
+- hoher Power-Bedarf
+- empfindlich gegen falsch spezifizierte Pfadrichtungen (warum nicht $Y \to M \to X$?)
+
+## Aufgabe
+
+**Pflichtteil (mach jeder):**
+
+1. Rechne in JASP die Mediation **X = `G_mean`, M = `E_mean`, Y = `O_mean`** mit **5 000 Bootstrap-Replikationen** und 95 %-Perzentil-KI.
+2. Lies ab: indirekter Effekt ($a \times b$) mit Bootstrap-KI, direkter Effekt $c'$, totaler Effekt $c$.
+3. Notiere **eine** Berichtszeile:
+   *„Indirekter Effekt G→E→O: ab = …, 95 %-Boot-KI […, …]; Schluss: (keine) Mediation."*
+
+**Bonus (für die Schnellen):**
+
+- Erkläre in zwei Sätzen mit eigenen Worten, **was die 5 000 Replikationen** konkret tun.
+- Tausch die Rollen (X und Y vertauschen). Ändert sich die Schlussfolgerung — und was sagt das über Kausalität aus Querschnittsdaten?
+
+::: {.callout-important title="Abgabe per Mail — nur EIN Output"}
+Schick **einen** Output: die **Tabelle der direkten/indirekten/totalen Effekte mit Bootstrap-KI** (Screenshot/Export). In den Mail-Text: Deine **eine Berichtszeile** und **ein Satz**, was der Bootstrap hier eigentlich gemacht hat.
+
+An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
+Betreff: *„M15 Tag 3 — Kap 03 — [Deine Kennziffer]"*
+:::
+
+## Selbstcheck
+
+1. Was ist der Unterschied zwischen direktem, indirektem und totalem Effekt?
+2. Warum nimmt man für den indirekten Effekt einen Bootstrap statt eines normalen $z$-Tests?
+3. Beschreibe in einem Satz, was „mit Zurücklegen neu ziehen" beim Bootstrap bedeutet.
+4. Warum ist Mediation aus einem Querschnitt kausal so schwer zu verteidigen?

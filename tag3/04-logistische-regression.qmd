@@ -1,0 +1,138 @@
+# Logistische Regression {#sec-tag3-logistisch}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- erklären, warum man für eine **binäre** abhängige Variable keine normale (lineare) Regression nimmt,
+- die Begriffe Odds, Logit und Odds Ratio auseinanderhalten,
+- eine logistische Regression in JASP rechnen und die Odds Ratios interpretieren,
+- die Modellgüte über Klassifikationstabelle und Pseudo-$R^2$ beurteilen,
+- ein Ergebnis vollständig berichten.
+:::
+
+## Worum es geht
+
+Manchmal ist die abhängige Variable **kein** Messwert, sondern eine **Ja/Nein-Kategorie**: Therapieerfolg ja/nein, Abbruch ja/nein, Diagnose vorhanden ja/nein. Für solche **binären** Outcomes ist die lineare Regression ungeeignet — sie würde Wahrscheinlichkeiten über 1 oder unter 0 vorhersagen, was unsinnig ist.
+
+Die **logistische Regression** löst das: Sie sagt nicht den Wert von $Y$ vorher, sondern die **Wahrscheinlichkeit**, dass $Y = 1$ (das interessierende Ereignis eintritt) — und hält diese Wahrscheinlichkeit sauber zwischen 0 und 1.
+
+## Von der Wahrscheinlichkeit zum Logit
+
+Drei Begriffe, die Du sauber trennen musst:
+
+| Begriff | Formel | Wertebereich | Bedeutung |
+|---|---|---|---|
+| **Wahrscheinlichkeit** $p$ | — | 0 bis 1 | „30 % Chance" |
+| **Odds** (Chance) | $\dfrac{p}{1-p}$ | 0 bis ∞ | „Verhältnis 30:70 = 0.43" |
+| **Logit** | $\ln\!\left(\dfrac{p}{1-p}\right)$ | −∞ bis +∞ | logarithmierte Odds |
+
+Die logistische Regression modelliert den **Logit** linear:
+
+$$
+\ln\!\left(\frac{p}{1-p}\right) = b_0 + b_1 X_1 + \dots + b_k X_k
+$$
+
+Das ist genau die Regressionsgleichung von Kapitel 01 — nur dass links nicht $Y$, sondern der Logit von $p$ steht. Dadurch bleibt die Vorhersage immer im erlaubten Bereich.
+
+## Odds Ratio — die zentrale Effektgröße
+
+Der Koeffizient $b_j$ ist im Logit-Maßstab schwer lesbar. Deshalb berichtet man das **Odds Ratio (OR)** $= e^{b_j}$:
+
+| OR | Bedeutung |
+|---|---|
+| **= 1** | Prädiktor hat keinen Effekt |
+| **> 1** | höhere Werte des Prädiktors → Ereignis **wahrscheinlicher** |
+| **< 1** | höhere Werte des Prädiktors → Ereignis **unwahrscheinlicher** |
+
+> *Lesart:* OR = 1.8 für `E_mean` heißt: Pro **+1 Punkt Extraversion** wird die *Chance* (Odds) für das Ereignis um den Faktor 1.8 — also um 80 % — größer, bei Kontrolle der anderen Prädiktoren.
+
+::: {.callout-tip title="OR ist kein Wahrscheinlichkeits-Faktor"}
+Ein OR von 2 heißt **nicht**, dass die Wahrscheinlichkeit doppelt so groß wird — die *Odds* verdoppeln sich. Bei kleinen Grundwahrscheinlichkeiten liegen beide nah beieinander, bei großen nicht. Berichte das OR immer mit **Konfidenzintervall**: schließt das KI die **1** ein, ist der Prädiktor nicht signifikant.
+:::
+
+## Modellgüte beurteilen
+
+Es gibt kein echtes $R^2$ wie in der linearen Regression. Stattdessen:
+
+| Maß | Was es sagt |
+|---|---|
+| **Pseudo-$R^2$** (McFadden, Nagelkerke) | grobe Analogie zum $R^2$; Nagelkerke .2–.4 gilt als ordentlich |
+| **Klassifikationstabelle** | wie viele Fälle das Modell richtig in 0/1 einsortiert (Trefferquote) |
+| **AUC / ROC-Kurve** | Trennschärfe: 0.5 = Zufall, 1.0 = perfekt; > 0.7 brauchbar |
+| **Likelihood-Ratio-Test** | testet das Gesamtmodell gegen das Null-Modell |
+
+::: {.callout-important title="Vorsicht bei der Trefferquote"}
+Wenn 90 % aller Fälle „Nein" sind, erreicht ein Modell, das **immer „Nein"** sagt, schon 90 % Treffer — ohne irgendetwas gelernt zu haben. Schau deshalb nicht nur auf die Gesamttrefferquote, sondern auf **AUC** und die Treffer **pro Klasse**.
+:::
+
+## In JASP rechnen
+
+Zuerst brauchst Du eine **binäre Variable**. Wir bauen sie per Compute Column (Median-Split auf Neurotizismus):
+
+```r
+# 1 = hoher Neurotizismus, 0 = niedriger (Split am Median)
+ifelse(N_mean >= median(N_mean, na.rm = TRUE), 1, 0)
+```
+
+Nenn die Spalte `N_hoch` und setz ihren Typ auf **Nominal**.
+
+1. **Analyses → Regression → Logistic Regression**.
+2. **Dependent Variable:** `N_hoch`.
+3. **Covariates:** die metrischen Prädiktoren (`E_mean`, `V_mean`, `G_mean`, `O_mean`).
+4. In den Optionen aktivieren:
+   - **Estimates** mit **Odds ratios** und **Confidence intervals**
+   - **Performance → Confusion matrix** (Klassifikationstabelle)
+   - **Performance → ROC plot / AUC**
+   - **Model fit** (Pseudo-$R^2$, LR-Test)
+
+## Was unsere Daten hergeben — Erwartung
+
+Erneut ehrlich (@sec-tag3-datenhinweis): Da die Skalen untereinander schwach positiv zusammenhängen, kann ein aus **mehreren** Skalen gebautes Modell für „hoher vs. niedriger Neurotizismus" einen **kleinen, manchmal signifikanten** Effekt zeigen (gepoolte Signale). Mit $N \approx 90$ und einem 50:50-Split ist die AUC realistisch eher bescheiden (~.55–.65).
+
+Würdest Du dagegen versuchen, **`geschlecht`** aus den Skalen vorherzusagen, sollte das **nichts** finden (Demografie ist unabhängig) — ein guter Kontrast-Versuch für den Bonus.
+
+## Wie das Ergebnis berichten
+
+> Eine logistische Regression sagte hohen Neurotizismus (Median-Split) aus den vier übrigen Big-Five-Skalen vorher. Das Modell war dem Null-Modell überlegen, $\chi^2(4) = 11.2$, $p = .024$, Nagelkerke-$R^2 = .16$, AUC = .68. Verträglichkeit war der stärkste Prädiktor, OR = 1.74, 95 %-KI [1.08, 2.81], $p = .022$ — pro Punkt höherer Verträglichkeit stieg die Chance für hohen Neurotizismus um 74 %. Das Modell klassifizierte 64 % der Fälle korrekt.
+
+## Stärken und Schwächen
+
+**Stärken:**
+
+- der Standard für **binäre** Outcomes — in Klinik und Epidemiologie allgegenwärtig
+- Odds Ratios sind etabliert und (mit Übung) gut kommunizierbar
+- erweiterbar auf mehr als zwei Kategorien (multinomiale / ordinale logistische Regression)
+
+**Schwächen:**
+
+- braucht **mehr** Fälle pro Prädiktor als die lineare Regression (Faustregel: ≥ 10 Ereignisse pro Prädiktor)
+- OR werden oft mit Wahrscheinlichkeits-Verhältnissen verwechselt
+- ein Median-Split (wie hier zur Übung) **verschenkt Information** — in echten Studien nimmt man eine *natürlich* binäre Variable, kein künstlich zerschnittenes Kontinuum
+
+## Aufgabe
+
+**Pflichtteil (mach jeder):**
+
+1. Bau die binäre Spalte `N_hoch` (Median-Split, Typ Nominal).
+2. Rechne `N_hoch` ~ `E_mean` + `V_mean` + `G_mean` + `O_mean` mit Odds Ratios, KI, Confusion Matrix und ROC/AUC.
+3. Notiere **eine** Berichtszeile:
+   *„Logist. Regression N_hoch: χ²(df) = …, p = …, Nagelkerke-R² = …, AUC = …; stärkster Prädiktor … OR = … [KI]; Schluss: …"*
+
+**Bonus (für die Schnellen):**
+
+- Versuch dasselbe mit **`geschlecht` (1 vs. 2)** als Outcome und den Skalen als Prädiktoren. Findet das Modell etwas? Warum (nicht)?
+- Interpretiere **ein** OR ausführlich in einem Satz in der Wahrscheinlichkeits-Sprache.
+
+::: {.callout-important title="Abgabe per Mail — nur EIN Plot"}
+Schick **die ROC-Kurve** (mit AUC) Deines Pflichtmodells (Screenshot/Export). In den Mail-Text: Deine **eine Berichtszeile** und **eine** Interpretation eines Odds Ratios.
+
+An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
+Betreff: *„M15 Tag 3 — Kap 04 — [Deine Kennziffer]"*
+:::
+
+## Selbstcheck
+
+1. Warum nimmst Du für eine Ja/Nein-Variable keine lineare Regression?
+2. Was ist der Unterschied zwischen Wahrscheinlichkeit, Odds und Logit?
+3. Ein OR von 0.6 mit KI [0.4, 0.9] — was bedeutet das inhaltlich?
+4. Warum ist eine Gesamttrefferquote von 90 % allein noch kein gutes Zeichen?
