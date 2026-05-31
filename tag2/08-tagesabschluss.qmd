@@ -41,7 +41,7 @@ Tag 3 hebt das Ganze auf die **multivariate Ebene**: Modelle, in denen *mehrere*
 | Übergang | Moderation (Interaktionseffekte), Centering |
 | Mittag | — |
 | Nachmittag | Bootstrap & Mediation, logistische Regression, Bayes vs. Frequentismus |
-| Abschluss | Klausurvorbereitung, Workshop-Reflexion |
+| Abschluss | Zusammenfassung & Nachschlagewerk, Workshop-Reflexion |
 
 Wenn Du Tag 2 sauber abgearbeitet hast, bist Du dafür gut vorbereitet — die Mathematik wird kaum komplizierter, nur reichhaltiger.
 

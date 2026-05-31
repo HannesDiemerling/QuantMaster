@@ -28,7 +28,7 @@ Niemand erwartet, dass alles davon sofort sitzt. Das [Nachschlagewerk](09-zusamm
 ## Wie es weitergeht
 
 - **Master-Arbeit / Forschungspraktikum:** Du hast jetzt die Blaupause (Kapitel [09](09-zusammenfassung.qmd)) und das Handwerkszeug. Wenn Du planst, fang bei Frage und Power an — nicht bei der Methode.
-- **Klausur:** Geh die 14 typischen Fragen und die Selbstchecks durch. Das Vokabular sollte sitzen.
+- **Nachschlagen:** Das [Nachschlagewerk](09-zusammenfassung.qmd) bleibt online. Wenn Du später an einer eigenen Analyse sitzt und nicht weiterweißt — hier entlang. Die Verständnisfragen und Selbstchecks helfen Dir, das Vokabular präsent zu halten.
 - **JASP:** Bleib dran. Die Module sind kostenlos, die Oberfläche dieselbe, die Du jetzt kennst.
 
 ## Reflexionsaufgabe (5 Minuten, privat)
@@ -36,7 +36,7 @@ Niemand erwartet, dass alles davon sofort sitzt. Das [Nachschlagewerk](09-zusamm
 Notiere für Dich allein:
 
 1. **Das wichtigste Werkzeug**, das ich aus diesem Workshop mitnehme.
-2. **Eine Sache**, bei der ich noch unsicher bin — die ich vor der Klausur klären will.
+2. **Eine Sache**, bei der ich noch unsicher bin — die ich noch klären will.
 3. **Wie** ich an meine eigene erste Analyse herangehen würde, wenn ich morgen anfinge.
 
 Diese Notizen bleiben bei Dir. Punkt 2 darfst Du gern jetzt noch mit der Lehrperson besprechen.
@@ -50,4 +50,4 @@ Diese Notizen bleiben bei Dir. Punkt 2 darfst Du gern jetzt noch mit der Lehrper
 
 Danke für drei intensive Tage, fürs Mitmachen, fürs kritische Nachfragen und fürs Aushalten der vielen Nullbefunde. Genau diese Mischung aus Können und Skepsis ist es, die gute Forschung ausmacht.
 
-Viel Erfolg bei der Klausur — und bei Deiner ersten eigenen Studie.
+Viel Erfolg bei Deiner ersten eigenen Studie.

@@ -46,7 +46,7 @@ Das Gesetz der großen Zahlen funktioniert **nur**, wenn die Stichprobe *unverze
 | **Non-Response Bias** | Wer bricht ab oder antwortet nicht? | Lange Fragebögen — niedrige Werte auf Gewissenhaftigkeit fehlen anteilig häufiger. |
 | **Mode Effects** | Wie wurde erhoben? | Papier vs. Online vs. Interview liefern systematisch unterschiedliche Antworten. |
 
-Ein **Stichprobenfehler** (Sampling Error) ist die rein zufällige Schwankung von Stichproben — der wird mit größerem *N* kleiner. Ein **Bias** wird mit größerem *N* **nicht** kleiner. Das ist der Unterschied, der in der Klausur gerne abgefragt wird.
+Ein **Stichprobenfehler** (Sampling Error) ist die rein zufällige Schwankung von Stichproben — der wird mit größerem *N* kleiner. Ein **Bias** wird mit größerem *N* **nicht** kleiner. Das ist ein zentraler Unterschied, den man leicht verwechselt — und der in der Forschungspraxis ständig relevant ist.
 
 ## Wer ist in unserem Datensatz?
 

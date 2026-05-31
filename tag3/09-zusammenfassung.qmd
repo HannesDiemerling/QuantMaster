@@ -1,7 +1,7 @@
 # Zusammenfassung & Nachschlagewerk {#sec-tag3-nachschlagewerk}
 
 ::: {.callout-note title="Wozu dieses Kapitel"}
-Das ist Dein **Nachschlagewerk** — gedacht zum Wiederkommen, nicht zum einmaligen Durchlesen. Es fasst die drei Workshop-Tage zusammen, gibt Dir Entscheidungshilfen, ein Begriffslexikon, JASP-Menüpfade, Berichtsvorlagen und eine Klausurvorbereitung. Setz Dir hier ein Lesezeichen.
+Das ist Dein **Nachschlagewerk** — gedacht zum Wiederkommen, nicht zum einmaligen Durchlesen. Es fasst die drei Workshop-Tage zusammen, gibt Dir Entscheidungshilfen, ein Begriffslexikon, JASP-Menüpfade, Berichtsvorlagen und Verständnisfragen zum Selbsttest. Setz Dir hier ein Lesezeichen.
 :::
 
 ## Der rote Faden: was wir in drei Tagen gemacht haben
@@ -107,7 +107,7 @@ Module, die nicht sichtbar sind, schaltest Du über das blaue **„+"** oben rec
 **Bayes:**
 > $BF_{10}$ = … (→ … Evidenz für H1 / H0).
 
-## Begriffslexikon (Klausur-relevant)
+## Begriffslexikon
 
 **Reproduzierbarkeit** — gleiche Daten + gleiche Analyse → gleiches Ergebnis. **Replizierbarkeit** — neue Daten, gleiche Methode → gleiches Ergebnis.
 
@@ -141,7 +141,7 @@ Module, die nicht sichtbar sind, schaltest Du über das blaue **„+"** oben rec
 
 **Fixed vs. Random Effect** — durchschnittlicher Effekt vs. Streuung zwischen Gruppen.
 
-## Typische Klausurfragen (zum Selbsttest)
+## Verständnisfragen zum Selbsttest
 
 1. Erkläre den Unterschied zwischen Reproduzierbarkeit und Replizierbarkeit.
 2. Warum muss ein Reverse-Item *vor* der Skalenbildung umkodiert werden?
@@ -159,7 +159,7 @@ Module, die nicht sichtbar sind, schaltest Du über das blaue **„+"** oben rec
 14. Was ist statistische Power, und wovon hängt sie ab?
 
 ::: {.callout-tip title="Lernstrategie"}
-Wenn Du jede dieser 14 Fragen in **2–3 Sätzen** frei beantworten kannst, bist Du für den quantitativen Teil gut gerüstet. Geh die Selbstcheck-Fragen am Ende jedes Kapitels als Ergänzung durch.
+Wenn Du jede dieser 14 Fragen in **2–3 Sätzen** frei beantworten kannst, hast Du die zentralen Konzepte des Workshops verstanden. Geh die Selbstcheck-Fragen am Ende jedes Kapitels als Ergänzung durch.
 :::
 
 ## Blaupause für Deine Master-Arbeit / Dein Forschungspraktikum

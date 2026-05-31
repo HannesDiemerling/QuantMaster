@@ -36,7 +36,7 @@ Manche von Euch haben Regression schon im Bachelor gerechnet, andere sehen sie h
 | 14:55–15:30 | Self-Study | Machine Learning & neuronale Netze in JASP | 06 |
 | 15:30–15:55 | Self-Study | Mehrebenen- & gemischte Modelle (Mixed Models) | 07 |
 | 15:55–16:10 | **Plenum** | Weitere Verfahren im Überblick (Demos) | 08 |
-| nach Bedarf | Self-Study | Zusammenfassung & Nachschlagewerk; Klausurvorbereitung | 09 |
+| nach Bedarf | Self-Study | Zusammenfassung & Nachschlagewerk | 09 |
 | zum Schluss | **Plenum** | Workshop-Abschluss, Reflexion | 10 |
 
 Die Lehrperson ist während der Self-Study-Phasen durchgehend ansprechbar. Wenn Du irgendwo hängst: fragen, nicht verzweifeln.

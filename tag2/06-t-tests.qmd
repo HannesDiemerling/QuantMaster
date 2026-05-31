@@ -176,7 +176,7 @@ ifelse(bildungsgrad >= 5, "hoch", "niedriger")
 ```
 
 ::: {.callout-tip title="Vorsicht mit gerichteten Hypothesen"}
-Eine gerichtete Hypothese darf Du **nur** dann formulieren, wenn es vorher inhaltlich begründet ist (Theorie oder Vorbefunde) — *nicht* erst, wenn Du die Daten schon gesehen hast. Sonst spielst Du Dir den p-Wert künstlich klein. In der Klausur: ungerichtet (zweiseitig) ist die sichere Defaultwahl.
+Eine gerichtete Hypothese darf Du **nur** dann formulieren, wenn es vorher inhaltlich begründet ist (Theorie oder Vorbefunde) — *nicht* erst, wenn Du die Daten schon gesehen hast. Sonst spielst Du Dir den p-Wert künstlich klein. Im Zweifel: ungerichtet (zweiseitig) ist die sichere Defaultwahl.
 :::
 
 ## Stärken und Schwächen des t-Tests

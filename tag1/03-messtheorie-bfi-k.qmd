@@ -100,9 +100,9 @@ Der Auswertungsschlüssel des BFI-K, **R** markiert ein Reverse-Item:
 
 Im Datensatz heißen die Spalten `BFI_01` bis `BFI_21` (siehe [Codebook](../materials/codebook.qmd)).
 
-## Bezug zur Klausur
+## Warum diese Begriffe wichtig sind
 
-Die Begriffe **Reverse-Item** und **Rekodierung** und die fünf Big-Five-Faktoren solltest Du nach diesem Seminar sauber erklären können.
+Die Begriffe **Reverse-Item** und **Rekodierung** und die fünf Big-Five-Faktoren begleiten Dich durch den ganzen Workshop — und später durch jede eigene Fragebogen-Auswertung. Es lohnt sich, sie früh sauber zu verstehen.
 
 ## Selbstcheck
 
