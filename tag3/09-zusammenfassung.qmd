@@ -53,9 +53,14 @@ Diese Haltung — Ergebnisse ehrlich melden, Nullbefunde aushalten, Hypothesen *
 | **Cohen's *d*** | 0.20 | 0.50 | 0.80 | *t*-Test |
 | **Korrelation \|r\|** | .10 | .30 | .50 | Korrelation |
 | **$\eta^2$** | .01 | .06 | .14 | ANOVA |
-| **$R^2$** (Psych. realistisch) | .02 | .13 | .26 | Regression |
-| **Odds Ratio** | ~1.5 | ~2.5 | ~4.0 | logist. Regression |
-| **Bayes-Faktor $BF_{10}$** | 3–10 moderat | 10–30 stark | >100 extrem | Bayes |
+| **$R^2$** (Cohen-Konvention, aus $f^2$) | .02 | .13 | .26 | Regression |
+| **Odds Ratio** | ~1.68 | ~3.47 | ~6.71 | logist. Regression |
+
+Zur Tabelle:
+
+- Die **$R^2$**-Schwellen sind die aus Cohens $f^2$ (.02 / .15 / .35) umgerechneten Werte. In der Persönlichkeits- und Sozialpsychologie sind real oft schon $R^2$ um .05–.15 ein guter Befund — die Konvention ist ein grober Maßstab, kein Gesetz.
+- Die **Odds-Ratio**-Schwellen (Chen, Cohen & Chen 2010) sind eine **Näherung** und hängen stark von der **Basisrate** des Ereignisses ab; ein OR ist immer auch *für sich* interpretierbar (Faktor, um den sich die Odds ändern).
+- Der **Bayes-Faktor** ist **keine Effektgröße**, sondern ein Maß der **Evidenzstärke** für eine Hypothese gegenüber einer anderen — Skala ($BF_{10}$: 1–3 anekdotisch, 3–10 moderat, 10–30 stark, 30–100 sehr stark, > 100 extrem) siehe Kapitel [05](05-bayes.qmd).
 
 **Immer** zusammen mit der Effektgröße berichten: das **Konfidenzintervall** (bzw. Credible Interval) und die **Stichprobengröße $n$**.
 
@@ -110,7 +115,7 @@ Module, die nicht sichtbar sind, schaltest Du über das blaue **„+"** oben rec
 
 **Reverse-Item** — gegenläufig gepoltes Item; vor dem Aggregieren umkodieren (6 − Wert bei 5er-Skala).
 
-**p-Wert** — Wahrscheinlichkeit so extremer Daten *unter H0*. **Nicht** die Wahrscheinlichkeit, dass H0 stimmt.
+**p-Wert** — Wahrscheinlichkeit, ein *so extremes oder noch extremeres* Ergebnis zu beobachten, *wenn H0 wahr ist*. **Nicht** die Wahrscheinlichkeit, dass H0 stimmt.
 
 **Fehler 1. Art (α)** — H0 fälschlich verworfen. **Fehler 2. Art (β)** — echter Effekt übersehen. **Power** = 1 − β.
 
