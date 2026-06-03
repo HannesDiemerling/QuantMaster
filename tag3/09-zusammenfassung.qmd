@@ -83,25 +83,23 @@ Statt gegen feste Cutoffs interpretierst Du eine Effektgröße sinnvoll so:
 
 Module, die nicht sichtbar sind, schaltest Du über das blaue **„+"** oben rechts frei.
 
-## Berichtsvorlagen (zum Kopieren)
+## Was Du berichten musst
 
-**Korrelation:**
-> *r*(N−2) = .XX, *p* = .XXX, 95 %-KI [.XX, .XX], *n* = XX.
+Es gibt nicht *den einen* Wortlaut — Hauptsache, die wichtigen Angaben sind vollständig da. Quer durch alle Verfahren gilt: **Teststatistik + Freiheitsgrade, p-Wert, Effektgröße, ein Unsicherheitsmaß (Konfidenz-/Credible-Intervall) und die Stichprobengröße $n$.** Was pro Verfahren konkret dazugehört:
 
-**Unabhängiger *t*-Test:**
-> Gruppe A (*M* = …, *SD* = …, *n* = …) und Gruppe B (*M* = …, *SD* = …, *n* = …) unterschieden sich, *t*(df) = …, *p* = …, *d* = …, 95 %-KI […, …].
+| Verfahren | Diese Angaben gehören in den Bericht |
+|---|---|
+| **Korrelation** | $r$ (bzw. $\rho$), Freiheitsgrade, $p$, Konfidenzintervall, $n$ |
+| **Unabhängiger *t*-Test** | $M$ und $SD$ **je Gruppe**, $t$ mit df, $p$, Cohen's $d$, Konfidenzintervall |
+| **ANOVA** | $F$ mit beiden Freiheitsgraden, $p$, Effektgröße ($\eta^2$), bei Bedarf die signifikanten Post-hoc-Paare |
+| **Multiple Regression** | Modell-Fit ($F$, df, $p$, $R^2$, adj. $R^2$) **und** pro Prädiktor $b$, $\beta$, $p$, Konfidenzintervall |
+| **Logistische Regression** | Modelltest ($\chi^2$, df, $p$), Pseudo-$R^2$, Trennschärfe (AUC); pro Prädiktor das Odds Ratio mit Konfidenzintervall |
+| **Mediation** | direkter, indirekter und totaler Effekt, jeweils mit Bootstrap-Intervall |
+| **Bayes (Schätzung)** | Posterior-Median und Credible Interval des Effekts; ergänzend ggf. der Bayes-Faktor |
 
-**ANOVA:**
-> *F*(df₁, df₂) = …, *p* = …, η² = …; Tukey: … vs. … signifikant (*p* = …).
-
-**Multiple Regression:**
-> Das Modell war signifikant, *F*(df₁, df₂) = …, *p* = …, *R²* = …, adj. *R²* = …. Stärkster Prädiktor: … (*b* = …, *β* = …, *p* = …, KI […, …]).
-
-**Logistische Regression:**
-> χ²(df) = …, *p* = …, Nagelkerke-*R²* = …, AUC = …; … OR = … [KI], *p* = …
-
-**Bayes:**
-> $BF_{10}$ = … (→ … Evidenz für H1 / H0).
+::: {.callout-tip title="Die eine Sache, die am häufigsten fehlt"}
+Fast alle berichten den **p-Wert** — und vergessen **Effektgröße und Konfidenzintervall**. Genau die beiden tragen aber die inhaltliche Aussage: *wie groß* der Effekt ist und *wie sicher* Du Dir bist. Ohne sie ist ein Ergebnis kaum interpretierbar.
+:::
 
 ## Begriffslexikon
 

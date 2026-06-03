@@ -156,9 +156,7 @@ Beide Ansätze sind legitim. In Deiner Master-Arbeit kannst Du sogar **beide** b
 1. Rechne den **Bayesianischen Independent-Samples-*t*-Test** `G_mean` ~ `geschlecht` (1 vs. 2) mit **Prior-and-Posterior-Plot** und „Additional info".
 2. Lies am Posterior ab: **Median** der Effektgröße $\delta$ und das **95 %-Credible-Interval**. Schließt es die 0 ein?
 3. Rechne die **Bayes-Korrelation** `E_mean` × `O_mean` und lies ebenfalls Median und Credible Interval von $\rho$ ab.
-4. Notiere **zwei** Berichtszeilen:
-   *„G~Geschlecht: δ-Median = …, 95 %-CrI […, …]; Schluss: Differenz (un)wahrscheinlich, weil CrI die 0 (nicht) einschließt."*
-   *„E×O: ρ-Median = …, 95 %-CrI […, …]; Wahrscheinlichkeit für positiven Zusammenhang: (hoch/mittel/gering)."*
+4. Notiere für **beide** Analysen die zentralen Kennwerte: den **Posterior-Median** und das **95 %-Credible-Interval** des Effekts — und formuliere jeweils die Wahrscheinlichkeitsaussage, die daraus folgt (schließt das Intervall die 0 ein oder nicht?).
 
 **Bonus (für die Schnellen):**
 
@@ -166,7 +164,7 @@ Beide Ansätze sind legitim. In Deiner Master-Arbeit kannst Du sogar **beide** b
 - Schau Dir den ergänzenden $BF_{10}$ an: Deckt er sich mit dem, was Dir der Posterior schon gezeigt hat?
 
 ::: {.callout-important title="Abgabe per Mail — nur EIN Output"}
-Schick **die Posterior-Zusammenfassung** Deines Bayes-*t*-Tests `G_mean ~ geschlecht` (Screenshot/Export) — also die JASP-Ausgabe mit **Median und 95 %-Credible-Interval der Effektgröße** (der Prior-and-Posterior-Plot mit eingeblendeter „Additional info" enthält genau diese Werte). In den Mail-Text: Deine **zwei Berichtszeilen** und **ein Satz**, welche Wahrscheinlichkeitsaussage Du hier treffen kannst, die ein p-Wert nicht erlaubt.
+Schick **die Posterior-Zusammenfassung** Deines Bayes-*t*-Tests `G_mean ~ geschlecht` (Screenshot/Export) — also die JASP-Ausgabe mit **Median und 95 %-Credible-Interval der Effektgröße** (der Prior-and-Posterior-Plot mit eingeblendeter „Additional info" enthält genau diese Werte). In den Mail-Text: Deine **notierten Kennwerte zu beiden Analysen** und **ein Satz**, welche Wahrscheinlichkeitsaussage Du hier treffen kannst, die ein p-Wert nicht erlaubt.
 
 An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
 Betreff: *„M15 Tag 3 — Kap 05 — [Deine Kennziffer]"*

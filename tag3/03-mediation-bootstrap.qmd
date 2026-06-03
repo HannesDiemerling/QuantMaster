@@ -112,8 +112,7 @@ Für einen mittleren indirekten Effekt mit ordentlicher Power braucht man oft **
 
 1. Rechne in JASP die Mediation **X = `G_mean`, M = `E_mean`, Y = `O_mean`** mit **5 000 Bootstrap-Replikationen** und 95 %-Perzentil-KI.
 2. Lies ab: indirekter Effekt ($a \times b$) mit Bootstrap-KI, direkter Effekt $c'$, totaler Effekt $c$.
-3. Notiere **eine** Berichtszeile:
-   *„Indirekter Effekt G→E→O: ab = …, 95 %-Boot-KI […, …]; Schluss: (keine) Mediation."*
+3. Notiere die zentralen Kennwerte: den **indirekten Effekt** ($a \times b$) mit seinem Bootstrap-Konfidenzintervall — und Deine Schlussfolgerung, ob eine Mediation vorliegt.
 
 **Bonus (für die Schnellen):**
 
@@ -121,7 +120,7 @@ Für einen mittleren indirekten Effekt mit ordentlicher Power braucht man oft **
 - Tausch die Rollen (X und Y vertauschen). Ändert sich die Schlussfolgerung — und was sagt das über Kausalität aus Querschnittsdaten?
 
 ::: {.callout-important title="Abgabe per Mail — nur EIN Output"}
-Schick **einen** Output: die **Tabelle der direkten/indirekten/totalen Effekte mit Bootstrap-KI** (Screenshot/Export). In den Mail-Text: Deine **eine Berichtszeile** und **ein Satz**, was der Bootstrap hier eigentlich gemacht hat.
+Schick **einen** Output: die **Tabelle der direkten/indirekten/totalen Effekte mit Bootstrap-KI** (Screenshot/Export). In den Mail-Text: Deine **notierten Kennwerte** und **ein Satz**, was der Bootstrap hier eigentlich gemacht hat.
 
 An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
 Betreff: *„M15 Tag 3 — Kap 03 — [Deine Kennziffer]"*

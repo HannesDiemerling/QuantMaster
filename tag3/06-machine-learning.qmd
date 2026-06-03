@@ -113,8 +113,7 @@ ML entfaltet seine Stärke bei **großen** Datensätzen (Tausende Fälle) mit **
 
 1. Rechne eine **Random-Forest-Classification** für `N_hoch` mit den vier Skalen als Features, **mit Train/Test-Split oder 5-fold-CV**. Lies die **Test-AUC** und die **Variable Importance** ab.
 2. Rechne dasselbe als **kleines neuronales Netz** (1 Hidden Layer, 2–4 Knoten).
-3. Notiere **eine** Vergleichszeile:
-   *„Test-AUC: Random Forest = …, Neural Net = …, logist. Regression (Kap. 04) = …; wichtigstes Feature: …; Schluss: …"*
+3. Notiere die zentralen Kennwerte zum Vergleich: die **Test-AUC** von Random Forest, neuronalem Netz und (zum Vergleich) der logistischen Regression aus Kapitel 04, das **wichtigste Feature** — und Deine Schlussfolgerung.
 
 **Bonus (für die Schnellen):**
 

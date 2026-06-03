@@ -91,9 +91,13 @@ Erneut ehrlich (@sec-tag3-datenhinweis): Da die Skalen untereinander schwach pos
 
 Würdest Du dagegen versuchen, **`geschlecht`** aus den Skalen vorherzusagen, ist **kaum etwas** zu erwarten (Demografie ist unabhängig) — ein guter Kontrast-Versuch für den Bonus.
 
-## Wie das Ergebnis berichten
+## Was in den Bericht gehört
 
-> Eine logistische Regression sagte hohen Neurotizismus (Median-Split) aus den vier übrigen Big-Five-Skalen vorher. Das Modell war dem Null-Modell überlegen, $\chi^2(4) = 11.2$, $p = .024$, Nagelkerke-$R^2 = .16$, AUC = .68. Verträglichkeit war der stärkste Prädiktor, OR = 1.74, 95 %-KI [1.08, 2.81], $p = .022$ — pro Punkt höherer Verträglichkeit stieg die Chance für hohen Neurotizismus um 74 %. Das Modell klassifizierte 64 % der Fälle korrekt.
+Einen festen Wortlaut gibt es nicht — diese Angaben sollten aber vollständig vorkommen:
+
+- der **Modelltest** gegen das Null-Modell ($\chi^2$ mit df, $p$), ein **Pseudo-$R^2$** (z. B. Nagelkerke) und die **Trennschärfe** (AUC),
+- **pro Prädiktor** das **Odds Ratio** mit Konfidenzintervall und $p$-Wert,
+- für einen berichtenswerten Prädiktor eine kurze Interpretation des OR in Chancen-/Wahrscheinlichkeits-Sprache.
 
 ## Stärken und Schwächen
 
@@ -115,8 +119,7 @@ Würdest Du dagegen versuchen, **`geschlecht`** aus den Skalen vorherzusagen, is
 
 1. Bau die binäre Spalte `N_hoch` (Median-Split, Typ Nominal).
 2. Rechne `N_hoch` ~ `E_mean` + `V_mean` + `G_mean` + `O_mean` mit Odds Ratios, KI, Confusion Matrix und ROC/AUC.
-3. Notiere **eine** Berichtszeile:
-   *„Logist. Regression N_hoch: χ²(df) = …, p = …, Nagelkerke-R² = …, AUC = …; stärkster Prädiktor … OR = … [KI]; Schluss: …"*
+3. Notiere die zentralen Kennwerte: Modelltest ($\chi^2$, df, $p$), Nagelkerke-$R^2$, AUC sowie das Odds Ratio des stärksten Prädiktors mit Konfidenzintervall — plus Deine Schlussfolgerung.
 
 **Bonus (für die Schnellen):**
 
@@ -124,7 +127,7 @@ Würdest Du dagegen versuchen, **`geschlecht`** aus den Skalen vorherzusagen, is
 - Interpretiere **ein** OR ausführlich in einem Satz in der Wahrscheinlichkeits-Sprache.
 
 ::: {.callout-important title="Abgabe per Mail — nur EIN Output"}
-Schick **die Ergebnistabelle der Koeffizienten** (Screenshot/Export) — die JASP-Tabelle mit den **Odds Ratios** und Konfidenzintervallen pro Prädiktor (idealerweise mit den Modell-Fit-Werten $\chi^2$, Nagelkerke-$R^2$, AUC darüber). In den Mail-Text: Deine **eine Berichtszeile** und **eine** Interpretation eines Odds Ratios.
+Schick **die Ergebnistabelle der Koeffizienten** (Screenshot/Export) — die JASP-Tabelle mit den **Odds Ratios** und Konfidenzintervallen pro Prädiktor (idealerweise mit den Modell-Fit-Werten $\chi^2$, Nagelkerke-$R^2$, AUC darüber). In den Mail-Text: Deine **notierten Kennwerte** und **eine** Interpretation eines Odds Ratios.
 
 An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
 Betreff: *„M15 Tag 3 — Kap 04 — [Deine Kennziffer]"*

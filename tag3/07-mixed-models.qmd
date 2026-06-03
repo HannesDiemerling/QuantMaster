@@ -97,8 +97,7 @@ Für den Spezialfall „jede Person mehrfach unter wenigen Bedingungen gemessen"
 
 1. Rechne in JASP ein Linear Mixed Model: **Dependent** `O_mean`, **Fixed Effect** `E_mean`, **Grouping factor (Random Intercept)** `quelle_datensatz`.
 2. Lies ab: den festen Effekt von `E_mean` und die **Varianzkomponente** für `quelle_datensatz`.
-3. Notiere **eine** Berichtszeile:
-   *„Mixed Model O~E (Random Intercept Quelle): fester Effekt b = …, Gruppenvarianz ≈ …, ICC ≈ …; Schluss: (keine) relevante Nestung."*
+3. Notiere die zentralen Kennwerte: den **festen Effekt** von `E_mean`, die **Gruppenvarianz** für `quelle_datensatz` und den daraus geschätzten **ICC** — plus Deine Schlussfolgerung, ob eine relevante Nestung vorliegt.
 
 **Bonus (für die Schnellen):**
 
@@ -106,7 +105,7 @@ Für den Spezialfall „jede Person mehrfach unter wenigen Bedingungen gemessen"
 - Erkläre in zwei Sätzen, wie der ICC aussähe, wenn die zehn Datensätze aus **verschiedenen** Populationen stammten.
 
 ::: {.callout-important title="Abgabe per Mail — nur EIN Output"}
-Schick **die Ergebnistabelle des Mixed Models** (Screenshot/Export) — die JASP-Ausgabe mit dem **festen Effekt** von `E_mean` **und** den **Random-Effects-Varianzkomponenten** (Gruppenvarianz für `quelle_datensatz`). In den Mail-Text: Deine **eine Berichtszeile** inkl. geschätztem ICC und **ein Satz**, ob ein Mixed Model hier nötig war.
+Schick **die Ergebnistabelle des Mixed Models** (Screenshot/Export) — die JASP-Ausgabe mit dem **festen Effekt** von `E_mean` **und** den **Random-Effects-Varianzkomponenten** (Gruppenvarianz für `quelle_datensatz`). In den Mail-Text: Deine **notierten Kennwerte** inkl. geschätztem ICC und **ein Satz**, ob ein Mixed Model hier nötig war.
 
 An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
 Betreff: *„M15 Tag 3 — Kap 07 — [Deine Kennziffer]"*

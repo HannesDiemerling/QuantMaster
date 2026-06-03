@@ -102,8 +102,7 @@ Bei rund einem von zwanzig Tests passiert das rein zufällig (Fehler erster Art)
 
 1. Bau zwei zentrierte Spalten `E_c` und `G_c` per Compute Column.
 2. Rechne in JASP das Modell `N_mean` ~ `E_c` + `G_c` + `E_c * G_c`.
-3. Lies die **Interaktionszeile** ab ($b_3$, $p$, KI) und notiere **eine** Berichtszeile:
-   *„Interaktion E×G auf N: b = …, p = …, 95 %-KI […]; Schluss: (keine) Moderation."*
+3. Lies die **Interaktionszeile** ab und notiere ihre zentralen Kennwerte ($b_3$, $p$, Konfidenzintervall) zusammen mit Deiner Schlussfolgerung, ob eine Moderation vorliegt.
 4. Erzeuge **einen Interaktionsplot** (in JASP unter Plots / bzw. über die „Simple slopes"-Option, falls vorhanden — sonst beschreibe in einem Satz, wie die Geraden zueinander stehen).
 
 **Bonus (für die Schnellen):**
@@ -112,7 +111,7 @@ Bei rund einem von zwanzig Tests passiert das rein zufällig (Fehler erster Art)
 - Erkläre in zwei Sätzen, warum ein nicht-signifikanter Interaktionsterm hier **erwartbar** war (Verweis auf Datengenerierung und Power).
 
 ::: {.callout-important title="Abgabe per Mail — nur EIN Output"}
-Schick **die Ergebnistabelle der Regression** (Screenshot/Export) — die JASP-Koeffiziententabelle mit allen drei Zeilen (`E_c`, `G_c` und die Interaktion `E_c * G_c`), inklusive $b$, $p$ und KI. In den Mail-Text: Deine **eine Berichtszeile** zur Interaktion und **ein Satz** zur Power-Problematik.
+Schick **die Ergebnistabelle der Regression** (Screenshot/Export) — die JASP-Koeffiziententabelle mit allen drei Zeilen (`E_c`, `G_c` und die Interaktion `E_c * G_c`), inklusive $b$, $p$ und KI. In den Mail-Text: Deine **notierten Kennwerte zur Interaktion** und **ein Satz** zur Power-Problematik.
 
 An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
 Betreff: *„M15 Tag 3 — Kap 02 — [Deine Kennziffer]"*
