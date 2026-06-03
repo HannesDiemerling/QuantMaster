@@ -46,23 +46,19 @@ Diese Haltung — Ergebnisse ehrlich melden, Nullbefunde aushalten, Hypothesen *
 | Struktur hinter vielen Items? | — | EFA / CFA | T3·08 |
 | Studienlage zusammenfassen? | — | Meta-Analyse | T3·08 |
 
-## Effektgrößen — Daumenregeln auf einen Blick
+## Effektgrößen einordnen
 
-| Maß | klein | mittel | groß | Verfahren |
-|---|---|---|---|---|
-| **Cohen's *d*** | 0.20 | 0.50 | 0.80 | *t*-Test |
-| **Korrelation \|r\|** | .10 | .30 | .50 | Korrelation |
-| **$\eta^2$** | .01 | .06 | .14 | ANOVA |
-| **$R^2$** (Cohen-Konvention, aus $f^2$) | .02 | .13 | .26 | Regression |
-| **Odds Ratio** | ~1.68 | ~3.47 | ~6.71 | logist. Regression |
+Die bekannten „klein / mittel / groß"-Schwellen (Cohen 1988) sind **bewusst keine** Tabelle in diesem Nachschlagewerk. Sie sind willkürlich gesetzt und **wissenschaftlich nicht haltbar** als universeller Maßstab — Cohen selbst hat sie nur als Notbehelf für Felder *ohne* eigene Vergleichswerte gedacht und vor mechanischer Anwendung gewarnt. Was in einem Forschungsfeld „groß" ist, kann in einem anderen unbedeutend sein.
 
-Zur Tabelle:
+Statt gegen feste Cutoffs interpretierst Du eine Effektgröße sinnvoll so:
 
-- Die **$R^2$**-Schwellen sind die aus Cohens $f^2$ (.02 / .15 / .35) umgerechneten Werte. In der Persönlichkeits- und Sozialpsychologie sind real oft schon $R^2$ um .05–.15 ein guter Befund — die Konvention ist ein grober Maßstab, kein Gesetz.
-- Die **Odds-Ratio**-Schwellen (Chen, Cohen & Chen 2010) sind eine **Näherung** und hängen stark von der **Basisrate** des Ereignisses ab; ein OR ist immer auch *für sich* interpretierbar (Faktor, um den sich die Odds ändern).
-- Der **Bayes-Faktor** ist **keine Effektgröße**, sondern ein Maß der **Evidenzstärke** für eine Hypothese gegenüber einer anderen — Skala ($BF_{10}$: 1–3 anekdotisch, 3–10 moderat, 10–30 stark, 30–100 sehr stark, > 100 extrem) siehe Kapitel [05](05-bayes.qmd).
+- **Im Vergleich zur Literatur:** Wie groß sind Effekte, die für *diese* Frage typischerweise berichtet werden? Ordne Deinen Wert dort ein.
+- **Nach praktischer Bedeutung:** Was bedeutet der Effekt inhaltlich — verändert eine Differenz von 0.3 Punkten auf der Skala etwas Relevantes im echten Leben?
+- **Mit Unsicherheit:** Berichte **immer** das **Konfidenzintervall** (bzw. Credible Interval) und die **Stichprobengröße $n$**. Ein Punktschätzer ohne Intervall verschweigt, wie genau er überhaupt ist.
 
-**Immer** zusammen mit der Effektgröße berichten: das **Konfidenzintervall** (bzw. Credible Interval) und die **Stichprobengröße $n$**.
+::: {.callout-tip title="Die wichtigste Regel"}
+**Berichte die Effektgröße — aber interpretiere sie im Kontext, nicht gegen eine universelle Schablone.** Eine Zahl wie $d = 0.4$ ist weder von sich aus „mittel" noch „klein"; ihre Bedeutung ergibt sich aus dem Forschungsfeld und der praktischen Konsequenz.
+:::
 
 ## JASP-Schnellzugriff (Menüpfade)
 

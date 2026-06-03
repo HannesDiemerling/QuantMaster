@@ -71,14 +71,11 @@ Angenommen $b_3 > 0$ und signifikant. Dann gilt: Je höher $W$, desto **steiler*
 
 Ein **Interaktionsplot** zeigt das als mehrere Geraden: Laufen sie parallel → keine Interaktion. Spreizen oder kreuzen sie sich → Interaktion. Dieser eine Plot ist das, was Du am Ende abgibst.
 
-## Was unsere Daten hergeben — Erwartung
+## Was unsere Daten hergeben
 
-Achtung, ehrlich bleiben (@sec-tag3-datenhinweis): In unseren simulierten Daten ist **keine Interaktion eingebaut**. Es gibt zwischen den Skalen nur schwache *lineare* Zusammenhänge, keine moderierenden. Daher ist die ehrliche Erwartung:
+Achtung, ehrlich bleiben (@sec-tag3-datenhinweis): Zwischen den Skalen stecken nur schwache *lineare* Zusammenhänge, keine moderierenden. Die Richtung ist daher klar: **Erwarte hier keine starke Interaktion**, und ein nicht signifikanter Interaktionsterm ist ein völlig legitimes Ergebnis.
 
-- Der Interaktionsterm wird **meistens nicht signifikant**.
-- Genau das ist das **korrekte** Ergebnis.
-
-Das ist didaktisch Absicht: **Interaktionen sind notorisch schwer nachzuweisen.** Sie brauchen viel mehr Power als Haupteffekte — als Faustregel das **Vierfache** der Stichprobe, die Du für einen gleich großen Haupteffekt bräuchtest. Mit $N \approx 90$ bist Du für Interaktionen klar unterversorgt. Du lernst hier also vor allem **das Verfahren und seine Interpretation** — und die wichtige Lektion, dass ein nicht-signifikanter Interaktionsterm der Normalfall ist und kein Drama.
+Das ist didaktisch Absicht: **Interaktionen sind notorisch schwer nachzuweisen.** Sie brauchen viel mehr Power als Haupteffekte — als Faustregel ein Vielfaches der Stichprobe, die Du für einen gleich großen Haupteffekt bräuchtest. Mit einer Stichprobe in der Größenordnung unseres Datensatzes bist Du für Interaktionen klar unterversorgt. Du lernst hier also vor allem **das Verfahren und seine Interpretation** — und die wichtige Lektion, dass ein nicht signifikanter Interaktionsterm der Normalfall ist und kein Drama.
 
 ::: {.callout-tip title="Falls Deine Interaktion doch signifikant wird"}
 Bei rund einem von zwanzig Tests passiert das rein zufällig (Fehler erster Art). Bevor Du eine Geschichte darum baust: erst replizieren, dann glauben. Genau diese Skepsis trainiert der Workshop.
@@ -114,8 +111,8 @@ Bei rund einem von zwanzig Tests passiert das rein zufällig (Fehler erster Art)
 - Wiederhole mit einem anderen Paar (z. B. `O_c * V_c` auf `G_mean`). Auch null?
 - Erkläre in zwei Sätzen, warum ein nicht-signifikanter Interaktionsterm hier **erwartbar** war (Verweis auf Datengenerierung und Power).
 
-::: {.callout-important title="Abgabe per Mail — nur EIN Plot"}
-Schick **den einen Interaktionsplot** (Screenshot/Export). In den Mail-Text: Deine **eine Berichtszeile** zur Interaktion und **ein Satz** zur Power-Problematik.
+::: {.callout-important title="Abgabe per Mail — nur EIN Output"}
+Schick **die Ergebnistabelle der Regression** (Screenshot/Export) — die JASP-Koeffiziententabelle mit allen drei Zeilen (`E_c`, `G_c` und die Interaktion `E_c * G_c`), inklusive $b$, $p$ und KI. In den Mail-Text: Deine **eine Berichtszeile** zur Interaktion und **ein Satz** zur Power-Problematik.
 
 An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
 Betreff: *„M15 Tag 3 — Kap 02 — [Deine Kennziffer]"*

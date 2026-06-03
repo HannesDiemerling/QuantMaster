@@ -85,11 +85,11 @@ Nenn die Spalte `N_hoch` und setz ihren Typ auf **Nominal**.
    - **Performance → ROC plot / AUC**
    - **Model fit** (Pseudo-$R^2$, LR-Test)
 
-## Was unsere Daten hergeben — Erwartung
+## Was unsere Daten hergeben
 
-Erneut ehrlich (@sec-tag3-datenhinweis): Da die Skalen untereinander schwach positiv zusammenhängen, kann ein aus **mehreren** Skalen gebautes Modell für „hoher vs. niedriger Neurotizismus" einen **kleinen, manchmal signifikanten** Effekt zeigen (gepoolte Signale). Mit $N \approx 90$ und einem 50:50-Split ist die AUC realistisch eher bescheiden (~.55–.65).
+Erneut ehrlich (@sec-tag3-datenhinweis): Da die Skalen untereinander schwach positiv zusammenhängen, kann ein aus **mehreren** Skalen gebautes Modell für „hoher vs. niedriger Neurotizismus" ein gewisses Signal aufnehmen. Die Richtung: Eine perfekte Trennung ist nicht zu erwarten — die Trennschärfe (AUC) wird bei einer kleinen Stichprobe eher bescheiden ausfallen.
 
-Würdest Du dagegen versuchen, **`geschlecht`** aus den Skalen vorherzusagen, sollte das **nichts** finden (Demografie ist unabhängig) — ein guter Kontrast-Versuch für den Bonus.
+Würdest Du dagegen versuchen, **`geschlecht`** aus den Skalen vorherzusagen, ist **kaum etwas** zu erwarten (Demografie ist unabhängig) — ein guter Kontrast-Versuch für den Bonus.
 
 ## Wie das Ergebnis berichten
 
@@ -123,8 +123,8 @@ Würdest Du dagegen versuchen, **`geschlecht`** aus den Skalen vorherzusagen, so
 - Versuch dasselbe mit **`geschlecht` (1 vs. 2)** als Outcome und den Skalen als Prädiktoren. Findet das Modell etwas? Warum (nicht)?
 - Interpretiere **ein** OR ausführlich in einem Satz in der Wahrscheinlichkeits-Sprache.
 
-::: {.callout-important title="Abgabe per Mail — nur EIN Plot"}
-Schick **die ROC-Kurve** (mit AUC) Deines Pflichtmodells (Screenshot/Export). In den Mail-Text: Deine **eine Berichtszeile** und **eine** Interpretation eines Odds Ratios.
+::: {.callout-important title="Abgabe per Mail — nur EIN Output"}
+Schick **die Ergebnistabelle der Koeffizienten** (Screenshot/Export) — die JASP-Tabelle mit den **Odds Ratios** und Konfidenzintervallen pro Prädiktor (idealerweise mit den Modell-Fit-Werten $\chi^2$, Nagelkerke-$R^2$, AUC darüber). In den Mail-Text: Deine **eine Berichtszeile** und **eine** Interpretation eines Odds Ratios.
 
 An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
 Betreff: *„M15 Tag 3 — Kap 04 — [Deine Kennziffer]"*

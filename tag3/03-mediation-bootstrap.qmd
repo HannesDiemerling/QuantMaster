@@ -82,15 +82,11 @@ Mediation steckt in JASP im **SEM-Modul** (Strukturgleichungsmodelle — dazu me
    - **Confidence interval** auf 95 %, Methode **Percentile** (oder Bias-corrected).
 5. Ausführen. Der Output zeigt $a$, $b$, $c'$ (direkt), den **indirekten Effekt** und den **totalen Effekt**, jeweils mit Bootstrap-KI.
 
-## Was unsere Daten hergeben — Erwartung
+## Was unsere Daten hergeben
 
-Wieder ehrlich (@sec-tag3-datenhinweis): In den Daten gibt es **keinen** eingebauten Mediationsmechanismus, nur schwach positive Korrelationen zwischen allen Skalen. Konkret heißt das:
+Wieder ehrlich (@sec-tag3-datenhinweis): In den Daten steckt **kein** eingebauter Mediationsmechanismus, nur schwach positive Zusammenhänge zwischen allen Skalen. Die Richtung daraus: Die Pfade sind allenfalls klein, und ihr **Produkt** (der indirekte Effekt) ist entsprechend winzig — bei einer kleinen Stichprobe wird das Bootstrap-Intervall die **Null in aller Regel einschließen**.
 
-- Die Pfade $a$ und $b$ sind je *für sich* klein-positiv (weil alle Skalen leicht zusammenhängen).
-- Ihr **Produkt** $a \times b$ ist dann **sehr klein**.
-- Bei $N \approx 90$ wird das Bootstrap-KI dieses winzigen Produkts die **Null fast sicher einschließen**.
-
-Erwartung also: **kein signifikanter indirekter Effekt**. Und auch das ist das **korrekte** Ergebnis. Du lernst hier das Verfahren, die Logik des Bootstrap und — erneut — dass ein sauberer Nullbefund Teil seriöser Forschung ist.
+Erwarte hier also **keinen klaren indirekten Effekt**. Und auch das ist ein **legitimes** Ergebnis. Du lernst hier das Verfahren, die Logik des Bootstrap und — erneut — dass ein sauberer Nullbefund Teil seriöser Forschung ist.
 
 ::: {.callout-important title="Mediation braucht große Stichproben"}
 Für einen mittleren indirekten Effekt mit ordentlicher Power braucht man oft **$N > 150$**, nicht selten mehrere Hundert. Mediation mit $N = 30$ aus einer Bachelor-Erhebung ist mit Vorsicht zu genießen — das ist eine der häufigsten Überinterpretationen in studentischen Arbeiten. Jetzt weißt Du, warum.

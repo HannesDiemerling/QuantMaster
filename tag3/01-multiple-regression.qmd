@@ -93,9 +93,9 @@ Oft willst Du wissen: *Bringt ein zusätzlicher Block von Prädiktoren überhaup
 
 JASP zeigt dann **$\Delta R^2$** und einen $F$-Test dafür: *Erklärt Modell 2 signifikant mehr als Modell 1?*
 
-## Worked Example — was unsere Daten hergeben
+## Was unsere Daten hergeben
 
-Erinnere Dich an den [Datenhinweis](00-uebersicht.qmd#sec-tag3-datenhinweis): Die fünf Big-Five-Skalen korrelieren untereinander **schwach positiv**, Demografie hängt mit **nichts** zusammen. Das gibt zwei lehrreiche Modelle:
+Erinnere Dich an den [Datenhinweis](00-uebersicht.qmd#sec-tag3-datenhinweis): Zwischen den fünf Big-Five-Skalen steckt ein **schwaches, echtes Signal**, zwischen Demografie und Persönlichkeit dagegen **keines**. Das gibt zwei lehrreiche Modelle — wie sie genau ausfallen, hängt auch von den Zeilen ab, die Ihr selbst beigesteuert habt:
 
 **Modell A — sollte (teilweise) etwas finden.** Wir sagen Neurotizismus aus den vier anderen Skalen vorher:
 
@@ -103,7 +103,7 @@ $$
 \widehat{\texttt{N\_mean}} = b_0 + b_1\,\texttt{E\_mean} + b_2\,\texttt{V\_mean} + b_3\,\texttt{G\_mean} + b_4\,\texttt{O\_mean}
 $$
 
-Weil alle Skalen leicht positiv zusammenhängen, **bündelt** dieses Modell mehrere kleine Signale. Erwartung: ein kleines, aber von Null verschiedenes $R^2$ (grob .05–.20) und ein eher signifikantes Gesamt-$F$. Einzelne $b$ können trotzdem knapp nicht-signifikant sein — bei $N \approx 90$ ist das normal.
+Weil alle Skalen leicht positiv zusammenhängen, **bündelt** dieses Modell mehrere kleine Signale. Die Richtung: Hier ist *am ehesten* etwas zu finden. Einzelne Prädiktoren können dabei trotzdem nicht signifikant sein — bei einer kleinen Stichprobe ist das normal.
 
 **Modell B — sollte (fast) nichts finden.** Wir sagen dieselbe Skala aus der Demografie vorher:
 
@@ -111,7 +111,7 @@ $$
 \widehat{\texttt{N\_mean}} = b_0 + b_1\,\texttt{alter} + b_2\,\texttt{bildungsgrad} + b_3\,\texttt{geschlecht}
 $$
 
-Erwartung: $R^2 \approx 0$, kein signifikanter Prädiktor, $F$ nicht signifikant. **Das ist das korrekte Ergebnis** — in diesen Daten gibt es diesen Zusammenhang nicht. Wenn doch ein Koeffizient knapp signifikant wird, ist das mit hoher Wahrscheinlichkeit ein **Fehler erster Art** (Zufallstreffer).
+Die Richtung: Hier ist **kaum etwas** zu erwarten — in diesen Daten gibt es den Zusammenhang schlicht nicht. Falls doch ein Koeffizient signifikant wird, ist das eher ein **Fehler erster Art** (Zufallstreffer) als ein echter Effekt. Ein Nullbefund ist hier das, was zur Datenlage passt — und kein Versagen Deiner Analyse.
 
 ::: {.callout-important title="Die eigentliche Lektion"}
 Modell A und Modell B nebeneinander zeigen Dir den Kern sauberer Forschung: Ein Verfahren findet nur dann etwas, wenn in den Daten **wirklich** etwas ist. Ein Nullbefund (Modell B) ist **kein Versagen Deiner Analyse**, sondern eine ehrliche Aussage über die Welt. Du berichtest ihn genauso selbstbewusst wie einen Effekt.
@@ -153,7 +153,7 @@ Was drinsteht: Gesamttest ($F$, $p$, $R^2$, adj. $R^2$), die Koeffizienten mit $
 - Tausch das Kriterium: sag `O_mean` aus den anderen vier Skalen vorher. Anderer stärkster Prädiktor?
 
 ::: {.callout-important title="Abgabe per Mail — nur EIN Output"}
-Schick **eine einzige Datei**: den **Q-Q-Plot der standardisierten Residuen aus Modell A** (Screenshot oder PDF-Export). Schreib in den Mail-Text Deine **zwei Berichtszeilen** (Modell A und Modell B) und **einen Satz**, warum Modell B (fast) nichts findet.
+Schick **die Ergebnistabelle von Modell A** (Screenshot oder PDF-Export) — also die JASP-Tabelle mit Modell-Fit ($F$, $p$, $R^2$, adj. $R^2$) **und** den Koeffizienten ($b$, $\beta$, $p$, KI). Schreib in den Mail-Text Deine **zwei Berichtszeilen** (Modell A und Modell B) und **einen Satz**, warum Modell B (fast) nichts findet.
 
 An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
 Betreff: *„M15 Tag 3 — Kap 01 — [Deine Kennziffer]"*

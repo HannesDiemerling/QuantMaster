@@ -78,13 +78,13 @@ Wir bleiben beim Beispiel „hoher vs. niedriger Neurotizismus" (`N_hoch` aus Ka
 
 Vergleich beider Modelle: Welches hat auf den **Testdaten** die höhere AUC?
 
-## Was unsere Daten hergeben — Erwartung
+## Was unsere Daten hergeben
 
-Sei nicht enttäuscht (@sec-tag3-datenhinweis): Unsere Daten haben **wenig echtes Signal** (schwache Inter-Skalen-Korrelationen) und sind **klein**. Erwartung:
+Sei nicht enttäuscht (@sec-tag3-datenhinweis): Unsere Daten haben **wenig echtes Signal** (schwache Inter-Skalen-Zusammenhänge) und sind **klein**. Die Richtung:
 
-- Test-AUC realistisch um **.55–.65** — knapp über Zufall.
-- Random Forest und neuronales Netz schlagen die **logistische Regression aus Kapitel 04 kaum** — oft sind sie sogar etwas schlechter, weil sie bei wenig Signal und kleinem $N$ leichter overfitten.
-- **Demografische Features** (Alter, Bildung) verbessern nichts — sie tragen kein Signal.
+- Die Trennschärfe (Test-AUC) wird **nur knapp über Zufallsniveau** liegen.
+- Random Forest und neuronales Netz schlagen die **logistische Regression aus Kapitel 04 kaum** — bei wenig Signal und kleiner Stichprobe overfitten sie sogar leichter.
+- **Demografische Features** (Alter, Bildung) tragen voraussichtlich nichts bei.
 
 ::: {.callout-important title="Die Lektion über ML"}
 Machine Learning **erzeugt kein Signal, das nicht in den Daten ist.** Komplexere Modelle sind nicht automatisch besser — bei kleinen Stichproben mit schwachem Effekt ist eine schlichte, gut verstandene Regression oft die *bessere* und ehrlichere Wahl. „Wir haben ein neuronales Netz benutzt" ist kein Qualitätssiegel. Das Werkzeug muss zum Problem passen.
@@ -121,8 +121,8 @@ ML entfaltet seine Stärke bei **großen** Datensätzen (Tausende Fälle) mit **
 - Füg `alter` und `bildungsgrad` als zusätzliche Features hinzu. Wird die Test-AUC **besser**? Erkläre das Ergebnis.
 - Rechne ein **k-means-Clustering** (Machine Learning → Clustering) über die fünf Skalen — wie viele Cluster schlägt JASP vor, und sind sie inhaltlich plausibel?
 
-::: {.callout-important title="Abgabe per Mail — nur EIN Plot"}
-Schick **einen** Plot: den **Variable-Importance-Plot des Random Forest** *oder* den **Network-Plot des neuronalen Netzes** (Screenshot/Export). In den Mail-Text: Deine **eine Vergleichszeile** und **ein Satz**, ob das komplexere Modell hier wirklich geholfen hat (und warum).
+::: {.callout-important title="Abgabe per Mail — nur EIN Output"}
+Schick **die Performance-Tabelle Deines Random Forest** (Screenshot/Export) — die JASP-Auswertung auf den **Testdaten** (Confusion Matrix bzw. die Tabelle mit Test-Accuracy/AUC). In den Mail-Text: Deine **eine Vergleichszeile** (Random Forest vs. neuronales Netz vs. logist. Regression) und **ein Satz**, ob das komplexere Modell hier wirklich geholfen hat (und warum).
 
 An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
 Betreff: *„M15 Tag 3 — Kap 06 — [Deine Kennziffer]"*

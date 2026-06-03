@@ -14,8 +14,8 @@ Nach diesem Kapitel kannst Du …
 
 Eine Kernannahme aller bisherigen Verfahren war: Die Beobachtungen sind **unabhängig**. In der Forschungspraxis stimmt das oft **nicht**:
 
-- Schüler:innen sind in **Klassen** genestet, Klassen in **Schulen**.
-- Patient:innen werden von **Therapeut:innen** behandelt — mehrere pro Therapeut:in.
+- Lernende sind in **Klassen** genestet, Klassen in **Schulen**.
+- Behandelte werden von **Behandelnden** betreut — mehrere Personen pro behandelnder Person.
 - Eine Person wird **mehrfach** gemessen (Längsschnitt, Tagebuchstudie, EMA): die Messungen einer Person sind genestet **in der Person**.
 
 In all diesen Fällen ähneln sich Beobachtungen **innerhalb** einer Gruppe stärker als zwischen Gruppen. Ignorierst Du das und rechnest eine normale Regression, sind Deine Standardfehler **zu klein** und Du findest scheinbare Effekte, die keine sind. **Mixed Models** (auch: Mehrebenen-, hierarchische oder Multilevel-Modelle) lösen das.
@@ -26,13 +26,13 @@ Der Name „gemischtes Modell" kommt daher, dass es **zwei Arten** von Effekten 
 
 | Effekt | Bedeutung | Beispiel |
 |---|---|---|
-| **Fester Effekt** (fixed) | der durchschnittliche Zusammenhang über **alle** Gruppen — das, was Dich inhaltlich interessiert | „Über alle Therapeut:innen hinweg senkt die Intervention die Symptomlast um $b$." |
-| **Zufälliger Effekt** (random) | wie stark einzelne **Gruppen** vom Durchschnitt abweichen — als Streuung, nicht als Einzelkoeffizient | „Therapeut:innen unterscheiden sich in ihrem Ausgangsniveau." |
+| **Fester Effekt** (fixed) | der durchschnittliche Zusammenhang über **alle** Gruppen — das, was Dich inhaltlich interessiert | „Über alle Behandelnden hinweg senkt die Intervention die Symptomlast um $b$." |
+| **Zufälliger Effekt** (random) | wie stark einzelne **Gruppen** vom Durchschnitt abweichen — als Streuung, nicht als Einzelkoeffizient | „Behandelnde unterscheiden sich in ihrem Ausgangsniveau." |
 
 ### Random Intercept vs. Random Slope
 
-- **Random Intercept:** Jede Gruppe hat ihr **eigenes Ausgangsniveau**. (Manche Therapeut:innen haben grundsätzlich Patient:innen mit höherer Symptomlast.)
-- **Random Slope:** Der **Effekt eines Prädiktors** darf zwischen Gruppen variieren. (Die Intervention wirkt bei manchen Therapeut:innen stärker als bei anderen.)
+- **Random Intercept:** Jede Gruppe hat ihr **eigenes Ausgangsniveau**. (Manche Behandelnde haben grundsätzlich Fälle mit höherer Symptomlast.)
+- **Random Slope:** Der **Effekt eines Prädiktors** darf zwischen Gruppen variieren. (Die Intervention wirkt bei manchen Behandelnden stärker als bei anderen.)
 
 Du gibst dem Modell also nicht für jede Gruppe einen eigenen Koeffizienten (das wären bei 100 Gruppen 100 Koeffizienten), sondern modellierst die **Verteilung** dieser Abweichungen — sparsam und stabil.
 
@@ -64,15 +64,14 @@ Mixed Models stecken im Modul **„Linear Mixed Models"** (über das **„+"** a
    - **Fixed effects:** Koeffizienten wie in der normalen Regression, aber mit korrigierten Standardfehlern.
    - **Random effects (variance components):** die Varianz zwischen Gruppen → daraus berechnest/abliest Du den ICC.
 
-## Was unsere Daten hergeben — Erwartung
+## Was unsere Daten hergeben
 
-Unsere Personen sind in **10 Quell-Datensätze** (`quelle_datensatz`) genestet — eine echte Gruppenstruktur. Aber (@sec-tag3-datenhinweis): Alle 10 Datensätze wurden aus **derselben** Verteilung erzeugt. Also:
+Unsere Personen sind in **10 Quell-Datensätze** (`quelle_datensatz`) genestet — eine echte Gruppenstruktur. Aber (@sec-tag3-datenhinweis): Alle Datensätze wurden aus **derselben** Verteilung erzeugt. Die Richtung daraus:
 
-- Die **Varianz zwischen** den Datensätzen ist (bis auf Stichprobenzufall) ≈ 0.
-- Der **ICC** liegt nahe **0**.
-- Der feste Effekt von `E_mean` auf `O_mean` entspricht ungefähr dem aus einer normalen Regression.
+- Die **Varianz zwischen** den Datensätzen ist gering, der **ICC** entsprechend **klein**.
+- Der feste Effekt von `E_mean` auf `O_mean` dürfte ungefähr dem aus einer normalen Regression entsprechen.
 
-Das ist genau die richtige, ehrliche Lehre: Das Mixed Model **bestätigt**, dass hier keine relevante Nestung vorliegt. Du hast damit ein Werkzeug, das Dir *sagt*, ob Du es überhaupt brauchst — und es korrekt bedienen gelernt. In echten genesteten Daten (Klassen, Therapeut:innen, Messwiederholungen) wäre der ICC deutlich größer und das Modell unverzichtbar.
+Das ist genau die richtige, ehrliche Lehre: Das Mixed Model **zeigt Dir**, dass hier kaum relevante Nestung vorliegt. Du hast damit ein Werkzeug, das Dir *sagt*, ob Du es überhaupt brauchst — und es korrekt bedienen gelernt. In echten genesteten Daten (Klassen, Behandelnde, Messwiederholungen) wäre der ICC deutlich größer und das Modell unverzichtbar.
 
 ::: {.callout-tip title="Der kleine Bruder: Repeated-Measures-ANOVA"}
 Für den Spezialfall „jede Person mehrfach unter wenigen Bedingungen gemessen" gibt es die **Repeated-Measures-ANOVA** (in JASP unter ANOVA → Repeated Measures). Sie ist einfacher, aber unflexibler. Mixed Models verallgemeinern sie: Sie kommen mit unbalancierten Daten, fehlenden Messzeitpunkten und kontinuierlicher Zeit zurecht — weshalb sie in der modernen Längsschnittforschung Standard sind.
@@ -107,7 +106,7 @@ Für den Spezialfall „jede Person mehrfach unter wenigen Bedingungen gemessen"
 - Erkläre in zwei Sätzen, wie der ICC aussähe, wenn die zehn Datensätze aus **verschiedenen** Populationen stammten.
 
 ::: {.callout-important title="Abgabe per Mail — nur EIN Output"}
-Schick **einen** Output: die **Tabelle der Random-Effects-Varianzkomponenten** (mit der Gruppenvarianz für `quelle_datensatz`). In den Mail-Text: Deine **eine Berichtszeile** inkl. geschätztem ICC und **ein Satz**, ob ein Mixed Model hier nötig war.
+Schick **die Ergebnistabelle des Mixed Models** (Screenshot/Export) — die JASP-Ausgabe mit dem **festen Effekt** von `E_mean` **und** den **Random-Effects-Varianzkomponenten** (Gruppenvarianz für `quelle_datensatz`). In den Mail-Text: Deine **eine Berichtszeile** inkl. geschätztem ICC und **ein Satz**, ob ein Mixed Model hier nötig war.
 
 An: [hannes.diemerling@hmu-erfurt.de](mailto:hannes.diemerling@hmu-erfurt.de)
 Betreff: *„M15 Tag 3 — Kap 07 — [Deine Kennziffer]"*
