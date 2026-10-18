@@ -37,3 +37,5 @@ intern/
 /.quarto/
 **/*.quarto_ipynb
 QuantMaster/CLAUDE.md
+# Agent-Spezifikation, nur lokal
+CLAUDE.md
