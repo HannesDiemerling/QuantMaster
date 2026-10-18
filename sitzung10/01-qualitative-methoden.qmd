@@ -1,0 +1,76 @@
+# Qualitative Methoden & Mixed Methods {#sec-quali}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- die Logik qualitativer Forschung von der quantitativen abgrenzen,
+- zentrale Erhebungs- und Auswertungsmethoden benennen,
+- Gütekriterien qualitativer Forschung erklären,
+- Mixed-Methods-Designs unterscheiden und eine Interrater-Übereinstimmung in JASP berechnen.
+:::
+
+## Worum es geht
+
+Nicht jede Forschungsfrage lässt sich mit Fragebögen und Mittelwerten beantworten. *Wie* erleben Patient:innen den Therapieabbruch? *Welche* Themen tauchen in Erstgesprächen auf? Solche Fragen nach Bedeutungen, Prozessen und Perspektiven beantwortet die **qualitative Forschung** (Vorlesung 13). In der Psychotherapieforschung wird sie oft mit quantitativen Methoden kombiniert.
+
+## Qualitativ vs. quantitativ
+
+| | Quantitativ | Qualitativ |
+|---|---|---|
+| **Ziel** | Hypothesen prüfen, verallgemeinern | Phänomene verstehen, Theorien entwickeln |
+| **Daten** | Zahlen (standardisierte Messung) | Texte, Bilder, Beobachtungen |
+| **Stichprobe** | groß, möglichst repräsentativ | klein, gezielt ausgewählt (z. B. bis zur *theoretischen Sättigung*) |
+| **Rolle der Forschenden** | möglichst unabhängig | Teil des Prozesses → Reflexivität |
+
+## Erhebung und Auswertung
+
+- **Erhebung:** (halb-)strukturierte Interviews, Fokusgruppen, teilnehmende Beobachtung, Dokumente (z. B. Therapieprotokolle).
+- **Auswertung:**
+  - **Qualitative Inhaltsanalyse** (z. B. nach Mayring oder Kuckartz): Text wird anhand eines Kategoriensystems kodiert, deduktiv (aus Theorie) oder induktiv (aus dem Material).
+  - **Thematische Analyse:** Themen über Interviews hinweg identifizieren.
+  - **Grounded Theory:** aus den Daten heraus schrittweise eine Theorie entwickeln.
+
+## Gütekriterien
+
+Objektivität, Reliabilität und Validität im engeren Sinn passen nur bedingt. Gebräuchlich sind u. a.: **Transparenz** (Vorgehen dokumentiert), **intersubjektive Nachvollziehbarkeit**, **Reflexivität** (eigene Vorannahmen offenlegen), **kommunikative Validierung** (Rückmeldung durch Teilnehmende) und **Triangulation** (mehrere Methoden, Daten oder Forschende).
+
+Bei kategorienbasierten Verfahren kodieren oft **zwei Personen unabhängig** dasselbe Material. Ihre Übereinstimmung wird quantifiziert — hier treffen sich beide Welten.
+
+## Mixed Methods
+
+| Design | Ablauf | Beispiel |
+|---|---|---|
+| **Konvergent** | qualitativ und quantitativ parallel, dann zusammenführen | Fragebogen + Interviews in derselben Studie |
+| **Explanatorisch-sequenziell** | erst quantitativ, dann qualitativ zur Erklärung | überraschende Ergebnisse in Interviews vertiefen |
+| **Explorativ-sequenziell** | erst qualitativ, dann quantitativ | aus Interviews Items für einen neuen Fragebogen entwickeln |
+
+## In JASP rechnen: Interrater-Übereinstimmung
+
+Die Datei [materials/kodierung-ratings.csv](../materials/kodierung-ratings.csv) enthält **synthetische** Kodierungen von 40 Interviewsegmenten zum Thema Studienstress. Zwei Rater haben jedes Segment einer Kategorie zugeordnet: 1 = Belastung, 2 = Ressource, 3 = Bewältigung, 4 = Sonstiges.
+
+1. Datei herunterladen und in JASP öffnen; `rater_a` und `rater_b` auf **Nominal** setzen.
+2. **Prozentuale Übereinstimmung:** Compute Column `gleich` (R-Code, Typ Scale) mit `ifelse(rater_a == rater_b, 1, 0)`; der Mittelwert dieser Spalte in **Descriptives** × 100 ist die Übereinstimmung in %.
+3. Modul **Reliability** über das **„+"** aktivieren (falls noch nicht geschehen), dann **Reliability → Classical → Rater Agreement**.
+4. `rater_a` und `rater_b` ins Feld **Variables** (*Raters are in columns*). **Cohen's kappa** (*Unweighted*) ist voreingestellt.
+5. Lies Cohen's κ ab. Faustregel (Landis & Koch): .41–.60 moderat, .61–.80 substanziell, > .80 fast perfekt.
+
+## Aufgabe
+
+**Pflichtteil:**
+
+1. Prozentuale Übereinstimmung und Cohen's κ der beiden Rater berechnen.
+2. Ein Satz: Warum ist κ kleiner als die prozentuale Übereinstimmung?
+
+**Bonus:**
+
+- Skizziere in drei Sätzen eine Mixed-Methods-Studie zu einer Frage aus Deinem Interessengebiet: Welches Design, welche qualitative und welche quantitative Komponente?
+
+::: {.callout-tip title="Für die Abgabe"}
+Notiere die prozentuale Übereinstimmung, Cohen's κ und Deinen Satz zu κ. Siehe @sec-s10-abschluss.
+:::
+
+## Selbstcheck
+
+1. Wann ist eine qualitative Herangehensweise einer quantitativen überlegen?
+2. Was bedeutet *theoretische Sättigung*?
+3. Was korrigiert Cohen's κ im Vergleich zur einfachen prozentualen Übereinstimmung?

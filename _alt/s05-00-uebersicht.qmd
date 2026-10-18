@@ -1,0 +1,28 @@
+# Sitzung 05 — Übersicht {#sec-s05-uebersicht}
+
+::: {.callout-note title="Lernziele"}
+Nach dieser Sitzung …
+
+- berechnest Du in JASP die fünf BFI-K-Skalenwerte per Compute Column,
+- prüfst und interpretierst Du Cronbach's α und McDonald's ω,
+- rechnest und interpretierst Du Korrelationen mit Konfidenzintervall,
+- erklärst Du, warum aus einer Korrelation keine Kausalität folgt.
+:::
+
+## Worum es geht
+
+Heute machst Du aus 21 Items fünf Konstrukte und prüfst, wie zuverlässig sie gemessen sind. Mit diesen Skalen rechnest Du die ersten Zusammenhänge — und lernst, sie skeptisch zu lesen.
+
+## Ablauf (ca. 2 Stunden, online)
+
+| Zeit | Modus | Inhalt |
+|---|---|---|
+| 0:00–0:10 | **Plenum** | Rückblick Plots; Input: Warum aggregieren? |
+| 0:10–0:55 | Self-Study + Kleingruppe | @sec-tag2-skalen |
+| 0:55–1:05 | **Plenum** | Zwischenstand: Welche Skala ist am wenigsten reliabel — und warum? |
+| 1:05–1:50 | Self-Study + Kleingruppe | @sec-tag2-korrelation |
+| 1:50–2:00 | **Plenum** | Fragen, Abgabe (@sec-s05-abschluss) |
+
+::: {.callout-tip title="Speichern nicht vergessen"}
+Die fünf Skalenspalten brauchst Du in allen weiteren Sitzungen. Speichere Deine Arbeit am Ende als `.jasp`-Datei (**File → Save as**), dann musst Du sie nicht neu bauen.
+:::

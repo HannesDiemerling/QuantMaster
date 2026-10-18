@@ -1,0 +1,29 @@
+# Sitzung 10 — Übersicht {#sec-s10-uebersicht}
+
+::: {.callout-note title="Lernziele"}
+Nach dieser Sitzung …
+
+- verstehst Du die Grundidee von Machine Learning (Vorhersage auf ungesehenen Daten),
+- vergleichst Du Random Forest, neuronales Netz und logistische Regression,
+- kannst Du weitere Verfahren (EFA, CFA/SEM, Netzwerk, Cluster, Meta-Analyse) einordnen,
+- weißt Du, wo Du später nachschlagen kannst.
+:::
+
+## Worum es geht
+
+Die letzte Sitzung schließt den Bogen: ein Blick auf Machine Learning, eine Landkarte der Verfahren, die wir nicht im Detail behandeln, und das Nachschlagewerk für Deine Masterarbeit.
+
+## Ablauf (ca. 2 Stunden, online)
+
+| Zeit | Modus | Inhalt |
+|---|---|---|
+| 0:00–0:10 | **Plenum** | Input: Erklären vs. Vorhersagen |
+| 0:10–0:55 | Self-Study + Kleingruppe | @sec-tag3-ml |
+| 0:55–1:20 | Self-Study + Kleingruppe | @sec-tag3-weitere (Demo-Charakter, keine Abgabe) |
+| 1:20–1:45 | **Plenum** | Zusammenfassung (@sec-tag3-nachschlagewerk), Fragen zur Prüfung |
+| 1:45–2:00 | **Plenum** | Abschluss, Feedback, Abgabe (@sec-s10-abschluss) |
+
+## Was Du dafür brauchst
+
+- Deine JASP-Datei mit den Skalenspalten und `N_hoch` aus Sitzung 08
+- Das Modul **Machine Learning** (über das **„+"** oben rechts aktivieren)

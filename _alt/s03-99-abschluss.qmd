@@ -1,0 +1,36 @@
+# Sitzung 03 — Abschluss & Abgabe {#sec-s03-abschluss}
+
+## Was Du heute geschafft hast
+
+- Du hast mehrere Uploads selbst kombiniert und die Fallstricke dabei erlebt.
+- Du arbeitest ab jetzt mit dem offiziellen `m15-gesamt.csv`.
+- Du kannst die Stichprobe beschreiben und benennen, wo sie verzerrt ist.
+
+## Abgabe
+
+Schick **eine** Mail bis spätestens zum Tag vor Sitzung 04 an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
+
+- **Betreff:** `M15 S03 — <Kennziffer>`
+- **Text:** Vorlage kopieren und ausfüllen, keine Anhänge. Dezimalzahlen mit 2 Nachkommastellen.
+
+```text
+S03-1 Datenzeilen in Deiner selbst kombinierten Datei (ohne Kopfzeile):
+S03-2 Zeilen in m15-gesamt.csv:
+S03-3 Davon Zeilen mit quelle = studierende:
+S03-4 Anzahl Personen mit geschlecht = 1 (weiblich):
+S03-5 Mittelwert alter:
+S03-6 SD alter:
+S03-7 BFI-Item mit den meisten fehlenden Werten (Item + Anzahl):
+S03-8 Stichprobe in 2–3 Sätzen: Wer ist drin, welcher Bias-Typ ist am relevantesten?
+```
+
+Alle Werte ab S03-2 beziehen sich auf den **offiziellen** Gesamtdatensatz, nicht auf Deine selbst kombinierte Datei.
+
+## Reflexion (privat, 3 Minuten)
+
+1. Welcher Fehler beim Kombinieren wäre Dir ohne Kontrolle der Zeilenzahl nicht aufgefallen?
+2. Was ist noch unklar?
+
+## Ausblick auf Sitzung 04
+
+Deskriptive Statistik und Plots: Du lernst, Verteilungen zu lesen, bevor Du irgendetwas testest.

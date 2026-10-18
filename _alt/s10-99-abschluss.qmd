@@ -1,0 +1,39 @@
+# Sitzung 10 — Seminar-Abschluss & letzte Abgabe {#sec-s10-abschluss}
+
+## Was Du in zehn Sitzungen geschafft hast
+
+- Du hast einen **vollständigen Forschungsworkflow** durchlaufen: von der Erhebung über Versionierung, Bereinigung und Aggregation bis zur multivariaten Modellierung.
+- Du beherrschst die **Standardverfahren** der quantitativen Psychologie: Korrelation, *t*-Test, ANOVA, multiple Regression — inklusive Effektgrößen und sauberem Berichten.
+- Du hast **fortgeschrittene** Werkzeuge kennengelernt: Moderation, Mediation, Bootstrap, logistische Regression.
+- Du hast in **moderne** Methoden hineingeschaut: Bayes-Inferenz, Machine Learning, Mixed Models.
+- Vor allem: Du hast eine **wissenschaftliche Haltung** geübt — Effekte ehrlich melden, Nullbefunde aushalten, Reproduzierbarkeit ernst nehmen.
+
+Niemand erwartet, dass alles sofort sitzt. Das Nachschlagewerk (@sec-tag3-nachschlagewerk) bleibt online.
+
+> Ein Verfahren ist nur so gut wie die Frage, die Du ihm stellst, und die Daten, die Du ihm gibst — und ein ehrlicher Nullbefund ist ein vollwertiges Ergebnis.
+
+## Letzte Abgabe
+
+Schick **eine** Mail innerhalb einer Woche nach Sitzung 10 an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
+
+- **Betreff:** `M15 S10 — <Kennziffer>`
+- **Text:** Vorlage kopieren und ausfüllen, keine Anhänge.
+
+```text
+S10-1 Random Forest: AUC auf den Testdaten:
+S10-2 Random Forest: wichtigstes Feature:
+S10-3 Hat das komplexere Modell gegenüber der logistischen Regression geholfen? (ja/nein + 1 Satz):
+S10-4 Feedback zum Seminar (optional, 1–3 Sätze):
+```
+
+Fehlt Dir noch eine Abgabe aus einer früheren Sitzung? Dann jetzt nachholen — mit dem Betreff der jeweiligen Sitzung.
+
+## Reflexion (privat, 5 Minuten)
+
+1. Das wichtigste Werkzeug, das ich aus diesem Seminar mitnehme.
+2. Eine Sache, bei der ich noch unsicher bin.
+3. Wie ich an meine erste eigene Analyse herangehen würde, wenn ich morgen anfinge.
+
+## Danke
+
+Danke fürs Mitmachen, fürs kritische Nachfragen und fürs Aushalten der vielen Nullbefunde. Genau diese Mischung aus Können und Skepsis macht gute Forschung aus. Viel Erfolg bei Deiner ersten eigenen Studie.

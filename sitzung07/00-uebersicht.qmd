@@ -1,0 +1,32 @@
+# Sitzung 07 — Übersicht {#sec-s07-uebersicht}
+
+::: {.callout-note title="Lernziele"}
+Nach dieser Sitzung …
+
+- ordnest Du unsere Stichprobe ein und benennst Bias-Typen und Missing-Mechanismen,
+- unterscheidest Du Designs und kennst Bedrohungen der Validität,
+- rechnest Du eine a-priori-Poweranalyse,
+- rechnest Du eine einfaktorielle ANOVA als Auswertung eines Gruppendesigns.
+:::
+
+**Semesterwoche 10** · Bezug zur Vorlesung: Vorlesungen 8 (Versuchsplanung, Stichprobenziehung/Biases/fehlende Werte) und 9 (Inferenz-Grundlagen, Stichprobenplanung).
+
+## Worum es geht
+
+Was eine Studie aussagen kann, entscheidet sich meist vor der Datenerhebung: Design, Stichprobe, Umgang mit fehlenden Werten, Stichprobengröße. Mit der ANOVA rechnest Du das klassische Verfahren für Gruppendesigns.
+
+## Ablauf (ca. 2,25 Stunden, online)
+
+| Zeit | Modus | Inhalt |
+|---|---|---|
+| 0:00–0:10 | **Plenum** | Input: Stichprobenfehler vs. Bias |
+| 0:10–0:40 | Self-Study + Kleingruppe | @sec-tag2-stichprobe |
+| 0:40–1:15 | Self-Study + Kleingruppe | @sec-power |
+| 1:15–1:25 | **Plenum** | Wie viele Personen bräuchten wir eigentlich? |
+| 1:25–2:05 | Self-Study + Kleingruppe | @sec-tag2-anova |
+| 2:05–2:15 | **Plenum** | Fragen, Abgabe |
+
+## Was Du dafür brauchst
+
+- Das Modul **Power** (über das **„+"** oben rechts aktivieren)
+

@@ -1,0 +1,26 @@
+# Sitzung 05 — Abschluss & Abgabe {#sec-s05-abschluss}
+
+## Was Du heute geschafft hast
+
+- Du hast ein Mixed Model mit Random Intercept geschätzt und den ICC berechnet.
+- Du hast eine EFA gerechnet und die Faktorenzahl begründet.
+
+## Abgabe
+
+Schick **eine** Mail bis spätestens zum Tag vor Sitzung 06 an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
+
+- **Betreff:** `M15 S05 — <Kennziffer>`
+- **Anhang:** keiner
+- **Text:** Vorlage kopieren und ausfüllen. Dezimalzahlen mit 2 Nachkommastellen (wo nicht anders angegeben), p-Werte mit 3.
+
+{{< include _abgabe.md >}}
+
+## Reflexion (privat, 3 Minuten)
+
+1. Eine Sache, die heute klar wurde.
+2. Eine Sache, die noch unklar ist — bring sie in Deine Kleingruppe oder ins Plenum.
+
+## Ausblick auf Sitzung 06
+
+Vom Entdecken zum Prüfen: konfirmatorische Faktorenanalyse und Strukturgleichungsmodelle — inklusive Mediation.
+

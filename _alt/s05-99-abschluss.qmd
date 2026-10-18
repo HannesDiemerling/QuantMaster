@@ -1,0 +1,34 @@
+# Sitzung 05 — Abschluss & Abgabe {#sec-s05-abschluss}
+
+## Was Du heute geschafft hast
+
+- Du hast die Skalen `E_mean`, `V_mean`, `G_mean`, `N_mean`, `O_mean` gebaut und ihre Reliabilität geprüft.
+- Du hast Hypothesen über Zusammenhänge getestet und alternative Erklärungen formuliert.
+
+## Abgabe
+
+Schick **eine** Mail bis spätestens zum Tag vor Sitzung 06 an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
+
+- **Betreff:** `M15 S05 — <Kennziffer>`
+- **Text:** Vorlage kopieren und ausfüllen, keine Anhänge. Dezimalzahlen mit 2 Nachkommastellen, p-Werte mit 3.
+
+```text
+S05-1 Anzahl gültiger Werte (Valid) von E_mean:
+S05-2 Mittelwert N_mean:
+S05-3 SD N_mean:
+S05-4 Skala mit dem höchsten Cronbach's α (Skala + α):
+S05-5 Skala mit dem niedrigsten Cronbach's α (Skala + α):
+S05-6 H1: Pearson r (V_mean × N_mean):
+S05-7 H1: p-Wert:
+S05-8 Wie viele der Hypothesen H1–H4 sind signifikant (p < .05)?
+S05-9 Eine alternative Erklärung (Drittvariable) für eine der Korrelationen, 1 Satz:
+```
+
+## Reflexion (privat, 3 Minuten)
+
+1. Was bedeutet ein niedriges α für alle späteren Tests mit dieser Skala?
+2. Was ist noch unklar?
+
+## Ausblick auf Sitzung 06
+
+Gruppenvergleiche: *t*-Tests und ANOVA — jeweils mit Effektgröße.

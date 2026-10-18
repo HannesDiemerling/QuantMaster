@@ -1,66 +1,64 @@
 # M15 — Quantitative Forschungsmethoden & Multivariate Verfahren
 
-Workshop zum Modul **M15 — Multivariate Verfahren, Forschungsmethoden & Psychotherapieforschung**, Masterstudiengang Psychotherapie, HMU Health and Medical University Potsdam.
+Seminar zum Modul **M15 — Multivariate Verfahren, Forschungsmethoden & Psychotherapieforschung**, Masterstudiengang Psychotherapie, HMU Health and Medical University.
 
-- **Termine:** 21.05.2026, 28.05.2026, 04.06.2026 — jeweils 09:45–17:00
-- **Format:** Präsenz, Laptop-pflichtig, self-paced über eine Quarto-Site
+- **Format:** 10 Online-Sitzungen per Videokonferenz in den Semesterwochen 4–13 (abgestimmt auf die Vorlesung, siehe `index.qmd`), je ca. 2 Stunden (max. 3), self-paced über eine Quarto-Site mit Plenumsphasen und festen Kleingruppen (Breakout-Räume)
+- **Gruppengröße:** ausgelegt für 20–40 Studierende
 - **Software:** [JASP](https://jasp-stats.org)
 - **Verantwortlich:** Hannes Diemerling
 
 ## Quick-Start für Studierende
 
-1. **Vor Tag 1:**
-   - JASP installieren (siehe [jasp-stats.org](https://jasp-stats.org))
-   - GitHub-Account anlegen und Benutzernamen per Mail an die Lehrperson schicken
-2. **An Tag 1:** Workshop-Site öffnen (Link bekommst Du am ersten Tag), und mit Kapitel 0 starten.
-3. Alle Inhalte sind auf der Site — dieses Repository ist die Quelle der Site.
-
-Die gerenderte Site liegt unter GitHub Pages dieses Repos. Falls Du sie lokal bauen willst:
-
-```bash
-quarto render
-```
+1. **Vor Sitzung 01:** JASP installieren, GitHub-Account anlegen.
+2. Workshop-Site öffnen und mit Sitzung 01 starten — alle Inhalte stehen dort.
 
 ## Quick-Start für die Lehrperson
 
-| Aufgabe | Wo |
-|---|---|
-| Site lokal rendern | `quarto render` |
-| Vorgenerierte Datensätze einmalig erzeugen | Workflow `Generate seed datasets (manual)` im Actions-Tab manuell starten — oder lokal `Rscript scripts/generate-datasets.R` und committen |
-| Fehler-Übersicht der vorgenerierten Datensätze | `scripts/error-overview.md` (wird vom Generierungsskript automatisch geschrieben, **nicht** in der Site verlinkt) |
-| Studierenden-Uploads kombinieren | passiert **nicht** automatisch — das ist Lernstoff an Tag 2 (die Studierenden machen das selbst) |
+| Wann | Aufgabe | Wo / Wie |
+|---|---|---|
+| Vor Semesterstart | Alte Uploads löschen | `data/student-uploads/` leeren (`.gitkeep` behalten), `data/combined/` leeren |
+| Vor Semesterstart | Termine eintragen | Tabelle in `index.qmd` |
+| Vor Sitzung 01 | Teilnehmerliste (alphabetisch, Listennummer $n$) erstellen, Studierende mit GitHub-Account als Collaborator einladen (Account ist freiwillig) | Daraus: Kennziffer $2000+n$, Datensatz $((n-1) bmod 10)+1$, Kleingruppe $ceil n/4 ceil$; GitHub-Benutzernamen per Vorab-Mail |
+| Sitzung 01 | Mail-Uploads (Betreff `M15 Upload — <Kennziffer>`) selbst einstellen | Anhang im Repo unter `data/student-uploads/` hochladen (Add file → Upload files); der Merge erkennt den Datensatz am Inhalt, der Dateiname ist egal |
+| Sitzung 01 | Uploads laufen automatisch zusammen | Workflow **Merge student uploads** (Actions-Tab) schreibt `data/combined/m15-gesamt.csv`, `merge-report.md` und `meta-studien.csv` |
+| 2 Tage vor Sitzung 02 | Datensatz **einfrieren** | Actions → *Merge student uploads* → **Disable workflow**. Danach rechnen alle mit derselben Datei. |
+| danach | Antwortbogen erzeugen | lokal `Rscript scripts/antwortbogen.R` → `intern/antwortbogen.md` (gitignored, **nie committen**); schreibt auch die Abgabe-Vorlagen `sitzungXX/_abgabe.md` neu |
+| laufend | Abgaben prüfen | eine Mail pro Person und Sitzung, Betreff `M15 SNN — <Kennziffer>`; Felder gegen den Antwortbogen abgleichen |
 
-::: Hinweis: Keine Automation für studentische Lerninhalte
-Das Repo enthält **bewusst** keinen Merge-Workflow für `data/student-uploads/`. Das Zusammenführen der Uploads ist Teil des Lehrplans an Tag 2 — die Studierenden lernen, das selbst zu tun.
-:::
+Hinweise:
+
+- Der **Merge-Report** zeigt pro Upload-Datei: erkannt ja/nein, Seed-Datensatz, gefundene Fehler (z. B. `2/2`), Abweichungen von der Referenz-Bereinigung und Warnungen (falscher Name/Ordner, Semikolon, Zusatzspalten, ungültige Kennziffer). Damit hast Du auch das Feedback zu Sitzung 02.
+- Der Merge ist robust gegen typische Upload-Fehler: Er liest alle CSVs unter `data/` und im Repo-Root, erkennt vorgenerierte Zeilen am Inhalt und übernimmt jeden Seed-Datensatz genau einmal.
+- `antwortbogen.R` braucht R mit `MASS`, `lme4`, `lavaan` und `BayesFactor` (`install.packages(c("lme4", "lavaan", "BayesFactor"))`). Abgabefelder werden dort pro Kapitel definiert; wer Kapitel verschiebt, passt nur `SITZUNG` an.
+- Fehler-Übersicht der vorgenerierten Datensätze: steht im Antwortbogen (Sitzung 02).
+- Die Kontakt-Mailadresse steht zentral in `_quarto.yml` (`kurs.mail`).
 
 ## Repository-Struktur
 
 ```
 .
-├── _quarto.yml                   # Quarto-Buch-Konfiguration
-├── index.qmd                     # Landing Page
-├── tag1/                         # Tag-1-Kapitel (00 … 09) — voll ausgearbeitet
-├── tag2/                         # Tag-2-Übersicht (Platzhalter)
-├── tag3/                         # Tag-3-Übersicht (Platzhalter)
+├── _quarto.yml                   # Quarto-Buch-Konfiguration (Kapitel, kurs.mail)
+├── index.qmd                     # Landing Page mit Terminübersicht
+├── sitzung01/ … sitzung10/       # je 00-uebersicht, Inhaltskapitel, 99-abschluss + _abgabe.md (Vorlage, generiert)
+├── anhang/                       # freiwillige Kapitel (Machine Learning, weitere Verfahren)
 ├── materials/                    # BFI-K-Fragebogen (PDF), Codebook, Einverständnis, CSV-Template
 ├── data/
-│   ├── generated/                # 10 vorgenerierte Übungsdatensätze (über Manual-Workflow erzeugt)
-│   ├── student-uploads/          # Hier laden Studierende ihre bereinigten + erweiterten Datensätze hoch
-│   └── combined/                 # bleibt leer bis Tag 2 — Studierende erzeugen hier ihren Gesamtdatensatz
+│   ├── generated/                # 10 vorgenerierte Übungsdatensätze
+│   ├── student-uploads/          # Uploads der Studierenden
+│   └── combined/                 # m15-gesamt.csv + merge-report.md (vom Workflow erzeugt)
 ├── scripts/
 │   ├── generate-datasets.R       # erzeugt die 10 Datensätze deterministisch
-│   └── error-overview.md         # INTERN: welche Fehler stecken in welchem Datensatz (vom Skript geschrieben)
+│   ├── merge-uploads.R           # kombiniert alle Uploads (fail-safe), schreibt Merge-Report
+│   └── antwortbogen.R            # INTERN: Sollwerte + Toleranzbereiche aller Abgabefelder
 └── .github/workflows/
     ├── publish.yml               # rendert die Site und deployed nach GitHub Pages
-    └── generate-datasets.yml     # manuell ausführbar: erzeugt + committet die 10 Übungsdatensätze
+    ├── merge-uploads.yml         # bei jedem CSV-Upload: Gesamtdatensatz neu bauen
+    └── generate-datasets.yml     # manuell: erzeugt + committet die 10 Übungsdatensätze
 ```
+
+Site lokal bauen: `quarto render`
 
 ## Lizenz
 
 - **Inhalte (Texte, Aufgaben, Materialien):** CC BY 4.0 — siehe `LICENSE.md`
 - **Code (Skripte, Workflows):** MIT — siehe `LICENSE-CODE.md`
-
-## Kontakt
-
-Fragen zum Workshop: an die Lehrperson direkt oder per GitHub-Issue.

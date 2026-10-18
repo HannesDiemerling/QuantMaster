@@ -1,0 +1,30 @@
+# Sitzung 10 — Seminar-Abschluss & letzte Abgabe {#sec-s10-abschluss}
+
+## Was Du im Seminar geschafft hast
+
+- Du kannst qualitative Methoden einordnen und eine Interrater-Übereinstimmung berechnen.
+- Du hast einen vollständigen Forschungsworkflow durchlaufen — von der Erhebung bis zu Strukturgleichungsmodellen.
+- Du hast eine wissenschaftliche Haltung geübt: Effekte ehrlich melden, Nullbefunde aushalten, Reproduzierbarkeit ernst nehmen.
+
+## Abgabe
+
+Schick **eine** Mail innerhalb einer Woche nach Sitzung 10 an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
+
+- **Betreff:** `M15 S10 — <Kennziffer>`
+- **Anhang:** keiner
+- **Text:** Vorlage kopieren und ausfüllen. Dezimalzahlen mit 2 Nachkommastellen (wo nicht anders angegeben), p-Werte mit 3.
+
+{{< include _abgabe.md >}}
+
+Fehlt Dir noch eine Abgabe aus einer früheren Sitzung? Dann jetzt nachholen — mit dem Betreff der jeweiligen Sitzung.
+
+## Reflexion (privat, 3 Minuten)
+
+1. Das wichtigste Werkzeug, das ich aus diesem Seminar mitnehme.
+2. Eine Sache, bei der ich noch unsicher bin — bis zur Klausur klären.
+3. Wie ich an meine erste eigene Analyse herangehen würde.
+
+## Danke
+
+Danke fürs Mitmachen, fürs kritische Nachfragen und fürs Aushalten der vielen Nullbefunde. Viel Erfolg in der Klausur und bei Deiner ersten eigenen Studie.
+

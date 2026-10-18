@@ -1,0 +1,88 @@
+# Metaanalyse {#sec-meta}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- erklären, wie eine Metaanalyse Effekte mehrerer Studien gewichtet zusammenfasst,
+- Fixed- und Random-Effects-Modelle unterscheiden,
+- Heterogenität ($Q$, $\tau^2$, $I^2$) und einen Forest Plot lesen,
+- eine Metaanalyse in JASP rechnen.
+:::
+
+## Worum es geht
+
+Eine einzelne Studie ist selten das letzte Wort — das hat die Replikationskrise gezeigt (Vorlesung 1 und 3). Eine **Metaanalyse** fasst die Effekte vieler Studien zu einer Gesamtschätzung zusammen und fragt, wie stark die Studien voneinander abweichen.
+
+Unser Datensatz eignet sich dafür überraschend gut: Die zehn Seed-Datensätze sind wie **zehn kleine Studien** mit je ca. 10 Personen. Jede schätzt denselben Zusammenhang — wir nehmen die Korrelation zwischen Extraversion und Offenheit.
+
+## Die Grundidee: gewichtetes Mitteln
+
+Jede Studie liefert einen Effekt $y_i$ und dessen Unsicherheit (Standardfehler $SE_i$). Präzisere Studien (größeres $n$, kleineres $SE$) bekommen mehr Gewicht: $w_i = 1 / SE_i^2$.
+
+Korrelationen werden vorher **Fisher-z-transformiert** ($z = \operatorname{artanh}(r)$), weil $z$ annähernd normalverteilt ist und einen einfachen Standardfehler hat: $SE_z = 1/\sqrt{n-3}$. Das Ergebnis kann man am Ende wieder in $r$ zurückrechnen (bei kleinen Werten gilt $z \approx r$).
+
+## Fixed vs. Random Effects
+
+| Modell | Annahme | Wann sinnvoll |
+|---|---|---|
+| **Fixed (Common) Effect** | alle Studien schätzen *denselben* wahren Effekt; Unterschiede sind nur Stichprobenfehler | sehr ähnliche Studien |
+| **Random Effects** | die wahren Effekte streuen selbst um einen Mittelwert (Streuung $\tau^2$) | Normalfall in der Psychologie (verschiedene Stichproben, Settings, Messungen) |
+
+## Heterogenität
+
+- **$Q$-Test:** Streuen die Effekte stärker, als durch Zufall zu erwarten wäre?
+- **$\tau^2$ / $\tau$:** geschätzte Varianz bzw. SD der *wahren* Effekte.
+- **$I^2$:** Anteil der beobachteten Streuung, der auf echte Unterschiede (statt Zufall) zurückgeht. Faustregel: 25 % gering, 50 % moderat, 75 % hoch.
+
+Bei wenigen, sehr kleinen Studien sind diese Kennwerte selbst sehr unsicher — genau unsere Situation.
+
+## Publikationsbias
+
+Signifikante Ergebnisse werden eher veröffentlicht. Dann fehlen kleine Studien mit kleinen Effekten, und die Metaanalyse überschätzt den Effekt. Prüfwerkzeuge: **Funnel Plot** (Asymmetrie?), **Egger-Test**, **Trim-and-Fill**. In unserer Übung gibt es keinen Publikationsbias — alle „Studien" sind enthalten.
+
+## In JASP rechnen
+
+### Schritt 1: Eine Studie selbst berechnen
+
+1. Öffne Deine JASP-Datei mit `m15-gesamt.csv` und den Skalenspalten.
+2. Filter auf Deinen Seed-Datensatz: Spaltenkopf `quelle_datensatz` anklicken, in der Spalte **Filter** alle Häkchen außer bei Deiner Datensatznummer entfernen.
+3. **Regression → Classical → Correlation** mit `E_mean` und `O_mean`. Notiere $r$.
+4. Filter wieder zurücksetzen (alle Häkchen setzen).
+
+### Schritt 2: Alle Studien zusammenfassen
+
+Die Tabelle aller zehn „Studien" erzeugt der Merge-Workflow automatisch: `data/combined/meta-studien.csv` (Spalten `studie`, `n`, `r`, `fisher_z`, `se`). Prüfe, ob Dein $r$ aus Schritt 1 mit der Zeile Deines Datensatzes übereinstimmt.
+
+1. `meta-studien.csv` herunterladen und in JASP öffnen (**File → Open**; es öffnet sich ein neues Fenster).
+2. Modul **Meta-Analysis** über das **„+"** aktivieren.
+3. **Meta-Analysis → Classical → Meta-Analysis**.
+4. **Effect Size:** `fisher_z` · **Effect Size Standard Error:** `se` · **Study Labels:** `studie`.
+5. **Method:** *Restricted ML* (Random Effects, voreingestellt).
+6. Im Abschnitt *Statistics → Heterogeneity* zusätzlich **I²** ankreuzen.
+7. Im Abschnitt **Forest Plot** den Plot aktivieren.
+8. Optional: **Transform effect size → Fisher's z to r**, um das Ergebnis als Korrelation zu sehen.
+
+Lies ab: den gepoolten Effekt mit 95 %-KI und $I^2$. Im Forest Plot siehst Du jede Studie als Punkt mit KI und den gepoolten Effekt als Raute.
+
+## Aufgabe
+
+**Pflichtteil:**
+
+1. $r$ für Deinen eigenen Seed-Datensatz in JASP berechnen (Schritt 1).
+2. Random-Effects-Metaanalyse über alle Studien rechnen (Schritt 2), Forest Plot ansehen.
+3. In einem Satz: Ist der gepoolte Zusammenhang von 0 verschieden — und warum ist er präziser als jede Einzelstudie?
+
+**Bonus:**
+
+- Stell **Method** auf *Fixed Effects* um. Wie ändern sich Schätzung und KI?
+- **Meta-Analysis → Miscellaneous → Funnel Plot** mit denselben Spalten, dazu unter *Asymmetry tests* den **Egger-Test**. Was erwartest Du hier?
+
+::: {.callout-tip title="Für die Abgabe"}
+Notiere $r$ Deines Datensatzes, den gepoolten Effekt (Fisher-z), sein 95 %-KI und $I^2$. Siehe @sec-s04-abschluss.
+:::
+
+## Selbstcheck
+
+1. Warum bekommen größere Studien in einer Metaanalyse mehr Gewicht?
+2. Was ist der inhaltliche Unterschied zwischen Fixed- und Random-Effects-Modell?
+3. Was sagt ein $I^2$ von 70 % — und warum ist $I^2$ bei zehn Mini-Studien mit Vorsicht zu lesen?

@@ -1,0 +1,46 @@
+# Sitzung 01 — Übersicht {#sec-s01-uebersicht}
+
+::: {.callout-note title="Lernziele"}
+Nach dieser Sitzung …
+
+- kennst Du den Ablauf des Seminars und Deine persönlichen Nummern,
+- hast Du die Einverständniserklärung digital unterschrieben,
+- kannst Du Dich im GitHub-Repo orientieren, Dateien herunterladen und Deine Daten hochladen (über GitHub oder per Mail),
+- hast Du einen Datensatz in JASP auf Fehler geprüft, bereinigt und samt eigener Zeile hochgeladen.
+:::
+
+**Semesterwoche 4** · Bezug zur Vorlesung: Vorlesung 1 (Replikationskrise) — die Vorbereitung vertieft Open Science; Messtheorie als Grundlage für alles Weitere.
+
+## Worum es geht
+
+Heute durchläufst Du den praktischen Kern jeder Datenerhebung: Einwilligung, Daten holen, prüfen, bereinigen, ergänzen und zentral ablegen. Aus allen Uploads entsteht automatisch der gemeinsame Seminar-Datensatz, mit dem wir ab Sitzung 02 arbeiten.
+
+**Vorbereitung vor der Sitzung (ca. 45 Min., zu Hause):** @sec-tag1-open-science, @sec-tag1-ethik, @sec-tag1-messtheorie. Außerdem JASP installieren und — empfohlen — einen GitHub-Account anlegen.
+
+## Ablauf (ca. 2,5 Stunden, online)
+
+| Zeit | Modus | Inhalt |
+|---|---|---|
+| 0:00–0:20 | **Plenum** | Begrüßung, Ablauf, Teilnehmerliste: Deine Nummern (unten), Fragen zur Vorbereitung |
+| 0:20–0:40 | Self-Study + Kleingruppe | @sec-tag1-fragebogen, @sec-tag1-github |
+| 0:40–0:55 | **Plenum** | Live-Demo: JASP-Oberfläche, Datei öffnen, Variablentypen |
+| 0:55–1:55 | Self-Study + Kleingruppe | @sec-tag1-laden, @sec-tag1-bereinigung |
+| 1:55–2:20 | Self-Study + Kleingruppe | @sec-tag1-upload |
+| 2:20–2:30 | **Plenum** | Upload-Kontrolle, Fragen, Abgabe |
+
+## Deine Nummern {#sec-nummern}
+
+Die Lehrperson stellt zu Beginn eine **alphabetische Teilnehmerliste** bereit. Deine Position darin ist Deine **Listennummer** $n$. Daraus ergibt sich alles Weitere — Du musst Dir nichts selbst ausdenken:
+
+| Was | Regel | Beispiel $n = 13$ |
+|---|---|---|
+| **Kennziffer** (Dein Pseudonym, Mail-Betreff, Probandennummer Deiner Datenzeile) | $2000 + n$ | 2013 |
+| **Datensatz** (ab Sitzung 02) | $((n - 1) \bmod 10) + 1$, also 1, 2, …, 10, dann wieder 1 | 3 |
+| **Kleingruppe** (fester Breakout-Raum für alle Sitzungen) | $n$ geteilt durch 4, aufgerundet | 4 |
+
+Notiere Dir die drei Zahlen jetzt — Du brauchst sie in jeder Sitzung.
+
+::: {.callout-tip title="Upload-Frist"}
+Der Upload muss bis **zwei Tage vor Sitzung 02** im Repo liegen. Danach wird der Gesamtdatensatz eingefroren, damit alle mit denselben Daten rechnen.
+:::
+

@@ -33,3 +33,9 @@ Thumbs.db
 
 # JASP working files
 *.jasp~
+
+# Interner Antwortbogen (scripts/antwortbogen.R) — nie committen
+intern/
+
+/.quarto/
+**/*.quarto_ipynb

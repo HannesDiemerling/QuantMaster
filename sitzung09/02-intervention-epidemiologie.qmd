@@ -1,0 +1,76 @@
+# Interventions-, Evaluations- & Epidemiologieforschung {#sec-epi}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- Designs der Interventions- und Evaluationsforschung beschreiben (RCT, Kontrollbedingungen, ITT),
+- Efficacy und Effectiveness unterscheiden,
+- epidemiologische Kennwerte (Prävalenz, Inzidenz, RR, OR, ARR, NNT) berechnen und interpretieren,
+- eine Kreuztabelle mit Odds Ratio in JASP rechnen.
+:::
+
+## Worum es geht
+
+Für die Psychotherapie sind zwei Fragen zentral: **Wirkt eine Behandlung?** (Interventions- und Evaluationsforschung) und **Wie häufig ist eine Störung und was sind Risikofaktoren?** (Epidemiologie und Ätiologie). Dieses Kapitel ergänzt Vorlesung 12 um die Kennwerte, mit denen Du solche Studien liest und selbst auswertest.
+
+## Interventionsforschung
+
+- **RCT (randomisierte kontrollierte Studie):** Goldstandard für Wirksamkeitsnachweise; Randomisierung sichert die interne Validität (@sec-power).
+- **Kontrollbedingungen:** Wartelisten-Kontrollgruppe, Treatment as usual (TAU), aktive Kontrolle/Placebo — je „stärker" die Kontrolle, desto kleiner der erwartete Effekt.
+- **Intention-to-treat (ITT):** Alle randomisierten Personen werden in ihrer zugeteilten Gruppe ausgewertet, auch bei Abbruch. Konservativer und realistischer als **per protocol**. Fehlende Werte müssen dann behandelt werden (@sec-tag2-stichprobe).
+- **Efficacy vs. Effectiveness:** Wirkt es unter idealen Studienbedingungen — und wirkt es auch in der Routineversorgung?
+- **Evaluationsforschung:** bewertet Programme oder Versorgungsangebote, *formativ* (während der Entwicklung) oder *summativ* (abschließend).
+
+## Kennwerte für binäre Ergebnisse
+
+Beispiel-RCT: 100 Personen Therapie, 100 Warteliste. Remission bei 45 % (Therapie) vs. 30 % (Warteliste).
+
+| Kennwert | Formel | Beispiel |
+|---|---|---|
+| **Relatives Risiko (RR)** | $p_T / p_K$ | 0.45 / 0.30 = 1.5 |
+| **Absolute Risikodifferenz (ARR)** | $p_T - p_K$ | 0.15 |
+| **Number Needed to Treat (NNT)** | $1 / \text{ARR}$, aufgerundet | 1 / 0.15 = 6.67 → **7** |
+| **Odds Ratio (OR)** | $\frac{p_T/(1-p_T)}{p_K/(1-p_K)}$ | (0.45/0.55)/(0.30/0.70) ≈ 1.91 |
+
+Die NNT ist besonders anschaulich: Sieben Personen müssen behandelt werden, damit *eine* zusätzlich remittiert. Bei kontinuierlichen Ergebnissen (z. B. Symptomskalen) nutzt Du stattdessen Cohen's $d$.
+
+## Epidemiologie und Ätiologie
+
+- **Prävalenz:** Anteil Erkrankter zu einem Zeitpunkt bzw. in einem Zeitraum (z. B. 12-Monats-Prävalenz).
+- **Inzidenz:** Anteil *Neuerkrankungen* in einem Zeitraum.
+- **Designs:**
+  - **Querschnitt** (Prävalenz; keine zeitliche Reihenfolge),
+  - **Kohortenstudie** (Exponierte vs. Nicht-Exponierte über die Zeit; liefert RR),
+  - **Fall-Kontroll-Studie** (Erkrankte vs. Gesunde, rückblickend nach Exposition gefragt; liefert nur das **OR**).
+- **Risikofaktor ≠ Ursache:** Auch hier gilt Korrelation ≠ Kausalität (@sec-tag2-korrelation). Konfundierung (z. B. sozioökonomischer Status) muss kontrolliert werden — z. B. per logistischer Regression (@sec-tag3-logistisch).
+
+## In JASP rechnen: Kreuztabelle
+
+**Frage:** Ist ein hoher Neurotizismuswert (`N_hoch`) bei Frauen häufiger als bei Männern?
+
+1. **Frequencies → Classical → Contingency Tables** (Modul standardmäßig sichtbar).
+2. **Rows:** `geschlecht` (Stufe 3 per Filter ausschließen) · **Columns:** `N_hoch`.
+3. *Statistics:* **χ²** (voreingestellt) und **Odds ratio (2x2 only)**. JASP zeigt zunächst das **Log Odds Ratio**; entferne das Häkchen bei *Log Odds Ratio* oder rechne $OR = e^{\log OR}$.
+4. *Cells:* **Row** percentages — so siehst Du den Anteil `N_hoch = 1` je Geschlecht.
+
+## Aufgabe
+
+**Pflichtteil:**
+
+1. Berechne für das Beispiel-RCT oben RR und NNT von Hand.
+2. Kreuztabelle `geschlecht` × `N_hoch` mit χ² und Odds Ratio.
+3. Ein Satz: Wäre ein signifikantes OR hier ein Beleg dafür, dass das Geschlecht Neurotizismus *verursacht*?
+
+**Bonus:**
+
+- In einer Fall-Kontroll-Studie lässt sich das RR nicht berechnen, das OR schon. Warum?
+
+::: {.callout-tip title="Für die Abgabe"}
+Notiere χ² und OR der Kreuztabelle sowie RR und NNT des Beispiel-RCTs. Siehe @sec-s09-abschluss.
+:::
+
+## Selbstcheck
+
+1. Was ist der Unterschied zwischen Prävalenz und Inzidenz?
+2. Warum ist eine Intention-to-treat-Auswertung konservativer als eine Per-protocol-Auswertung?
+3. Eine Therapie hat eine NNT von 3, eine andere von 12. Was heißt das praktisch?

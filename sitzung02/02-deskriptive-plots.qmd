@@ -1,0 +1,153 @@
+# Deskriptive Statistik & Plots {#sec-tag2-deskriptive}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- die zentralen deskriptiven Kennzahlen (M, Median, SD, IQR, Schiefe, Kurtosis) benennen und in JASP berechnen,
+- für jede Variablen-Art den passenden Plot-Typ wählen,
+- mindestens fünf verschiedene Visualisierungen in JASP erzeugen und sinnvoll interpretieren,
+- erklären, warum ein Mittelwert alleine ohne Streuung in einer Publikation peinlich wäre.
+:::
+
+## Worum es geht
+
+Deskriptive Statistik ist das Werkzeug, mit dem Du Deine Daten **erstmal verstehen** lernst, bevor Du irgendwas testest. Wenn Du ab Sitzung 04 Regressionen rechnest, ohne vorher gesehen zu haben, wie Deine Variablen verteilt sind, wirst Du fast garantiert Modellannahmen verletzen — ohne es zu merken.
+
+Plane für diesen Block mindestens **90 Minuten** ein.
+
+## Skalenniveau — welche Kennzahl ist überhaupt erlaubt?
+
+Bevor Du irgendwelche Kennzahlen berechnest, eine ältere, aber sehr nützliche Unterscheidung. Variablen lassen sich in vier **Skalenniveaus** einteilen — sie bestimmen, welche Rechenoperationen sinnvoll sind:
+
+| Niveau | Eigenschaft | Beispiel aus unserem Datensatz | Was darfst Du rechnen? |
+|---|---|---|---|
+| **Nominal** | nur Unterscheidung, keine Ordnung | `geschlecht`, `quelle_datensatz` | Häufigkeiten, Modus |
+| **Ordinal** | Reihenfolge, aber keine gleichmäßigen Abstände | `bildungsgrad`, einzelne BFI-Items | + Median, Quantile |
+| **Intervall** | gleichmäßige Abstände, kein absoluter Nullpunkt | Temperatur in °C — bei uns: Skalen-Mittelwerte mit etwas Wohlwollen | + Mittelwert, SD |
+| **Verhältnis** (ratio) | wie Intervall, plus absoluter Nullpunkt | `alter` in Jahren | + Verhältnisse, Quotienten |
+
+::: {.callout-tip title="Streit-Klassiker"}
+Likert-Items wie unsere BFI-Items sind streng genommen **ordinal** — die Abstände zwischen *„weder noch"* und *„eher zutreffend"* sind nicht objektiv gleich groß zu *„eher zutreffend"* / *„sehr zutreffend"*. In der Praxis behandelt man sie in psychologischer Forschung trotzdem fast immer wie Intervalldaten, weil das die Auswertungsmöglichkeiten dramatisch erweitert (Mittelwert, Korrelation, Regression) — und weil die Verzerrung in der Regel klein ist. Es gibt aber Spezialfälle, in denen Du auf strikt ordinale Verfahren (Spearman, Kruskal-Wallis) zurückgreifen würdest.
+:::
+
+## Die zentralen Kennzahlen
+
+| Kennzahl | Bedeutet | Wofür gut |
+|---|---|---|
+| **M** (arithm. Mittel) | Durchschnitt | metrisch, einigermaßen symmetrische Verteilungen |
+| **Median** | mittlerer Wert | robust gegen Ausreißer, immer interpretierbar bei ordinal+ |
+| **Mode (Modus)** | häufigster Wert | nominal, ordinal |
+| **SD** | mittlere Abweichung vom M | Streuung bei metrischen Daten |
+| **Variance** | SD² | wird in Tests verwendet (z. B. ANOVA) |
+| **IQR** | Q3 − Q1 | robuste Streuung, geht mit Boxplot |
+| **Min / Max / Range** | Spannweite | Plausibilitätscheck |
+| **Skewness** | Schiefe (positiv = rechtsschief) | Verteilungsform |
+| **Kurtosis** | Spitzheit / Flachheit | Verteilungsform |
+
+**In JASP:** **Descriptives → Descriptive Statistics**, Variable ins Feld ziehen, dann im Abschnitt **Statistics** ankreuzen: unter *Central tendency* **Median** und **Mode**, unter *Dispersion* **IQR**, unter *Distribution* **Skewness** und **Kurtosis**. Mean, Std. deviation, Minimum, Maximum sowie *Valid*/*Missing* sind schon voreingestellt.
+
+::: {.callout-tip title="Faustregel beim Berichten"}
+Berichte je nach Variable mindestens **zwei** Kennzahlen: eine für **zentrale Tendenz** (M oder Median) **und** eine für **Streuung** (SD oder IQR). Ein einzelner Mittelwert ohne Streuung ist eine halbe Aussage.
+:::
+
+### Wert in Einheiten der Streuung: der z-Wert
+
+Wenn Du wissen willst, **wie weit ein einzelner Wert vom Durchschnitt entfernt liegt**, hilft Dir der z-Wert:
+
+$$
+z = \frac{x - M}{SD}
+$$
+
+Ein $z = 1$ bedeutet: dieser Wert liegt eine Standardabweichung *über* dem Mittel. Ein $z = -2$ bedeutet: zwei Standardabweichungen *unter* dem Mittel. Bei einer halbwegs normalverteilten Variable gilt grob:
+
+- ca. 68 % der Werte liegen zwischen $z = -1$ und $z = +1$
+- ca. 95 % liegen zwischen $z = -2$ und $z = +2$
+- ca. 99 % liegen zwischen $z = -3$ und $z = +3$
+
+Diese **Standardisierung** macht Werte verschiedener Variablen vergleichbar. Wenn jemand bei der Skala Extraversion ein $z = +1.5$ hat und gleichzeitig bei Offenheit ein $z = +0.2$, weißt Du: für diese Person ist Extraversion deutlich ausgeprägter als Offenheit, *relativ zum Durchschnitt der Gruppe*.
+
+### Die Normalverteilung — das ständige Hintergrundbild
+
+Viele statistische Verfahren (t-Test, ANOVA, Regression) gehen davon aus, dass Werte ungefähr **normalverteilt** sind. Die Normalverteilung ist die symmetrische Glockenform, die Du aus dem Schulunterricht kennst. Sie hat zwei Parameter: Mittelwert $\mu$ und Standardabweichung $\sigma$.
+
+Wenn ein Q-Q-Plot (siehe unten) zeigt, dass Deine Daten in etwa entlang der Diagonalen liegen, sind sie näherungsweise normalverteilt. Liegen sie deutlich schief oder gekrümmt, eher nicht — das ist für die Wahl der nachfolgenden Tests wichtig.
+
+## Welcher Plot zu welchem Skalenniveau?
+
+| Niveau / Konstellation | Geeignete Plots |
+|---|---|
+| Nominal (Geschlecht, Quelle) | Bar Chart, Pie Chart |
+| Ordinal (Bildungsgrad, BFI-Item) | Bar Chart, Boxplot |
+| Intervall/Verhältnis (Alter, Skalen-Mittelwerte) | Histogramm, Density Plot, Boxplot, Violin Plot, Q-Q-Plot |
+| Zwei metrische Variablen | Scatter Plot (Streudiagramm) |
+| Eine metrische Variable + eine Gruppe | Boxplot nach Gruppe, Violin Plot, Raincloud Plot |
+
+Alle diese Plots findest Du in **Descriptives → Descriptive Statistics**, in den Abschnitten **Basic Plots** und **Customizable Plots**.
+
+## Wo in JASP welche Plots liegen
+
+| Plot-Typ | JASP-Pfad |
+|---|---|
+| Bar Chart, Histogramm | Basic Plots → **Distribution plots** (Pie Chart: **Pie charts**) |
+| Boxplot, Violin Plot | Customizable Plots → **Boxplots** (darin *Boxplot element*, *Violin element*, *Jitter element*); Raincloud: eigene Analyse **Descriptives → Raincloud Plots** |
+| Boxplot/Histogramm nach Gruppe | Gruppenvariable ins Feld **Split** ziehen (nur Nominal-Variablen) |
+| Q-Q-Plot | Basic Plots → **Q-Q plots** |
+| Scatter Plot | Customizable Plots → **Scatter plots** oder Regression → Correlation → Plots → **Scatter plots** |
+| Dichte (Density) | Customizable Plots → **Frequency plots** |
+
+Die konkrete Plot-Liste, die Du heute baust, steht unten in **Aufgabe**.
+
+## Plots exportieren
+
+Jeden Plot in JASP exportierst Du über **Rechtsklick → Save Image As**. Speichere alle Plots in einen Ordner `m15-plots/`.
+
+Alternative: das gesamte JASP-Output kannst Du als **PDF exportieren** (**File → Export Results**, als PDF oder HTML). Das ist schneller, aber unflexibler.
+
+## Aufgabe
+
+**Pflichtteil (mach jeder) — genau 8 Plots:**
+
+| # | Plot |
+|--:|---|
+| 1 | Bar Chart `geschlecht` |
+| 2 | Bar Chart `bildungsgrad` |
+| 3 | Histogramm `alter` |
+| 4 | Boxplot `alter` (ohne Gruppierung) |
+| 5 | Histogramm `BFI_06` |
+| 6 | Q-Q-Plot `alter` |
+| 7 | Boxplot `alter`, gruppiert nach `geschlecht` (Split) |
+| 8 | Scatter Plot `alter` × `BFI_06` |
+
+**Bonus (für die Schnellen):**
+
+- Plot 9: Density-Overlay mehrerer BFI-Items aus derselben Skala (z. B. `BFI_01`, `BFI_06`, `BFI_11`, `BFI_16` für Extraversion)
+- Plot 10: Bar Charts der 4 E-Items — zeigt visuell, ob Antworten konsistent zwischen den E-Items sind
+- Plot 11: Histogramm von `bildungsgrad` (auch wenn ordinal — als Anschauung)
+- Notiere zu jedem Bonus-Plot in einem Satz: was Du siehst.
+
+::: {.callout-tip title="Für die Abgabe"}
+Lies aus Tabellen und Plots ab: Anzahl `geschlecht = 1` (Frequency table), Mittelwert, SD, Median, IQR und Schiefe von `alter`, die Zahl der Ausreißer-Punkte im Boxplot (Plot 4), Mittelwert von `BFI_06`, die häufigste Stufe von `bildungsgrad` (Plot 2) und Dein Urteil zum Q-Q-Plot von `alter` (Plot 6) — Plots selbst schickst Du nicht. Siehe @sec-s02-abschluss.
+:::
+
+## Stärken und Schwächen deskriptiver Statistik
+
+**Stärken:**
+
+- macht Daten überhaupt erst „lesbar"
+- deckt Plausibilitätsprobleme früh auf (ohne deskriptiven Block wären die Fehler aus Sitzung 01 unentdeckt geblieben)
+- Plots zeigen, was Tests in Zahlen verstecken (Stichwort: Anscombe-Quartett)
+
+**Schwächen:**
+
+- **keine** Inferenz — Du kannst aus deskriptiven Werten nicht auf eine Population schließen
+- **keine** Aussage über Unterschiede oder Zusammenhänge
+- Wahl der Kennzahl beeinflusst, was „zu sehen" ist (M vs. Median bei schiefen Verteilungen sieht sehr unterschiedlich aus)
+
+Deshalb gilt: **Deskriptive ist die Voraussetzung jeder Analyse — aber niemals das Ergebnis.**
+
+## Selbstcheck
+
+1. Wann ist der Median dem Mittelwert vorzuziehen?
+2. Was siehst Du in einem Boxplot, das in einem Histogramm nicht direkt sichtbar ist (und umgekehrt)?
+3. Welche Plot-Art würdest Du für `bildungsgrad` wählen — und warum *nicht* ein Histogramm?
+4. Warum reicht „SD = 1.2" als Streumaß-Angabe nicht, wenn die Verteilung extrem schief ist?

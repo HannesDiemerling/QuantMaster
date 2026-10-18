@@ -1,0 +1,85 @@
+# Signifikanztests und ihre Kritik {#sec-nhst}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- die Logik des Nullhypothesen-Signifikanztests (NHST) korrekt beschreiben,
+- typische Fehlinterpretationen des p-Werts erkennen,
+- α-Fehler-Kumulierung, p-Hacking und HARKing erklären,
+- Alternativen benennen und einen Äquivalenztest in JASP rechnen.
+:::
+
+## Worum es geht
+
+Fast alle Tests, die Du bisher gerechnet hast, folgen der frequentistischen Logik: Nullhypothese aufstellen, p-Wert berechnen, mit α vergleichen. Diese Logik ist nützlich — wird aber notorisch falsch verstanden und falsch angewendet (Vorlesung 11). Das ist eine der Ursachen der Replikationskrise.
+
+## Was ein p-Wert ist — und was nicht
+
+> Der **p-Wert** ist die Wahrscheinlichkeit, ein mindestens so extremes Ergebnis zu beobachten, **wenn die Nullhypothese wahr ist**.
+
+| Häufige Fehlinterpretation | Richtig ist |
+|---|---|
+| „p = .03 heißt: H0 ist mit 3 % Wahrscheinlichkeit wahr." | p sagt nichts über die Wahrscheinlichkeit von Hypothesen (das kann nur Bayes, @sec-tag3-bayes). |
+| „p > .05 heißt: Es gibt keinen Effekt." | Kein Nachweis von Abwesenheit — vielleicht war die Power zu gering (@sec-power). |
+| „Kleines p = großer Effekt." | p hängt stark von N ab; bei großem N wird jeder Mini-Effekt signifikant. |
+| „p = .049 und p = .051 sind grundverschieden." | Die Evidenz ist praktisch gleich; die Grenze .05 ist eine Konvention. |
+
+## Fehler 1. und 2. Art
+
+| | H0 wahr | H0 falsch |
+|---|---|---|
+| **H0 verworfen** | Fehler 1. Art (α) | richtig (Power) |
+| **H0 beibehalten** | richtig | Fehler 2. Art (β) |
+
+## Wenn viele Tests gerechnet werden
+
+**α-Fehler-Kumulierung:** Bei $k$ unabhängigen Tests ist die Wahrscheinlichkeit für mindestens ein falsch-positives Ergebnis $1 - (1 - \alpha)^k$. Gegenmittel: Korrekturen wie Bonferroni ($\alpha / k$) oder Holm, geplante statt beliebige Vergleiche.
+
+**Fragwürdige Forschungspraktiken (QRPs):**
+
+- **p-Hacking:** so lange Variablen, Ausreißerregeln, Teilstichproben oder Kovariaten ausprobieren, bis p < .05.
+- **Optional Stopping:** Daten erheben, testen, weitererheben, bis es „klappt".
+- **HARKing:** Hypothesen nachträglich so formulieren, als hätte man das Ergebnis vorhergesagt.
+
+Gegenmittel kennst Du aus Sitzung 01: **Preregistration**, offene Daten und Skripte, Registered Reports.
+
+## Alternativen und Ergänzungen
+
+- **Effektgrößen + Konfidenzintervalle** statt nur p (@sec-tag2-ttest).
+- **Äquivalenztests (TOST):** prüfen, ob ein Effekt *kleiner* ist als eine vorab festgelegte, praktisch unbedeutende Grenze. Damit kann man „kein relevanter Unterschied" tatsächlich belegen.
+- **Bayesianische Verfahren:** Wahrscheinlichkeitsaussagen über Hypothesen und Parameter (@sec-tag3-bayes).
+
+## In JASP rechnen: Äquivalenztest
+
+**Frage:** Unterscheiden sich Frauen und Männer in Gewissenhaftigkeit höchstens unbedeutend (|d| < 0.5)?
+
+1. Modul **Equivalence T-Tests** über das **„+"** aktivieren.
+2. **Equivalence T-Tests → Classical → Independent Samples T-Test**.
+3. **Dependent Variables:** `G_mean` · **Grouping Variable:** `geschlecht` (Stufe 3 per Filter ausschließen, wie in @sec-tag2-ttest).
+4. **Equivalence Region:** von −0.5 bis 0.5, **Bounds specification in:** *Cohen's d* (prüfen — voreingestellt ist *Raw*).
+5. **Tests:** *Student* (voreingestellt). Optional **Equivalence bounds plot**.
+6. Lies den p-Wert des Äquivalenztests ab (der größere der beiden einseitigen Tests). Ist er < .05, liegen die Gruppen innerhalb der Grenzen — sie sind „äquivalent".
+
+Optional zur Anschauung: Modul **Learn Stats** → **P Values** simuliert, wie p-Werte unter H0 und H1 verteilt sind.
+
+## Aufgabe
+
+**Pflichtteil:**
+
+1. Berechne von Hand: Wahrscheinlichkeit für mindestens ein falsch-positives Ergebnis bei 10 unabhängigen Tests mit α = .05.
+2. Rechne den Äquivalenztest für `G_mean` ~ `geschlecht` mit Grenzen ±0.5 (Cohen's d).
+3. Vergleiche mit dem normalen *t*-Test: Was folgt aus „nicht signifikant" — und was aus dem Äquivalenztest?
+
+**Bonus:**
+
+- Wie viele der Tests, die Du im Seminar bisher gerechnet hast, wären nach Bonferroni-Korrektur noch signifikant?
+
+::: {.callout-tip title="Für die Abgabe"}
+Notiere die α-Kumulierung für 10 Tests, den p-Wert des Äquivalenztests und Dein Urteil (äquivalent ja/nein). Siehe @sec-s08-abschluss.
+:::
+
+## Selbstcheck
+
+1. Was genau sagt ein p-Wert von .03 aus?
+2. Warum ist „nicht signifikant" kein Beleg für „kein Effekt"?
+3. Nenne zwei fragwürdige Forschungspraktiken und je ein Gegenmittel.

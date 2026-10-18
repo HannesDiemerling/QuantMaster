@@ -1,0 +1,44 @@
+# Sitzung 04 — Übersicht {#sec-s04-uebersicht}
+
+::: {.callout-note title="Lernziele"}
+Nach dieser Sitzung …
+
+- fasst Du die Effekte der zehn Seed-Datensätze in einer Metaanalyse zusammen,
+- rechnest und interpretierst Du eine multiple Regression inkl. Voraussetzungsprüfung,
+- testest Du eine Moderation mit zentrierten Prädiktoren.
+:::
+
+**Semesterwoche 7** · Bezug zur Vorlesung: Vorlesungen 3 (Metaanalyse) und 4 (Multiple Regression).
+
+## Worum es geht
+
+Zwei Wege, über die einfache Korrelation hinauszugehen: über **Studien** hinweg (Metaanalyse) und über **Prädiktoren** hinweg (multiple Regression). Lies vorher den Datenhinweis unten — er sagt Dir, welche Effekte überhaupt zu erwarten sind.
+
+## Ablauf (ca. 2,5 Stunden, online)
+
+| Zeit | Modus | Inhalt |
+|---|---|---|
+| 0:00–0:10 | **Plenum** | Datenhinweis (unten), Input: zehn Datensätze = zehn Studien |
+| 0:10–0:50 | Self-Study + Kleingruppe | @sec-meta |
+| 0:50–1:00 | **Plenum** | Forest Plot lesen; von der Korrelation zur Regression |
+| 1:00–1:45 | Self-Study + Kleingruppe | @sec-tag3-regression |
+| 1:45–2:15 | Self-Study + Kleingruppe | @sec-tag3-moderation |
+| 2:15–2:30 | **Plenum** | Fragen, Abgabe |
+
+## Eine wichtige Sache über unseren Datensatz {#sec-tag3-datenhinweis}
+
+Du arbeitest mit dem Gesamtdatensatz `m15-gesamt.csv` und Deinen Skalen `E_mean`, `V_mean`, `G_mean`, `N_mean`, `O_mean` aus Sitzung 03. Bevor es losgeht, musst Du wissen, **wie diese Daten entstanden sind** — sonst interpretierst Du Ergebnisse falsch.
+
+::: {.callout-important title="Was in den Daten *wirklich* steckt"}
+1. **Innerhalb** jeder Big-Five-Skala hängen die Items moderat zusammen (Konstruktion: $r \approx .40$). → Die Skalen „funktionieren".
+2. **Zwischen** den fünf Skalen gibt es einen **schwach positiven** Zusammenhang (Item-Ebene $r \approx .10$, Skalen-Ebene ca. $r \approx .15$–$.20$). **Das ist das einzige echte Signal zwischen verschiedenen Konstrukten.**
+3. **Demografie und Persönlichkeit sind komplett unabhängig** generiert. Alter, Geschlecht und Bildungsgrad hängen mit **keiner** Skala zusammen.
+:::
+
+Daraus folgt — genauso wie in echten Studien:
+
+- **Hypothesen zwischen den Skalen** haben eine reale, wenn auch kleine Grundlage. Am ehesten siehst Du sie, wenn Du mehrere Skalen gemeinsam in ein Modell packst.
+- **Hypothesen mit Demografie** sind hier **wahre Nulleffekte**. Ein nicht-signifikantes Ergebnis ist dann kein Misserfolg, sondern das *richtige* Resultat.
+- Die Stichprobe ist **klein**. Kleine echte Effekte werden oft nicht signifikant (geringe Power), und ab und zu wird ein Nulleffekt zufällig signifikant (Fehler erster Art).
+
+

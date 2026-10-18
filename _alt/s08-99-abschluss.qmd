@@ -1,0 +1,34 @@
+# Sitzung 08 — Abschluss & Abgabe {#sec-s08-abschluss}
+
+## Was Du heute geschafft hast
+
+- Du hast eine Mediation mit Bootstrap-Konfidenzintervall gerechnet.
+- Du hast eine logistische Regression mit Odds Ratios und AUC interpretiert.
+
+## Abgabe
+
+Schick **eine** Mail bis spätestens zum Tag vor Sitzung 09 an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
+
+- **Betreff:** `M15 S08 — <Kennziffer>`
+- **Text:** Vorlage kopieren und ausfüllen, keine Anhänge. Mediationswerte mit 3 Nachkommastellen, sonst 2; p-Werte mit 3.
+
+```text
+S08-1 Mediation: indirekter Effekt:
+S08-2 Mediation: 95 %-Bootstrap-KI [untere, obere]:
+S08-3 Mediation: direkter Effekt c':
+S08-4 Logistisch: χ² des Modelltests:
+S08-5 Logistisch: p des Modelltests:
+S08-6 Logistisch: Nagelkerke R²:
+S08-7 Logistisch: AUC:
+S08-8 Logistisch: stärkster Prädiktor (Variable + Odds Ratio):
+S08-9 Ein Satz: Was hat der Bootstrap hier gemacht?
+```
+
+## Reflexion (privat, 3 Minuten)
+
+1. Warum ist eine Mediation mit Querschnittsdaten kein Kausalbeweis?
+2. Was ist noch unklar?
+
+## Ausblick auf Sitzung 09
+
+Bayes statt p-Wert: Wie wahrscheinlich ist ein Effekt? Und wie gehst Du mit Daten um, die in Gruppen genestet sind?

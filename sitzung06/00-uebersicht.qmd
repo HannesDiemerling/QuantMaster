@@ -1,0 +1,30 @@
+# Sitzung 06 — Übersicht {#sec-s06-uebersicht}
+
+::: {.callout-note title="Lernziele"}
+Nach dieser Sitzung …
+
+- prüfst Du das Fünf-Faktoren-Modell des BFI-K mit einer CFA,
+- liest Du Fit-Indizes und rechnest ein einfaches SEM,
+- rechnest Du eine Mediation mit Bootstrap-Konfidenzintervall.
+:::
+
+**Semesterwoche 9** · Bezug zur Vorlesung: Vorlesung 7 (Strukturgleichungsmodelle).
+
+## Worum es geht
+
+Heute verbindest Du Messmodelle (CFA) mit gerichteten Zusammenhängen zwischen latenten Variablen (SEM). Die Mediation ist ein einfacher Spezialfall davon — und mit dem Bootstrap lernst Du eine der wichtigsten Ideen moderner Statistik.
+
+## Ablauf (ca. 2 Stunden, online)
+
+| Zeit | Modus | Inhalt |
+|---|---|---|
+| 0:00–0:15 | **Plenum** | Input: Mess- vs. Strukturmodell, lavaan-Syntax |
+| 0:15–1:00 | Self-Study + Kleingruppe | @sec-cfa-sem |
+| 1:00–1:10 | **Plenum** | Fit-Indizes lesen; Mediation als SEM |
+| 1:10–1:50 | Self-Study + Kleingruppe | @sec-tag3-mediation |
+| 1:50–2:00 | **Plenum** | Fragen, Abgabe |
+
+## Was Du dafür brauchst
+
+- Das Modul **SEM** (über das **„+"** oben rechts aktivieren)
+

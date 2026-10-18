@@ -1,0 +1,29 @@
+# Sitzung 08 — Übersicht {#sec-s08-uebersicht}
+
+::: {.callout-note title="Lernziele"}
+Nach dieser Sitzung …
+
+- rechnest Du eine Mediation in JASP und interpretierst den indirekten Effekt,
+- erklärst Du, was ein Bootstrap macht und warum man ihn braucht,
+- rechnest und interpretierst Du eine logistische Regression (Odds Ratio, Nagelkerke-R², AUC).
+:::
+
+## Worum es geht
+
+Läuft ein Effekt *über* eine Zwischenvariable? Und wie modellierst Du ein Ergebnis, das nur zwei Ausprägungen hat? Heute lernst Du zwei Erweiterungen der Regression — und mit dem Bootstrap eine der wichtigsten Ideen moderner Statistik.
+
+## Ablauf (ca. 2 Stunden, online)
+
+| Zeit | Modus | Inhalt |
+|---|---|---|
+| 0:00–0:10 | **Plenum** | Rückblick Moderation; Input: Was ist ein Bootstrap? |
+| 0:10–0:55 | Self-Study + Kleingruppe | @sec-tag3-mediation |
+| 0:55–1:05 | **Plenum** | Zwischenstand: indirekter Effekt und KI |
+| 1:05–1:50 | Self-Study + Kleingruppe | @sec-tag3-logistisch |
+| 1:50–2:00 | **Plenum** | Fragen, Abgabe (@sec-s08-abschluss) |
+
+## Was Du dafür brauchst
+
+- Deine JASP-Datei mit den Skalenspalten
+- Das Modul **SEM** (über das **„+"** oben rechts aktivieren)
+- Beachte den Datenhinweis in @sec-tag3-datenhinweis

@@ -1,0 +1,26 @@
+# Sitzung 07 — Abschluss & Abgabe {#sec-s07-abschluss}
+
+## Was Du heute geschafft hast
+
+- Du hast die Stichprobe kritisch eingeordnet.
+- Du hast Stichprobengrößen geplant und eine ANOVA vollständig berichtet.
+
+## Abgabe
+
+Schick **eine** Mail bis spätestens zum Tag vor Sitzung 08 an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
+
+- **Betreff:** `M15 S07 — <Kennziffer>`
+- **Anhang:** keiner
+- **Text:** Vorlage kopieren und ausfüllen. Dezimalzahlen mit 2 Nachkommastellen (wo nicht anders angegeben), p-Werte mit 3.
+
+{{< include _abgabe.md >}}
+
+## Reflexion (privat, 3 Minuten)
+
+1. Eine Sache, die heute klar wurde.
+2. Eine Sache, die noch unklar ist — bring sie in Deine Kleingruppe oder ins Plenum.
+
+## Ausblick auf Sitzung 08
+
+Was ein p-Wert wirklich sagt — und was der bayesianische Ansatz anders macht.
+

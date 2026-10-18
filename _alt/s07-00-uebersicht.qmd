@@ -1,0 +1,44 @@
+# Sitzung 07 — Übersicht {#sec-s07-uebersicht}
+
+::: {.callout-note title="Lernziele"}
+Nach dieser Sitzung …
+
+- rechnest und interpretierst Du eine multiple Regression inkl. Voraussetzungsprüfung,
+- unterscheidest Du Moderation von Mediation,
+- testest Du eine Interaktion mit zentrierten Prädiktoren,
+- weißt Du, welche Effekte in unseren Daten überhaupt zu erwarten sind.
+:::
+
+## Worum es geht
+
+Bisher hast Du immer **zwei** Variablen betrachtet. Ab heute wirken viele Einflüsse gleichzeitig: Hängt Neurotizismus mit den anderen Skalen zusammen, *wenn man sie gemeinsam betrachtet*? Und hängt ein Effekt von einer dritten Variable ab?
+
+## Ablauf (ca. 2 Stunden, online)
+
+| Zeit | Modus | Inhalt |
+|---|---|---|
+| 0:00–0:15 | **Plenum** | Von der Korrelation zur Regression; Datenhinweis (unten) |
+| 0:15–1:05 | Self-Study + Kleingruppe | @sec-tag3-regression |
+| 1:05–1:15 | **Plenum** | Zwischenstand: β, R², VIF lesen |
+| 1:15–1:50 | Self-Study + Kleingruppe | @sec-tag3-moderation |
+| 1:50–2:00 | **Plenum** | Fragen, Abgabe (@sec-s07-abschluss) |
+
+## Eine wichtige Sache über unseren Datensatz {#sec-tag3-datenhinweis}
+
+Du arbeitest mit dem Gesamtdatensatz `m15-gesamt.csv` und Deinen Skalen `E_mean`, `V_mean`, `G_mean`, `N_mean`, `O_mean` aus Sitzung 05. Bevor es losgeht, musst Du wissen, **wie diese Daten entstanden sind** — sonst interpretierst Du Ergebnisse falsch.
+
+::: {.callout-important title="Was in den Daten *wirklich* steckt"}
+1. **Innerhalb** jeder Big-Five-Skala hängen die Items moderat zusammen (Konstruktion: $r \approx .40$). → Die Skalen „funktionieren".
+2. **Zwischen** den fünf Skalen gibt es einen **schwach positiven** Zusammenhang (Item-Ebene $r \approx .10$, Skalen-Ebene ca. $r \approx .15$–$.20$). **Das ist das einzige echte Signal zwischen verschiedenen Konstrukten.**
+3. **Demografie und Persönlichkeit sind komplett unabhängig** generiert. Alter, Geschlecht und Bildungsgrad hängen mit **keiner** Skala zusammen.
+:::
+
+Daraus folgt — genauso wie in echten Studien:
+
+- **Hypothesen zwischen den Skalen** haben eine reale, wenn auch kleine Grundlage. Am ehesten siehst Du sie, wenn Du mehrere Skalen gemeinsam in ein Modell packst.
+- **Hypothesen mit Demografie** sind hier **wahre Nulleffekte**. Ein nicht-signifikantes Ergebnis ist dann kein Misserfolg, sondern das *richtige* Resultat.
+- Die Stichprobe ist **klein**. Kleine echte Effekte werden oft nicht signifikant (geringe Power), und ab und zu wird ein Nulleffekt zufällig signifikant (Fehler erster Art).
+
+## Was Du dafür brauchst
+
+- Deine JASP-Datei mit den Skalenspalten aus Sitzung 05; ein `geschlecht`-Filter aus Sitzung 06 sollte entfernt sein.

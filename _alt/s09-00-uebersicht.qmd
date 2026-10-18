@@ -1,0 +1,28 @@
+# Sitzung 09 — Übersicht {#sec-s09-uebersicht}
+
+::: {.callout-note title="Lernziele"}
+Nach dieser Sitzung …
+
+- erklärst Du Prior, Likelihood und Posterior,
+- liest Du Posterior-Median, Credible Interval und Bayes-Faktor in JASP ab,
+- verstehst Du feste und zufällige Effekte und berechnest den ICC.
+:::
+
+## Worum es geht
+
+Zwei moderne Erweiterungen: Bayesianische Inferenz beantwortet die Frage, die Du eigentlich stellen willst („Wie wahrscheinlich ist der Effekt?"). Mixed Models berücksichtigen, dass Daten in Gruppen stecken — bei uns in den zehn Seed-Datensätzen.
+
+## Ablauf (ca. 2 Stunden, online)
+
+| Zeit | Modus | Inhalt |
+|---|---|---|
+| 0:00–0:15 | **Plenum** | Input: Frequentismus vs. Bayes in fünf Minuten |
+| 0:15–1:05 | Self-Study + Kleingruppe | @sec-tag3-bayes |
+| 1:05–1:15 | **Plenum** | Zwischenstand: Credible Interval vs. Konfidenzintervall |
+| 1:15–1:50 | Self-Study + Kleingruppe | @sec-tag3-mixed |
+| 1:50–2:00 | **Plenum** | Fragen, Abgabe (@sec-s09-abschluss) |
+
+## Was Du dafür brauchst
+
+- Deine JASP-Datei mit den Skalenspalten; `quelle_datensatz` als **Nominal**
+- Die Bayes-Analysen liegen in den Modulen T-Tests und Regression, Mixed Models ist standardmäßig sichtbar — Du musst nichts nachinstallieren.

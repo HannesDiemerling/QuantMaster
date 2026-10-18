@@ -1,0 +1,27 @@
+# Sitzung 02 — Abschluss & Abgabe {#sec-s02-abschluss}
+
+## Was Du heute geschafft hast
+
+- Du hast mehrere Uploads selbst kombiniert und die Fallstricke erlebt.
+- Du arbeitest ab jetzt mit dem offiziellen `m15-gesamt.csv`.
+- Du hast Kennwerte und Plots für die Stichprobe erstellt und interpretiert.
+
+## Abgabe
+
+Schick **eine** Mail bis spätestens zum Tag vor Sitzung 03 an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
+
+- **Betreff:** `M15 S02 — <Kennziffer>`
+- **Anhang:** keiner
+- **Text:** Vorlage kopieren und ausfüllen. Dezimalzahlen mit 2 Nachkommastellen (wo nicht anders angegeben), p-Werte mit 3.
+
+{{< include _abgabe.md >}}
+
+## Reflexion (privat, 3 Minuten)
+
+1. Eine Sache, die heute klar wurde.
+2. Eine Sache, die noch unklar ist — bring sie in Deine Kleingruppe oder ins Plenum.
+
+## Ausblick auf Sitzung 03
+
+Aus 21 Items werden fünf Skalen — und Du schätzt die ersten Effekte: Korrelationen und *t*-Tests mit Effektgrößen.
+

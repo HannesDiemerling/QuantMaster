@@ -1,0 +1,35 @@
+# Sitzung 01 — Abschluss & Abgabe {#sec-s01-abschluss}
+
+## Was Du heute geschafft hast
+
+- Du kennst Deine Listennummer, Kennziffer, Datensatznummer und Kleingruppe.
+- Du kannst Open Science, Forschungsethik und die Grundbegriffe der Messtheorie einordnen.
+- Du hast die Einverständniserklärung digital unterschrieben.
+
+## Abgabe
+
+Schick **eine** Mail bis spätestens zum Tag vor Sitzung 02 an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
+
+- **Betreff:** `M15 S01 — <Kennziffer>`
+- **Anhang:** nur die unterschriebene Einverständnis-PDF
+- **Text:** Vorlage kopieren und ausfüllen
+
+```text
+S01-1 Kennziffer:
+S01-2 GitHub-Benutzername:
+S01-3 Einverständnis als PDF angehängt (ja/nein):
+S01-4 Ein Reverse-Item wurde mit 2 beantwortet. Rekodierter Wert:
+S01-5 Anzahl Reverse-Items im BFI-K:
+S01-6 Welche Skala hat 5 statt 4 Items:
+```
+
+Mit Deinem GitHub-Benutzernamen fügt Dich die Lehrperson als *Collaborator* zum Repo hinzu. Die Einladung kommt per Mail — bitte vor Sitzung 02 annehmen.
+
+## Reflexion (privat, 3 Minuten)
+
+1. Eine Sache, die heute klar wurde.
+2. Eine Sache, die noch unklar ist — bring sie in Deine Kleingruppe oder ins Plenum.
+
+## Ausblick auf Sitzung 02
+
+Du lädst Deinen Übungsdatensatz herunter, findest in JASP zwei versteckte Fehler, ergänzt Deine eigene Datenzeile und lädst das Ergebnis ins Repo hoch. Dafür muss **JASP installiert** und Dein **GitHub-Zugang aktiv** sein.

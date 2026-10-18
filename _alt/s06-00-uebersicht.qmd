@@ -1,0 +1,27 @@
+# Sitzung 06 — Übersicht {#sec-s06-uebersicht}
+
+::: {.callout-note title="Lernziele"}
+Nach dieser Sitzung …
+
+- wählst Du den passenden *t*-Test und rechnest ihn in JASP (inkl. Welch-Korrektur),
+- berichtest Du Ergebnisse mit Effektgröße und Konfidenzintervall,
+- rechnest Du eine einfaktorielle ANOVA mit Voraussetzungsprüfung und Post-hoc-Tests.
+:::
+
+## Worum es geht
+
+Heute vergleichst Du Gruppen. Unterscheiden sich Frauen und Männer in Verträglichkeit? Hängt Offenheit mit dem Bildungsgrad zusammen? Der Fokus liegt darauf, Ergebnisse vollständig und ehrlich zu berichten — nicht nur den p-Wert.
+
+## Ablauf (ca. 2 Stunden, online)
+
+| Zeit | Modus | Inhalt |
+|---|---|---|
+| 0:00–0:10 | **Plenum** | Rückblick Korrelation; Input: Signifikanz vs. Effektgröße |
+| 0:10–1:00 | Self-Study + Kleingruppe | @sec-tag2-ttest |
+| 1:00–1:10 | **Plenum** | Zwischenstand: Welch oder Student? Filter auf zwei Gruppen |
+| 1:10–1:50 | Self-Study + Kleingruppe | @sec-tag2-anova |
+| 1:50–2:00 | **Plenum** | Fragen, Abgabe (@sec-s06-abschluss) |
+
+## Was Du dafür brauchst
+
+- Deine JASP-Datei mit den fünf Skalenspalten aus Sitzung 05

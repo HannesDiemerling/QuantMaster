@@ -1,0 +1,31 @@
+# Sitzung 03 — Übersicht {#sec-s03-uebersicht}
+
+::: {.callout-note title="Lernziele"}
+Nach dieser Sitzung …
+
+- berechnest Du die fünf BFI-K-Skalen und prüfst ihre Reliabilität,
+- rechnest und interpretierst Du Korrelationen mit Konfidenzintervall,
+- berichtest Du *t*-Tests vollständig mit Cohen's *d*.
+:::
+
+**Semesterwoche 6** · Bezug zur Vorlesung: Vorlesung 2 (Effekte und Effektgrößen) — Anwendung auf eigene Daten.
+
+## Worum es geht
+
+Heute machst Du aus 21 Items fünf Konstrukte und schätzt die ersten Effekte: Zusammenhänge ($r$) und Unterschiede ($d$). Der Fokus liegt auf Effektgrößen und ihrer Unsicherheit — nicht nur auf dem p-Wert.
+
+## Ablauf (ca. 2,5 Stunden, online)
+
+| Zeit | Modus | Inhalt |
+|---|---|---|
+| 0:00–0:10 | **Plenum** | Input: Warum aggregieren? Effektgrößen $r$ und $d$ |
+| 0:10–0:50 | Self-Study + Kleingruppe | @sec-tag2-skalen |
+| 0:50–1:00 | **Plenum** | Welche Skala ist am wenigsten reliabel — und warum? |
+| 1:00–1:35 | Self-Study + Kleingruppe | @sec-tag2-korrelation |
+| 1:35–2:20 | Self-Study + Kleingruppe | @sec-tag2-ttest |
+| 2:20–2:30 | **Plenum** | Fragen, Abgabe |
+
+::: {.callout-tip title="Speichern nicht vergessen"}
+Die fünf Skalenspalten brauchst Du in allen weiteren Sitzungen. Speichere Deine Arbeit als `.jasp`-Datei (**File → Save As**).
+:::
+

@@ -1,0 +1,32 @@
+# Sitzung 03 — Übersicht {#sec-s03-uebersicht}
+
+::: {.callout-note title="Lernziele"}
+Nach dieser Sitzung …
+
+- weißt Du, wie man mehrere CSV-Dateien zu einem Datensatz kombiniert und was dabei schiefgehen kann,
+- arbeitest Du mit dem offiziellen Gesamtdatensatz in JASP,
+- kannst Du eine Stichprobe beschreiben und ihre Grenzen (Bias, Missings) einordnen.
+:::
+
+## Worum es geht
+
+Aus vielen einzelnen Uploads wird heute *ein* Datensatz. Du machst das zuerst selbst für einige Dateien, um die typischen Probleme kennenzulernen — dann übernimmst Du den automatisch kombinierten Gesamtdatensatz. Danach schaust Du, **wer** in den Daten steckt und wer nicht.
+
+## Ablauf (ca. 2 Stunden, online)
+
+| Zeit | Modus | Inhalt |
+|---|---|---|
+| 0:00–0:15 | **Plenum** | Merge-Report gemeinsam ansehen: Was ist beim Upload schiefgegangen? |
+| 0:15–1:05 | Self-Study + Kleingruppe | @sec-tag2-kombinieren |
+| 1:05–1:15 | **Plenum** | Kurze Klärung: eindeutige IDs, offizieller Datensatz |
+| 1:15–1:50 | Self-Study + Kleingruppe | @sec-tag2-stichprobe |
+| 1:50–2:00 | **Plenum** | Fragen, Abgabe (@sec-s03-abschluss) |
+
+## Was Du dafür brauchst
+
+- JASP, Zugang zum Repo, Codebook griffbereit ([materials/codebook.qmd](../materials/codebook.qmd))
+- Einen Texteditor (VS Code, Notepad++, TextEdit) für den Kombinations-Schritt
+
+## Erinnerung: Demo-Charakter
+
+Die Daten sind ein Mix aus simulierten Probanden (`data/generated/`) und ausgedachten Studierenden-Antworten. Sei deshalb mit inhaltlichen Interpretationen vorsichtig — methodisch arbeitest Du trotzdem völlig sauber.

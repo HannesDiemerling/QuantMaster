@@ -1,0 +1,79 @@
+# Versuchsplanung & Stichprobenplanung {#sec-power}
+
+::: {.callout-note title="Lernziele"}
+Nach diesem Kapitel kannst Du …
+
+- experimentelle, quasi-experimentelle und korrelative Designs unterscheiden,
+- interne und externe Validität sowie typische Störvariablen benennen,
+- den Zusammenhang von α, Power, Effektgröße und Stichprobengröße erklären,
+- eine a-priori-Poweranalyse in JASP rechnen.
+:::
+
+## Worum es geht
+
+Viele Probleme einer Studie lassen sich hinterher nicht mehr reparieren: ein Design, das keine Kausalaussage erlaubt, oder eine Stichprobe, die viel zu klein ist. Deshalb wird **vor** der Datenerhebung geplant (Vorlesungen 8 und 9) — und in einer Preregistration festgehalten.
+
+## Designs
+
+| Design | Merkmal | Kausalaussage? |
+|---|---|---|
+| **Experiment** | Manipulation der UV + **randomisierte** Zuteilung | ja (hohe interne Validität) |
+| **Quasi-Experiment** | Manipulation oder natürliche Gruppen, **keine** Randomisierung | eingeschränkt |
+| **Korrelative Studie** | nur Messung, keine Manipulation | nein |
+
+Weitere Unterscheidung: **between-subjects** (verschiedene Personen pro Bedingung) vs. **within-subjects** (dieselben Personen in allen Bedingungen, z. B. Prä-Post). Within-Designs brauchen weniger Personen, haben aber Reihenfolge- und Übungseffekte.
+
+## Validität und Störvariablen
+
+- **Interne Validität:** Ist der Effekt wirklich auf die UV zurückzuführen? Bedroht durch Konfundierung, Selektion, Drop-out, Reifung, Testeffekte.
+- **Externe Validität:** Lässt sich das Ergebnis auf andere Personen, Situationen, Zeitpunkte übertragen? Bedroht durch unrepräsentative Stichproben (@sec-tag2-stichprobe).
+- **Kontrolltechniken:** Randomisierung, Konstanthalten, Parallelisieren, Kontrollgruppen, Verblindung.
+
+## Stichprobenplanung: die vier Größen
+
+Bei jedem Test hängen vier Größen zusammen — kennst Du drei, folgt die vierte:
+
+| Größe | Bedeutung | Typischer Wert |
+|---|---|---|
+| **α** | Wahrscheinlichkeit, einen Effekt zu „finden", der nicht existiert (Fehler 1. Art) | .05 |
+| **Power (1 − β)** | Wahrscheinlichkeit, einen existierenden Effekt zu finden | .80 oder .90 |
+| **Effektgröße** | angenommene Größe des wahren Effekts (z. B. Cohen's $d$) | aus Literatur/Metaanalyse oder kleinster relevanter Effekt |
+| **N** | Stichprobengröße | wird meist berechnet |
+
+- **A priori** (vor der Studie): Wie viele Personen brauche ich? — der Normalfall.
+- **Sensitivitätsanalyse:** Welchen Effekt kann ich mit meinem N zuverlässig finden?
+- **Post-hoc-Power** aus dem beobachteten Effekt ist **wenig informativ** — sie ist nur eine Umformung des p-Werts.
+
+Die Effektgröße für die Planung sollte nicht aus einer einzelnen, kleinen Pilotstudie kommen (überschätzt meist), sondern z. B. aus einer Metaanalyse (@sec-meta).
+
+## In JASP rechnen
+
+1. Modul **Power** über das **„+"** aktivieren, dann **Power → Power**.
+2. **Statistical test:** *Independent Samples T-Test*.
+3. **I want to calculate the …** *Sample Size N*.
+4. **Minimal effect size of interest:** 0.5 · **Minimal desired power:** 0.8 (Achtung: voreingestellt ist 0.9) · **Type I error rate:** 0.05 · **Alternative Hypothesis:** *Two-sided*.
+5. Lies das nötige N **pro Gruppe** ab und schau Dir die **Power curve by effect size** an.
+6. Wiederhole mit Effektgröße 0.3.
+7. Stell um auf **I want to calculate the … Power**, mit **Sample size per group** = 30 und Effektgröße 0.5.
+
+## Aufgabe
+
+**Pflichtteil:**
+
+1. Nötiges N pro Gruppe für $d = 0.5$ und $d = 0.3$ (Power .80, α = .05, zweiseitig).
+2. Power bei $n = 30$ pro Gruppe und $d = 0.5$.
+3. Ein Satz: Was bedeutet das für die Gruppenvergleiche in unserem Seminar-Datensatz (z. B. t2 aus @sec-tag2-ttest)?
+
+**Bonus:**
+
+- Stell die **Alternative Hypothesis** auf einseitig. Wie viele Personen sparst Du — und wann ist das legitim?
+
+::: {.callout-tip title="Für die Abgabe"}
+Notiere die beiden N pro Gruppe und die Power bei $n = 30$. Siehe @sec-s07-abschluss.
+:::
+
+## Selbstcheck
+
+1. Warum erlaubt nur ein randomisiertes Experiment eine Kausalaussage?
+2. Wie verändert sich das nötige N, wenn der erwartete Effekt halb so groß ist?
+3. Warum ist eine Post-hoc-Poweranalyse nach einem nicht-signifikanten Ergebnis wenig hilfreich?

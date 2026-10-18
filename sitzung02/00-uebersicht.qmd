@@ -1,0 +1,30 @@
+# Sitzung 02 — Übersicht {#sec-s02-uebersicht}
+
+::: {.callout-note title="Lernziele"}
+Nach dieser Sitzung …
+
+- weißt Du, wie man mehrere CSV-Dateien kombiniert und was dabei schiefgehen kann,
+- arbeitest Du mit dem offiziellen Gesamtdatensatz in JASP,
+- kannst Du zentrale Kennwerte berechnen und aus Plots Informationen ablesen.
+:::
+
+**Semesterwoche 5** · Bezug zur Vorlesung: Vorlesung 2 (Effekte und Effektgrößen) — bevor Effekte geschätzt werden, müssen die Daten beschrieben sein.
+
+## Worum es geht
+
+Aus vielen Uploads wird *ein* Datensatz — Du machst es zuerst selbst für einige Dateien und übernimmst dann den automatisch kombinierten Gesamtdatensatz. Danach lernst Du ihn kennen: Verteilungen, Kennwerte, Plots.
+
+## Ablauf (ca. 2,25 Stunden, online)
+
+| Zeit | Modus | Inhalt |
+|---|---|---|
+| 0:00–0:15 | **Plenum** | Merge-Report gemeinsam ansehen: Was ist beim Upload schiefgegangen? |
+| 0:15–1:00 | Self-Study + Kleingruppe | @sec-tag2-kombinieren |
+| 1:00–1:10 | **Plenum** | Eindeutige IDs, offizieller Datensatz, Variablentypen |
+| 1:10–2:00 | Self-Study + Kleingruppe | @sec-tag2-deskriptive |
+| 2:00–2:15 | **Plenum** | Boxplot und Q-Q-Plot lesen, Fragen, Abgabe |
+
+## Erinnerung: Demo-Charakter
+
+Die Daten sind ein Mix aus simulierten Probanden (`data/generated/`) und ausgedachten Studierenden-Antworten. Sei mit inhaltlichen Interpretationen vorsichtig — methodisch arbeitest Du trotzdem völlig sauber.
+

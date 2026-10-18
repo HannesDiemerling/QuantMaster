@@ -1,0 +1,27 @@
+# Sitzung 04 — Übersicht {#sec-s04-uebersicht}
+
+::: {.callout-note title="Lernziele"}
+Nach dieser Sitzung …
+
+- kannst Du zentrale Kennwerte (M, Median, SD, IQR, Schiefe) berechnen und einordnen,
+- wählst Du für jedes Skalenniveau den passenden Plot,
+- liest Du aus Plots konkrete Informationen ab (Ausreißer, Schiefe, Normalverteilung).
+:::
+
+## Worum es geht
+
+Bevor Du testest, musst Du Deine Daten *sehen*. Heute baust Du in JASP eine Reihe von Plots und liest aus ihnen ab, was in den Daten steckt. Diese Sitzung hat nur ein Kapitel, dafür mit viel Zeit zum Ausprobieren.
+
+## Ablauf (ca. 2 Stunden, online)
+
+| Zeit | Modus | Inhalt |
+|---|---|---|
+| 0:00–0:15 | **Plenum** | Rückblick Stichprobe; Input: Skalenniveau → Kennzahl → Plot |
+| 0:15–1:00 | Self-Study + Kleingruppe | @sec-tag2-deskriptive, Teil 1: Kennzahlen, Plots 1–4 |
+| 1:00–1:10 | **Plenum** | Zwischenstand: Boxplot und Q-Q-Plot lesen |
+| 1:10–1:50 | Self-Study + Kleingruppe | @sec-tag2-deskriptive, Teil 2: Plots 5–8 |
+| 1:50–2:00 | **Plenum** | Fragen, Abgabe (@sec-s04-abschluss) |
+
+## Was Du dafür brauchst
+
+- JASP mit `m15-gesamt.csv` (Variablentypen wie in @sec-tag2-kombinieren gesetzt)

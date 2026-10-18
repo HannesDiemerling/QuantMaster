@@ -1,0 +1,41 @@
+# Sitzung 06 — Abschluss & Abgabe {#sec-s06-abschluss}
+
+## Was Du heute geschafft hast
+
+- Du hast drei *t*-Tests und zwei ANOVAs gerechnet und vollständig berichtet.
+- Du weißt, warum eine Effektgröße mehr sagt als ein p-Wert.
+
+## Abgabe
+
+Schick **eine** Mail bis spätestens zum Tag vor Sitzung 07 an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
+
+- **Betreff:** `M15 S06 — <Kennziffer>`
+- **Text:** Vorlage kopieren und ausfüllen, keine Anhänge. Dezimalzahlen mit 2 Nachkommastellen, p-Werte mit 3, df bei Welch mit 1.
+
+```text
+S06-1 t1: t:
+S06-2 t1: p:
+S06-3 t1: Cohen's d:
+S06-4 t2 (Welch-Zeile): t:
+S06-5 t2 (Welch-Zeile): df:
+S06-6 t2 (Welch-Zeile): p:
+S06-7 t2: Cohen's d:
+S06-8 t3 (Welch-Zeile): t:
+S06-9 t3 (Welch-Zeile): p:
+S06-10 A1: F(df1, df2) =
+S06-11 A1: p:
+S06-12 A1: η²:
+S06-13 A1: p des Levene-Tests:
+S06-14 A3: F:
+S06-15 A3: p:
+S06-16 Ein Satz: Welche Schlussfolgerung ziehst Du aus t2 — und welchen Vorbehalt hast Du?
+```
+
+## Reflexion (privat, 3 Minuten)
+
+1. Wann ist ein signifikantes Ergebnis praktisch trotzdem bedeutungslos?
+2. Was ist noch unklar?
+
+## Ausblick auf Sitzung 07
+
+Mehrere Prädiktoren gleichzeitig: multiple Regression und Moderation.

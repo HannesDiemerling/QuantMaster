@@ -1,0 +1,36 @@
+# Sitzung 02 — Abschluss & Abgabe {#sec-s02-abschluss}
+
+## Was Du heute geschafft hast
+
+- Du hast einen kompletten GitHub-Workflow durchlaufen: Datei holen, lokal bearbeiten, hochladen.
+- Du hast in JASP zwei absichtliche Fehler gefunden und behandelt.
+- Deine eigene Zeile ist Teil des gemeinsamen Datensatzes.
+
+## Abgabe
+
+Schick **eine** Mail bis spätestens zum Tag vor Sitzung 03 an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
+
+- **Betreff:** `M15 S02 — <Kennziffer>`
+- **Text:** Vorlage kopieren und ausfüllen, keine Anhänge
+
+```text
+S02-1 Datensatz-Nummer:
+S02-2 Fehler 1 (Zeile, Spalte, gefundener Wert):
+S02-3 Fehler 2 (Zeile, Spalte, gefundener Wert):
+S02-4 Name Deiner hochgeladenen Datei:
+```
+
+„Zeile" meint die Zeilennummer in der JASP-Datenansicht (1–9). Bei einer doppelten Probandennummer nennst Du beide Zeilen; bei einer leeren Zelle schreibst Du „leer".
+
+## Was nach dem Upload passiert
+
+Bei jedem Upload startet im Repo automatisch der Workflow **Merge student uploads** (Reiter *Actions*). Er baut daraus `data/combined/m15-gesamt.csv` und protokolliert in `data/combined/merge-report.md`, wie jede Datei verarbeitet wurde. Schau dort nach, ob Deine Datei als „ok" erkannt wurde und ob eine Warnung dabeisteht — wenn ja, korrigieren und erneut hochladen.
+
+## Reflexion (privat, 3 Minuten)
+
+1. Welcher Schritt war heute am fehleranfälligsten — und wie würdest Du ihn in einer echten Studie absichern?
+2. Was ist noch unklar?
+
+## Ausblick auf Sitzung 03
+
+Du kombinierst selbst einige Uploads zu einer Datei, um zu verstehen, was dabei schiefgehen kann, und arbeitest danach mit dem offiziellen Gesamtdatensatz. Erste Frage an die Daten: Wer steckt eigentlich in unserer Stichprobe?

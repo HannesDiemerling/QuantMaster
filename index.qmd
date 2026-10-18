@@ -1,53 +1,66 @@
 # Willkommen {.unnumbered}
 
-Herzlich willkommen zum quantitativen Teil des Moduls **M15 — Multivariate Verfahren, Forschungsmethoden & Psychotherapieforschung** im Masterstudiengang Psychotherapie an der HMU Health and Medical University Potsdam.
+Herzlich willkommen zum quantitativen Teil des Moduls **M15 — Multivariate Verfahren, Forschungsmethoden & Psychotherapieforschung** im Masterstudiengang Psychotherapie an der HMU Health and Medical University.
 
 ## Was Dich erwartet
 
-Drei Präsenztage, jeweils 09:45–17:00:
+Zehn Online-Sitzungen per Videokonferenz, jeweils etwa zwei Stunden, ab **Semesterwoche 4**. Jede Sitzung vertieft praktisch in JASP, was in der Vorlesung behandelt wurde.
 
-| Tag | Datum | Thema |
-|-----|-------|-------|
-| Tag 1 | 21.05.2026 | Technisches Setup & Datenerhebung |
-| Tag 2 | 28.05.2026 | Datensatz verstehen & deskriptiv analysieren |
-| Tag 3 | 04.06.2026 | Multivariate Verfahren |
+| Sitzung | Woche | Datum | Thema | Bezug zur Vorlesung |
+|---|---|---|---|---|
+| 01 | 4 | TBA | Setup & Datenerhebung | 1 Replikationskrise |
+| 02 | 5 | TBA | Gesamtdatensatz & Deskription | 2 Effekte & Effektgrößen |
+| 03 | 6 | TBA | Skalen & Effektgrößen | 2 Effekte & Effektgrößen |
+| 04 | 7 | TBA | Metaanalyse & multiple Regression | 3 Metaanalyse, 4 Multiple Regression |
+| 05 | 8 | TBA | Mehrebenenmodelle & Faktorenanalyse | 5 Mehrebenenmodelle, 6 Faktorenanalyse |
+| 06 | 9 | TBA | Strukturgleichungsmodelle | 7 Strukturgleichungsmodelle |
+| 07 | 10 | TBA | Versuchsplanung, Stichprobe & Power | 8 Versuchsplanung/Biases/fehlende Werte, 9 Stichprobenplanung |
+| 08 | 11 | TBA | Signifikanztest-Kritik & Bayes | 10 Bayes, 11 Frequentismus & Kritik |
+| 09 | 12 | TBA | Intervention & Epidemiologie | 12 Interventions-/Evaluations-, Ätiologie-/Epidemiologieforschung |
+| 10 | 13 | TBA | Qualitative Methoden & Abschluss | 13 Qualitative Methoden, 14 Klausurvorbereitung |
 
-## Wie Du mit dieser Site arbeitest
+## So läuft eine Sitzung
 
-Diese Site ist Dein **primäres Lernmaterial**. Du arbeitest überwiegend selbständig durch die Kapitel — der Lehrende ist im Raum, gibt am Tagesanfang einen kurzen Input und steht bei Fragen zur Verfügung. Es gibt keinen klassischen Frontalunterricht.
+Diese Site ist Dein **primäres Lernmaterial**. Jede Sitzung hat denselben Rhythmus:
 
-Jedes Kapitel ist so aufgebaut, dass Du es **alleine durcharbeiten** kannst:
+1. **Plenum** (10–20 Min.): kurzer Input der Lehrperson im Videocall.
+2. **Self-Study** mit der Site, in Deiner **Kleingruppe** im Breakout-Raum. Ihr arbeitet jede/r selbst, helft Euch aber gegenseitig.
+3. **Zwischenplenum** (ca. 10 Min.): typische Stolpersteine klären.
+4. **Abschluss-Plenum** (ca. 10 Min.): Fragen, Ausblick, Abgabe.
 
-- **Lernziele** am Anfang
-- **Kompakter Theorieteil** mit konkreten Beispielen
-- **Aufgabe oder Anwendung** — meistens in JASP oder auf GitHub
-- **Selbstcheck-Fragen** am Ende
+Wenn Du hängenbleibst: zuerst in der Kleingruppe fragen, dann die Lehrperson in den Breakout-Raum holen (Hilfe-Button bzw. „Hand heben").
 
-Wenn Du an einer Stelle hängenbleibst: frag den Lehrenden.
+Jedes Kapitel ist gleich aufgebaut: **Lernziele**, kompakter Theorieteil, **Aufgabe** (meist in JASP), **Selbstcheck**.
+
+## Deine Nummern
+
+In Sitzung 01 bekommst Du über die alphabetische Teilnehmerliste Deine **Listennummer**. Daraus ergeben sich Deine **Kennziffer** (Pseudonym), Dein **Übungsdatensatz** und Deine **Kleingruppe** — Details in @sec-nummern.
+
+## Abgaben
+
+Pro Sitzung schickst Du **eine** kurze Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}), Betreff `M15 SNN — <Kennziffer>`. Die Vorlage zum Kopieren steht jeweils im Abschluss-Kapitel der Sitzung. Abgegeben werden fast nur **Zahlen und kurze Antworten**, die Du aus Deinen JASP-Analysen abliest — keine Screenshots, keine Plots. Weil alle mit demselben Gesamtdatensatz arbeiten, sind die Ergebnisse direkt vergleichbar.
 
 ## Software und Zugänge
 
-Du brauchst für diesen Workshop:
+1. **JASP** — kostenlos unter [jasp-stats.org](https://jasp-stats.org)
+2. **GitHub-Account** — empfohlen, nicht Pflicht; kostenlos unter [github.com](https://github.com). Ohne Account schickst Du Deine Datei einmal per Mail.
+3. **Laptop** mit Kamera/Mikro für die Videokonferenz
 
-1. **JASP** — kostenlos unter [jasp-stats.org](https://jasp-stats.org) (bitte vor Tag 1 installieren)
-2. **GitHub-Account** — kostenlos unter [github.com](https://github.com)
-3. **Laptop** — der gesamte Workshop ist laptop-pflichtig
-
-::: {.callout-important title="Vor Tag 1 erledigen"}
+::: {.callout-important title="Vor Sitzung 01 erledigen"}
 - JASP installieren und einmal starten
-- GitHub-Account anlegen und Benutzernamen an die Lehrperson mailen
-- Einverständniserklärung lesen — liegt im Repo unter [materials/einverstaendnis.pdf](materials/einverstaendnis.pdf) (im Browser herunterladen und mitbringen)
+- Empfohlen: GitHub-Account anlegen und den Benutzernamen per Mail an die Lehrperson schicken (dann hast Du in Sitzung 01 Schreibrechte)
+- Vorbereitungslektüre (ca. 45 Min.): @sec-tag1-open-science, @sec-tag1-ethik, @sec-tag1-messtheorie
+- Einverständniserklärung lesen: [materials/einverstaendnis.pdf](materials/einverstaendnis.pdf)
 :::
 
 ## Datensatz
 
-Über die drei Tage entsteht **ein gemeinsamer Datensatz** — komplett im Repo nachvollziehbar:
+Über das Seminar entsteht **ein gemeinsamer Datensatz** — komplett im Repo nachvollziehbar:
 
-- An Tag 1 füllst Du den BFI-K (Big Five Inventory, Kurzversion) selbst aus.
-- Du bekommst einen von zehn vorgenerierten Übungsdatensätzen, findest Fehler und bereinigst ihn in JASP.
-- Deine eigene Antwortzeile hängst Du an und lädst die Datei nach `data/student-uploads/` hoch.
-- An Tag 2 führst Du die Uploads aller Studierenden selbst zu einem Gesamtdatensatz zusammen — das ist Teil des Lehrstoffs, kein Automatismus. Mit diesem Datensatz arbeiten wir an Tag 2 und 3 weiter.
+- In Sitzung 01 bekommst Du einen von zehn vorgenerierten Übungsdatensätzen, findest Fehler, bereinigst ihn in JASP, ergänzt eine eigene (ausgedachte) Antwortzeile und lädst die Datei hoch — über GitHub oder per Mail.
+- Ein GitHub-Workflow kombiniert alle Uploads automatisch zu `data/combined/m15-gesamt.csv`. In Sitzung 02 probierst Du das Kombinieren selbst aus.
+- Mit diesem Datensatz arbeiten alle bis Sitzung 10.
 
 ## Viel Erfolg
 
-Quantitative Methoden sind kein Selbstzweck — sie helfen uns, Fragen über psychische Gesundheit und therapeutische Wirksamkeit präziser zu beantworten. Nutze die drei Tage, um ein solides Fundament für Deine Master-Arbeit und die spätere Forschungspraxis zu legen.
+Quantitative Methoden sind kein Selbstzweck — sie helfen uns, Fragen über psychische Gesundheit und therapeutische Wirksamkeit präziser zu beantworten. Nutze die zehn Sitzungen, um ein solides Fundament für Deine Masterarbeit und die spätere Forschungspraxis zu legen.
