@@ -34,7 +34,7 @@ Nicht jede Forschungsfrage lässt sich mit Fragebögen und Mittelwerten beantwor
 
 Objektivität, Reliabilität und Validität im engeren Sinn passen nur bedingt. Gebräuchlich sind u. a.: **Transparenz** (Vorgehen dokumentiert), **intersubjektive Nachvollziehbarkeit**, **Reflexivität** (eigene Vorannahmen offenlegen), **kommunikative Validierung** (Rückmeldung durch Teilnehmende) und **Triangulation** (mehrere Methoden, Daten oder Forschende).
 
-Bei kategorienbasierten Verfahren kodieren oft **zwei Personen unabhängig** dasselbe Material. Ihre Übereinstimmung wird quantifiziert — hier treffen sich beide Welten.
+Bei kategorienbasierten Verfahren kodieren oft **zwei Personen unabhängig** dasselbe Material. Ihre Übereinstimmung wird quantifiziert, und hier treffen sich beide Welten.
 
 ## Mixed Methods
 

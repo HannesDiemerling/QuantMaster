@@ -4,7 +4,7 @@
 >
 > **Aktueller Bauauftrag:** **Nur Tag 1** vollständig umsetzen. Tag 2 und Tag 3 sind hier nur als Outline beschrieben — sie werden später in eigenen Iterationen detailliert.
 
-> **Stand 10/2026 — hat Vorrang vor dem Rest dieser Datei:** Das Material ist auf **10 Online-Sitzungen** (`sitzung01/`–`sitzung10/` in Semesterwoche 4–13, auf den Vorlesungsplan abgestimmt, je ca. 2 h, Videokonferenz mit Breakout-Kleingruppen; Machine Learning u. a. im `anhang/`) für **20–40 Studierende** umgestellt. Zuweisung über die Listennummer $n$: Kennziffer $2000+n$, Datensatz $((n-1) \bmod 10)+1$, Kleingruppe $\lceil n/4\rceil$. Pro Sitzung eine Mail mit Zahlenfeldern (Vorlage in `99-abschluss.qmd`), Sollwerte per `scripts/antwortbogen.R` → `intern/` (gitignored). Uploads kombiniert `scripts/merge-uploads.R` automatisch (Workflow `merge-uploads.yml`). Die Kapitel-IDs `#sec-tag1-…` usw. sind aus Kompatibilität unverändert. JASP-Anweisungen sind gegen JASP 0.98.21 (Module 0.95/0.96) geprüft: Menüpfade beginnen mit dem Modul-Button (kein „Analyses"-Menü).
+> **Stand 10/2026 — hat Vorrang vor dem Rest dieser Datei:** Das Material ist auf **10 Online-Sitzungen** (`sitzung01/`–`sitzung10/` in Semesterwoche 4–13, auf den Vorlesungsplan abgestimmt, je ca. 2 h, Videokonferenz mit Breakout-Kleingruppen; Machine Learning u. a. im `anhang/`) für **20–40 Studierende** umgestellt. Zuweisung über die Listennummer $n$: Kennziffer $2000+n$, Datensatz $((n-1) \bmod 10)+1$, Kleingruppe $\lceil n/4\rceil$. Pro Sitzung eine Mail mit Zahlenfeldern (Betreff `M15 SNN <Kennziffer>`, Vorlage in `99-abschluss.qmd`), Sollwerte per `scripts/antwortbogen.R` → `intern/` (gitignored). Uploads kombiniert `scripts/merge-uploads.R` automatisch (Workflow `merge-uploads.yml`). Die Kapitel-IDs `#sec-tag1-…` usw. sind aus Kompatibilität unverändert. JASP-Anweisungen sind gegen JASP 0.98.21 (Module 0.95/0.96) geprüft: Menüpfade beginnen mit dem Modul-Button (kein „Analyses"-Menü).
 
 ---
 
@@ -224,7 +224,7 @@ Nach diesem Kapitel kannst Du …
 
 #### Kapitel 00 — Tagesübersicht *(kurz, ½ Seite)*
 
-- Was passiert heute (Tagesablauf-Tabelle)
+- Inhalte der Sitzung als nummerierte Liste (ohne Uhrzeiten oder Minutenangaben, siehe §13)
 - Was Du am Ende des Tages erreicht hast
 - Was Du dafür brauchst (Laptop, JASP, GitHub-Account, Stift, Drucker für Einverständnis)
 
@@ -674,6 +674,8 @@ Standard-Einwilligungsformular mit:
 ## 13 · Stil-Vorgaben
 
 - Anrede: **„Du"**
+- Natürlicher, menschlicher Ton. **Keine Gedankenstriche** (—) im Fließtext, in Überschriften oder Titeln; stattdessen Punkt, Komma, Doppelpunkt oder Klammer. Bis-Striche in Bereichen (1–5, Woche 4–13) sind ok.
+- **Keine Zeitangaben für Studierende:** Übersichtsseiten zeigen nur Inhalte und Vorbereitung, keine Ablauf-Tabellen mit Uhrzeiten, keine Minutenschätzungen für Kapitel, Lektüre oder Reflexion. Der Zeitplan für die Lehrperson liegt in `intern/zeitplan.md` (gitignored).
 - Kurze Absätze
 - Callouts sparsam: `note` für Lernziele, `tip` für Hinweise. Kein `warning` oder `important` außer bei wirklich relevanten Hinweisen.
 - Code-Blöcke immer mit Sprachangabe

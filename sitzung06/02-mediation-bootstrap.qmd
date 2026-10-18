@@ -12,7 +12,7 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Eine **Mediation** fragt nach dem **Mechanismus**: Läuft der Effekt von $X$ auf $Y$ **über** eine Zwischenvariable $M$ (den Mediator)? Während die Moderation fragte *wann* ein Effekt auftritt, fragt die Mediation *wie* — über welchen Pfad.
+Eine **Mediation** fragt nach dem **Mechanismus**: Läuft der Effekt von $X$ auf $Y$ **über** eine Zwischenvariable $M$ (den Mediator)? Während die Moderation fragte *wann* ein Effekt auftritt, fragt die Mediation *wie*, also über welchen Pfad.
 
 > *Beispiel:* Gewissenhaftigkeit ($X$) führt zu besseren Lernstrategien ($M$), und diese führen zu besseren Noten ($Y$). Der Effekt von Gewissenhaftigkeit auf Noten läuft dann (teilweise) **durch** die Lernstrategien.
 
@@ -46,30 +46,30 @@ Die Kernfrage der Mediation ist: **Ist der indirekte Effekt $a \times b$ von Nul
 - Ist $c'$ ≈ 0, der indirekte Effekt aber deutlich → **vollständige Mediation**.
 - Sind beide deutlich → **partielle Mediation**.
 
-## Warum Bootstrap? — das eigentliche Thema
+## Warum Bootstrap? Das eigentliche Thema
 
-Der indirekte Effekt $a \times b$ ist ein **Produkt** zweier geschätzter Zahlen. Solche Produkte sind **nicht normalverteilt** — schief und mit ungewöhnlicher Form. Der klassische Test (der eine Normalverteilung annimmt, „Sobel-Test") liegt deshalb oft daneben.
+Der indirekte Effekt $a \times b$ ist ein **Produkt** zweier geschätzter Zahlen. Solche Produkte sind **nicht normalverteilt**, sondern schief und haben eine ungewöhnliche Form. Der klassische Test (der eine Normalverteilung annimmt, „Sobel-Test") liegt deshalb oft daneben.
 
-Die Lösung ist der **Bootstrap** — ein **Resampling-Verfahren**. Die Idee ist verblüffend einfach und mächtig:
+Die Lösung ist der **Bootstrap**, ein **Resampling-Verfahren**. Die Idee ist verblüffend einfach und mächtig:
 
 1. Nimm Deine $N$ Beobachtungen.
-2. **Ziehe mit Zurücklegen** eine neue Stichprobe derselben Größe $N$. (Manche Personen kommen doppelt vor, andere gar nicht — das ist gewollt.)
+2. **Ziehe mit Zurücklegen** eine neue Stichprobe derselben Größe $N$. (Manche Personen kommen doppelt vor, andere gar nicht. Das ist gewollt.)
 3. Berechne in dieser Bootstrap-Stichprobe den indirekten Effekt $a \times b$.
 4. Wiederhole das **sehr oft** (z. B. 5 000-mal).
-5. Du hast jetzt 5 000 Werte für $a \times b$ — das ist die empirische **Verteilung** des indirekten Effekts.
+5. Du hast jetzt 5 000 Werte für $a \times b$. Das ist die empirische **Verteilung** des indirekten Effekts.
 6. Das **95 %-Konfidenzintervall** sind einfach das 2.5 %- und das 97.5 %-Perzentil dieser 5 000 Werte.
 
 ::: {.callout-tip title="Die Grundidee des Bootstrap in einem Satz"}
-Statt eine Formel für die Streuung einer Schätzung zu *unterstellen*, lässt der Bootstrap die Daten die Streuung **selbst zeigen** — indem er die Stichprobenziehung viele Male simuliert. Deshalb funktioniert er auch dort, wo es keine saubere Formel gibt.
+Statt eine Formel für die Streuung einer Schätzung zu *unterstellen*, lässt der Bootstrap die Daten die Streuung **selbst zeigen**, indem er die Stichprobenziehung viele Male simuliert. Deshalb funktioniert er auch dort, wo es keine saubere Formel gibt.
 :::
 
-**Entscheidungsregel:** Schließt das Bootstrap-KI die **Null nicht ein**, ist der indirekte Effekt signifikant — es gibt Mediation. Schließt es die Null ein, kannst Du Mediation nicht belegen.
+**Entscheidungsregel:** Schließt das Bootstrap-KI die **Null nicht ein**, ist der indirekte Effekt signifikant, es gibt also eine Mediation. Schließt es die Null ein, kannst Du Mediation nicht belegen.
 
 Der Bootstrap ist weit über die Mediation hinaus nützlich: für Effektgrößen, Mediane, Korrelationen, eigentlich jede Statistik, deren theoretische Verteilung Du nicht kennst.
 
 ## In JASP rechnen
 
-Mediation steckt in JASP im **SEM-Modul** (Strukturgleichungsmodelle — siehe @sec-cfa-sem).
+Mediation steckt in JASP im **SEM-Modul** (Strukturgleichungsmodelle, siehe @sec-cfa-sem).
 
 1. Falls nötig, **SEM-Modul** über das **„+"** aktivieren.
 2. **SEM → Mediation Analysis**.
@@ -84,12 +84,12 @@ Mediation steckt in JASP im **SEM-Modul** (Strukturgleichungsmodelle — siehe @
 
 ## Was unsere Daten hergeben
 
-Wieder ehrlich (@sec-tag3-datenhinweis): In den Daten steckt **kein** eingebauter Mediationsmechanismus, nur schwach positive Zusammenhänge zwischen allen Skalen. Die Richtung daraus: Die Pfade sind allenfalls klein, und ihr **Produkt** (der indirekte Effekt) ist entsprechend winzig — bei einer kleinen Stichprobe wird das Bootstrap-Intervall die **Null in aller Regel einschließen**.
+Wieder ehrlich (@sec-tag3-datenhinweis): In den Daten steckt **kein** eingebauter Mediationsmechanismus, nur schwach positive Zusammenhänge zwischen allen Skalen. Die Richtung daraus: Die Pfade sind allenfalls klein, und ihr **Produkt** (der indirekte Effekt) ist entsprechend winzig. Bei einer kleinen Stichprobe wird das Bootstrap-Intervall die **Null in aller Regel einschließen**.
 
-Erwarte hier also **keinen klaren indirekten Effekt**. Und auch das ist ein **legitimes** Ergebnis. Du lernst hier das Verfahren, die Logik des Bootstrap und — erneut — dass ein sauberer Nullbefund Teil seriöser Forschung ist.
+Erwarte hier also **keinen klaren indirekten Effekt**. Und auch das ist ein **legitimes** Ergebnis. Du lernst hier das Verfahren, die Logik des Bootstrap und noch einmal, dass ein sauberer Nullbefund Teil seriöser Forschung ist.
 
 ::: {.callout-important title="Mediation braucht große Stichproben"}
-Für einen mittleren indirekten Effekt mit ordentlicher Power braucht man oft **$N > 150$**, nicht selten mehrere Hundert. Mediation mit $N = 30$ aus einer Bachelor-Erhebung ist mit Vorsicht zu genießen — das ist eine der häufigsten Überinterpretationen in studentischen Arbeiten. Jetzt weißt Du, warum.
+Für einen mittleren indirekten Effekt mit ordentlicher Power braucht man oft **$N > 150$**, nicht selten mehrere Hundert. Mediation mit $N = 30$ aus einer Bachelor-Erhebung ist mit Vorsicht zu genießen. Das ist eine der häufigsten Überinterpretationen in studentischen Arbeiten. Jetzt weißt Du, warum.
 :::
 
 ## Stärken und Schwächen
@@ -102,7 +102,7 @@ Für einen mittleren indirekten Effekt mit ordentlicher Power braucht man oft **
 
 **Schwächen:**
 
-- **kausale** Interpretation steht und fällt mit dem Design — Mediation aus Querschnittsdaten ist *statistisch* möglich, *kausal* aber kaum belastbar (alle drei Variablen zur selben Zeit gemessen)
+- **kausale** Interpretation steht und fällt mit dem Design. Mediation aus Querschnittsdaten ist *statistisch* möglich, *kausal* aber kaum belastbar (alle drei Variablen zur selben Zeit gemessen)
 - hoher Power-Bedarf
 - empfindlich gegen falsch spezifizierte Pfadrichtungen (warum nicht $Y \to M \to X$?)
 
@@ -112,12 +112,12 @@ Für einen mittleren indirekten Effekt mit ordentlicher Power braucht man oft **
 
 1. Rechne in JASP die Mediation **X = `G_mean`, M = `E_mean`, Y = `O_mean`** mit **5 000 Bootstrap-Replikationen** und 95 %-Perzentil-KI.
 2. Lies ab: indirekter Effekt ($a \times b$) mit Bootstrap-KI, direkter Effekt $c'$, totaler Effekt $c$.
-3. Notiere die zentralen Kennwerte: den **indirekten Effekt** ($a \times b$) mit seinem Bootstrap-Konfidenzintervall — und Deine Schlussfolgerung, ob eine Mediation vorliegt.
+3. Notiere die zentralen Kennwerte: den **indirekten Effekt** ($a \times b$) mit seinem Bootstrap-Konfidenzintervall und Deine Schlussfolgerung, ob eine Mediation vorliegt.
 
 **Bonus (für die Schnellen):**
 
 - Erkläre in zwei Sätzen mit eigenen Worten, **was die 5 000 Replikationen** konkret tun.
-- Tausch die Rollen (X und Y vertauschen). Ändert sich die Schlussfolgerung — und was sagt das über Kausalität aus Querschnittsdaten?
+- Tausch die Rollen (X und Y vertauschen). Ändert sich die Schlussfolgerung, und was sagt das über Kausalität aus Querschnittsdaten?
 
 ::: {.callout-tip title="Für die Abgabe"}
 Notiere: indirekten Effekt, sein 95 %-Bootstrap-KI und den direkten Effekt $c'$. Siehe @sec-s06-abschluss.

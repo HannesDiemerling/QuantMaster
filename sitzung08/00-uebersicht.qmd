@@ -1,4 +1,4 @@
-# Sitzung 08 — Übersicht {#sec-s08-uebersicht}
+# Sitzung 08: Übersicht {#sec-s08-uebersicht}
 
 ::: {.callout-note title="Lernziele"}
 Nach dieser Sitzung …
@@ -12,19 +12,16 @@ Nach dieser Sitzung …
 
 ## Worum es geht
 
-Heute stellst Du das Werkzeug infrage, das Du bisher ständig benutzt hast: den Signifikanztest. Du lernst seine Grenzen kennen und zwei Alternativen — Äquivalenztests und bayesianische Inferenz.
+Heute stellst Du das Werkzeug infrage, das Du bisher ständig benutzt hast: den Signifikanztest. Du lernst seine Grenzen kennen und zwei Alternativen dazu: Äquivalenztests und bayesianische Inferenz.
 
-## Ablauf (ca. 2 Stunden, online)
-
-| Zeit | Modus | Inhalt |
-|---|---|---|
-| 0:00–0:10 | **Plenum** | Quiz: Was bedeutet p = .03? |
-| 0:10–0:50 | Self-Study + Kleingruppe | @sec-nhst |
-| 0:50–1:00 | **Plenum** | Von „p < .05" zu Wahrscheinlichkeitsaussagen |
-| 1:00–1:50 | Self-Study + Kleingruppe | @sec-tag3-bayes |
-| 1:50–2:00 | **Plenum** | Fragen, Abgabe |
-
-## Was Du dafür brauchst
+## Vorbereitung
 
 - Das Modul **Equivalence T-Tests** (über das **„+"** aktivieren); die Bayes-Analysen liegen in T-Tests und Regression
 
+## Inhalte
+
+1. Kleines Quiz: Was bedeutet p = .03?
+2. @sec-nhst
+3. Von „p < .05" zu Wahrscheinlichkeitsaussagen
+4. @sec-tag3-bayes
+5. Fragen und Abgabe (@sec-s08-abschluss)

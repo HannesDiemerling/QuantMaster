@@ -11,7 +11,7 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Die EFA (@sec-efa) hat gefragt: *Welche* Struktur steckt in den Daten? Die **konfirmatorische Faktorenanalyse (CFA)** dreht die Frage um: *Passt eine vorab festgelegte Struktur* — hier die fünf BFI-K-Skalen — zu den Daten? **Strukturgleichungsmodelle (SEM)** verbinden solche Messmodelle mit Regressionen zwischen latenten Variablen (Vorlesung 7).
+Die EFA (@sec-efa) hat gefragt: *Welche* Struktur steckt in den Daten? Die **konfirmatorische Faktorenanalyse (CFA)** dreht die Frage um: *Passt eine vorab festgelegte Struktur* (hier die fünf BFI-K-Skalen) zu den Daten? **Strukturgleichungsmodelle (SEM)** verbinden solche Messmodelle mit Regressionen zwischen latenten Variablen (Vorlesung 7).
 
 ## Messmodell und Strukturmodell
 
@@ -34,12 +34,12 @@ O ~ E
 
 | Index | Idee | Guter Fit (Faustregel) |
 |---|---|---|
-| **χ²-Test** | weicht das Modell von den Daten ab? | nicht signifikant — bei großem $N$ aber fast immer signifikant |
+| **χ²-Test** | weicht das Modell von den Daten ab? | nicht signifikant; bei großem $N$ aber fast immer signifikant |
 | **CFI / TLI** | Vergleich mit einem Nullmodell | ≥ .95 (≥ .90 akzeptabel) |
 | **RMSEA** | Abweichung pro Freiheitsgrad | ≤ .06 (≤ .08 akzeptabel) |
 | **SRMR** | mittlere Residualkorrelation | ≤ .08 |
 
-Fit-Indizes sind **Faustregeln**, keine Signifikanztests. Mit ca. 100 Personen und 21 Items ist eine CFA hier nur demonstrativ — rechne mit mäßigem Fit.
+Fit-Indizes sind **Faustregeln**, keine Signifikanztests. Mit ca. 100 Personen und 21 Items ist eine CFA hier nur demonstrativ, rechne also mit mäßigem Fit.
 
 ## In JASP rechnen
 
@@ -69,7 +69,7 @@ Fit-Indizes sind **Faustregeln**, keine Signifikanztests. Mit ca. 100 Personen u
 
 **Bonus:**
 
-- Lass die Option **Modification indices** ausgeben. Welche Änderung würde den Fit am stärksten verbessern — und warum solltest Du solchen Vorschlägen nicht blind folgen?
+- Lass die Option **Modification indices** ausgeben. Welche Änderung würde den Fit am stärksten verbessern, und warum solltest Du solchen Vorschlägen nicht blind folgen?
 
 ::: {.callout-tip title="Für die Abgabe"}
 Notiere χ², df, CFI und RMSEA der CFA. Siehe @sec-s06-abschluss.

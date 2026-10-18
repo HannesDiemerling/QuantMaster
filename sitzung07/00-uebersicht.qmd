@@ -1,4 +1,4 @@
-# Sitzung 07 — Übersicht {#sec-s07-uebersicht}
+# Sitzung 07: Übersicht {#sec-s07-uebersicht}
 
 ::: {.callout-note title="Lernziele"}
 Nach dieser Sitzung …
@@ -15,18 +15,15 @@ Nach dieser Sitzung …
 
 Was eine Studie aussagen kann, entscheidet sich meist vor der Datenerhebung: Design, Stichprobe, Umgang mit fehlenden Werten, Stichprobengröße. Mit der ANOVA rechnest Du das klassische Verfahren für Gruppendesigns.
 
-## Ablauf (ca. 2,25 Stunden, online)
-
-| Zeit | Modus | Inhalt |
-|---|---|---|
-| 0:00–0:10 | **Plenum** | Input: Stichprobenfehler vs. Bias |
-| 0:10–0:40 | Self-Study + Kleingruppe | @sec-tag2-stichprobe |
-| 0:40–1:15 | Self-Study + Kleingruppe | @sec-power |
-| 1:15–1:25 | **Plenum** | Wie viele Personen bräuchten wir eigentlich? |
-| 1:25–2:05 | Self-Study + Kleingruppe | @sec-tag2-anova |
-| 2:05–2:15 | **Plenum** | Fragen, Abgabe |
-
-## Was Du dafür brauchst
+## Vorbereitung
 
 - Das Modul **Power** (über das **„+"** oben rechts aktivieren)
 
+## Inhalte
+
+1. Kurzer Input: Stichprobenfehler und Bias
+2. @sec-tag2-stichprobe
+3. @sec-power
+4. Gemeinsame Frage: Wie viele Personen bräuchten wir eigentlich?
+5. @sec-tag2-anova
+6. Fragen und Abgabe (@sec-s07-abschluss)

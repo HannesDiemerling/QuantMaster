@@ -7,12 +7,12 @@ Nach diesem Kapitel kannst Du …
 - die Begriffe Trainings-/Testdaten, Kreuzvalidierung und Overfitting sicher benutzen,
 - in JASP ein Random-Forest- und ein **neuronales Netz** rechnen,
 - die Modellgüte fair (auf ungesehenen Daten) beurteilen,
-- einschätzen, wann Machine Learning sinnvoll ist — und wann klassische Statistik die bessere Wahl bleibt.
+- einschätzen, wann Machine Learning sinnvoll ist und wann klassische Statistik die bessere Wahl bleibt.
 :::
 
 ## Worum es geht
 
-Die Verfahren der letzten Kapitel hatten ein Ziel: **erklären**. Sie liefern interpretierbare Koeffizienten („pro +1 in $X$ steigt $Y$ um $b$"). **Machine Learning (ML)** dreht den Fokus um: Es will möglichst gut **vorhersagen**, oft mit komplexen, nicht-linearen Modellen — auch wenn die einzelnen „Stellschrauben" dann nicht mehr einfach interpretierbar sind.
+Die Verfahren der letzten Kapitel hatten ein Ziel: **erklären**. Sie liefern interpretierbare Koeffizienten („pro +1 in $X$ steigt $Y$ um $b$"). **Machine Learning (ML)** dreht den Fokus um: Es will möglichst gut **vorhersagen**, oft mit komplexen, nicht-linearen Modellen, auch wenn die einzelnen „Stellschrauben" dann nicht mehr einfach interpretierbar sind.
 
 | | **Klassische Statistik** | **Machine Learning** |
 |---|---|---|
@@ -31,10 +31,10 @@ Ein Modell, das die **vorhandenen** Daten perfekt beschreibt, ist wertlos, wenn 
 Die Gegenmaßnahme ist methodisch sauber und einfach:
 
 1. **Train/Test-Split:** Teile die Daten z. B. 70 % Training / 30 % Test. Trainiere nur auf dem Trainingsteil, beurteile **nur** auf dem ungesehenen Testteil.
-2. **Kreuzvalidierung (k-fold):** Teile die Daten in $k$ Blöcke (z. B. 5). Trainiere auf 4, teste auf dem 5., rotiere durch, mittle die Güte. Nutzt die Daten effizienter — wichtig bei kleinem $N$.
+2. **Kreuzvalidierung (k-fold):** Teile die Daten in $k$ Blöcke (z. B. 5). Trainiere auf 4, teste auf dem 5., rotiere durch, mittle die Güte. Das nutzt die Daten effizienter, was bei kleinem $N$ wichtig ist.
 
 ::: {.callout-tip title="Warum das die wichtigste Idee des Kapitels ist"}
-Die ehrliche Güte eines Modells ist **immer** die auf Daten, die es beim Training **nicht gesehen** hat. Wer ein Modell auf denselben Daten lobt, auf denen er es trainiert hat, betrügt sich selbst. Diese Trennung von Trainieren und Bewerten ist der Kern von ML — und ein Prinzip, das auch in die klassische Forschung gehört.
+Die ehrliche Güte eines Modells ist **immer** die auf Daten, die es beim Training **nicht gesehen** hat. Wer ein Modell auf denselben Daten lobt, auf denen er es trainiert hat, betrügt sich selbst. Diese Trennung von Trainieren und Bewerten ist der Kern von ML und ein Prinzip, das auch in die klassische Forschung gehört.
 :::
 
 ## Ein paar ML-Verfahren in JASP
@@ -51,11 +51,11 @@ JASP bietet für **Regression** (metrisches Ziel) und **Classification** (katego
 | **Neural Network** | Schichten von „Neuronen", lernen flexible nicht-lineare Muster |
 | **Clustering** (k-means u. a.) | findet Gruppen **ohne** Zielvariable (unüberwacht) |
 
-### Neuronale Netze — in zwei Absätzen
+### Neuronale Netze in zwei Absätzen
 
 Ein **neuronales Netz** ist eine Kette von Rechenschichten. Jede „Neuron"-Einheit bildet eine gewichtete Summe ihrer Eingänge, schickt sie durch eine nicht-lineare **Aktivierungsfunktion** und gibt sie weiter. Durch das Stapeln mehrerer Schichten kann das Netz **beliebig komplexe, nicht-lineare** Zusammenhänge abbilden. Beim Training werden die Gewichte schrittweise so angepasst, dass der Vorhersagefehler sinkt (Backpropagation).
 
-Genau diese Flexibilität ist Stärke **und** Gefahr: Mit genug Neuronen lernt ein Netz **alles** — auch das Rauschen. Bei kleinen Datensätzen (wie unserem, $N \approx 90$) overfittet ein Netz extrem leicht. Deshalb beurteilst Du es **ausschließlich** auf den Testdaten und hältst es klein (wenige Neuronen, eine Schicht).
+Genau diese Flexibilität ist Stärke **und** Gefahr: Mit genug Neuronen lernt ein Netz **alles**, auch das Rauschen. Bei kleinen Datensätzen (wie unserem, $N \approx 90$) overfittet ein Netz extrem leicht. Deshalb beurteilst Du es **ausschließlich** auf den Testdaten und hältst es klein (wenige Neuronen, eine Schicht).
 
 ## In JASP rechnen
 
@@ -86,14 +86,14 @@ Vergleich beider Modelle: Welches hat auf den **Testdaten** die höhere AUC?
 Sei nicht enttäuscht (@sec-tag3-datenhinweis): Unsere Daten haben **wenig echtes Signal** (schwache Inter-Skalen-Zusammenhänge) und sind **klein**. Die Richtung:
 
 - Die Trennschärfe (Test-AUC) wird **nur knapp über Zufallsniveau** liegen.
-- Random Forest und neuronales Netz schlagen die **logistische Regression aus @sec-tag3-logistisch kaum** — bei wenig Signal und kleiner Stichprobe overfitten sie sogar leichter.
+- Random Forest und neuronales Netz schlagen die **logistische Regression aus @sec-tag3-logistisch kaum**. Bei wenig Signal und kleiner Stichprobe overfitten sie sogar leichter.
 - **Demografische Features** (Alter, Bildung) tragen voraussichtlich nichts bei.
 
 ::: {.callout-important title="Die Lektion über ML"}
-Machine Learning **erzeugt kein Signal, das nicht in den Daten ist.** Komplexere Modelle sind nicht automatisch besser — bei kleinen Stichproben mit schwachem Effekt ist eine schlichte, gut verstandene Regression oft die *bessere* und ehrlichere Wahl. „Wir haben ein neuronales Netz benutzt" ist kein Qualitätssiegel. Das Werkzeug muss zum Problem passen.
+Machine Learning **erzeugt kein Signal, das nicht in den Daten ist.** Komplexere Modelle sind nicht automatisch besser. Bei kleinen Stichproben mit schwachem Effekt ist eine schlichte, gut verstandene Regression oft die *bessere* und ehrlichere Wahl. „Wir haben ein neuronales Netz benutzt" ist kein Qualitätssiegel. Das Werkzeug muss zum Problem passen.
 :::
 
-ML entfaltet seine Stärke bei **großen** Datensätzen (Tausende Fälle) mit **vielen** Prädiktoren und **nicht-linearen** Mustern — dann schlägt es klassische Verfahren teils deutlich. Genau das wirst Du in datenintensiven Projekten erleben.
+ML entfaltet seine Stärke bei **großen** Datensätzen (Tausende Fälle) mit **vielen** Prädiktoren und **nicht-linearen** Mustern. Dann schlägt es klassische Verfahren teils deutlich. Genau das wirst Du in datenintensiven Projekten erleben.
 
 ## Stärken und Schwächen
 
@@ -106,7 +106,7 @@ ML entfaltet seine Stärke bei **großen** Datensätzen (Tausende Fälle) mit **
 **Schwächen:**
 
 - **Overfitting**-Gefahr, besonders bei kleinem $N$
-- viele Modelle sind **Blackboxes** — schlechte Interpretierbarkeit
+- viele Modelle sind **Blackboxes** und schlecht interpretierbar
 - keine klassischen p-Werte/Koeffizienten → für hypothesentestende Fragen ungeeignet
 - braucht für seine Stärken meist **viel** mehr Daten, als wir haben
 
@@ -116,12 +116,12 @@ ML entfaltet seine Stärke bei **großen** Datensätzen (Tausende Fälle) mit **
 
 1. Rechne eine **Random-Forest-Classification** für `N_hoch` mit den vier Skalen als Features, **mit Holdout-Testdaten (30 %) und Set seed**. Lies die **Test-AUC** und die **Feature importance** ab.
 2. Rechne dasselbe als **kleines neuronales Netz** (1 Hidden Layer, 2–4 Knoten).
-3. Notiere die zentralen Kennwerte zum Vergleich: die **Test-AUC** von Random Forest, neuronalem Netz und (zum Vergleich) der logistischen Regression aus @sec-tag3-logistisch, das **wichtigste Feature** — und Deine Schlussfolgerung.
+3. Notiere die zentralen Kennwerte zum Vergleich: die **Test-AUC** von Random Forest, neuronalem Netz und (zum Vergleich) der logistischen Regression aus @sec-tag3-logistisch, das **wichtigste Feature** und Deine Schlussfolgerung.
 
 **Bonus (für die Schnellen):**
 
 - Füg `alter` und `bildungsgrad` als zusätzliche Features hinzu. Wird die Test-AUC **besser**? Erkläre das Ergebnis.
-- Rechne ein **k-means-Clustering** (**Machine Learning → Unsupervised Learning → Clustering → Neighborhood-Based**) über die fünf Skalen — wie viele Cluster schlägt JASP vor, und sind sie inhaltlich plausibel?
+- Rechne ein **k-means-Clustering** (**Machine Learning → Unsupervised Learning → Clustering → Neighborhood-Based**) über die fünf Skalen. Wie viele Cluster schlägt JASP vor, und sind sie inhaltlich plausibel?
 
 ::: {.callout-tip title="Freiwillig"}
 Freiwillig: Dieses Kapitel ist ein optionaler Ausblick und hat keine Abgabe.

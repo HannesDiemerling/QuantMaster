@@ -1,4 +1,4 @@
-# Sitzung 01 — Abschluss & Abgabe {#sec-s01-abschluss}
+# Sitzung 01: Abschluss & Abgabe {#sec-s01-abschluss}
 
 ## Was Du heute geschafft hast
 
@@ -10,18 +10,18 @@
 
 Schick **eine** Mail bis spätestens zum Tag vor Sitzung 02 an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
 
-- **Betreff:** `M15 S01 — <Kennziffer>`
+- **Betreff:** `M15 S01 <Kennziffer>`
 - **Anhang:** die unterschriebene Einverständnis-PDF
 - **Text:** Vorlage kopieren und ausfüllen. Dezimalzahlen mit 2 Nachkommastellen (wo nicht anders angegeben), p-Werte mit 3.
 
 {{< include _abgabe.md >}}
 
-Hast Du per Mail hochgeladen (Weg B)? Dann ist das keine zweite Abgabe — die Upload-Mail und diese Abgabe-Mail sind getrennt. Schau nach dem Upload in `data/combined/merge-report.md`, ob Deine Datei als „ok" erkannt wurde.
+Hast Du per Mail hochgeladen (Weg B)? Dann ist das keine zweite Abgabe, die Upload-Mail und diese Abgabe-Mail sind getrennt. Schau nach dem Upload in `data/combined/merge-report.md`, ob Deine Datei als „ok" erkannt wurde.
 
-## Reflexion (privat, 3 Minuten)
+## Reflexion (privat)
 
 1. Eine Sache, die heute klar wurde.
-2. Eine Sache, die noch unklar ist — bring sie in Deine Kleingruppe oder ins Plenum.
+2. Eine Sache, die noch unklar ist. Bring sie in Deine Kleingruppe oder ins Plenum.
 
 ## Ausblick auf Sitzung 02
 

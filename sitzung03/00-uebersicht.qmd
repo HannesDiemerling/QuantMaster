@@ -1,4 +1,4 @@
-# Sitzung 03 — Übersicht {#sec-s03-uebersicht}
+# Sitzung 03: Übersicht {#sec-s03-uebersicht}
 
 ::: {.callout-note title="Lernziele"}
 Nach dieser Sitzung …
@@ -8,22 +8,24 @@ Nach dieser Sitzung …
 - berichtest Du *t*-Tests vollständig mit Cohen's *d*.
 :::
 
-**Semesterwoche 6** · Bezug zur Vorlesung: Vorlesung 2 (Effekte und Effektgrößen) — Anwendung auf eigene Daten.
+**Semesterwoche 6** · Bezug zur Vorlesung: Vorlesung 2 (Effekte und Effektgrößen), jetzt angewendet auf unsere eigenen Daten.
 
 ## Worum es geht
 
-Heute machst Du aus 21 Items fünf Konstrukte und schätzt die ersten Effekte: Zusammenhänge ($r$) und Unterschiede ($d$). Der Fokus liegt auf Effektgrößen und ihrer Unsicherheit — nicht nur auf dem p-Wert.
+Heute machst Du aus 21 Items fünf Konstrukte und schätzt die ersten Effekte: Zusammenhänge ($r$) und Unterschiede ($d$). Im Mittelpunkt stehen Effektgrößen und ihre Unsicherheit. Der p-Wert ist nur ein Teil davon.
 
-## Ablauf (ca. 2,5 Stunden, online)
+## Vorbereitung
 
-| Zeit | Modus | Inhalt |
-|---|---|---|
-| 0:00–0:10 | **Plenum** | Input: Warum aggregieren? Effektgrößen $r$ und $d$ |
-| 0:10–0:50 | Self-Study + Kleingruppe | @sec-tag2-skalen |
-| 0:50–1:00 | **Plenum** | Welche Skala ist am wenigsten reliabel — und warum? |
-| 1:00–1:35 | Self-Study + Kleingruppe | @sec-tag2-korrelation |
-| 1:35–2:20 | Self-Study + Kleingruppe | @sec-tag2-ttest |
-| 2:20–2:30 | **Plenum** | Fragen, Abgabe |
+- Deine `.jasp`-Datei aus Sitzung 02 mit dem Gesamtdatensatz und korrekt gesetzten Variablentypen
+
+## Inhalte
+
+1. Kurzer Input: Warum fassen wir Items zu Skalen zusammen? Was sagen $r$ und $d$?
+2. @sec-tag2-skalen
+3. Gemeinsame Frage: Welche Skala ist am wenigsten reliabel, und woran könnte das liegen?
+4. @sec-tag2-korrelation
+5. @sec-tag2-ttest
+6. Fragen und Abgabe (@sec-s03-abschluss)
 
 ::: {.callout-tip title="Speichern nicht vergessen"}
 Die fünf Skalenspalten brauchst Du in allen weiteren Sitzungen. Speichere Deine Arbeit als `.jasp`-Datei (**File → Save As**).

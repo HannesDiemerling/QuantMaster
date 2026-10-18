@@ -38,7 +38,7 @@ GitHub zeigt Dir den CSV-Inhalt als Tabelle.
 
 ### 2. Herunterladen
 
-- Klicke auf den Button **„Download raw file"** (oben rechts, Pfeil-nach-unten-Symbol) — alternativ Rechtsklick auf den Dateinamen → „Save link as …".
+- Klicke auf den Button **„Download raw file"** (oben rechts, Pfeil-nach-unten-Symbol). Alternativ geht auch ein Rechtsklick auf den Dateinamen → „Save link as …".
 - Speichere die Datei in einem Workshop-Ordner Deiner Wahl, **ohne den Namen zu ändern**. Sie heißt also weiterhin `datensatz-XX.csv`.
 
 ### 3. Datei prüfen
@@ -47,7 +47,7 @@ GitHub zeigt Dir den CSV-Inhalt als Tabelle.
 
 - Eine Header-Zeile mit 25 Spaltennamen (`probandennummer, geschlecht, alter, bildungsgrad, BFI_01, …, BFI_21`)
 - 9 Datenzeilen mit Probandennummern 1–9
-- Zwei der Zeilen enthalten irgendwo einen kleinen Defekt — den findest Du gleich.
+- Zwei der Zeilen enthalten irgendwo einen kleinen Defekt. Den findest Du gleich.
 
 ::: {.callout-important title="Bitte nicht in Excel öffnen und doppelklicken"}
 Excel interpretiert manchmal Spalten falsch (z. B. wandelt `01` in `1` oder vermischt Komma/Semikolon). Für die Bereinigung nutzt Du **JASP**. Wenn Du die Datei unbedingt vorher anschauen willst: ein Texteditor (Notepad, VS Code, BBEdit) ist sicherer.
@@ -64,5 +64,5 @@ Du erlebst hier die kleinste sinnvolle Variante eines echten Datentransfers in e
 ## Selbstcheck
 
 1. Welche Datensatznummer hast Du, und wie heißt Deine Datei?
-2. Was passiert, wenn mehrere Studierende denselben Datensatz bearbeiten — gibt es dadurch doppelte Zeilen im Gesamtdatensatz? (Hinweis: das regelt der Merge-Workflow, siehe @sec-tag1-upload.)
+2. Was passiert, wenn mehrere Studierende denselben Datensatz bearbeiten? Gibt es dadurch doppelte Zeilen im Gesamtdatensatz? (Hinweis: das regelt der Merge-Workflow, siehe @sec-tag1-upload.)
 3. In welchem Ordner liegen die vorgenerierten Datensätze?

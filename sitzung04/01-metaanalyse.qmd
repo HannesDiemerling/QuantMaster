@@ -11,9 +11,9 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Eine einzelne Studie ist selten das letzte Wort — das hat die Replikationskrise gezeigt (Vorlesung 1 und 3). Eine **Metaanalyse** fasst die Effekte vieler Studien zu einer Gesamtschätzung zusammen und fragt, wie stark die Studien voneinander abweichen.
+Eine einzelne Studie ist selten das letzte Wort, das hat die Replikationskrise gezeigt (Vorlesung 1 und 3). Eine **Metaanalyse** fasst die Effekte vieler Studien zu einer Gesamtschätzung zusammen und fragt, wie stark die Studien voneinander abweichen.
 
-Unser Datensatz eignet sich dafür überraschend gut: Die zehn Seed-Datensätze sind wie **zehn kleine Studien** mit je ca. 10 Personen. Jede schätzt denselben Zusammenhang — wir nehmen die Korrelation zwischen Extraversion und Offenheit.
+Unser Datensatz eignet sich dafür überraschend gut: Die zehn Seed-Datensätze sind wie **zehn kleine Studien** mit je ca. 10 Personen. Jede schätzt denselben Zusammenhang. Wir nehmen die Korrelation zwischen Extraversion und Offenheit.
 
 ## Die Grundidee: gewichtetes Mitteln
 
@@ -34,11 +34,11 @@ Korrelationen werden vorher **Fisher-z-transformiert** ($z = \operatorname{artan
 - **$\tau^2$ / $\tau$:** geschätzte Varianz bzw. SD der *wahren* Effekte.
 - **$I^2$:** Anteil der beobachteten Streuung, der auf echte Unterschiede (statt Zufall) zurückgeht. Faustregel: 25 % gering, 50 % moderat, 75 % hoch.
 
-Bei wenigen, sehr kleinen Studien sind diese Kennwerte selbst sehr unsicher — genau unsere Situation.
+Bei wenigen, sehr kleinen Studien sind diese Kennwerte selbst sehr unsicher, und genau das ist unsere Situation.
 
 ## Publikationsbias
 
-Signifikante Ergebnisse werden eher veröffentlicht. Dann fehlen kleine Studien mit kleinen Effekten, und die Metaanalyse überschätzt den Effekt. Prüfwerkzeuge: **Funnel Plot** (Asymmetrie?), **Egger-Test**, **Trim-and-Fill**. In unserer Übung gibt es keinen Publikationsbias — alle „Studien" sind enthalten.
+Signifikante Ergebnisse werden eher veröffentlicht. Dann fehlen kleine Studien mit kleinen Effekten, und die Metaanalyse überschätzt den Effekt. Prüfwerkzeuge: **Funnel Plot** (Asymmetrie?), **Egger-Test**, **Trim-and-Fill**. In unserer Übung gibt es keinen Publikationsbias, denn alle „Studien" sind enthalten.
 
 ## In JASP rechnen
 
@@ -70,7 +70,7 @@ Lies ab: den gepoolten Effekt mit 95 %-KI und $I^2$. Im Forest Plot siehst Du je
 
 1. $r$ für Deinen eigenen Seed-Datensatz in JASP berechnen (Schritt 1).
 2. Random-Effects-Metaanalyse über alle Studien rechnen (Schritt 2), Forest Plot ansehen.
-3. In einem Satz: Ist der gepoolte Zusammenhang von 0 verschieden — und warum ist er präziser als jede Einzelstudie?
+3. In einem Satz: Ist der gepoolte Zusammenhang von 0 verschieden, und warum ist er präziser als jede Einzelstudie?
 
 **Bonus:**
 
@@ -85,4 +85,4 @@ Notiere $r$ Deines Datensatzes, den gepoolten Effekt (Fisher-z), sein 95 %-KI un
 
 1. Warum bekommen größere Studien in einer Metaanalyse mehr Gewicht?
 2. Was ist der inhaltliche Unterschied zwischen Fixed- und Random-Effects-Modell?
-3. Was sagt ein $I^2$ von 70 % — und warum ist $I^2$ bei zehn Mini-Studien mit Vorsicht zu lesen?
+3. Was sagt ein $I^2$ von 70 %, und warum ist $I^2$ bei zehn Mini-Studien mit Vorsicht zu lesen?

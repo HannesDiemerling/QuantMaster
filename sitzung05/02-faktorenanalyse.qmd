@@ -23,7 +23,7 @@ Der BFI-K behauptet: Hinter 21 Items stecken **fünf** Persönlichkeitsfaktoren.
 | **Eigenwert** | erklärte Varianz eines Faktors (in „Item-Einheiten") |
 | **Rotation** | macht die Lösung interpretierbarer; *orthogonal* (Faktoren unkorreliert, z. B. varimax) oder *oblique* (Faktoren dürfen korrelieren, z. B. promax) |
 
-**EFA vs. PCA:** Die PCA fasst die *gesamte* Varianz der Items in Komponenten zusammen (Datenreduktion). Die EFA modelliert nur die *gemeinsame* Varianz und trennt sie vom Messfehler — sie ist das Modell der klassischen Testtheorie und passt besser zur Frage nach latenten Konstrukten.
+**EFA vs. PCA:** Die PCA fasst die *gesamte* Varianz der Items in Komponenten zusammen (Datenreduktion). Die EFA modelliert nur die *gemeinsame* Varianz und trennt sie vom Messfehler. Sie ist das Modell der klassischen Testtheorie und passt besser zur Frage nach latenten Konstrukten.
 
 ## Wie viele Faktoren?
 
@@ -39,14 +39,14 @@ Am Ende entscheidet auch die **Theorie**: Eine Lösung muss inhaltlich interpret
 
 - **KMO** (Kaiser-Meyer-Olkin): Eignen sich die Daten? Ab ca. .60 akzeptabel, ab .80 gut.
 - **Bartlett-Test:** Sind die Items überhaupt korreliert? Sollte signifikant sein.
-- Stichprobe: Faustregeln reichen von 5–10 Personen pro Item bis $N \geq 200$. Mit ca. 100 Personen und 21 Items sind wir am unteren Rand — rechne mit unscharfen Ergebnissen.
+- Stichprobe: Faustregeln reichen von 5–10 Personen pro Item bis $N \geq 200$. Mit ca. 100 Personen und 21 Items sind wir am unteren Rand, rechne also mit unscharfen Ergebnissen.
 
 ## In JASP rechnen
 
 1. **Factor → Exploratory Factor Analysis** (Modul ist standardmäßig sichtbar).
 2. Alle 21 Items `BFI_01` … `BFI_21` ins Feld **Variables**.
 3. **Number of Factors:** *Parallel analysis* (voreingestellt, *Based on PC*).
-4. **Rotation:** *Oblique* mit *promax* (voreingestellt) — Persönlichkeitsfaktoren dürfen korrelieren.
+4. **Rotation:** *Oblique* mit *promax* (voreingestellt), denn Persönlichkeitsfaktoren dürfen korrelieren.
 5. *Output Options:* unter *Assumption checks* **KMO test** und **Bartlett's test**, unter *Plots* **Scree plot**; *Missing values* auf **Exclude cases listwise**.
 6. Lies ab: KMO (Overall MSA), wie viele Faktoren JASP vorschlägt, die Ladungsmatrix (JASP zeigt nur Ladungen über **Display loadings above** = 0.4).
 7. Danach: *Number of Factors* auf **Manual** mit **5** Faktoren stellen. Bilden die Items die erwarteten Skalen?
@@ -61,7 +61,7 @@ Am Ende entscheidet auch die **Theorie**: Eine Lösung muss inhaltlich interpret
 **Bonus:**
 
 - Rechne dieselbe Analyse als **Factor → Principal Component Analysis**. Wo unterscheiden sich die Ladungen?
-- Stell die Rotation auf *Orthogonal / varimax*. Was ändert sich — und warum ist das für Big-Five-Faktoren fragwürdig?
+- Stell die Rotation auf *Orthogonal / varimax*. Was ändert sich, und warum ist das für Big-Five-Faktoren fragwürdig?
 
 ::: {.callout-tip title="Für die Abgabe"}
 Notiere den KMO-Wert, die von JASP vorgeschlagene Faktorenzahl und ob die E-Items gemeinsam laden. Siehe @sec-s05-abschluss.

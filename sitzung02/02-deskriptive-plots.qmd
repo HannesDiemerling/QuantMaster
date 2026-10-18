@@ -11,23 +11,21 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Deskriptive Statistik ist das Werkzeug, mit dem Du Deine Daten **erstmal verstehen** lernst, bevor Du irgendwas testest. Wenn Du ab Sitzung 04 Regressionen rechnest, ohne vorher gesehen zu haben, wie Deine Variablen verteilt sind, wirst Du fast garantiert Modellannahmen verletzen — ohne es zu merken.
+Deskriptive Statistik ist das Werkzeug, mit dem Du Deine Daten **erstmal verstehen** lernst, bevor Du irgendwas testest. Wenn Du ab Sitzung 04 Regressionen rechnest, ohne vorher gesehen zu haben, wie Deine Variablen verteilt sind, wirst Du fast garantiert Modellannahmen verletzen, ohne es zu merken.
 
-Plane für diesen Block mindestens **90 Minuten** ein.
+## Skalenniveau: Welche Kennzahl ist überhaupt erlaubt?
 
-## Skalenniveau — welche Kennzahl ist überhaupt erlaubt?
-
-Bevor Du irgendwelche Kennzahlen berechnest, eine ältere, aber sehr nützliche Unterscheidung. Variablen lassen sich in vier **Skalenniveaus** einteilen — sie bestimmen, welche Rechenoperationen sinnvoll sind:
+Bevor Du irgendwelche Kennzahlen berechnest, eine ältere, aber sehr nützliche Unterscheidung. Variablen lassen sich in vier **Skalenniveaus** einteilen. Sie bestimmen, welche Rechenoperationen sinnvoll sind:
 
 | Niveau | Eigenschaft | Beispiel aus unserem Datensatz | Was darfst Du rechnen? |
 |---|---|---|---|
 | **Nominal** | nur Unterscheidung, keine Ordnung | `geschlecht`, `quelle_datensatz` | Häufigkeiten, Modus |
 | **Ordinal** | Reihenfolge, aber keine gleichmäßigen Abstände | `bildungsgrad`, einzelne BFI-Items | + Median, Quantile |
-| **Intervall** | gleichmäßige Abstände, kein absoluter Nullpunkt | Temperatur in °C — bei uns: Skalen-Mittelwerte mit etwas Wohlwollen | + Mittelwert, SD |
+| **Intervall** | gleichmäßige Abstände, kein absoluter Nullpunkt | Temperatur in °C; bei uns: Skalen-Mittelwerte mit etwas Wohlwollen | + Mittelwert, SD |
 | **Verhältnis** (ratio) | wie Intervall, plus absoluter Nullpunkt | `alter` in Jahren | + Verhältnisse, Quotienten |
 
 ::: {.callout-tip title="Streit-Klassiker"}
-Likert-Items wie unsere BFI-Items sind streng genommen **ordinal** — die Abstände zwischen *„weder noch"* und *„eher zutreffend"* sind nicht objektiv gleich groß zu *„eher zutreffend"* / *„sehr zutreffend"*. In der Praxis behandelt man sie in psychologischer Forschung trotzdem fast immer wie Intervalldaten, weil das die Auswertungsmöglichkeiten dramatisch erweitert (Mittelwert, Korrelation, Regression) — und weil die Verzerrung in der Regel klein ist. Es gibt aber Spezialfälle, in denen Du auf strikt ordinale Verfahren (Spearman, Kruskal-Wallis) zurückgreifen würdest.
+Likert-Items wie unsere BFI-Items sind streng genommen **ordinal**. Die Abstände zwischen *„weder noch"* und *„eher zutreffend"* sind nicht objektiv gleich groß zu *„eher zutreffend"* / *„sehr zutreffend"*. In der Praxis behandelt man sie in psychologischer Forschung trotzdem fast immer wie Intervalldaten, weil das die Auswertungsmöglichkeiten dramatisch erweitert (Mittelwert, Korrelation, Regression) und weil die Verzerrung in der Regel klein ist. Es gibt aber Spezialfälle, in denen Du auf strikt ordinale Verfahren (Spearman, Kruskal-Wallis) zurückgreifen würdest.
 :::
 
 ## Die zentralen Kennzahlen
@@ -66,11 +64,11 @@ Ein $z = 1$ bedeutet: dieser Wert liegt eine Standardabweichung *über* dem Mitt
 
 Diese **Standardisierung** macht Werte verschiedener Variablen vergleichbar. Wenn jemand bei der Skala Extraversion ein $z = +1.5$ hat und gleichzeitig bei Offenheit ein $z = +0.2$, weißt Du: für diese Person ist Extraversion deutlich ausgeprägter als Offenheit, *relativ zum Durchschnitt der Gruppe*.
 
-### Die Normalverteilung — das ständige Hintergrundbild
+### Die Normalverteilung als ständiges Hintergrundbild
 
 Viele statistische Verfahren (t-Test, ANOVA, Regression) gehen davon aus, dass Werte ungefähr **normalverteilt** sind. Die Normalverteilung ist die symmetrische Glockenform, die Du aus dem Schulunterricht kennst. Sie hat zwei Parameter: Mittelwert $\mu$ und Standardabweichung $\sigma$.
 
-Wenn ein Q-Q-Plot (siehe unten) zeigt, dass Deine Daten in etwa entlang der Diagonalen liegen, sind sie näherungsweise normalverteilt. Liegen sie deutlich schief oder gekrümmt, eher nicht — das ist für die Wahl der nachfolgenden Tests wichtig.
+Wenn ein Q-Q-Plot (siehe unten) zeigt, dass Deine Daten in etwa entlang der Diagonalen liegen, sind sie näherungsweise normalverteilt. Liegen sie deutlich schief oder gekrümmt, eher nicht. Das ist für die Wahl der nachfolgenden Tests wichtig.
 
 ## Welcher Plot zu welchem Skalenniveau?
 
@@ -105,7 +103,7 @@ Alternative: das gesamte JASP-Output kannst Du als **PDF exportieren** (**File �
 
 ## Aufgabe
 
-**Pflichtteil (mach jeder) — genau 8 Plots:**
+**Pflichtteil für alle, genau 8 Plots:**
 
 | # | Plot |
 |--:|---|
@@ -121,12 +119,12 @@ Alternative: das gesamte JASP-Output kannst Du als **PDF exportieren** (**File �
 **Bonus (für die Schnellen):**
 
 - Plot 9: Density-Overlay mehrerer BFI-Items aus derselben Skala (z. B. `BFI_01`, `BFI_06`, `BFI_11`, `BFI_16` für Extraversion)
-- Plot 10: Bar Charts der 4 E-Items — zeigt visuell, ob Antworten konsistent zwischen den E-Items sind
-- Plot 11: Histogramm von `bildungsgrad` (auch wenn ordinal — als Anschauung)
+- Plot 10: Bar Charts der 4 E-Items, um zu sehen, ob die Antworten über die E-Items hinweg konsistent sind
+- Plot 11: Histogramm von `bildungsgrad` (auch wenn ordinal, nur zur Anschauung)
 - Notiere zu jedem Bonus-Plot in einem Satz: was Du siehst.
 
 ::: {.callout-tip title="Für die Abgabe"}
-Lies aus Tabellen und Plots ab: Anzahl `geschlecht = 1` (Frequency table), Mittelwert, SD, Median, IQR und Schiefe von `alter`, die Zahl der Ausreißer-Punkte im Boxplot (Plot 4), Mittelwert von `BFI_06`, die häufigste Stufe von `bildungsgrad` (Plot 2) und Dein Urteil zum Q-Q-Plot von `alter` (Plot 6) — Plots selbst schickst Du nicht. Siehe @sec-s02-abschluss.
+Lies aus Tabellen und Plots ab: Anzahl `geschlecht = 1` (Frequency table), Mittelwert, SD, Median, IQR und Schiefe von `alter`, die Zahl der Ausreißer-Punkte im Boxplot (Plot 4), Mittelwert von `BFI_06`, die häufigste Stufe von `bildungsgrad` (Plot 2) und Dein Urteil zum Q-Q-Plot von `alter` (Plot 6). Die Plots selbst schickst Du nicht mit. Siehe @sec-s02-abschluss.
 :::
 
 ## Stärken und Schwächen deskriptiver Statistik
@@ -139,15 +137,15 @@ Lies aus Tabellen und Plots ab: Anzahl `geschlecht = 1` (Frequency table), Mitte
 
 **Schwächen:**
 
-- **keine** Inferenz — Du kannst aus deskriptiven Werten nicht auf eine Population schließen
+- **keine** Inferenz: Du kannst aus deskriptiven Werten nicht auf eine Population schließen
 - **keine** Aussage über Unterschiede oder Zusammenhänge
 - Wahl der Kennzahl beeinflusst, was „zu sehen" ist (M vs. Median bei schiefen Verteilungen sieht sehr unterschiedlich aus)
 
-Deshalb gilt: **Deskriptive ist die Voraussetzung jeder Analyse — aber niemals das Ergebnis.**
+Deshalb gilt: **Deskriptive ist die Voraussetzung jeder Analyse, aber niemals das Ergebnis.**
 
 ## Selbstcheck
 
 1. Wann ist der Median dem Mittelwert vorzuziehen?
 2. Was siehst Du in einem Boxplot, das in einem Histogramm nicht direkt sichtbar ist (und umgekehrt)?
-3. Welche Plot-Art würdest Du für `bildungsgrad` wählen — und warum *nicht* ein Histogramm?
+3. Welche Plot-Art würdest Du für `bildungsgrad` wählen, und warum *nicht* ein Histogramm?
 4. Warum reicht „SD = 1.2" als Streumaß-Angabe nicht, wenn die Verteilung extrem schief ist?

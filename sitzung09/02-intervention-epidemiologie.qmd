@@ -16,9 +16,9 @@ Für die Psychotherapie sind zwei Fragen zentral: **Wirkt eine Behandlung?** (In
 ## Interventionsforschung
 
 - **RCT (randomisierte kontrollierte Studie):** Goldstandard für Wirksamkeitsnachweise; Randomisierung sichert die interne Validität (@sec-power).
-- **Kontrollbedingungen:** Wartelisten-Kontrollgruppe, Treatment as usual (TAU), aktive Kontrolle/Placebo — je „stärker" die Kontrolle, desto kleiner der erwartete Effekt.
+- **Kontrollbedingungen:** Wartelisten-Kontrollgruppe, Treatment as usual (TAU), aktive Kontrolle/Placebo. Je „stärker" die Kontrolle, desto kleiner der erwartete Effekt.
 - **Intention-to-treat (ITT):** Alle randomisierten Personen werden in ihrer zugeteilten Gruppe ausgewertet, auch bei Abbruch. Konservativer und realistischer als **per protocol**. Fehlende Werte müssen dann behandelt werden (@sec-tag2-stichprobe).
-- **Efficacy vs. Effectiveness:** Wirkt es unter idealen Studienbedingungen — und wirkt es auch in der Routineversorgung?
+- **Efficacy vs. Effectiveness:** Wirkt es unter idealen Studienbedingungen, und wirkt es auch in der Routineversorgung?
 - **Evaluationsforschung:** bewertet Programme oder Versorgungsangebote, *formativ* (während der Entwicklung) oder *summativ* (abschließend).
 
 ## Kennwerte für binäre Ergebnisse
@@ -42,7 +42,7 @@ Die NNT ist besonders anschaulich: Sieben Personen müssen behandelt werden, dam
   - **Querschnitt** (Prävalenz; keine zeitliche Reihenfolge),
   - **Kohortenstudie** (Exponierte vs. Nicht-Exponierte über die Zeit; liefert RR),
   - **Fall-Kontroll-Studie** (Erkrankte vs. Gesunde, rückblickend nach Exposition gefragt; liefert nur das **OR**).
-- **Risikofaktor ≠ Ursache:** Auch hier gilt Korrelation ≠ Kausalität (@sec-tag2-korrelation). Konfundierung (z. B. sozioökonomischer Status) muss kontrolliert werden — z. B. per logistischer Regression (@sec-tag3-logistisch).
+- **Risikofaktor ≠ Ursache:** Auch hier gilt Korrelation ≠ Kausalität (@sec-tag2-korrelation). Konfundierung (z. B. sozioökonomischer Status) muss kontrolliert werden, z. B. per logistischer Regression (@sec-tag3-logistisch).
 
 ## In JASP rechnen: Kreuztabelle
 
@@ -51,7 +51,7 @@ Die NNT ist besonders anschaulich: Sieben Personen müssen behandelt werden, dam
 1. **Frequencies → Classical → Contingency Tables** (Modul standardmäßig sichtbar).
 2. **Rows:** `geschlecht` (Stufe 3 per Filter ausschließen) · **Columns:** `N_hoch`.
 3. *Statistics:* **χ²** (voreingestellt) und **Odds ratio (2x2 only)**. JASP zeigt zunächst das **Log Odds Ratio**; entferne das Häkchen bei *Log Odds Ratio* oder rechne $OR = e^{\log OR}$.
-4. *Cells:* **Row** percentages — so siehst Du den Anteil `N_hoch = 1` je Geschlecht.
+4. *Cells:* **Row** percentages. So siehst Du den Anteil `N_hoch = 1` je Geschlecht.
 
 ## Aufgabe
 

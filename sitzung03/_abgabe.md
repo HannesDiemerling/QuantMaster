@@ -15,5 +15,5 @@ S03-12 t2 (Welch-Zeile): t:
 S03-13 t2 (Welch-Zeile): p: 
 S03-14 t2: Cohen's d: 
 S03-15 t3 (Welch-Zeile): p: 
-S03-16 Ein Satz: Welche Schlussfolgerung ziehst Du aus t2 — und welchen Vorbehalt hast Du?: 
+S03-16 Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und welchen Vorbehalt hast Du?: 
 ```

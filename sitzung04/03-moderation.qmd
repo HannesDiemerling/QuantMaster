@@ -24,7 +24,7 @@ $$
 
 Der entscheidende Koeffizient ist $b_3$: Ist er von Null verschieden, **hängt die Wirkung von $X$ vom Wert von $W$ ab**. Das ist die Moderation.
 
-## Moderator vs. Mediator — nicht verwechseln
+## Moderator und Mediator nicht verwechseln
 
 Das ist die häufigste Verwechslung im ganzen Workshop, deshalb gleich hier sauber:
 
@@ -37,7 +37,7 @@ Das ist die häufigste Verwechslung im ganzen Workshop, deshalb gleich hier saub
 
 ## Warum zentrieren?
 
-Wenn Du $X$ und $W$ multiplizierst, sind die Einzeleffekte ($b_1$, $b_2$) im Interaktionsmodell nur noch interpretierbar **am Punkt, an dem die jeweils andere Variable = 0 ist**. Bei einer Skala von 1–5 ist „0" aber außerhalb des sinnvollen Bereichs — der Wert wäre Unsinn.
+Wenn Du $X$ und $W$ multiplizierst, sind die Einzeleffekte ($b_1$, $b_2$) im Interaktionsmodell nur noch interpretierbar **am Punkt, an dem die jeweils andere Variable = 0 ist**. Bei einer Skala von 1–5 ist „0" aber außerhalb des sinnvollen Bereichs, der Wert wäre also Unsinn.
 
 Die Lösung: **Zentrieren**. Du ziehst von jedem Prädiktor seinen Mittelwert ab, sodass der neue Mittelwert 0 ist. Dann bedeutet „$X = 0$" gerade „$X$ = Durchschnitt", und die Haupteffekte werden wieder sinnvoll interpretierbar. Als Nebeneffekt sinkt die (rechnerische) Multikollinearität zwischen den Termen.
 
@@ -60,14 +60,14 @@ $b_3$ (der Interaktionskoeffizient) und seine Signifikanz bleiben durch Zentrier
 1. **Regression → Linear Regression**.
 2. **Dependent Variable:** $Y$ (z. B. `N_mean`).
 3. **Covariates:** die **zentrierten** Prädiktoren (z. B. `E_c`, `G_c`).
-4. Im Abschnitt **Model**: beide Prädiktoren links gemeinsam markieren (Strg-/Cmd-Klick) und nach rechts in die **Model terms** ziehen — JASP bietet dabei an, sie als **Interaktion** hinzuzufügen. Dein Modell enthält dann: `E_c`, `G_c` **und** `E_c * G_c`.
+4. Im Abschnitt **Model**: beide Prädiktoren links gemeinsam markieren (Strg-/Cmd-Klick) und nach rechts in die **Model terms** ziehen. JASP bietet dabei an, sie als **Interaktion** hinzuzufügen. Dein Modell enthält dann: `E_c`, `G_c` **und** `E_c * G_c`.
 5. Optionen: Estimates mit Confidence intervals, Model fit.
 
 Der Output zeigt drei Zeilen: die zwei Haupteffekte und die Interaktion `E_c * G_c`. **Auf die Interaktionszeile schaust Du zuerst.**
 
 ## Eine signifikante Interaktion interpretieren
 
-Angenommen $b_3 > 0$ und signifikant. Dann gilt: Je höher $W$, desto **steiler** der Effekt von $X$ auf $Y$. Anschaulich macht man das mit **Simple Slopes** — man rechnet die Steigung von $X \to Y$ getrennt für niedrige, mittlere und hohe Werte von $W$ (üblich: $-1\,SD$, Mittelwert, $+1\,SD$).
+Angenommen $b_3 > 0$ und signifikant. Dann gilt: Je höher $W$, desto **steiler** der Effekt von $X$ auf $Y$. Anschaulich macht man das mit **Simple Slopes**: Man rechnet die Steigung von $X \to Y$ getrennt für niedrige, mittlere und hohe Werte von $W$ (üblich: $-1\,SD$, Mittelwert, $+1\,SD$).
 
 Ein **Interaktionsplot** zeigt das als mehrere Geraden: Laufen sie parallel → keine Interaktion. Spreizen oder kreuzen sie sich → Interaktion. Dieser eine Plot ist das, was Du am Ende abgibst.
 
@@ -75,7 +75,7 @@ Ein **Interaktionsplot** zeigt das als mehrere Geraden: Laufen sie parallel → 
 
 Achtung, ehrlich bleiben (@sec-tag3-datenhinweis): Zwischen den Skalen stecken nur schwache *lineare* Zusammenhänge, keine moderierenden. Die Richtung ist daher klar: **Erwarte hier keine starke Interaktion**, und ein nicht signifikanter Interaktionsterm ist ein völlig legitimes Ergebnis.
 
-Das ist didaktisch Absicht: **Interaktionen sind notorisch schwer nachzuweisen.** Sie brauchen viel mehr Power als Haupteffekte — als Faustregel ein Vielfaches der Stichprobe, die Du für einen gleich großen Haupteffekt bräuchtest. Mit einer Stichprobe in der Größenordnung unseres Datensatzes bist Du für Interaktionen klar unterversorgt. Du lernst hier also vor allem **das Verfahren und seine Interpretation** — und die wichtige Lektion, dass ein nicht signifikanter Interaktionsterm der Normalfall ist und kein Drama.
+Das ist didaktisch Absicht: **Interaktionen sind notorisch schwer nachzuweisen.** Sie brauchen viel mehr Power als Haupteffekte, als Faustregel ein Vielfaches der Stichprobe, die Du für einen gleich großen Haupteffekt bräuchtest. Mit einer Stichprobe in der Größenordnung unseres Datensatzes bist Du für Interaktionen klar unterversorgt. Du lernst hier also vor allem **das Verfahren und seine Interpretation** und die wichtige Lektion, dass ein nicht signifikanter Interaktionsterm der Normalfall ist und kein Drama.
 
 ::: {.callout-tip title="Falls Deine Interaktion doch signifikant wird"}
 Bei rund einem von zwanzig Tests passiert das rein zufällig (Fehler erster Art). Bevor Du eine Geschichte darum baust: erst replizieren, dann glauben. Genau diese Skepsis trainiert der Workshop.
@@ -86,12 +86,12 @@ Bei rund einem von zwanzig Tests passiert das rein zufällig (Fehler erster Art)
 **Stärken:**
 
 - beantwortet die oft *eigentlich* interessante Frage: *für wen / wann* wirkt etwas?
-- direkt in die Regression integriert — kein neues Verfahren nötig
+- direkt in die Regression integriert, kein neues Verfahren nötig
 - der Interaktionsplot kommuniziert das Ergebnis sehr anschaulich
 
 **Schwächen:**
 
-- **hoher Power-Bedarf** — kleine Stichproben finden echte Interaktionen selten
+- **hoher Power-Bedarf**: Kleine Stichproben finden echte Interaktionen selten
 - ohne Zentrierung schwer interpretierbare Haupteffekte
 - viele mögliche Interaktionen → Multiple-Testing-Gefahr, wenn man „herumprobiert"
 - Interpretation anspruchsvoller als bei Haupteffekten
@@ -117,6 +117,6 @@ Notiere $b_3$ und den p-Wert der Interaktion `E_c * G_c`. Siehe @sec-s04-abschlu
 ## Selbstcheck
 
 1. Was unterscheidet einen Moderator von einem Mediator?
-2. Warum zentrierst Du Prädiktoren vor dem Bilden eines Interaktionsterms — und was bleibt dabei unverändert?
+2. Warum zentrierst Du Prädiktoren vor dem Bilden eines Interaktionsterms, und was bleibt dabei unverändert?
 3. Du siehst im Interaktionsplot drei parallele Geraden. Was heißt das?
 4. Warum brauchen Interaktionen so viel mehr Power als Haupteffekte?

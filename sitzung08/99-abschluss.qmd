@@ -1,4 +1,4 @@
-# Sitzung 08 — Abschluss & Abgabe {#sec-s08-abschluss}
+# Sitzung 08: Abschluss & Abgabe {#sec-s08-abschluss}
 
 ## Was Du heute geschafft hast
 
@@ -9,18 +9,18 @@
 
 Schick **eine** Mail bis spätestens zum Tag vor Sitzung 09 an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
 
-- **Betreff:** `M15 S08 — <Kennziffer>`
+- **Betreff:** `M15 S08 <Kennziffer>`
 - **Anhang:** keiner
 - **Text:** Vorlage kopieren und ausfüllen. Dezimalzahlen mit 2 Nachkommastellen (wo nicht anders angegeben), p-Werte mit 3.
 
 {{< include _abgabe.md >}}
 
-## Reflexion (privat, 3 Minuten)
+## Reflexion (privat)
 
 1. Eine Sache, die heute klar wurde.
-2. Eine Sache, die noch unklar ist — bring sie in Deine Kleingruppe oder ins Plenum.
+2. Eine Sache, die noch unklar ist. Bring sie in Deine Kleingruppe oder ins Plenum.
 
 ## Ausblick auf Sitzung 09
 
-Wirkt eine Therapie? Interventions- und Epidemiologieforschung — mit logistischer Regression und Kreuztabellen.
+Wirkt eine Therapie? Interventions- und Epidemiologieforschung mit logistischer Regression und Kreuztabellen.
 

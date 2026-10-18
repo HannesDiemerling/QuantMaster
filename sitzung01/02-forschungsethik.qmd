@@ -11,15 +11,15 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Gleich wirst Du selbst Daten beisteuern. Bevor das passiert, brauchst Du — wie in jeder echten Studie — eine **informierte Einwilligung**. Dieses Kapitel erklärt, warum Forschungsethik mehr ist als ein Häkchen auf einem Formular.
+Gleich wirst Du selbst Daten beisteuern. Bevor das passiert, brauchst Du, wie in jeder echten Studie, eine **informierte Einwilligung**. Dieses Kapitel erklärt, warum Forschungsethik mehr ist als ein Häkchen auf einem Formular.
 
 ## Wo das alles herkommt
 
 Die moderne Forschungsethik baut auf zwei zentralen Dokumenten auf:
 
-- **Helsinki-Deklaration** (1964, mehrfach revidiert) — ethische Standards für medizinische Forschung am Menschen. Kernidee: Das Wohl der Versuchsperson hat Vorrang vor den Interessen der Wissenschaft.
-- **Belmont Report** (1979) — formuliert drei Prinzipien, die bis heute den Maßstab bilden:
-  - *Respect for Persons* (Achtung der Person — informierte Einwilligung)
+- **Helsinki-Deklaration** (1964, mehrfach revidiert): ethische Standards für medizinische Forschung am Menschen. Kernidee: Das Wohl der Versuchsperson hat Vorrang vor den Interessen der Wissenschaft.
+- **Belmont Report** (1979): formuliert drei Prinzipien, die bis heute den Maßstab bilden:
+  - *Respect for Persons* (Achtung der Person, also informierte Einwilligung)
   - *Beneficence* (Nutzen maximieren, Schaden minimieren)
   - *Justice* (Gerechte Verteilung von Risiken und Nutzen)
 
@@ -34,7 +34,7 @@ Eine vollständige Einwilligungserklärung enthält:
 4. **Wer hat Zugriff?**
 5. **Welche Risiken bestehen?**
 6. **Wie wird Anonymität oder Pseudonymität gewährleistet?**
-7. **Recht auf Widerruf** — jederzeit, ohne Begründung, ohne Nachteile.
+7. **Recht auf Widerruf**: jederzeit, ohne Begründung, ohne Nachteile.
 8. **Kontaktangaben** für Rückfragen.
 9. **Unterschrift** der teilnehmenden Person und Datum.
 
@@ -70,7 +70,7 @@ Deine Rechte:
 ## Aufgabe
 
 1. Lies das Einverständnisformular ([materials/einverstaendnis.pdf](../materials/einverstaendnis.pdf)).
-2. Das **praktische Unterschreiben + Mailen** machst Du in @sec-tag1-fragebogen — dort lädst Du die PDF runter, unterschreibst sie am PC und schickst sie an die Lehrperson. Das hier ist nur der Theorieteil zur Forschungsethik.
+2. Das **praktische Unterschreiben + Mailen** machst Du in @sec-tag1-fragebogen. Dort lädst Du die PDF runter, unterschreibst sie am PC und schickst sie an die Lehrperson. Das hier ist nur der Theorieteil zur Forschungsethik.
 
 ::: {.callout-tip title="Faustregel"}
 Wenn Du Dich nicht sicher fühlst, frag die Lehrperson, lieber jetzt als später.

@@ -11,9 +11,9 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Im Jahr 2015 versuchte die *Open Science Collaboration*, 100 prominente psychologische Studien zu replizieren. Nur etwa 36 % zeigten in der Replikation einen signifikanten Effekt in dieselbe Richtung wie in der Originalstudie. Das war ein Schock — und der Beginn dessen, was heute als **Replikationskrise** bezeichnet wird.
+Im Jahr 2015 versuchte die *Open Science Collaboration*, 100 prominente psychologische Studien zu replizieren. Nur etwa 36 % zeigten in der Replikation einen signifikanten Effekt in dieselbe Richtung wie in der Originalstudie. Das war ein Schock und der Beginn dessen, was heute als **Replikationskrise** bezeichnet wird.
 
-Die Antwort der Disziplin: **Open Science** — also offene Daten, offene Materialien, offene Skripte, Preregistration und gelebte Transparenz. Genau so arbeitest Du in diesem Workshop.
+Die Antwort der Disziplin heißt **Open Science**: offene Daten, offene Materialien, offene Skripte, Preregistration und gelebte Transparenz. Genau so arbeitest Du in diesem Workshop.
 
 ## Drei verwandte, aber unterschiedliche Begriffe
 
@@ -21,7 +21,7 @@ Die Antwort der Disziplin: **Open Science** — also offene Daten, offene Materi
 |---|---|---|
 | **Reproduzierbarkeit** | Mit *denselben Daten* und *demselben Code* dasselbe Ergebnis erzielen. | Du läufst meine Analyse-Skripte und bekommst meine Tabellen. |
 | **Replizierbarkeit** | Mit *neuen Daten*, aber demselben Design dasselbe (oder ein ähnliches) Ergebnis erzielen. | Eine andere Forschungsgruppe sammelt neue Daten und bestätigt den Effekt. |
-| **Robustheit** | Mit denselben Daten, aber leicht anderen *Analyseentscheidungen* zum selben Ergebnis kommen. | Wechselst Du den Test oder die Ausreißerregel — bleibt der Befund? |
+| **Robustheit** | Mit denselben Daten, aber leicht anderen *Analyseentscheidungen* zum selben Ergebnis kommen. | Bleibt der Befund, wenn Du den Test oder die Ausreißerregel wechselst? |
 
 Reproduzierbarkeit ist die **minimale** Forderung: Wenn nicht einmal der Code mit denselben Daten dasselbe Ergebnis liefert, ist etwas grundlegend kaputt.
 
@@ -29,10 +29,10 @@ Reproduzierbarkeit ist die **minimale** Forderung: Wenn nicht einmal der Code mi
 
 Forschungsdaten sollten FAIR sein:
 
-- **F**indable — auffindbar (mit Identifier, dokumentiert, indexiert)
-- **A**ccessible — zugänglich (öffentlich, mit klaren Lizenzen)
-- **I**nteroperable — austauschbar (standardisierte Formate)
-- **R**eusable — nachnutzbar (gut beschrieben, lizenziert, versioniert)
+- **F**indable: auffindbar (mit Identifier, dokumentiert, indexiert)
+- **A**ccessible: zugänglich (öffentlich, mit klaren Lizenzen)
+- **I**nteroperable: austauschbar (standardisierte Formate)
+- **R**eusable: nachnutzbar (gut beschrieben, lizenziert, versioniert)
 
 Unsere CSV-Dateien mit Codebook und Versionierung sind ein einfaches, aber funktionierendes FAIR-Setup.
 
@@ -49,7 +49,7 @@ GitHub ist eine Plattform für versionierte Zusammenarbeit:
 - Jede Änderung an Dateien wird mit Datum, Autor und Begründung („Commit-Message") gespeichert.
 - Du kannst zu jedem früheren Stand zurückkehren.
 - Mehrere Personen können parallel arbeiten, ohne sich gegenseitig zu überschreiben.
-- Das Repo dieses Workshops ist **öffentlich** — jeder kann nachsehen, wie der Datensatz entstanden ist.
+- Das Repo dieses Workshops ist **öffentlich**. Jede und jeder kann nachsehen, wie der Datensatz entstanden ist.
 
 ::: {.callout-tip title="Versionierung in einem Satz"}
 Versionierung heißt: *jede Datei kennt ihre eigene Geschichte*.
@@ -68,4 +68,4 @@ Was Du heute machst, ist gelebte Open Science im Kleinen:
 
 1. Worin unterscheidet sich Reproduzierbarkeit von Replizierbarkeit?
 2. Warum ist Versionierung wichtig für Reproduzierbarkeit?
-3. Was bedeutet das „A" in FAIR — und wie setzen wir es in diesem Workshop um?
+3. Was bedeutet das „A" in FAIR, und wie setzen wir es in diesem Workshop um?

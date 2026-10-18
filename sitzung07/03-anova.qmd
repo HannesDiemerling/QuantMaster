@@ -15,11 +15,11 @@ Die ANOVA ist die Verallgemeinerung des *t*-Tests aus @sec-tag2-ttest auf mehr a
 
 ## Worum es geht
 
-Sobald Du **mehr als zwei Gruppen** vergleichst — z. B. Bildungsgrad mit sieben Stufen, oder die zehn Quell-Datensätze — reicht der t-Test nicht mehr. Stapelst Du einfach mehrere t-Tests übereinander, vervielfachst Du die Fehlerwahrscheinlichkeit (Multiple-Testing-Problem). Die **Analysis of Variance (ANOVA)** löst das mit einem einzigen Globaltest, gefolgt von gezielten Folgetests.
+Sobald Du **mehr als zwei Gruppen** vergleichst (z. B. Bildungsgrad mit sieben Stufen oder die zehn Quell-Datensätze), reicht der t-Test nicht mehr. Stapelst Du einfach mehrere t-Tests übereinander, vervielfachst Du die Fehlerwahrscheinlichkeit (Multiple-Testing-Problem). Die **Analysis of Variance (ANOVA)** löst das mit einem einzigen Globaltest, gefolgt von gezielten Folgetests.
 
 ## Multiple-Testing-Problem in einem Satz
 
-Wenn Du bei $\alpha = .05$ einen einzelnen Test rechnest, ist Deine Fehlerwahrscheinlichkeit 5 %. Bei drei unabhängigen t-Tests steigt die Wahrscheinlichkeit, *mindestens einen* fälschlich signifikanten Befund zu sehen, auf rund $1 - (1 - .05)^3 \approx .14$ — also fast jedes siebte Mal. Die ANOVA schützt davor, indem sie *zuerst* einen Globaltest macht.
+Wenn Du bei $\alpha = .05$ einen einzelnen Test rechnest, ist Deine Fehlerwahrscheinlichkeit 5 %. Bei drei unabhängigen t-Tests steigt die Wahrscheinlichkeit, *mindestens einen* fälschlich signifikanten Befund zu sehen, auf rund $1 - (1 - .05)^3 \approx .14$, also fast jedes siebte Mal. Die ANOVA schützt davor, indem sie *zuerst* einen Globaltest macht.
 
 ## Die Logik der ANOVA
 
@@ -36,7 +36,7 @@ $$
 
 Ist $F$ groß (Unterschiede zwischen den Gruppen sind groß im Verhältnis zur Streuung innerhalb der Gruppen), dann ist das Ergebnis signifikant.
 
-## Effektgröße — $\eta^2$ und $\omega^2$
+## Effektgröße: $\eta^2$ und $\omega^2$
 
 Wie beim t-Test gilt: der p-Wert reicht nicht. Du brauchst eine Effektgröße.
 
@@ -84,7 +84,7 @@ Ein signifikanter Global-F sagt: „Irgendwo unter den Gruppen ist ein Unterschi
 | **Holm** | wie Bonferroni, sequenziell | gleiche Kontrolle, mehr Power |
 | **Games-Howell** | bei Varianzungleichheit | Welch-Variante des Tukey |
 
-In JASP ist zunächst **keine** Korrektur angekreuzt — wähle **Tukey** selbst. Wenn Welch-ANOVA gerechnet wurde, nimm stattdessen **Games-Howell** (unter *Type*).
+In JASP ist zunächst **keine** Korrektur angekreuzt. Wähle **Tukey** selbst. Wenn Welch-ANOVA gerechnet wurde, nimm stattdessen **Games-Howell** (unter *Type*).
 
 ## Beispielhypothesen für unsere Stichprobe
 
@@ -95,7 +95,7 @@ In JASP ist zunächst **keine** Korrektur angekreuzt — wähle **Tukey** selbst
 | A3 | Die zehn vorgenerierten Quell-Datensätze unterscheiden sich nicht in Extraversion. | `E_mean` ~ `quelle_datensatz` |
 | A4 | Die drei Geschlechter-Kategorien (1, 2, 3) unterscheiden sich nicht in Neurotizismus. | `N_mean` ~ `geschlecht` |
 
-A3 ist ein wichtiger **Sanity-Check** — die Datensätze wurden mit derselben Verteilung erzeugt, sollten sich also *nicht* unterscheiden. Wenn doch: zufällige Stichprobenstreuung (ein paar Datensätze ziehen halt extremere Werte) oder beim Kombinieren (@sec-tag2-kombinieren) wurden Zeilen falsch zugeordnet. Schau hin.
+A3 ist ein wichtiger **Sanity-Check**: Die Datensätze wurden mit derselben Verteilung erzeugt, sollten sich also *nicht* unterscheiden. Wenn doch: zufällige Stichprobenstreuung (ein paar Datensätze ziehen halt extremere Werte) oder beim Kombinieren (@sec-tag2-kombinieren) wurden Zeilen falsch zugeordnet. Schau hin.
 
 ## Ein vollständiger Bericht
 
@@ -108,19 +108,19 @@ Was steht drin: $F$, $df$ Zähler und Nenner, $p$, $\eta^2$, paarweise Befunde m
 **Stärken:**
 
 - ein Globaltest, kontrolliert das Multiple-Testing-Problem
-- erweiterbar auf mehrere Faktoren (zwei-, dreifaktorielle ANOVA mit Interaktionen) — typisch für experimentelle Designs
+- erweiterbar auf mehrere Faktoren (zwei-, dreifaktorielle ANOVA mit Interaktionen), typisch für experimentelle Designs
 - Effektgröße ($\eta^2$) gibt die *Stärke* des Gruppenunterschieds
 
 **Schwächen:**
 
 - sensibel gegen unbalancierte Gruppengrößen und Varianzheterogenität
-- der Globaltest sagt *ob*, nicht *welche* Gruppen — post-hoc nötig
+- der Globaltest sagt *ob*, nicht *welche* Gruppen, dafür braucht es Post-hoc-Tests
 - nur **Mittelwertsvergleich**, keine Aussage über Verteilungsform
 - bei kleinen Stichproben pro Gruppe sehr geringe Power
 
 ## Aufgabe
 
-**Pflichtteil (mach jeder) — genau 2 ANOVAs:**
+**Pflichtteil für alle, genau 2 ANOVAs:**
 
 Rechne in JASP **A1** und **A3** aus der Tabelle oben:
 
@@ -138,9 +138,9 @@ Bei **A1** außerdem: nenne die **paarweisen Tukey-Vergleiche, die signifikant s
 
 **Bonus (für die Schnellen):**
 
-- Rechne **A2** zusätzlich (`G_mean` ~ `bildungsgrad`) — derselbe Faktor, andere abhängige Variable. Gleicher Befund?
-- Bei A1: **Kruskal-Wallis-Test** als nicht-parametrische Alternative — ändert sich der p-Wert deutlich?
-- Bei A3: erkläre in zwei Sätzen, **warum der Sanity-Check als nicht-signifikant erwartet wurde** — und was ein signifikanter Befund über unseren Kombinations-Schritt aus @sec-tag2-kombinieren sagen würde.
+- Rechne **A2** zusätzlich (`G_mean` ~ `bildungsgrad`): derselbe Faktor, andere abhängige Variable. Gleicher Befund?
+- Bei A1: **Kruskal-Wallis-Test** als nicht-parametrische Alternative. Ändert sich der p-Wert deutlich?
+- Bei A3: erkläre in zwei Sätzen, **warum der Sanity-Check als nicht-signifikant erwartet wurde** und was ein signifikanter Befund über unseren Kombinations-Schritt aus @sec-tag2-kombinieren sagen würde.
 
 ::: {.callout-tip title="Für die Abgabe"}
 Notiere: F(df1, df2), p, η² und Levene-p für A1 sowie p für A3. Siehe @sec-s07-abschluss.

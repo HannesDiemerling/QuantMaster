@@ -12,9 +12,9 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Eine **Korrelation** misst, wie stark sich zwei Variablen *gemeinsam* ändern. Sie ist eines der am häufigsten genutzten Werkzeuge in der empirischen Psychologie — und gleichzeitig eines der am häufigsten *missinterpretierten*. Dieses Kapitel hat zwei Ziele: Du kannst Korrelationen rechnen und Du wirst zu einem skeptischen Leser von Korrelationsbefunden.
+Eine **Korrelation** misst, wie stark sich zwei Variablen *gemeinsam* ändern. Sie ist eines der am häufigsten genutzten Werkzeuge in der empirischen Psychologie und gleichzeitig eines der am häufigsten *missinterpretierten*. Dieses Kapitel hat zwei Ziele: Du sollst Korrelationen rechnen können und lernen, Korrelationsbefunde skeptisch zu lesen.
 
-## Pearson r — der Klassiker
+## Pearson r: der Klassiker
 
 Pearson's $r$ misst den **linearen** Zusammenhang zweier metrischer Variablen.
 
@@ -22,7 +22,7 @@ $$
 r = \frac{\sum_i (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_i (x_i - \bar{x})^2 \cdot \sum_i (y_i - \bar{y})^2}}
 $$
 
-Das ist die standardisierte Kovarianz — Wertebereich immer $-1 \leq r \leq +1$:
+Das ist die standardisierte Kovarianz mit einem Wertebereich von immer $-1 \leq r \leq +1$:
 
 | $r$ | Bedeutung |
 |---:|---|
@@ -34,7 +34,7 @@ Das ist die standardisierte Kovarianz — Wertebereich immer $-1 \leq r \leq +1$
 | $-0.5$ | mittlerer negativer Zusammenhang |
 | $-1.0$ | perfekter negativer Zusammenhang |
 
-**Faustregel nach Cohen (1988)** zur Effektgröße — auf die kommen wir noch zurück:
+**Faustregel nach Cohen (1988)** zur Effektgröße (darauf kommen wir noch zurück):
 
 | $|r|$ | Bezeichnung |
 |---:|---|
@@ -42,9 +42,9 @@ Das ist die standardisierte Kovarianz — Wertebereich immer $-1 \leq r \leq +1$
 | .30 | mittel |
 | .50 | groß |
 
-## Spearman ρ — die robuste Alternative
+## Spearman ρ: die robuste Alternative
 
-Wenn die Beziehung **nicht** linear ist, sondern nur **monoton**, oder wenn Daten ordinal sind oder Ausreißer enthalten, ist Spearman's $\rho$ besser. Es ist im Prinzip Pearson r — aber auf den **Rängen** der Daten statt den Rohwerten.
+Wenn die Beziehung **nicht** linear ist, sondern nur **monoton**, oder wenn Daten ordinal sind oder Ausreißer enthalten, ist Spearman's $\rho$ besser. Es ist im Prinzip Pearson r, nur auf den **Rängen** der Daten statt den Rohwerten.
 
 | Wann? | Welcher Koeffizient? |
 |---|---|
@@ -55,19 +55,19 @@ Bei den BFI-Skalenmittelwerten ist Pearson meistens passend; bei einzelnen BFI-I
 
 ## Wie viele Daten brauchst Du?
 
-Mit kleinen Stichproben sind Korrelationen instabil. Eine Stichprobenkorrelation mit $r = .30$ und $N = 30$ hat ein Konfidenzintervall von etwa $[-.06, .58]$ — d. h. es ist gut möglich, dass der wahre Wert eigentlich Null ist. Schau in JASP **immer** auf das **Konfidenzintervall**, nicht nur auf den Punktschätzer.
+Mit kleinen Stichproben sind Korrelationen instabil. Eine Stichprobenkorrelation mit $r = .30$ und $N = 30$ hat ein Konfidenzintervall von etwa $[-.06, .58]$. Es ist also gut möglich, dass der wahre Wert eigentlich Null ist. Schau in JASP **immer** auf das **Konfidenzintervall**, nicht nur auf den Punktschätzer.
 
 ## In JASP rechnen
 
 1. **Regression → Classical → Correlation**
-2. Variablen ins Feld ziehen — beispielsweise alle fünf `*_mean` zusammen plus `alter`.
+2. Variablen ins Feld ziehen, zum Beispiel alle fünf `*_mean` zusammen plus `alter`.
 3. In den Options:
-   - **Pearson's r** (Standard) — bei den Skalenmittelwerten
+   - **Pearson's r** (Standard) für die Skalenmittelwerte
    - **Spearman's rho** (zusätzlich, wenn Ordinaldaten)
    - **Report significance** (ist voreingestellt)
    - **Confidence intervals** an, mit 95 %
    - **Sample size** an
-   - Abschnitt **Plots → Scatter plots** an — zeigt die paarweisen Streudiagramme
+   - Abschnitt **Plots → Scatter plots** an, das zeigt die paarweisen Streudiagramme
    - **Display pairwise** ist voreingestellt (eine Zeile pro Variablenpaar); abwählen, wenn Du die klassische Matrix sehen willst
 
 Die Ergebnistabelle zeigt dann pro Variablen-Paar $r$, $p$-Wert, $N$ und das Konfidenzintervall.
@@ -85,7 +85,7 @@ Anscombe (1973) zeigt eindrücklich, dass vier Datensätze mit **identischen** K
 
 ## Beispielhypothesen mit unseren Variablen
 
-Hier kommen sechs Hypothesen, die *inhaltlich* Sinn ergeben — formuliert so, wie Du sie in einer Hausarbeit aufstellen würdest. Du rechnest alle in JASP und schaust Dir die Ergebnisse an.
+Hier kommen sechs Hypothesen, die *inhaltlich* Sinn ergeben, formuliert so, wie Du sie in einer Hausarbeit aufstellen würdest. Du rechnest alle in JASP und schaust Dir die Ergebnisse an.
 
 | # | Hypothese | Berechnung | Erwartung (aus der Literatur) |
 |---:|---|---|---|
@@ -100,7 +100,7 @@ Rechne alle sechs in JASP. Schreib Dir zu jedem Ergebnis eine Zeile auf:
 
 > *„H1: $r = -.18$, $p = .046$, 95 %-KI [−.36, −.00]. Die Hypothese ist im Sinne der Effektrichtung bestätigt, das Konfidenzintervall ist aber so breit, dass auch eine sehr kleine wahre Korrelation plausibel bleibt."*
 
-## Korrelation ≠ Kausalität — das wichtigste Kapitel
+## Korrelation ≠ Kausalität: der wichtigste Abschnitt
 
 Wenn $X$ und $Y$ korrelieren, gibt es mindestens **fünf** mögliche Erklärungen:
 
@@ -109,7 +109,7 @@ Wenn $X$ und $Y$ korrelieren, gibt es mindestens **fünf** mögliche Erklärunge
 | **$X$ verursacht $Y$** | Mehr Schlaf → bessere Stimmung |
 | **$Y$ verursacht $X$** | Bessere Stimmung → mehr Schlaf |
 | **Drittvariable $Z$ verursacht beides** | Ferien (Z) → mehr Schlaf (X) und bessere Stimmung (Y) |
-| **Selektion** | Studie nur unter Schichtarbeitenden — alles dort hängt mit Schichtdienst zusammen |
+| **Selektion** | Studie nur unter Schichtarbeitenden; alles dort hängt mit Schichtdienst zusammen |
 | **Zufall** | bei vielen getesteten Paaren wird statistisch irgendwas signifikant |
 
 Aus einer Korrelation kannst Du **nicht** entscheiden, welcher Mechanismus es ist. Dafür brauchst Du:
@@ -120,7 +120,7 @@ Aus einer Korrelation kannst Du **nicht** entscheiden, welcher Mechanismus es is
 ::: {.callout-important title="Berühmte Beispiele"}
 - *Schokoladen-Konsum* pro Land und *Nobelpreise* pro Land sind hoch korreliert. Die naheliegende Drittvariable: BIP pro Kopf.
 - *Schuhgröße* und *Lesefähigkeit* bei Kindern korrelieren stark positiv. Die Drittvariable: Alter.
-- *Eiskonsum* und *Ertrinkungsunfälle* korrelieren saisonal — beide steigen im Sommer.
+- *Eiskonsum* und *Ertrinkungsunfälle* korrelieren saisonal, beide steigen im Sommer.
 :::
 
 ## Stärken und Schwächen der Korrelation
@@ -142,16 +142,16 @@ Aus einer Korrelation kannst Du **nicht** entscheiden, welcher Mechanismus es is
 
 **Pflichtteil (mach jeder):**
 
-1. **Korrelationsmatrix der 5 Skalenmittelwerte** (`E_mean, V_mean, G_mean, N_mean, O_mean`) in JASP rechnen — mit aktivierten Optionen *Confidence intervals (95%)*, *Report significance*, *Sample size*, *Scatter plots*.
+1. **Korrelationsmatrix der 5 Skalenmittelwerte** (`E_mean, V_mean, G_mean, N_mean, O_mean`) in JASP rechnen, mit aktivierten Optionen *Confidence intervals (95%)*, *Report significance*, *Sample size*, *Scatter plots*.
 2. **Die 6 Hypothesen H1–H6 oben** in derselben Reihenfolge durchrechnen. Pro Hypothese **eine Zeile** notieren im Format:
    *„H#: r = .XX, p = .XXX, 95 %-KI [.XX, .XX], n = XX, Schluss: …"*
 3. Wähl Dir **eine** signifikante Korrelation aus Schritt 2 aus und formuliere zu ihr **drei alternative Erklärungen** (Drittvariable, umgekehrte Wirkrichtung, Zufall) in je einem Satz.
 
 **Bonus (für die Schnellen):**
 
-- Wiederhole H1 zusätzlich **als Spearman** statt Pearson — Unterschied im r-Wert?
+- Wiederhole H1 zusätzlich **als Spearman** statt Pearson. Wie unterscheidet sich der r-Wert?
 - Rechne eine **partielle Korrelation** zwischen zwei Skalen unter Kontrolle von `alter` (Regression → Correlation, `alter` ins Feld **Partial out** ziehen).
-- Erzeuge ein **gerichtetes Streudiagramm** (**Descriptives → Descriptive Statistics → Customizable Plots → Scatter plots**) für die Hypothese aus Schritt 3 — füge per Annotation ein, wo die mögliche Drittvariable wirken könnte.
+- Erzeuge ein **gerichtetes Streudiagramm** (**Descriptives → Descriptive Statistics → Customizable Plots → Scatter plots**) für die Hypothese aus Schritt 3 und markiere per Annotation, wo die mögliche Drittvariable wirken könnte.
 
 ::: {.callout-tip title="Für die Abgabe"}
 Notiere: r und p für H1, die Zahl signifikanter Hypothesen unter H1–H4 und eine alternative Erklärung. Siehe @sec-s03-abschluss.
@@ -160,6 +160,6 @@ Notiere: r und p für H1, die Zahl signifikanter Hypothesen unter H1–H4 und ei
 ## Selbstcheck
 
 1. Welcher Korrelationskoeffizient eignet sich für eine Beziehung, die deutlich nicht-linear, aber monoton ist?
-2. Eine Korrelation von $r = .50$ mit $N = 12$ und $p = .10$ — was sagst Du dazu?
+2. Eine Korrelation von $r = .50$ mit $N = 12$ und $p = .10$: Was sagst Du dazu?
 3. Warum reicht ein signifikanter $r$-Wert *nicht*, um eine Wirkrichtung zu behaupten?
 4. Wann ist ein Streudiagramm hilfreicher als die Zahl $r$ selbst?

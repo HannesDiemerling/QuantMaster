@@ -4,7 +4,7 @@ title: "Codebook"
 
 # Codebook {.unnumbered}
 
-Dieses Codebook ist die **verbindliche Beschreibung** des Workshop-Datensatzes. Jede Spalte, jede Kodierung, jeder erlaubte Wertebereich steht hier — Single Source of Truth.
+Dieses Codebook ist die **verbindliche Beschreibung** des Workshop-Datensatzes. Jede Spalte, jede Kodierung, jeder erlaubte Wertebereich steht hier. Das ist die Single Source of Truth.
 
 Die maschinenlesbare Variante liegt unter [materials/codebook.csv](codebook.csv) und wird von `scripts/generate-datasets.R` (Vorbereitung der Übungsdatensätze) als verbindliche Spaltenbeschreibung gelesen.
 
@@ -63,7 +63,7 @@ Die maschinenlesbare Variante liegt unter [materials/codebook.csv](codebook.csv)
 | 6 | Master / Diplom / Staatsexamen |
 | 7 | Promotion |
 
-## BFI-K — Big Five Inventory, Kurzversion
+## BFI-K: Big Five Inventory, Kurzversion
 
 Quelle: Rammstedt, B. & John, O. P. (2005). Kurzversion des Big Five Inventory (BFI-K). *Diagnostica*, 51(4), 195–206.
 
@@ -119,4 +119,4 @@ $$
 - **Eindeutige Probandennummern:** innerhalb einer Datei keine Duplikate.
 - **Vollständige Demografie:** Geschlecht, Alter und Bildungsgrad müssen ausgefüllt sein.
 
-Die zehn vorgenerierten Übungsdatensätze enthalten **absichtlich pro Datei zwei Fehler** aus diesen Kategorien — das Finden ist Teil der Übung an Tag 1.
+Die zehn vorgenerierten Übungsdatensätze enthalten **absichtlich pro Datei zwei Fehler** aus diesen Kategorien. Das Finden ist Teil der Übung an Tag 1.

@@ -150,7 +150,7 @@ d_avg <- (mean(g[[1]]) - mean(g[[2]])) / sqrt((var(g[[1]]) + var(g[[2]])) / 2)
 range2("ttest", "t2: Cohen's d", d_avg, d_pool, .01, hinweis = "Welch-d bzw. gepoolt")
 t3 <- t.test(O_mean ~ bildung_gruppe, data = d)
 pval("ttest", "t3 (Welch-Zeile): p", t3$p.value)
-add("ttest", "Ein Satz: Welche Schlussfolgerung ziehst Du aus t2 — und welchen Vorbehalt hast Du?", hinweis = "Effektgröße/KI statt nur p")
+add("ttest", "Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und welchen Vorbehalt hast Du?", hinweis = "Effektgröße/KI statt nur p")
 
 # === Sitzung 4: Metaanalyse & Regression =======================================
 ms <- read.csv("data/combined/meta-studien.csv")

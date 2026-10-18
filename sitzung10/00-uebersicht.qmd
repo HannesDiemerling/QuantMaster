@@ -1,4 +1,4 @@
-# Sitzung 10 — Übersicht {#sec-s10-uebersicht}
+# Sitzung 10: Übersicht {#sec-s10-uebersicht}
 
 ::: {.callout-note title="Lernziele"}
 Nach dieser Sitzung …
@@ -14,14 +14,15 @@ Nach dieser Sitzung …
 
 Die letzte Sitzung öffnet den Blick über Zahlen hinaus und schließt den Bogen: qualitative Methoden und ihre Verbindung zur quantitativen Welt, dann die Zusammenfassung des gesamten Seminars als Nachschlagewerk für Klausur und Masterarbeit.
 
-## Ablauf (ca. 2 Stunden, online)
+## Vorbereitung
 
-| Zeit | Modus | Inhalt |
-|---|---|---|
-| 0:00–0:10 | **Plenum** | Input: Wann qualitativ, wann quantitativ? |
-| 0:10–0:45 | Self-Study + Kleingruppe | @sec-quali |
-| 0:45–1:45 | **Plenum** | Zusammenfassung (@sec-tag3-nachschlagewerk), Fragen zur Klausur |
-| 1:45–2:00 | **Plenum** | Abschluss, Feedback, Abgabe |
+- Das Modul **Reliability** (über das **„+"** oben rechts aktivieren, falls noch nicht geschehen)
+- Überleg Dir Fragen zur Klausur, die Du in der Zusammenfassung klären möchtest.
 
-Wer tiefer einsteigen möchte: Im Anhang findest Du freiwillige Kapitel zu Machine Learning (@sec-tag3-ml) und weiteren Verfahren (@sec-tag3-weitere).
+## Inhalte
+
+1. Kurzer Input: Wann qualitativ, wann quantitativ?
+2. @sec-quali
+3. Gemeinsame Zusammenfassung (@sec-tag3-nachschlagewerk) und Fragen zur Klausur
+4. Abschluss, Feedback und Abgabe (@sec-s10-abschluss)
 

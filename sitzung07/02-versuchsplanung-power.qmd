@@ -11,7 +11,7 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Viele Probleme einer Studie lassen sich hinterher nicht mehr reparieren: ein Design, das keine Kausalaussage erlaubt, oder eine Stichprobe, die viel zu klein ist. Deshalb wird **vor** der Datenerhebung geplant (Vorlesungen 8 und 9) — und in einer Preregistration festgehalten.
+Viele Probleme einer Studie lassen sich hinterher nicht mehr reparieren: ein Design, das keine Kausalaussage erlaubt, oder eine Stichprobe, die viel zu klein ist. Deshalb wird **vor** der Datenerhebung geplant (Vorlesungen 8 und 9) und in einer Preregistration festgehalten.
 
 ## Designs
 
@@ -31,7 +31,7 @@ Weitere Unterscheidung: **between-subjects** (verschiedene Personen pro Bedingun
 
 ## Stichprobenplanung: die vier Größen
 
-Bei jedem Test hängen vier Größen zusammen — kennst Du drei, folgt die vierte:
+Bei jedem Test hängen vier Größen zusammen. Kennst Du drei, folgt die vierte:
 
 | Größe | Bedeutung | Typischer Wert |
 |---|---|---|
@@ -40,9 +40,9 @@ Bei jedem Test hängen vier Größen zusammen — kennst Du drei, folgt die vier
 | **Effektgröße** | angenommene Größe des wahren Effekts (z. B. Cohen's $d$) | aus Literatur/Metaanalyse oder kleinster relevanter Effekt |
 | **N** | Stichprobengröße | wird meist berechnet |
 
-- **A priori** (vor der Studie): Wie viele Personen brauche ich? — der Normalfall.
+- **A priori** (vor der Studie): Wie viele Personen brauche ich? Das ist der Normalfall.
 - **Sensitivitätsanalyse:** Welchen Effekt kann ich mit meinem N zuverlässig finden?
-- **Post-hoc-Power** aus dem beobachteten Effekt ist **wenig informativ** — sie ist nur eine Umformung des p-Werts.
+- **Post-hoc-Power** aus dem beobachteten Effekt ist **wenig informativ**, sie ist nur eine Umformung des p-Werts.
 
 Die Effektgröße für die Planung sollte nicht aus einer einzelnen, kleinen Pilotstudie kommen (überschätzt meist), sondern z. B. aus einer Metaanalyse (@sec-meta).
 
@@ -66,7 +66,7 @@ Die Effektgröße für die Planung sollte nicht aus einer einzelnen, kleinen Pil
 
 **Bonus:**
 
-- Stell die **Alternative Hypothesis** auf einseitig. Wie viele Personen sparst Du — und wann ist das legitim?
+- Stell die **Alternative Hypothesis** auf einseitig. Wie viele Personen sparst Du, und wann ist das legitim?
 
 ::: {.callout-tip title="Für die Abgabe"}
 Notiere die beiden N pro Gruppe und die Power bei $n = 30$. Siehe @sec-s07-abschluss.

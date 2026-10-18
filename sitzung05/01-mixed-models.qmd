@@ -15,7 +15,7 @@ Nach diesem Kapitel kannst Du …
 Eine Kernannahme aller bisherigen Verfahren war: Die Beobachtungen sind **unabhängig**. In der Forschungspraxis stimmt das oft **nicht**:
 
 - Lernende sind in **Klassen** genestet, Klassen in **Schulen**.
-- Behandelte werden von **Behandelnden** betreut — mehrere Personen pro behandelnder Person.
+- Behandelte werden von **Behandelnden** betreut, mehrere Personen pro behandelnder Person.
 - Eine Person wird **mehrfach** gemessen (Längsschnitt, Tagebuchstudie, EMA): die Messungen einer Person sind genestet **in der Person**.
 
 In all diesen Fällen ähneln sich Beobachtungen **innerhalb** einer Gruppe stärker als zwischen Gruppen. Ignorierst Du das und rechnest eine normale Regression, sind Deine Standardfehler **zu klein** und Du findest scheinbare Effekte, die keine sind. **Mixed Models** (auch: Mehrebenen-, hierarchische oder Multilevel-Modelle) lösen das.
@@ -26,17 +26,17 @@ Der Name „gemischtes Modell" kommt daher, dass es **zwei Arten** von Effekten 
 
 | Effekt | Bedeutung | Beispiel |
 |---|---|---|
-| **Fester Effekt** (fixed) | der durchschnittliche Zusammenhang über **alle** Gruppen — das, was Dich inhaltlich interessiert | „Über alle Behandelnden hinweg senkt die Intervention die Symptomlast um $b$." |
-| **Zufälliger Effekt** (random) | wie stark einzelne **Gruppen** vom Durchschnitt abweichen — als Streuung, nicht als Einzelkoeffizient | „Behandelnde unterscheiden sich in ihrem Ausgangsniveau." |
+| **Fester Effekt** (fixed) | der durchschnittliche Zusammenhang über **alle** Gruppen, also das, was Dich inhaltlich interessiert | „Über alle Behandelnden hinweg senkt die Intervention die Symptomlast um $b$." |
+| **Zufälliger Effekt** (random) | wie stark einzelne **Gruppen** vom Durchschnitt abweichen, als Streuung, nicht als Einzelkoeffizient | „Behandelnde unterscheiden sich in ihrem Ausgangsniveau." |
 
 ### Random Intercept vs. Random Slope
 
 - **Random Intercept:** Jede Gruppe hat ihr **eigenes Ausgangsniveau**. (Manche Behandelnde haben grundsätzlich Fälle mit höherer Symptomlast.)
 - **Random Slope:** Der **Effekt eines Prädiktors** darf zwischen Gruppen variieren. (Die Intervention wirkt bei manchen Behandelnden stärker als bei anderen.)
 
-Du gibst dem Modell also nicht für jede Gruppe einen eigenen Koeffizienten (das wären bei 100 Gruppen 100 Koeffizienten), sondern modellierst die **Verteilung** dieser Abweichungen — sparsam und stabil.
+Du gibst dem Modell also nicht für jede Gruppe einen eigenen Koeffizienten (das wären bei 100 Gruppen 100 Koeffizienten), sondern modellierst die **Verteilung** dieser Abweichungen. Das ist sparsam und stabil.
 
-## Der ICC — wie viel Nestung steckt drin?
+## Der ICC: Wie viel Nestung steckt drin?
 
 Die **Intraklassenkorrelation (ICC)** beantwortet die erste Frage, die Du Dir bei genesteten Daten stellst:
 
@@ -59,23 +59,23 @@ Mixed Models stecken im Modul **Mixed Models** (standardmäßig sichtbar; nutzt 
 1. **Mixed Models → Classical → Linear Mixed Models**.
 2. **Dependent variable:** das metrische Kriterium (z. B. `O_mean`).
 3. **Fixed effects variables:** die interessierenden Prädiktoren (z. B. `E_mean`).
-4. **Random effects grouping factors:** die Gruppenvariable (bei uns `quelle_datensatz` — sie muss dafür **Nominal** sein). Im Abschnitt **Model → Random effects** ist für jede Gruppe der **Intercept** angehakt (Random Intercept); einen **Random Slope** fügst Du hinzu, indem Du dort zusätzlich den Prädiktor anhakst.
+4. **Random effects grouping factors:** die Gruppenvariable (bei uns `quelle_datensatz`, sie muss dafür **Nominal** sein). Im Abschnitt **Model → Random effects** ist für jede Gruppe der **Intercept** angehakt (Random Intercept); einen **Random Slope** fügst Du hinzu, indem Du dort zusätzlich den Prädiktor anhakst.
 5. In den Ausgabe-Optionen **Fixed effects estimates** und **Variance/correlation estimates** ankreuzen.
 6. Output lesen:
    - **Fixed effects:** Koeffizienten wie in der normalen Regression, aber mit korrigierten Standardfehlern.
-   - **Variance/correlation estimates:** die Varianz zwischen Gruppen (`quelle_datensatz`) und die Residualvarianz. JASP gibt **keinen ICC** aus — Du berechnest ihn selbst: $\text{ICC} = \frac{\text{Varianz Gruppe}}{\text{Varianz Gruppe} + \text{Residualvarianz}}$.
+   - **Variance/correlation estimates:** die Varianz zwischen Gruppen (`quelle_datensatz`) und die Residualvarianz. JASP gibt **keinen ICC** aus, Du berechnest ihn selbst: $\text{ICC} = \frac{\text{Varianz Gruppe}}{\text{Varianz Gruppe} + \text{Residualvarianz}}$.
 
 ## Was unsere Daten hergeben
 
-Unsere Personen sind in **10 Quell-Datensätze** (`quelle_datensatz`) genestet — eine echte Gruppenstruktur. Aber (@sec-tag3-datenhinweis): Alle Datensätze wurden aus **derselben** Verteilung erzeugt. Die Richtung daraus:
+Unsere Personen sind in **10 Quell-Datensätze** (`quelle_datensatz`) genestet, das ist eine echte Gruppenstruktur. Aber (@sec-tag3-datenhinweis): Alle Datensätze wurden aus **derselben** Verteilung erzeugt. Die Richtung daraus:
 
 - Die **Varianz zwischen** den Datensätzen ist gering, der **ICC** entsprechend **klein**.
 - Der feste Effekt von `E_mean` auf `O_mean` dürfte ungefähr dem aus einer normalen Regression entsprechen.
 
-Das ist genau die richtige, ehrliche Lehre: Das Mixed Model **zeigt Dir**, dass hier kaum relevante Nestung vorliegt. Du hast damit ein Werkzeug, das Dir *sagt*, ob Du es überhaupt brauchst — und es korrekt bedienen gelernt. In echten genesteten Daten (Klassen, Behandelnde, Messwiederholungen) wäre der ICC deutlich größer und das Modell unverzichtbar.
+Das ist genau die richtige, ehrliche Lehre: Das Mixed Model **zeigt Dir**, dass hier kaum relevante Nestung vorliegt. Du hast damit ein Werkzeug, das Dir *sagt*, ob Du es überhaupt brauchst, und Du hast gelernt, es korrekt zu bedienen. In echten genesteten Daten (Klassen, Behandelnde, Messwiederholungen) wäre der ICC deutlich größer und das Modell unverzichtbar.
 
 ::: {.callout-tip title="Der kleine Bruder: Repeated-Measures-ANOVA"}
-Für den Spezialfall „jede Person mehrfach unter wenigen Bedingungen gemessen" gibt es die **Repeated-Measures-ANOVA** (in JASP unter ANOVA → Repeated Measures). Sie ist einfacher, aber unflexibler. Mixed Models verallgemeinern sie: Sie kommen mit unbalancierten Daten, fehlenden Messzeitpunkten und kontinuierlicher Zeit zurecht — weshalb sie in der modernen Längsschnittforschung Standard sind.
+Für den Spezialfall „jede Person mehrfach unter wenigen Bedingungen gemessen" gibt es die **Repeated-Measures-ANOVA** (in JASP unter ANOVA → Repeated Measures). Sie ist einfacher, aber unflexibler. Mixed Models verallgemeinern sie: Sie kommen mit unbalancierten Daten, fehlenden Messzeitpunkten und kontinuierlicher Zeit zurecht. Deshalb sind sie in der modernen Längsschnittforschung Standard.
 :::
 
 ## Stärken und Schwächen
@@ -98,7 +98,7 @@ Für den Spezialfall „jede Person mehrfach unter wenigen Bedingungen gemessen"
 
 1. Rechne in JASP ein Linear Mixed Model: **Dependent variable** `O_mean`, **Fixed effects variables** `E_mean`, **Random effects grouping factors** `quelle_datensatz` (Random Intercept).
 2. Lies ab: den festen Effekt von `E_mean` und die **Varianzkomponente** für `quelle_datensatz`.
-3. Notiere die zentralen Kennwerte: den **festen Effekt** von `E_mean`, die **Gruppenvarianz** für `quelle_datensatz` und den daraus geschätzten **ICC** — plus Deine Schlussfolgerung, ob eine relevante Nestung vorliegt.
+3. Notiere die zentralen Kennwerte: den **festen Effekt** von `E_mean`, die **Gruppenvarianz** für `quelle_datensatz` und den daraus geschätzten **ICC**, dazu Deine Schlussfolgerung, ob eine relevante Nestung vorliegt.
 
 **Bonus (für die Schnellen):**
 
@@ -114,4 +114,4 @@ Notiere: festen Effekt von `E_mean`, die Varianz von `quelle_datensatz` und den 
 1. Woran erkennst Du, dass Daten genestet sind, und warum ist normale Regression dann problematisch?
 2. Was ist der Unterschied zwischen einem Random Intercept und einem Random Slope?
 3. Was sagt ein ICC von .25?
-4. Warum ist ein ICC nahe 0 in unseren Daten zu erwarten — und was folgt daraus für die Modellwahl?
+4. Warum ist ein ICC nahe 0 in unseren Daten zu erwarten, und was folgt daraus für die Modellwahl?

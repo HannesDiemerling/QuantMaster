@@ -5,15 +5,15 @@ Nach diesem Kapitel hast Du …
 
 - den BFI-K-Fragebogen als Erhebungsinstrument einmal in der Hand gehabt,
 - die Einverständniserklärung am PC unterschrieben und an die Lehrperson geschickt,
-- den Ablauf einer echten Datenerhebung durchgespielt — auch wenn keine echten Daten erhoben werden.
+- den Ablauf einer echten Datenerhebung durchgespielt, auch wenn keine echten Daten erhoben werden.
 :::
 
 ## Worum es geht
 
-Dieser Workshop ist eine **Demo**, keine echte Datenerhebung. Du musst den BFI-K nicht ehrlich ausfüllen — Ziel ist, dass Du den Workflow einmal so durchläufst, wie er in einer echten Studie aussehen würde. Konkret heißt das:
+Dieser Workshop ist eine **Demo**, keine echte Datenerhebung. Du musst den BFI-K nicht ehrlich ausfüllen. Es geht darum, dass Du den Workflow einmal so durchläufst, wie er in einer echten Studie aussehen würde. Konkret heißt das:
 
 1. Du **siehst Dir das Erhebungsinstrument an** (BFI-K als PDF).
-2. Du **unterschreibst die Einverständniserklärung am PC** und schickst sie der Lehrperson zu — genau wie eine Versuchsperson das in einer echten Studie täte.
+2. Du **unterschreibst die Einverständniserklärung am PC** und schickst sie der Lehrperson zu, genau wie eine Versuchsperson das in einer echten Studie täte.
 
 Echte BFI-K-Antworten brauchst Du nicht. Wenn Du in den späteren Kapiteln eine eigene Zeile in den Datensatz schreibst, darfst Du Dir Werte ausdenken (siehe @sec-tag1-upload).
 
@@ -21,11 +21,11 @@ Echte BFI-K-Antworten brauchst Du nicht. Wenn Du in den späteren Kapiteln eine 
 
 ### 1. BFI-K als Beispiel ansehen
 
-Lade die PDF herunter und überflieg sie kurz — Du sollst ein Gefühl dafür bekommen, wie ein psychometrisches Erhebungsinstrument aussieht:
+Lade die PDF herunter und überflieg sie kurz. Du sollst ein Gefühl dafür bekommen, wie ein psychometrisches Erhebungsinstrument aussieht:
 
 [**materials/BFI K.pdf**](../materials/BFI%20K.pdf) (im Browser öffnen oder lokal speichern)
 
-Du musst nichts ankreuzen. Achte beim Lesen darauf, wie Reverse-Items markiert sind und wie die Rekodierungsformel funktioniert — beides hast Du in @sec-tag1-messtheorie kennengelernt.
+Du musst nichts ankreuzen. Achte beim Lesen darauf, wie Reverse-Items markiert sind und wie die Rekodierungsformel funktioniert. Beides hast Du in @sec-tag1-messtheorie kennengelernt.
 
 ### 2. Einverständnis am PC ausfüllen und unterschreiben
 
@@ -52,16 +52,16 @@ Schick die unterzeichnete PDF an:
 
 **[{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}})**
 
-Betreff: `M15 S01 — <Kennziffer>` — das ist zugleich Deine Abgabe für Sitzung 01 (@sec-s01-abschluss).
+Betreff: `M15 S01 <Kennziffer>`. Das ist zugleich Deine Abgabe für Sitzung 01 (@sec-s01-abschluss).
 
 Damit hast Du den vollen Einverständnis-Workflow einer echten Studie durchgespielt: PDF lesen, ausfüllen, unterschreiben, an die Studienleitung zurücksenden.
 
 ::: {.callout-tip title="Das ist Übung, nichts Echtes"}
-Weil keine echten Daten erhoben werden, ist auch die Einwilligung nur eine Demonstration. Du brauchst keine reale Identifizierbarkeit zu fürchten — niemand wertet Deine Mail aus, sie dient nur dazu, dass Du den Vorgang einmal erlebt hast.
+Weil keine echten Daten erhoben werden, ist auch die Einwilligung nur eine Demonstration. Du brauchst keine reale Identifizierbarkeit zu fürchten. Niemand wertet Deine Mail aus, sie dient nur dazu, dass Du den Vorgang einmal erlebt hast.
 :::
 
 ## Selbstcheck
 
 1. Welche Angaben enthält das Einverständnisformular, das Du gerade unterschrieben hast?
-2. Wie sähe der Workflow bei einer echten Erhebung anders aus — was würde dort zusätzlich passieren (Stichwort: Ethikkommission, Pseudonymisierungs-Schlüssel)?
-3. Warum macht es Sinn, ein Einverständnis als PDF mit digitaler Unterschrift zu führen — und wo sind die Grenzen davon?
+2. Wie sähe der Workflow bei einer echten Erhebung anders aus? Was würde dort zusätzlich passieren (Stichwort: Ethikkommission, Pseudonymisierungs-Schlüssel)?
+3. Warum macht es Sinn, ein Einverständnis als PDF mit digitaler Unterschrift zu führen, und wo sind die Grenzen davon?

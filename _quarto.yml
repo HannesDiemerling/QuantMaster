@@ -13,8 +13,8 @@ project:
     - "materials/*.csv"
 
 book:
-  title: "M15 — Quantitative Forschungsmethoden"
-  subtitle: "Online-Seminar HMU — 10 Sitzungen"
+  title: "M15: Quantitative Forschungsmethoden"
+  subtitle: "Online-Seminar HMU, 10 Sitzungen"
   author: "Hannes Diemerling"
   date: "2026"
   repo-url: https://github.com/hannesdiemerling/QuantMaster

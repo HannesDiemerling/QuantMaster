@@ -1,4 +1,4 @@
-# Sitzung 05 — Übersicht {#sec-s05-uebersicht}
+# Sitzung 05: Übersicht {#sec-s05-uebersicht}
 
 ::: {.callout-note title="Lernziele"}
 Nach dieser Sitzung …
@@ -11,19 +11,16 @@ Nach dieser Sitzung …
 
 ## Worum es geht
 
-Zwei Verfahren, die Strukturen in Daten sichtbar machen: Mehrebenenmodelle berücksichtigen, dass Personen in Gruppen stecken — bei uns in den zehn Seed-Datensätzen. Die Faktorenanalyse prüft, ob hinter den 21 BFI-K-Items wirklich fünf Faktoren stehen.
+Zwei Verfahren, die Strukturen in Daten sichtbar machen: Mehrebenenmodelle berücksichtigen, dass Personen in Gruppen stecken, bei uns in den zehn Seed-Datensätzen. Die Faktorenanalyse prüft, ob hinter den 21 BFI-K-Items wirklich fünf Faktoren stehen.
 
-## Ablauf (ca. 2 Stunden, online)
-
-| Zeit | Modus | Inhalt |
-|---|---|---|
-| 0:00–0:10 | **Plenum** | Input: Nestung und ICC |
-| 0:10–0:50 | Self-Study + Kleingruppe | @sec-tag3-mixed |
-| 0:50–1:00 | **Plenum** | Von Gruppen zu latenten Faktoren |
-| 1:00–1:45 | Self-Study + Kleingruppe | @sec-efa |
-| 1:45–2:00 | **Plenum** | Fragen, Abgabe |
-
-## Was Du dafür brauchst
+## Vorbereitung
 
 - Deine JASP-Datei mit den Skalenspalten; `quelle_datensatz` als **Nominal**
 
+## Inhalte
+
+1. Kurzer Input: Nestung und ICC
+2. @sec-tag3-mixed
+3. Von Gruppen zu latenten Faktoren
+4. @sec-efa
+5. Fragen und Abgabe (@sec-s05-abschluss)

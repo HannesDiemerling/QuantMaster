@@ -11,9 +11,9 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Bis jetzt hattest Du 21 einzelne BFI-Items. Für die Theorie hinter dem BFI-K stehen aber **fünf Konstrukte** (Big Five) — und für die Analyse arbeitest Du mit fünf Skalenwerten, nicht mit 21 Items einzeln. Heute baust Du diese Skalenwerte.
+Bis jetzt hattest Du 21 einzelne BFI-Items. Für die Theorie hinter dem BFI-K stehen aber **fünf Konstrukte** (Big Five), und für die Analyse arbeitest Du mit fünf Skalenwerten, nicht mit 21 Items einzeln. Heute baust Du diese Skalenwerte.
 
-Damit der Schritt sauber ist, prüfst Du anschließend für jede Skala die **Reliabilität** — also wie konsistent die Items innerhalb derselben Skala miteinander zusammenhängen.
+Damit der Schritt sauber ist, prüfst Du anschließend für jede Skala die **Reliabilität**, also wie konsistent die Items innerhalb derselben Skala miteinander zusammenhängen.
 
 ## Warum aggregieren?
 
@@ -21,22 +21,22 @@ Drei Gründe, warum man Item-Mittelwerte bildet:
 
 1. **Konstruktbreite:** Extraversion ist mehr als ein einzelnes „bin gesellig"-Item. Vier Items deckt das Konstrukt breiter ab und schwächt einzelne Item-Marotten ab.
 2. **Messfehler:** Jedes Item misst mit Fehler. Bei Aggregation über mehrere Items mittelt sich der Fehler heraus (klassische Testtheorie: $X = T + E$ → mit mehr Items steigt der Anteil von $T$ am Mittelwert).
-3. **Anschluss an Literatur und Praxis:** Big-Five-Profile werden auf Skalen-Ebene berichtet — sonst wird's unlesbar.
+3. **Anschluss an Literatur und Praxis:** Big-Five-Profile werden auf Skalen-Ebene berichtet, sonst wird's unlesbar.
 
-::: {.callout-important title="Voraussetzung — Reverse-Items rekodiert"}
+::: {.callout-important title="Voraussetzung: Reverse-Items rekodiert"}
 Aggregation ist nur sinnvoll, wenn alle Items in dieselbe Richtung gepolt sind. In unseren Datensätzen sind die Reverse-Items **bereits rekodiert**. Wenn Du in einem anderen Projekt arbeitest, bei dem Reverse-Items noch in Originalrichtung sind, musst Du das vor dem Aggregieren in JASP per Compute Column erledigen.
 :::
 
-## Mittelwert vs. Summe — was nehmen?
+## Mittelwert oder Summe?
 
 Beides gleich aussagekräftig, solange alle Items dasselbe Antwortformat haben (hier: 1–5).
 
 | | Vorteil | Nachteil |
 |---|---|---|
-| **Mittelwert** | Skala bleibt auf 1–5 — direkt mit Items vergleichbar | technisch etwas mehr Aufwand bei Missings |
-| **Summe** | einfacher zu rechnen | Skala ändert sich (E z. B. 4–20) — weniger intuitiv |
+| **Mittelwert** | Skala bleibt auf 1–5, direkt mit Items vergleichbar | technisch etwas mehr Aufwand bei Missings |
+| **Summe** | einfacher zu rechnen | Skala ändert sich (E z. B. 4–20), weniger intuitiv |
 
-Wir nehmen den **Mittelwert** — er ist leichter zu interpretieren. Achtung bei Missings: Die Formel unten ergibt **fehlend**, sobald auch nur ein Item der Skala fehlt. Das ist eine bewusste, strenge Regel (wir rechnen nur mit vollständigen Skalen). JASP kennt auch die Funktion `rowMeanNaRm(...)`, die fehlende Items einfach überspringt — für die Abgabe nutzt Du aber die Formel unten, damit alle dieselben Werte haben.
+Wir nehmen den **Mittelwert**, weil er leichter zu interpretieren ist. Achtung bei Missings: Die Formel unten ergibt **fehlend**, sobald auch nur ein Item der Skala fehlt. Das ist eine bewusste, strenge Regel (wir rechnen nur mit vollständigen Skalen). JASP kennt auch die Funktion `rowMeanNaRm(...)`, die fehlende Items einfach überspringt. Für die Abgabe nutzt Du aber die Formel unten, damit alle dieselben Werte haben.
 
 ## Skalenwerte in JASP berechnen
 
@@ -54,7 +54,7 @@ Für jede Skala legst Du in JASP eine neue Spalte an.
 
 ### Vorgehen pro Skala
 
-1. In der Datenansicht auf das **„+"** über der letzten Spalte klicken — es öffnet sich **Create Computed Column**.
+1. In der Datenansicht auf das **„+"** über der letzten Spalte klicken. Es öffnet sich **Create Computed Column**.
 2. Bei **Name:** `E_mean` eintragen, **Define column through R code** wählen, Typ **Scale**, dann **Create Column**.
 3. Formel ins Code-Feld eintragen:
 
@@ -87,12 +87,12 @@ Nach dem Berechnen: Variable-Typ jeder neuen Spalte auf **Scale** setzen (sollte
 Lass Descriptives über die fünf neuen Variablen laufen. Erwartung:
 
 - alle Werte zwischen **1.0 und 5.0**
-- Mittelwerte ungefähr im mittleren Bereich (≈ 3) — die simulierten Daten sind ohne extreme Schiefe
+- Mittelwerte ungefähr im mittleren Bereich (≈ 3), die simulierten Daten sind ohne extreme Schiefe
 - SD ungefähr 0.5–1.0
 
 Wenn ein Skalenmittelwert systematisch außerhalb liegt: meistens hast Du ein Item vergessen oder eines doppelt eingebaut.
 
-## Reliabilität — Cronbach's α und McDonald's ω
+## Reliabilität: Cronbach's α und McDonald's ω
 
 Die Reliabilität misst, wie **konsistent** die Items einer Skala denselben latenten Wert messen. Zwei gängige Maße:
 
@@ -119,14 +119,14 @@ Im BFI-K sind die Skalen *kurz* (4–5 Items). Erwarte deshalb keine α-Werte ü
 2. Zieh die **Items einer Skala** in das Feld „Variables" (z. B. `BFI_01`, `BFI_06`, `BFI_11`, `BFI_16` für Extraversion).
 3. In den Options:
    - Abschnitt **Scale Statistics:** **Cronbach's α** ankreuzen (**McDonald's ω** ist schon an)
-   - Abschnitt **Individual Item Statistics:** **Mean** und **SD** (Item-Kennwerte), **Item-rest correlation** (Korrelation jedes Items mit der Skala ohne dieses Item — zeigt, ob ein Item „nicht reinpasst") und **Cronbach's α (if item dropped)** (wie sich α verändert, wenn man das Item rausnimmt)
+   - Abschnitt **Individual Item Statistics:** **Mean** und **SD** (Item-Kennwerte), **Item-rest correlation** (Korrelation jedes Items mit der Skala ohne dieses Item; zeigt, ob ein Item „nicht reinpasst") und **Cronbach's α (if item dropped)** (wie sich α verändert, wenn man das Item rausnimmt)
    - Abschnitt **Advanced Options → Missing Values:** **Delete listwise** (damit alle dieselben Werte bekommen)
 
 4. Wiederhole für alle fünf Skalen.
 
 ### Interpretation
 
-- Steht in der Spalte **Cronbach's α (if item dropped)** ein Wert *höher* als der Gesamt-α, ist das Item ein Kandidat zum Rauswerfen — es passt nicht zur Skala.
+- Steht in der Spalte **Cronbach's α (if item dropped)** ein Wert *höher* als der Gesamt-α, ist das Item ein Kandidat zum Rauswerfen. Es passt nicht zur Skala.
 - Bei kurzen Skalen wirst Du das aber selten machen, weil die Skala dann zu klein wird (z. B. 3 statt 4 Items).
 - **Item-rest correlation** unter .30 → das Item misst was anderes.
 
@@ -143,7 +143,7 @@ In unseren simulierten Daten solltest Du brauchbare α-Werte sehen (etwa .60–.
 **Schwächen:**
 
 - Information geht verloren (Item-Profile innerhalb einer Skala verschwinden)
-- Aggregation setzt voraus, dass die Items *wirklich* dasselbe messen — was Du genau deshalb mit Reliabilität prüfst
+- Aggregation setzt voraus, dass die Items *wirklich* dasselbe messen, was Du genau deshalb mit Reliabilität prüfst
 - Cronbach's α überschätzt die Reliabilität, wenn Items unterschiedlich gewichtet werden sollten (deshalb ω)
 
 ## Aufgabe
@@ -151,14 +151,14 @@ In unseren simulierten Daten solltest Du brauchbare α-Werte sehen (etwa .60–.
 **Pflichtteil (mach jeder):**
 
 1. Bau **fünf neue Spalten** per Compute Column: `E_mean`, `V_mean`, `G_mean`, `N_mean`, `O_mean`.
-2. Lass Descriptives über genau diese fünf Variablen laufen — alle Werte zwischen 1 und 5?
+2. Lass Descriptives über genau diese fünf Variablen laufen. Liegen alle Werte zwischen 1 und 5?
 3. Berechne für **alle fünf Skalen** Cronbach's α und McDonald's ω. Optionen aktivieren: **Item-rest correlation**, **Cronbach's α (if item dropped)**, Missing Values **Delete listwise**.
-4. Notiere in zwei Sätzen: *welche Skala* die höchste und welche die niedrigste Reliabilität hat — und ob es ein Item gibt, bei dem „α if dropped" deutlich über dem Gesamt-α liegt.
+4. Notiere in zwei Sätzen: *welche Skala* die höchste und welche die niedrigste Reliabilität hat und ob es ein Item gibt, bei dem „α if dropped" deutlich über dem Gesamt-α liegt.
 
 **Bonus (für die Schnellen):**
 
 - **Pearson-Korrelation der fünf Skalenmittelwerte untereinander** (`Regression → Correlation` mit den 5 `*_mean`-Variablen). Was siehst Du?
-- Wiederhole die Reliabilität nur für **Personen ab Bildungsgrad 5** (Filter setzen) — verändert sich α deutlich?
+- Wiederhole die Reliabilität nur für **Personen ab Bildungsgrad 5** (Filter setzen). Verändert sich α deutlich?
 
 ::: {.callout-tip title="Für die Abgabe"}
 Notiere: Valid-Anzahl von `E_mean`, Mittelwert und SD von `N_mean`, die Skalen mit höchstem und niedrigstem Cronbach's α. Siehe @sec-s03-abschluss.
@@ -167,6 +167,6 @@ Notiere: Valid-Anzahl von `E_mean`, Mittelwert und SD von `N_mean`, die Skalen m
 ## Selbstcheck
 
 1. Warum bilden wir Skalen-Mittelwerte und arbeiten nicht direkt mit den 21 Einzelitems weiter?
-2. Was sagt ein Cronbach's α von .55 über die Skala — und über alle Tests, die Du mit dieser Skala rechnest?
+2. Was sagt ein Cronbach's α von .55 über die Skala aus, und über alle Tests, die Du mit dieser Skala rechnest?
 3. Wann ist McDonald's ω dem klassischen α vorzuziehen?
 4. Was bedeutet eine Item-rest-Korrelation von .12 für genau dieses Item?

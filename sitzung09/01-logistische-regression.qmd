@@ -12,9 +12,9 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Manchmal ist die abhängige Variable **kein** Messwert, sondern eine **Ja/Nein-Kategorie**: Therapieerfolg ja/nein, Abbruch ja/nein, Diagnose vorhanden ja/nein. Für solche **binären** Outcomes ist die lineare Regression ungeeignet — sie würde Wahrscheinlichkeiten über 1 oder unter 0 vorhersagen, was unsinnig ist.
+Manchmal ist die abhängige Variable **kein** Messwert, sondern eine **Ja/Nein-Kategorie**: Therapieerfolg ja/nein, Abbruch ja/nein, Diagnose vorhanden ja/nein. Für solche **binären** Outcomes ist die lineare Regression ungeeignet. Sie würde Wahrscheinlichkeiten über 1 oder unter 0 vorhersagen, was unsinnig ist.
 
-Die **logistische Regression** löst das: Sie sagt nicht den Wert von $Y$ vorher, sondern die **Wahrscheinlichkeit**, dass $Y = 1$ (das interessierende Ereignis eintritt) — und hält diese Wahrscheinlichkeit sauber zwischen 0 und 1.
+Die **logistische Regression** löst das: Sie sagt nicht den Wert von $Y$ vorher, sondern die **Wahrscheinlichkeit**, dass $Y = 1$ (das interessierende Ereignis eintritt), und hält diese Wahrscheinlichkeit sauber zwischen 0 und 1.
 
 ## Von der Wahrscheinlichkeit zum Logit
 
@@ -32,9 +32,9 @@ $$
 \ln\!\left(\frac{p}{1-p}\right) = b_0 + b_1 X_1 + \dots + b_k X_k
 $$
 
-Das ist genau die Regressionsgleichung aus @sec-tag3-regression — nur dass links nicht $Y$, sondern der Logit von $p$ steht. Dadurch bleibt die Vorhersage immer im erlaubten Bereich.
+Das ist genau die Regressionsgleichung aus @sec-tag3-regression, nur dass links nicht $Y$, sondern der Logit von $p$ steht. Dadurch bleibt die Vorhersage immer im erlaubten Bereich.
 
-## Odds Ratio — die zentrale Effektgröße
+## Odds Ratio: die zentrale Effektgröße
 
 Der Koeffizient $b_j$ ist im Logit-Maßstab schwer lesbar. Deshalb berichtet man das **Odds Ratio (OR)** $= e^{b_j}$:
 
@@ -44,10 +44,10 @@ Der Koeffizient $b_j$ ist im Logit-Maßstab schwer lesbar. Deshalb berichtet man
 | **> 1** | höhere Werte des Prädiktors → Ereignis **wahrscheinlicher** |
 | **< 1** | höhere Werte des Prädiktors → Ereignis **unwahrscheinlicher** |
 
-> *Lesart:* OR = 1.8 für `E_mean` heißt: Pro **+1 Punkt Extraversion** wird die *Chance* (Odds) für das Ereignis um den Faktor 1.8 — also um 80 % — größer, bei Kontrolle der anderen Prädiktoren.
+> *Lesart:* OR = 1.8 für `E_mean` heißt: Pro **+1 Punkt Extraversion** wird die *Chance* (Odds) für das Ereignis um den Faktor 1.8, also um 80 %, größer, bei Kontrolle der anderen Prädiktoren.
 
 ::: {.callout-tip title="OR ist kein Wahrscheinlichkeits-Faktor"}
-Ein OR von 2 heißt **nicht**, dass die Wahrscheinlichkeit doppelt so groß wird — die *Odds* verdoppeln sich. Bei kleinen Grundwahrscheinlichkeiten liegen beide nah beieinander, bei großen nicht. Berichte das OR immer mit **Konfidenzintervall**: schließt das KI die **1** ein, ist der Prädiktor nicht signifikant.
+Ein OR von 2 heißt **nicht**, dass die Wahrscheinlichkeit doppelt so groß wird. Es sind die *Odds*, die sich verdoppeln. Bei kleinen Grundwahrscheinlichkeiten liegen beide nah beieinander, bei großen nicht. Berichte das OR immer mit **Konfidenzintervall**: schließt das KI die **1** ein, ist der Prädiktor nicht signifikant.
 :::
 
 ## Modellgüte beurteilen
@@ -62,7 +62,7 @@ Es gibt kein echtes $R^2$ wie in der linearen Regression. Stattdessen:
 | **Likelihood-Ratio-Test** | testet das Gesamtmodell gegen das Null-Modell |
 
 ::: {.callout-important title="Vorsicht bei der Trefferquote"}
-Wenn 90 % aller Fälle „Nein" sind, erreicht ein Modell, das **immer „Nein"** sagt, schon 90 % Treffer — ohne irgendetwas gelernt zu haben. Schau deshalb nicht nur auf die Gesamttrefferquote, sondern auf **AUC** und die Treffer **pro Klasse**.
+Wenn 90 % aller Fälle „Nein" sind, erreicht ein Modell, das **immer „Nein"** sagt, schon 90 % Treffer, ohne irgendetwas gelernt zu haben. Schau deshalb nicht nur auf die Gesamttrefferquote, sondern auf **AUC** und die Treffer **pro Klasse**.
 :::
 
 ## In JASP rechnen
@@ -87,13 +87,13 @@ Nenn die Spalte `N_hoch` und setz ihren Typ auf **Nominal**.
 
 ## Was unsere Daten hergeben
 
-Erneut ehrlich (@sec-tag3-datenhinweis): Da die Skalen untereinander schwach positiv zusammenhängen, kann ein aus **mehreren** Skalen gebautes Modell für „hoher vs. niedriger Neurotizismus" ein gewisses Signal aufnehmen. Die Richtung: Eine perfekte Trennung ist nicht zu erwarten — die Trennschärfe (AUC) wird bei einer kleinen Stichprobe eher bescheiden ausfallen.
+Erneut ehrlich (@sec-tag3-datenhinweis): Da die Skalen untereinander schwach positiv zusammenhängen, kann ein aus **mehreren** Skalen gebautes Modell für „hoher vs. niedriger Neurotizismus" ein gewisses Signal aufnehmen. Die Richtung: Eine perfekte Trennung ist nicht zu erwarten, die Trennschärfe (AUC) wird bei einer kleinen Stichprobe eher bescheiden ausfallen.
 
-Würdest Du dagegen versuchen, **`geschlecht`** aus den Skalen vorherzusagen, ist **kaum etwas** zu erwarten (Demografie ist unabhängig) — ein guter Kontrast-Versuch für den Bonus.
+Würdest Du dagegen versuchen, **`geschlecht`** aus den Skalen vorherzusagen, ist **kaum etwas** zu erwarten (Demografie ist unabhängig). Das ist ein guter Kontrast-Versuch für den Bonus.
 
 ## Was in den Bericht gehört
 
-Einen festen Wortlaut gibt es nicht — diese Angaben sollten aber vollständig vorkommen:
+Einen festen Wortlaut gibt es nicht, aber diese Angaben sollten aber vollständig vorkommen:
 
 - der **Modelltest** gegen das Null-Modell ($\chi^2$ mit df, $p$), ein **Pseudo-$R^2$** (z. B. Nagelkerke) und die **Trennschärfe** (AUC),
 - **pro Prädiktor** das **Odds Ratio** mit Konfidenzintervall und $p$-Wert,
@@ -103,7 +103,7 @@ Einen festen Wortlaut gibt es nicht — diese Angaben sollten aber vollständig 
 
 **Stärken:**
 
-- der Standard für **binäre** Outcomes — in Klinik und Epidemiologie allgegenwärtig
+- der Standard für **binäre** Outcomes, in Klinik und Epidemiologie allgegenwärtig
 - Odds Ratios sind etabliert und (mit Übung) gut kommunizierbar
 - erweiterbar auf mehr als zwei Kategorien (multinomiale / ordinale logistische Regression)
 
@@ -111,7 +111,7 @@ Einen festen Wortlaut gibt es nicht — diese Angaben sollten aber vollständig 
 
 - braucht **mehr** Fälle pro Prädiktor als die lineare Regression (Faustregel: ≥ 10 Ereignisse pro Prädiktor)
 - OR werden oft mit Wahrscheinlichkeits-Verhältnissen verwechselt
-- ein Median-Split (wie hier zur Übung) **verschenkt Information** — in echten Studien nimmt man eine *natürlich* binäre Variable, kein künstlich zerschnittenes Kontinuum
+- ein Median-Split (wie hier zur Übung) **verschenkt Information**. In echten Studien nimmt man eine *natürlich* binäre Variable, kein künstlich zerschnittenes Kontinuum
 
 ## Aufgabe
 
@@ -119,7 +119,7 @@ Einen festen Wortlaut gibt es nicht — diese Angaben sollten aber vollständig 
 
 1. Bau die binäre Spalte `N_hoch` (Median-Split, Typ Nominal).
 2. Rechne `N_hoch` ~ `E_mean` + `V_mean` + `G_mean` + `O_mean` mit Odds Ratios, KI, Confusion Matrix und ROC/AUC.
-3. Notiere die zentralen Kennwerte: Modelltest ($\chi^2$, df, $p$), Nagelkerke-$R^2$, AUC sowie das Odds Ratio des stärksten Prädiktors mit Konfidenzintervall — plus Deine Schlussfolgerung.
+3. Notiere die zentralen Kennwerte: Modelltest ($\chi^2$, df, $p$), Nagelkerke-$R^2$, AUC sowie das Odds Ratio des stärksten Prädiktors mit Konfidenzintervall, dazu Deine Schlussfolgerung.
 
 **Bonus (für die Schnellen):**
 
@@ -134,5 +134,5 @@ Notiere: χ² und p des Modelltests, Nagelkerke-R², AUC und das Odds Ratio des 
 
 1. Warum nimmst Du für eine Ja/Nein-Variable keine lineare Regression?
 2. Was ist der Unterschied zwischen Wahrscheinlichkeit, Odds und Logit?
-3. Ein OR von 0.6 mit KI [0.4, 0.9] — was bedeutet das inhaltlich?
+3. Ein OR von 0.6 mit KI [0.4, 0.9]: Was bedeutet das inhaltlich?
 4. Warum ist eine Gesamttrefferquote von 90 % allein noch kein gutes Zeichen?

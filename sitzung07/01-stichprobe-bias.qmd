@@ -11,19 +11,19 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Bevor Du Ergebnisse verallgemeinerst, musst Du wissen, **wer** in Deinem Datensatz drinsteckt — und genauso wichtig: wer **nicht**. In unserem Fall ist die Antwort besonders unsauber, weil unser Datensatz aus zwei Quellen besteht:
+Bevor Du Ergebnisse verallgemeinerst, musst Du wissen, **wer** in Deinem Datensatz drinsteckt und, genauso wichtig, wer **nicht**. In unserem Fall ist die Antwort besonders unsauber, weil unser Datensatz aus zwei Quellen besteht:
 
-- **Simulierte Probanden** (`data/generated/`) — mit einer Verteilung, die ich für plausibel gehalten habe (überwiegend weiblich, jung, hoch gebildet — typisch für Psychologie-Studierende).
-- **„Studierenden-Antworten"** — ausgedacht, weil der Workshop eine Demo ist (siehe @sec-tag1-fragebogen).
+- **Simulierte Probanden** (`data/generated/`) mit einer Verteilung, die ich für plausibel gehalten habe: überwiegend weiblich, jung, hoch gebildet, also typisch für Psychologie-Studierende.
+- **„Studierenden-Antworten"**, ausgedacht, weil der Workshop eine Demo ist (siehe @sec-tag1-fragebogen).
 
 Wir nehmen die inhaltliche Interpretation der Daten heute deshalb **nicht zu ernst**. Methodisch arbeitet Ihr aber sauber.
 
-## Population, Stichprobe — und was sich mit *N* ändert
+## Population, Stichprobe und was sich mit *N* ändert
 
 Zwei Begriffe, die im Alltag oft synonym verwendet werden, in der Statistik aber strikt getrennt sind:
 
 - **Population:** die *Gesamtheit* aller Fälle, über die Du eine Aussage treffen willst (z. B. „alle deutschen Erwachsenen 18–30"). Population-Kennwerte (echtes Mittel $\mu$, echte Streuung $\sigma$) sind in der Praxis **unbekannt**.
-- **Stichprobe:** die *Teilmenge*, die Du tatsächlich gemessen hast. Stichproben-Kennwerte ($M$, $SD$) sind **bekannt** — sie sind Schätzer für die Populationsgrößen.
+- **Stichprobe:** die *Teilmenge*, die Du tatsächlich gemessen hast. Stichproben-Kennwerte ($M$, $SD$) sind **bekannt**. Sie sind Schätzer für die Populationsgrößen.
 
 Der ganze Sinn von inferenzieller Statistik (t-Test, ANOVA, Regression) ist es, von der Stichprobe auf die Population zu schließen.
 
@@ -31,26 +31,26 @@ Dabei spielt die Stichprobengröße eine Schlüsselrolle. Es gibt einen mathemat
 
 > Wenn Du Deine Stichprobe immer größer machst, **konvergiert** das Stichprobenmittel $M$ gegen das wahre Populationsmittel $\mu$.
 
-Das ist das **Gesetz der großen Zahlen**. In einfachen Worten: viele Daten sind mit hoher Sicherheit nah an der Wahrheit, wenige Daten können weit daneben liegen — aber rein zufällig. Aus 12 Personen einen Bevölkerungs-Mittelwert schätzen ist deshalb nicht falsch, aber unsicher; aus 12.000 ist es ziemlich präzise.
+Das ist das **Gesetz der großen Zahlen**. In einfachen Worten: viele Daten sind mit hoher Sicherheit nah an der Wahrheit, wenige Daten können weit daneben liegen, aber eben rein zufällig. Aus 12 Personen einen Bevölkerungs-Mittelwert schätzen ist deshalb nicht falsch, aber unsicher; aus 12.000 ist es ziemlich präzise.
 
 ::: {.callout-important title="Die wichtige Einschränkung"}
-Das Gesetz der großen Zahlen funktioniert **nur**, wenn die Stichprobe *unverzerrt* ist. Bei einem **Bias** (siehe nächster Abschnitt) bringt Dir mehr *N* gar nichts — Du näherst Dich nur immer präziser dem **falschen** Wert. Genau das ist das Tückische an Bias: man merkt es nicht durch Mehr-Daten-Sammeln.
+Das Gesetz der großen Zahlen funktioniert **nur**, wenn die Stichprobe *unverzerrt* ist. Bei einem **Bias** (siehe nächster Abschnitt) bringt Dir mehr *N* gar nichts. Du näherst Dich nur immer präziser dem **falschen** Wert. Genau das ist das Tückische an Bias: man merkt es nicht durch Mehr-Daten-Sammeln.
 :::
 
 ## Vier Bias-Typen, die Du kennen solltest
 
 | Bias-Typ | Idee | Beispiel |
 |---|---|---|
-| **Selection Bias** | Wer ist in der Stichprobe? Wer nicht? | „Online-Studie zu Computer-Affinität" — wer ist nicht online, fehlt komplett. |
+| **Selection Bias** | Wer ist in der Stichprobe? Wer nicht? | „Online-Studie zu Computer-Affinität": Wer nicht online ist, fehlt komplett. |
 | **Self-Selection Bias** | Wer entscheidet sich selbst zum Mitmachen? | Studis-Pool mit Freiwilligen → eher gewissenhafte Menschen melden sich. |
-| **Non-Response Bias** | Wer bricht ab oder antwortet nicht? | Lange Fragebögen — niedrige Werte auf Gewissenhaftigkeit fehlen anteilig häufiger. |
+| **Non-Response Bias** | Wer bricht ab oder antwortet nicht? | Lange Fragebögen: Niedrige Werte auf Gewissenhaftigkeit fehlen anteilig häufiger. |
 | **Mode Effects** | Wie wurde erhoben? | Papier vs. Online vs. Interview liefern systematisch unterschiedliche Antworten. |
 
-Ein **Stichprobenfehler** (Sampling Error) ist die rein zufällige Schwankung von Stichproben — der wird mit größerem *N* kleiner. Ein **Bias** wird mit größerem *N* **nicht** kleiner. Das ist ein zentraler Unterschied, den man leicht verwechselt — und der in der Forschungspraxis ständig relevant ist.
+Ein **Stichprobenfehler** (Sampling Error) ist die rein zufällige Schwankung von Stichproben. Er wird mit größerem *N* kleiner. Ein **Bias** wird mit größerem *N* **nicht** kleiner. Das ist ein zentraler Unterschied, den man leicht übersieht und der in der Forschungspraxis ständig relevant ist.
 
 ## Wer ist in unserem Datensatz?
 
-### Schritt 1 — Demografie deskriptiv
+### Schritt 1: Demografie deskriptiv
 
 In JASP:
 
@@ -60,11 +60,11 @@ In JASP:
 
 Schau die Verteilungen an. Notier Dir für jede Variable:
 
-- **`geschlecht`:** Verteilung weiblich / männlich / divers — wie schief?
+- **`geschlecht`:** Verteilung weiblich / männlich / divers. Wie schief ist sie?
 - **`alter`:** Range, Mittelwert, Median, Streuung. Gibt es Ausreißer?
 - **`bildungsgrad`:** Welche Stufen sind überhaupt vertreten? Welche fehlen?
 
-### Schritt 2 — Vergleich mit der Zielpopulation
+### Schritt 2: Vergleich mit der Zielpopulation
 
 Wir tun gleich so, als wäre unsere Zielpopulation „junge Erwachsene in Deutschland". Vergleiche grob:
 
@@ -74,28 +74,28 @@ Wir tun gleich so, als wäre unsere Zielpopulation „junge Erwachsene in Deutsc
 | Alter | sehr jung | breiter |
 | Bildung | überwiegend ≥ Bachelor | nur ein Teil der Altersgruppe |
 
-Auch ohne exakte Zahlen ist klar: unsere Stichprobe ist **kein Querschnitt** der Bevölkerung. Sie ist eine Stichprobe von Psychologie-Studierenden (synthetisch nachgebaut). Das ist nicht schlimm, aber es bedeutet, dass jede Aussage „so ist der Mensch" Quatsch ist — Aussagen müssen heißen: „so sind diese Studierenden".
+Auch ohne exakte Zahlen ist klar: unsere Stichprobe ist **kein Querschnitt** der Bevölkerung. Sie ist eine Stichprobe von Psychologie-Studierenden (synthetisch nachgebaut). Das ist nicht schlimm, aber es bedeutet, dass jede Aussage „so ist der Mensch" Quatsch ist. Aussagen müssen heißen: „so sind diese Studierenden".
 
 ## Stichprobengröße und statistische Aussagen
 
 Unsere Stichprobe ist *klein* (90 vorgenerierte Zeilen plus eine Zeile pro Teilnehmer:in, also etwa 110–130). Das hat zwei Konsequenzen:
 
-- **Geringe Power:** kleine, aber tatsächlich existierende Effekte können wir nicht statistisch nachweisen — sie versacken im Rauschen.
+- **Geringe Power:** kleine, aber tatsächlich existierende Effekte können wir nicht statistisch nachweisen, sie versacken im Rauschen.
 - **Instabile Schätzer:** Mittelwerte und Korrelationen schwanken stark, wenn nur ein paar Zeilen anders aussehen würden.
 
 Berichte deshalb in Ergebnissen immer **Effektgröße + Konfidenzintervall**, nicht nur den p-Wert. Mehr dazu in @sec-tag2-ttest.
 
 ## Fehlende Werte (Missings)
 
-Erinnerung aus Sitzung 01: Bei der Bereinigung hast Du Werte „auf fehlend gesetzt", wenn sie nicht reparierbar waren. Solche fehlenden Werte verteilen sich nicht zufällig — sie haben oft ein Muster (z. B. *„Personen, die müde waren, lassen das letzte Item öfter offen"*). Drei Arten unterscheidet die Literatur:
+Erinnerung aus Sitzung 01: Bei der Bereinigung hast Du Werte „auf fehlend gesetzt", wenn sie nicht reparierbar waren. Solche fehlenden Werte verteilen sich nicht zufällig, sie haben oft ein Muster (z. B. *„Personen, die müde waren, lassen das letzte Item öfter offen"*). Drei Arten unterscheidet die Literatur:
 
 | Bezeichnung | Bedeutung |
 |---|---|
-| **MCAR** (Missing Completely At Random) | Fehlen rein zufällig — angenehm, aber selten realistisch. |
+| **MCAR** (Missing Completely At Random) | Fehlen rein zufällig. Angenehm, aber selten realistisch. |
 | **MAR** (Missing At Random) | Fehlen abhängig von *beobachteten* Variablen (z. B. ältere Personen lassen häufiger Items aus). |
 | **MNAR** (Missing Not At Random) | Fehlen abhängig vom *unbeobachteten* Wert selbst (z. B. depressive Personen überspringen Items zu depressiven Symptomen). |
 
-JASP zeigt Dir in der Descriptives-Tabelle für jede Variable die Anzahl **Missing**. Schau einmal hin: gibt es Items mit deutlich mehr Missings als andere? Das kann auf MAR oder MNAR hindeuten — und ist Anlass, im echten Forschungskontext genauer hinzuschauen.
+JASP zeigt Dir in der Descriptives-Tabelle für jede Variable die Anzahl **Missing**. Schau einmal hin: gibt es Items mit deutlich mehr Missings als andere? Das kann auf MAR oder MNAR hindeuten und ist ein Anlass, im echten Forschungskontext genauer hinzuschauen.
 
 ## Aufgabe
 
@@ -111,8 +111,8 @@ JASP zeigt Dir in der Descriptives-Tabelle für jede Variable die Anzahl **Missi
 **Bonus (für die Schnellen):**
 
 - Boxplot `alter` gruppiert nach `geschlecht`.
-- Bar Chart `bildungsgrad` gruppiert nach `quelle_datensatz` (Feld **Split**; `quelle_datensatz` muss dafür Nominal sein) — sind die zehn vorgenerierten Datensätze in der Bildung vergleichbar verteilt?
-- Eine 2-Sätze-Reflexion: Welcher Bias-Typ aus der Tabelle ist in unserer Demo-Stichprobe *eher kein* Problem — und warum?
+- Bar Chart `bildungsgrad` gruppiert nach `quelle_datensatz` (Feld **Split**; `quelle_datensatz` muss dafür Nominal sein). Sind die zehn vorgenerierten Datensätze in der Bildung vergleichbar verteilt?
+- Eine 2-Sätze-Reflexion: Welcher Bias-Typ aus der Tabelle ist in unserer Demo-Stichprobe *eher kein* Problem, und warum?
 
 ::: {.callout-tip title="Für die Abgabe"}
 Notiere das BFI-Item mit den meisten fehlenden Werten und Deine 2–3-Sätze-Notiz zur Stichprobe. Siehe @sec-s07-abschluss.
@@ -122,4 +122,4 @@ Notiere das BFI-Item mit den meisten fehlenden Werten und Deine 2–3-Sätze-Not
 
 1. Was unterscheidet einen Stichprobenfehler von einem Stichprobenbias?
 2. Warum reicht ein Mittelwert allein nicht, um „die Persönlichkeit junger Erwachsener" zu beschreiben?
-3. Welche Bias-Typen sind in unserem Workshop-Datensatz besonders einschlägig — und welche eher nicht (Stichwort: kein echter Online-Fragebogen, sondern ausgedacht)?
+3. Welche Bias-Typen sind in unserem Workshop-Datensatz besonders einschlägig, und welche eher nicht (Stichwort: kein echter Online-Fragebogen, sondern ausgedacht)?

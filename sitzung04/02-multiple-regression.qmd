@@ -12,13 +12,13 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Die **Regression** ist das Arbeitspferd der quantitativen Psychologie. Die Idee ist denkbar einfach: Du sagst eine **abhängige Variable** (Kriterium, $Y$) aus einer oder mehreren **unabhängigen Variablen** (Prädiktoren, $X$) vorher. Bei der *einfachen* Regression ist es ein Prädiktor, bei der *multiplen* sind es mehrere — und genau das ist der Sprung ins Multivariate.
+Die **Regression** ist das Arbeitspferd der quantitativen Psychologie. Die Idee ist denkbar einfach: Du sagst eine **abhängige Variable** (Kriterium, $Y$) aus einer oder mehreren **unabhängigen Variablen** (Prädiktoren, $X$) vorher. Bei der *einfachen* Regression ist es ein Prädiktor, bei der *multiplen* sind es mehrere. Genau das ist der Sprung ins Multivariate.
 
 Der entscheidende Mehrwert der multiplen Regression: Jeder Koeffizient sagt Dir den Effekt eines Prädiktors, **während alle anderen Prädiktoren konstant gehalten werden**. Du rechnest also Störeinflüsse statistisch heraus.
 
 ## Von der Korrelation zur Regression
 
-Eine einfache Regression mit *einem* Prädiktor ist eng mit der Korrelation aus Sitzung 03 verwandt — sie beschreibt dieselbe Information, nur als **Gerade** statt als eine Zahl:
+Eine einfache Regression mit *einem* Prädiktor ist eng mit der Korrelation aus Sitzung 03 verwandt. Sie beschreibt dieselbe Information, nur als **Gerade** statt als eine Zahl:
 
 $$
 \hat{Y} = b_0 + b_1 X
@@ -33,7 +33,7 @@ $$
 \hat{Y} = b_0 + b_1 X_1 + b_2 X_2 + \dots + b_k X_k
 $$
 
-Jedes $b_j$ ist der **partielle** Effekt von $X_j$ — der Beitrag dieses Prädiktors, der **über die anderen hinausgeht**.
+Jedes $b_j$ ist der **partielle** Effekt von $X_j$, also der Beitrag dieses Prädiktors, der **über die anderen hinausgeht**.
 
 ## Die wichtigsten Kennzahlen
 
@@ -47,29 +47,29 @@ Jedes $b_j$ ist der **partielle** Effekt von $X_j$ — der Beitrag dieses Prädi
 | **$p$ pro Koeffizient** | Testet, ob ein einzelner Prädiktor (bei Kontrolle der anderen) von 0 verschieden ist. |
 
 ::: {.callout-tip title="$R^2$ richtig einordnen"}
-$R^2 = .25$ heißt: 25 % der Streuung in $Y$ werden erklärt, 75 % nicht. In der Persönlichkeits- und Sozialpsychologie sind $R^2$-Werte von .05–.30 ganz normal — Menschen sind nicht deterministisch. Erwarte keine .80 wie in der Physik.
+$R^2 = .25$ heißt: 25 % der Streuung in $Y$ werden erklärt, 75 % nicht. In der Persönlichkeits- und Sozialpsychologie sind $R^2$-Werte von .05–.30 ganz normal, Menschen sind eben nicht deterministisch. Erwarte keine .80 wie in der Physik.
 :::
 
-## Voraussetzungen — und wie Du sie prüfst
+## Voraussetzungen und wie Du sie prüfst
 
 | Voraussetzung | Prüfung in JASP | Was tun, wenn verletzt? |
 |---|---|---|
-| **Linearität** | Residuals vs. Predicted Plot — kein gebogenes Muster | Term quadrieren, transformieren |
+| **Linearität** | Residuals vs. Predicted Plot: kein gebogenes Muster | Term quadrieren, transformieren |
 | **Normalverteilung der Residuen** | Q-Q-Plot der standardisierten Residuen | bei großem $N$ für Tests/KI meist tolerierbar (s. Hinweis unten); sonst transformieren |
-| **Homoskedastizität** (gleiche Streuung) | Residuals vs. Predicted — gleichmäßiges Band | robuste Standardfehler, transformieren |
+| **Homoskedastizität** (gleiche Streuung) | Residuals vs. Predicted: gleichmäßiges Band | robuste Standardfehler, transformieren |
 | **Keine extreme Multikollinearität** | **VIF** (Variance Inflation Factor) | VIF > 5–10 → Prädiktoren zusammenfassen/entfernen |
 | **Unabhängige Beobachtungen** | aus dem Design, nicht aus Daten | bei Klumpung: Mehrebenenmodell (Kap. 07) |
 
 **Multikollinearität** heißt: zwei Prädiktoren messen fast dasselbe. Dann „streiten" sie sich um die erklärte Varianz, und die einzelnen $b$ werden instabil. Der **VIF** zeigt das: Werte nahe 1 sind ideal, über 5 wird's heikel.
 
 ::: {.callout-important title="Was der Grenzwertsatz hier wirklich sagt"}
-Ein großes $N$ macht Deine **Residuen nicht normalverteilt** — eine schiefe Verteilung bleibt schief, egal wie viele Fälle Du hast.
+Ein großes $N$ macht Deine **Residuen nicht normalverteilt**. Eine schiefe Verteilung bleibt schief, egal wie viele Fälle Du hast.
 
-Der **Zentrale Grenzwertsatz** sagt etwas Spezifischeres: Die **Summe (bzw. der Mittelwert) vieler unabhängiger Zufallsvariablen** mit endlicher Varianz ist bei wachsendem $N$ annähernd **normalverteilt** — und zwar *unabhängig davon*, wie die einzelnen Variablen selbst verteilt sind.
+Der **Zentrale Grenzwertsatz** sagt etwas Spezifischeres: Die **Summe (bzw. der Mittelwert) vieler unabhängiger Zufallsvariablen** mit endlicher Varianz ist bei wachsendem $N$ annähernd **normalverteilt**, und zwar *unabhängig davon*, wie die einzelnen Variablen selbst verteilt sind.
 
-Warum hilft das der Regression? Weil ein Regressionskoeffizient $b$ **selbst so eine Summe ist** — im Kern eine gewichtete Summe der vielen unabhängigen Fehlerbeiträge über alle Fälle. Genau deshalb nähert sich die **Stichprobenverteilung von $b$** mit wachsendem $N$ einer Normalverteilung an, *auch wenn die Residuen schief sind*. Und nur das brauchen **p-Werte und Konfidenzintervalle**: Sie setzen voraus, dass der *Schätzer* normalverteilt ist — nicht die Daten oder die Residuen.
+Warum hilft das der Regression? Weil ein Regressionskoeffizient $b$ **selbst so eine Summe ist**, im Kern eine gewichtete Summe der vielen unabhängigen Fehlerbeiträge über alle Fälle. Genau deshalb nähert sich die **Stichprobenverteilung von $b$** mit wachsendem $N$ einer Normalverteilung an, *auch wenn die Residuen schief sind*. Und nur das brauchen **p-Werte und Konfidenzintervalle**: Sie setzen voraus, dass der *Schätzer* normalverteilt ist, nicht die Daten oder die Residuen.
 
-Bei **kleinem** $N$ (wie bei uns, $N \approx 90$, und erst recht darunter) ist diese Annäherung noch nicht gut — dann schaust Du den Q-Q-Plot genauer an und ziehst ggf. eine Transformation oder ein robustes Verfahren in Betracht.
+Bei **kleinem** $N$ (wie bei uns, $N \approx 90$, und erst recht darunter) ist diese Annäherung noch nicht gut. Dann schaust Du den Q-Q-Plot genauer an und ziehst ggf. eine Transformation oder ein robustes Verfahren in Betracht.
 :::
 
 ## In JASP rechnen
@@ -84,7 +84,7 @@ Bei **kleinem** $N$ (wie bei uns, $N \approx 90$, und erst recht darunter) ist d
    - **Tolerance and VIF** (Kollinearität; *Collinearity diagnostics* zeigt dagegen Eigenwerte und Konditionsindizes)
    - unter **Plots → Residuals Plots:** **Residuals vs. predicted** und **Q-Q plot standardized residuals**
 
-### Hierarchische Regression — Modelle vergleichen
+### Hierarchische Regression: Modelle vergleichen
 
 Oft willst Du wissen: *Bringt ein zusätzlicher Block von Prädiktoren überhaupt etwas?* Dafür baust Du in JASP unter **„Model"** mehrere Blöcke:
 
@@ -95,23 +95,23 @@ JASP zeigt dann **$\Delta R^2$** und einen $F$-Test dafür: *Erklärt Modell 2 s
 
 ## Was unsere Daten hergeben
 
-Erinnere Dich an den [Datenhinweis](00-uebersicht.qmd#sec-tag3-datenhinweis): Zwischen den fünf Big-Five-Skalen steckt ein **schwaches, echtes Signal**, zwischen Demografie und Persönlichkeit dagegen **keines**. Das gibt zwei lehrreiche Modelle — wie sie genau ausfallen, hängt auch von den Zeilen ab, die Ihr selbst beigesteuert habt:
+Erinnere Dich an den [Datenhinweis](00-uebersicht.qmd#sec-tag3-datenhinweis): Zwischen den fünf Big-Five-Skalen steckt ein **schwaches, echtes Signal**, zwischen Demografie und Persönlichkeit dagegen **keines**. Das gibt zwei lehrreiche Modelle. Wie sie genau ausfallen, hängt auch von den Zeilen ab, die Ihr selbst beigesteuert habt:
 
-**Modell A — sollte (teilweise) etwas finden.** Wir sagen Neurotizismus aus den vier anderen Skalen vorher:
+**Modell A sollte (teilweise) etwas finden.** Wir sagen Neurotizismus aus den vier anderen Skalen vorher:
 
 $$
 \widehat{\texttt{N\_mean}} = b_0 + b_1\,\texttt{E\_mean} + b_2\,\texttt{V\_mean} + b_3\,\texttt{G\_mean} + b_4\,\texttt{O\_mean}
 $$
 
-Weil alle Skalen leicht positiv zusammenhängen, **bündelt** dieses Modell mehrere kleine Signale. Die Richtung: Hier ist *am ehesten* etwas zu finden. Einzelne Prädiktoren können dabei trotzdem nicht signifikant sein — bei einer kleinen Stichprobe ist das normal.
+Weil alle Skalen leicht positiv zusammenhängen, **bündelt** dieses Modell mehrere kleine Signale. Die Richtung: Hier ist *am ehesten* etwas zu finden. Einzelne Prädiktoren können dabei trotzdem nicht signifikant sein, bei einer kleinen Stichprobe ist das normal.
 
-**Modell B — sollte (fast) nichts finden.** Wir sagen dieselbe Skala aus der Demografie vorher:
+**Modell B sollte (fast) nichts finden.** Wir sagen dieselbe Skala aus der Demografie vorher:
 
 $$
 \widehat{\texttt{N\_mean}} = b_0 + b_1\,\texttt{alter} + b_2\,\texttt{bildungsgrad} + b_3\,\texttt{geschlecht}
 $$
 
-Die Richtung: Hier ist **kaum etwas** zu erwarten — in diesen Daten gibt es den Zusammenhang schlicht nicht. Falls doch ein Koeffizient signifikant wird, ist das eher ein **Fehler erster Art** (Zufallstreffer) als ein echter Effekt. Ein Nullbefund ist hier das, was zur Datenlage passt — und kein Versagen Deiner Analyse.
+Die Richtung: Hier ist **kaum etwas** zu erwarten, denn in diesen Daten gibt es den Zusammenhang schlicht nicht. Falls doch ein Koeffizient signifikant wird, ist das eher ein **Fehler erster Art** (Zufallstreffer) als ein echter Effekt. Ein Nullbefund ist hier das, was zur Datenlage passt, und kein Versagen Deiner Analyse.
 
 ::: {.callout-important title="Die eigentliche Lektion"}
 Modell A und Modell B nebeneinander zeigen Dir den Kern sauberer Forschung: Ein Verfahren findet nur dann etwas, wenn in den Daten **wirklich** etwas ist. Ein Nullbefund (Modell B) ist **kein Versagen Deiner Analyse**, sondern eine ehrliche Aussage über die Welt. Du berichtest ihn genauso selbstbewusst wie einen Effekt.
@@ -119,7 +119,7 @@ Modell A und Modell B nebeneinander zeigen Dir den Kern sauberer Forschung: Ein 
 
 ## Was in den Bericht gehört
 
-Einen festen Wortlaut gibt es nicht — diese Angaben sollten aber vollständig vorkommen:
+Einen festen Wortlaut gibt es nicht, aber diese Angaben sollten aber vollständig vorkommen:
 
 - der **Gesamttest** des Modells: $F$ mit beiden Freiheitsgraden, $p$, $R^2$ und adjustiertes $R^2$,
 - **pro Prädiktor** der Koeffizient ($b$ und standardisiert $\beta$), sein $p$-Wert und sein Konfidenzintervall,
@@ -139,7 +139,7 @@ Was drinsteht: Gesamttest ($F$, $p$, $R^2$, adj. $R^2$), die Koeffizienten mit $
 
 - modelliert nur **lineare** Zusammenhänge (es sei denn, Du baust Terme ein)
 - empfindlich gegen Ausreißer und Multikollinearität
-- $R^2$ steigt **immer**, wenn Du Prädiktoren hinzufügst — deshalb adj. $R^2$
+- $R^2$ steigt **immer**, wenn Du Prädiktoren hinzufügst, deshalb gibt es das adj. $R^2$
 - **keine** Kausalaussage allein aus den Koeffizienten (Sitzung 03 lässt grüßen)
 
 ## Aufgabe
@@ -148,7 +148,7 @@ Was drinsteht: Gesamttest ($F$, $p$, $R^2$, adj. $R^2$), die Koeffizienten mit $
 
 1. Rechne **Modell A**: `N_mean` ~ `E_mean` + `V_mean` + `G_mean` + `O_mean`. Aktiviere Model fit, Confidence intervals, Tolerance and VIF und den **Q-Q-Plot der Residuen**.
 2. Rechne **Modell B**: `N_mean` ~ `alter` + `bildungsgrad` + `geschlecht` (`alter` und `bildungsgrad` unter **Covariates**, `geschlecht` unter **Factors**; ein `geschlecht`-Filter aus Sitzung 03 muss entfernt sein).
-3. Notiere **pro Modell** die zentralen Kennwerte — Gesamttest ($F$, df, $p$, $R^2$, adj. $R^2$), den stärksten Prädiktor ($\beta$, $p$) — und Deine Schlussfolgerung in einem Satz.
+3. Notiere **pro Modell** die zentralen Kennwerte, also Gesamttest ($F$, df, $p$, $R^2$, adj. $R^2$) und den stärksten Prädiktor ($\beta$, $p$), und Deine Schlussfolgerung in einem Satz.
 
 **Bonus (für die Schnellen):**
 
@@ -163,5 +163,5 @@ Notiere für Modell A: R², F, p, den stärksten Prädiktor mit β und den grö�
 
 1. Was bedeutet es, dass ein Regressionskoeffizient ein *partieller* Effekt ist?
 2. Warum berichtest Du bei mehreren Prädiktoren das adjustierte statt des normalen $R^2$?
-3. Ein VIF von 8 für zwei Prädiktoren — was ist das Problem und was tust Du?
+3. Ein VIF von 8 für zwei Prädiktoren: Was ist das Problem und was tust Du?
 4. Modell B aus dem Beispiel wird nicht signifikant. Ist Deine Analyse gescheitert? Begründe.

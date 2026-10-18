@@ -11,16 +11,16 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Fast alle Tests, die Du bisher gerechnet hast, folgen der frequentistischen Logik: Nullhypothese aufstellen, p-Wert berechnen, mit α vergleichen. Diese Logik ist nützlich — wird aber notorisch falsch verstanden und falsch angewendet (Vorlesung 11). Das ist eine der Ursachen der Replikationskrise.
+Fast alle Tests, die Du bisher gerechnet hast, folgen der frequentistischen Logik: Nullhypothese aufstellen, p-Wert berechnen, mit α vergleichen. Diese Logik ist nützlich, wird aber notorisch falsch verstanden und falsch angewendet (Vorlesung 11). Das ist eine der Ursachen der Replikationskrise.
 
-## Was ein p-Wert ist — und was nicht
+## Was ein p-Wert ist und was nicht
 
 > Der **p-Wert** ist die Wahrscheinlichkeit, ein mindestens so extremes Ergebnis zu beobachten, **wenn die Nullhypothese wahr ist**.
 
 | Häufige Fehlinterpretation | Richtig ist |
 |---|---|
 | „p = .03 heißt: H0 ist mit 3 % Wahrscheinlichkeit wahr." | p sagt nichts über die Wahrscheinlichkeit von Hypothesen (das kann nur Bayes, @sec-tag3-bayes). |
-| „p > .05 heißt: Es gibt keinen Effekt." | Kein Nachweis von Abwesenheit — vielleicht war die Power zu gering (@sec-power). |
+| „p > .05 heißt: Es gibt keinen Effekt." | Kein Nachweis von Abwesenheit, vielleicht war die Power zu gering (@sec-power). |
 | „Kleines p = großer Effekt." | p hängt stark von N ab; bei großem N wird jeder Mini-Effekt signifikant. |
 | „p = .049 und p = .051 sind grundverschieden." | Die Evidenz ist praktisch gleich; die Grenze .05 ist eine Konvention. |
 
@@ -56,9 +56,9 @@ Gegenmittel kennst Du aus Sitzung 01: **Preregistration**, offene Daten und Skri
 1. Modul **Equivalence T-Tests** über das **„+"** aktivieren.
 2. **Equivalence T-Tests → Classical → Independent Samples T-Test**.
 3. **Dependent Variables:** `G_mean` · **Grouping Variable:** `geschlecht` (Stufe 3 per Filter ausschließen, wie in @sec-tag2-ttest).
-4. **Equivalence Region:** von −0.5 bis 0.5, **Bounds specification in:** *Cohen's d* (prüfen — voreingestellt ist *Raw*).
+4. **Equivalence Region:** von −0.5 bis 0.5, **Bounds specification in:** *Cohen's d* (bitte prüfen, voreingestellt ist *Raw*).
 5. **Tests:** *Student* (voreingestellt). Optional **Equivalence bounds plot**.
-6. Lies den p-Wert des Äquivalenztests ab (der größere der beiden einseitigen Tests). Ist er < .05, liegen die Gruppen innerhalb der Grenzen — sie sind „äquivalent".
+6. Lies den p-Wert des Äquivalenztests ab (der größere der beiden einseitigen Tests). Ist er < .05, liegen die Gruppen innerhalb der Grenzen, sie sind also „äquivalent".
 
 Optional zur Anschauung: Modul **Learn Stats** → **P Values** simuliert, wie p-Werte unter H0 und H1 verteilt sind.
 
@@ -68,7 +68,7 @@ Optional zur Anschauung: Modul **Learn Stats** → **P Values** simuliert, wie p
 
 1. Berechne von Hand: Wahrscheinlichkeit für mindestens ein falsch-positives Ergebnis bei 10 unabhängigen Tests mit α = .05.
 2. Rechne den Äquivalenztest für `G_mean` ~ `geschlecht` mit Grenzen ±0.5 (Cohen's d).
-3. Vergleiche mit dem normalen *t*-Test: Was folgt aus „nicht signifikant" — und was aus dem Äquivalenztest?
+3. Vergleiche mit dem normalen *t*-Test: Was folgt aus „nicht signifikant", und was aus dem Äquivalenztest?
 
 **Bonus:**
 

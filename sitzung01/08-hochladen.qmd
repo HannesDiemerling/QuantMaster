@@ -52,25 +52,25 @@ datensatz-<XX>-<deinKuerzel>.csv
 
 Es gibt zwei Wege. **Weg A** ist empfohlen, **Weg B** ist der Ausweg ohne GitHub-Account. Beide führen zum selben Ergebnis.
 
-### Weg A — Upload über GitHub im Browser (empfohlen)
+### Weg A: Upload über GitHub im Browser (empfohlen)
 
 Du brauchst nur einen Browser und Deinen GitHub-Account, keine zusätzliche Software.
 
 1. Auf [github.com](https://github.com) anmelden (oben rechts **Sign in**).
 2. Das Workshop-Repo öffnen. In der Dateiliste nacheinander auf den Ordner **`data`** und dann auf **`student-uploads`** klicken. Oben über der Liste steht jetzt `QuantMaster / data / student-uploads /`.
 3. Rechts über der Dateiliste auf den Button **Add file** klicken und im Menü **Upload files** wählen.
-4. Deine Datei `datensatz-XX-<kuerzel>.csv` aus dem Datei-Explorer bzw. Finder in das große Feld *„Drag files here …"* ziehen — oder auf **choose your files** klicken und sie auswählen. Die Datei erscheint unter dem Feld mit ihrem Namen.
+4. Deine Datei `datensatz-XX-<kuerzel>.csv` aus dem Datei-Explorer bzw. Finder in das große Feld *„Drag files here …"* ziehen oder auf **choose your files** klicken und sie auswählen. Die Datei erscheint unter dem Feld mit ihrem Namen.
 5. Darunter steht der Kasten **Commit changes**. Ins erste Feld eine kurze Beschreibung schreiben, z. B. *„Upload Datensatz 03 von mm"*.
 6. Je nach Rechten siehst Du:
    - **„Commit directly to the `main` branch"** → ausgewählt lassen, dann den grünen Button **Commit changes** klicken. Fertig.
    - **„Create a new branch for this commit and start a pull request"** (oder GitHub bietet *„Propose changes"* an) → so lassen, auf **Propose changes** klicken und auf der nächsten Seite **Create pull request**. Das ist gleichwertig: Die Lehrperson übernimmt Deine Datei mit einem Klick.
 7. Zurück im Ordner `data/student-uploads/` sollte Deine Datei in der Liste stehen (bei einem Pull Request erst, nachdem die Lehrperson ihn übernommen hat).
 
-### Weg B — per Mail (ohne GitHub-Account)
+### Weg B: per Mail (ohne GitHub-Account)
 
 1. Neue Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
-2. **Betreff:** `M15 Upload — <Kennziffer>` (z. B. `M15 Upload — 2013`).
-3. **Anhang:** Deine Datei `datensatz-XX-<kuerzel>.csv` — genau die CSV-Datei, keine Excel- oder JASP-Datei und kein Screenshot.
+2. **Betreff:** `M15 Upload <Kennziffer>` (z. B. `M15 Upload 2013`).
+3. **Anhang:** Deine Datei `datensatz-XX-<kuerzel>.csv`. Bitte genau die CSV-Datei, keine Excel- oder JASP-Datei und kein Screenshot.
 4. Text: nicht nötig.
 
 Die Lehrperson legt Deine Datei ins Repo, danach läuft der Merge-Workflow wie bei allen anderen. Auch ohne Account kannst Du anschließend im Browser kontrollieren, ob alles geklappt hat (Schritt 4).
@@ -82,7 +82,7 @@ Die Lehrperson legt Deine Datei ins Repo, danach läuft der Merge-Workflow wie b
 ## Schritt 4: Eigenen Upload kontrollieren
 
 1. Öffne im Browser (Anmeldung nicht nötig) im Repo den Ordner `data/student-uploads/`. Bei Weg B kann das einen Tag dauern, bis die Lehrperson die Datei eingestellt hat.
-2. Klick Deine Datei an — sie sollte mit 10 Zeilen + Headerzeile angezeigt werden.
+2. Klick Deine Datei an. Sie sollte mit 10 Zeilen + Headerzeile angezeigt werden.
 3. Schau kurz, ob Demografie und ein paar BFI-Werte stimmen.
 
 Wenn Du einen Fehler entdeckst: korrigiere lokal und lade die Datei erneut hoch (Weg A: gleicher Name → GitHub überschreibt sie; Weg B: neue Mail mit der korrigierten Datei).
@@ -91,7 +91,7 @@ Wenn Du einen Fehler entdeckst: korrigiere lokal und lade die Datei erneut hoch 
 
 Jeder Upload startet im Repo-Reiter **Actions** den Workflow *Merge student uploads*. Er dauert 1–2 Minuten und
 
-1. liest alle CSV-Dateien — auch falsch benannte oder im falschen Ordner abgelegte,
+1. liest alle CSV-Dateien, auch falsch benannte oder im falschen Ordner abgelegte,
 2. erkennt die vorgenerierten Zeilen am Inhalt und übernimmt jeden Seed-Datensatz **genau einmal** (in einer Referenz-Bereinigung),
 3. hängt alle eigenen Zeilen an und setzt unmögliche Werte auf fehlend,
 4. schreibt `data/combined/m15-gesamt.csv` und den Bericht `data/combined/merge-report.md`.
@@ -101,7 +101,7 @@ Im Merge-Report siehst Du für Deine Datei, ob sie erkannt wurde, wie viele Fehl
 ## Aufgabe
 
 1. Eigene Zeile in den bereinigten Datensatz einfügen.
-2. Datei korrekt benannt hochladen — über GitHub (Weg A) oder per Mail (Weg B).
+2. Datei korrekt benannt hochladen, über GitHub (Weg A) oder per Mail (Weg B).
 3. Im Repo prüfen, dass Deine Datei dort liegt und die Zeilenzahl stimmt.
 4. Nach ca. 2 Minuten `data/combined/merge-report.md` öffnen: Steht Deine Datei mit Status „ok" und ohne Warnung drin? Sonst korrigieren und erneut hochladen.
 

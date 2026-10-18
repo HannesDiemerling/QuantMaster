@@ -12,7 +12,7 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Jeder Datensatz enthält **genau zwei** absichtliche Fehler — irgendwo zwischen Demografie und BFI-K-Items. Deine Aufgabe: sie systematisch finden und sauber behandeln. Das ist die Mikro-Variante echter Datenbereinigung, wie sie jedem statistischen Modell vorausgeht.
+Jeder Datensatz enthält **genau zwei** absichtliche Fehler, irgendwo zwischen Demografie und BFI-K-Items. Deine Aufgabe: sie systematisch finden und sauber behandeln. Das ist die Mikro-Variante echter Datenbereinigung, wie sie jedem statistischen Modell vorausgeht.
 
 ## JASP-Oberfläche in 30 Sekunden
 
@@ -21,7 +21,7 @@ JASP ist in drei Bereiche aufgeteilt:
 | Bereich | Inhalt |
 |---|---|
 | **Oben** | Leiste mit dem Hauptmenü (☰, hier heißt es „File": Open, Save, Export Data, …) und den Analyse-Modulen als Buttons (Descriptives, T-Tests, ANOVA, Regression, …) |
-| **Links** | Datenansicht (Spreadsheet-ähnlich) — hier siehst Du Deine Variablen |
+| **Links** | Datenansicht (ähnlich wie eine Tabellenkalkulation), hier siehst Du Deine Variablen |
 | **Rechts** | Output mit Analyse-Ergebnissen |
 
 Menüpfade in diesem Seminar beginnen deshalb direkt mit dem Modul-Button, z. B. **Descriptives → Descriptive Statistics**. Module, die nicht sichtbar sind (z. B. Reliability, Machine Learning, SEM), schaltest Du über das blaue **„+"** oben rechts frei.
@@ -32,11 +32,11 @@ Wichtig: Ein Klick auf den **Spaltenkopf** öffnet das Variablen-Fenster (Name, 
 
 1. JASP starten.
 2. **File → Open → Computer → Browse** und Deine `datensatz-XX.csv` auswählen.
-3. JASP zeigt die Tabelle. Oben siehst Du die Variablennamen — alle 25 Spalten sollten da sein.
+3. JASP zeigt die Tabelle. Oben siehst Du die Variablennamen. Alle 25 Spalten sollten da sein.
 
 ## Schritt 2: Variable-Typen setzen
 
-JASP rät den Typ beim Import: Ganzzahl-Spalten mit 3–10 verschiedenen Werten werden **Ordinal**, Spalten mit genau 2 Werten **Nominal**, alles andere **Scale**. Deshalb kommen `geschlecht` und die BFI-Items zunächst als Ordinal an — stell sie um:
+JASP rät den Typ beim Import: Ganzzahl-Spalten mit 3–10 verschiedenen Werten werden **Ordinal**, Spalten mit genau 2 Werten **Nominal**, alles andere **Scale**. Deshalb kommen `geschlecht` und die BFI-Items zunächst als Ordinal an. Stell sie um:
 
 | Variable | Korrekter Typ in JASP |
 |---|---|
@@ -50,7 +50,7 @@ Klick auf den kleinen Typ-Indikator links neben dem Spaltennamen, um den Typ umz
 
 ## Schritt 3: Descriptive Statistics
 
-Jetzt schauen wir uns die Daten an — bevor wir analysieren:
+Bevor wir irgendetwas analysieren, schauen wir uns die Daten an:
 
 1. **Descriptives → Descriptive Statistics** öffnen.
 2. Alle Variablen ins rechte Feld ziehen.
@@ -66,7 +66,7 @@ JASP berechnet:
 
 ## Schritt 4: Drei Such-Strategien
 
-### Strategie A — Wertebereich prüfen
+### Strategie A: Wertebereich prüfen
 
 Geh die Descriptives-Tabelle von oben nach unten durch und vergleiche **Min** und **Max** mit dem Codebook:
 
@@ -80,14 +80,14 @@ Geh die Descriptives-Tabelle von oben nach unten durch und vergleiche **Min** un
 
 **Ein BFI-Item mit Max = 7? Treffer.** **Alter = 200? Treffer.**
 
-### Strategie B — Häufigkeitstabellen
+### Strategie B: Häufigkeitstabellen
 
 Bei `geschlecht`, `bildungsgrad`, `probandennummer`: prüfe die Frequency Tables.
 
 - Taucht in `geschlecht` ein Code 9 auf? Ungültig.
-- Hat `probandennummer` einen Wert mit Häufigkeit 2? **Doppelte Nummer** — kommt sonst nie vor.
+- Hat `probandennummer` einen Wert mit Häufigkeit 2? **Doppelte Nummer**, das kommt sonst nie vor.
 
-### Strategie C — Missings
+### Strategie C: Missings
 
 Die Descriptives-Tabelle enthält die Spalte **Missing**. Steht dort irgendwo eine 1 (oder mehr), während Du keine fehlenden Werte erwartest: hingucken.
 
@@ -101,20 +101,20 @@ Du hast drei legitime Optionen, je nach Fehlertyp:
 | **Auf fehlend setzen** (Zelle leeren) | Wenn der wahre Wert nicht rekonstruierbar ist, der Rest der Zeile aber brauchbar |
 | **Zeile komplett entfernen** | Wenn der Fall insgesamt unbrauchbar oder mehrfach defekt ist |
 
-**Für unsere Übung:** Setze die fehlerhaften Werte auf **fehlend** (leere Zelle) und behalte die Zeilen. So bleibt die Stichprobengröße konstant — Du verlierst Informationen nur in der konkreten Zelle.
+**Für unsere Übung:** Setze die fehlerhaften Werte auf **fehlend** (leere Zelle) und behalte die Zeilen. So bleibt die Stichprobengröße konstant, und Du verlierst Informationen nur in der konkreten Zelle.
 
 ### Beispiele
 
 - **`BFI_07 = 7`** → Zelle leeren (Wert ist außerhalb 1–5 und nicht reparierbar).
 - **`alter = 200`** → Zelle leeren.
-- **Zwei Zeilen mit `probandennummer = 4`** → Wenn der Rest plausibel ist, vergib der falschen Zeile die fehlende Nummer aus 1–9 (die Nummern laufen sonst lückenlos von 1 bis 9). Nur ganze Zahlen — Werte wie „8a" kann später niemand mehr verarbeiten.
+- **Zwei Zeilen mit `probandennummer = 4`** → Wenn der Rest plausibel ist, vergib der falschen Zeile die fehlende Nummer aus 1–9 (die Nummern laufen sonst lückenlos von 1 bis 9). Bitte nur ganze Zahlen. Werte wie „8a" kann später niemand mehr verarbeiten.
 - **`bildungsgrad` leer** → so lassen. Das ist bereits ein fehlender Wert.
 
 In JASP änderst Du einen Wert per **Doppelklick** auf die Zelle → Wert ändern oder löschen → Enter. Lässt sich die Zelle nicht bearbeiten, wechsle oben über **Edit Data** in den Bearbeitungsmodus. Rechtsklick auf eine Zelle bietet außerdem *Clear cells* (Zelle leeren) und *Delete row*.
 
 ## Schritt 6: Exportieren
 
-JASP speichert Analysen in `.jasp`-Dateien — das brauchen wir nicht. **Wir brauchen die bereinigte CSV.**
+JASP speichert Analysen in `.jasp`-Dateien, die brauchen wir hier nicht. **Wir brauchen die bereinigte CSV.**
 
 1. **File → Export Data**.
 2. Format: **CSV**.
@@ -134,10 +134,10 @@ Wenn JASP beim Export Werte plötzlich als Kommazahlen schreibt (z. B. `3.00` st
 5. Behandle sie (auf fehlend setzen oder neue Nummer vergeben).
 6. Exportiere das Ergebnis als `datensatz-XX-bereinigt.csv`.
 
-Wenn Du Dir bei einem Fehler unsicher bist — frag die Lehrperson, **bevor** Du eine Zeile löschst.
+Wenn Du Dir bei einem Fehler unsicher bist, frag die Lehrperson, **bevor** Du eine Zeile löschst.
 
 ## Selbstcheck
 
 1. Welche zwei Fehler hast Du gefunden? Wo lagen sie (Zeile, Spalte)?
 2. Warum ist „Wert auf fehlend setzen" oft besser als „Zeile löschen"?
-3. Wo gehört die exportierte CSV-Datei hin — und in welchem Format?
+3. Wo gehört die exportierte CSV-Datei hin, und in welchem Format?

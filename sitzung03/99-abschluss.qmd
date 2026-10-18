@@ -1,4 +1,4 @@
-# Sitzung 03 — Abschluss & Abgabe {#sec-s03-abschluss}
+# Sitzung 03: Abschluss & Abgabe {#sec-s03-abschluss}
 
 ## Was Du heute geschafft hast
 
@@ -9,16 +9,16 @@
 
 Schick **eine** Mail bis spätestens zum Tag vor Sitzung 04 an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
 
-- **Betreff:** `M15 S03 — <Kennziffer>`
+- **Betreff:** `M15 S03 <Kennziffer>`
 - **Anhang:** keiner
 - **Text:** Vorlage kopieren und ausfüllen. Dezimalzahlen mit 2 Nachkommastellen (wo nicht anders angegeben), p-Werte mit 3.
 
 {{< include _abgabe.md >}}
 
-## Reflexion (privat, 3 Minuten)
+## Reflexion (privat)
 
 1. Eine Sache, die heute klar wurde.
-2. Eine Sache, die noch unklar ist — bring sie in Deine Kleingruppe oder ins Plenum.
+2. Eine Sache, die noch unklar ist. Bring sie in Deine Kleingruppe oder ins Plenum.
 
 ## Ausblick auf Sitzung 04
 

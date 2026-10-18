@@ -1,4 +1,4 @@
-# Sitzung 09 — Übersicht {#sec-s09-uebersicht}
+# Sitzung 09: Übersicht {#sec-s09-uebersicht}
 
 ::: {.callout-note title="Lernziele"}
 Nach dieser Sitzung …
@@ -12,15 +12,16 @@ Nach dieser Sitzung …
 
 ## Worum es geht
 
-In der Psychotherapieforschung sind Ergebnisse oft binär: remittiert oder nicht, erkrankt oder nicht. Heute lernst Du die passenden Verfahren und Kennwerte — und wie Du Wirksamkeitsstudien und epidemiologische Befunde liest.
+In der Psychotherapieforschung sind Ergebnisse oft binär: remittiert oder nicht, erkrankt oder nicht. Heute lernst Du die passenden Verfahren und Kennwerte kennen und übst, Wirksamkeitsstudien und epidemiologische Befunde zu lesen.
 
-## Ablauf (ca. 2 Stunden, online)
+## Vorbereitung
 
-| Zeit | Modus | Inhalt |
-|---|---|---|
-| 0:00–0:10 | **Plenum** | Input: Wahrscheinlichkeit, Odds, Odds Ratio |
-| 0:10–0:50 | Self-Study + Kleingruppe | @sec-tag3-logistisch |
-| 0:50–1:00 | **Plenum** | Vom OR zur NNT |
-| 1:00–1:45 | Self-Study + Kleingruppe | @sec-epi |
-| 1:45–2:00 | **Plenum** | Fragen, Abgabe |
+- Deine `.jasp`-Datei mit dem Gesamtdatensatz und den Skalenspalten
 
+## Inhalte
+
+1. Kurzer Input: Wahrscheinlichkeit, Odds und Odds Ratio
+2. @sec-tag3-logistisch
+3. Vom Odds Ratio zur NNT
+4. @sec-epi
+5. Fragen und Abgabe (@sec-s09-abschluss)

@@ -3,7 +3,7 @@
 ::: {.callout-note title="Lernziele"}
 Nach diesem Kapitel …
 
-- kennst Du die gängigen Wege, mehrere CSV-Dateien zu einer zu kombinieren — und ihre Fallstricke,
+- kennst Du die gängigen Wege, mehrere CSV-Dateien zu einer zu kombinieren, und ihre Fallstricke,
 - hast Du selbst sieben Uploads zu einer Datei zusammengeführt und die Zeilenzahl kontrolliert,
 - hast Du den offiziellen Gesamtdatensatz in JASP geöffnet und die Variablentypen korrekt gesetzt,
 - verstehst Du, warum eine global eindeutige ID nötig ist.
@@ -13,12 +13,12 @@ Nach diesem Kapitel …
 
 Unter `data/student-uploads/` liegt pro Person eine Datei: 9 vorgenerierte Probanden plus eine eigene Zeile. Daraus soll *ein* Datensatz werden. Klingt banal, ist es aber nicht: gleiche Probandennummern in verschiedenen Dateien, derselbe Seed-Datensatz mehrfach hochgeladen, Semikolon statt Komma, falsche Dateinamen.
 
-Du machst es deshalb **zuerst selbst für einige Dateien** — um zu sehen, was schiefgehen kann. Für die Analysen ab jetzt nutzen dann **alle** den automatisch erzeugten, geprüften Gesamtdatensatz. So rechnen alle mit exakt denselben Daten, und Ergebnisse sind vergleichbar.
+Du machst es deshalb **zuerst selbst für einige Dateien**, um zu sehen, was dabei schiefgehen kann. Für die Analysen ab jetzt nutzen dann **alle** den automatisch erzeugten, geprüften Gesamtdatensatz. So rechnen alle mit exakt denselben Daten, und Ergebnisse sind vergleichbar.
 
 ## Das Problem mit den Probandennummern
 
-::: {.callout-important title="Designentscheidung — bewusst suboptimal"}
-Die zehn vorgenerierten Datensätze nutzen jeweils die Probandennummern 1–9. „Probandennummer 3" gibt es also zehnmal — für zehn **verschiedene** Personen. Und wenn drei Studierende Datensatz 03 hochgeladen haben, steht dieselbe Person sogar dreimal in den Uploads.
+::: {.callout-important title="Designentscheidung: bewusst suboptimal"}
+Die zehn vorgenerierten Datensätze nutzen jeweils die Probandennummern 1–9. „Probandennummer 3" gibt es also zehnmal, für zehn **verschiedene** Personen. Und wenn drei Studierende Datensatz 03 hochgeladen haben, steht dieselbe Person sogar dreimal in den Uploads.
 
 Das passiert in echten Projekten öfter, als man denkt (z. B. mehrere Erhebungsorte, die jeweils bei 1 anfangen). Richtig wäre eine **global eindeutige ID** von Anfang an, z. B. `Ort * 100 + Person`.
 :::
@@ -31,13 +31,13 @@ Das passiert in echten Projekten öfter, als man denkt (z. B. mehrere Erhebungso
 | **Excel / LibreOffice** | Dateien öffnen, Zeilen untereinander kopieren, als CSV speichern | bequem | Excel speichert je nach Spracheinstellung mit **Semikolon**, macht aus Zahlen manchmal Datumswerte |
 | **JASP** | Daten im Bearbeitungsmodus (**Edit Data**) einfügen: Zeilen aus einer anderen Datei kopieren und per Rechtsklick → *Paste* unter die letzte Zeile setzen (ggf. vorher *Insert row below*) | ohne Zusatzprogramm | JASP hat **keine** Funktion „Datensatz anhängen"; bei vielen Dateien unpraktisch |
 | **Skript** (R, Python) | z. B. in R: `do.call(rbind, lapply(dateien, read.csv))` | reproduzierbar, beliebig viele Dateien | erfordert Programmierkenntnisse |
-| **Automatisiert** (GitHub Action) | das Skript `scripts/merge-uploads.R` läuft bei jedem Upload | immer aktuell, mit Prüfungen | man muss dem Skript vertrauen — deshalb gibt es den Merge-Report |
+| **Automatisiert** (GitHub Action) | das Skript `scripts/merge-uploads.R` läuft bei jedem Upload | immer aktuell, mit Prüfungen | man muss dem Skript vertrauen, deshalb gibt es den Merge-Report |
 
-Für wenige Dateien ist der Texteditor am sichersten. Ab ein paar Dutzend Dateien führt kein Weg an einem Skript vorbei — genau deshalb läuft in unserem Repo ein Workflow.
+Für wenige Dateien ist der Texteditor am sichersten. Ab ein paar Dutzend Dateien führt kein Weg an einem Skript vorbei. Genau deshalb läuft in unserem Repo ein Workflow.
 
 ## Schritt 1: Deine sieben Dateien herunterladen
 
-Öffne im Repo `data/student-uploads/`. GitHub listet die Dateien alphabetisch. Deine Dateien sind **Deine eigene Datei und die sechs Dateien danach** (am Ende der Liste geht es oben weiter). Das sind 7 Dateien — sie decken mehrere verschiedene Seed-Datensätze ab.
+Öffne im Repo `data/student-uploads/`. GitHub listet die Dateien alphabetisch. Deine Dateien sind **Deine eigene Datei und die sechs Dateien danach** (am Ende der Liste geht es oben weiter). Das sind 7 Dateien, und sie decken mehrere verschiedene Seed-Datensätze ab.
 
 Herunterladen: jede Datei anklicken → **Download raw file** (Pfeil-Symbol oben rechts). Alternative: auf der Repo-Startseite **Code → Download ZIP** und die sieben Dateien aus dem entpackten Ordner nehmen.
 
@@ -47,7 +47,7 @@ Herunterladen: jede Datei anklicken → **Download raw file** (Pfeil-Symbol oben
 2. Hänge an die Kopfzeile `,quelle_datei` an und an jede Datenzeile `,` plus den Dateinamen (z. B. `,datensatz-03-mm`).
 3. Für jede weitere Datei: **ohne** Kopfzeile die Datenzeilen kopieren, unten anhängen, Herkunft ergänzen.
 4. Speichern als `meine-kombination.csv` (UTF-8).
-5. **Kontrolle:** Die Datei muss **eine Kopfzeile und 10 × 7 = 70 Datenzeilen** haben — weniger, wenn eine Datei kürzer war. Prüf die Zeilenzahl im Editor (Zeilennummer links).
+5. **Kontrolle:** Die Datei muss **eine Kopfzeile und 10 × 7 = 70 Datenzeilen** haben, oder weniger, wenn eine Datei kürzer war. Prüf die Zeilenzahl im Editor (Zeilennummer links).
 
 ::: {.callout-tip title="Typische Fehler, die Du jetzt findest"}
 - eine Datei nutzt `;` statt `,` → die Spalten verrutschen,
@@ -69,7 +69,7 @@ Im **offiziellen** Gesamtdatensatz `data/combined/m15-gesamt.csv` ist das schon 
 | `quelle_datensatz` | Nummer des Seed-Datensatzes (1–10) |
 | `quelle_datei` | aus welcher Datei die Zeile stammt |
 
-Jeder hochgeladene Seed-Datensatz steht **genau einmal** drin, und zwar in einer Referenz-Bereinigung (die zwei Fehler auf fehlend gesetzt bzw. die Nummer korrigiert). Wie Du selbst bereinigt hast, ändert also nichts an den gemeinsamen Daten — Dein Ergebnis siehst Du in der Spalte „Fehler gefunden" des Reports.
+Jeder hochgeladene Seed-Datensatz steht **genau einmal** drin, und zwar in einer Referenz-Bereinigung (die zwei Fehler auf fehlend gesetzt bzw. die Nummer korrigiert). Wie Du selbst bereinigt hast, ändert also nichts an den gemeinsamen Daten. Dein Ergebnis siehst Du in der Spalte „Fehler gefunden" des Reports.
 
 ## Schritt 4: Gesamtdatensatz in JASP öffnen
 
@@ -78,7 +78,7 @@ Jeder hochgeladene Seed-Datensatz steht **genau einmal** drin, und zwar in einer
 3. Erscheint das Fenster **Data Preview**: Unter **Select Delimiter:** das Komma wählen, prüfen, ob die Vorschau saubere Spalten zeigt, dann **Load**.
 
 ::: {.callout-tip title="Umlaute kaputt?"}
-Die Kodierung stellst Du in JASP nicht beim Import, sondern unter **File → Preferences → Data** ein. Unsere Datei ist UTF-8 — in der Regel passt die Standardeinstellung.
+Die Kodierung stellst Du in JASP nicht beim Import, sondern unter **File → Preferences → Data** ein. Unsere Datei ist UTF-8, in der Regel passt die Standardeinstellung.
 :::
 
 ## Schritt 5: Variablentypen setzen
@@ -104,7 +104,7 @@ Ein Klick auf den Spaltenkopf öffnet das Variablen-Fenster. In der Tabelle mit 
 2. **Frequency tables** aktivieren.
 3. Prüfe: Kommt bei `quelle_datensatz` jeder Datensatz mit 9 Zeilen vor (plus die eigenen Zeilen)? Liegen alle BFI-Items zwischen 1 und 5?
 
-Speichere Deine Arbeit als `.jasp`-Datei (**File → Save as**) — Du baust in den nächsten Sitzungen darauf auf.
+Speichere Deine Arbeit als `.jasp`-Datei (**File → Save as**). Du baust in den nächsten Sitzungen darauf auf.
 
 ## Aufgabe
 
@@ -124,6 +124,6 @@ Notiere die Zeilenzahl Deiner Kombination sowie aus dem offiziellen Datensatz di
 
 ## Selbstcheck
 
-1. Warum war es ein Designfehler, die Probandennummer pro Datensatz bei 1 beginnen zu lassen — und was wäre besser gewesen?
+1. Warum war es ein Designfehler, die Probandennummer pro Datensatz bei 1 beginnen zu lassen, und was wäre besser gewesen?
 2. Warum ist die Zeilenzahl ein so guter erster Check nach dem Kombinieren?
 3. Warum ist es sinnvoll, dass ab jetzt alle mit derselben offiziellen Datei arbeiten?

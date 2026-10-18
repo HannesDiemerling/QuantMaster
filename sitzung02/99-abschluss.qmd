@@ -1,4 +1,4 @@
-# Sitzung 02 — Abschluss & Abgabe {#sec-s02-abschluss}
+# Sitzung 02: Abschluss & Abgabe {#sec-s02-abschluss}
 
 ## Was Du heute geschafft hast
 
@@ -10,18 +10,18 @@
 
 Schick **eine** Mail bis spätestens zum Tag vor Sitzung 03 an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
 
-- **Betreff:** `M15 S02 — <Kennziffer>`
+- **Betreff:** `M15 S02 <Kennziffer>`
 - **Anhang:** keiner
 - **Text:** Vorlage kopieren und ausfüllen. Dezimalzahlen mit 2 Nachkommastellen (wo nicht anders angegeben), p-Werte mit 3.
 
 {{< include _abgabe.md >}}
 
-## Reflexion (privat, 3 Minuten)
+## Reflexion (privat)
 
 1. Eine Sache, die heute klar wurde.
-2. Eine Sache, die noch unklar ist — bring sie in Deine Kleingruppe oder ins Plenum.
+2. Eine Sache, die noch unklar ist. Bring sie in Deine Kleingruppe oder ins Plenum.
 
 ## Ausblick auf Sitzung 03
 
-Aus 21 Items werden fünf Skalen — und Du schätzt die ersten Effekte: Korrelationen und *t*-Tests mit Effektgrößen.
+Aus 21 Items werden fünf Skalen, und Du schätzt die ersten Effekte: Korrelationen und *t*-Tests mit Effektgrößen.
 

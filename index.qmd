@@ -1,10 +1,10 @@
 # Willkommen {.unnumbered}
 
-Herzlich willkommen zum quantitativen Teil des Moduls **M15 — Multivariate Verfahren, Forschungsmethoden & Psychotherapieforschung** im Masterstudiengang Psychotherapie an der HMU Health and Medical University.
+Herzlich willkommen zum quantitativen Teil des Moduls **M15: Multivariate Verfahren, Forschungsmethoden & Psychotherapieforschung** im Masterstudiengang Psychotherapie an der HMU Health and Medical University.
 
 ## Was Dich erwartet
 
-Zehn Online-Sitzungen per Videokonferenz, jeweils etwa zwei Stunden, ab **Semesterwoche 4**. Jede Sitzung vertieft praktisch in JASP, was in der Vorlesung behandelt wurde.
+Zehn Online-Sitzungen per Videokonferenz ab **Semesterwoche 4**. In jeder Sitzung setzt Du in JASP praktisch um, was in der Vorlesung dran war.
 
 | Sitzung | Woche | Datum | Thema | Bezug zur Vorlesung |
 |---|---|---|---|---|
@@ -21,12 +21,14 @@ Zehn Online-Sitzungen per Videokonferenz, jeweils etwa zwei Stunden, ab **Semest
 
 ## So läuft eine Sitzung
 
-Diese Site ist Dein **primäres Lernmaterial**. Jede Sitzung hat denselben Rhythmus:
+Diese Site ist Dein **wichtigstes Lernmaterial**. Die Sitzungen folgen alle einem ähnlichen Muster:
 
-1. **Plenum** (10–20 Min.): kurzer Input der Lehrperson im Videocall.
-2. **Self-Study** mit der Site, in Deiner **Kleingruppe** im Breakout-Raum. Ihr arbeitet jede/r selbst, helft Euch aber gegenseitig.
-3. **Zwischenplenum** (ca. 10 Min.): typische Stolpersteine klären.
-4. **Abschluss-Plenum** (ca. 10 Min.): Fragen, Ausblick, Abgabe.
+1. **Plenum:** kurzer Input der Lehrperson im Videocall.
+2. **Self-Study** mit der Site in Deiner **Kleingruppe** im Breakout-Raum. Jede und jeder arbeitet selbst, Ihr helft Euch aber gegenseitig.
+3. **Zwischenplenum:** typische Stolpersteine klären.
+4. **Abschluss-Plenum:** Fragen, Ausblick, Abgabe.
+
+Was in einer Sitzung drankommt und was Du vorher vorbereiten solltest, steht jeweils auf ihrer Übersichtsseite.
 
 Wenn Du hängenbleibst: zuerst in der Kleingruppe fragen, dann die Lehrperson in den Breakout-Raum holen (Hilfe-Button bzw. „Hand heben").
 
@@ -34,33 +36,33 @@ Jedes Kapitel ist gleich aufgebaut: **Lernziele**, kompakter Theorieteil, **Aufg
 
 ## Deine Nummern
 
-In Sitzung 01 bekommst Du über die alphabetische Teilnehmerliste Deine **Listennummer**. Daraus ergeben sich Deine **Kennziffer** (Pseudonym), Dein **Übungsdatensatz** und Deine **Kleingruppe** — Details in @sec-nummern.
+In Sitzung 01 bekommst Du über die alphabetische Teilnehmerliste Deine **Listennummer**. Daraus ergeben sich Deine **Kennziffer** (Pseudonym), Dein **Übungsdatensatz** und Deine **Kleingruppe**. Wie das genau funktioniert, steht in @sec-nummern.
 
 ## Abgaben
 
-Pro Sitzung schickst Du **eine** kurze Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}), Betreff `M15 SNN — <Kennziffer>`. Die Vorlage zum Kopieren steht jeweils im Abschluss-Kapitel der Sitzung. Abgegeben werden fast nur **Zahlen und kurze Antworten**, die Du aus Deinen JASP-Analysen abliest — keine Screenshots, keine Plots. Weil alle mit demselben Gesamtdatensatz arbeiten, sind die Ergebnisse direkt vergleichbar.
+Pro Sitzung schickst Du **eine** kurze Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}) mit dem Betreff `M15 SNN <Kennziffer>`, also zum Beispiel `M15 S03 2013`. Die Vorlage zum Kopieren steht jeweils im Abschluss-Kapitel der Sitzung. Abgegeben werden fast nur **Zahlen und kurze Antworten**, die Du aus Deinen JASP-Analysen abliest. Screenshots und Plots brauchst Du nicht zu schicken. Weil alle mit demselben Gesamtdatensatz arbeiten, sind die Ergebnisse direkt vergleichbar.
 
 ## Software und Zugänge
 
-1. **JASP** — kostenlos unter [jasp-stats.org](https://jasp-stats.org)
-2. **GitHub-Account** — empfohlen, nicht Pflicht; kostenlos unter [github.com](https://github.com). Ohne Account schickst Du Deine Datei einmal per Mail.
+1. **JASP**, kostenlos unter [jasp-stats.org](https://jasp-stats.org)
+2. **GitHub-Account**, empfohlen, aber keine Pflicht. Kostenlos unter [github.com](https://github.com). Ohne Account schickst Du Deine Datei einmal per Mail.
 3. **Laptop** mit Kamera/Mikro für die Videokonferenz
 
 ::: {.callout-important title="Vor Sitzung 01 erledigen"}
 - JASP installieren und einmal starten
 - Empfohlen: GitHub-Account anlegen und den Benutzernamen per Mail an die Lehrperson schicken (dann hast Du in Sitzung 01 Schreibrechte)
-- Vorbereitungslektüre (ca. 45 Min.): @sec-tag1-open-science, @sec-tag1-ethik, @sec-tag1-messtheorie
+- Zur Vorbereitung lesen: @sec-tag1-open-science, @sec-tag1-ethik, @sec-tag1-messtheorie
 - Einverständniserklärung lesen: [materials/einverstaendnis.pdf](materials/einverstaendnis.pdf)
 :::
 
 ## Datensatz
 
-Über das Seminar entsteht **ein gemeinsamer Datensatz** — komplett im Repo nachvollziehbar:
+Im Laufe des Seminars entsteht **ein gemeinsamer Datensatz**, und jeder Schritt dahin ist im Repo nachvollziehbar:
 
-- In Sitzung 01 bekommst Du einen von zehn vorgenerierten Übungsdatensätzen, findest Fehler, bereinigst ihn in JASP, ergänzt eine eigene (ausgedachte) Antwortzeile und lädst die Datei hoch — über GitHub oder per Mail.
+- In Sitzung 01 bekommst Du einen von zehn vorgenerierten Übungsdatensätzen, findest Fehler, bereinigst ihn in JASP, ergänzt eine eigene (ausgedachte) Antwortzeile und lädst die Datei hoch, entweder über GitHub oder per Mail.
 - Ein GitHub-Workflow kombiniert alle Uploads automatisch zu `data/combined/m15-gesamt.csv`. In Sitzung 02 probierst Du das Kombinieren selbst aus.
 - Mit diesem Datensatz arbeiten alle bis Sitzung 10.
 
 ## Viel Erfolg
 
-Quantitative Methoden sind kein Selbstzweck — sie helfen uns, Fragen über psychische Gesundheit und therapeutische Wirksamkeit präziser zu beantworten. Nutze die zehn Sitzungen, um ein solides Fundament für Deine Masterarbeit und die spätere Forschungspraxis zu legen.
+Quantitative Methoden sind kein Selbstzweck. Sie helfen uns, Fragen über psychische Gesundheit und therapeutische Wirksamkeit präziser zu beantworten. Nutze die zehn Sitzungen, um ein solides Fundament für Deine Masterarbeit und die spätere Forschungspraxis zu legen.

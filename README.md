@@ -1,8 +1,8 @@
-# M15 — Quantitative Forschungsmethoden & Multivariate Verfahren
+# M15: Quantitative Forschungsmethoden & Multivariate Verfahren
 
-Seminar zum Modul **M15 — Multivariate Verfahren, Forschungsmethoden & Psychotherapieforschung**, Masterstudiengang Psychotherapie, HMU Health and Medical University.
+Seminar zum Modul **M15: Multivariate Verfahren, Forschungsmethoden & Psychotherapieforschung**, Masterstudiengang Psychotherapie, HMU Health and Medical University.
 
-- **Format:** 10 Online-Sitzungen per Videokonferenz in den Semesterwochen 4–13 (abgestimmt auf die Vorlesung, siehe `index.qmd`), je ca. 2 Stunden (max. 3), self-paced über eine Quarto-Site mit Plenumsphasen und festen Kleingruppen (Breakout-Räume)
+- **Format:** 10 Online-Sitzungen per Videokonferenz in den Semesterwochen 4–13 (abgestimmt auf die Vorlesung, siehe `index.qmd`), self-paced über eine Quarto-Site mit Plenumsphasen und festen Kleingruppen (Breakout-Räume)
 - **Gruppengröße:** ausgelegt für 20–40 Studierende
 - **Software:** [JASP](https://jasp-stats.org)
 - **Verantwortlich:** Hannes Diemerling
@@ -10,7 +10,7 @@ Seminar zum Modul **M15 — Multivariate Verfahren, Forschungsmethoden & Psychot
 ## Quick-Start für Studierende
 
 1. **Vor Sitzung 01:** JASP installieren, GitHub-Account anlegen.
-2. Workshop-Site öffnen und mit Sitzung 01 starten — alle Inhalte stehen dort.
+2. Workshop-Site öffnen und mit Sitzung 01 starten. Alle Inhalte stehen dort.
 
 ## Quick-Start für die Lehrperson
 
@@ -18,12 +18,13 @@ Seminar zum Modul **M15 — Multivariate Verfahren, Forschungsmethoden & Psychot
 |---|---|---|
 | Vor Semesterstart | Alte Uploads löschen | `data/student-uploads/` leeren (`.gitkeep` behalten), `data/combined/` leeren |
 | Vor Semesterstart | Termine eintragen | Tabelle in `index.qmd` |
-| Vor Sitzung 01 | Teilnehmerliste (alphabetisch, Listennummer $n$) erstellen, Studierende mit GitHub-Account als Collaborator einladen (Account ist freiwillig) | Daraus: Kennziffer $2000+n$, Datensatz $((n-1) bmod 10)+1$, Kleingruppe $ceil n/4 ceil$; GitHub-Benutzernamen per Vorab-Mail |
-| Sitzung 01 | Mail-Uploads (Betreff `M15 Upload — <Kennziffer>`) selbst einstellen | Anhang im Repo unter `data/student-uploads/` hochladen (Add file → Upload files); der Merge erkennt den Datensatz am Inhalt, der Dateiname ist egal |
+| Vor Sitzung 01 | Teilnehmerliste (alphabetisch, Listennummer $n$) erstellen, Studierende mit GitHub-Account als Collaborator einladen (Account ist freiwillig) | Daraus: Kennziffer $2000+n$, Datensatz $((n-1) bmod 10)+1$, Kleingruppe $ceil n/4 
+ceil$; GitHub-Benutzernamen per Vorab-Mail |
+| Sitzung 01 | Mail-Uploads (Betreff `M15 Upload <Kennziffer>`) selbst einstellen | Anhang im Repo unter `data/student-uploads/` hochladen (Add file → Upload files); der Merge erkennt den Datensatz am Inhalt, der Dateiname ist egal |
 | Sitzung 01 | Uploads laufen automatisch zusammen | Workflow **Merge student uploads** (Actions-Tab) schreibt `data/combined/m15-gesamt.csv`, `merge-report.md` und `meta-studien.csv` |
 | 2 Tage vor Sitzung 02 | Datensatz **einfrieren** | Actions → *Merge student uploads* → **Disable workflow**. Danach rechnen alle mit derselben Datei. |
 | danach | Antwortbogen erzeugen | lokal `Rscript scripts/antwortbogen.R` → `intern/antwortbogen.md` (gitignored, **nie committen**); schreibt auch die Abgabe-Vorlagen `sitzungXX/_abgabe.md` neu |
-| laufend | Abgaben prüfen | eine Mail pro Person und Sitzung, Betreff `M15 SNN — <Kennziffer>`; Felder gegen den Antwortbogen abgleichen |
+| laufend | Abgaben prüfen | eine Mail pro Person und Sitzung, Betreff `M15 SNN <Kennziffer>`; Felder gegen den Antwortbogen abgleichen |
 
 Hinweise:
 
@@ -60,5 +61,5 @@ Site lokal bauen: `quarto render`
 
 ## Lizenz
 
-- **Inhalte (Texte, Aufgaben, Materialien):** CC BY 4.0 — siehe `LICENSE.md`
-- **Code (Skripte, Workflows):** MIT — siehe `LICENSE-CODE.md`
+- **Inhalte (Texte, Aufgaben, Materialien):** CC BY 4.0, siehe `LICENSE.md`
+- **Code (Skripte, Workflows):** MIT, siehe `LICENSE-CODE.md`
