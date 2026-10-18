@@ -39,3 +39,4 @@ intern/
 
 /.quarto/
 **/*.quarto_ipynb
+QuantMaster/CLAUDE.md
