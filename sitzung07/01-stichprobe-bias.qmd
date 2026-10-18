@@ -14,7 +14,7 @@ Nach diesem Kapitel kannst Du …
 Bevor Du Ergebnisse verallgemeinerst, musst Du wissen, **wer** in Deinem Datensatz drinsteckt und, genauso wichtig, wer **nicht**. In unserem Fall ist die Antwort besonders unsauber, weil unser Datensatz aus zwei Quellen besteht:
 
 - **Simulierte Probanden** (`data/generated/`) mit einer Verteilung, die ich für plausibel gehalten habe: überwiegend weiblich, jung, hoch gebildet, also typisch für Psychologie-Studierende.
-- **„Studierenden-Antworten"**, ausgedacht, weil der Workshop eine Demo ist (siehe @sec-tag1-fragebogen).
+- **„Studierenden-Zeilen"**: fiktive Personen, die Ihr Euch ausgedacht habt, weil die Erhebung nur simuliert ist (siehe @sec-tag1-fragebogen).
 
 Wir nehmen die inhaltliche Interpretation der Daten heute deshalb **nicht zu ernst**. Methodisch arbeitet Ihr aber sauber.
 
@@ -74,7 +74,7 @@ Wir tun gleich so, als wäre unsere Zielpopulation „junge Erwachsene in Deutsc
 | Alter | sehr jung | breiter |
 | Bildung | überwiegend ≥ Bachelor | nur ein Teil der Altersgruppe |
 
-Auch ohne exakte Zahlen ist klar: unsere Stichprobe ist **kein Querschnitt** der Bevölkerung. Sie ist eine Stichprobe von Psychologie-Studierenden (synthetisch nachgebaut). Das ist nicht schlimm, aber es bedeutet, dass jede Aussage „so ist der Mensch" Quatsch ist. Aussagen müssen heißen: „so sind diese Studierenden".
+Auch ohne exakte Zahlen ist klar: unsere Stichprobe ist **kein Querschnitt** der Bevölkerung. Sie ist eine Stichprobe von Psychologie-Studierenden (synthetisch nachgebaut). Das ist nicht schlimm, schränkt aber ein, was man sagen kann: nicht „so ist der Mensch", sondern „so sind diese Studierenden".
 
 ## Stichprobengröße und statistische Aussagen
 

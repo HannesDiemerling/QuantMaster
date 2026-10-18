@@ -65,7 +65,7 @@ Unser Repository enthält:
 QuantMaster/
 ├── index.qmd               # Landing-Page der Site
 ├── sitzung01/ … sitzung10/ # die Seminar-Kapitel
-├── materials/              # Codebook, Fragebogen, Einverständnis, CSV-Template
+├── materials/              # Codebook, CSV-Template
 ├── data/
 │   ├── generated/          # 10 vorgenerierte Datensätze
 │   ├── student-uploads/    # ← HIER lädst Du gleich Deine Datei hoch

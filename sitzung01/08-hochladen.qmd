@@ -10,9 +10,9 @@ Nach diesem Kapitel hast Du …
 
 ## Worum es geht
 
-Letzter Schritt heute: Du hängst Deine eigene Zeile an den bereinigten Datensatz an und lädst die Datei ins Repo hoch. Ein GitHub-Workflow kombiniert danach automatisch alle Uploads zum Gesamtdatensatz. Wie das Kombinieren funktioniert und was dabei schiefgehen kann, probierst Du in Sitzung 02 selbst aus.
+Letzter Schritt heute: Du hängst die Zeile Deiner fiktiven Person an den bereinigten Datensatz an und lädst die Datei ins Repo hoch. Ein GitHub-Workflow kombiniert danach automatisch alle Uploads zum Gesamtdatensatz. Wie das Kombinieren funktioniert und was dabei schiefgehen kann, probierst Du in Sitzung 02 selbst aus.
 
-## Schritt 1: Eigene Zeile anhängen
+## Schritt 1: Zeile der fiktiven Person anhängen
 
 Öffne `datensatz-XX-bereinigt.csv` in einem Editor Deiner Wahl:
 
@@ -20,15 +20,15 @@ Letzter Schritt heute: Du hängst Deine eigene Zeile an den bereinigten Datensat
 - **JASP:** geht auch, ist aber zum reinen Tippen umständlich
 - **Tabellen-Tool:** Excel oder LibreOffice Calc, vorsichtig sein mit automatischen Konvertierungen 
 
-Füge **eine neue Zeile am Ende** ein. Da der Workshop eine Demo ist, denkst Du Dir plausible Werte aus (1–5 für BFI-Items):
+Füge **eine neue Zeile am Ende** ein und trag die Werte der fiktiven Person aus @sec-tag1-fragebogen ein. Nicht Deine eigenen!
 
 | Spalte | Inhalt |
 |---|---|
 | `probandennummer` | Deine **Kennziffer** ($2000 + n$, siehe @sec-nummern), z. B. `2013` |
-| `geschlecht` | 1 / 2 / 3 (Code) |
-| `alter` | Deine Jahre |
-| `bildungsgrad` | 1–7 (Code) |
-| `BFI_01` … `BFI_21` | Plausible Werte 1–5 (Reverse-Items bereits rekodiert eintragen, siehe Hinweis unten) |
+| `geschlecht` | 1 / 2 / 3 (Code) der fiktiven Person |
+| `alter` | Alter der fiktiven Person |
+| `bildungsgrad` | 1–7 (Code) der fiktiven Person |
+| `BFI_01` … `BFI_21` | Ihre Antworten 1–5 (Reverse-Items bereits rekodiert eintragen, siehe Hinweis unten) |
 
 ::: {.callout-important title="Rekodiert, nicht Original"}
 Damit alle Zeilen im Datensatz dieselbe Polung haben, sind die **Reverse-Items 1, 2, 8, 9, 11, 12, 17, 21** rekodiert einzutragen (Formel: `6 − Original`). Die übrigen Items unverändert. Die genaue Skalen-Zuordnung steht im [Codebook](../materials/codebook.qmd).
@@ -41,12 +41,13 @@ Speichern als `datensatz-XX-kombiniert.csv` (mit Deiner Nummer).
 Die Dateinamen folgen einem festen Schema, damit man später die Herkunft erkennen kann:
 
 ```
-datensatz-<XX>-<deinKuerzel>.csv
+datensatz-<XX>-<Kennziffer>.csv
 ```
 
 - `<XX>` ist Deine zweistellige Datensatz-Nummer.
-- `<deinKuerzel>` sind zwei oder drei Kleinbuchstaben (z. B. Initialen).
-- Beispiel: `datensatz-03-mm.csv` (Datensatz 3, Max Mustermann).
+- `<Kennziffer>` ist Deine vierstellige Kennziffer (@sec-nummern).
+- Beispiel: `datensatz-03-2013.csv` (Datensatz 3, Kennziffer 2013).
+- Bitte **keine Namen oder Initialen** im Dateinamen. Das Repo ist öffentlich.
 
 ## Schritt 3: Hochladen
 
@@ -59,7 +60,7 @@ Du brauchst nur einen Browser und Deinen GitHub-Account, keine zusätzliche Soft
 1. Auf [github.com](https://github.com) anmelden (oben rechts **Sign in**).
 2. Das Workshop-Repo öffnen. In der Dateiliste nacheinander auf den Ordner **`data`** und dann auf **`student-uploads`** klicken. Oben über der Liste steht jetzt `QuantMaster / data / student-uploads /`.
 3. Rechts über der Dateiliste auf den Button **Add file** klicken und im Menü **Upload files** wählen.
-4. Deine Datei `datensatz-XX-<kuerzel>.csv` aus dem Datei-Explorer bzw. Finder in das große Feld *„Drag files here …"* ziehen oder auf **choose your files** klicken und sie auswählen. Die Datei erscheint unter dem Feld mit ihrem Namen.
+4. Deine Datei `datensatz-XX-<Kennziffer>.csv` aus dem Datei-Explorer bzw. Finder in das große Feld *„Drag files here …"* ziehen oder auf **choose your files** klicken und sie auswählen. Die Datei erscheint unter dem Feld mit ihrem Namen.
 5. Darunter steht der Kasten **Commit changes**. Ins erste Feld eine kurze Beschreibung schreiben, z. B. *„Upload Datensatz 03 von mm"*.
 6. Je nach Rechten siehst Du:
    - **„Commit directly to the `main` branch"** → ausgewählt lassen, dann den grünen Button **Commit changes** klicken. Fertig.
@@ -70,7 +71,7 @@ Du brauchst nur einen Browser und Deinen GitHub-Account, keine zusätzliche Soft
 
 1. Neue Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
 2. **Betreff:** `M15 Upload <Kennziffer>` (z. B. `M15 Upload 2013`).
-3. **Anhang:** Deine Datei `datensatz-XX-<kuerzel>.csv`. Bitte genau die CSV-Datei, keine Excel- oder JASP-Datei und kein Screenshot.
+3. **Anhang:** Deine Datei `datensatz-XX-<Kennziffer>.csv`. Bitte genau die CSV-Datei, keine Excel- oder JASP-Datei und kein Screenshot.
 4. Text: nicht nötig.
 
 Die Lehrperson legt Deine Datei ins Repo, danach läuft der Merge-Workflow wie bei allen anderen. Auch ohne Account kannst Du anschließend im Browser kontrollieren, ob alles geklappt hat (Schritt 4).
@@ -100,7 +101,7 @@ Im Merge-Report siehst Du für Deine Datei, ob sie erkannt wurde, wie viele Fehl
 
 ## Aufgabe
 
-1. Eigene Zeile in den bereinigten Datensatz einfügen.
+1. Zeile der fiktiven Person in den bereinigten Datensatz einfügen.
 2. Datei korrekt benannt hochladen, über GitHub (Weg A) oder per Mail (Weg B).
 3. Im Repo prüfen, dass Deine Datei dort liegt und die Zeilenzahl stimmt.
 4. Nach ca. 2 Minuten `data/combined/merge-report.md` öffnen: Steht Deine Datei mit Status „ok" und ohne Warnung drin? Sonst korrigieren und erneut hochladen.

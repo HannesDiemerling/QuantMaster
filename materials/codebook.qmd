@@ -36,7 +36,7 @@ Die maschinenlesbare Variante liegt unter [materials/codebook.csv](codebook.csv)
 
 - Ganzzahl, innerhalb eines Datensatzes eindeutig.
 - In den vorgenerierten Datensätzen: 1–9.
-- Deine eigene Zeile bekommt eine selbstgewählte Kennziffer (irgendeine ganze Zahl ≠ 1–9).
+- Die Zeile Deiner fiktiven Person bekommt Deine Kennziffer ($2000 + n$, z. B. 2013).
 
 ### `geschlecht`
 
@@ -94,7 +94,7 @@ In den Spaltennamen entspricht Item *n* der Spalte `BFI_<nn>` (z. B. Item 6 → 
 ::: {.callout-important title="Bereits rekodiert"}
 In den **vorgenerierten Datensätzen** (`data/generated/datensatz-XX.csv`) sind alle BFI-K-Items **bereits rekodiert**: Reverse-Items wurden umgepolt, sodass eine hohe Zahl in jedem Item eine hohe Ausprägung der jeweiligen Skala bedeutet.
 
-Wenn Du eine **eigene Zeile** mit Original-Antworten erfasst, musst Du die Reverse-Items vorher selbst umpolen (Formel: `rekodiert = 6 − Originalwert`).
+Wenn Du für Deine **fiktive Person** Original-Antworten erfasst, musst Du die Reverse-Items vorher selbst umpolen (Formel: `rekodiert = 6 − Originalwert`).
 :::
 
 ## Rekodierungsformel

@@ -42,7 +42,7 @@ Hinweise:
 ├── index.qmd                     # Landing Page mit Terminübersicht
 ├── sitzung01/ … sitzung10/       # je 00-uebersicht, Inhaltskapitel, 99-abschluss + _abgabe.md (Vorlage, generiert)
 ├── anhang/                       # freiwillige Kapitel (Machine Learning, weitere Verfahren)
-├── materials/                    # BFI-K-Fragebogen (PDF), Codebook, Einverständnis, CSV-Template
+├── materials/                    # Codebook, CSV-Template
 ├── data/
 │   ├── generated/                # 10 vorgenerierte Übungsdatensätze
 │   ├── student-uploads/          # Uploads der Studierenden

@@ -87,7 +87,7 @@ Nenn die Spalte `N_hoch` und setz ihren Typ auf **Nominal**.
 
 ## Was unsere Daten hergeben
 
-Erneut ehrlich (@sec-tag3-datenhinweis): Da die Skalen untereinander schwach positiv zusammenhängen, kann ein aus **mehreren** Skalen gebautes Modell für „hoher vs. niedriger Neurotizismus" ein gewisses Signal aufnehmen. Die Richtung: Eine perfekte Trennung ist nicht zu erwarten, die Trennschärfe (AUC) wird bei einer kleinen Stichprobe eher bescheiden ausfallen.
+Mit Blick auf den Datenhinweis (@sec-tag3-datenhinweis): Da die Skalen untereinander schwach positiv zusammenhängen, kann ein aus **mehreren** Skalen gebautes Modell für „hoher vs. niedriger Neurotizismus" ein gewisses Signal aufnehmen. Die Richtung: Eine perfekte Trennung ist nicht zu erwarten, die Trennschärfe (AUC) wird bei einer kleinen Stichprobe eher bescheiden ausfallen.
 
 Würdest Du dagegen versuchen, **`geschlecht`** aus den Skalen vorherzusagen, ist **kaum etwas** zu erwarten (Demografie ist unabhängig). Das ist ein guter Kontrast-Versuch für den Bonus.
 

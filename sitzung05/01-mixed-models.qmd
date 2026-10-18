@@ -72,7 +72,7 @@ Unsere Personen sind in **10 Quell-Datensätze** (`quelle_datensatz`) genestet, 
 - Die **Varianz zwischen** den Datensätzen ist gering, der **ICC** entsprechend **klein**.
 - Der feste Effekt von `E_mean` auf `O_mean` dürfte ungefähr dem aus einer normalen Regression entsprechen.
 
-Das ist genau die richtige, ehrliche Lehre: Das Mixed Model **zeigt Dir**, dass hier kaum relevante Nestung vorliegt. Du hast damit ein Werkzeug, das Dir *sagt*, ob Du es überhaupt brauchst, und Du hast gelernt, es korrekt zu bedienen. In echten genesteten Daten (Klassen, Behandelnde, Messwiederholungen) wäre der ICC deutlich größer und das Modell unverzichtbar.
+Das Mixed Model **zeigt Dir** also selbst, dass hier kaum relevante Nestung vorliegt. Es ist damit auch ein Werkzeug, um zu prüfen, ob man es überhaupt braucht. In echten genesteten Daten (Klassen, Behandelnde, Messwiederholungen) wäre der ICC deutlich größer und das Modell unverzichtbar.
 
 ::: {.callout-tip title="Der kleine Bruder: Repeated-Measures-ANOVA"}
 Für den Spezialfall „jede Person mehrfach unter wenigen Bedingungen gemessen" gibt es die **Repeated-Measures-ANOVA** (in JASP unter ANOVA → Repeated Measures). Sie ist einfacher, aber unflexibler. Mixed Models verallgemeinern sie: Sie kommen mit unbalancierten Daten, fehlenden Messzeitpunkten und kontinuierlicher Zeit zurecht. Deshalb sind sie in der modernen Längsschnittforschung Standard.

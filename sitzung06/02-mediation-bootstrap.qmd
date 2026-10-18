@@ -84,12 +84,12 @@ Mediation steckt in JASP im **SEM-Modul** (Strukturgleichungsmodelle, siehe @sec
 
 ## Was unsere Daten hergeben
 
-Wieder ehrlich (@sec-tag3-datenhinweis): In den Daten steckt **kein** eingebauter Mediationsmechanismus, nur schwach positive Zusammenhänge zwischen allen Skalen. Die Richtung daraus: Die Pfade sind allenfalls klein, und ihr **Produkt** (der indirekte Effekt) ist entsprechend winzig. Bei einer kleinen Stichprobe wird das Bootstrap-Intervall die **Null in aller Regel einschließen**.
+Auch hier lohnt der Blick auf den Datenhinweis (@sec-tag3-datenhinweis): In den Daten steckt **kein** eingebauter Mediationsmechanismus, nur schwach positive Zusammenhänge zwischen allen Skalen. Die Richtung daraus: Die Pfade sind allenfalls klein, und ihr **Produkt** (der indirekte Effekt) ist entsprechend winzig. Bei einer kleinen Stichprobe wird das Bootstrap-Intervall die **Null in aller Regel einschließen**.
 
-Erwarte hier also **keinen klaren indirekten Effekt**. Und auch das ist ein **legitimes** Ergebnis. Du lernst hier das Verfahren, die Logik des Bootstrap und noch einmal, dass ein sauberer Nullbefund Teil seriöser Forschung ist.
+Ein **klarer indirekter Effekt ist also nicht zu erwarten**. Spannend ist hier vor allem die Logik des Bootstrap, die Dir in vielen anderen Verfahren wieder begegnen wird.
 
 ::: {.callout-important title="Mediation braucht große Stichproben"}
-Für einen mittleren indirekten Effekt mit ordentlicher Power braucht man oft **$N > 150$**, nicht selten mehrere Hundert. Mediation mit $N = 30$ aus einer Bachelor-Erhebung ist mit Vorsicht zu genießen. Das ist eine der häufigsten Überinterpretationen in studentischen Arbeiten. Jetzt weißt Du, warum.
+Für einen mittleren indirekten Effekt mit ordentlicher Power braucht man oft **$N > 150$**, nicht selten mehrere Hundert. Mediationsbefunde aus kleinen Stichproben, etwa $N = 30$ aus einer Bachelor-Erhebung, sind deshalb mit Vorsicht zu lesen. Sie gehören zu den häufigsten Überinterpretationen in der Literatur.
 :::
 
 ## Stärken und Schwächen

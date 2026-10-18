@@ -52,16 +52,17 @@ Pro Sitzung schickst Du **eine** kurze Mail an [{{< meta kurs.mail >}}](mailto:{
 - JASP installieren und einmal starten
 - Empfohlen: GitHub-Account anlegen und den Benutzernamen per Mail an die Lehrperson schicken (dann hast Du in Sitzung 01 Schreibrechte)
 - Zur Vorbereitung lesen: @sec-tag1-open-science, @sec-tag1-ethik, @sec-tag1-messtheorie
-- Einverständniserklärung lesen: [materials/einverstaendnis.pdf](materials/einverstaendnis.pdf)
 :::
 
 ## Datensatz
 
 Im Laufe des Seminars entsteht **ein gemeinsamer Datensatz**, und jeder Schritt dahin ist im Repo nachvollziehbar:
 
-- In Sitzung 01 bekommst Du einen von zehn vorgenerierten Übungsdatensätzen, findest Fehler, bereinigst ihn in JASP, ergänzt eine eigene (ausgedachte) Antwortzeile und lädst die Datei hoch, entweder über GitHub oder per Mail.
+- In Sitzung 01 bekommst Du einen von zehn vorgenerierten Übungsdatensätzen, findest Fehler, bereinigst ihn in JASP, ergänzt eine Zeile für eine **fiktive Person** und lädst die Datei hoch, entweder über GitHub oder per Mail.
 - Ein GitHub-Workflow kombiniert alle Uploads automatisch zu `data/combined/m15-gesamt.csv`. In Sitzung 02 probierst Du das Kombinieren selbst aus.
 - Mit diesem Datensatz arbeiten alle bis Sitzung 10.
+
+Die Datenerhebung ist nur **simuliert**. Du beschreibst darin nicht Dich selbst, sondern eine ausgedachte Person, und echte Namen kommen nirgends vor.
 
 ## Viel Erfolg
 

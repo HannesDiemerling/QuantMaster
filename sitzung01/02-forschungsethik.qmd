@@ -1,4 +1,4 @@
-# Forschungsethik & Dein Einverständnis {#sec-tag1-ethik}
+# Forschungsethik {#sec-tag1-ethik}
 
 ::: {.callout-note title="Lernziele"}
 Nach diesem Kapitel kannst Du …
@@ -6,12 +6,12 @@ Nach diesem Kapitel kannst Du …
 - die Grundprinzipien der Forschungsethik in eigenen Worten benennen,
 - erklären, was eine informierte Einwilligung enthält,
 - den Unterschied zwischen Anonymisierung und Pseudonymisierung erläutern,
-- entscheiden, ob Du Deine eigenen Daten in den Workshop-Datensatz aufnimmst.
+- begründen, warum wir in diesem Seminar nur fiktive Daten verwenden.
 :::
 
 ## Worum es geht
 
-Gleich wirst Du selbst Daten beisteuern. Bevor das passiert, brauchst Du, wie in jeder echten Studie, eine **informierte Einwilligung**. Dieses Kapitel erklärt, warum Forschungsethik mehr ist als ein Häkchen auf einem Formular.
+Wer echte Daten von Menschen erhebt, braucht vorher deren **informierte Einwilligung**. Dieses Kapitel erklärt, warum Forschungsethik mehr ist als ein Häkchen auf einem Formular, und warum wir im Seminar deshalb bewusst nur mit fiktiven Personen arbeiten.
 
 ## Wo das alles herkommt
 
@@ -50,27 +50,17 @@ Die **DSGVO** (Datenschutz-Grundverordnung) regelt seit 2018 EU-weit, wie person
 | **Beispiel** | aggregierte Statistiken ohne Demografie | Probandennummer 7, Demografie und Antworten erhalten |
 | **DSGVO** | strenggenommen *keine* personenbezogenen Daten mehr | bleibt personenbezogen : DSGVO gilt  |
 
-Bei kleinen Stichproben mit Demografie ist eine echte Anonymisierung selten möglich, Du selbst könntest Deine eigene Zeile vermutlich wiedererkennen.
+Bei kleinen Stichproben mit Demografie ist eine echte Anonymisierung selten möglich. Wer die Teilnehmenden kennt, könnte einzelne Zeilen oft wiedererkennen.
 
-## Konkret für diesen Workshop
+## Konkret für dieses Seminar
 
-Was wir tun:
+Unser Datensatz liegt in einem **öffentlichen** GitHub-Repo. Echte Persönlichkeitsdaten von Euch wären dort fehl am Platz, auch pseudonymisiert. Deshalb **simulieren** wir die Datenerhebung nur:
 
-- **Erheben:** BFI-K + 3 Demografie-Variablen (Geschlecht, Alter, Bildung).
-- **Speichern:** in einem öffentlichen GitHub-Repo, unter `data/student-uploads/` (Deine eigene Datei) sowie im daraus kombinierten Gesamtdatensatz `data/combined/m15-gesamt.csv`.
-- **Pseudonymisieren:** Du bekommst eine Probandennummer, kein Klarname, keine E-Mail.
-- **Verwenden:** ausschließlich für die Lehre in diesem Workshop.
+- Die Zeile, die Du beisteuerst, beschreibt eine **fiktive Person**, nicht Dich und niemanden, den es wirklich gibt.
+- Es tauchen **keine echten Namen** auf. Im Datensatz bist Du nur über Deine Kennziffer vertreten.
+- Weil keine echten Personen beschrieben werden, braucht es auch keine Einverständniserklärung.
 
-Deine Rechte:
-
-- **Freiwillig:** Du kannst alle Aufgaben mit den vorgenerierten Datensätzen erledigen, ohne Deine eigenen Daten beizutragen.
-- **Widerruf:** Bis zur Upload-Frist (zwei Tage vor Sitzung 02) kannst Du Deine Zeile entfernen lassen.
-- **Auskunft, Berichtigung, Löschung:** wie in §13–17 DSGVO geregelt.
-
-## Aufgabe
-
-1. Lies das Einverständnisformular ([materials/einverstaendnis.pdf](../materials/einverstaendnis.pdf)).
-2. Das **praktische Unterschreiben + Mailen** machst Du in @sec-tag1-fragebogen. Dort lädst Du die PDF runter, unterschreibst sie am PC und schickst sie an die Lehrperson. Das hier ist nur der Theorieteil zur Forschungsethik.
+So kannst Du den Ablauf einer Erhebung einmal komplett durchspielen, ohne dass dabei echte Daten entstehen. Wie das praktisch geht, steht in @sec-tag1-fragebogen.
 
 ::: {.callout-tip title="Faustregel"}
 Wenn Du Dich nicht sicher fühlst, frag die Lehrperson, lieber jetzt als später.
@@ -80,4 +70,4 @@ Wenn Du Dich nicht sicher fühlst, frag die Lehrperson, lieber jetzt als später
 
 1. Welche Angaben muss eine informierte Einwilligung mindestens enthalten?
 2. Wo ist der Unterschied zwischen Anonymisierung und Pseudonymisierung?
-3. Was passiert, wenn Du Deine Teilnahme nach der Upload-Frist zurückziehen willst?
+3. Was müsste in einer echten Studie zusätzlich passieren, bevor Du die BFI-K-Antworten Deiner Mitstudierenden öffentlich ablegen dürftest?

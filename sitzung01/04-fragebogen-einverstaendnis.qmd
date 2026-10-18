@@ -1,67 +1,46 @@
-# Fragebogen & Einverständnis als Demo {#sec-tag1-fragebogen}
+# Fragebogen & fiktive Person {#sec-tag1-fragebogen}
 
 ::: {.callout-note title="Lernziele"}
 Nach diesem Kapitel hast Du …
 
 - den BFI-K-Fragebogen als Erhebungsinstrument einmal in der Hand gehabt,
-- die Einverständniserklärung am PC unterschrieben und an die Lehrperson geschickt,
-- den Ablauf einer echten Datenerhebung durchgespielt, auch wenn keine echten Daten erhoben werden.
+- Dir eine fiktive Person ausgedacht und den BFI-K für sie ausgefüllt,
+- verstanden, warum wir die Datenerhebung nur simulieren.
 :::
 
 ## Worum es geht
 
-Dieser Workshop ist eine **Demo**, keine echte Datenerhebung. Du musst den BFI-K nicht ehrlich ausfüllen. Es geht darum, dass Du den Workflow einmal so durchläufst, wie er in einer echten Studie aussehen würde. Konkret heißt das:
+In diesem Seminar **simulieren** wir eine Datenerhebung. Es geht nur darum, den Ablauf einmal selbst zu erleben: Fragebogen ausfüllen, Daten eintragen, prüfen, hochladen, zusammenführen. Echte Daten erheben wir nicht.
 
-1. Du **siehst Dir das Erhebungsinstrument an** (BFI-K als PDF).
-2. Du **unterschreibst die Einverständniserklärung am PC** und schickst sie der Lehrperson zu, genau wie eine Versuchsperson das in einer echten Studie täte.
+::: {.callout-important title="Beschreib nicht Dich selbst, sondern eine fiktive Person"}
+- Die Zeile, die Du zum Datensatz beisteuerst, beschreibt **eine ausgedachte Person**. Nicht Dich und auch niemanden, den es wirklich gibt.
+- Verwende **keine echten Namen**, weder in der Datei noch im Dateinamen. Du bist im Datensatz nur über Deine Kennziffer vertreten (@sec-nummern).
+- Der Datensatz liegt in einem **öffentlichen** Repository. Gib dort also nichts über Dich oder andere Menschen preis.
+:::
 
-Echte BFI-K-Antworten brauchst Du nicht. Wenn Du in den späteren Kapiteln eine eigene Zeile in den Datensatz schreibst, darfst Du Dir Werte ausdenken (siehe @sec-tag1-upload).
+Weil keine echten Personen beschrieben werden, brauchst Du auch keine Einverständniserklärung zu unterschreiben. Was in einer echten Studie dazugehören würde, hast Du in @sec-tag1-ethik gelesen.
 
 ## Aufgabe
 
-### 1. BFI-K als Beispiel ansehen
+### 1. BFI-K ansehen
 
-Lade die PDF herunter und überflieg sie kurz. Du sollst ein Gefühl dafür bekommen, wie ein psychometrisches Erhebungsinstrument aussieht:
+Den BFI-K-Fragebogen bekommst Du von der Lehrperson. Überflieg ihn kurz, damit Du ein Gefühl dafür bekommst, wie ein psychometrisches Erhebungsinstrument aussieht. Achte darauf, wie Reverse-Items markiert sind und wie die Rekodierung funktioniert. Beides kennst Du aus @sec-tag1-messtheorie.
 
-[**materials/BFI K.pdf**](../materials/BFI%20K.pdf) (im Browser öffnen oder lokal speichern)
+### 2. Eine fiktive Person ausdenken
 
-Du musst nichts ankreuzen. Achte beim Lesen darauf, wie Reverse-Items markiert sind und wie die Rekodierungsformel funktioniert. Beides hast Du in @sec-tag1-messtheorie kennengelernt.
+Überleg Dir eine Person, die es nicht gibt, und notiere:
 
-### 2. Einverständnis am PC ausfüllen und unterschreiben
+- Geschlecht, Alter und höchsten Bildungsabschluss (die Codes stehen im [Codebook](../materials/codebook.qmd))
+- in ein, zwei Stichworten, wie sie so ist, zum Beispiel „gesellig, etwas chaotisch, neugierig"
 
-Lade die Einverständnis-PDF herunter:
+Die Person darf ruhig ganz anders sein als Du. Plausibel sollte sie trotzdem sein.
 
-[**materials/einverstaendnis.pdf**](../materials/einverstaendnis.pdf)
+### 3. Den BFI-K für diese Person ausfüllen
 
-Öffne sie in einem PDF-Tool, das digitales Ausfüllen erlaubt:
-
-- **macOS:** *Vorschau* → Markup-Werkzeuge → Unterschrift (Trackpad oder Bild)
-- **Windows:** *Adobe Acrobat Reader* (kostenlos) → *Fill & Sign* → Unterschrift hinzufügen. Alternativ in *Microsoft Edge* öffnen und Felder per Texteingabe ausfüllen.
-- **Linux:** *Xournal++* (Annotations) oder *Okular*
-
-Trag ein:
-
-- Ort und Datum
-- Deine Unterschrift (Maus, Trackpad, Touch oder eingefügtes Bild Deiner Unterschrift)
-
-Speichere die ausgefüllte PDF lokal ab.
-
-### 3. Per E-Mail an die Lehrperson schicken
-
-Schick die unterzeichnete PDF an:
-
-**[{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}})**
-
-Betreff: `M15 S01 <Kennziffer>`. Das ist zugleich Deine Abgabe für Sitzung 01 (@sec-s01-abschluss).
-
-Damit hast Du den vollen Einverständnis-Workflow einer echten Studie durchgespielt: PDF lesen, ausfüllen, unterschreiben, an die Studienleitung zurücksenden.
-
-::: {.callout-tip title="Das ist Übung, nichts Echtes"}
-Weil keine echten Daten erhoben werden, ist auch die Einwilligung nur eine Demonstration. Du brauchst keine reale Identifizierbarkeit zu fürchten. Niemand wertet Deine Mail aus, sie dient nur dazu, dass Du den Vorgang einmal erlebt hast.
-:::
+Geh die 21 Items durch und kreuze an, wie Deine fiktive Person antworten würde (1 bis 5). Notiere die Werte. Du trägst sie in @sec-tag1-upload als eigene Zeile in den Datensatz ein.
 
 ## Selbstcheck
 
-1. Welche Angaben enthält das Einverständnisformular, das Du gerade unterschrieben hast?
-2. Wie sähe der Workflow bei einer echten Erhebung anders aus? Was würde dort zusätzlich passieren (Stichwort: Ethikkommission, Pseudonymisierungs-Schlüssel)?
-3. Warum macht es Sinn, ein Einverständnis als PDF mit digitaler Unterschrift zu führen, und wo sind die Grenzen davon?
+1. Warum beschreibst Du hier eine fiktive Person und nicht Dich selbst?
+2. Wie sähe der Ablauf bei einer echten Erhebung anders aus? Was würde dort zusätzlich passieren (Stichworte: Einwilligung, Ethikkommission, Pseudonymisierungs-Schlüssel)?
+3. Welche Reverse-Items musst Du vor dem Eintragen umpolen, und wie?

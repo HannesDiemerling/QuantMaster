@@ -113,8 +113,8 @@ $$
 
 Die Richtung: Hier ist **kaum etwas** zu erwarten, denn in diesen Daten gibt es den Zusammenhang schlicht nicht. Falls doch ein Koeffizient signifikant wird, ist das eher ein **Fehler erster Art** (Zufallstreffer) als ein echter Effekt. Ein Nullbefund ist hier das, was zur Datenlage passt, und kein Versagen Deiner Analyse.
 
-::: {.callout-important title="Die eigentliche Lektion"}
-Modell A und Modell B nebeneinander zeigen Dir den Kern sauberer Forschung: Ein Verfahren findet nur dann etwas, wenn in den Daten **wirklich** etwas ist. Ein Nullbefund (Modell B) ist **kein Versagen Deiner Analyse**, sondern eine ehrliche Aussage über die Welt. Du berichtest ihn genauso selbstbewusst wie einen Effekt.
+::: {.callout-tip title="Warum beide Modelle spannend sind"}
+Im Vergleich von Modell A und B siehst Du, dass ein Verfahren nur dann etwas findet, wenn in den Daten auch etwas steckt. Der Nullbefund in Modell B ist deshalb kein Fehler in Deiner Analyse, sondern ein Ergebnis. Er gehört genauso in einen Bericht wie ein Effekt.
 :::
 
 ## Was in den Bericht gehört

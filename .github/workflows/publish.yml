@@ -35,29 +35,6 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Install TinyTeX (für die Einverstaendnis-PDF)
-        # Dedizierte Action statt `quarto install tinytex` — letzteres bricht
-        # auf GitHub-Runnern regelmaessig wegen 403-Rate-Limit beim Release-API.
-        uses: r-lib/actions/setup-tinytex@v2
-
-      - name: Render Einverstaendnis to PDF
-        run: |
-          set -e
-          quarto render materials/einverstaendnis.qmd --to pdf
-          # Falls die PDF nicht direkt in materials/ liegt, dorthin verschieben –
-          # damit das anschliessende Book-Render sie via resources:-Glob abholt.
-          if [ ! -f materials/einverstaendnis.pdf ]; then
-            FOUND=$(find . -name "einverstaendnis.pdf" -not -path "./_site/*" | head -n1)
-            if [ -n "$FOUND" ]; then
-              mv "$FOUND" materials/einverstaendnis.pdf
-            else
-              echo "ERROR: einverstaendnis.pdf wurde nicht erzeugt." >&2
-              find . -name "einverstaendnis.pdf" -ls
-              exit 1
-            fi
-          fi
-          ls -la materials/einverstaendnis.pdf
-
       - name: Render Quarto Book (HTML)
         uses: quarto-dev/quarto-actions/render@v2
         with:

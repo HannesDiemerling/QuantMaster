@@ -73,9 +73,9 @@ Ein **Interaktionsplot** zeigt das als mehrere Geraden: Laufen sie parallel → 
 
 ## Was unsere Daten hergeben
 
-Achtung, ehrlich bleiben (@sec-tag3-datenhinweis): Zwischen den Skalen stecken nur schwache *lineare* Zusammenhänge, keine moderierenden. Die Richtung ist daher klar: **Erwarte hier keine starke Interaktion**, und ein nicht signifikanter Interaktionsterm ist ein völlig legitimes Ergebnis.
+Ein Blick auf den Datenhinweis (@sec-tag3-datenhinweis) hilft: Zwischen den Skalen stecken nur schwache *lineare* Zusammenhänge, keine moderierenden. **Eine starke Interaktion ist hier also nicht zu erwarten**, und ein nicht signifikanter Interaktionsterm ist ein ganz normales Ergebnis.
 
-Das ist didaktisch Absicht: **Interaktionen sind notorisch schwer nachzuweisen.** Sie brauchen viel mehr Power als Haupteffekte, als Faustregel ein Vielfaches der Stichprobe, die Du für einen gleich großen Haupteffekt bräuchtest. Mit einer Stichprobe in der Größenordnung unseres Datensatzes bist Du für Interaktionen klar unterversorgt. Du lernst hier also vor allem **das Verfahren und seine Interpretation** und die wichtige Lektion, dass ein nicht signifikanter Interaktionsterm der Normalfall ist und kein Drama.
+Das liegt nicht nur an unseren Daten: **Interaktionen sind generell schwer nachzuweisen.** Sie brauchen viel mehr Power als Haupteffekte, als Faustregel ein Vielfaches der Stichprobe, die Du für einen gleich großen Haupteffekt bräuchtest. Mit einer Stichprobe in der Größenordnung unseres Datensatzes bist Du für Interaktionen klar unterversorgt. Hier geht es deshalb vor allem um **das Verfahren und seine Interpretation**. Wenn Dir später in der Literatur eine Interaktion aus einer kleinen Studie begegnet, lohnt sich ein zweiter Blick.
 
 ::: {.callout-tip title="Falls Deine Interaktion doch signifikant wird"}
 Bei rund einem von zwanzig Tests passiert das rein zufällig (Fehler erster Art). Bevor Du eine Geschichte darum baust: erst replizieren, dann glauben. Genau diese Skepsis trainiert der Workshop.

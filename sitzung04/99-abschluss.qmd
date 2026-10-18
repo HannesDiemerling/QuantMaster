@@ -1,6 +1,6 @@
 # Sitzung 04: Abschluss & Abgabe {#sec-s04-abschluss}
 
-## Was Du heute geschafft hast
+## Kurz zusammengefasst
 
 - Du hast eine Random-Effects-Metaanalyse gerechnet und den Forest Plot interpretiert.
 - Du hast zwei Regressionsmodelle verglichen und eine Moderation getestet.
@@ -15,10 +15,17 @@ Schick **eine** Mail bis spätestens zum Tag vor Sitzung 05 an [{{< meta kurs.ma
 
 {{< include _abgabe.md >}}
 
-## Reflexion (privat)
+## Offene Fragen?
 
-1. Eine Sache, die heute klar wurde.
-2. Eine Sache, die noch unklar ist. Bring sie in Deine Kleingruppe oder ins Plenum.
+Ist etwas unklar geblieben, oder hat Dich ein Ergebnis überrascht? Bring es ins Abschlussplenum oder schreib eine kurze Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}). Meistens haben andere dieselbe Frage.
+
+## Zum Weiterlesen
+
+Freiwillig, für alle, die tiefer einsteigen wollen:
+
+- Harrer, Cuijpers, Furukawa & Ebert (2021). [Doing Meta-Analysis with R](https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/). Frei online, mit vielen Beispielen aus der Psychotherapieforschung. Auch ohne R gut lesbar für die Konzepte.
+- Gelman, Hill & Vehtari (2020). [Regression and Other Stories](https://avehtari.github.io/ROS-Examples/). Eines der lesbarsten Bücher zur Regression, mit viel Gespür dafür, was Koeffizienten eigentlich bedeuten.
+- Hayes (2022). *Introduction to Mediation, Moderation, and Conditional Process Analysis* (3. Aufl.). Guilford. Das Standardwerk zu Moderation und Mediation, passt auch zu Sitzung 06.
 
 ## Ausblick auf Sitzung 05
 

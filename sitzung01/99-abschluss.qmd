@@ -1,9 +1,9 @@
 # Sitzung 01: Abschluss & Abgabe {#sec-s01-abschluss}
 
-## Was Du heute geschafft hast
+## Kurz zusammengefasst
 
 - Du kennst Deine Listennummer, Kennziffer, Datensatznummer und Kleingruppe.
-- Du hast das Einverständnis unterschrieben und einen kompletten Daten-Workflow durchlaufen: herunterladen, bereinigen, hochladen.
+- Du hast eine fiktive Person beschrieben und einen kompletten Daten-Workflow durchlaufen: herunterladen, bereinigen, ergänzen, hochladen.
 - Du hast in JASP zwei absichtliche Fehler gefunden, behandelt und Deine Datei hochgeladen.
 
 ## Abgabe
@@ -11,17 +11,24 @@
 Schick **eine** Mail bis spätestens zum Tag vor Sitzung 02 an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
 
 - **Betreff:** `M15 S01 <Kennziffer>`
-- **Anhang:** die unterschriebene Einverständnis-PDF
+- **Anhang:** keiner
 - **Text:** Vorlage kopieren und ausfüllen. Dezimalzahlen mit 2 Nachkommastellen (wo nicht anders angegeben), p-Werte mit 3.
 
 {{< include _abgabe.md >}}
 
 Hast Du per Mail hochgeladen (Weg B)? Dann ist das keine zweite Abgabe, die Upload-Mail und diese Abgabe-Mail sind getrennt. Schau nach dem Upload in `data/combined/merge-report.md`, ob Deine Datei als „ok" erkannt wurde.
 
-## Reflexion (privat)
+## Offene Fragen?
 
-1. Eine Sache, die heute klar wurde.
-2. Eine Sache, die noch unklar ist. Bring sie in Deine Kleingruppe oder ins Plenum.
+Ist etwas unklar geblieben, oder hat Dich ein Ergebnis überrascht? Bring es ins Abschlussplenum oder schreib eine kurze Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}). Meistens haben andere dieselbe Frage.
+
+## Zum Weiterlesen
+
+Freiwillig, für alle, die tiefer einsteigen wollen:
+
+- Open Science Collaboration (2015). [Estimating the reproducibility of psychological science](https://doi.org/10.1126/science.aac4716). *Science*, 349. Die Studie, mit der die Replikationskrise richtig Fahrt aufgenommen hat.
+- Simmons, Nelson & Simonsohn (2011). [False-positive psychology](https://doi.org/10.1177/0956797611417632). *Psychological Science*, 22. Zeigt sehr anschaulich, wie man mit ein paar harmlos wirkenden Analyseentscheidungen fast alles „signifikant" bekommt.
+- [Getting Started mit JASP](https://jasp-stats.org/getting-started/). Offizielle Einstiegsseite mit kurzen Anleitungen und Videos, falls Du die Oberfläche noch einmal in Ruhe durchgehen willst.
 
 ## Ausblick auf Sitzung 02
 

@@ -141,7 +141,7 @@ Lies aus Tabellen und Plots ab: Anzahl `geschlecht = 1` (Frequency table), Mitte
 - **keine** Aussage über Unterschiede oder Zusammenhänge
 - Wahl der Kennzahl beeinflusst, was „zu sehen" ist (M vs. Median bei schiefen Verteilungen sieht sehr unterschiedlich aus)
 
-Deshalb gilt: **Deskriptive ist die Voraussetzung jeder Analyse, aber niemals das Ergebnis.**
+Deskriptive Statistik ist also die Grundlage jeder Analyse, beantwortet aber selbst noch keine Forschungsfrage.
 
 ## Selbstcheck
 

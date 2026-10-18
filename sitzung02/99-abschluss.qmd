@@ -1,6 +1,6 @@
 # Sitzung 02: Abschluss & Abgabe {#sec-s02-abschluss}
 
-## Was Du heute geschafft hast
+## Kurz zusammengefasst
 
 - Du hast mehrere Uploads selbst kombiniert und die Fallstricke erlebt.
 - Du arbeitest ab jetzt mit dem offiziellen `m15-gesamt.csv`.
@@ -16,10 +16,16 @@ Schick **eine** Mail bis spätestens zum Tag vor Sitzung 03 an [{{< meta kurs.ma
 
 {{< include _abgabe.md >}}
 
-## Reflexion (privat)
+## Offene Fragen?
 
-1. Eine Sache, die heute klar wurde.
-2. Eine Sache, die noch unklar ist. Bring sie in Deine Kleingruppe oder ins Plenum.
+Ist etwas unklar geblieben, oder hat Dich ein Ergebnis überrascht? Bring es ins Abschlussplenum oder schreib eine kurze Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}). Meistens haben andere dieselbe Frage.
+
+## Zum Weiterlesen
+
+Freiwillig, für alle, die tiefer einsteigen wollen:
+
+- Matejka & Fitzmaurice (2017). [Same stats, different graphs](https://doi.org/10.1145/3025453.3025912). Der „Datasaurus": zwölf Datensätze mit identischen Kennwerten und völlig unterschiedlichen Bildern. Ein schönes Argument dafür, immer erst zu plotten.
+- Weissgerber et al. (2015). [Beyond bar and line graphs](https://doi.org/10.1371/journal.pbio.1002128). *PLoS Biology*, 13. Warum Balkendiagramme mit Fehlerbalken oft mehr verstecken als zeigen, und was die Alternativen sind.
 
 ## Ausblick auf Sitzung 03
 

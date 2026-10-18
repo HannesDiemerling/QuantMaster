@@ -1,6 +1,6 @@
 # Sitzung 08: Abschluss & Abgabe {#sec-s08-abschluss}
 
-## Was Du heute geschafft hast
+## Kurz zusammengefasst
 
 - Du hast die Logik und die Grenzen des Signifikanztests reflektiert und einen Äquivalenztest gerechnet.
 - Du hast einen Bayes-*t*-Test und eine Bayes-Korrelation interpretiert.
@@ -15,10 +15,18 @@ Schick **eine** Mail bis spätestens zum Tag vor Sitzung 09 an [{{< meta kurs.ma
 
 {{< include _abgabe.md >}}
 
-## Reflexion (privat)
+## Offene Fragen?
 
-1. Eine Sache, die heute klar wurde.
-2. Eine Sache, die noch unklar ist. Bring sie in Deine Kleingruppe oder ins Plenum.
+Ist etwas unklar geblieben, oder hat Dich ein Ergebnis überrascht? Bring es ins Abschlussplenum oder schreib eine kurze Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}). Meistens haben andere dieselbe Frage.
+
+## Zum Weiterlesen
+
+Freiwillig, für alle, die tiefer einsteigen wollen:
+
+- [Understanding Statistical Power and Significance Testing](https://rpsychologist.com/d3/nhst/) von Kristoffer Magnusson. Interaktiv: Effektgröße, $n$ und α verschieben und zusehen, was mit Power und Fehlern passiert.
+- Wasserstein & Lazar (2016). [The ASA statement on p-values](https://doi.org/10.1080/00031305.2016.1154108). *The American Statistician*, 70. Kurz und offiziell: was p-Werte bedeuten und was nicht.
+- Lakens, Scheel & Isager (2018). [Equivalence testing for psychological research](https://doi.org/10.1177/2515245918770963). *Advances in Methods and Practices in Psychological Science*, 1. Tutorial zum Äquivalenztest.
+- Wagenmakers et al. (2018). [Bayesian inference for psychology. Part II: Example applications with JASP](https://doi.org/10.3758/s13423-017-1323-7). *Psychonomic Bulletin & Review*, 25. Bayes-Analysen Schritt für Schritt in JASP, von den Leuten, die JASP entwickeln.
 
 ## Ausblick auf Sitzung 09
 

@@ -10,7 +10,7 @@ Das Seminar hat **einen vollständigen empirischen Forschungszyklus** nachgebaut
 
 | Sitzungen | Phase | Was Du getan hast |
 |---|---|---|
-| **01–03** | Setup, Erhebung & Beschreibung | Open Science verstanden, Einverständnis, BFI-K & Rekodierung, GitHub-Workflow, Datensatz geladen, in JASP bereinigt, hochgeladen, Uploads kombiniert, deskriptive Statistik, Skalen & Reliabilität, Korrelation, *t*-Test mit Effektgrößen |
+| **01–03** | Setup, Erhebung & Beschreibung | Open Science verstanden, Forschungsethik und fiktive Datenerhebung, BFI-K & Rekodierung, GitHub-Workflow, Datensatz geladen, in JASP bereinigt, hochgeladen, Uploads kombiniert, deskriptive Statistik, Skalen & Reliabilität, Korrelation, *t*-Test mit Effektgrößen |
 | **04–06** | Multivariat modellieren | Metaanalyse, multiple Regression, Moderation, Mehrebenenmodelle, EFA, CFA/SEM, Mediation & Bootstrap |
 | **07–10** | Planen, schließen, anwenden | Versuchsplanung, Bias & fehlende Werte, Power, ANOVA, Kritik am Signifikanztest, Äquivalenztest, Bayes, logistische Regression, Intervention & Epidemiologie (RR, NNT), qualitative Methoden & κ |
 
@@ -26,7 +26,7 @@ Eine Sache zieht sich durch alles: **Ein Verfahren findet nur, was in den Daten 
 - Viele wurden **nicht** signifikant, und das war **richtig so**, kein Misserfolg.
 - Ab und zu wäre ein Zufallstreffer (Fehler erster Art) möglich gewesen.
 
-Ergebnisse ehrlich melden, Nullbefunde aushalten, Hypothesen *nicht* nachträglich anpassen: Diese Haltung ist der Kern guter Wissenschaft. Sie ist wichtiger als jedes einzelne Verfahren.
+Für eigene Studien heißt das: Hypothesen vorher festlegen, Nullbefunde genauso berichten wie Effekte und Hypothesen nicht nachträglich an die Daten anpassen. Damit ist man in den meisten Fällen weiter als mit jedem ausgefeilteren Verfahren.
 
 ## Entscheidungshilfe: welches Verfahren wann?
 

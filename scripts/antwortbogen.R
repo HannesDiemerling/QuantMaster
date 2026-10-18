@@ -74,7 +74,6 @@ has <- function(p) requireNamespace(p, quietly = TRUE)
 # === Sitzung 1: Einstieg & Bereinigung =========================================
 add("einstieg", "Kennziffer", "2000 + Listennummer", hinweis = "mit Teilnehmerliste abgleichen")
 add("einstieg", "GitHub-Benutzername (oder „kein Account“)", hinweis = "falls vorhanden: Collaborator-Einladung verschicken")
-add("einstieg", "Einverständnis als PDF angehängt (ja/nein)", "ja")
 add("einstieg", "Ein Reverse-Item wurde mit 2 beantwortet. Rekodierter Wert", "4")
 add("einstieg", "Anzahl Reverse-Items im BFI-K", "8", hinweis = "Items 1, 2, 8, 9, 11, 12, 17, 21")
 gen <- new.env()
@@ -98,7 +97,7 @@ for (i in 1:10) {
 add("bereinigung", "Datensatz-Nummer", "((Listennummer − 1) mod 10) + 1")
 add("bereinigung", "Fehler 1 (Zeile, Spalte, gefundener Wert)", "siehe Fehlertabelle unten")
 add("bereinigung", "Fehler 2 (Zeile, Spalte, gefundener Wert)", "siehe Fehlertabelle unten")
-add("bereinigung", "Name Deiner hochgeladenen Datei (+ „GitHub“ oder „per Mail“)", "datensatz-XX-kuerzel.csv", hinweis = "Abgleich mit data/combined/merge-report.md")
+add("bereinigung", "Name Deiner hochgeladenen Datei (+ „GitHub“ oder „per Mail“)", "datensatz-XX-<Kennziffer>.csv", hinweis = "Abgleich mit data/combined/merge-report.md")
 
 # === Sitzung 2: Gesamtdatensatz & Deskription ==================================
 add("kombinieren", "Datenzeilen in Deiner selbst kombinierten Datei (ohne Kopfzeile)", "10 × Anzahl Dateien", hinweis = "typisch 70")

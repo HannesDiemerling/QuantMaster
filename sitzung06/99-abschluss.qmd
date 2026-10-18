@@ -1,6 +1,6 @@
 # Sitzung 06: Abschluss & Abgabe {#sec-s06-abschluss}
 
-## Was Du heute geschafft hast
+## Kurz zusammengefasst
 
 - Du hast eine CFA und ein einfaches SEM gerechnet und den Fit beurteilt.
 - Du hast eine Mediation mit Bootstrap-KI interpretiert.
@@ -15,10 +15,17 @@ Schick **eine** Mail bis spätestens zum Tag vor Sitzung 07 an [{{< meta kurs.ma
 
 {{< include _abgabe.md >}}
 
-## Reflexion (privat)
+## Offene Fragen?
 
-1. Eine Sache, die heute klar wurde.
-2. Eine Sache, die noch unklar ist. Bring sie in Deine Kleingruppe oder ins Plenum.
+Ist etwas unklar geblieben, oder hat Dich ein Ergebnis überrascht? Bring es ins Abschlussplenum oder schreib eine kurze Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}). Meistens haben andere dieselbe Frage.
+
+## Zum Weiterlesen
+
+Freiwillig, für alle, die tiefer einsteigen wollen:
+
+- [lavaan-Tutorial](https://lavaan.ugent.be/tutorial/). Das SEM-Modul in JASP nutzt lavaan-Syntax. Hier siehst Du, was damit noch alles geht.
+- Rohrer (2018). [Thinking clearly about correlations and causation](https://doi.org/10.1177/2515245917745629). *Advances in Methods and Practices in Psychological Science*, 1. Kausale Graphen als Denkwerkzeug, sehr hilfreich, bevor man ein Mediationsmodell aufstellt.
+- Rohrer, Hünermund, Arslan & Elson (2022). [That's a lot to process! Pitfalls of popular path models](https://doi.org/10.1177/25152459221095827). *Advances in Methods and Practices in Psychological Science*, 5. Was Mediationsanalysen leisten können und was nicht.
 
 ## Ausblick auf Sitzung 07
 

@@ -1,6 +1,6 @@
 # Sitzung 05: Abschluss & Abgabe {#sec-s05-abschluss}
 
-## Was Du heute geschafft hast
+## Kurz zusammengefasst
 
 - Du hast ein Mixed Model mit Random Intercept geschätzt und den ICC berechnet.
 - Du hast eine EFA gerechnet und die Faktorenzahl begründet.
@@ -15,10 +15,17 @@ Schick **eine** Mail bis spätestens zum Tag vor Sitzung 06 an [{{< meta kurs.ma
 
 {{< include _abgabe.md >}}
 
-## Reflexion (privat)
+## Offene Fragen?
 
-1. Eine Sache, die heute klar wurde.
-2. Eine Sache, die noch unklar ist. Bring sie in Deine Kleingruppe oder ins Plenum.
+Ist etwas unklar geblieben, oder hat Dich ein Ergebnis überrascht? Bring es ins Abschlussplenum oder schreib eine kurze Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}). Meistens haben andere dieselbe Frage.
+
+## Zum Weiterlesen
+
+Freiwillig, für alle, die tiefer einsteigen wollen:
+
+- [An Introduction to Hierarchical Modeling](https://mfviz.com/hierarchical-models/) von Michael Freeman. Interaktive Visualisierung, die Random Intercepts und Random Slopes in ein paar Minuten anschaulich macht.
+- Brown (2021). [An introduction to linear mixed-effects modeling in R](https://doi.org/10.1177/2515245920960351). *Advances in Methods and Practices in Psychological Science*, 4. Gut geschriebenes Tutorial, die Logik ist auch ohne R nachvollziehbar.
+- Costello & Osborne (2005). [Best practices in exploratory factor analysis](https://doi.org/10.7275/jyj1-4868). *Practical Assessment, Research & Evaluation*, 10. Kurz und praktisch: Extraktion, Rotation, Faktorenzahl.
 
 ## Ausblick auf Sitzung 06
 

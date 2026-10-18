@@ -1,6 +1,6 @@
 # Sitzung 09: Abschluss & Abgabe {#sec-s09-abschluss}
 
-## Was Du heute geschafft hast
+## Kurz zusammengefasst
 
 - Du hast eine logistische Regression gerechnet und Odds Ratios interpretiert.
 - Du kannst RR, NNT und OR berechnen und Studiendesigns einordnen.
@@ -15,10 +15,17 @@ Schick **eine** Mail bis spätestens zum Tag vor Sitzung 10 an [{{< meta kurs.ma
 
 {{< include _abgabe.md >}}
 
-## Reflexion (privat)
+## Offene Fragen?
 
-1. Eine Sache, die heute klar wurde.
-2. Eine Sache, die noch unklar ist. Bring sie in Deine Kleingruppe oder ins Plenum.
+Ist etwas unklar geblieben, oder hat Dich ein Ergebnis überrascht? Bring es ins Abschlussplenum oder schreib eine kurze Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}). Meistens haben andere dieselbe Frage.
+
+## Zum Weiterlesen
+
+Freiwillig, für alle, die tiefer einsteigen wollen:
+
+- [Faktenboxen des Harding-Zentrums für Risikokompetenz](https://www.hardingcenter.de/de/faktenboxen). Echte Nutzen-Schaden-Vergleiche medizinischer Maßnahmen in absoluten Zahlen. Gutes Training für RR, ARR und NNT.
+- Kraemer & Kupfer (2006). [Size of treatment effects and their importance to clinical research and practice](https://doi.org/10.1016/j.biopsych.2005.09.014). *Biological Psychiatry*, 59. Wie sich $d$, NNT und andere Effektmaße ineinander übersetzen lassen und was klinisch relevant ist.
+- Wampold & Imel (2015). *The Great Psychotherapy Debate* (2. Aufl.). Routledge. Was die Wirksamkeitsforschung über Psychotherapie insgesamt sagt. Spannend, weil hier die Methoden aus dem Seminar auf die eigene Profession treffen.
 
 ## Ausblick auf Sitzung 10
 

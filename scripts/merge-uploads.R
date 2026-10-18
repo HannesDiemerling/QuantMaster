@@ -161,8 +161,8 @@ main <- function() {
                  gefunden = NA, abweichungen = NA)
     if (!startsWith(f, paste0(UPLOAD_DIR, "/")))
       info$hinweise <- c(info$hinweise, "liegt NICHT in data/student-uploads/")
-    if (!grepl("^datensatz-[0-9]{2}-[a-z]{2,3}\\.csv$", basename(f)))
-      info$hinweise <- c(info$hinweise, "Dateiname weicht vom Schema datensatz-XX-kuerzel.csv ab")
+    if (!grepl("^datensatz-[0-9]{2}-([0-9]{4}|[a-z]{2,3})\\.csv$", basename(f)))
+      info$hinweise <- c(info$hinweise, "Dateiname weicht vom Schema datensatz-XX-<Kennziffer>.csv ab")
 
     up <- read_upload(f)
     if (!is.null(up$error)) {

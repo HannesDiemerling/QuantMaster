@@ -33,8 +33,8 @@ Die Gegenmaßnahme ist methodisch sauber und einfach:
 1. **Train/Test-Split:** Teile die Daten z. B. 70 % Training / 30 % Test. Trainiere nur auf dem Trainingsteil, beurteile **nur** auf dem ungesehenen Testteil.
 2. **Kreuzvalidierung (k-fold):** Teile die Daten in $k$ Blöcke (z. B. 5). Trainiere auf 4, teste auf dem 5., rotiere durch, mittle die Güte. Das nutzt die Daten effizienter, was bei kleinem $N$ wichtig ist.
 
-::: {.callout-tip title="Warum das die wichtigste Idee des Kapitels ist"}
-Die ehrliche Güte eines Modells ist **immer** die auf Daten, die es beim Training **nicht gesehen** hat. Wer ein Modell auf denselben Daten lobt, auf denen er es trainiert hat, betrügt sich selbst. Diese Trennung von Trainieren und Bewerten ist der Kern von ML und ein Prinzip, das auch in die klassische Forschung gehört.
+::: {.callout-tip title="Die zentrale Idee des Kapitels"}
+Wie gut ein Modell wirklich ist, zeigt sich **nur** auf Daten, die es beim Training **nicht gesehen** hat. Auf den Trainingsdaten sieht fast jedes Modell gut aus. Diese Trennung von Trainieren und Bewerten ist der Kern von ML und ein Prinzip, das auch in die klassische Forschung gehört.
 :::
 
 ## Ein paar ML-Verfahren in JASP
@@ -89,11 +89,11 @@ Sei nicht enttäuscht (@sec-tag3-datenhinweis): Unsere Daten haben **wenig echte
 - Random Forest und neuronales Netz schlagen die **logistische Regression aus @sec-tag3-logistisch kaum**. Bei wenig Signal und kleiner Stichprobe overfitten sie sogar leichter.
 - **Demografische Features** (Alter, Bildung) tragen voraussichtlich nichts bei.
 
-::: {.callout-important title="Die Lektion über ML"}
-Machine Learning **erzeugt kein Signal, das nicht in den Daten ist.** Komplexere Modelle sind nicht automatisch besser. Bei kleinen Stichproben mit schwachem Effekt ist eine schlichte, gut verstandene Regression oft die *bessere* und ehrlichere Wahl. „Wir haben ein neuronales Netz benutzt" ist kein Qualitätssiegel. Das Werkzeug muss zum Problem passen.
+::: {.callout-tip title="Was man daraus mitnehmen kann"}
+Machine Learning **erzeugt kein Signal, das nicht in den Daten ist.** Komplexere Modelle sind nicht automatisch besser. Bei kleinen Stichproben mit schwachem Effekt ist eine schlichte, gut verstandene Regression oft die *bessere* Wahl. „Wir haben ein neuronales Netz benutzt" ist kein Qualitätssiegel. Das Werkzeug muss zum Problem passen.
 :::
 
-ML entfaltet seine Stärke bei **großen** Datensätzen (Tausende Fälle) mit **vielen** Prädiktoren und **nicht-linearen** Mustern. Dann schlägt es klassische Verfahren teils deutlich. Genau das wirst Du in datenintensiven Projekten erleben.
+ML entfaltet seine Stärke bei **großen** Datensätzen (Tausende Fälle) mit **vielen** Prädiktoren und **nicht-linearen** Mustern. Dann schlägt es klassische Verfahren teils deutlich. Das sieht man vor allem in datenintensiven Projekten.
 
 ## Stärken und Schwächen
 

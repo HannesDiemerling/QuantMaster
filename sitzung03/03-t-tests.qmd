@@ -62,7 +62,7 @@ Aus $\beta$ ergibt sich die **Power** eines Tests als $1 - \beta$, also die Wahr
 - **Streuung der Daten** (weniger Rauschen → mehr Power)
 - **Signifikanzniveau $\alpha$** (lockerer → mehr Power, aber auch mehr falsche Alarme)
 
-Faustregel: für mittlere Effekte ($d = 0.5$) und $\alpha = .05$ brauchst Du pro Gruppe etwa **64 Personen** für 80 % Power. Unsere Workshop-Stichprobe ist deshalb deutlich underpowered für kleine bis mittlere Effekte. Du wirst echte Effekte häufiger übersehen, als Dir lieb ist.
+Faustregel: für mittlere Effekte ($d = 0.5$) und $\alpha = .05$ brauchst Du pro Gruppe etwa **64 Personen** für 80 % Power. Unsere Workshop-Stichprobe ist deshalb deutlich underpowered für kleine bis mittlere Effekte. Echte Effekte werden hier also häufig übersehen.
 
 ## Annahmen und warum sie wichtig sind
 

@@ -1,6 +1,6 @@
 # Sitzung 03: Abschluss & Abgabe {#sec-s03-abschluss}
 
-## Was Du heute geschafft hast
+## Kurz zusammengefasst
 
 - Du hast die Skalen gebaut und ihre Reliabilität geprüft.
 - Du hast Korrelationen und *t*-Tests mit Effektgrößen gerechnet und berichtet.
@@ -15,10 +15,18 @@ Schick **eine** Mail bis spätestens zum Tag vor Sitzung 04 an [{{< meta kurs.ma
 
 {{< include _abgabe.md >}}
 
-## Reflexion (privat)
+## Offene Fragen?
 
-1. Eine Sache, die heute klar wurde.
-2. Eine Sache, die noch unklar ist. Bring sie in Deine Kleingruppe oder ins Plenum.
+Ist etwas unklar geblieben, oder hat Dich ein Ergebnis überrascht? Bring es ins Abschlussplenum oder schreib eine kurze Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}). Meistens haben andere dieselbe Frage.
+
+## Zum Weiterlesen
+
+Freiwillig, für alle, die tiefer einsteigen wollen:
+
+- [Interpreting Cohen's d](https://rpsychologist.com/cohend/) und [Interpreting correlations](https://rpsychologist.com/correlation/) von Kristoffer Magnusson. Interaktive Visualisierungen, an denen Du sehen kannst, wie sich ein $d$ oder ein $r$ einer bestimmten Größe tatsächlich in Daten anfühlt.
+- Lakens (2013). [Calculating and reporting effect sizes to facilitate cumulative science](https://doi.org/10.3389/fpsyg.2013.00863). *Frontiers in Psychology*, 4. Kompakter, praxisnaher Überblick über Effektgrößen für *t*-Tests und ANOVA.
+- Delacre, Lakens & Leys (2017). [Why psychologists should by default use Welch's t-test](https://doi.org/10.5334/irsp.82). *International Review of Social Psychology*, 30. Die Begründung hinter dem Welch-Häkchen.
+- McNeish (2018). [Thanks coefficient alpha, we'll take it from here](https://doi.org/10.1037/met0000144). *Psychological Methods*, 23. Warum McDonald's ω oft die bessere Wahl ist als Cronbach's α.
 
 ## Ausblick auf Sitzung 04
 

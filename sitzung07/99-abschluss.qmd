@@ -1,6 +1,6 @@
 # Sitzung 07: Abschluss & Abgabe {#sec-s07-abschluss}
 
-## Was Du heute geschafft hast
+## Kurz zusammengefasst
 
 - Du hast die Stichprobe kritisch eingeordnet.
 - Du hast Stichprobengrößen geplant und eine ANOVA vollständig berichtet.
@@ -15,10 +15,17 @@ Schick **eine** Mail bis spätestens zum Tag vor Sitzung 08 an [{{< meta kurs.ma
 
 {{< include _abgabe.md >}}
 
-## Reflexion (privat)
+## Offene Fragen?
 
-1. Eine Sache, die heute klar wurde.
-2. Eine Sache, die noch unklar ist. Bring sie in Deine Kleingruppe oder ins Plenum.
+Ist etwas unklar geblieben, oder hat Dich ein Ergebnis überrascht? Bring es ins Abschlussplenum oder schreib eine kurze Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}). Meistens haben andere dieselbe Frage.
+
+## Zum Weiterlesen
+
+Freiwillig, für alle, die tiefer einsteigen wollen:
+
+- Henrich, Heine & Norenzayan (2010). [The weirdest people in the world?](https://doi.org/10.1017/S0140525X0999152X). *Behavioral and Brain Sciences*, 33. Wie stark die Psychologie auf westlichen, gebildeten Studierenden aufbaut, und warum das ein Problem ist.
+- Lakens (2022). [Sample size justification](https://doi.org/10.1525/collabra.33267). *Collabra: Psychology*, 8. Sehr praktische Anleitung, wie man eine Stichprobengröße begründet. Nützlich für jede eigene Studie.
+- [G\*Power](https://www.psychologie.hhu.de/arbeitsgruppen/allgemeine-psychologie-und-arbeitspsychologie/gpower). Kostenloses Programm für Poweranalysen, deckt mehr Designs ab als das Power-Modul in JASP.
 
 ## Ausblick auf Sitzung 08
 

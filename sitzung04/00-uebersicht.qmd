@@ -12,7 +12,7 @@ Nach dieser Sitzung …
 
 ## Worum es geht
 
-Zwei Wege, über die einfache Korrelation hinauszugehen: über **Studien** hinweg (Metaanalyse) und über **Prädiktoren** hinweg (multiple Regression). Lies vorher unbedingt den Datenhinweis unten. Er sagt Dir, welche Effekte überhaupt zu erwarten sind.
+Zwei Wege, über die einfache Korrelation hinauszugehen: über **Studien** hinweg (Metaanalyse) und über **Prädiktoren** hinweg (multiple Regression). Der Datenhinweis unten sagt Dir, welche Effekte überhaupt zu erwarten sind.
 
 ## Vorbereitung
 

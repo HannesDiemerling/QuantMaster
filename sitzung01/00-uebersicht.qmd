@@ -4,7 +4,7 @@
 Nach dieser Sitzung …
 
 - kennst Du den Ablauf des Seminars und Deine persönlichen Nummern,
-- hast Du die Einverständniserklärung digital unterschrieben,
+- hast Du eine fiktive Person ausgedacht und den BFI-K für sie ausgefüllt,
 - kannst Du Dich im GitHub-Repo orientieren, Dateien herunterladen und Deine Daten hochladen (über GitHub oder per Mail),
 - hast Du einen Datensatz in JASP auf Fehler geprüft, bereinigt und samt eigener Zeile hochgeladen.
 :::
@@ -13,14 +13,13 @@ Nach dieser Sitzung …
 
 ## Worum es geht
 
-Heute durchläufst Du den praktischen Kern jeder Datenerhebung: Einwilligung, Daten holen, prüfen, bereinigen, ergänzen und zentral ablegen. Aus allen Uploads entsteht automatisch der gemeinsame Seminar-Datensatz, mit dem wir ab Sitzung 02 arbeiten.
+Heute spielst Du den praktischen Kern einer Datenerhebung durch: Daten erfassen, holen, prüfen, bereinigen, ergänzen und zentral ablegen. Die Daten, die Du beisteuerst, beschreiben eine **fiktive Person**, nicht Dich selbst (@sec-tag1-fragebogen). Aus allen Uploads entsteht automatisch der gemeinsame Seminar-Datensatz, mit dem wir ab Sitzung 02 arbeiten.
 
 ## Vorbereitung
 
 Bitte vor der Sitzung zu Hause:
 
 - @sec-tag1-open-science, @sec-tag1-ethik und @sec-tag1-messtheorie lesen
-- die Einverständniserklärung lesen: [materials/einverstaendnis.pdf](../materials/einverstaendnis.pdf)
 - JASP installieren und einmal starten
 - empfohlen: einen GitHub-Account anlegen und den Benutzernamen per Mail an die Lehrperson schicken
 

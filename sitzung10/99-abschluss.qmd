@@ -1,10 +1,10 @@
 # Sitzung 10: Seminar-Abschluss & letzte Abgabe {#sec-s10-abschluss}
 
-## Was Du im Seminar geschafft hast
+## Kurz zusammengefasst
 
 - Du kannst qualitative Methoden einordnen und eine Interrater-Übereinstimmung berechnen.
 - Du hast einen vollständigen Forschungsworkflow durchlaufen, von der Erhebung bis zu Strukturgleichungsmodellen.
-- Du hast eine wissenschaftliche Haltung geübt: Effekte ehrlich melden, Nullbefunde aushalten, Reproduzierbarkeit ernst nehmen.
+- Du hast gesehen, wie oft „kein Effekt" das richtige Ergebnis ist, und wie man das sauber berichtet.
 
 ## Abgabe
 
@@ -18,11 +18,18 @@ Schick **eine** Mail innerhalb einer Woche nach Sitzung 10 an [{{< meta kurs.mai
 
 Fehlt Dir noch eine Abgabe aus einer früheren Sitzung? Dann hol sie jetzt nach, mit dem Betreff der jeweiligen Sitzung.
 
-## Reflexion (privat)
+## Offene Fragen?
 
-1. Das wichtigste Werkzeug, das ich aus diesem Seminar mitnehme.
-2. Eine Sache, bei der ich noch unsicher bin und die ich bis zur Klausur kläre.
-3. Wie ich an meine erste eigene Analyse herangehen würde.
+Fragen zur Klausur kannst Du im Plenum stellen oder per Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}) schicken.
+
+## Zum Nachschlagen für später
+
+Wenn Du in der Masterarbeit oder später selbst erhebst und auswertest, helfen Dir diese Quellen weiter:
+
+- Navarro, Foxcroft & Faulkenberry. [Learning Statistics with JASP](https://learnstatswithjasp.com/). Frei verfügbares Lehrbuch, das genau mit dem Programm arbeitet, das Du jetzt kennst. Gut zum Nachschlagen, wenn Du selbst auswertest.
+- Lakens. [Improving Your Statistical Inferences](https://lakens.github.io/statistical_inferences/). Frei online. Vertieft p-Werte, Effektgrößen, Power, Bayes und Open Science, also fast alles aus diesem Seminar, auf einem Niveau, das Spaß macht.
+- Kuckartz & Rädiker (2022). *Qualitative Inhaltsanalyse. Methoden, Praxis, Umsetzung mit Software* (5. Aufl.). Beltz Juventa. Der deutschsprachige Standard für kategorienbasierte Auswertung.
+- Braun & Clarke (2006). [Using thematic analysis in psychology](https://doi.org/10.1191/1478088706qp063oa). *Qualitative Research in Psychology*, 3. Der meistzitierte Einstieg in die thematische Analyse.
 
 ## Danke
 

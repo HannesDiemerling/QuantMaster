@@ -7,6 +7,19 @@
   --m15-red: #d7191c;
   --m15-text: #2c3e50;
   --m15-muted: #6c757d;
+  --m15-th-bg: #f4f6f8;
+  --m15-box-bg: #eef4fb;
+}
+
+/* Dark Mode: Quarto setzt body.quarto-dark */
+body.quarto-dark {
+  --m15-blue: #6baed6;
+  --m15-green: #74c476;
+  --m15-red: #fc8d59;
+  --m15-text: #e3e6ea;
+  --m15-muted: #adb5bd;
+  --m15-th-bg: #2b3035;
+  --m15-box-bg: #1f2a36;
 }
 
 body {
@@ -52,7 +65,7 @@ table {
 }
 
 table th {
-  background: #f4f6f8;
+  background: var(--m15-th-bg);
 }
 
 .sidebar-title {
@@ -67,7 +80,7 @@ blockquote {
 }
 
 .lernziele-box {
-  background: #eef4fb;
+  background: var(--m15-box-bg);
   border-left: 4px solid var(--m15-blue);
   padding: 0.8em 1em;
   margin: 1em 0;
