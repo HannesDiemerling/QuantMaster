@@ -29,5 +29,5 @@ Aus vielen Uploads wird *ein* Datensatz. Du kombinierst zuerst selbst ein paar D
 
 ## Erinnerung: Demo-Charakter
 
-Die Daten sind ein Mix aus simulierten Probanden (`data/generated/`) und ausgedachten Studierenden-Antworten. Sei also vorsichtig mit inhaltlichen Interpretationen. Methodisch arbeitest Du trotzdem ganz normal und sauber.
+Die Daten sind ein Mix aus simulierten Probanden (`data/generated/`) und den fiktiven Personen, die Ihr in Sitzung 01 ergänzt habt. Sei also vorsichtig mit inhaltlichen Interpretationen. Methodisch arbeitest Du trotzdem ganz normal und sauber.
 

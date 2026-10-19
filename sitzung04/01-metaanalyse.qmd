@@ -13,7 +13,7 @@ Nach diesem Kapitel kannst Du …
 
 Eine einzelne Studie ist selten das letzte Wort, das hat die Replikationskrise gezeigt (Vorlesung 1 und 3). Eine **Metaanalyse** fasst die Effekte vieler Studien zu einer Gesamtschätzung zusammen und fragt, wie stark die Studien voneinander abweichen.
 
-Unser Datensatz eignet sich dafür überraschend gut: Die zehn Seed-Datensätze sind wie **zehn kleine Studien** mit je ca. 10 Personen. Jede schätzt denselben Zusammenhang. Wir nehmen die Korrelation zwischen Extraversion und Offenheit.
+Unser Datensatz eignet sich dafür überraschend gut: Die zehn Seed-Datensätze sind wie **zehn kleine Studien** mit jeweils gut 10 Personen (9 vorgenerierte plus die fiktiven Personen aus den Uploads zu diesem Datensatz). Jede schätzt denselben Zusammenhang. Wir nehmen die Korrelation zwischen Extraversion und Offenheit.
 
 ## Die Grundidee: gewichtetes Mitteln
 

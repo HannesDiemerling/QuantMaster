@@ -74,6 +74,6 @@ Notiere die beiden N pro Gruppe und die Power bei $n = 30$. Siehe @sec-s07-absch
 
 ## Selbstcheck
 
-1. Warum erlaubt nur ein randomisiertes Experiment eine Kausalaussage?
+1. Warum erlaubt ein randomisiertes Experiment am ehesten eine Kausalaussage?
 2. Wie verändert sich das nötige N, wenn der erwartete Effekt halb so groß ist?
 3. Warum ist eine Post-hoc-Poweranalyse nach einem nicht-signifikanten Ergebnis wenig hilfreich?

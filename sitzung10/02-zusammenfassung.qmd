@@ -12,7 +12,7 @@ Das Seminar hat **einen vollständigen empirischen Forschungszyklus** nachgebaut
 |---|---|---|
 | **01–03** | Setup, Erhebung & Beschreibung | Open Science verstanden, Forschungsethik und fiktive Datenerhebung, BFI-K & Rekodierung, GitHub-Workflow, Datensatz geladen, in JASP bereinigt, hochgeladen, Uploads kombiniert, deskriptive Statistik, Skalen & Reliabilität, Korrelation, *t*-Test mit Effektgrößen |
 | **04–06** | Multivariat modellieren | Metaanalyse, multiple Regression, Moderation, Mehrebenenmodelle, EFA, CFA/SEM, Mediation & Bootstrap |
-| **07–10** | Planen, schließen, anwenden | Versuchsplanung, Bias & fehlende Werte, Power, ANOVA, Kritik am Signifikanztest, Äquivalenztest, Bayes, logistische Regression, Intervention & Epidemiologie (RR, NNT), qualitative Methoden & κ |
+| **07–10** | Planen, schließen, anwenden | Versuchsplanung, Stichprobenziehung & Bias, Standardfehler & Konfidenzintervall, fehlende Werte, Power, ANOVA, Kritik am Signifikanztest, Äquivalenztest, Bayes, logistische Regression, Intervention & Epidemiologie (RR, NNT), qualitative Methoden & κ |
 
 ::: {.callout-tip title="Die Schrittfolge ist universell"}
 **Erheben → bereinigen → beschreiben → aggregieren → Zusammenhänge → Unterschiede → Modelle.** Fast jede quantitative Arbeit folgt dieser Reihenfolge. Wenn Du in Deiner Methoden- und Ergebnis-Sektion nicht weißt, womit anfangen: hier entlang.
@@ -43,16 +43,16 @@ Für eigene Studien heißt das: Hypothesen vorher festlegen, Nullbefunde genauso
 | Evidenz *für* die Null zeigen? | beliebig | Bayes-Faktor | @sec-tag3-bayes |
 | Bestmögliche Vorhersage, viele Daten? | beliebig | Machine Learning (Anhang) | @sec-tag3-ml |
 | Genestete / wiederholte Messungen? | metrisch | Mixed Model | @sec-tag3-mixed |
-| Struktur hinter vielen Items? | — | EFA / CFA | @sec-efa, @sec-cfa-sem |
-| Studienlage zusammenfassen? | — | Meta-Analyse | @sec-meta |
+| Struktur hinter vielen Items? | Items | EFA / CFA | @sec-efa, @sec-cfa-sem |
+| Studienlage zusammenfassen? | Effektgrößen aus Studien | Meta-Analyse | @sec-meta |
 | „Kein relevanter Unterschied" belegen? | metrisch | Äquivalenztest (TOST) | @sec-nhst |
 | Wirksamkeit mit Ja/Nein-Ergebnis? | binär | RR, NNT, Kreuztabelle | @sec-epi |
 | Übereinstimmung zweier Kodierer? | kategorial | Cohen's κ | @sec-quali |
-| Wie viele Personen brauche ich? | — | Poweranalyse | @sec-power |
+| Wie viele Personen brauche ich? | beliebig | Poweranalyse | @sec-power |
 
 ## Effektgrößen einordnen
 
-Die bekannten „klein / mittel / groß"-Schwellen (Cohen 1988) sind **bewusst keine** Tabelle in diesem Nachschlagewerk. Sie sind willkürlich gesetzt und **wissenschaftlich nicht haltbar** als universeller Maßstab. Cohen selbst hat sie nur als Notbehelf für Felder *ohne* eigene Vergleichswerte gedacht und vor mechanischer Anwendung gewarnt. Was in einem Forschungsfeld „groß" ist, kann in einem anderen unbedeutend sein.
+Die bekannten „klein / mittel / groß"-Schwellen (Cohen 1988) sind **bewusst keine** Tabelle in diesem Nachschlagewerk. Sie sind willkürlich gesetzt und taugen **nicht als universeller Maßstab**. In den Kapiteln tauchen sie deshalb nur als grobe Orientierung auf. Cohen selbst hat sie nur als Notbehelf für Felder *ohne* eigene Vergleichswerte gedacht und vor mechanischer Anwendung gewarnt. Was in einem Forschungsfeld „groß" ist, kann in einem anderen unbedeutend sein.
 
 Statt gegen feste Cutoffs interpretierst Du eine Effektgröße sinnvoll so:
 
@@ -71,19 +71,23 @@ Statt gegen feste Cutoffs interpretierst Du eine Effektgröße sinnvoll so:
 | Deskriptive Statistik | Descriptives → Descriptive Statistics |
 | Reliabilität (α, ω) | Reliability → Classical → Reliability |
 | Korrelation | Regression → Classical → Correlation |
-| *t*-Test | T-Tests → (One-Sample / Independent / Paired) |
-| ANOVA | ANOVA → ANOVA |
-| Multiple Regression | Regression → Linear Regression |
-| Moderation | Regression → Linear Regression (+ Interaktionsterm) |
+| *t*-Test | T-Tests → Classical → (One-Sample / Independent Samples / Paired Samples) T-Test |
+| ANOVA | ANOVA → Classical → ANOVA |
+| Multiple Regression | Regression → Classical → Linear Regression |
+| Moderation | Regression → Classical → Linear Regression (+ Interaktionsterm) |
 | Mediation | SEM → Mediation Analysis (Bootstrap) |
-| Logistische Regression | Regression → Logistic Regression |
+| Logistische Regression | Regression → Classical → Logistic Regression |
 | Bayes-*t*-Test / -Korrelation / -Regression | jeweils „Bayesian …" neben der frequentistischen Variante |
 | Machine Learning | Machine Learning → Classification / Regression / Unsupervised Learning → Clustering |
-| Mixed Model | Mixed Models → Linear Mixed Models |
+| Mixed Model | Mixed Models → Classical → Linear Mixed Models |
 | Faktorenanalyse | Factor → Exploratory Factor Analysis / Principal Component Analysis |
 | CFA / SEM | Factor → Confirmatory Factor Analysis / SEM → Structural Equation Modeling |
 | Netzwerk | Network |
-| Meta-Analyse | Meta-Analysis |
+| Meta-Analyse | Meta-Analysis → Classical → Meta-Analysis |
+| Poweranalyse | Power → Power |
+| Kreuztabelle | Frequencies → Classical → Contingency Tables |
+| Interrater (κ) | Reliability → Classical → Rater Agreement |
+| Äquivalenztest | Equivalence T-Tests → Classical → Independent Samples T-Test |
 
 Module, die nicht sichtbar sind, schaltest Du über das blaue **„+"** oben rechts frei.
 
@@ -131,13 +135,17 @@ Fast alle berichten den **p-Wert** und vergessen **Effektgröße und Konfidenzin
 
 **Odds / Odds Ratio:** Chance $p/(1-p)$ bzw. deren Verhältnis; zentrale Effektgröße der logistischen Regression.
 
-**Prior / Likelihood / Posterior:** Vorwissen / Datenbeitrag / aktualisierter Glaube. **Bayes-Faktor:** Wettverhältnis zweier Hypothesen.
+**Prior / Likelihood / Posterior:** Vorwissen / Datenbeitrag / aktualisierter Glaube. **Bayes-Faktor:** wie viel besser eine Hypothese die Daten vorhersagt als die andere.
 
 **Overfitting:** Modell lernt Rauschen mit; erkennbar an guter Trainings-, schlechter Testgüte. **Kreuzvalidierung:** Gütebewertung auf ungesehenen Daten.
 
 **ICC:** Anteil der Varianz, der auf Gruppenzugehörigkeit zurückgeht; motiviert Mixed Models.
 
 **Fixed vs. Random Effect:** durchschnittlicher Effekt vs. Streuung zwischen Gruppen.
+
+**Standardfehler:** Streuung eines Kennwerts über (gedachte) wiederholte Stichproben; beim Mittelwert $SD/\sqrt{N}$.
+
+**MCAR / MAR / MNAR:** fehlende Werte rein zufällig / abhängig von beobachteten Variablen / abhängig vom fehlenden Wert selbst.
 
 ## Verständnisfragen zum Selbsttest
 
@@ -155,9 +163,11 @@ Fast alle berichten den **p-Wert** und vergessen **Effektgröße und Konfidenzin
 12. Wann brauchst Du ein Mixed Model statt einer normalen Regression?
 13. Nenne drei Gründe, warum aus einer Korrelation keine Kausalität folgt.
 14. Was ist statistische Power, und wovon hängt sie ab?
+15. Was unterscheidet die Standardabweichung vom Standardfehler?
+16. Warum ist listwise Deletion bei MAR-Daten problematisch, und was nimmt man stattdessen?
 
 ::: {.callout-tip title="Lernstrategie"}
-Wenn Du jede dieser 14 Fragen in **2–3 Sätzen** frei beantworten kannst, hast Du die zentralen Konzepte des Workshops verstanden. Geh die Selbstcheck-Fragen am Ende jedes Kapitels als Ergänzung durch.
+Wenn Du jede dieser 16 Fragen in **2–3 Sätzen** frei beantworten kannst, hast Du die zentralen Konzepte des Seminars verstanden. Geh die Selbstcheck-Fragen am Ende jedes Kapitels als Ergänzung durch.
 :::
 
 ## Blaupause für Deine Master-Arbeit / Dein Forschungspraktikum
@@ -171,4 +181,4 @@ Wenn Du jede dieser 14 Fragen in **2–3 Sätzen** frei beantworten kannst, hast
 7. **Effektgrößen + KI** immer mitberichten; Nullbefunde ehrlich darstellen (ggf. Bayes-Faktor).
 8. **Reproduzierbar** veröffentlichen: Daten, Code/JASP-Datei, Material offen, wo möglich.
 
-Genau diesen Weg bist Du im Workshop einmal komplett gegangen. Du hast die Blaupause jetzt nicht nur gelesen, sondern **gemacht**.
+Genau diesen Weg bist Du im Seminar einmal komplett gegangen, wenn auch mit simulierten Daten.

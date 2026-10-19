@@ -21,8 +21,7 @@ Die moderne Forschungsethik baut auf zwei zentralen Dokumenten auf:
 - **Belmont Report** (1979): formuliert drei Prinzipien, die bis heute den Maßstab bilden:
   - *Respect for Persons* (Achtung der Person, also informierte Einwilligung)
   - *Beneficence* (Nutzen maximieren, Schaden minimieren)
-  - *Justice* (Gerechte Verteilung von Risiken und Nutzen)
-
+  - *Justice* (gerechte Verteilung von Risiken und Nutzen)
 
 ## Was muss in einer informierten Einwilligung stehen?
 
@@ -40,7 +39,7 @@ Eine vollständige Einwilligungserklärung enthält:
 
 ## DSGVO in zwei Sätzen
 
-Die **DSGVO** (Datenschutz-Grundverordnung) regelt seit 2018 EU-weit, wie personenbezogene Daten verarbeitet werden dürfen. Für Forschung gilt: Du brauchst eine Rechtsgrundlage (in der Regel die **Einwilligung**), und Personen haben Rechte auf Auskunft, Berichtigung und Löschung.
+Die **DSGVO** (Datenschutz-Grundverordnung) regelt seit 2018 EU-weit, wie personenbezogene Daten verarbeitet werden dürfen. Für Forschung gilt: Du brauchst eine Rechtsgrundlage (häufig die **Einwilligung**), und Personen haben Rechte auf Auskunft, Berichtigung und Löschung.
 
 ## Anonymisierung vs. Pseudonymisierung
 
@@ -48,7 +47,7 @@ Die **DSGVO** (Datenschutz-Grundverordnung) regelt seit 2018 EU-weit, wie person
 |---|---|---|
 | **Idee** | Bezug zur Person *grundsätzlich* nicht mehr herstellbar | Bezug nur über einen separat aufbewahrten Schlüssel herstellbar |
 | **Beispiel** | aggregierte Statistiken ohne Demografie | Probandennummer 7, Demografie und Antworten erhalten |
-| **DSGVO** | strenggenommen *keine* personenbezogenen Daten mehr | bleibt personenbezogen : DSGVO gilt  |
+| **DSGVO** | strenggenommen *keine* personenbezogenen Daten mehr | bleibt personenbezogen, die DSGVO gilt |
 
 Bei kleinen Stichproben mit Demografie ist eine echte Anonymisierung selten möglich. Wer die Teilnehmenden kennt, könnte einzelne Zeilen oft wiedererkennen.
 
@@ -61,10 +60,6 @@ Unser Datensatz liegt in einem **öffentlichen** GitHub-Repo. Echte Persönlichk
 - Weil keine echten Personen beschrieben werden, braucht es auch keine Einverständniserklärung.
 
 So kannst Du den Ablauf einer Erhebung einmal komplett durchspielen, ohne dass dabei echte Daten entstehen. Wie das praktisch geht, steht in @sec-tag1-fragebogen.
-
-::: {.callout-tip title="Faustregel"}
-Wenn Du Dich nicht sicher fühlst, frag die Lehrperson, lieber jetzt als später.
-:::
 
 ## Selbstcheck
 

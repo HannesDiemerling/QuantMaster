@@ -11,7 +11,7 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Wir messen gleich „Persönlichkeit", mit 21 Fragen. Damit das mehr ist als ein Persönlichkeitsquiz aus einer Zeitschrift, brauchst Du das absolute Minimum an Testtheorie. Dieses Kapitel ist kompakt, aber tragfähig, Du baust in Sitzung 03 darauf auf (Cronbach's α, Faktorenanalyse).
+Der BFI-K misst „Persönlichkeit" mit 21 Fragen. Damit das mehr ist als ein Persönlichkeitsquiz aus einer Zeitschrift, braucht es ein Minimum an Testtheorie. Dieses Kapitel ist kompakt, Du baust aber später darauf auf: in Sitzung 03 (Reliabilität) und in den Sitzungen 05 und 06 (Faktorenanalyse).
 
 ## Klassische Testtheorie in einem Satz
 
@@ -37,7 +37,7 @@ Der **beobachtete Wert** $X$ einer Antwort ist die Summe aus einem **wahren Wert
 | **Reliabilität** | Wie messgenau ist der Test? | wiederholtes Messen liefert ähnliche Werte → Retest-Reliabilität |
 | **Validität** | Misst der Test das, was er messen soll? | Selbstbericht Extraversion korreliert mit Fremdbericht → Konvergenzvalidität |
 
-Vertiefung folgt in **Sitzung 03** (Cronbach's α, Validitätsbefunde etc.).
+Vertiefung folgt in **Sitzung 03** (Reliabilität mit Cronbach's α und McDonald's ω) und in den **Sitzungen 05 und 06** (Faktorenanalyse als Hinweis auf Konstruktvalidität).
 
 ## Reverse-Items, was und warum?
 
@@ -51,7 +51,7 @@ Solche **Reverse-Items** dienen zwei Zwecken:
 2. **Konstruktbreite erfassen.** Extraversion *ist* nicht nur „gesprächig sein", sondern auch das *Fehlen* von Zurückhaltung.
 
 ::: {.callout-important title="Rekodierung VOR der Aggregation"}
-Vor der Berechnung eines Skalenmittelwertes **müssen** alle Items in dieselbe Richtung gepolt werden. Sonst löschen sich Reverse-Items gegen die anderen Items teilweise aus, und Du misst Lärm statt Konstrukt.
+Vor der Berechnung eines Skalenmittelwertes **müssen** alle Items in dieselbe Richtung gepolt werden. Sonst löschen sich Reverse-Items gegen die anderen Items teilweise aus, und Du misst Rauschen statt Konstrukt.
 
 Formel bei 5-Punkt-Likert: **`rekodiert = 6 − Originalwert`**.
 :::
@@ -68,9 +68,9 @@ Das Big-Five-Modell ist die heute dominierende Taxonomie der Persönlichkeit. F�
 | **V**erträglichkeit | Agreeableness | empathisch, kooperativ ↔ konfrontativ, kritisch |
 | **N**eurotizismus | Neuroticism | ängstlich, sensibel ↔ gelassen, stabil |
 
-(Im Deutschen oft als „OCEAN" oder „OGEVN" sortiert. Wir nutzen die Buchstaben O, G, E, V, N im Codebook.)
+Im Englischen merkt man sich die fünf Faktoren als „OCEAN". Im Codebook nutzen wir die deutschen Anfangsbuchstaben E, V, G, N und O.
 
-Das Modell hat sich faktorenanalytisch in vielen Sprachen und Kulturen wiederholt gezeigt, eine der stabilsten Befunde der Persönlichkeitsforschung.
+Das Modell hat sich faktorenanalytisch in vielen Sprachen und Kulturen wiederholt gezeigt, einer der stabilsten Befunde der Persönlichkeitsforschung.
 
 ## Der BFI-K
 
@@ -82,7 +82,7 @@ Quelle: Rammstedt, B. & John, O. P. (2005). Kurzversion des Big Five Inventory (
 | Antwortskala | 5-Punkt-Likert: 1 = sehr unzutreffend … 5 = sehr zutreffend |
 | Skalen | E, V, G, N (je 4 Items), O (5 Items) |
 | Bearbeitungszeit | ca. 2–3 Minuten |
-| Einsatzgebiete | Forschung mit knappem Erhebungsbudget, Massenbefragungen, Reliabilitätsstudien |
+| Einsatzgebiete | Studien mit knapper Erhebungszeit, große Befragungen |
 
 Der BFI-K ist die kompakte Schwester des BFI-44. Er opfert Detailreichtum für Erhebungstempo, ideal, wenn Persönlichkeit nur eine von mehreren Variablen in einer größeren Studie ist.
 
@@ -102,7 +102,7 @@ Im Datensatz heißen die Spalten `BFI_01` bis `BFI_21` (siehe [Codebook](../mate
 
 ## Warum diese Begriffe wichtig sind
 
-Die Begriffe **Reverse-Item** und **Rekodierung** und die fünf Big-Five-Faktoren begleiten Dich durch den ganzen Workshop und später durch jede eigene Fragebogen-Auswertung. Es lohnt sich, sie früh sauber zu verstehen.
+Die Begriffe **Reverse-Item** und **Rekodierung** und die fünf Big-Five-Faktoren begleiten Dich durch das ganze Seminar und später durch jede eigene Fragebogen-Auswertung. Es lohnt sich, sie früh sauber zu verstehen.
 
 ## Selbstcheck
 

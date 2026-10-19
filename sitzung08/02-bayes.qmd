@@ -59,7 +59,7 @@ Das **Credible Interval** (glaubwürdiges Intervall) ist der Bereich, in dem der
 Das ist **genau die Aussage, die die meisten Menschen fälschlich vom frequentistischen Konfidenzintervall erwarten**, und die nur das Credible Interval wirklich erlaubt.
 
 ::: {.callout-important title="Credible Interval vs. Konfidenzintervall"}
-- **Konfidenzintervall** (frequentistisch): „Würde ich das Experiment unendlich oft wiederholen, lägen 95 % solcher Intervalle um den wahren Wert." Eine Aussage über das *Verfahren*, **nicht** über diesen einen konkreten Bereich.
+- **Konfidenzintervall** (frequentistisch): „Würde ich das Experiment unendlich oft wiederholen, würden 95 % solcher Intervalle den wahren Wert enthalten." Eine Aussage über das *Verfahren*, **nicht** über diesen einen konkreten Bereich.
 - **Credible Interval** (bayesianisch): „Mit 95 % Wahrscheinlichkeit liegt der wahre Wert in *diesem* Bereich." Eine Aussage über den *Parameter*, direkt und intuitiv.
 :::
 
@@ -74,7 +74,7 @@ Der **Anteil der Posterior-Masse über Null** ist also direkt die **Wahrscheinli
 
 ## Der Bayes-Faktor (kurz, der Vollständigkeit halber)
 
-Neben der Schätzung gibt es das **Test**-Werkzeug der Bayes-Welt: den **Bayes-Faktor (BF)**. Er ist ein Wettverhältnis zwischen zwei Hypothesen. $BF_{10}$ sagt, wie viel wahrscheinlicher die Daten unter „Effekt vorhanden" gegenüber „kein Effekt" sind.
+Neben der Schätzung gibt es das **Test**-Werkzeug der Bayes-Welt: den **Bayes-Faktor (BF)**. Er ist ein Verhältnis zwischen zwei Hypothesen. $BF_{10}$ sagt, wie viel wahrscheinlicher die Daten unter „Effekt vorhanden" gegenüber „kein Effekt" sind.
 
 | $BF_{10}$ | Lesart |
 |---:|---|
@@ -117,10 +117,10 @@ Du liest am Posterior ab: Liegt das Credible Interval ganz auf einer Seite von 0
 
 ## Was unsere Daten hergeben
 
-Erinnere Dich an den [Datenhinweis](../sitzung04/00-uebersicht.qmd#sec-tag3-datenhinweis):
+Erinnere Dich an den Datenhinweis (@sec-tag3-datenhinweis):
 
-- **`G_mean` ~ `geschlecht`** (kein eingebauter Effekt): Die Richtung: Der Posterior der Differenz liegt **um Null herum**, das Credible Interval schließt die **0 ein**. Lesart: *„Wir können **nicht** mit hoher Wahrscheinlichkeit sagen, dass sich die Gruppen unterscheiden. Beide Richtungen bleiben plausibel."* Hier ist schlicht kein Effekt vorhanden.
-- **`E_mean` × `O_mean`** (schwaches, echtes Signal): Die Richtung: Der Posterior von $\rho$ liegt **eher** über Null, aber nicht eindeutig. Lesart: *„Mit erhöhter, aber nicht erdrückender Wahrscheinlichkeit besteht ein positiver Zusammenhang."* Genau diese **abgestufte Unsicherheit** macht der Posterior sichtbar, statt sie in ein „signifikant/nicht signifikant" zu pressen. Wie deutlich es ausfällt, hängt auch von Euren eigenen Zeilen ab.
+- **`G_mean` ~ `geschlecht`** (kein eingebauter Effekt): Der Posterior der Differenz liegt **um Null herum**, das Credible Interval schließt die **0 ein**. Lesart: *„Wir können **nicht** mit hoher Wahrscheinlichkeit sagen, dass sich die Gruppen unterscheiden. Beide Richtungen bleiben plausibel."* Hier ist schlicht kein Effekt vorhanden.
+- **`E_mean` × `O_mean`** (schwaches, echtes Signal): Der Posterior von $\rho$ liegt **eher** über Null, aber nicht eindeutig. Lesart: *„Mit erhöhter, aber nicht erdrückender Wahrscheinlichkeit besteht ein positiver Zusammenhang."* Genau diese **abgestufte Unsicherheit** macht der Posterior sichtbar, statt sie in ein „signifikant/nicht signifikant" zu pressen. Wie deutlich es ausfällt, hängt auch von den Zeilen Eurer fiktiven Personen ab.
 
 ## Frequentismus und Bayes im Vergleich
 
@@ -131,7 +131,7 @@ Erinnere Dich an den [Datenhinweis](../sitzung04/00-uebersicht.qmd#sec-tag3-date
 | Direkte Wahrscheinlichkeit über den Effekt? | **nein** | **ja** (z. B. P(Differenz > 0)) |
 | Vorwissen | fließt nicht ein | über den Prior explizit |
 | H0 bestätigen? | nein | ja (BF zugunsten H0 bzw. Posterior nahe Null) |
-| „Daten sammeln bis signifikant" | verboten (verzerrt p) | unkritischer (Posterior darf laufend angeschaut werden) |
+| „Daten sammeln bis signifikant" | ohne Korrektur nicht zulässig (verzerrt p) | gilt als unkritischer (Posterior darf laufend angeschaut werden) |
 
 Beide Ansätze sind legitim. In Deiner Master-Arbeit kannst Du sogar **beide** berichten. Das wirkt souverän und ist mit JASP kaum Mehraufwand.
 

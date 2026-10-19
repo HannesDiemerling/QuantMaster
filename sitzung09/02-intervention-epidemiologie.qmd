@@ -28,7 +28,7 @@ Beispiel-RCT: 100 Personen Therapie, 100 Warteliste. Remission bei 45 % (Therapi
 | Kennwert | Formel | Beispiel |
 |---|---|---|
 | **Relatives Risiko (RR)** | $p_T / p_K$ | 0.45 / 0.30 = 1.5 |
-| **Absolute Risikodifferenz (ARR)** | $p_T - p_K$ | 0.15 |
+| **Absolute Risikodifferenz (ARR)**, bei Remission auch absoluter Nutzenzuwachs | $p_T - p_K$ | 0.15 |
 | **Number Needed to Treat (NNT)** | $1 / \text{ARR}$, aufgerundet | 1 / 0.15 = 6.67 → **7** |
 | **Odds Ratio (OR)** | $\frac{p_T/(1-p_T)}{p_K/(1-p_K)}$ | (0.45/0.55)/(0.30/0.70) ≈ 1.91 |
 
@@ -37,7 +37,7 @@ Die NNT ist besonders anschaulich: Sieben Personen müssen behandelt werden, dam
 ## Epidemiologie und Ätiologie
 
 - **Prävalenz:** Anteil Erkrankter zu einem Zeitpunkt bzw. in einem Zeitraum (z. B. 12-Monats-Prävalenz).
-- **Inzidenz:** Anteil *Neuerkrankungen* in einem Zeitraum.
+- **Inzidenz:** Anteil *Neuerkrankungen* in einem Zeitraum, bezogen auf alle, die zu Beginn noch nicht erkrankt waren.
 - **Designs:**
   - **Querschnitt** (Prävalenz; keine zeitliche Reihenfolge),
   - **Kohortenstudie** (Exponierte vs. Nicht-Exponierte über die Zeit; liefert RR),

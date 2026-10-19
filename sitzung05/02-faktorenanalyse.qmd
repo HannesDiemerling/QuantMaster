@@ -39,7 +39,7 @@ Am Ende entscheidet auch die **Theorie**: Eine Lösung muss inhaltlich interpret
 
 - **KMO** (Kaiser-Meyer-Olkin): Eignen sich die Daten? Ab ca. .60 akzeptabel, ab .80 gut.
 - **Bartlett-Test:** Sind die Items überhaupt korreliert? Sollte signifikant sein.
-- Stichprobe: Faustregeln reichen von 5–10 Personen pro Item bis $N \geq 200$. Mit ca. 100 Personen und 21 Items sind wir am unteren Rand, rechne also mit unscharfen Ergebnissen.
+- Stichprobe: Faustregeln reichen von 5–10 Personen pro Item bis $N \geq 200$. Mit gut 100 Personen und 21 Items sind wir am unteren Rand, rechne also mit unscharfen Ergebnissen.
 
 ## In JASP rechnen
 

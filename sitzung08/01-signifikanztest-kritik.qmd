@@ -51,7 +51,7 @@ Gegenmittel kennst Du aus Sitzung 01: **Preregistration**, offene Daten und Skri
 
 ## In JASP rechnen: Äquivalenztest
 
-**Frage:** Unterscheiden sich Frauen und Männer in Gewissenhaftigkeit höchstens unbedeutend (|d| < 0.5)?
+**Frage:** Ist der Unterschied zwischen Frauen und Männern in Gewissenhaftigkeit kleiner als |d| = 0.5? Diese Grenze ist hier für die Übung gesetzt. In einer echten Studie begründest Du vorab, ab welcher Größe ein Unterschied praktisch relevant wäre.
 
 1. Modul **Equivalence T-Tests** über das **„+"** aktivieren.
 2. **Equivalence T-Tests → Classical → Independent Samples T-Test**.

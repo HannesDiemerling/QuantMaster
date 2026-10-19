@@ -27,14 +27,12 @@ Das ist die standardisierte Kovarianz mit einem Wertebereich von immer $-1 \leq 
 | $r$ | Bedeutung |
 |---:|---|
 | $+1.0$ | perfekter positiver linearer Zusammenhang |
-| $\;+0.7$ | starker positiver Zusammenhang |
-| $\;+0.3$ | mittlerer positiver Zusammenhang |
-| $\;+0.1$ | schwacher positiver Zusammenhang |
+| $> 0$ | positiver Zusammenhang: hohe Werte in $X$ gehen mit hohen Werten in $Y$ einher |
 | $\;\;0.0$ | kein linearer Zusammenhang |
-| $-0.5$ | mittlerer negativer Zusammenhang |
-| $-1.0$ | perfekter negativer Zusammenhang |
+| $< 0$ | negativer Zusammenhang: hohe Werte in $X$ gehen mit niedrigen Werten in $Y$ einher |
+| $-1.0$ | perfekter negativer linearer Zusammenhang |
 
-**Faustregel nach Cohen (1988)** zur Effektgröße (darauf kommen wir noch zurück):
+**Konventionen nach Cohen (1988)**, nur als grobe Orientierung (warum, steht in @sec-tag3-nachschlagewerk):
 
 | $|r|$ | Bezeichnung |
 |---:|---|
@@ -55,7 +53,7 @@ Bei den BFI-Skalenmittelwerten ist Pearson meistens passend; bei einzelnen BFI-I
 
 ## Wie viele Daten brauchst Du?
 
-Mit kleinen Stichproben sind Korrelationen instabil. Eine Stichprobenkorrelation mit $r = .30$ und $N = 30$ hat ein Konfidenzintervall von etwa $[-.06, .58]$. Es ist also gut möglich, dass der wahre Wert eigentlich Null ist. Schau in JASP **immer** auf das **Konfidenzintervall**, nicht nur auf den Punktschätzer.
+Mit kleinen Stichproben sind Korrelationen instabil. Eine Stichprobenkorrelation mit $r = .30$ und $N = 30$ hat ein Konfidenzintervall von etwa $[-.07, .60]$. Es ist also gut möglich, dass der wahre Wert eigentlich Null ist. Schau in JASP **immer** auf das **Konfidenzintervall**, nicht nur auf den Punktschätzer.
 
 ## In JASP rechnen
 
@@ -63,7 +61,7 @@ Mit kleinen Stichproben sind Korrelationen instabil. Eine Stichprobenkorrelation
 2. Variablen ins Feld ziehen, zum Beispiel alle fünf `*_mean` zusammen plus `alter`.
 3. In den Options:
    - **Pearson's r** (Standard) für die Skalenmittelwerte
-   - **Spearman's rho** (zusätzlich, wenn Ordinaldaten)
+   - **Spearman's rho** (zusätzlich, bei Ordinaldaten)
    - **Report significance** (ist voreingestellt)
    - **Confidence intervals** an, mit 95 %
    - **Sample size** an
@@ -81,7 +79,7 @@ Ein Scatter Plot zeigt mehr als die Zahl $r$. Achte beim Lesen auf:
 - **Ausreißer:** Liegen einzelne Punkte weit weg vom Hauptmuster?
 - **Subgruppen:** Sieht's vielleicht so aus, als wären's zwei Wolken (Simpson-Paradox-Risiko)?
 
-Anscombe (1973) zeigt eindrücklich, dass vier Datensätze mit **identischen** Korrelationen visuell völlig unterschiedlich aussehen können. Deshalb: erst das Streudiagramm, dann die Korrelation.
+Anscombe (1973) zeigt eindrücklich, dass vier Datensätze mit **praktisch identischen** Kennwerten und Korrelationen visuell völlig unterschiedlich aussehen können. Deshalb: erst das Streudiagramm, dann die Korrelation.
 
 ## Beispielhypothesen mit unseren Variablen
 
@@ -89,18 +87,20 @@ Hier kommen sechs Hypothesen, die *inhaltlich* Sinn ergeben, formuliert so, wie 
 
 | # | Hypothese | Berechnung | Erwartung (aus der Literatur) |
 |---:|---|---|---|
-| H1 | Verträglichkeit und Neurotizismus hängen *negativ* zusammen. | Pearson `V_mean` × `N_mean` | mittel-negativ ($r \approx -.20$) |
+| H1 | Verträglichkeit und Neurotizismus hängen *negativ* zusammen. | Pearson `V_mean` × `N_mean` | schwach bis mittel negativ ($r \approx -.20$) |
 | H2 | Offenheit und Extraversion hängen *positiv* zusammen. | Pearson `O_mean` × `E_mean` | schwach-positiv ($r \approx +.15$) |
 | H3 | Gewissenhaftigkeit und Alter hängen *positiv* zusammen. | Pearson `G_mean` × `alter` | klein bis mittel positiv |
 | H4 | Neurotizismus und Bildungsgrad hängen *negativ* zusammen. | Spearman `N_mean` × `bildungsgrad` | klein negativ |
 | H5 | Innerhalb der Extraversions-Skala korrelieren alle Items mindestens mit $r > .20$ miteinander. | Korrelationsmatrix der 4 E-Items | nach Konstruktion ja |
 | H6 | Items aus *unterschiedlichen* Skalen korrelieren nur schwach. | Korrelationsmatrix `BFI_06` (E) × `BFI_07` (V) × `BFI_08` (G) × `BFI_09` (N) × `BFI_10` (O) | $r \approx 0$–$.20$ |
 
-Rechne alle sechs in JASP. Schreib Dir zu jedem Ergebnis eine Zeile auf:
+Rechne alle sechs in JASP. Schreib Dir zu jedem Ergebnis eine Zeile auf, zum Beispiel so (Zahlen ausgedacht):
 
-> *„H1: $r = -.18$, $p = .046$, 95 %-KI [−.36, −.00]. Die Hypothese ist im Sinne der Effektrichtung bestätigt, das Konfidenzintervall ist aber so breit, dass auch eine sehr kleine wahre Korrelation plausibel bleibt."*
+> *„H2: $r = .19$, $p = .041$, 95 %-KI [.01, .36]. Die Richtung passt zur Hypothese, das Konfidenzintervall ist aber so breit, dass auch eine sehr kleine wahre Korrelation plausibel bleibt."*
 
-## Korrelation ≠ Kausalität: der wichtigste Abschnitt
+Vergleiche Deine Ergebnisse mit der Erwartungsspalte. Wo sie deutlich abweichen, liegt das an der Art, wie unsere Daten simuliert wurden. Was genau dahintersteckt, erfährst Du in Sitzung 04 (@sec-tag3-datenhinweis).
+
+## Korrelation ≠ Kausalität
 
 Wenn $X$ und $Y$ korrelieren, gibt es mindestens **fünf** mögliche Erklärungen:
 
@@ -150,8 +150,8 @@ Aus einer Korrelation kannst Du **nicht** entscheiden, welcher Mechanismus es is
 **Bonus (für die Schnellen):**
 
 - Wiederhole H1 zusätzlich **als Spearman** statt Pearson. Wie unterscheidet sich der r-Wert?
-- Rechne eine **partielle Korrelation** zwischen zwei Skalen unter Kontrolle von `alter` (Regression → Correlation, `alter` ins Feld **Partial out** ziehen).
-- Erzeuge ein **gerichtetes Streudiagramm** (**Descriptives → Descriptive Statistics → Customizable Plots → Scatter plots**) für die Hypothese aus Schritt 3 und markiere per Annotation, wo die mögliche Drittvariable wirken könnte.
+- Rechne eine **partielle Korrelation** zwischen zwei Skalen unter Kontrolle von `alter` (**Regression → Classical → Correlation**, `alter` ins Feld **Partial out** ziehen).
+- Erzeuge ein **Streudiagramm** (**Descriptives → Descriptive Statistics → Customizable Plots → Scatter plots**) für die Korrelation aus Schritt 3 und überlege, welche Drittvariable den Zusammenhang erklären könnte.
 
 ::: {.callout-tip title="Für die Abgabe"}
 Notiere: r und p für H1, die Zahl signifikanter Hypothesen unter H1–H4 und eine alternative Erklärung. Siehe @sec-s03-abschluss.

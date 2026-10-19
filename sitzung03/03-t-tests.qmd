@@ -22,7 +22,7 @@ Dieses Kapitel frischt den *t*-Test aus dem Bachelor auf und vertieft Effektgrö
 |---|---|---|
 | **Einstichproben-t-Test** | Vergleich eines Mittelwerts mit einem festen Wert | Liegt der Mittelwert unserer Stichprobe in Extraversion oberhalb von 3 (Skalenmitte)? |
 | **Unabhängiger t-Test** | Zwei unabhängige Gruppen | Unterscheiden sich Frauen und Männer in Verträglichkeit? |
-| **Abhängiger t-Test** (paired) | Zwei *gepaarte* Messungen | Skalenwert bei Item-Mittel mit/ohne Reverse-Item; bei *uns* heute nicht relevant, weil wir keine echten Wiederholungsmessungen haben |
+| **Abhängiger t-Test** (paired) | Zwei *gepaarte* Messungen | Symptomwert derselben Personen vor und nach einer Therapie; bei *uns* nicht relevant, weil wir keine Wiederholungsmessungen haben |
 
 Heute fokussierst Du Dich auf Variante 1 und 2. Variante 3 (paired) brauchst Du bei Messwiederholung. In unseren Querschnittsdaten kommt sie nicht vor.
 
@@ -36,7 +36,7 @@ Konkret:
 - **Alternativhypothese H1:** Die Mittelwerte sind verschieden.
 - Der p-Wert ist die *Wahrscheinlichkeit*, einen so großen (oder größeren) Unterschied unter H0 rein zufällig zu sehen.
 
-Wenn $p < \alpha$ (typischerweise .05), verwerfen wir H0. Das heißt **nicht**, dass H1 wahr ist. Es heißt nur, dass H0 unwahrscheinlich erscheint, gegeben unsere Daten.
+Wenn $p < \alpha$ (typischerweise .05), verwerfen wir H0. Das heißt **nicht**, dass H1 wahr ist, und auch nicht, dass H0 mit 95 % Wahrscheinlichkeit falsch ist. Es heißt nur: Wenn H0 stimmen würde, wären Daten wie unsere ziemlich überraschend.
 
 ::: {.callout-important title="Was der p-Wert *nicht* ist"}
 - *Nicht* die Wahrscheinlichkeit, dass H0 wahr ist.
@@ -62,7 +62,7 @@ Aus $\beta$ ergibt sich die **Power** eines Tests als $1 - \beta$, also die Wahr
 - **Streuung der Daten** (weniger Rauschen → mehr Power)
 - **Signifikanzniveau $\alpha$** (lockerer → mehr Power, aber auch mehr falsche Alarme)
 
-Faustregel: für mittlere Effekte ($d = 0.5$) und $\alpha = .05$ brauchst Du pro Gruppe etwa **64 Personen** für 80 % Power. Unsere Workshop-Stichprobe ist deshalb deutlich underpowered für kleine bis mittlere Effekte. Echte Effekte werden hier also häufig übersehen.
+Faustregel: für mittlere Effekte ($d = 0.5$) und $\alpha = .05$ brauchst Du pro Gruppe etwa **64 Personen** für 80 % Power. Unsere Seminar-Stichprobe ist deshalb deutlich underpowered für kleine bis mittlere Effekte. Echte Effekte werden hier also häufig übersehen.
 
 ## Annahmen und warum sie wichtig sind
 
@@ -85,7 +85,7 @@ Auch wenn Deine Einzelantworten extrem schief sind: sobald $N$ ausreichend groß
 | Varianzhomogenität verletzt | **Welch's t-Test** (in JASP per Häkchen, fast immer besser als der Levene-Test-Umweg) |
 | Normalverteilung deutlich verletzt + kleines N | **Mann-Whitney U-Test** (nicht-parametrisch) |
 | Skalenniveau nur ordinal | Mann-Whitney U-Test |
-| Ausreißer | Robustere Alternativen (Yuen's t mit Trimmen), siehe JASP-Option |
+| Ausreißer | robuste Verfahren (z. B. Yuens *t*-Test mit getrimmten Mittelwerten) oder Mann-Whitney |
 
 ::: {.callout-tip title="Faustregel"}
 Wenn Du keine Zeit für Annahmen-Diagnose hast oder Du Dir unsicher bist: **immer Welch's t-Test** rechnen. Er ist im schlimmsten Fall fast so präzise wie Student's t und im besten Fall deutlich robuster.
@@ -101,7 +101,7 @@ $$
 
 Also: Mittelwertsunterschied in Einheiten der gepoolten Standardabweichung.
 
-**Faustregeln (Cohen 1988):**
+**Konventionen nach Cohen (1988)**, nur als grobe Orientierung (siehe @sec-tag3-nachschlagewerk):
 
 | $|d|$ | Bezeichnung |
 |---:|---|
@@ -119,7 +119,7 @@ JASP zeigt Cohen's *d* mit Konfidenzintervall. Schau es Dir **immer** an. Ein si
 
 **Frage:** Liegt der mittlere Extraversionswert unserer Stichprobe oberhalb von 3?
 
-1. **T-Tests → One-Sample T-Test**.
+1. **T-Tests → Classical → One-Sample T-Test**.
 2. `E_mean` ins Variablenfeld ziehen.
 3. **Test value:** 3.
 4. **Alternative hypothesis:** „> Test value" wenn Du wirklich nur „oberhalb" testen willst (gerichtete Hypothese), sonst zweiseitig.
@@ -133,7 +133,7 @@ JASP zeigt Cohen's *d* mit Konfidenzintervall. Schau es Dir **immer** an. Ein si
 
 **Frage:** Unterscheiden sich Frauen und Männer im Verträglichkeitswert?
 
-1. **T-Tests → Independent Samples T-Test**.
+1. **T-Tests → Classical → Independent Samples T-Test**.
 2. **Dependent Variables:** `V_mean`. **Grouping Variable:** `geschlecht`.
 3. Der t-Test braucht **genau zwei** Gruppen. `geschlecht` hat drei Stufen. Schließ Stufe 3 (divers) aus: Klick auf den Spaltenkopf `geschlecht`, in der Tabelle mit Filter / Value / Label beim Wert 3 das Häkchen in der Spalte **Filter** entfernen. Danach zählt JASP nur noch Fälle mit 1 und 2 (bei sehr kleinem $n$ wäre ein Vergleich mit Gruppe 3 ohnehin nicht sinnvoll). Den Filter nach dem t-Test wieder entfernen.
 4. Aktiviere in den Options:
@@ -148,31 +148,29 @@ JASP zeigt Cohen's *d* mit Konfidenzintervall. Schau es Dir **immer** an. Ein si
 
 In APA-ähnlicher Form sieht ein t-Test-Bericht so aus:
 
-> Frauen ($M = 3.42$, $SD = 0.72$, $n = 64$) und Männer ($M = 3.09$, $SD = 0.81$, $n = 28$) unterschieden sich im Verträglichkeitswert, $t(46.3) = 1.89$, $p = .065$, $d = 0.43$, 95 %-KI [-0.03, 0.88]. Der Effekt entspricht einer kleinen bis mittleren Größe nach Cohen, das Konfidenzintervall schließt den Nulleffekt aber knapp nicht aus.
+> Frauen ($M = 3.42$, $SD = 0.72$, $n = 64$) und Männer ($M = 3.09$, $SD = 0.81$, $n = 28$) unterschieden sich im Verträglichkeitswert nicht signifikant, $t(46.5) = 1.86$, $p = .069$, $d = 0.44$, 95 %-KI [−0.01, 0.89]. Der geschätzte Unterschied ist nicht klein, das Konfidenzintervall schließt aber auch einen Nulleffekt ein.
 
 Beachte: vollständige Information, nicht nur das p.
 
-## Beispielhypothesen für unsere Stichprobe
+## Weitere Hypothesen zum Ausprobieren
 
-Du rechnest **mindestens fünf** der folgenden t-Tests:
+Über die Pflichtaufgabe unten hinaus kannst Du mit diesen Ideen weiterrechnen:
 
 | # | Hypothese | Test | Variablen |
 |---:|---|---|---|
-| T1 | Mittlere Extraversion liegt nicht bei 3. | One-Sample, zweiseitig | `E_mean` vs. 3 |
-| T2 | Frauen sind verträglicher als Männer. | Independent, gerichtet | `V_mean` ~ `geschlecht` |
-| T3 | Personen mit Bachelor oder mehr (Bildung ≥ 5) sind offener als Personen mit weniger. | Independent | `O_mean` ~ Bildungsgruppe |
-| T4 | Mittlerer Neurotizismus liegt unter 3 (Skalenmitte). | One-Sample, einseitig | `N_mean` vs. 3 |
-| T5 | Personen unter 25 Jahren sind extravertierter als Personen ab 25. | Independent | `E_mean` ~ Altersgruppe |
-| T6 | Personen, die einen vorgenerierten Datensatz aus der ersten Hälfte (1–5) bearbeitet haben, unterscheiden sich nicht in Gewissenhaftigkeit von denen aus der zweiten Hälfte (6–10). | Independent | `G_mean` ~ `quelle_datensatz` < 6 |
+| A | Frauen sind verträglicher als Männer. | Independent, gerichtet | `V_mean` ~ `geschlecht` |
+| B | Mittlerer Neurotizismus liegt unter 3 (Skalenmitte). | One-Sample, einseitig | `N_mean` vs. 3 |
+| C | Personen unter 25 Jahren sind extravertierter als Personen ab 25. | Independent | `E_mean` ~ Altersgruppe |
+| D | Personen aus den Seed-Datensätzen 1–5 unterscheiden sich in Gewissenhaftigkeit nicht von denen aus 6–10. | Independent | `G_mean` ~ Datensatzhälfte |
 
-Für die Gruppierung in T3 und T5 baust Du Dir eine neue Spalte per Compute Column:
+Für C und D baust Du Dir eine Gruppenspalte per Compute Column (Typ **Nominal**):
 
 ```r
-# Altersgruppe (T5)
+# Altersgruppe (C)
 ifelse(alter < 25, "jung", "aelter")
 
-# Bildungsgruppe (T3)
-ifelse(bildungsgrad >= 5, "hoch", "niedriger")
+# Datensatzhälfte (D)
+ifelse(as.numeric(as.character(quelle_datensatz)) <= 5, "1-5", "6-10")
 ```
 
 ::: {.callout-tip title="Vorsicht mit gerichteten Hypothesen"}
@@ -184,7 +182,7 @@ Eine gerichtete Hypothese darfst Du **nur** dann formulieren, wenn es vorher inh
 **Stärken:**
 
 - intuitiv, einfach zu kommunizieren
-- gut etabliert, alle reviewen das problemlos
+- gut etabliert, jede Gutachterin und jeder Gutachter kennt ihn
 - robust bei größeren Stichproben
 
 **Schwächen:**

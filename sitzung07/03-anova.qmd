@@ -9,11 +9,9 @@ Nach diesem Kapitel kannst Du …
 - den passenden post-hoc-Test wählen und das Multiple-Testing-Problem benennen.
 :::
 
-::: {.callout-tip title="Optional / zeitabhängig"}
-Die ANOVA ist die Verallgemeinerung des *t*-Tests aus @sec-tag2-ttest auf mehr als zwei Gruppen. Die ANOVA ist das klassische Auswertungsverfahren für experimentelle Designs mit mehreren Gruppen (@sec-power). Falls die Zeit in der Sitzung nicht reicht: Du kannst das Kapitel bis zur Abgabe zu Hause abschließen.
-:::
-
 ## Worum es geht
+
+Die ANOVA ist die Verallgemeinerung des *t*-Tests aus @sec-tag2-ttest auf mehr als zwei Gruppen und das klassische Auswertungsverfahren für experimentelle Designs mit mehreren Gruppen (@sec-power).
 
 Sobald Du **mehr als zwei Gruppen** vergleichst (z. B. Bildungsgrad mit sieben Stufen oder die zehn Quell-Datensätze), reicht der t-Test nicht mehr. Stapelst Du einfach mehrere t-Tests übereinander, vervielfachst Du die Fehlerwahrscheinlichkeit (Multiple-Testing-Problem). Die **Analysis of Variance (ANOVA)** löst das mit einem einzigen Globaltest, gefolgt von gezielten Folgetests.
 
@@ -40,11 +38,11 @@ Ist $F$ groß (Unterschiede zwischen den Gruppen sind groß im Verhältnis zur S
 
 Wie beim t-Test gilt: der p-Wert reicht nicht. Du brauchst eine Effektgröße.
 
-| Maß | Bedeutet | Daumenregel |
+| Maß | Bedeutet | Konvention nach Cohen (grobe Orientierung) |
 |---:|---|---|
 | **$\eta^2$ (Eta-Quadrat)** | Anteil der Gesamtvarianz, der durch die Gruppen erklärt wird | klein .01, mittel .06, groß .14 |
-| **$\omega^2$ (Omega-Quadrat)** | unverzerrte Variante von $\eta^2$ | dieselben Daumenwerte, präziser bei kleinem $N$ |
-| **partielles $\eta^2_p$** | bei mehrfaktorieller ANOVA: Anteil pro Faktor | gleiche Daumenregel, vorsichtig bei Vergleichen über Studien hinweg |
+| **$\omega^2$ (Omega-Quadrat)** | weniger verzerrte Variante von $\eta^2$ | dieselben Werte, präziser bei kleinem $N$ |
+| **partielles $\eta^2_p$** | bei mehrfaktorieller ANOVA: Anteil pro Faktor | dieselben Werte, vorsichtig bei Vergleichen über Studien hinweg |
 
 In JASP werden $\eta^2$ und $\omega^2$ optional in der ANOVA-Tabelle angezeigt.
 
@@ -52,7 +50,7 @@ In JASP werden $\eta^2$ und $\omega^2$ optional in der ANOVA-Tabelle angezeigt.
 
 **Frage:** Unterscheiden sich Personen verschiedener Bildungsstufen in Offenheit?
 
-1. **ANOVA → ANOVA** (klassische einfaktorielle).
+1. **ANOVA → Classical → ANOVA**.
 2. **Dependent Variable:** `O_mean`. **Fixed Factors:** `bildungsgrad`.
 3. Aktiviere in den Options:
    - unter *Display*: **Descriptive statistics** (M, SD pro Gruppe) und **Estimates of effect size** mit **η²** und **ω²**
@@ -78,7 +76,7 @@ Ein signifikanter Global-F sagt: „Irgendwo unter den Gruppen ist ein Unterschi
 
 | Post-hoc | Anwendung | Charakteristik |
 |---|---|---|
-| **Tukey HSD** | alle paarweisen Vergleiche, gleiche Gruppengrößen | gute Power, Standard-Empfehlung |
+| **Tukey HSD** | alle paarweisen Vergleiche, am besten bei ähnlichen Gruppengrößen | gute Power, Standard-Empfehlung |
 | **Scheffé** | sehr konservativ, beliebige Kontraste | Power gering, breit verteidigbar |
 | **Bonferroni** | wenige geplante Vergleiche | konservativ, aber transparent |
 | **Holm** | wie Bonferroni, sequenziell | gleiche Kontrolle, mehr Power |
@@ -95,7 +93,7 @@ In JASP ist zunächst **keine** Korrektur angekreuzt. Wähle **Tukey** selbst. W
 | A3 | Die zehn vorgenerierten Quell-Datensätze unterscheiden sich nicht in Extraversion. | `E_mean` ~ `quelle_datensatz` |
 | A4 | Die drei Geschlechter-Kategorien (1, 2, 3) unterscheiden sich nicht in Neurotizismus. | `N_mean` ~ `geschlecht` |
 
-A3 ist ein wichtiger **Sanity-Check**: Die Datensätze wurden mit derselben Verteilung erzeugt, sollten sich also *nicht* unterscheiden. Wenn doch: zufällige Stichprobenstreuung (ein paar Datensätze ziehen halt extremere Werte) oder beim Kombinieren (@sec-tag2-kombinieren) wurden Zeilen falsch zugeordnet. Schau hin.
+A3 ist ein wichtiger **Sanity-Check**: Die Datensätze wurden mit derselben Verteilung erzeugt, sollten sich also *nicht* unterscheiden. Wenn doch: zufällige Stichprobenstreuung (ein paar Datensätze ziehen halt extremere Werte) oder beim Kombinieren (@sec-tag2-kombinieren) wurden Zeilen falsch zugeordnet.
 
 ## Ein vollständiger Bericht
 

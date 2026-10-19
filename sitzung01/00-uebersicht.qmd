@@ -4,9 +4,9 @@
 Nach dieser Sitzung …
 
 - kennst Du den Ablauf des Seminars und Deine persönlichen Nummern,
-- hast Du eine fiktive Person ausgedacht und den BFI-K für sie ausgefüllt,
+- hast Du Dir eine fiktive Person ausgedacht und den BFI-K für sie ausgefüllt,
 - kannst Du Dich im GitHub-Repo orientieren, Dateien herunterladen und Deine Daten hochladen (über GitHub oder per Mail),
-- hast Du einen Datensatz in JASP auf Fehler geprüft, bereinigt und samt eigener Zeile hochgeladen.
+- hast Du einen Datensatz in JASP auf Fehler geprüft, bereinigt und zusammen mit der Zeile Deiner fiktiven Person hochgeladen.
 :::
 
 **Semesterwoche 5** · Bezug zur Vorlesung: Vorlesung 1 (Replikationskrise). Die Vorbereitung vertieft Open Science und legt mit der Messtheorie die Grundlage für alles Weitere.
@@ -41,7 +41,7 @@ Die Lehrperson stellt zu Beginn eine **alphabetische Teilnehmerliste** bereit. D
 | Was | Regel | Beispiel $n = 13$ |
 |---|---|---|
 | **Kennziffer** (Dein Pseudonym, Mail-Betreff, Probandennummer Deiner Datenzeile) | $2000 + n$ | 2013 |
-| **Datensatz** (ab Sitzung 02) | $((n - 1) \bmod 10) + 1$, also 1, 2, …, 10, dann wieder 1 | 3 |
+| **Datensatz** (Dein Übungsdatensatz in Sitzung 01) | $((n - 1) \bmod 10) + 1$, also 1, 2, …, 10, dann wieder 1 | 3 |
 | **Kleingruppe** (fester Breakout-Raum für alle Sitzungen) | $n$ geteilt durch 4, aufgerundet | 4 |
 
 Notiere Dir die drei Zahlen am besten gleich. Du brauchst sie in jeder Sitzung.

@@ -10,13 +10,13 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Dieses Kapitel ist eine **Landkarte**, kein Trainingslager. Die folgenden Verfahren wirst Du in Master-Arbeit oder Forschungspraktikum vielleicht brauchen. Hier geht es darum, dass Du sie **erkennst**, ihren Zweck verstehst und sie in JASP wiederfindest. Die Lehrperson zeigt ein, zwei davon als kurze Live-Demo. Tiefer einsteigen kannst Du jederzeit später.
+Dieses Kapitel ist eine **Landkarte**, kein Trainingslager. Die folgenden Verfahren wirst Du in Master-Arbeit oder Forschungspraktikum vielleicht brauchen. Hier geht es darum, dass Du sie **erkennst**, ihren Zweck verstehst und sie in JASP wiederfindest. EFA, CFA/SEM und Metaanalyse hast Du in den Sitzungen 04 bis 06 schon selbst gerechnet; sie stehen hier nur zum Vergleich. Neu sind Netzwerk- und Clusteranalyse.
 
 ## Faktorenanalyse: EFA und PCA
 
 **Frage:** Lassen sich viele Items auf wenige zugrunde liegende **Dimensionen** zurückführen?
 
-- **Explorative Faktorenanalyse (EFA):** Du weißt *nicht* vorab, wie viele Faktoren es gibt, und lässt sie aus den Daten auftauchen. Für unseren BFI-K würdest Du erwarten, dass sich grob **fünf** Faktoren zeigen (die Big Five), bei $N \approx 90$ und 21 Items aber nur unscharf.
+- **Explorative Faktorenanalyse (EFA):** Du weißt *nicht* vorab, wie viele Faktoren es gibt, und lässt sie aus den Daten auftauchen. Für unseren BFI-K würdest Du erwarten, dass sich grob **fünf** Faktoren zeigen (die Big Five), bei gut 100 Personen und 21 Items aber nur unscharf.
 - **Hauptkomponentenanalyse (PCA):** verwandt, aber datenreduzierend statt modellbasiert; gut zum Zusammenfassen, nicht zum Theorie-Testen.
 
 **In JASP:** **Factor** → Exploratory Factor Analysis bzw. Principal Component Analysis. Achte auf den **Scree plot**, die Faktorenzahl (z. B. über **Eigenvalues above** 1, das Kaiser-Kriterium) und die **Faktorladungen** (welches Item lädt auf welchem Faktor).
@@ -31,7 +31,7 @@ Dieses Kapitel ist eine **Landkarte**, kein Trainingslager. Die folgenden Verfah
 **In JASP:** CFA unter **Factor → Confirmatory Factor Analysis**, SEM unter **SEM → Structural Equation Modeling** (Modul über „+" aktivieren; im Hintergrund `lavaan`). Modelle werden in einer kurzen Syntax beschrieben.
 
 ::: {.callout-tip title="Warum CFA mehr verlangt als EFA"}
-SEM und CFA sind hungrig nach Daten. Faustregeln reichen von „≥ 10 Fälle pro geschätztem Parameter" bis „$N \geq 200$". Mit unseren ~90 Personen sind sie nur **demonstrativ** sinnvoll, nicht belastbar. Gut zu wissen, bevor Du sie in einer Arbeit einplanst.
+SEM und CFA sind hungrig nach Daten. Faustregeln reichen von „≥ 10 Fälle pro geschätztem Parameter" bis „$N \geq 200$". Mit unseren gut 100 Personen sind sie nur **demonstrativ** sinnvoll, nicht belastbar. Gut zu wissen, bevor Du sie in einer Arbeit einplanst.
 :::
 
 ## Netzwerkanalyse
@@ -54,7 +54,7 @@ Clustering ist **unüberwacht** (kein $Y$). Über die fünf Big-Five-Skalen kön
 
 **Frage:** Was sagt die **Gesamtheit** vorhandener Studien zu einem Effekt?
 
-Eine **Meta-Analyse** fasst Effektgrößen aus vielen Studien zu einer Gesamtschätzung zusammen, gewichtet nach Präzision (große Studien zählen mehr), und untersucht **Heterogenität** ($I^2$) und **Publikationsbias** (Funnel Plot). Sie ist die höchste Evidenzstufe für eine Effektfrage und ein realistisches Format für eine Master-Arbeit, **ohne eigene Erhebung**.
+Eine **Meta-Analyse** fasst Effektgrößen aus vielen Studien zu einer Gesamtschätzung zusammen, gewichtet nach Präzision (große Studien zählen mehr), und untersucht **Heterogenität** ($I^2$) und **Publikationsbias** (Funnel Plot). Sie gilt als höchste Evidenzstufe für eine Effektfrage und ein realistisches Format für eine Master-Arbeit, **ohne eigene Erhebung**.
 
 **In JASP:** **Meta-Analysis**. Du gibst Effektgrößen und Standardfehler je Studie ein und erhältst **Forest Plot**, Gesamteffekt und Heterogenitätsmaße.
 
@@ -68,19 +68,19 @@ Eine **Meta-Analyse** fasst Effektgrößen aus vielen Studien zu einer Gesamtsch
 | Wie hängen Variablen als System zusammen? | Netzwerkanalyse |
 | Gibt es Personen-Untergruppen ohne Zielvariable? | Clusteranalyse |
 | Was sagen *alle* Studien zusammen? | Meta-Analyse |
-| Binäres Ergebnis vorhersagen? | logistische Regression (Kap. 04) |
-| Genestete / Längsschnittdaten? | Mixed Model (Kap. 07) |
-| Bestmögliche Vorhersage, viele Daten? | Machine Learning (Kap. 06) |
+| Binäres Ergebnis vorhersagen? | logistische Regression (@sec-tag3-logistisch) |
+| Genestete / Längsschnittdaten? | Mixed Model (@sec-tag3-mixed) |
+| Bestmögliche Vorhersage, viele Daten? | Machine Learning (@sec-tag3-ml) |
 
 ## Aufgabe (optional, Demo-Charakter)
 
-Dieses Kapitel hat **keinen** Pflicht-Upload. Wenn Du Lust hast:
+Wenn Du Lust hast:
 
 - Wähl **eines** der Verfahren und führ es in JASP einmal mit unseren Daten aus (EFA über die 21 Items bietet sich an: Scree-Plot ansehen, kommen ~5 Faktoren raus?).
 - Notiere Dir in einem Satz, was Du siehst.
 
 ::: {.callout-tip title="Freiwillig"}
-Freiwillig: Dieses Kapitel hat keine Abgabe.
+Dieses Kapitel hat keine Abgabe.
 :::
 
 ## Selbstcheck
@@ -88,4 +88,4 @@ Freiwillig: Dieses Kapitel hat keine Abgabe.
 1. Was unterscheidet eine explorative von einer konfirmatorischen Faktorenanalyse?
 2. Wofür brauchst Du SEM, das eine einzelne Regression nicht kann?
 3. Welches Verfahren wählst Du, um ohne eigene Erhebung den Stand der Forschung zu einem Effekt zusammenzufassen?
-4. Warum sind CFA/SEM mit $N = 90$ nur eingeschränkt aussagekräftig?
+4. Warum sind CFA/SEM mit rund 100 Personen nur eingeschränkt aussagekräftig?

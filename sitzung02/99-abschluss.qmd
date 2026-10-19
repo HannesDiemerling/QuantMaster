@@ -24,7 +24,7 @@ Ist etwas unklar geblieben, oder hat Dich ein Ergebnis überrascht? Bring es ins
 
 Freiwillig, für alle, die tiefer einsteigen wollen:
 
-- Matejka & Fitzmaurice (2017). [Same stats, different graphs](https://doi.org/10.1145/3025453.3025912). Der „Datasaurus": zwölf Datensätze mit identischen Kennwerten und völlig unterschiedlichen Bildern. Ein schönes Argument dafür, immer erst zu plotten.
+- Matejka & Fitzmaurice (2017). [Same stats, different graphs](https://doi.org/10.1145/3025453.3025912). Der „Datasaurus": ein Dutzend Datensätze mit fast identischen Kennwerten und völlig unterschiedlichen Bildern. Ein schönes Argument dafür, immer erst zu plotten.
 - Weissgerber et al. (2015). [Beyond bar and line graphs](https://doi.org/10.1371/journal.pbio.1002128). *PLoS Biology*, 13. Warum Balkendiagramme mit Fehlerbalken oft mehr verstecken als zeigen, und was die Alternativen sind.
 
 ## Ausblick auf Sitzung 03

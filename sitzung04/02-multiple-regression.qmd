@@ -14,7 +14,7 @@ Nach diesem Kapitel kannst Du …
 
 Die **Regression** ist das Arbeitspferd der quantitativen Psychologie. Die Idee ist denkbar einfach: Du sagst eine **abhängige Variable** (Kriterium, $Y$) aus einer oder mehreren **unabhängigen Variablen** (Prädiktoren, $X$) vorher. Bei der *einfachen* Regression ist es ein Prädiktor, bei der *multiplen* sind es mehrere. Genau das ist der Sprung ins Multivariate.
 
-Der entscheidende Mehrwert der multiplen Regression: Jeder Koeffizient sagt Dir den Effekt eines Prädiktors, **während alle anderen Prädiktoren konstant gehalten werden**. Du rechnest also Störeinflüsse statistisch heraus.
+Der entscheidende Mehrwert der multiplen Regression: Jeder Koeffizient sagt Dir den Effekt eines Prädiktors, **während alle anderen Prädiktoren konstant gehalten werden**. Du rechnest also Störeinflüsse statistisch heraus, allerdings nur die, die Du gemessen und ins Modell aufgenommen hast.
 
 ## Von der Korrelation zur Regression
 
@@ -42,7 +42,7 @@ Jedes $b_j$ ist der **partielle** Effekt von $X_j$, also der Beitrag dieses Prä
 | **$b$ (unstandardisiert)** | Effekt in den *Originaleinheiten* von $X$ und $Y$. „Pro +1 in $X_1$ ändert sich $Y$ um $b_1$." |
 | **$\beta$ (standardisiert)** | Effekt in *Standardabweichungen*. Macht Prädiktoren mit verschiedenen Skalen vergleichbar. |
 | **$R^2$** | Anteil der Varianz in $Y$, den das Modell **gemeinsam** erklärt (0 bis 1). |
-| **adjustiertes $R^2$** | $R^2$, das für die Zahl der Prädiktoren bestraft. **Bei mehreren Prädiktoren immer dieses berichten.** |
+| **adjustiertes $R^2$** | $R^2$, das für die Zahl der Prädiktoren bestraft. **Bei mehreren Prädiktoren zusätzlich berichten.** |
 | **$F$-Test** | Testet, ob das Modell als Ganzes besser ist als „nur der Mittelwert". |
 | **$p$ pro Koeffizient** | Testet, ob ein einzelner Prädiktor (bei Kontrolle der anderen) von 0 verschieden ist. |
 
@@ -58,7 +58,7 @@ $R^2 = .25$ heißt: 25 % der Streuung in $Y$ werden erklärt, 75 % nicht. In der
 | **Normalverteilung der Residuen** | Q-Q-Plot der standardisierten Residuen | bei großem $N$ für Tests/KI meist tolerierbar (s. Hinweis unten); sonst transformieren |
 | **Homoskedastizität** (gleiche Streuung) | Residuals vs. Predicted: gleichmäßiges Band | robuste Standardfehler, transformieren |
 | **Keine extreme Multikollinearität** | **VIF** (Variance Inflation Factor) | VIF > 5–10 → Prädiktoren zusammenfassen/entfernen |
-| **Unabhängige Beobachtungen** | aus dem Design, nicht aus Daten | bei Klumpung: Mehrebenenmodell (Kap. 07) |
+| **Unabhängige Beobachtungen** | aus dem Design, nicht aus Daten | bei genesteten Daten: Mehrebenenmodell (@sec-tag3-mixed) |
 
 **Multikollinearität** heißt: zwei Prädiktoren messen fast dasselbe. Dann „streiten" sie sich um die erklärte Varianz, und die einzelnen $b$ werden instabil. Der **VIF** zeigt das: Werte nahe 1 sind ideal, über 5 wird's heikel.
 
@@ -69,12 +69,12 @@ Der **Zentrale Grenzwertsatz** sagt etwas Spezifischeres: Die **Summe (bzw. der 
 
 Warum hilft das der Regression? Weil ein Regressionskoeffizient $b$ **selbst so eine Summe ist**, im Kern eine gewichtete Summe der vielen unabhängigen Fehlerbeiträge über alle Fälle. Genau deshalb nähert sich die **Stichprobenverteilung von $b$** mit wachsendem $N$ einer Normalverteilung an, *auch wenn die Residuen schief sind*. Und nur das brauchen **p-Werte und Konfidenzintervalle**: Sie setzen voraus, dass der *Schätzer* normalverteilt ist, nicht die Daten oder die Residuen.
 
-Bei **kleinem** $N$ (wie bei uns, $N \approx 90$, und erst recht darunter) ist diese Annäherung noch nicht gut. Dann schaust Du den Q-Q-Plot genauer an und ziehst ggf. eine Transformation oder ein robustes Verfahren in Betracht.
+Bei **kleinem** $N$ (wie bei uns mit gut 100 Personen, und erst recht darunter) ist diese Annäherung noch nicht gut. Dann schaust Du den Q-Q-Plot genauer an und ziehst ggf. eine Transformation oder ein robustes Verfahren in Betracht.
 :::
 
 ## In JASP rechnen
 
-1. **Regression → Linear Regression**.
+1. **Regression → Classical → Linear Regression**.
 2. **Dependent Variable:** das Kriterium $Y$ (z. B. `N_mean`).
 3. **Covariates:** die metrischen Prädiktoren (z. B. `E_mean`, `V_mean`, `G_mean`, `O_mean`).
    - Kategoriale Prädiktoren mit mehr als zwei Stufen kommen unter **Factors** (JASP bildet automatisch Dummy-Variablen).
@@ -88,14 +88,14 @@ Bei **kleinem** $N$ (wie bei uns, $N \approx 90$, und erst recht darunter) ist d
 
 Oft willst Du wissen: *Bringt ein zusätzlicher Block von Prädiktoren überhaupt etwas?* Dafür baust Du in JASP unter **„Model"** mehrere Blöcke:
 
-- **Block 0 / Modell 1:** nur die Kontrollvariablen (z. B. `alter`, `geschlecht`).
-- **Modell 2:** zusätzlich die interessierenden Prädiktoren (z. B. die anderen Skalen).
+- **Modell 0:** nur die Kontrollvariablen (z. B. `alter`, `geschlecht`).
+- **Modell 1:** zusätzlich die interessierenden Prädiktoren (z. B. die anderen Skalen).
 
-JASP zeigt dann **$\Delta R^2$** und einen $F$-Test dafür: *Erklärt Modell 2 signifikant mehr als Modell 1?*
+JASP zeigt dann **$\Delta R^2$** und einen $F$-Test dafür: *Erklärt Modell 1 signifikant mehr als Modell 0?*
 
 ## Was unsere Daten hergeben
 
-Erinnere Dich an den [Datenhinweis](00-uebersicht.qmd#sec-tag3-datenhinweis): Zwischen den fünf Big-Five-Skalen steckt ein **schwaches, echtes Signal**, zwischen Demografie und Persönlichkeit dagegen **keines**. Das gibt zwei lehrreiche Modelle. Wie sie genau ausfallen, hängt auch von den Zeilen ab, die Ihr selbst beigesteuert habt:
+Erinnere Dich an den Datenhinweis (@sec-tag3-datenhinweis): Zwischen den fünf Big-Five-Skalen steckt ein **schwaches, echtes Signal**, zwischen Demografie und Persönlichkeit dagegen **keines**. Das gibt zwei lehrreiche Modelle. Wie sie genau ausfallen, hängt auch von den Zeilen Eurer fiktiven Personen ab:
 
 **Modell A sollte (teilweise) etwas finden.** Wir sagen Neurotizismus aus den vier anderen Skalen vorher:
 
@@ -103,7 +103,7 @@ $$
 \widehat{\texttt{N\_mean}} = b_0 + b_1\,\texttt{E\_mean} + b_2\,\texttt{V\_mean} + b_3\,\texttt{G\_mean} + b_4\,\texttt{O\_mean}
 $$
 
-Weil alle Skalen leicht positiv zusammenhängen, **bündelt** dieses Modell mehrere kleine Signale. Die Richtung: Hier ist *am ehesten* etwas zu finden. Einzelne Prädiktoren können dabei trotzdem nicht signifikant sein, bei einer kleinen Stichprobe ist das normal.
+Weil alle Skalen leicht positiv zusammenhängen, **bündelt** dieses Modell mehrere kleine Signale. Hier ist also *am ehesten* etwas zu finden. Einzelne Prädiktoren können dabei trotzdem nicht signifikant sein, bei einer kleinen Stichprobe ist das normal.
 
 **Modell B sollte (fast) nichts finden.** Wir sagen dieselbe Skala aus der Demografie vorher:
 
@@ -111,7 +111,7 @@ $$
 \widehat{\texttt{N\_mean}} = b_0 + b_1\,\texttt{alter} + b_2\,\texttt{bildungsgrad} + b_3\,\texttt{geschlecht}
 $$
 
-Die Richtung: Hier ist **kaum etwas** zu erwarten, denn in diesen Daten gibt es den Zusammenhang schlicht nicht. Falls doch ein Koeffizient signifikant wird, ist das eher ein **Fehler erster Art** (Zufallstreffer) als ein echter Effekt. Ein Nullbefund ist hier das, was zur Datenlage passt, und kein Versagen Deiner Analyse.
+Hier ist **kaum etwas** zu erwarten, denn in diesen Daten gibt es den Zusammenhang schlicht nicht. Falls doch ein Koeffizient signifikant wird, ist das eher ein **Fehler erster Art** (Zufallstreffer) als ein echter Effekt. Ein Nullbefund ist hier das, was zur Datenlage passt, und kein Versagen Deiner Analyse.
 
 ::: {.callout-tip title="Warum beide Modelle spannend sind"}
 Im Vergleich von Modell A und B siehst Du, dass ein Verfahren nur dann etwas findet, wenn in den Daten auch etwas steckt. Der Nullbefund in Modell B ist deshalb kein Fehler in Deiner Analyse, sondern ein Ergebnis. Er gehört genauso in einen Bericht wie ein Effekt.
@@ -119,13 +119,11 @@ Im Vergleich von Modell A und B siehst Du, dass ein Verfahren nur dann etwas fin
 
 ## Was in den Bericht gehört
 
-Einen festen Wortlaut gibt es nicht, aber diese Angaben sollten aber vollständig vorkommen:
+Einen festen Wortlaut gibt es nicht, aber diese Angaben sollten vollständig vorkommen:
 
 - der **Gesamttest** des Modells: $F$ mit beiden Freiheitsgraden, $p$, $R^2$ und adjustiertes $R^2$,
 - **pro Prädiktor** der Koeffizient ($b$ und standardisiert $\beta$), sein $p$-Wert und sein Konfidenzintervall,
 - ein kurzer Hinweis zu den **Voraussetzungen** (Residuen-Q-Q-Plot, VIF).
-
-Was drinsteht: Gesamttest ($F$, $p$, $R^2$, adj. $R^2$), die Koeffizienten mit $b$, $\beta$, $p$, KI, und ein Satz zu den Annahmen.
 
 ## Stärken und Schwächen
 
@@ -152,7 +150,7 @@ Was drinsteht: Gesamttest ($F$, $p$, $R^2$, adj. $R^2$), die Koeffizienten mit $
 
 **Bonus (für die Schnellen):**
 
-- Bau Modell A als **hierarchische Regression**: Block 1 = Demografie, Block 2 = + die vier Skalen. Wie groß ist $\Delta R^2$, und ist es signifikant?
+- Bau Modell A als **hierarchische Regression**: Modell 0 = Demografie, Modell 1 = zusätzlich die vier Skalen. Wie groß ist $\Delta R^2$, und ist es signifikant?
 - Tausch das Kriterium: sag `O_mean` aus den anderen vier Skalen vorher. Anderer stärkster Prädiktor?
 
 ::: {.callout-tip title="Für die Abgabe"}

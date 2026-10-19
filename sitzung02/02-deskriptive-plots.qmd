@@ -6,7 +6,7 @@ Nach diesem Kapitel kannst Du …
 - die zentralen deskriptiven Kennzahlen (M, Median, SD, IQR, Schiefe, Kurtosis) benennen und in JASP berechnen,
 - für jede Variablen-Art den passenden Plot-Typ wählen,
 - mindestens fünf verschiedene Visualisierungen in JASP erzeugen und sinnvoll interpretieren,
-- erklären, warum ein Mittelwert alleine ohne Streuung in einer Publikation peinlich wäre.
+- erklären, warum ein Mittelwert ohne Streuungsmaß wenig aussagt.
 :::
 
 ## Worum es geht
@@ -35,12 +35,12 @@ Likert-Items wie unsere BFI-Items sind streng genommen **ordinal**. Die Abständ
 | **M** (arithm. Mittel) | Durchschnitt | metrisch, einigermaßen symmetrische Verteilungen |
 | **Median** | mittlerer Wert | robust gegen Ausreißer, immer interpretierbar bei ordinal+ |
 | **Mode (Modus)** | häufigster Wert | nominal, ordinal |
-| **SD** | mittlere Abweichung vom M | Streuung bei metrischen Daten |
+| **SD** | typische Abweichung vom M (Wurzel aus der mittleren quadrierten Abweichung) | Streuung bei metrischen Daten |
 | **Variance** | SD² | wird in Tests verwendet (z. B. ANOVA) |
 | **IQR** | Q3 − Q1 | robuste Streuung, geht mit Boxplot |
 | **Min / Max / Range** | Spannweite | Plausibilitätscheck |
 | **Skewness** | Schiefe (positiv = rechtsschief) | Verteilungsform |
-| **Kurtosis** | Spitzheit / Flachheit | Verteilungsform |
+| **Kurtosis** | Wölbung, vor allem: wie stark die Ränder besetzt sind (JASP zeigt die Abweichung von der Normalverteilung, 0 = normal) | Verteilungsform |
 
 **In JASP:** **Descriptives → Descriptive Statistics**, Variable ins Feld ziehen, dann im Abschnitt **Statistics** ankreuzen: unter *Central tendency* **Median** und **Mode**, unter *Dispersion* **IQR**, unter *Distribution* **Skewness** und **Kurtosis**. Mean, Std. deviation, Minimum, Maximum sowie *Valid*/*Missing* sind schon voreingestellt.
 
@@ -60,13 +60,13 @@ Ein $z = 1$ bedeutet: dieser Wert liegt eine Standardabweichung *über* dem Mitt
 
 - ca. 68 % der Werte liegen zwischen $z = -1$ und $z = +1$
 - ca. 95 % liegen zwischen $z = -2$ und $z = +2$
-- ca. 99 % liegen zwischen $z = -3$ und $z = +3$
+- ca. 99,7 % liegen zwischen $z = -3$ und $z = +3$
 
 Diese **Standardisierung** macht Werte verschiedener Variablen vergleichbar. Wenn jemand bei der Skala Extraversion ein $z = +1.5$ hat und gleichzeitig bei Offenheit ein $z = +0.2$, weißt Du: für diese Person ist Extraversion deutlich ausgeprägter als Offenheit, *relativ zum Durchschnitt der Gruppe*.
 
 ### Die Normalverteilung als ständiges Hintergrundbild
 
-Viele statistische Verfahren (t-Test, ANOVA, Regression) gehen davon aus, dass Werte ungefähr **normalverteilt** sind. Die Normalverteilung ist die symmetrische Glockenform, die Du aus dem Schulunterricht kennst. Sie hat zwei Parameter: Mittelwert $\mu$ und Standardabweichung $\sigma$.
+Viele statistische Verfahren (t-Test, ANOVA, Regression) gehen davon aus, dass bestimmte Größen ungefähr **normalverteilt** sind, etwa die Residuen. Was genau, kommt in den jeweiligen Kapiteln. Die Normalverteilung ist die symmetrische Glockenform, die Du aus dem Schulunterricht kennst. Sie hat zwei Parameter: Mittelwert $\mu$ und Standardabweichung $\sigma$.
 
 Wenn ein Q-Q-Plot (siehe unten) zeigt, dass Deine Daten in etwa entlang der Diagonalen liegen, sind sie näherungsweise normalverteilt. Liegen sie deutlich schief oder gekrümmt, eher nicht. Das ist für die Wahl der nachfolgenden Tests wichtig.
 
@@ -90,14 +90,14 @@ Alle diese Plots findest Du in **Descriptives → Descriptive Statistics**, in d
 | Boxplot, Violin Plot | Customizable Plots → **Boxplots** (darin *Boxplot element*, *Violin element*, *Jitter element*); Raincloud: eigene Analyse **Descriptives → Raincloud Plots** |
 | Boxplot/Histogramm nach Gruppe | Gruppenvariable ins Feld **Split** ziehen (nur Nominal-Variablen) |
 | Q-Q-Plot | Basic Plots → **Q-Q plots** |
-| Scatter Plot | Customizable Plots → **Scatter plots** oder Regression → Correlation → Plots → **Scatter plots** |
+| Scatter Plot | Customizable Plots → **Scatter plots** oder Regression → Classical → Correlation → Plots → **Scatter plots** |
 | Dichte (Density) | Customizable Plots → **Frequency plots** |
 
 Die konkrete Plot-Liste, die Du heute baust, steht unten in **Aufgabe**.
 
 ## Plots exportieren
 
-Jeden Plot in JASP exportierst Du über **Rechtsklick → Save Image As**. Speichere alle Plots in einen Ordner `m15-plots/`.
+Abgeben musst Du keine Plots. Wenn Du einen Plot weiterverwenden willst, exportierst Du ihn über **Rechtsklick → Save Image As**.
 
 Alternative: das gesamte JASP-Output kannst Du als **PDF exportieren** (**File → Export Results**, als PDF oder HTML). Das ist schneller, aber unflexibler.
 
@@ -118,7 +118,7 @@ Alternative: das gesamte JASP-Output kannst Du als **PDF exportieren** (**File �
 
 **Bonus (für die Schnellen):**
 
-- Plot 9: Density-Overlay mehrerer BFI-Items aus derselben Skala (z. B. `BFI_01`, `BFI_06`, `BFI_11`, `BFI_16` für Extraversion)
+- Plot 9: Density Plots mehrerer BFI-Items aus derselben Skala (z. B. `BFI_01`, `BFI_06`, `BFI_11`, `BFI_16` für Extraversion)
 - Plot 10: Bar Charts der 4 E-Items, um zu sehen, ob die Antworten über die E-Items hinweg konsistent sind
 - Plot 11: Histogramm von `bildungsgrad` (auch wenn ordinal, nur zur Anschauung)
 - Notiere zu jedem Bonus-Plot in einem Satz: was Du siehst.

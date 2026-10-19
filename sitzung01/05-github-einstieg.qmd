@@ -5,12 +5,12 @@ Nach diesem Kapitel kannst Du …
 
 - die Begriffe Repository, Branch, Commit, Pull Request und Merge erklären,
 - entscheiden, ob Du im Browser, mit GitHub Desktop oder per Kommandozeile arbeitest,
-- das Workshop-Repo öffnen und Dich darin orientieren.
+- das Seminar-Repo öffnen und Dich darin orientieren.
 :::
 
 ## Worum es geht
 
-GitHub ist die Plattform, auf der unser Repo und unsere Workshop-Site leben. Du musst kein Git-Profi werden. Du brauchst aber ein mentales Modell, was passiert, wenn Du eine Datei „committest" oder „pullst".
+GitHub ist die Plattform, auf der unser Repo und diese Seminar-Site liegen. Du musst kein Git-Profi werden. Du brauchst aber ein mentales Modell, was passiert, wenn Du eine Datei „committest" oder „pullst".
 
 ## Git vs. GitHub
 
@@ -37,9 +37,9 @@ Kurzform: Git macht die Versionierung, GitHub macht die Zusammenarbeit.
 
 ## Drei Wege, mit dem Repo zu arbeiten
 
-Für diesen Workshop reicht jeder dieser Wege. Nimm einfach den, der Dir am meisten liegt. Wenn Du unsicher bist, hilft Dir die Lehrperson.
+Für dieses Seminar reicht jeder dieser Wege. Nimm einfach den, der Dir am meisten liegt. Wenn Du unsicher bist, hilft Dir die Lehrperson.
 
-### Weg 1: github.com im Browser *(empfohlen für diesen Workshop)*
+### Weg 1: github.com im Browser *(empfohlen)*
 
 - Du arbeitest direkt auf der Webseite.
 - Dateien hochladen über „Add file → Upload files".
@@ -57,7 +57,7 @@ Für diesen Workshop reicht jeder dieser Wege. Nimm einfach den, der Dir am meis
 - Klassisches Git, also `git clone`, `git add`, `git commit`, `git push`.
 - Nur sinnvoll, wenn Du das schon kennst oder lernen möchtest.
 
-## Das Workshop-Repo
+## Das Seminar-Repo
 
 Unser Repository enthält:
 
@@ -85,11 +85,11 @@ Die `README.md` enthält dieselbe Übersicht und einen Quick-Start für Studiere
 
 1. **Account (empfohlen).** Wenn Du schon einen GitHub-Account hast oder einen anlegen möchtest: [github.com](https://github.com) → **Sign up**, E-Mail bestätigen. Schick Deinen Benutzernamen an die Lehrperson, falls noch nicht geschehen.
 2. **Einladung annehmen (nur mit Account).** Die Lehrperson fügt Dich als *Collaborator* hinzu. Du bekommst eine E-Mail von GitHub. Dort auf **View invitation** und dann **Accept invitation** klicken. Ohne angenommene Einladung funktioniert der Upload trotzdem, GitHub legt dann automatisch einen *Pull Request* an (siehe @sec-tag1-upload).
-3. **Repo öffnen.** Öffne das Workshop-Repo im Browser (mit oder ohne Anmeldung).
+3. **Repo öffnen.** Öffne das Seminar-Repo im Browser (mit oder ohne Anmeldung).
 4. **Orientierung.** Klick Dich einmal durch:
    - `data/generated/`: die 10 vorgenerierten Datensätze
    - `materials/codebook.csv`: die verbindliche Spaltenbeschreibung
-   - `sitzung02/`: die heutigen Kapitel als `.qmd`-Quelldateien
+   - `sitzung01/`: die heutigen Kapitel als `.qmd`-Quelldateien
 
 ::: {.callout-tip title="Wenn Du keine Schreibrechte siehst"}
 Manchmal dauert es, bis GitHub die Einladung verarbeitet hat. Lade die Seite neu. Hochladen kannst Du in jedem Fall, notfalls als Pull Request oder per Mail.
@@ -99,4 +99,4 @@ Manchmal dauert es, bis GitHub die Einladung verarbeitet hat. Lade die Seite neu
 
 1. Was ist der Unterschied zwischen einem Commit und einem Pull Request?
 2. Wozu dient ein Branch?
-3. In welchen drei Verzeichnissen passiert die Datenarbeit dieses Workshops?
+3. In welchen drei Verzeichnissen passiert die Datenarbeit dieses Seminars?

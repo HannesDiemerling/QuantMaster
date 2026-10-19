@@ -63,7 +63,7 @@ Die Lösung ist der **Bootstrap**, ein **Resampling-Verfahren**. Die Idee ist ve
 Statt eine Formel für die Streuung einer Schätzung zu *unterstellen*, lässt der Bootstrap die Daten die Streuung **selbst zeigen**, indem er die Stichprobenziehung viele Male simuliert. Deshalb funktioniert er auch dort, wo es keine saubere Formel gibt.
 :::
 
-**Entscheidungsregel:** Schließt das Bootstrap-KI die **Null nicht ein**, ist der indirekte Effekt signifikant, es gibt also eine Mediation. Schließt es die Null ein, kannst Du Mediation nicht belegen.
+**Entscheidungsregel:** Schließt das Bootstrap-KI die **Null nicht ein**, ist der indirekte Effekt signifikant. Statistisch spricht das für eine Mediation, kausal belegt ist sie damit noch nicht (siehe Schwächen unten). Schließt es die Null ein, kannst Du Mediation nicht belegen.
 
 Der Bootstrap ist weit über die Mediation hinaus nützlich: für Effektgrößen, Mediane, Korrelationen, eigentlich jede Statistik, deren theoretische Verteilung Du nicht kennst.
 
@@ -84,12 +84,12 @@ Mediation steckt in JASP im **SEM-Modul** (Strukturgleichungsmodelle, siehe @sec
 
 ## Was unsere Daten hergeben
 
-Auch hier lohnt der Blick auf den Datenhinweis (@sec-tag3-datenhinweis): In den Daten steckt **kein** eingebauter Mediationsmechanismus, nur schwach positive Zusammenhänge zwischen allen Skalen. Die Richtung daraus: Die Pfade sind allenfalls klein, und ihr **Produkt** (der indirekte Effekt) ist entsprechend winzig. Bei einer kleinen Stichprobe wird das Bootstrap-Intervall die **Null in aller Regel einschließen**.
+Auch hier lohnt der Blick auf den Datenhinweis (@sec-tag3-datenhinweis): In den Daten steckt **kein** eingebauter Mediationsmechanismus, nur schwach positive Zusammenhänge zwischen allen Skalen. Die Pfade sind deshalb allenfalls klein, und ihr **Produkt** (der indirekte Effekt) ist entsprechend winzig. Bei einer kleinen Stichprobe wird das Bootstrap-Intervall die **Null in aller Regel einschließen**.
 
 Ein **klarer indirekter Effekt ist also nicht zu erwarten**. Spannend ist hier vor allem die Logik des Bootstrap, die Dir in vielen anderen Verfahren wieder begegnen wird.
 
 ::: {.callout-important title="Mediation braucht große Stichproben"}
-Für einen mittleren indirekten Effekt mit ordentlicher Power braucht man oft **$N > 150$**, nicht selten mehrere Hundert. Mediationsbefunde aus kleinen Stichproben, etwa $N = 30$ aus einer Bachelor-Erhebung, sind deshalb mit Vorsicht zu lesen. Sie gehören zu den häufigsten Überinterpretationen in der Literatur.
+Sind die Pfade $a$ und $b$ klein bis mittel, braucht man für 80 % Power schnell **150 bis über 500 Personen** (Fritz & MacKinnon, 2007). Mediationsbefunde aus kleinen Stichproben, etwa $N = 30$ aus einer Bachelor-Erhebung, sind deshalb mit Vorsicht zu lesen. Sie gehören zu den häufigsten Überinterpretationen in der Literatur.
 :::
 
 ## Stärken und Schwächen

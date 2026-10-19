@@ -4,7 +4,7 @@ Herzlich willkommen zum quantitativen Teil des Moduls **M15: Multivariate Verfah
 
 ## Was Dich erwartet
 
-Zehn Online-Sitzungen per Videokonferenz ab **Semesterwoche 5**. In jeder Sitzung setzt Du in JASP praktisch um, was in der Vorlesung dran war.
+Zehn Online-Sitzungen per Videokonferenz, von **Semesterwoche 5** bis 14. In jeder Sitzung setzt Du in JASP praktisch um, was in der Vorlesung dran war.
 
 | Sitzung | Woche | Datum | Thema | Bezug zur Vorlesung |
 |---|---|---|---|---|

@@ -6,20 +6,20 @@ Nach diesem Kapitel kannst Du …
 - Reproduzierbarkeit, Replizierbarkeit und Robustheit voneinander unterscheiden,
 - erklären, was die Replikationskrise war und welche Konsequenzen sie hatte,
 - die FAIR-Prinzipien in eigenen Worten beschreiben,
-- begründen, warum dieser Workshop in einem öffentlichen GitHub-Repo stattfindet.
+- begründen, warum dieses Seminar in einem öffentlichen GitHub-Repo stattfindet.
 :::
 
 ## Worum es geht
 
 Im Jahr 2015 versuchte die *Open Science Collaboration*, 100 prominente psychologische Studien zu replizieren. Nur etwa 36 % zeigten in der Replikation einen signifikanten Effekt in dieselbe Richtung wie in der Originalstudie. Das war ein Schock und der Beginn dessen, was heute als **Replikationskrise** bezeichnet wird.
 
-Die Antwort der Disziplin heißt **Open Science**: offene Daten, offene Materialien, offene Skripte, Preregistration und gelebte Transparenz. Genau so arbeitest Du in diesem Workshop.
+Die Antwort der Disziplin heißt **Open Science**: offene Daten, offene Materialien, offene Skripte, Preregistration und gelebte Transparenz. Genau so arbeitest Du in diesem Seminar.
 
 ## Drei verwandte, aber unterschiedliche Begriffe
 
 | Begriff | Bedeutung | Beispiel |
 |---|---|---|
-| **Reproduzierbarkeit** | Mit *denselben Daten* und *demselben Code* dasselbe Ergebnis erzielen. | Du läufst meine Analyse-Skripte und bekommst meine Tabellen. |
+| **Reproduzierbarkeit** | Mit *denselben Daten* und *demselben Code* dasselbe Ergebnis erzielen. | Jemand lässt die Analyse-Skripte einer Studie laufen und erhält dieselben Tabellen. |
 | **Replizierbarkeit** | Mit *neuen Daten*, aber demselben Design dasselbe (oder ein ähnliches) Ergebnis erzielen. | Eine andere Forschungsgruppe sammelt neue Daten und bestätigt den Effekt. |
 | **Robustheit** | Mit denselben Daten, aber leicht anderen *Analyseentscheidungen* zum selben Ergebnis kommen. | Bleibt der Befund, wenn Du den Test oder die Ausreißerregel wechselst? |
 
@@ -40,7 +40,7 @@ Unsere CSV-Dateien mit Codebook und Versionierung sind ein einfaches, aber funkt
 
 **Preregistration** bedeutet: Du legst Hypothesen, Stichprobengröße und Analyseplan **vor** der Datenerhebung öffentlich fest. Das schützt vor *p-hacking* und *HARKing* (Hypothesizing After Results are Known). Eine zentrale Plattform dafür ist das [Open Science Framework (OSF)](https://osf.io).
 
-Im Workshop nutzen wir **GitHub** statt OSF, weil GitHub zusätzlich Versionierung von Code mitliefert und sich gut für Lehre eignet. Inhaltlich sind die Ideen dieselben: offen, datiert, nachvollziehbar.
+Im Seminar nutzen wir **GitHub** statt OSF, weil GitHub jede Änderung an Daten und Code versioniert und sich gut für die Lehre eignet. Inhaltlich sind die Ideen dieselben: offen, datiert, nachvollziehbar.
 
 ## Warum GitHub?
 
@@ -49,23 +49,23 @@ GitHub ist eine Plattform für versionierte Zusammenarbeit:
 - Jede Änderung an Dateien wird mit Datum, Autor und Begründung („Commit-Message") gespeichert.
 - Du kannst zu jedem früheren Stand zurückkehren.
 - Mehrere Personen können parallel arbeiten, ohne sich gegenseitig zu überschreiben.
-- Das Repo dieses Workshops ist **öffentlich**. Jede und jeder kann nachsehen, wie der Datensatz entstanden ist.
+- Das Repo dieses Seminars ist **öffentlich**. Jede und jeder kann nachsehen, wie der Datensatz entstanden ist.
 
 ::: {.callout-tip title="Versionierung in einem Satz"}
 Versionierung heißt: *jede Datei kennt ihre eigene Geschichte*.
 :::
 
-## Bezug zu diesem Workshop
+## Bezug zu diesem Seminar
 
-Was Du heute machst, ist gelebte Open Science im Kleinen:
+Was Du in Sitzung 01 machst, ist gelebte Open Science im Kleinen:
 
-1. Du füllst einen offenen Fragebogen aus (BFI-K, publiziert).
+1. Du arbeitest mit einem publizierten, gut dokumentierten Fragebogen (BFI-K).
 2. Du arbeitest in einem öffentlichen Repository.
-3. Jeder Schritt (Datenerhebung, Bereinigung, Kombination) ist versioniert.
+3. Jeder Schritt (simulierte Erhebung, Bereinigung, Kombination) ist versioniert.
 4. Der finale Datensatz steht unter CC BY, der Code unter MIT.
 
 ## Selbstcheck
 
 1. Worin unterscheidet sich Reproduzierbarkeit von Replizierbarkeit?
 2. Warum ist Versionierung wichtig für Reproduzierbarkeit?
-3. Was bedeutet das „A" in FAIR, und wie setzen wir es in diesem Workshop um?
+3. Was bedeutet das „A" in FAIR, und wie setzen wir es in diesem Seminar um?

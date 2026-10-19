@@ -22,7 +22,7 @@ Drei Begriffe, die Du sauber trennen musst:
 
 | Begriff | Formel | Wertebereich | Bedeutung |
 |---|---|---|---|
-| **Wahrscheinlichkeit** $p$ | — | 0 bis 1 | „30 % Chance" |
+| **Wahrscheinlichkeit** $p$ | Ausgangsgröße | 0 bis 1 | „30 % Chance" |
 | **Odds** (Chance) | $\dfrac{p}{1-p}$ | 0 bis ∞ | „Verhältnis 30:70 = 0.43" |
 | **Logit** | $\ln\!\left(\dfrac{p}{1-p}\right)$ | −∞ bis +∞ | logarithmierte Odds |
 
@@ -76,7 +76,7 @@ ifelse(N_mean >= median(N_mean, na.rm = TRUE), 1, 0)
 
 Nenn die Spalte `N_hoch` und setz ihren Typ auf **Nominal**.
 
-1. **Regression → Logistic Regression**.
+1. **Regression → Classical → Logistic Regression**.
 2. **Dependent Variable:** `N_hoch`.
 3. **Covariates:** die metrischen Prädiktoren (`E_mean`, `V_mean`, `G_mean`, `O_mean`).
 4. In den Optionen aktivieren:
@@ -87,13 +87,13 @@ Nenn die Spalte `N_hoch` und setz ihren Typ auf **Nominal**.
 
 ## Was unsere Daten hergeben
 
-Mit Blick auf den Datenhinweis (@sec-tag3-datenhinweis): Da die Skalen untereinander schwach positiv zusammenhängen, kann ein aus **mehreren** Skalen gebautes Modell für „hoher vs. niedriger Neurotizismus" ein gewisses Signal aufnehmen. Die Richtung: Eine perfekte Trennung ist nicht zu erwarten, die Trennschärfe (AUC) wird bei einer kleinen Stichprobe eher bescheiden ausfallen.
+Mit Blick auf den Datenhinweis (@sec-tag3-datenhinweis): Da die Skalen untereinander schwach positiv zusammenhängen, kann ein aus **mehreren** Skalen gebautes Modell für „hoher vs. niedriger Neurotizismus" ein gewisses Signal aufnehmen. Eine perfekte Trennung ist aber nicht zu erwarten, die Trennschärfe (AUC) wird bei einer kleinen Stichprobe eher bescheiden ausfallen.
 
 Würdest Du dagegen versuchen, **`geschlecht`** aus den Skalen vorherzusagen, ist **kaum etwas** zu erwarten (Demografie ist unabhängig). Das ist ein guter Kontrast-Versuch für den Bonus.
 
 ## Was in den Bericht gehört
 
-Einen festen Wortlaut gibt es nicht, aber diese Angaben sollten aber vollständig vorkommen:
+Einen festen Wortlaut gibt es nicht, aber diese Angaben sollten vollständig vorkommen:
 
 - der **Modelltest** gegen das Null-Modell ($\chi^2$ mit df, $p$), ein **Pseudo-$R^2$** (z. B. Nagelkerke) und die **Trennschärfe** (AUC),
 - **pro Prädiktor** das **Odds Ratio** mit Konfidenzintervall und $p$-Wert,

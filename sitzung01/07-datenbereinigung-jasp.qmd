@@ -60,7 +60,7 @@ Bevor wir irgendetwas analysieren, schauen wir uns die Daten an:
 
 JASP berechnet:
 
-- Min, Max, Mean, SD, Median für Scale-Variablen
+- Mean, SD, Min und Max für Scale-Variablen
 - Häufigkeitstabellen für Nominal- / Ordinal-Variablen
 - Anzahl fehlender Werte je Variable
 
@@ -72,7 +72,7 @@ Geh die Descriptives-Tabelle von oben nach unten durch und vergleiche **Min** un
 
 | Variable | Erlaubter Bereich |
 |---|---|
-| `probandennummer` | 1–99 |
+| `probandennummer` | 1–9 |
 | `geschlecht` | 1–3 |
 | `alter` | 18–99 (in unserer Stichprobe realistisch 18–65) |
 | `bildungsgrad` | 1–7 |
@@ -93,7 +93,7 @@ Die Descriptives-Tabelle enthält die Spalte **Missing**. Steht dort irgendwo ei
 
 ## Schritt 5: Fehler behandeln
 
-Du hast drei legitime Optionen, je nach Fehlertyp:
+Du hast drei Möglichkeiten, je nach Fehlertyp:
 
 | Vorgehen | Wann? |
 |---|---|
@@ -122,7 +122,7 @@ JASP speichert Analysen in `.jasp`-Dateien, die brauchen wir hier nicht. **Wir b
 4. Speichern an einem Ort, an dem Du sie wiederfindest.
 
 ::: {.callout-tip title="Häufiges Problem"}
-Wenn JASP beim Export Werte plötzlich als Kommazahlen schreibt (z. B. `3.00` statt `3`): das ist meistens kein Problem für unseren Workflow. Wenn Du es sauberer haben willst: in der CSV per Texteditor `.00` ersetzen oder die Spalte vorher als Integer markieren.
+Falls JASP beim Export Werte als Kommazahlen schreibt (z. B. `3.00` statt `3`), ist das für unseren Workflow kein Problem. Der Merge-Workflow liest beides.
 :::
 
 ## Aufgabe

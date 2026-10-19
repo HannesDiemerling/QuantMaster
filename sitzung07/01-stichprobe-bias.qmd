@@ -5,7 +5,7 @@ Nach diesem Kapitel kannst Du …
 
 - die gängigen Verfahren der Stichprobenziehung und die wichtigsten Bias-Typen benennen,
 - erklären, was Stichprobenverteilung, Standardfehler und Konfidenzintervall miteinander zu tun haben,
-- die Demografie unseres Workshop-Datensatzes beschreiben und einordnen,
+- die Demografie unseres Seminar-Datensatzes beschreiben und einordnen,
 - begründen, warum wir aus unseren Ergebnissen *keine* Aussage über „die Bevölkerung" ableiten,
 - erklären, was ein Stichprobenfehler von einem Stichprobenbias unterscheidet,
 - die üblichen Verfahren für fehlende Werte einordnen.
@@ -15,7 +15,7 @@ Nach diesem Kapitel kannst Du …
 
 Bevor Du Ergebnisse verallgemeinerst, musst Du wissen, **wer** in Deinem Datensatz drinsteckt und, genauso wichtig, wer **nicht**. In unserem Fall ist die Antwort besonders unsauber, weil unser Datensatz aus zwei Quellen besteht:
 
-- **Simulierte Probanden** (`data/generated/`) mit einer Verteilung, die ich für plausibel gehalten habe: überwiegend weiblich, jung, hoch gebildet, also typisch für Psychologie-Studierende.
+- **Simulierte Probanden** (`data/generated/`) mit einer Verteilung, die typisch für Psychologie-Studierende ist: überwiegend weiblich, jung, hoch gebildet.
 - **„Studierenden-Zeilen"**: fiktive Personen, die Ihr Euch ausgedacht habt, weil die Erhebung nur simuliert ist (siehe @sec-tag1-fragebogen).
 
 Inhaltlich sagen die Daten deshalb wenig über echte Menschen aus. Für das Methodische spielt das keine Rolle.
@@ -36,7 +36,7 @@ Dabei spielt die Stichprobengröße eine Schlüsselrolle. Es gibt einen mathemat
 Das ist das **Gesetz der großen Zahlen**. In einfachen Worten: viele Daten sind mit hoher Sicherheit nah an der Wahrheit, wenige Daten können weit daneben liegen, aber eben rein zufällig. Aus 12 Personen einen Bevölkerungs-Mittelwert schätzen ist deshalb nicht falsch, aber unsicher; aus 12.000 ist es ziemlich präzise.
 
 ::: {.callout-important title="Die wichtige Einschränkung"}
-Das Gesetz der großen Zahlen funktioniert **nur**, wenn die Stichprobe *unverzerrt* ist. Bei einem **Bias** (siehe nächster Abschnitt) bringt Dir mehr *N* gar nichts. Du näherst Dich nur immer präziser dem **falschen** Wert. Genau das ist das Tückische an Bias: man merkt es nicht durch Mehr-Daten-Sammeln.
+Das Gesetz der großen Zahlen hilft Dir **nur**, wenn die Stichprobe *unverzerrt* ist. Bei einem **Bias** (siehe nächster Abschnitt) bringt Dir mehr *N* gar nichts. Du näherst Dich nur immer präziser dem **falschen** Wert. Genau das ist das Tückische an Bias: man merkt es nicht durch Mehr-Daten-Sammeln.
 :::
 
 ## Stichprobenverteilung, Standardfehler, Konfidenzintervall
@@ -71,7 +71,7 @@ In der Psychotherapieforschung sind Gelegenheitsstichproben der Normalfall, etwa
 |---|---|---|
 | **Selection Bias** | Wer ist in der Stichprobe? Wer nicht? | „Online-Studie zu Computer-Affinität": Wer nicht online ist, fehlt komplett. |
 | **Self-Selection Bias** | Wer entscheidet sich selbst zum Mitmachen? | Studis-Pool mit Freiwilligen → eher gewissenhafte Menschen melden sich. |
-| **Non-Response Bias** | Wer bricht ab oder antwortet nicht? | Lange Fragebögen: Niedrige Werte auf Gewissenhaftigkeit fehlen anteilig häufiger. |
+| **Non-Response Bias** | Wer bricht ab oder antwortet nicht? | Lange Fragebögen: Personen mit niedriger Gewissenhaftigkeit brechen häufiger ab. |
 | **Mode Effects** | Wie wurde erhoben? | Papier vs. Online vs. Interview liefern systematisch unterschiedliche Antworten. |
 
 Ein **Stichprobenfehler** (Sampling Error) ist die rein zufällige Schwankung von Stichproben. Er wird mit größerem *N* kleiner. Ein **Bias** wird mit größerem *N* **nicht** kleiner. Das ist ein zentraler Unterschied, den man leicht übersieht und der in der Forschungspraxis ständig relevant ist.
@@ -96,7 +96,7 @@ Schau die Verteilungen an. Notier Dir für jede Variable:
 
 Wir tun gleich so, als wäre unsere Zielpopulation „junge Erwachsene in Deutschland". Vergleiche grob:
 
-| Merkmal | Unsere Stichprobe | Deutschland 20–30 Jahre (grob) |
+| Merkmal | Unsere Stichprobe | Junge Erwachsene in Deutschland (grob) |
 |---|---|---|
 | Geschlecht | überwiegend weiblich | ca. 50:50 |
 | Alter | sehr jung | breiter |
@@ -115,7 +115,7 @@ Berichte deshalb in Ergebnissen immer **Effektgröße + Konfidenzintervall**, ni
 
 ## Fehlende Werte (Missings)
 
-Erinnerung aus Sitzung 01: Bei der Bereinigung hast Du Werte „auf fehlend gesetzt", wenn sie nicht reparierbar waren. Solche fehlenden Werte verteilen sich nicht zufällig, sie haben oft ein Muster (z. B. *„Personen, die müde waren, lassen das letzte Item öfter offen"*). Drei Arten unterscheidet die Literatur:
+Erinnerung aus Sitzung 01: Bei der Bereinigung hast Du Werte „auf fehlend gesetzt", wenn sie nicht reparierbar waren. In echten Studien verteilen sich fehlende Werte oft nicht zufällig, sondern haben ein Muster (z. B. *„Personen, die müde waren, lassen das letzte Item öfter offen"*). Drei Arten unterscheidet die Literatur:
 
 | Bezeichnung | Bedeutung |
 |---|---|
@@ -147,8 +147,8 @@ In vielen JASP-Analysen findest Du unter den Optionen eine Einstellung für fehl
    - Bar Chart `geschlecht`
    - Bar Chart `bildungsgrad`
    - Histogramm `alter`
-2. Schreib eine **kurze Notiz (3–5 Sätze)**: *Wer steckt in unserem Datensatz?* Beziehe Dich auf mindestens zwei der vier Bias-Typen aus der Tabelle.
-3. Schau in der Descriptives-Tabelle die Anzahl **Missing** je Variable an und benenne das **BFI-Item mit den meisten fehlenden Werten** (bei Gleichstand eines davon).
+2. Schreib eine **kurze Notiz (2–3 Sätze)**: *Wer steckt in unserem Datensatz?* Beziehe Dich auf mindestens zwei der vier Bias-Typen aus der Tabelle.
+3. Schau in der Descriptives-Tabelle die Anzahl **Missing** je Variable an und benenne das **BFI-Item mit den meisten fehlenden Werten** samt Anzahl (bei Gleichstand eines davon).
 
 **Bonus (für die Schnellen):**
 
@@ -165,4 +165,4 @@ Notiere das BFI-Item mit den meisten fehlenden Werten und Deine 2–3-Sätze-Not
 1. Was unterscheidet einen Stichprobenfehler von einem Stichprobenbias?
 2. Warum reicht ein Mittelwert allein nicht, um „die Persönlichkeit junger Erwachsener" zu beschreiben?
 3. Eine Studie hat 40 % Drop-out, und die Abbrecher:innen hatten zu Beginn höhere Symptomwerte. Welcher Missing-Mechanismus liegt nahe, und welches Verfahren würdest Du wählen?
-4. Welche Bias-Typen sind in unserem Workshop-Datensatz besonders einschlägig, und welche eher nicht (Stichwort: kein echter Online-Fragebogen, sondern ausgedacht)?
+4. Welche Bias-Typen sind in unserem Seminar-Datensatz besonders einschlägig, und welche eher nicht (Stichwort: keine echte Erhebung, sondern fiktive Personen)?

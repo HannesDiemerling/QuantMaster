@@ -11,7 +11,7 @@ Nach diesem Kapitel …
 
 ## Worum es geht
 
-Unter `data/student-uploads/` liegt pro Person eine Datei: 9 vorgenerierte Probanden plus eine eigene Zeile. Daraus soll *ein* Datensatz werden. Klingt banal, ist es aber nicht: gleiche Probandennummern in verschiedenen Dateien, derselbe Seed-Datensatz mehrfach hochgeladen, Semikolon statt Komma, falsche Dateinamen.
+Unter `data/student-uploads/` liegt pro Person eine Datei: 9 vorgenerierte Probanden plus die Zeile einer fiktiven Person. Daraus soll *ein* Datensatz werden. Klingt banal, ist es aber nicht: gleiche Probandennummern in verschiedenen Dateien, derselbe Seed-Datensatz mehrfach hochgeladen, Semikolon statt Komma, falsche Dateinamen.
 
 Du machst es deshalb **zuerst selbst für einige Dateien**, um zu sehen, was dabei schiefgehen kann. Für die Analysen ab jetzt nutzen dann **alle** den automatisch erzeugten, geprüften Gesamtdatensatz. So rechnen alle mit exakt denselben Daten, und Ergebnisse sind vergleichbar.
 
@@ -44,7 +44,7 @@ Herunterladen: jede Datei anklicken → **Download raw file** (Pfeil-Symbol oben
 ## Schritt 2: Zu einer Datei zusammenführen
 
 1. Öffne die erste Datei im Texteditor (VS Code, Notepad++, TextEdit im Modus „Reiner Text").
-2. Hänge an die Kopfzeile `,quelle_datei` an und an jede Datenzeile `,` plus den Dateinamen (z. B. `,datensatz-03-mm`).
+2. Hänge an die Kopfzeile `,quelle_datei` an und an jede Datenzeile `,` plus den Dateinamen (z. B. `,datensatz-03-2013`).
 3. Für jede weitere Datei: **ohne** Kopfzeile die Datenzeilen kopieren, unten anhängen, Herkunft ergänzen.
 4. Speichern als `meine-kombination.csv` (UTF-8).
 5. **Kontrolle:** Die Datei muss **eine Kopfzeile und 10 × 7 = 70 Datenzeilen** haben, oder weniger, wenn eine Datei kürzer war. Prüf die Zeilenzahl im Editor (Zeilennummer links).
@@ -63,7 +63,7 @@ Im **offiziellen** Gesamtdatensatz `data/combined/m15-gesamt.csv` ist das schon 
 
 | Spalte | Bedeutung |
 |---|---|
-| `id` | global eindeutige ID: vorgenerierte Personen $= \text{Datensatz} \times 100 + \text{Probandennummer}$ (z. B. 305), eigene Zeilen = Kennziffer (z. B. 2013) |
+| `id` | global eindeutige ID: vorgenerierte Personen $= \text{Datensatz} \times 100 + \text{Probandennummer}$ (z. B. 305), Zeilen der fiktiven Personen = Kennziffer (z. B. 2013) |
 | `probandennummer` … `BFI_21` | die 25 bekannten Spalten |
 | `quelle` | `generiert` oder `studierende` |
 | `quelle_datensatz` | Nummer des Seed-Datensatzes (1–10) |
@@ -102,7 +102,7 @@ Ein Klick auf den Spaltenkopf öffnet das Variablen-Fenster. In der Tabelle mit 
 
 1. **Descriptives → Descriptive Statistics**, alle Variablen außer `quelle_datei` hineinziehen.
 2. **Frequency tables** aktivieren.
-3. Prüfe: Kommt bei `quelle_datensatz` jeder Datensatz mit 9 Zeilen vor (plus die eigenen Zeilen)? Liegen alle BFI-Items zwischen 1 und 5?
+3. Prüfe: Kommt bei `quelle_datensatz` jeder Datensatz mit 9 Zeilen vor, plus je eine Zeile für jede fiktive Person, die mit diesem Datensatz hochgeladen wurde? Liegen alle BFI-Items zwischen 1 und 5?
 
 Speichere Deine Arbeit als `.jasp`-Datei (**File → Save as**). Du baust in den nächsten Sitzungen darauf auf.
 

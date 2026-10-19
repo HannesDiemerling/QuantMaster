@@ -23,14 +23,14 @@ Die Zuweisung ergibt sich aus Deiner **Listennummer** $n$ in der alphabetischen 
 Merke Dir Deine Nummer als zweistellige Zahl: `01`, `02`, …, `10`.
 
 ::: {.callout-tip title="Doppelt zugewiesen ist Absicht"}
-Wenn mehr als 10 Teilnehmende dabei sind, bearbeiten zwei (oder mehr) Personen denselben vorgenerierten Datensatz. 
+Wenn mehr als 10 Teilnehmende dabei sind, bearbeiten zwei (oder mehr) Personen denselben vorgenerierten Datensatz. Später siehst Du, wie unterschiedlich dieselbe Datei bereinigt werden kann.
 :::
 
 ## Aufgabe
 
 ### 1. Datensatz finden
 
-1. Öffne im Browser das Workshop-Repo.
+1. Öffne im Browser das Seminar-Repo.
 2. Navigiere zu `data/generated/`.
 3. Klick auf `datensatz-XX.csv`, wobei `XX` Deine Nummer ist (z. B. `datensatz-03.csv`).
 
@@ -39,7 +39,7 @@ GitHub zeigt Dir den CSV-Inhalt als Tabelle.
 ### 2. Herunterladen
 
 - Klicke auf den Button **„Download raw file"** (oben rechts, Pfeil-nach-unten-Symbol). Alternativ geht auch ein Rechtsklick auf den Dateinamen → „Save link as …".
-- Speichere die Datei in einem Workshop-Ordner Deiner Wahl, **ohne den Namen zu ändern**. Sie heißt also weiterhin `datensatz-XX.csv`.
+- Speichere die Datei in einem Ordner Deiner Wahl, **ohne den Namen zu ändern**. Sie heißt also weiterhin `datensatz-XX.csv`.
 
 ### 3. Datei prüfen
 
@@ -49,8 +49,8 @@ GitHub zeigt Dir den CSV-Inhalt als Tabelle.
 - 9 Datenzeilen mit Probandennummern 1–9
 - Zwei der Zeilen enthalten irgendwo einen kleinen Defekt. Den findest Du gleich.
 
-::: {.callout-important title="Bitte nicht in Excel öffnen und doppelklicken"}
-Excel interpretiert manchmal Spalten falsch (z. B. wandelt `01` in `1` oder vermischt Komma/Semikolon). Für die Bereinigung nutzt Du **JASP**. Wenn Du die Datei unbedingt vorher anschauen willst: ein Texteditor (Notepad, VS Code, BBEdit) ist sicherer.
+::: {.callout-important title="Lieber nicht mit Excel öffnen"}
+Excel mit deutschen Ländereinstellungen erwartet Semikolons statt Kommas, zeigt die Datei dann in einer einzigen Spalte an und speichert sie beim nächsten Mal im falschen Format. Für die Bereinigung nutzt Du **JASP**. Zum kurzen Anschauen ist ein Texteditor (Notepad, VS Code, BBEdit) sicherer.
 :::
 
 ## Was bringt diese Aufgabe?

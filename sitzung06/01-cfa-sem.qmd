@@ -39,7 +39,7 @@ O ~ E
 | **RMSEA** | Abweichung pro Freiheitsgrad | ≤ .06 (≤ .08 akzeptabel) |
 | **SRMR** | mittlere Residualkorrelation | ≤ .08 |
 
-Fit-Indizes sind **Faustregeln**, keine Signifikanztests. Mit ca. 100 Personen und 21 Items ist eine CFA hier nur demonstrativ, rechne also mit mäßigem Fit.
+Fit-Indizes sind **Faustregeln**, keine Signifikanztests. Mit gut 100 Personen und 21 Items ist eine CFA hier nur demonstrativ, rechne also mit mäßigem Fit.
 
 ## In JASP rechnen
 

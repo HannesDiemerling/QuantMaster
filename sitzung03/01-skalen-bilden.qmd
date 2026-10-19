@@ -19,8 +19,8 @@ Damit der Schritt sauber ist, prüfst Du anschließend für jede Skala die **Rel
 
 Drei Gründe, warum man Item-Mittelwerte bildet:
 
-1. **Konstruktbreite:** Extraversion ist mehr als ein einzelnes „bin gesellig"-Item. Vier Items deckt das Konstrukt breiter ab und schwächt einzelne Item-Marotten ab.
-2. **Messfehler:** Jedes Item misst mit Fehler. Bei Aggregation über mehrere Items mittelt sich der Fehler heraus (klassische Testtheorie: $X = T + E$ → mit mehr Items steigt der Anteil von $T$ am Mittelwert).
+1. **Konstruktbreite:** Extraversion ist mehr als ein einzelnes „bin gesellig"-Item. Vier Items decken das Konstrukt breiter ab und schwächen einzelne Item-Marotten ab.
+2. **Messfehler:** Jedes Item misst mit Fehler. Beim Mitteln über mehrere Items gleichen sich zufällige Fehler teilweise aus (klassische Testtheorie: $X = T + E$). Je mehr Items, desto kleiner der Anteil der Fehlervarianz am Skalenwert.
 3. **Anschluss an Literatur und Praxis:** Big-Five-Profile werden auf Skalen-Ebene berichtet, sonst wird's unlesbar.
 
 ::: {.callout-important title="Voraussetzung: Reverse-Items rekodiert"}
@@ -98,10 +98,10 @@ Die Reliabilität misst, wie **konsistent** die Items einer Skala denselben late
 
 | Maß | Idee | Wann verwenden? |
 |---|---|---|
-| **Cronbach's α** | Mittelwert aller möglichen Split-Half-Korrelationen | Klassisch, wird in fast jeder Publikation berichtet |
+| **Cronbach's α** | entspricht dem Mittel aller möglichen Split-Half-Reliabilitäten; setzt voraus, dass alle Items gleich stark mit dem Konstrukt zusammenhängen | Klassisch, wird in fast jeder Publikation berichtet |
 | **McDonald's ω** | basiert auf einem konfirmatorischen Faktorenmodell | Methodisch sauberer, weil weniger restriktive Annahmen |
 
-**Faustregel:**
+**Faustregel** (grobe Konvention, kein fester Standard):
 
 | α (oder ω) | Bewertung |
 |---:|---|
@@ -111,7 +111,7 @@ Die Reliabilität misst, wie **konsistent** die Items einer Skala denselben late
 | .60–.69 | fragwürdig |
 | < .60 | unbrauchbar |
 
-Im BFI-K sind die Skalen *kurz* (4–5 Items). Erwarte deshalb keine α-Werte über .85. Werte um .70 sind realistisch und in der Validierungs-Studie auch berichtet.
+Im BFI-K sind die Skalen *kurz* (4–5 Items). Erwarte deshalb keine sehr hohen Werte. Bei so kurzen Skalen sind Werte um .70 normal, einzelne Skalen liegen auch in der Literatur darunter.
 
 ### In JASP
 
@@ -128,9 +128,9 @@ Im BFI-K sind die Skalen *kurz* (4–5 Items). Erwarte deshalb keine α-Werte ü
 
 - Steht in der Spalte **Cronbach's α (if item dropped)** ein Wert *höher* als der Gesamt-α, ist das Item ein Kandidat zum Rauswerfen. Es passt nicht zur Skala.
 - Bei kurzen Skalen wirst Du das aber selten machen, weil die Skala dann zu klein wird (z. B. 3 statt 4 Items).
-- **Item-rest correlation** unter .30 → das Item misst was anderes.
+- **Item-rest correlation** unter .30 → das Item passt eher schlecht zur Skala.
 
-In unseren simulierten Daten solltest Du brauchbare α-Werte sehen (etwa .60–.80), weil ich beim Erzeugen eine moderate Within-Faktor-Korrelation (r ≈ .40) und schwache Between-Faktor-Korrelationen (r ≈ .10) eingestellt habe.
+In unseren simulierten Daten solltest Du brauchbare α-Werte sehen (etwa .60–.80). Die Daten wurden so erzeugt, dass Items derselben Skala mit $r \approx .40$ zusammenhängen und Items verschiedener Skalen nur mit $r \approx .10$.
 
 ## Stärken und Schwächen der Aggregation
 
@@ -144,7 +144,7 @@ In unseren simulierten Daten solltest Du brauchbare α-Werte sehen (etwa .60–.
 
 - Information geht verloren (Item-Profile innerhalb einer Skala verschwinden)
 - Aggregation setzt voraus, dass die Items *wirklich* dasselbe messen, was Du genau deshalb mit Reliabilität prüfst
-- Cronbach's α überschätzt die Reliabilität, wenn Items unterschiedlich gewichtet werden sollten (deshalb ω)
+- Cronbach's α unterschätzt die Reliabilität, wenn die Items unterschiedlich stark mit dem Konstrukt zusammenhängen (deshalb ω)
 
 ## Aufgabe
 
@@ -157,7 +157,7 @@ In unseren simulierten Daten solltest Du brauchbare α-Werte sehen (etwa .60–.
 
 **Bonus (für die Schnellen):**
 
-- **Pearson-Korrelation der fünf Skalenmittelwerte untereinander** (`Regression → Correlation` mit den 5 `*_mean`-Variablen). Was siehst Du?
+- **Pearson-Korrelation der fünf Skalenmittelwerte untereinander** (**Regression → Classical → Correlation** mit den 5 `*_mean`-Variablen). Was siehst Du?
 - Wiederhole die Reliabilität nur für **Personen ab Bildungsgrad 5** (Filter setzen). Verändert sich α deutlich?
 
 ::: {.callout-tip title="Für die Abgabe"}

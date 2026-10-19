@@ -4,7 +4,7 @@ title: "Codebook"
 
 # Codebook {.unnumbered}
 
-Dieses Codebook ist die **verbindliche Beschreibung** des Workshop-Datensatzes. Jede Spalte, jede Kodierung, jeder erlaubte Wertebereich steht hier. Das ist die Single Source of Truth.
+Dieses Codebook ist die **verbindliche Beschreibung** des Seminar-Datensatzes. Jede Spalte, jede Kodierung, jeder erlaubte Wertebereich steht hier. Das ist die Single Source of Truth.
 
 Die maschinenlesbare Variante liegt unter [materials/codebook.csv](codebook.csv) und wird von `scripts/generate-datasets.R` (Vorbereitung der Übungsdatensätze) als verbindliche Spaltenbeschreibung gelesen.
 
@@ -22,10 +22,10 @@ Die maschinenlesbare Variante liegt unter [materials/codebook.csv](codebook.csv)
 
 | # | Variable | Typ | Skala | Wertebereich | Instrument |
 |--:|---|---|---|---|---|
-| 1 | `probandennummer` | int | nominal | ganze Zahl | — |
-| 2 | `geschlecht` | int | nominal | 1, 2, 3 | — |
-| 3 | `alter` | int | metrisch | 18–99 | — |
-| 4 | `bildungsgrad` | int | ordinal | 1–7 | — |
+| 1 | `probandennummer` | int | nominal | ganze Zahl | Demografie |
+| 2 | `geschlecht` | int | nominal | 1, 2, 3 | Demografie |
+| 3 | `alter` | int | metrisch | 18–99 | Demografie |
+| 4 | `bildungsgrad` | int | ordinal | 1–7 | Demografie |
 | 5–25 | `BFI_01` … `BFI_21` | int | ordinal | 1–5 | BFI-K |
 
 **Gesamt:** 4 Demografie-Spalten + 21 BFI-K-Items = **25 Spalten**.
@@ -119,4 +119,4 @@ $$
 - **Eindeutige Probandennummern:** innerhalb einer Datei keine Duplikate.
 - **Vollständige Demografie:** Geschlecht, Alter und Bildungsgrad müssen ausgefüllt sein.
 
-Die zehn vorgenerierten Übungsdatensätze enthalten **absichtlich pro Datei zwei Fehler** aus diesen Kategorien. Das Finden ist Teil der Übung an Tag 1.
+Die zehn vorgenerierten Übungsdatensätze enthalten **absichtlich pro Datei zwei Fehler** aus diesen Kategorien. Das Finden ist Teil der Übung in Sitzung 01.

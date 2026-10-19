@@ -9,8 +9,8 @@ Seminar zum Modul **M15: Multivariate Verfahren, Forschungsmethoden & Psychother
 
 ## Quick-Start für Studierende
 
-1. **Vor Sitzung 01:** JASP installieren, GitHub-Account anlegen.
-2. Workshop-Site öffnen und mit Sitzung 01 starten. Alle Inhalte stehen dort.
+1. **Vor Sitzung 01:** JASP installieren, empfohlen: GitHub-Account anlegen.
+2. Seminar-Site öffnen und mit Sitzung 01 starten. Alle Inhalte stehen dort.
 
 ## Quick-Start für die Lehrperson
 
@@ -18,8 +18,7 @@ Seminar zum Modul **M15: Multivariate Verfahren, Forschungsmethoden & Psychother
 |---|---|---|
 | Vor Semesterstart | Alte Uploads löschen | `data/student-uploads/` leeren (`.gitkeep` behalten), `data/combined/` leeren |
 | Vor Semesterstart | Termine eintragen | Tabelle in `index.qmd` |
-| Vor Sitzung 01 | Teilnehmerliste (alphabetisch, Listennummer $n$) erstellen, Studierende mit GitHub-Account als Collaborator einladen (Account ist freiwillig) | Daraus: Kennziffer $2000+n$, Datensatz $((n-1) bmod 10)+1$, Kleingruppe $ceil n/4 
-ceil$; GitHub-Benutzernamen per Vorab-Mail |
+| Vor Sitzung 01 | Teilnehmerliste (alphabetisch, Listennummer $n$) erstellen, Studierende mit GitHub-Account als Collaborator einladen (Account ist freiwillig) | Daraus: Kennziffer 2000 + n, Datensatz ((n − 1) mod 10) + 1, Kleingruppe n/4 aufgerundet; GitHub-Benutzernamen per Vorab-Mail |
 | Sitzung 01 | Mail-Uploads (Betreff `M15 Upload <Kennziffer>`) selbst einstellen | Anhang im Repo unter `data/student-uploads/` hochladen (Add file → Upload files); der Merge erkennt den Datensatz am Inhalt, der Dateiname ist egal |
 | Sitzung 01 | Uploads laufen automatisch zusammen | Workflow **Merge student uploads** (Actions-Tab) schreibt `data/combined/m15-gesamt.csv`, `merge-report.md` und `meta-studien.csv` |
 | 2 Tage vor Sitzung 02 | Datensatz **einfrieren** | Actions → *Merge student uploads* → **Disable workflow**. Danach rechnen alle mit derselben Datei. |
@@ -28,10 +27,10 @@ ceil$; GitHub-Benutzernamen per Vorab-Mail |
 
 Hinweise:
 
-- Der **Merge-Report** zeigt pro Upload-Datei: erkannt ja/nein, Seed-Datensatz, gefundene Fehler (z. B. `2/2`), Abweichungen von der Referenz-Bereinigung und Warnungen (falscher Name/Ordner, Semikolon, Zusatzspalten, ungültige Kennziffer). Damit hast Du auch das Feedback zu Sitzung 02.
+- Der **Merge-Report** zeigt pro Upload-Datei: erkannt ja/nein, Seed-Datensatz, gefundene Fehler (z. B. `2/2`), Abweichungen von der Referenz-Bereinigung und Warnungen (falscher Name/Ordner, Semikolon, Zusatzspalten, ungültige Kennziffer). Damit hast Du auch das Feedback zur Bereinigung aus Sitzung 01.
 - Der Merge ist robust gegen typische Upload-Fehler: Er liest alle CSVs unter `data/` und im Repo-Root, erkennt vorgenerierte Zeilen am Inhalt und übernimmt jeden Seed-Datensatz genau einmal.
 - `antwortbogen.R` braucht R mit `MASS`, `lme4`, `lavaan` und `BayesFactor` (`install.packages(c("lme4", "lavaan", "BayesFactor"))`). Abgabefelder werden dort pro Kapitel definiert; wer Kapitel verschiebt, passt nur `SITZUNG` an.
-- Fehler-Übersicht der vorgenerierten Datensätze: steht im Antwortbogen (Sitzung 02).
+- Fehler-Übersicht der vorgenerierten Datensätze: steht im Antwortbogen (Abschnitt Sitzung 01).
 - Die Kontakt-Mailadresse steht zentral in `_quarto.yml` (`kurs.mail`).
 
 ## Repository-Struktur

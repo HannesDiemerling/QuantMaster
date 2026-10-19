@@ -3,7 +3,7 @@
 ::: {.callout-note title="Lernziele"}
 Nach diesem Kapitel kannst Du …
 
-- erkennen, wann Daten **genestet** (hierarchisch) sind und warum normale Regression dann unzulässig ist,
+- erkennen, wann Daten **genestet** (hierarchisch) sind und warum normale Regression dann problematisch ist,
 - feste (fixed) von zufälligen (random) Effekten unterscheiden,
 - erklären, was ein Random Intercept und ein Random Slope ist,
 - den **ICC** (Intraklassenkorrelation) interpretieren,
@@ -48,7 +48,7 @@ $$
 |---|---|
 | ≈ 0 | Gruppen unterscheiden sich kaum → normale Regression wäre okay |
 | .05–.20 | spürbare Nestung → Mixed Model nötig |
-| > .30 | starke Nestung → Mixed Model unbedingt, Gruppenebene wichtig |
+| > .20 | starke Nestung → Mixed Model unverzichtbar, Gruppenebene wichtig |
 
 Der ICC sagt also: **Wie viel Prozent der Gesamtstreuung geht auf die Gruppenzugehörigkeit zurück?** Schon kleine ICCs (>.05) verzerren normale Tests merklich, wenn die Gruppen groß sind.
 
@@ -67,12 +67,12 @@ Mixed Models stecken im Modul **Mixed Models** (standardmäßig sichtbar; nutzt 
 
 ## Was unsere Daten hergeben
 
-Unsere Personen sind in **10 Quell-Datensätze** (`quelle_datensatz`) genestet, das ist eine echte Gruppenstruktur. Aber (@sec-tag3-datenhinweis): Alle Datensätze wurden aus **derselben** Verteilung erzeugt. Die Richtung daraus:
+Unsere Personen sind in **10 Quell-Datensätze** (`quelle_datensatz`) genestet, das ist eine echte Gruppenstruktur. Aber (@sec-tag3-datenhinweis): Alle Datensätze wurden aus **derselben** Verteilung erzeugt. Daraus folgt:
 
 - Die **Varianz zwischen** den Datensätzen ist gering, der **ICC** entsprechend **klein**.
 - Der feste Effekt von `E_mean` auf `O_mean` dürfte ungefähr dem aus einer normalen Regression entsprechen.
 
-Das Mixed Model **zeigt Dir** also selbst, dass hier kaum relevante Nestung vorliegt. Es ist damit auch ein Werkzeug, um zu prüfen, ob man es überhaupt braucht. In echten genesteten Daten (Klassen, Behandelnde, Messwiederholungen) wäre der ICC deutlich größer und das Modell unverzichtbar.
+Das Mixed Model **zeigt Dir** also selbst, dass hier kaum relevante Nestung vorliegt. Es ist damit auch ein Werkzeug, um zu prüfen, ob man es überhaupt braucht. Mit nur 10 Gruppen liegen wir allerdings unter der Faustregel von 20–30 Clustern (siehe unten), die geschätzte Gruppenvarianz ist also selbst recht unsicher. In echten genesteten Daten (Klassen, Behandelnde, Messwiederholungen) wäre der ICC deutlich größer und das Modell unverzichtbar.
 
 ::: {.callout-tip title="Der kleine Bruder: Repeated-Measures-ANOVA"}
 Für den Spezialfall „jede Person mehrfach unter wenigen Bedingungen gemessen" gibt es die **Repeated-Measures-ANOVA** (in JASP unter ANOVA → Repeated Measures). Sie ist einfacher, aber unflexibler. Mixed Models verallgemeinern sie: Sie kommen mit unbalancierten Daten, fehlenden Messzeitpunkten und kontinuierlicher Zeit zurecht. Deshalb sind sie in der modernen Längsschnittforschung Standard.
@@ -84,7 +84,7 @@ Für den Spezialfall „jede Person mehrfach unter wenigen Bedingungen gemessen"
 
 - der korrekte Weg für **genestete** und **Längsschnitt**-Daten
 - trennt sauber, was auf Personen- und was auf Gruppenebene passiert
-- nutzt unvollständige Daten effizient (keine listenweise Fallausschlüsse nötig)
+- nutzt unvollständige Daten effizient (kein listenweiser Fallausschluss nötig, wenn einzelne Messzeitpunkte fehlen)
 
 **Schwächen:**
 

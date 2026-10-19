@@ -1,9 +1,9 @@
-# Eigene Daten ergänzen und hochladen {#sec-tag1-upload}
+# Fiktive Person ergänzen und hochladen {#sec-tag1-upload}
 
 ::: {.callout-note title="Lernziele"}
 Nach diesem Kapitel hast Du …
 
-- Deine eigene Antwortzeile an den bereinigten Datensatz angehängt,
+- die Zeile Deiner fiktiven Person an den bereinigten Datensatz angehängt,
 - die Datei korrekt benannt im Repo hochgeladen,
 - verstanden, wie aus allen Uploads automatisch der Gesamtdatensatz entsteht.
 :::
@@ -16,9 +16,9 @@ Letzter Schritt heute: Du hängst die Zeile Deiner fiktiven Person an den berein
 
 Öffne `datensatz-XX-bereinigt.csv` in einem Editor Deiner Wahl:
 
-- **Texteditor:** VS Code, Notepad++, BBEdit (Erste Wahl)
+- **Texteditor:** VS Code, Notepad++, BBEdit (erste Wahl)
 - **JASP:** geht auch, ist aber zum reinen Tippen umständlich
-- **Tabellen-Tool:** Excel oder LibreOffice Calc, vorsichtig sein mit automatischen Konvertierungen 
+- **Tabellen-Tool:** Excel oder LibreOffice Calc, aber Vorsicht mit automatischen Konvertierungen und Semikolons
 
 Füge **eine neue Zeile am Ende** ein und trag die Werte der fiktiven Person aus @sec-tag1-fragebogen ein. Nicht Deine eigenen!
 
@@ -28,17 +28,16 @@ Füge **eine neue Zeile am Ende** ein und trag die Werte der fiktiven Person aus
 | `geschlecht` | 1 / 2 / 3 (Code) der fiktiven Person |
 | `alter` | Alter der fiktiven Person |
 | `bildungsgrad` | 1–7 (Code) der fiktiven Person |
-| `BFI_01` … `BFI_21` | Ihre Antworten 1–5 (Reverse-Items bereits rekodiert eintragen, siehe Hinweis unten) |
+| `BFI_01` … `BFI_21` | die Antworten der fiktiven Person, 1–5 (Reverse-Items rekodiert eintragen, siehe Hinweis unten) |
 
 ::: {.callout-important title="Rekodiert, nicht Original"}
 Damit alle Zeilen im Datensatz dieselbe Polung haben, sind die **Reverse-Items 1, 2, 8, 9, 11, 12, 17, 21** rekodiert einzutragen (Formel: `6 − Original`). Die übrigen Items unverändert. Die genaue Skalen-Zuordnung steht im [Codebook](../materials/codebook.qmd).
 :::
 
-Speichern als `datensatz-XX-kombiniert.csv` (mit Deiner Nummer).
 
 ## Schritt 2: Datei korrekt benennen
 
-Die Dateinamen folgen einem festen Schema, damit man später die Herkunft erkennen kann:
+Speichere die Datei unter einem festen Schema, damit man später die Herkunft erkennen kann:
 
 ```
 datensatz-<XX>-<Kennziffer>.csv
@@ -58,10 +57,10 @@ Es gibt zwei Wege. **Weg A** ist empfohlen, **Weg B** ist der Ausweg ohne GitHub
 Du brauchst nur einen Browser und Deinen GitHub-Account, keine zusätzliche Software.
 
 1. Auf [github.com](https://github.com) anmelden (oben rechts **Sign in**).
-2. Das Workshop-Repo öffnen. In der Dateiliste nacheinander auf den Ordner **`data`** und dann auf **`student-uploads`** klicken. Oben über der Liste steht jetzt `QuantMaster / data / student-uploads /`.
+2. Das Seminar-Repo öffnen. In der Dateiliste nacheinander auf den Ordner **`data`** und dann auf **`student-uploads`** klicken. Oben über der Liste steht jetzt `QuantMaster / data / student-uploads /`.
 3. Rechts über der Dateiliste auf den Button **Add file** klicken und im Menü **Upload files** wählen.
 4. Deine Datei `datensatz-XX-<Kennziffer>.csv` aus dem Datei-Explorer bzw. Finder in das große Feld *„Drag files here …"* ziehen oder auf **choose your files** klicken und sie auswählen. Die Datei erscheint unter dem Feld mit ihrem Namen.
-5. Darunter steht der Kasten **Commit changes**. Ins erste Feld eine kurze Beschreibung schreiben, z. B. *„Upload Datensatz 03 von mm"*.
+5. Darunter steht der Kasten **Commit changes**. Ins erste Feld eine kurze Beschreibung schreiben, z. B. *„Upload Datensatz 03, Kennziffer 2013"*.
 6. Je nach Rechten siehst Du:
    - **„Commit directly to the `main` branch"** → ausgewählt lassen, dann den grünen Button **Commit changes** klicken. Fertig.
    - **„Create a new branch for this commit and start a pull request"** (oder GitHub bietet *„Propose changes"* an) → so lassen, auf **Propose changes** klicken und auf der nächsten Seite **Create pull request**. Das ist gleichwertig: Die Lehrperson übernimmt Deine Datei mit einem Klick.
@@ -77,7 +76,7 @@ Du brauchst nur einen Browser und Deinen GitHub-Account, keine zusätzliche Soft
 Die Lehrperson legt Deine Datei ins Repo, danach läuft der Merge-Workflow wie bei allen anderen. Auch ohne Account kannst Du anschließend im Browser kontrollieren, ob alles geklappt hat (Schritt 4).
 
 ::: {.callout-tip title="Vor dem Abschicken prüfen"}
-Öffne die Datei einmal im Texteditor: Die erste Zeile muss mit `probandennummer,geschlecht,alter,…` beginnen, die Werte müssen durch **Kommas** getrennt sein, und es muss **10 Datenzeilen** geben (9 vorgenerierte + Deine). Das gilt für beide Wege.
+Öffne die Datei einmal im Texteditor: Die erste Zeile muss mit `probandennummer,geschlecht,alter,…` beginnen, die Werte müssen durch **Kommas** getrennt sein, und es muss **10 Datenzeilen** geben (9 vorgenerierte und die Deiner fiktiven Person). Das gilt für beide Wege.
 :::
 
 ## Schritt 4: Eigenen Upload kontrollieren
@@ -94,7 +93,7 @@ Jeder Upload startet im Repo-Reiter **Actions** den Workflow *Merge student uplo
 
 1. liest alle CSV-Dateien, auch falsch benannte oder im falschen Ordner abgelegte,
 2. erkennt die vorgenerierten Zeilen am Inhalt und übernimmt jeden Seed-Datensatz **genau einmal** (in einer Referenz-Bereinigung),
-3. hängt alle eigenen Zeilen an und setzt unmögliche Werte auf fehlend,
+3. hängt die Zeilen aller fiktiven Personen an und setzt unmögliche Werte auf fehlend,
 4. schreibt `data/combined/m15-gesamt.csv` und den Bericht `data/combined/merge-report.md`.
 
 Im Merge-Report siehst Du für Deine Datei, ob sie erkannt wurde, wie viele Fehler Du gefunden hast (z. B. `2/2`) und ob es Warnungen gibt.
@@ -113,5 +112,5 @@ Notiere Datensatz-Nummer, beide gefundenen Fehler und den Dateinamen für die Ab
 ## Selbstcheck
 
 1. Wie heißt Deine Upload-Datei genau, und in welchem Ordner liegt sie?
-2. Warum trägst Du Deine eigenen Reverse-Items rekodiert ein, obwohl die anderen Zeilen schon rekodiert sind?
+2. Warum trägst Du die Reverse-Items Deiner fiktiven Person rekodiert ein?
 3. Warum verlässt sich der Merge-Workflow auf den Inhalt der Zeilen und nicht auf den Dateinamen?
