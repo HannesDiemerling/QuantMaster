@@ -8,7 +8,7 @@ Nach dieser Sitzung …
 - rechnest Du eine Mediation mit Bootstrap-Konfidenzintervall.
 :::
 
-**Semesterwoche 9** · Bezug zur Vorlesung: Vorlesung 7 (Strukturgleichungsmodelle).
+**Semesterwoche 10** · Bezug zur Vorlesung: Vorlesung 7 (Strukturgleichungsmodelle).
 
 ## Worum es geht
 

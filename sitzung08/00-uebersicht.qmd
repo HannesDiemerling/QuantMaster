@@ -8,7 +8,7 @@ Nach dieser Sitzung …
 - liest Du Posterior, Credible Interval und Bayes-Faktor in JASP ab.
 :::
 
-**Semesterwoche 11** · Bezug zur Vorlesung: Vorlesungen 10 (Bayesianischer Ansatz) und 11 (Frequentistischer Ansatz und Kritik am Signifikanztesten).
+**Semesterwoche 12** · Bezug zur Vorlesung: Vorlesungen 10 (Bayesianischer Ansatz) und 11 (Frequentistischer Ansatz und Kritik am Signifikanztesten).
 
 ## Worum es geht
 

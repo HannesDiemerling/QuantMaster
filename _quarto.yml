@@ -23,7 +23,7 @@ book:
     collapse-level: 1
   chapters:
     - index.qmd
-    - part: "Sitzung 01 · Woche 4 · Setup & Datenerhebung"
+    - part: "Sitzung 01 · Woche 5 · Setup & Datenerhebung"
       chapters:
         - sitzung01/00-uebersicht.qmd
         - sitzung01/01-open-science.qmd
@@ -35,58 +35,58 @@ book:
         - sitzung01/07-datenbereinigung-jasp.qmd
         - sitzung01/08-hochladen.qmd
         - sitzung01/99-abschluss.qmd
-    - part: "Sitzung 02 · Woche 5 · Gesamtdatensatz & Deskription"
+    - part: "Sitzung 02 · Woche 6 · Gesamtdatensatz & Deskription"
       chapters:
         - sitzung02/00-uebersicht.qmd
         - sitzung02/01-uploads-kombinieren.qmd
         - sitzung02/02-deskriptive-plots.qmd
         - sitzung02/99-abschluss.qmd
-    - part: "Sitzung 03 · Woche 6 · Skalen & Effektgrößen"
+    - part: "Sitzung 03 · Woche 7 · Skalen & Effektgrößen"
       chapters:
         - sitzung03/00-uebersicht.qmd
         - sitzung03/01-skalen-bilden.qmd
         - sitzung03/02-korrelation.qmd
         - sitzung03/03-t-tests.qmd
         - sitzung03/99-abschluss.qmd
-    - part: "Sitzung 04 · Woche 7 · Metaanalyse & multiple Regression"
+    - part: "Sitzung 04 · Woche 8 · Metaanalyse & multiple Regression"
       chapters:
         - sitzung04/00-uebersicht.qmd
         - sitzung04/01-metaanalyse.qmd
         - sitzung04/02-multiple-regression.qmd
         - sitzung04/03-moderation.qmd
         - sitzung04/99-abschluss.qmd
-    - part: "Sitzung 05 · Woche 8 · Mehrebenenmodelle & Faktorenanalyse"
+    - part: "Sitzung 05 · Woche 9 · Mehrebenenmodelle & Faktorenanalyse"
       chapters:
         - sitzung05/00-uebersicht.qmd
         - sitzung05/01-mixed-models.qmd
         - sitzung05/02-faktorenanalyse.qmd
         - sitzung05/99-abschluss.qmd
-    - part: "Sitzung 06 · Woche 9 · Strukturgleichungsmodelle"
+    - part: "Sitzung 06 · Woche 10 · Strukturgleichungsmodelle"
       chapters:
         - sitzung06/00-uebersicht.qmd
         - sitzung06/01-cfa-sem.qmd
         - sitzung06/02-mediation-bootstrap.qmd
         - sitzung06/99-abschluss.qmd
-    - part: "Sitzung 07 · Woche 10 · Versuchsplanung, Stichprobe & Power"
+    - part: "Sitzung 07 · Woche 11 · Versuchsplanung, Stichprobe & Power"
       chapters:
         - sitzung07/00-uebersicht.qmd
         - sitzung07/01-stichprobe-bias.qmd
         - sitzung07/02-versuchsplanung-power.qmd
         - sitzung07/03-anova.qmd
         - sitzung07/99-abschluss.qmd
-    - part: "Sitzung 08 · Woche 11 · Signifikanztest-Kritik & Bayes"
+    - part: "Sitzung 08 · Woche 12 · Signifikanztest-Kritik & Bayes"
       chapters:
         - sitzung08/00-uebersicht.qmd
         - sitzung08/01-signifikanztest-kritik.qmd
         - sitzung08/02-bayes.qmd
         - sitzung08/99-abschluss.qmd
-    - part: "Sitzung 09 · Woche 12 · Intervention & Epidemiologie"
+    - part: "Sitzung 09 · Woche 13 · Intervention & Epidemiologie"
       chapters:
         - sitzung09/00-uebersicht.qmd
         - sitzung09/01-logistische-regression.qmd
         - sitzung09/02-intervention-epidemiologie.qmd
         - sitzung09/99-abschluss.qmd
-    - part: "Sitzung 10 · Woche 13 · Qualitative Methoden & Abschluss"
+    - part: "Sitzung 10 · Woche 14 · Qualitative Methoden & Abschluss"
       chapters:
         - sitzung10/00-uebersicht.qmd
         - sitzung10/01-qualitative-methoden.qmd

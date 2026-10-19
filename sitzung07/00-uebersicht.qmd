@@ -9,7 +9,7 @@ Nach dieser Sitzung …
 - rechnest Du eine einfaktorielle ANOVA als Auswertung eines Gruppendesigns.
 :::
 
-**Semesterwoche 10** · Bezug zur Vorlesung: Vorlesungen 8 (Versuchsplanung, Stichprobenziehung/Biases/fehlende Werte) und 9 (Inferenz-Grundlagen, Stichprobenplanung).
+**Semesterwoche 11** · Bezug zur Vorlesung: Vorlesungen 8 (Versuchsplanung, Stichprobenziehung/Biases/fehlende Werte) und 9 (Inferenz-Grundlagen, Stichprobenplanung).
 
 ## Worum es geht
 

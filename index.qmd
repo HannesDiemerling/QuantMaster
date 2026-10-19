@@ -4,20 +4,20 @@ Herzlich willkommen zum quantitativen Teil des Moduls **M15: Multivariate Verfah
 
 ## Was Dich erwartet
 
-Zehn Online-Sitzungen per Videokonferenz ab **Semesterwoche 4**. In jeder Sitzung setzt Du in JASP praktisch um, was in der Vorlesung dran war.
+Zehn Online-Sitzungen per Videokonferenz ab **Semesterwoche 5**. In jeder Sitzung setzt Du in JASP praktisch um, was in der Vorlesung dran war.
 
 | Sitzung | Woche | Datum | Thema | Bezug zur Vorlesung |
 |---|---|---|---|---|
-| 01 | 4 | TBA | Setup & Datenerhebung | 1 Replikationskrise |
-| 02 | 5 | TBA | Gesamtdatensatz & Deskription | 2 Effekte & Effektgrößen |
-| 03 | 6 | TBA | Skalen & Effektgrößen | 2 Effekte & Effektgrößen |
-| 04 | 7 | TBA | Metaanalyse & multiple Regression | 3 Metaanalyse, 4 Multiple Regression |
-| 05 | 8 | TBA | Mehrebenenmodelle & Faktorenanalyse | 5 Mehrebenenmodelle, 6 Faktorenanalyse |
-| 06 | 9 | TBA | Strukturgleichungsmodelle | 7 Strukturgleichungsmodelle |
-| 07 | 10 | TBA | Versuchsplanung, Stichprobe & Power | 8 Versuchsplanung/Biases/fehlende Werte, 9 Stichprobenplanung |
-| 08 | 11 | TBA | Signifikanztest-Kritik & Bayes | 10 Bayes, 11 Frequentismus & Kritik |
-| 09 | 12 | TBA | Intervention & Epidemiologie | 12 Interventions-/Evaluations-, Ätiologie-/Epidemiologieforschung |
-| 10 | 13 | TBA | Qualitative Methoden & Abschluss | 13 Qualitative Methoden, 14 Klausurvorbereitung |
+| 01 | 5 | TBA | Setup & Datenerhebung | 1 Replikationskrise |
+| 02 | 6 | TBA | Gesamtdatensatz & Deskription | 2 Effekte & Effektgrößen |
+| 03 | 7 | TBA | Skalen & Effektgrößen | 2 Effekte & Effektgrößen |
+| 04 | 8 | TBA | Metaanalyse & multiple Regression | 3 Metaanalyse, 4 Multiple Regression |
+| 05 | 9 | TBA | Mehrebenenmodelle & Faktorenanalyse | 5 Mehrebenenmodelle, 6 Faktorenanalyse |
+| 06 | 10 | TBA | Strukturgleichungsmodelle | 7 Strukturgleichungsmodelle |
+| 07 | 11 | TBA | Versuchsplanung, Stichprobe & Power | 8 Versuchsplanung/Biases/fehlende Werte, 9 Stichprobenplanung |
+| 08 | 12 | TBA | Signifikanztest-Kritik & Bayes | 10 Bayes, 11 Frequentismus & Kritik |
+| 09 | 13 | TBA | Intervention & Epidemiologie | 12 Interventions-/Evaluations-, Ätiologie-/Epidemiologieforschung |
+| 10 | 14 | TBA | Qualitative Methoden & Abschluss | 13 Qualitative Methoden, 14 Klausurvorbereitung |
 
 ## So läuft eine Sitzung
 

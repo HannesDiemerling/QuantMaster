@@ -2,7 +2,7 @@
 
 Seminar zum Modul **M15: Multivariate Verfahren, Forschungsmethoden & Psychotherapieforschung**, Masterstudiengang Psychotherapie, HMU Health and Medical University.
 
-- **Format:** 10 Online-Sitzungen per Videokonferenz in den Semesterwochen 4–13 (abgestimmt auf die Vorlesung, siehe `index.qmd`), self-paced über eine Quarto-Site mit Plenumsphasen und festen Kleingruppen (Breakout-Räume)
+- **Format:** 10 Online-Sitzungen per Videokonferenz in den Semesterwochen 5–14 (abgestimmt auf die Vorlesung, siehe `index.qmd`), self-paced über eine Quarto-Site mit Plenumsphasen und festen Kleingruppen (Breakout-Räume)
 - **Gruppengröße:** ausgelegt für 20–40 Studierende
 - **Software:** [JASP](https://jasp-stats.org)
 - **Verantwortlich:** Hannes Diemerling

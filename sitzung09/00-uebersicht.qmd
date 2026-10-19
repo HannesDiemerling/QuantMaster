@@ -8,7 +8,7 @@ Nach dieser Sitzung …
 - rechnest Du eine Kreuztabelle mit Odds Ratio in JASP.
 :::
 
-**Semesterwoche 12** · Bezug zur Vorlesung: Vorlesung 12 (Interventions- und Evaluationsforschung, Ätiologie- und Epidemiologieforschung).
+**Semesterwoche 13** · Bezug zur Vorlesung: Vorlesung 12 (Interventions- und Evaluationsforschung, Ätiologie- und Epidemiologieforschung).
 
 ## Worum es geht
 

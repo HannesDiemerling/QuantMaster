@@ -9,7 +9,7 @@ Nach dieser Sitzung …
 - hast Du einen Datensatz in JASP auf Fehler geprüft, bereinigt und samt eigener Zeile hochgeladen.
 :::
 
-**Semesterwoche 4** · Bezug zur Vorlesung: Vorlesung 1 (Replikationskrise). Die Vorbereitung vertieft Open Science und legt mit der Messtheorie die Grundlage für alles Weitere.
+**Semesterwoche 5** · Bezug zur Vorlesung: Vorlesung 1 (Replikationskrise). Die Vorbereitung vertieft Open Science und legt mit der Messtheorie die Grundlage für alles Weitere.
 
 ## Worum es geht
 
