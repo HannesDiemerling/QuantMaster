@@ -140,7 +140,7 @@ Aus einer Korrelation kannst Du **nicht** entscheiden, welcher Mechanismus es is
 
 ## Aufgabe
 
-**Pflichtteil (mach jeder):**
+**Pflichtteil für alle:**
 
 1. **Korrelationsmatrix der 5 Skalenmittelwerte** (`E_mean, V_mean, G_mean, N_mean, O_mean`) in JASP rechnen, mit aktivierten Optionen *Confidence intervals (95%)*, *Report significance*, *Sample size*, *Scatter plots*.
 2. **Die 6 Hypothesen H1–H6 oben** in derselben Reihenfolge durchrechnen. Pro Hypothese **eine Zeile** notieren im Format:

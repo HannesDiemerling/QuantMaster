@@ -144,7 +144,7 @@ Was drinsteht: Gesamttest ($F$, $p$, $R^2$, adj. $R^2$), die Koeffizienten mit $
 
 ## Aufgabe
 
-**Pflichtteil (mach jeder):**
+**Pflichtteil für alle:**
 
 1. Rechne **Modell A**: `N_mean` ~ `E_mean` + `V_mean` + `G_mean` + `O_mean`. Aktiviere Model fit, Confidence intervals, Tolerance and VIF und den **Q-Q-Plot der Residuen**.
 2. Rechne **Modell B**: `N_mean` ~ `alter` + `bildungsgrad` + `geschlecht` (`alter` und `bildungsgrad` unter **Covariates**, `geschlecht` unter **Factors**; ein `geschlecht`-Filter aus Sitzung 03 muss entfernt sein).

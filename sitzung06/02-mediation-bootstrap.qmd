@@ -108,7 +108,7 @@ Für einen mittleren indirekten Effekt mit ordentlicher Power braucht man oft **
 
 ## Aufgabe
 
-**Pflichtteil (mach jeder):**
+**Pflichtteil für alle:**
 
 1. Rechne in JASP die Mediation **X = `G_mean`, M = `E_mean`, Y = `O_mean`** mit **5 000 Bootstrap-Replikationen** und 95 %-Perzentil-KI.
 2. Lies ab: indirekter Effekt ($a \times b$) mit Bootstrap-KI, direkter Effekt $c'$, totaler Effekt $c$.

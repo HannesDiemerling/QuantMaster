@@ -94,7 +94,7 @@ Für den Spezialfall „jede Person mehrfach unter wenigen Bedingungen gemessen"
 
 ## Aufgabe
 
-**Pflichtteil (mach jeder):**
+**Pflichtteil für alle:**
 
 1. Rechne in JASP ein Linear Mixed Model: **Dependent variable** `O_mean`, **Fixed effects variables** `E_mean`, **Random effects grouping factors** `quelle_datensatz` (Random Intercept).
 2. Lies ab: den festen Effekt von `E_mean` und die **Varianzkomponente** für `quelle_datensatz`.

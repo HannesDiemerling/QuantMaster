@@ -115,7 +115,7 @@ Einen festen Wortlaut gibt es nicht, aber diese Angaben sollten aber vollständi
 
 ## Aufgabe
 
-**Pflichtteil (mach jeder):**
+**Pflichtteil für alle:**
 
 1. Bau die binäre Spalte `N_hoch` (Median-Split, Typ Nominal).
 2. Rechne `N_hoch` ~ `E_mean` + `V_mean` + `G_mean` + `O_mean` mit Odds Ratios, KI, Confusion Matrix und ROC/AUC.

@@ -148,7 +148,7 @@ In unseren simulierten Daten solltest Du brauchbare α-Werte sehen (etwa .60–.
 
 ## Aufgabe
 
-**Pflichtteil (mach jeder):**
+**Pflichtteil für alle:**
 
 1. Bau **fünf neue Spalten** per Compute Column: `E_mean`, `V_mean`, `G_mean`, `N_mean`, `O_mean`.
 2. Lass Descriptives über genau diese fünf Variablen laufen. Liegen alle Werte zwischen 1 und 5?

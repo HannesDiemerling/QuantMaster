@@ -3,7 +3,9 @@
 ::: {.callout-note title="Lernziele"}
 Nach dieser Sitzung …
 
-- ordnest Du unsere Stichprobe ein und benennst Bias-Typen und Missing-Mechanismen,
+- kennst Du Verfahren der Stichprobenziehung, ordnest unsere Stichprobe ein und benennst Bias-Typen,
+- erklärst Du Standardfehler und Konfidenzintervall als Grundlage jeder Inferenz,
+- kennst Du Missing-Mechanismen und die üblichen Verfahren für fehlende Werte,
 - unterscheidest Du Designs und kennst Bedrohungen der Validität,
 - rechnest Du eine a-priori-Poweranalyse,
 - rechnest Du eine einfaktorielle ANOVA als Auswertung eines Gruppendesigns.

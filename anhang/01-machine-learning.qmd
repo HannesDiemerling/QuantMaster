@@ -112,7 +112,7 @@ ML entfaltet seine Stärke bei **großen** Datensätzen (Tausende Fälle) mit **
 
 ## Aufgabe
 
-**Pflichtteil (mach jeder):**
+**Pflichtteil für alle:**
 
 1. Rechne eine **Random-Forest-Classification** für `N_hoch` mit den vier Skalen als Features, **mit Holdout-Testdaten (30 %) und Set seed**. Lies die **Test-AUC** und die **Feature importance** ab.
 2. Rechne dasselbe als **kleines neuronales Netz** (1 Hidden Layer, 2–4 Knoten).

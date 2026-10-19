@@ -3,10 +3,12 @@
 ::: {.callout-note title="Lernziele"}
 Nach diesem Kapitel kannst Du …
 
-- die wichtigsten Bias-Typen in Stichproben benennen,
+- die gängigen Verfahren der Stichprobenziehung und die wichtigsten Bias-Typen benennen,
+- erklären, was Stichprobenverteilung, Standardfehler und Konfidenzintervall miteinander zu tun haben,
 - die Demografie unseres Workshop-Datensatzes beschreiben und einordnen,
 - begründen, warum wir aus unseren Ergebnissen *keine* Aussage über „die Bevölkerung" ableiten,
-- erklären, was ein Stichprobenfehler von einem Stichprobenbias unterscheidet.
+- erklären, was ein Stichprobenfehler von einem Stichprobenbias unterscheidet,
+- die üblichen Verfahren für fehlende Werte einordnen.
 :::
 
 ## Worum es geht
@@ -16,7 +18,7 @@ Bevor Du Ergebnisse verallgemeinerst, musst Du wissen, **wer** in Deinem Datensa
 - **Simulierte Probanden** (`data/generated/`) mit einer Verteilung, die ich für plausibel gehalten habe: überwiegend weiblich, jung, hoch gebildet, also typisch für Psychologie-Studierende.
 - **„Studierenden-Zeilen"**: fiktive Personen, die Ihr Euch ausgedacht habt, weil die Erhebung nur simuliert ist (siehe @sec-tag1-fragebogen).
 
-Wir nehmen die inhaltliche Interpretation der Daten heute deshalb **nicht zu ernst**. Methodisch arbeitet Ihr aber sauber.
+Inhaltlich sagen die Daten deshalb wenig über echte Menschen aus. Für das Methodische spielt das keine Rolle.
 
 ## Population, Stichprobe und was sich mit *N* ändert
 
@@ -36,6 +38,32 @@ Das ist das **Gesetz der großen Zahlen**. In einfachen Worten: viele Daten sind
 ::: {.callout-important title="Die wichtige Einschränkung"}
 Das Gesetz der großen Zahlen funktioniert **nur**, wenn die Stichprobe *unverzerrt* ist. Bei einem **Bias** (siehe nächster Abschnitt) bringt Dir mehr *N* gar nichts. Du näherst Dich nur immer präziser dem **falschen** Wert. Genau das ist das Tückische an Bias: man merkt es nicht durch Mehr-Daten-Sammeln.
 :::
+
+## Stichprobenverteilung, Standardfehler, Konfidenzintervall
+
+Stell Dir vor, Du ziehst nicht eine Stichprobe, sondern sehr viele, jede mit $N$ Personen, und berechnest jedes Mal den Mittelwert. Diese Mittelwerte streuen um das wahre $\mu$. Ihre Verteilung heißt **Stichprobenverteilung**. Auf dieser Idee baut die gesamte inferenzielle Statistik auf.
+
+- Die Streuung der Stichprobenverteilung ist der **Standardfehler** ($SE$). Für den Mittelwert gilt $SE = SD / \sqrt{N}$. Der $SE$ beschreibt, wie genau ein Kennwert geschätzt ist. Die $SD$ beschreibt dagegen, wie stark die Personen streuen.
+- Weil der $SE$ nur mit $\sqrt{N}$ schrumpft, braucht man für eine doppelt so genaue Schätzung viermal so viele Personen. Bei $SD = 10$ ist $SE = 2$ für $N = 25$ und $SE = 1$ für $N = 100$.
+- Nach dem Zentralen Grenzwertsatz (@sec-tag2-ttest) ist die Stichprobenverteilung bei ausreichend großem $N$ annähernd normal. Daraus ergibt sich das **95 %-Konfidenzintervall**: ungefähr Schätzwert $\pm 1.96 \times SE$. Bei kleinen Stichproben nimmt man statt 1.96 den etwas größeren Wert aus der *t*-Verteilung.
+
+Alle Tests aus dem Seminar folgen derselben Logik. Ob *t*, *z* oder *F*: Im Kern wird ein Effekt ins Verhältnis zu seiner Unsicherheit gesetzt. Ein großer Effekt mit großem Standardfehler kann deshalb weniger überzeugend sein als ein kleiner, sehr genau geschätzter.
+
+::: {.callout-tip title="In JASP"}
+**Descriptives → Descriptive Statistics → Statistics:** Unter *Dispersion* gibt es **S.E. mean**. Damit siehst Du den Standardfehler direkt neben der $SD$.
+:::
+
+## Wie eine Stichprobe gezogen wird
+
+| Verfahren | Vorgehen | Typisch für |
+|---|---|---|
+| **Einfache Zufallsstichprobe** | Jede Person der Population hat dieselbe Chance, gezogen zu werden. | Ideal der Inferenzstatistik, in der Praxis selten erreichbar |
+| **Geschichtete Stichprobe** | Population in Schichten teilen (z. B. Altersgruppen), in jeder Schicht zufällig ziehen. | Bevölkerungsumfragen, wenn kleine Gruppen sicher vertreten sein sollen |
+| **Klumpenstichprobe** | Ganze Gruppen zufällig ziehen (z. B. Praxen, Schulklassen) und alle darin befragen. | Versorgungsforschung; erzeugt genestete Daten (@sec-tag3-mixed) |
+| **Quotenstichprobe** | Vorgegebene Anteile (z. B. 50 % Frauen) gezielt auffüllen, aber nicht zufällig. | Markt- und Meinungsforschung |
+| **Gelegenheitsstichprobe** | Wer erreichbar ist und mitmacht. | Studierendenpools, Online-Studien, Ambulanzen |
+
+In der Psychotherapieforschung sind Gelegenheitsstichproben der Normalfall, etwa alle Patient:innen einer Hochschulambulanz. Das ist kein Fehler, schränkt aber ein, auf wen sich Ergebnisse übertragen lassen. Genau hier setzen die Bias-Typen im nächsten Abschnitt an.
 
 ## Vier Bias-Typen, die Du kennen solltest
 
@@ -97,9 +125,23 @@ Erinnerung aus Sitzung 01: Bei der Bereinigung hast Du Werte „auf fehlend gese
 
 JASP zeigt Dir in der Descriptives-Tabelle für jede Variable die Anzahl **Missing**. Schau einmal hin: gibt es Items mit deutlich mehr Missings als andere? Das kann auf MAR oder MNAR hindeuten und ist ein Anlass, im echten Forschungskontext genauer hinzuschauen.
 
+### Was man mit fehlenden Werten macht
+
+| Verfahren | Idee | Unverzerrt bei |
+|---|---|---|
+| **Listwise Deletion** | Jede Person mit mindestens einem fehlenden Wert fliegt raus. | MCAR; kostet aber Power |
+| **Pairwise Deletion** | Jede Analyse nutzt alle Personen, die für genau diese Variablen Werte haben. | MCAR; $N$ schwankt dann zwischen Analysen |
+| **Mittelwert ersetzen** | Lücke durch den Mittelwert der Variable füllen. | eigentlich nie; verkleinert Streuung und Zusammenhänge, deshalb nicht empfohlen |
+| **Multiple Imputation** | Lücken mehrfach plausibel auffüllen, jede Version auswerten, Ergebnisse kombinieren. | MAR |
+| **FIML** (Full Information Maximum Likelihood) | Das Modell nutzt alle vorhandenen Werte direkt, ohne aufzufüllen. | MAR |
+
+Bei MNAR hilft keines dieser Verfahren vollständig. Dann bleiben nur Sensitivitätsanalysen: Man prüft, wie stark sich das Ergebnis unter verschiedenen Annahmen über die fehlenden Werte ändert.
+
+In vielen JASP-Analysen findest Du unter den Optionen eine Einstellung für fehlende Werte, meist listwise oder Analyse für Analyse. Das SEM-Modul bietet zusätzlich FIML. In unserem Datensatz fehlen nur wenige Werte, und die Fehler wurden unabhängig von den Antworten der Personen eingebaut. Listwise Deletion ist hier deshalb vertretbar. In einer echten Studie mit Drop-out wären Multiple Imputation oder FIML meist die bessere Wahl.
+
 ## Aufgabe
 
-**Pflichtteil (mach jeder):**
+**Pflichtteil für alle:**
 
 1. Erzeuge in JASP **drei Demografie-Plots** mit **Descriptives → Descriptive Statistics → Basic Plots → Distribution plots**:
    - Bar Chart `geschlecht`
@@ -112,7 +154,7 @@ JASP zeigt Dir in der Descriptives-Tabelle für jede Variable die Anzahl **Missi
 
 - Boxplot `alter` gruppiert nach `geschlecht`.
 - Bar Chart `bildungsgrad` gruppiert nach `quelle_datensatz` (Feld **Split**; `quelle_datensatz` muss dafür Nominal sein). Sind die zehn vorgenerierten Datensätze in der Bildung vergleichbar verteilt?
-- Eine 2-Sätze-Reflexion: Welcher Bias-Typ aus der Tabelle ist in unserer Demo-Stichprobe *eher kein* Problem, und warum?
+- Lass Dir für `alter` zusätzlich **S.E. mean** ausgeben und rechne das 95 %-Konfidenzintervall des Mittelwerts grob von Hand aus ($M \pm 2 \times SE$).
 
 ::: {.callout-tip title="Für die Abgabe"}
 Notiere das BFI-Item mit den meisten fehlenden Werten und Deine 2–3-Sätze-Notiz zur Stichprobe. Siehe @sec-s07-abschluss.
@@ -122,4 +164,5 @@ Notiere das BFI-Item mit den meisten fehlenden Werten und Deine 2–3-Sätze-Not
 
 1. Was unterscheidet einen Stichprobenfehler von einem Stichprobenbias?
 2. Warum reicht ein Mittelwert allein nicht, um „die Persönlichkeit junger Erwachsener" zu beschreiben?
-3. Welche Bias-Typen sind in unserem Workshop-Datensatz besonders einschlägig, und welche eher nicht (Stichwort: kein echter Online-Fragebogen, sondern ausgedacht)?
+3. Eine Studie hat 40 % Drop-out, und die Abbrecher:innen hatten zu Beginn höhere Symptomwerte. Welcher Missing-Mechanismus liegt nahe, und welches Verfahren würdest Du wählen?
+4. Welche Bias-Typen sind in unserem Workshop-Datensatz besonders einschlägig, und welche eher nicht (Stichwort: kein echter Online-Fragebogen, sondern ausgedacht)?

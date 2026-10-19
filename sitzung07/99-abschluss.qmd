@@ -2,7 +2,7 @@
 
 ## Kurz zusammengefasst
 
-- Du hast die Stichprobe kritisch eingeordnet.
+- Du hast die Stichprobe eingeordnet und kennst die Grundlagen von Standardfehler, Konfidenzintervall und fehlenden Werten.
 - Du hast Stichprobengrößen geplant und eine ANOVA vollständig berichtet.
 
 ## Abgabe
@@ -25,6 +25,7 @@ Freiwillig, für alle, die tiefer einsteigen wollen:
 
 - Henrich, Heine & Norenzayan (2010). [The weirdest people in the world?](https://doi.org/10.1017/S0140525X0999152X). *Behavioral and Brain Sciences*, 33. Wie stark die Psychologie auf westlichen, gebildeten Studierenden aufbaut, und warum das ein Problem ist.
 - Lakens (2022). [Sample size justification](https://doi.org/10.1525/collabra.33267). *Collabra: Psychology*, 8. Sehr praktische Anleitung, wie man eine Stichprobengröße begründet. Nützlich für jede eigene Studie.
+- van Buuren (2018). [Flexible Imputation of Missing Data](https://stefvanbuuren.name/fimd/). Frei online. Die verständlichste Einführung in Multiple Imputation, vom Entwickler des R-Pakets `mice`.
 - [G\*Power](https://www.psychologie.hhu.de/arbeitsgruppen/allgemeine-psychologie-und-arbeitspsychologie/gpower). Kostenloses Programm für Poweranalysen, deckt mehr Designs ab als das Power-Modul in JASP.
 
 ## Ausblick auf Sitzung 08

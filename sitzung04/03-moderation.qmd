@@ -98,7 +98,7 @@ Bei rund einem von zwanzig Tests passiert das rein zufällig (Fehler erster Art)
 
 ## Aufgabe
 
-**Pflichtteil (mach jeder):**
+**Pflichtteil für alle:**
 
 1. Bau zwei zentrierte Spalten `E_c` und `G_c` per Compute Column.
 2. Rechne in JASP das Modell `N_mean` ~ `E_c` + `G_c` + `E_c * G_c`.
