@@ -14,7 +14,7 @@ Nach diesem Kapitel kannst Du …
 
 Eine **Mediation** fragt nach dem **Mechanismus**: Läuft der Effekt von $X$ auf $Y$ **über** eine Zwischenvariable $M$ (den Mediator)? Während die Moderation fragte, *wann* ein Effekt auftritt, fragt die Mediation *wie*, also über welchen Pfad.
 
-> *Beispiel:* Gewissenhaftigkeit $(X)$ führt zu besseren Lernstrategien $(M)$, und diese führen zu besseren Noten $(Y)$. Der Effekt von Gewissenhaftigkeit auf Noten läuft dann (teilweise) **durch** die Lernstrategien.
+> *Beispiel:* Gewissenhaftigkeit (*X*) führt zu besseren Lernstrategien (*M*), und diese führen zu besseren Noten (*Y*). Der Effekt von Gewissenhaftigkeit auf Noten läuft dann (teilweise) **durch** die Lernstrategien.
 
 Das klassische Mediationsdiagramm:
 

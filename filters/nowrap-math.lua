@@ -58,12 +58,12 @@ local function tiny_word(s)
   if n == nil or n > 3 then return false end
   local first = s:sub(1, 1)
   local greek = s:byte(1) == 0xCE or s:byte(1) == 0xCF
-  if not (first:match("%w") or greek) then return false end
+  if not (first:match("[A-Za-z0-9]") or greek) then return false end
   local rest = greek and s:sub(3) or s:sub(2)
   return rest == "" or not rest:match("[A-Za-z0-9]")
 end
 
-local RELATION = { ["="] = true, ["≈"] = true, ["<"] = true, [">"] = true, ["≤"] = true, ["≥"] = true, ["~"] = true, ["×"] = true }
+local RELATION = { ["="] = true, ["≈"] = true, ["<"] = true, [">"] = true, ["≤"] = true, ["≥"] = true, ["~"] = true }  -- „×“ bewusst nicht: Ketten wie „a × b × c“ müssen umbrechen dürfen
 
 local function nowrap(list)
   return pandoc.Span(list, pandoc.Attr("", { "nowrap" }))
@@ -82,7 +82,10 @@ function Inlines(inl)
     elseif el.t == "Code" and utf8.len(el.text) and utf8.len(el.text) <= 30 and el.text:match("[%s%-]") then
       -- kurzer Code mit Leerzeichen oder Bindestrich (Dateiname, Formel) bleibt in einer Zeile
       tmp:insert(nowrap({ el })); j = j + 1
-    elseif el.t == "Space" and nx and nx.t == "Str" and (tiny_word(nx.text) or tiny_word(nx.text:match("^(.-)\u{00A0}") or "")) then
+    elseif el.t == "Space" and nx and nx.t == "Str" and (tiny_word(nx.text) or
+        (tiny_word(nx.text:match("^(.-)\u{00A0}") or "") and tmp[#tmp] and tmp[#tmp].t == "Str"
+         and not tmp[#tmp].text:match("[:,;]$"))) then
+      -- „Modell 0 = …“ ja, aber keine Kette in Aufzählungen „zugeordnet: 1 = …, 2 = …“
       -- einzelnes Zeichen (α, ω, n, „2“) nicht allein an den Zeilenanfang
       tmp:insert(pandoc.Str("\u{00A0}")); j = j + 1
     elseif el.t == "Space" and nx and nx.t == "Str" and closing_punct(nx.text) then
@@ -116,7 +119,12 @@ function Inlines(inl)
         end
       end
       local nxt = inl[i + 1]
-      if nxt and nxt.t == "Str" then
+      if nxt and nxt.t == "Str" and nxt.text:sub(1, 2) == "\u{00A0}" then
+        -- „$Y$ = `O_mean`“: Relation mit geschütztem Leerzeichen und rechte Seite an die Formel binden
+        group:insert(nxt); i = i + 1
+        local rhs = inl[i + 1]
+        if rhs and (rhs.t == "Code" or rhs.t == "Math") then group:insert(rhs); i = i + 1 end
+      elseif nxt and nxt.t == "Str" then
         local head, rest = split_head(nxt.text)
         if head then
           group:insert(pandoc.Str(head))

@@ -43,7 +43,9 @@ Vertiefung folgt in **Sitzung 03** (Reliabilität mit Cronbach's α und McDonald
 
 Manche Items sind so formuliert, dass eine *hohe* Zustimmung eine *niedrige* Ausprägung der Skala bedeutet. Beispiel aus dem BFI-K (Item 1, Skala Extraversion):
 
-> „Ich bin eher zurückhaltend, reserviert.“ Wer hier 5 („sehr zutreffend“) ankreuzt, ist *weniger* extravertiert.
+> „Ich bin eher zurückhaltend, reserviert.“
+
+Wer hier 5 („sehr zutreffend“) ankreuzt, ist *weniger* extravertiert.
 
 Solche **Reverse-Items** dienen zwei Zwecken:
 

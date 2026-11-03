@@ -150,6 +150,10 @@ td, th {
 blockquote mjx-container:not([display="true"]) {
   margin-left: 0.12em;
 }
+/* nicht direkt nach einer öffnenden Klammer, die der Filter mit der Formel verbunden hat */
+blockquote .nowrap > mjx-container:not(:first-child) {
+  margin-left: 0;
+}
 
 /* Breite abgesetzte Formeln seitlich scrollbar statt über den Rand */
 mjx-container[display="true"] {

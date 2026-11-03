@@ -166,7 +166,7 @@ Beachte: vollständige Information, nicht nur das *p*.
 |---:|---|---|---|
 | A | Frauen sind verträglicher als Männer. | Independent, gerichtet | `V_mean` ~ `geschlecht` |
 | B | Mittlerer Neurotizismus liegt unter 3 (Skalenmitte). | One-Sample, einseitig | `N_mean` vs. 3 |
-| C | Personen unter 25 Jahren sind extravertierter als Personen ab 25. | Independent | `E_mean` ~ Altersgruppe |
+| C | Personen unter 25 Jahren sind extravertierter als Personen ab 25. | Independent | `E_mean` ~ Altersgruppe |
 | D | Personen aus den Seed-Datensätzen 1–5 unterscheiden sich in Gewissenhaftigkeit nicht von denen aus 6–10. | Independent | `G_mean` ~ Datensatzhälfte |
 
 Für C und D baust Du Dir eine Gruppenspalte per Compute Column (Typ **Nominal**):

@@ -3,7 +3,7 @@
 ::: {.callout-note title="Lernziele"}
 Nach diesem Kapitel kannst Du …
 
-- die zentralen deskriptiven Kennzahlen (M, Median, SD, IQR, Schiefe, Kurtosis) benennen und in JASP berechnen,
+- die zentralen deskriptiven Kennzahlen (*M*, Median, SD, IQR, Schiefe, Kurtosis) benennen und in JASP berechnen,
 - für jede Variablen-Art den passenden Plot-Typ wählen,
 - mindestens fünf verschiedene Visualisierungen in JASP erzeugen und sinnvoll interpretieren,
 - erklären, warum ein Mittelwert ohne Streuungsmaß wenig aussagt.
@@ -32,10 +32,10 @@ Likert-Items wie unsere BFI-Items sind streng genommen **ordinal**. Die Abständ
 
 | Kennzahl | Bedeutet | Wofür gut |
 |---|---|---|
-| **M** (arithm. Mittel) | Durchschnitt | metrisch, einigermaßen symmetrische Verteilungen |
+| ***M*** (arithm. Mittel) | Durchschnitt | metrisch, einigermaßen symmetrische Verteilungen |
 | **Median** | mittlerer Wert | robust gegen Ausreißer, immer interpretierbar bei ordinal+ |
 | **Mode** (Modus) | häufigster Wert | nominal, ordinal |
-| **SD** | typische Abweichung vom M (Wurzel aus der mittleren quadrierten Abweichung) | Streuung bei metrischen Daten |
+| **SD** | typische Abweichung vom *M* (Wurzel aus der mittleren quadrierten Abweichung) | Streuung bei metrischen Daten |
 | **Variance** | SD² | wird in Tests verwendet (z. B. ANOVA) |
 | **IQR** | Q3 − Q1 | robuste Streuung, geht mit Boxplot |
 | **Min / Max / Range** | Spannweite | Plausibilitätscheck |
@@ -45,7 +45,7 @@ Likert-Items wie unsere BFI-Items sind streng genommen **ordinal**. Die Abständ
 **In JASP:** **Descriptives → Descriptive Statistics**, Variable ins Feld ziehen, dann im Abschnitt **Statistics** ankreuzen: unter *Central tendency* **Median** und **Mode**, unter *Dispersion* **IQR**, unter *Distribution* **Skewness** und **Kurtosis**. Mean, Std. deviation, Minimum, Maximum sowie *Valid/Missing* sind schon voreingestellt.
 
 ::: {.callout-tip title="Faustregel beim Berichten"}
-Berichte je nach Variable mindestens **zwei** Kennzahlen: eine für **zentrale Tendenz** (M oder Median) **und** eine für **Streuung** (SD oder IQR). Ein einzelner Mittelwert ohne Streuung ist eine halbe Aussage.
+Berichte je nach Variable mindestens **zwei** Kennzahlen: eine für **zentrale Tendenz** (*M* oder Median) **und** eine für **Streuung** (SD oder IQR). Ein einzelner Mittelwert ohne Streuung ist eine halbe Aussage.
 :::
 
 ### Wert in Einheiten der Streuung: der *z*-Wert

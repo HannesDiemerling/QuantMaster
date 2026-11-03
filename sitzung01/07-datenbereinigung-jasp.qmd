@@ -107,7 +107,7 @@ Du hast drei Möglichkeiten, je nach Fehlertyp:
 - **`BFI_07 = 7`** oder **`BFI_07 = 0`** → Zelle leeren (Wert ist außerhalb 1–5 und nicht reparierbar).
 - **`alter = 200`** oder **`alter = 7`** → Zelle leeren.
 - **`geschlecht = 4`** → Zelle leeren (es gibt nur die Codes 1–3).
-- **Zwei Zeilen mit `probandennummer = 4`** → Wenn der Rest plausibel ist, vergib der Zeile, die nicht in die Reihenfolge passt, die fehlende Nummer aus 1–9 (die Nummern laufen sonst lückenlos von 1 bis 9). Beispiel: Steht eine der beiden 4en an Position 7 und fehlt die 7, wird sie zur 7. Bitte nur ganze Zahlen. Einen Wert wie „8a“ kann später niemand mehr verarbeiten.
+- **Zwei Zeilen mit `probandennummer = 4`** → Wenn der Rest plausibel ist, vergib der Zeile, die nicht in die Reihenfolge passt, die fehlende Nummer aus 1–9 (die Nummern laufen sonst lückenlos von 1 bis 9). Beispiel: Steht eine der beiden Zeilen mit der 4 an Position 7 und fehlt die 7, wird sie zur 7. Bitte nur ganze Zahlen. Einen Wert wie „8a“ kann später niemand mehr verarbeiten.
 - **`bildungsgrad` leer** → das ist einer der absichtlichen Fehler, denn die Demografie muss laut Codebook vollständig sein. Die Zelle bleibt leer (der wahre Wert ist nicht rekonstruierbar), notier sie aber als gefundenen Fehler. Dasselbe gilt für ein leeres BFI-Item.
 
 Zum Ändern wechselst Du zuerst oben über **Edit Data** in den Bearbeitungsmodus. Dort klickst Du doppelt auf die Zelle, änderst oder löschst den Wert und bestätigst mit Enter. Ein Rechtsklick auf eine Zelle bietet außerdem *Clear cells* (Zelle leeren) und *Delete row*. Zurück zu den Analysen geht es über **Analyses** in derselben Leiste.

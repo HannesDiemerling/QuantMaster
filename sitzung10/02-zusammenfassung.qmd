@@ -123,7 +123,7 @@ Fast alle berichten den ***p*-Wert** und vergessen **Effektgröße und Konfidenz
 
 **Konfidenzintervall:** Bereich plausibler Werte für den Parameter. **Credible Interval:** bayesianisches Pendant, direkt als „95 % Wahrscheinlichkeit, dass der Parameter hier liegt“ interpretierbar.
 
-**Effektgröße:** *Größe* eines Effekts, unabhängig von *n* (Cohen's *d*, *r*, η², R²).
+**Effektgröße:** *Größe* eines Effekts, unabhängig von *n* (Cohen's *d*, *r*, η², *R*²).
 
 **Multikollinearität:** Prädiktoren messen fast dasselbe (VIF prüfen).
 

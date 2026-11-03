@@ -50,7 +50,7 @@ Die NNT ist besonders anschaulich: Sieben Personen müssen behandelt werden, dam
 
 1. **Frequencies → Classical → Contingency Tables** (Modul standardmäßig sichtbar).
 2. **Rows:** `geschlecht` (Stufe 3 per Filter ausschließen, den Filter nach dem Notieren der Werte wieder entfernen) · **Columns:** `N_hoch`.
-3. *Statistics:* **χ²** (voreingestellt) und **Odds ratio (2x2 only)**. JASP zeigt zunächst das **Log Odds Ratio**; entferne das Häkchen bei *Log Odds Ratio* oder rechne $OR = e^{\log OR}$.
+3. *Statistics:* **χ²** (voreingestellt) und **Odds ratio (2x2 only)**. JASP zeigt zunächst das **Log Odds Ratio**; entferne das Häkchen bei *Log Odds Ratio* oder rechne $\text{OR} = e^{\log \text{OR}}$.
 4. *Cells:* **Row** percentages. So siehst Du den Anteil `N_hoch = 1` je Geschlecht.
 
 ## Aufgabe

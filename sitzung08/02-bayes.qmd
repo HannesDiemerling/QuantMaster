@@ -164,7 +164,7 @@ Beide Ansätze sind legitim. In Deiner Masterarbeit kannst Du sogar **beide** be
 - Schau Dir den ergänzenden $BF_{10}$ an: Deckt er sich mit dem, was Dir der Posterior schon gezeigt hat?
 
 ::: {.callout-tip title="Für die Abgabe"}
-Notiere für den Bayes-*t*-Test Median und 95 %-Credible-Interval von δ sowie BF₁₀, für die Bayes-Korrelation Median und Credible Interval von ρ, dazu einen Satz, welche Wahrscheinlichkeitsaussage der Posterior erlaubt, die ein *p*-Wert nicht erlaubt. Siehe @sec-s08-abschluss.
+Notiere für den Bayes-*t*-Test Median und 95 %-Credible-Interval von δ sowie $BF_{10}$, für die Bayes-Korrelation Median und Credible Interval von ρ, dazu einen Satz, welche Wahrscheinlichkeitsaussage der Posterior erlaubt, die ein *p*-Wert nicht erlaubt. Siehe @sec-s08-abschluss.
 :::
 
 ## Selbstcheck
