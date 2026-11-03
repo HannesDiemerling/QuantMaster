@@ -23,12 +23,14 @@ Seminar zum Modul **M15: Multivariate Verfahren, Forschungsmethoden & Psychother
 | Sitzung 01 | Uploads laufen automatisch zusammen | Workflow **Merge student uploads** (Actions-Tab) schreibt `data/combined/m15-gesamt.csv`, `merge-report.md` und `meta-studien.csv` |
 | 2 Tage vor Sitzung 02 | Datensatz **einfrieren** | Actions → *Merge student uploads* → **Disable workflow**. Danach rechnen alle mit derselben Datei. |
 | danach | Antwortbogen erzeugen | lokal `Rscript scripts/antwortbogen.R` → `intern/antwortbogen.md` (gitignored, **nie committen**); schreibt auch die Abgabe-Vorlagen `sitzungXX/_abgabe.md` neu |
+| Sitzung 01 | Doppelte Uploads aufräumen | Meldet der Merge-Report „keine gültige/eindeutige Kennziffer" für zwei Dateien derselben Person, die ältere Datei löschen |
 | laufend | Abgaben prüfen | eine Mail pro Person und Sitzung, Betreff `M15 SNN <Kennziffer>`; Felder gegen den Antwortbogen abgleichen |
 
 Hinweise:
 
 - Der **Merge-Report** zeigt pro Upload-Datei: erkannt ja/nein, Seed-Datensatz, gefundene Fehler (z. B. `2/2`), Abweichungen von der Referenz-Bereinigung und Warnungen (falscher Name/Ordner, Semikolon, Zusatzspalten, ungültige Kennziffer). Damit hast Du auch das Feedback zur Bereinigung aus Sitzung 01.
-- Der Merge ist robust gegen typische Upload-Fehler: Er liest alle CSVs unter `data/` und im Repo-Root, erkennt vorgenerierte Zeilen am Inhalt und übernimmt jeden Seed-Datensatz genau einmal.
+- Der Merge ist robust gegen typische Upload-Fehler: Er liest alle CSVs unter `data/` und im Repo-Root, erkennt vorgenerierte Zeilen am Inhalt und übernimmt jeden Seed-Datensatz genau einmal. Mit `ALLE_SEEDS <- TRUE` (Standard) sind immer alle zehn Seed-Datensätze enthalten, auch wenn bei kleinen Kursen einer nicht hochgeladen wurde.
+- Bei vielen gleichzeitigen Uploads läuft immer nur ein Merge; der nächste wartet und verarbeitet dann alle neuen Dateien. Rote Läufe sollten nicht vorkommen; falls doch: Actions → *Merge student uploads* → *Run workflow*.
 - `antwortbogen.R` braucht R mit `MASS`, `lme4`, `lavaan` und `BayesFactor` (`install.packages(c("lme4", "lavaan", "BayesFactor"))`). Abgabefelder werden dort pro Kapitel definiert; wer Kapitel verschiebt, passt nur `SITZUNG` an.
 - Fehler-Übersicht der vorgenerierten Datensätze: steht im Antwortbogen (Abschnitt Sitzung 01).
 - Die Kontakt-Mailadresse steht zentral in `_quarto.yml` (`kurs.mail`).

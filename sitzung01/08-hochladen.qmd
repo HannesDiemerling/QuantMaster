@@ -64,7 +64,7 @@ Du brauchst nur einen Browser und Deinen GitHub-Account, keine zusätzliche Soft
 6. Je nach Rechten siehst Du:
    - **„Commit directly to the `main` branch"** → ausgewählt lassen, dann den grünen Button **Commit changes** klicken. Fertig.
    - **„Create a new branch for this commit and start a pull request"** (oder GitHub bietet *„Propose changes"* an) → so lassen, auf **Propose changes** klicken und auf der nächsten Seite **Create pull request**. Das ist gleichwertig: Die Lehrperson übernimmt Deine Datei mit einem Klick.
-7. Zurück im Ordner `data/student-uploads/` sollte Deine Datei in der Liste stehen (bei einem Pull Request erst, nachdem die Lehrperson ihn übernommen hat).
+7. Zurück im Ordner `data/student-uploads/` sollte Deine Datei in der Liste stehen (bei einem Pull Request erst, nachdem die Lehrperson ihn übernommen hat). Meldet GitHub „Commit failed", lade die Datei einfach noch einmal hoch. Das kann passieren, wenn viele gleichzeitig hochladen.
 
 ### Weg B: per Mail (ohne GitHub-Account)
 
@@ -103,7 +103,7 @@ Im Merge-Report siehst Du für Deine Datei, ob sie erkannt wurde, wie viele Fehl
 1. Zeile der fiktiven Person in den bereinigten Datensatz einfügen.
 2. Datei korrekt benannt hochladen, über GitHub (Weg A) oder per Mail (Weg B).
 3. Im Repo prüfen, dass Deine Datei dort liegt und die Zeilenzahl stimmt.
-4. Nach ca. 2 Minuten den [Merge-Report]({{< meta kurs.repo >}}/blob/main/data/combined/merge-report.md) öffnen: Steht Deine Datei mit Status „ok" und ohne Warnung drin? Sonst korrigieren und erneut hochladen.
+4. Nach ein paar Minuten den [Merge-Report]({{< meta kurs.repo >}}/blob/main/data/combined/merge-report.md) öffnen: Steht Deine Datei mit Status „ok" und ohne Warnung drin? Sonst korrigieren und unter **demselben Dateinamen** erneut hochladen. Wenn gerade viele gleichzeitig hochladen, kann es etwas länger dauern, bis Deine Datei im Report auftaucht.
 
 ::: {.callout-tip title="Für die Abgabe"}
 Notiere Datensatz-Nummer, beide gefundenen Fehler und den Dateinamen für die Abgabe (@sec-s01-abschluss).

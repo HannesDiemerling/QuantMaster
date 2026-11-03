@@ -27,6 +27,8 @@ OUT_META   <- "data/combined/meta-studien.csv"
 UPLOAD_DIR <- "data/student-uploads"
 MIN_MATCH  <- 19          # so viele BFI-Items müssen übereinstimmen
 KENNZIFFER <- 2001:2099   # gültige Kennziffern (2000 + Listennummer)
+ALLE_SEEDS <- TRUE        # alle 10 Seed-Datensätze aufnehmen, auch wenn einer nicht hochgeladen wurde
+                          # (hält N, Metaanalyse und Mixed Model bei kleinen Kursen stabil)
 
 DEMO  <- c("probandennummer", "geschlecht", "alter", "bildungsgrad")
 BFI   <- sprintf("BFI_%02d", 1:21)
@@ -221,7 +223,8 @@ main <- function() {
   }
 
   # Seed-Zeilen: jeder hochgeladene Datensatz genau einmal, referenzbereinigt
-  seed_df <- do.call(rbind, lapply(sort(as.integer(names(seeds_used))), function(d) {
+  seed_ids <- if (ALLE_SEEDS) seq_along(ref) else sort(as.integer(names(seeds_used)))
+  seed_df <- do.call(rbind, lapply(seed_ids, function(d) {
     x <- ref[[d]]$clean[COLS]
     data.frame(id = d * 100 + x$probandennummer, x, quelle = "generiert",
                quelle_datensatz = d, quelle_datei = sprintf("data/generated/datensatz-%02d.csv", d),
@@ -287,7 +290,7 @@ main <- function() {
     sprintf("Automatisch erzeugt von `scripts/merge-uploads.R` am %s.", format(Sys.time(), "%d.%m.%Y %H:%M")),
     "",
     sprintf("**Gesamtdatensatz:** `%s` mit **%d Zeilen** (%d vorgeneriert aus %d Datensätzen, %d eigene Zeilen).",
-            OUT_CSV, nrow(combined), NROW(seed_df), length(seeds_used), NROW(own_df)),
+            OUT_CSV, nrow(combined), NROW(seed_df), length(seed_ids), NROW(own_df)),
     "",
     "Vorgenerierte Zeilen gehen in der Referenz-Bereinigung ein (Fehlerzellen leer, doppelte Probandennummer korrigiert) — unabhängig davon, wie sie in den Uploads bereinigt wurden.",
     "",
@@ -302,7 +305,8 @@ main <- function() {
   }
   missing_ds <- setdiff(1:10, as.integer(names(seeds_used)))
   lines <- c(lines, "", "## Weitere Hinweise", "",
-             if (length(missing_ds)) sprintf("- Nicht hochgeladene Seed-Datensätze: %s", paste(sprintf("%02d", missing_ds), collapse = ", ")),
+             if (length(missing_ds)) sprintf("- Nicht hochgeladene Seed-Datensätze: %s%s", paste(sprintf("%02d", missing_ds), collapse = ", "),
+                                             if (ALLE_SEEDS) " (trotzdem im Gesamtdatensatz enthalten)" else ""),
              if (length(other)) sprintf("- Ignoriert (kein CSV): `%s`", other),
              if (length(dup_notes)) paste0("- ", dup_notes))
   con <- file(OUT_REPORT, open = "w", encoding = "UTF-8")

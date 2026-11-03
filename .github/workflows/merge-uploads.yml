@@ -18,11 +18,12 @@ on:
 permissions:
   contents: write
 
-# Laden viele Studierende gleichzeitig hoch, reicht der jeweils letzte Lauf —
-# er liest immer den aktuellen Stand von main.
+# Immer nur ein Lauf gleichzeitig. Ein laufender Merge wird NICHT abgebrochen
+# (sonst käme bei vielen Uploads hintereinander nie ein Lauf durch); es wartet
+# höchstens ein weiterer Lauf, und der liest dann den neuesten Stand von main.
 concurrency:
   group: merge-uploads
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   merge:
@@ -41,9 +42,21 @@ jobs:
       - name: Merge uploads
         run: Rscript scripts/merge-uploads.R
 
+      # Während des Laufs können weitere Uploads auf main landen. Deshalb vor dem
+      # Push den neuen Stand holen (rebase) und bei Bedarf erneut versuchen.
+      # data/combined/ wird nur von diesem Workflow geschrieben, es gibt also
+      # keine Konflikte; neuere Uploads verarbeitet der nächste Lauf.
       - name: Commit combined dataset
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore(data): Gesamtdatensatz aktualisiert"
-          # Muss in EINER Zeile stehen: die Action liest nur die erste Zeile.
-          file_pattern: data/combined/m15-gesamt.csv data/combined/merge-report.md data/combined/meta-studien.csv
+        env:
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/combined/m15-gesamt.csv data/combined/merge-report.md data/combined/meta-studien.csv
+          if git diff --cached --quiet; then echo "Keine Änderungen am Gesamtdatensatz"; exit 0; fi
+          git commit -q -m "chore(data): Gesamtdatensatz aktualisiert"
+          for i in 1 2 3 4 5; do
+            if git pull -q --rebase origin "$BRANCH" && git push -q origin "HEAD:$BRANCH"; then echo "gepusht (Versuch $i)"; exit 0; fi
+            echo "Push fehlgeschlagen, neuer Versuch"; sleep $((i * 5))
+          done
+          exit 1

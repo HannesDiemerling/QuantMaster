@@ -49,10 +49,10 @@ Herunterladen: jede Datei anklicken → **Download raw file** (Pfeil-Symbol oben
 4. Speichern als `meine-kombination.csv` (UTF-8).
 5. **Kontrolle:** Die Datei muss **eine Kopfzeile und 10 × 7 = 70 Datenzeilen** haben, oder weniger, wenn eine Datei kürzer war. Prüf die Zeilenzahl im Editor (Zeilennummer links).
 
-::: {.callout-tip title="Typische Fehler, die Du jetzt findest"}
+::: {.callout-tip title="Typische Probleme, auf die Du stoßen kannst"}
 - eine Datei nutzt `;` statt `,` → die Spalten verrutschen,
 - eine Kopfzeile ist mitten in den Daten gelandet,
-- zwei Dateien enthalten denselben Seed-Datensatz → dieselben 9 Personen stehen doppelt drin.
+- zwei Dateien enthalten denselben Seed-Datensatz (bei mehr als 10 Teilnehmenden) → dieselben 9 Personen stehen doppelt drin.
 :::
 
 ## Schritt 3: Mit dem offiziellen Gesamtdatensatz vergleichen
@@ -69,7 +69,7 @@ Im **offiziellen** Gesamtdatensatz `data/combined/m15-gesamt.csv` ist das schon 
 | `quelle_datensatz` | Nummer des Seed-Datensatzes (1–10) |
 | `quelle_datei` | aus welcher Datei die Zeile stammt |
 
-Jeder hochgeladene Seed-Datensatz steht **genau einmal** drin, und zwar in einer Referenz-Bereinigung (die zwei Fehler auf fehlend gesetzt bzw. die Nummer korrigiert). Wie Du selbst bereinigt hast, ändert also nichts an den gemeinsamen Daten. Dein Ergebnis siehst Du in der Spalte „Fehler gefunden" des Reports.
+Jeder der zehn Seed-Datensätze steht **genau einmal** drin, auch wenn er mehrfach oder gar nicht hochgeladen wurde, und zwar in einer Referenz-Bereinigung (die zwei Fehler auf fehlend gesetzt bzw. die Nummer korrigiert). Wie Du selbst bereinigt hast, ändert also nichts an den gemeinsamen Daten. Dein Ergebnis siehst Du in der Spalte „Fehler gefunden" des Reports.
 
 ## Schritt 4: Gesamtdatensatz in JASP öffnen
 

@@ -42,7 +42,7 @@ Die Lehrperson stellt zu Beginn eine **alphabetische Teilnehmerliste** bereit. D
 |---|---|---|
 | **Kennziffer** (Dein Pseudonym, Mail-Betreff, Probandennummer Deiner Datenzeile) | $2000 + n$ | 2013 |
 | **Datensatz** (Dein Übungsdatensatz in Sitzung 01) | $((n - 1) \bmod 10) + 1$, also 1, 2, …, 10, dann wieder 1 | 3 |
-| **Kleingruppe** (fester Breakout-Raum für alle Sitzungen) | $n$ geteilt durch 4, aufgerundet | 4 |
+| **Kleingruppe** (fester Breakout-Raum für alle Sitzungen) | $n$ geteilt durch 4, aufgerundet; bliebe jemand in der letzten Gruppe allein, kommt er oder sie in die vorletzte | 4 |
 
 Notiere Dir die drei Zahlen am besten gleich. Du brauchst sie in jeder Sitzung.
 
