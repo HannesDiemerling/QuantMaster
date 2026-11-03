@@ -3,7 +3,7 @@
 ::: {.callout-note title="Lernziele"}
 Nach diesem Kapitel hast Du …
 
-- Deine persönliche Datensatz-Nummer,
+- Deine persönliche Datensatznummer,
 - die zugehörige CSV-Datei lokal auf Deinem Laptop,
 - ein klares Bild davon, was als Nächstes mit dieser Datei passiert.
 :::

@@ -3,8 +3,8 @@
 ::: {.callout-note title="Lernziele"}
 Nach dieser Sitzung …
 
-- interpretierst Du p-Werte korrekt und erkennst typische Fehlschlüsse,
-- erklärst Du α-Kumulierung und p-Hacking und rechnest einen Äquivalenztest,
+- interpretierst Du *p*-Werte korrekt und erkennst typische Fehlschlüsse,
+- erklärst Du α-Kumulierung und *p*-Hacking und rechnest einen Äquivalenztest,
 - liest Du Posterior, Credible Interval und Bayes-Faktor in JASP ab.
 :::
 
@@ -20,8 +20,8 @@ Heute stellst Du das Werkzeug infrage, das Du bisher ständig benutzt hast: den 
 
 ## Inhalte
 
-1. Kleines Quiz: Was bedeutet p = .03?
+1. Kleines Quiz: Was bedeutet *p* = .03?
 2. Signifikanztests und ihre Kritik (@sec-nhst)
-3. Von „p < .05“ zu Wahrscheinlichkeitsaussagen
+3. Von „*p* < .05“ zu Wahrscheinlichkeitsaussagen
 4. Bayes vs. Frequentismus (@sec-tag3-bayes)
 5. Fragen und Abgabe (@sec-s08-abschluss)

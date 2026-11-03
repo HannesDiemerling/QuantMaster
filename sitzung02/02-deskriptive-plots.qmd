@@ -20,9 +20,9 @@ Bevor Du irgendwelche Kennzahlen berechnest, eine ältere, aber sehr nützliche 
 | Niveau | Eigenschaft | Beispiel aus unserem Datensatz | Was darfst Du rechnen? |
 |---|---|---|---|
 | **Nominal** | nur Unterscheidung, keine Ordnung | `geschlecht`, `quelle_datensatz` | Häufigkeiten, Modus |
-| **Ordinal** | Reihenfolge, aber keine gleichmäßigen Abstände | `bildungsgrad`, einzelne BFI-Items | + Median, Quantile |
-| **Intervall** | gleichmäßige Abstände, kein absoluter Nullpunkt | Temperatur in °C; bei uns: Skalen-Mittelwerte mit etwas Wohlwollen | + Mittelwert, SD |
-| **Verhältnis** (ratio) | wie Intervall, plus absoluter Nullpunkt | `alter` in Jahren | + Verhältnisse, Quotienten |
+| **Ordinal** | Reihenfolge, aber keine gleichmäßigen Abstände | `bildungsgrad`, einzelne BFI-Items | + Median, Quantile |
+| **Intervall** | gleichmäßige Abstände, kein absoluter Nullpunkt | Temperatur in °C; bei uns: Skalen-Mittelwerte mit etwas Wohlwollen | + Mittelwert, SD |
+| **Verhältnis** (ratio) | wie Intervall, plus absoluter Nullpunkt | `alter` in Jahren | + Verhältnisse, Quotienten |
 
 ::: {.callout-tip title="Streit-Klassiker"}
 Likert-Items wie unsere BFI-Items sind streng genommen **ordinal**. Die Abstände zwischen *„weder noch“* und *„eher zutreffend“* sind nicht objektiv gleich groß zu *„eher zutreffend“* / *„sehr zutreffend“*. In der Praxis behandelt man sie in psychologischer Forschung trotzdem fast immer wie Intervalldaten, weil das die Auswertungsmöglichkeiten dramatisch erweitert (Mittelwert, Korrelation, Regression) und weil die Verzerrung in der Regel klein ist. Es gibt aber Spezialfälle, in denen Du auf strikt ordinale Verfahren (Spearman, Kruskal-Wallis) zurückgreifen würdest.
@@ -34,26 +34,26 @@ Likert-Items wie unsere BFI-Items sind streng genommen **ordinal**. Die Abständ
 |---|---|---|
 | **M** (arithm. Mittel) | Durchschnitt | metrisch, einigermaßen symmetrische Verteilungen |
 | **Median** | mittlerer Wert | robust gegen Ausreißer, immer interpretierbar bei ordinal+ |
-| **Mode (Modus)** | häufigster Wert | nominal, ordinal |
+| **Mode** (Modus) | häufigster Wert | nominal, ordinal |
 | **SD** | typische Abweichung vom M (Wurzel aus der mittleren quadrierten Abweichung) | Streuung bei metrischen Daten |
 | **Variance** | SD² | wird in Tests verwendet (z. B. ANOVA) |
 | **IQR** | Q3 − Q1 | robuste Streuung, geht mit Boxplot |
 | **Min / Max / Range** | Spannweite | Plausibilitätscheck |
-| **Skewness** | Schiefe (positiv = rechtsschief) | Verteilungsform |
-| **Kurtosis** | Wölbung, vor allem: wie stark die Ränder besetzt sind (JASP zeigt die Abweichung von der Normalverteilung, 0 = normal) | Verteilungsform |
+| **Skewness** | Schiefe (positiv = rechtsschief) | Verteilungsform |
+| **Kurtosis** | Wölbung, vor allem: wie stark die Ränder besetzt sind (JASP zeigt die Abweichung von der Normalverteilung, 0 = normal) | Verteilungsform |
 
-**In JASP:** **Descriptives → Descriptive Statistics**, Variable ins Feld ziehen, dann im Abschnitt **Statistics** ankreuzen: unter *Central tendency* **Median** und **Mode**, unter *Dispersion* **IQR**, unter *Distribution* **Skewness** und **Kurtosis**. Mean, Std. deviation, Minimum, Maximum sowie *Valid*/*Missing* sind schon voreingestellt.
+**In JASP:** **Descriptives → Descriptive Statistics**, Variable ins Feld ziehen, dann im Abschnitt **Statistics** ankreuzen: unter *Central tendency* **Median** und **Mode**, unter *Dispersion* **IQR**, unter *Distribution* **Skewness** und **Kurtosis**. Mean, Std. deviation, Minimum, Maximum sowie *Valid/Missing* sind schon voreingestellt.
 
 ::: {.callout-tip title="Faustregel beim Berichten"}
 Berichte je nach Variable mindestens **zwei** Kennzahlen: eine für **zentrale Tendenz** (M oder Median) **und** eine für **Streuung** (SD oder IQR). Ein einzelner Mittelwert ohne Streuung ist eine halbe Aussage.
 :::
 
-### Wert in Einheiten der Streuung: der z-Wert
+### Wert in Einheiten der Streuung: der *z*-Wert
 
-Wenn Du wissen willst, **wie weit ein einzelner Wert vom Durchschnitt entfernt liegt**, hilft Dir der z-Wert:
+Wenn Du wissen willst, **wie weit ein einzelner Wert vom Durchschnitt entfernt liegt**, hilft Dir der *z*-Wert:
 
 $$
-z = \frac{x - M}{SD}
+z = \frac{x - M}{SD}
 $$
 
 Ein $z = 1$ bedeutet: dieser Wert liegt eine Standardabweichung *über* dem Mittel. Ein $z = -2$ bedeutet: zwei Standardabweichungen *unter* dem Mittel. Bei einer halbwegs normalverteilten Variable gilt grob:
@@ -66,7 +66,7 @@ Diese **Standardisierung** macht Werte verschiedener Variablen vergleichbar. Die
 
 ### Die Normalverteilung als ständiges Hintergrundbild
 
-Viele statistische Verfahren (t-Test, ANOVA, Regression) gehen davon aus, dass bestimmte Größen ungefähr **normalverteilt** sind, etwa die Residuen. Was genau, kommt in den jeweiligen Kapiteln. Die Normalverteilung ist die symmetrische Glockenform, die Du aus dem Schulunterricht kennst. Sie hat zwei Parameter: Mittelwert $\mu$ und Standardabweichung $\sigma$.
+Viele statistische Verfahren (*t*-Test, ANOVA, Regression) gehen davon aus, dass bestimmte Größen ungefähr **normalverteilt** sind, etwa die Residuen. Was das genau bedeutet, steht in den jeweiligen Kapiteln. Die Normalverteilung ist die symmetrische Glockenform, die Du aus dem Schulunterricht kennst. Sie hat zwei Parameter: Mittelwert $\mu$ und Standardabweichung $\sigma$.
 
 Wenn ein Q-Q-Plot (siehe unten) zeigt, dass Deine Daten in etwa entlang der Diagonalen liegen, sind sie näherungsweise normalverteilt. Biegen die Punkte an einem Ende systematisch von der Linie weg, ist die Verteilung schief; eine S-Form deutet auf zu dünne oder zu dicke Ränder hin. Das ist für die Wahl der nachfolgenden Tests wichtig.
 
@@ -150,4 +150,4 @@ Deskriptive Statistik ist also die Grundlage jeder Analyse, beantwortet aber sel
 1. Wann ist der Median dem Mittelwert vorzuziehen?
 2. Was siehst Du in einem Boxplot, das in einem Histogramm nicht direkt sichtbar ist (und umgekehrt)?
 3. Welche Plot-Art würdest Du für `bildungsgrad` wählen, und warum *nicht* ein Histogramm?
-4. Warum reicht „SD = 1.2“ als Streumaß-Angabe nicht, wenn die Verteilung extrem schief ist?
+4. Warum reicht „SD = 1.2“ als Streumaß-Angabe nicht, wenn die Verteilung extrem schief ist?

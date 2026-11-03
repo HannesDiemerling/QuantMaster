@@ -11,7 +11,7 @@ Schick **eine** Mail bis spätestens zum Tag vor Sitzung 08 an [{{< meta kurs.ma
 
 - **Betreff:** `M15 S07 <Kennziffer>`
 - **Anhang:** keiner
-- **Text:** Vorlage kopieren und ausfüllen. Dezimalzahlen mit 2 Nachkommastellen (wo nicht anders angegeben), p-Werte mit 3.
+- **Text:** Vorlage kopieren und ausfüllen. Dezimalzahlen mit 2 Nachkommastellen (wo nicht anders angegeben), *p*-Werte mit 3.
 
 {{< include _abgabe.md >}}
 
@@ -30,5 +30,5 @@ Freiwillig, für alle, die tiefer einsteigen wollen:
 
 ## Ausblick auf Sitzung 08
 
-Was ein p-Wert wirklich sagt und was der bayesianische Ansatz anders macht.
+Was ein *p*-Wert wirklich sagt und was der bayesianische Ansatz anders macht.
 

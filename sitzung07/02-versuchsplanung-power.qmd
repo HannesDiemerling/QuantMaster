@@ -38,11 +38,11 @@ Bei jedem Test hängen vier Größen zusammen. Kennst Du drei, folgt die vierte:
 | **α** | Wahrscheinlichkeit, einen Effekt zu „finden“, der nicht existiert (Fehler 1. Art) | .05 |
 | **Power (1 − β)** | Wahrscheinlichkeit, einen existierenden Effekt zu finden | .80 oder .90 |
 | **Effektgröße** | angenommene Größe des wahren Effekts (z. B. Cohen's $d$) | aus Literatur/Metaanalyse oder kleinster relevanter Effekt |
-| **N** | Stichprobengröße | wird meist berechnet |
+| ***N*** | Stichprobengröße | wird meist berechnet |
 
 - **A priori** (vor der Studie): Wie viele Personen brauche ich? Das ist der Normalfall.
-- **Sensitivitätsanalyse:** Welchen Effekt kann ich mit meinem N zuverlässig finden?
-- **Post-hoc-Power** aus dem beobachteten Effekt ist **wenig informativ**, sie ist nur eine Umformung des p-Werts.
+- **Sensitivitätsanalyse:** Welchen Effekt kann ich mit meinem *N* zuverlässig finden?
+- **Post-hoc-Power** aus dem beobachteten Effekt ist **wenig informativ**, sie ist nur eine Umformung des *p*-Werts.
 
 Die Effektgröße für die Planung sollte nicht aus einer einzelnen, kleinen Pilotstudie kommen (überschätzt meist), sondern z. B. aus einer Metaanalyse (@sec-meta).
 
@@ -52,15 +52,15 @@ Die Effektgröße für die Planung sollte nicht aus einer einzelnen, kleinen Pil
 2. **Statistical test:** *Independent Samples T-Test*.
 3. **I want to calculate the …** *Sample Size N*.
 4. **Minimal effect size of interest:** 0.5 · **Minimal desired power:** 0.8 (Achtung: voreingestellt ist 0.9) · **Type I error rate:** 0.05 · **Alternative Hypothesis:** *Two-sided*.
-5. Lies das nötige N **pro Gruppe** ab und schau Dir die **Power curve by effect size** an.
+5. Lies das nötige *N* **pro Gruppe** ab und schau Dir die **Power curve by effect size** an.
 6. Wiederhole mit Effektgröße 0.3.
-7. Stell um auf **I want to calculate the … Power**, mit **Sample size per group** = 30 und Effektgröße 0.5.
+7. Stell um auf **I want to calculate the … Power**, mit **Sample size per group** = 30 und Effektgröße 0.5.
 
 ## Aufgabe
 
 **Pflichtteil:**
 
-1. Nötiges N pro Gruppe für $d = 0.5$ und $d = 0.3$ (Power .80, α = .05, zweiseitig).
+1. Nötiges *N* pro Gruppe für $d = 0.5$ und $d = 0.3$ (Power .80, α = .05, zweiseitig).
 2. Power bei $n = 30$ pro Gruppe und $d = 0.5$.
 3. Ein Satz: Was bedeutet das für die Gruppenvergleiche in unserem Seminar-Datensatz (z. B. t2 aus @sec-tag2-ttest)?
 
@@ -69,11 +69,11 @@ Die Effektgröße für die Planung sollte nicht aus einer einzelnen, kleinen Pil
 - Stell die **Alternative Hypothesis** auf einseitig. Wie viele Personen sparst Du, und wann ist das legitim?
 
 ::: {.callout-tip title="Für die Abgabe"}
-Notiere die beiden N pro Gruppe und die Power bei $n = 30$. Siehe @sec-s07-abschluss.
+Notiere die beiden *N* pro Gruppe und die Power bei $n = 30$. Siehe @sec-s07-abschluss.
 :::
 
 ## Selbstcheck
 
 1. Warum erlaubt ein randomisiertes Experiment am ehesten eine Kausalaussage?
-2. Wie verändert sich das nötige N, wenn der erwartete Effekt halb so groß ist?
+2. Wie verändert sich das nötige *N*, wenn der erwartete Effekt halb so groß ist?
 3. Warum ist eine Post-hoc-Poweranalyse nach einem nicht-signifikanten Ergebnis wenig hilfreich?

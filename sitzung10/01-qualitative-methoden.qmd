@@ -46,7 +46,7 @@ Bei kategorienbasierten Verfahren kodieren oft **zwei Personen unabhängig** das
 
 ## In JASP rechnen: Interrater-Übereinstimmung
 
-Die Datei [materials/kodierung-ratings.csv](../materials/kodierung-ratings.csv) enthält **synthetische** Kodierungen von 40 Interviewsegmenten zum Thema Studienstress. Zwei Rater haben jedes Segment einer Kategorie zugeordnet: 1 = Belastung, 2 = Ressource, 3 = Bewältigung, 4 = Sonstiges.
+Die Datei [materials/kodierung-ratings.csv](../materials/kodierung-ratings.csv) enthält **synthetische** Kodierungen von 40 Interviewsegmenten zum Thema Studienstress. Zwei Rater haben jedes Segment einer Kategorie zugeordnet: 1 = Belastung, 2 = Ressource, 3 = Bewältigung, 4 = Sonstiges.
 
 1. Datei herunterladen und in JASP öffnen; `rater_a` und `rater_b` auf **Nominal** setzen.
 2. **Prozentuale Übereinstimmung:** Compute Column `gleich` (R-Code, Typ Scale) mit `ifelse(as.character(rater_a) == as.character(rater_b), 1, 0)`; der Mittelwert dieser Spalte in **Descriptives** × 100 ist die Übereinstimmung in %.

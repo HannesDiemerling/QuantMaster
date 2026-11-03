@@ -27,5 +27,5 @@ Was eine Studie aussagen kann, entscheidet sich meist vor der Datenerhebung: Des
 2. Stichprobe & Bias (@sec-tag2-stichprobe)
 3. Versuchsplanung & Stichprobenplanung (@sec-power)
 4. Gemeinsame Frage: Wie viele Personen bräuchten wir eigentlich?
-5. ANOVA & post-hoc (@sec-tag2-anova)
+5. ANOVA & Post-hoc-Tests (@sec-tag2-anova)
 6. Fragen und Abgabe (@sec-s07-abschluss)

@@ -11,7 +11,7 @@ Schick **eine** Mail bis spätestens zum Tag vor Sitzung 06 an [{{< meta kurs.ma
 
 - **Betreff:** `M15 S05 <Kennziffer>`
 - **Anhang:** keiner
-- **Text:** Vorlage kopieren und ausfüllen. Dezimalzahlen mit 2 Nachkommastellen (wo nicht anders angegeben), p-Werte mit 3.
+- **Text:** Vorlage kopieren und ausfüllen. Dezimalzahlen mit 2 Nachkommastellen (wo nicht anders angegeben), *p*-Werte mit 3.
 
 {{< include _abgabe.md >}}
 

@@ -21,7 +21,7 @@ Der entscheidende Mehrwert der multiplen Regression: Jeder Koeffizient sagt Dir 
 Eine einfache Regression mit *einem* Prädiktor ist eng mit der Korrelation aus Sitzung 03 verwandt. Sie beschreibt dieselbe Information, nur als **Gerade** statt als eine Zahl:
 
 $$
-\hat{Y} = b_0 + b_1 X
+\hat{Y} = b_0 + b_1 X
 $$
 
 - $b_0$ (**Intercept**): vorhergesagter $Y$-Wert, wenn $X = 0$.
@@ -30,7 +30,7 @@ $$
 Die multiple Regression erweitert das auf mehrere Prädiktoren:
 
 $$
-\hat{Y} = b_0 + b_1 X_1 + b_2 X_2 + \dots + b_k X_k
+\hat{Y} = b_0 + b_1 X_1 + b_2 X_2 + \dots + b_k X_k
 $$
 
 Jedes $b_j$ ist der **partielle** Effekt von $X_j$, also der Beitrag dieses Prädiktors, der **über die anderen hinausgeht**.
@@ -55,7 +55,7 @@ $R^2 = .25$ heißt: 25 % der Streuung in $Y$ werden erklärt, 75 % nicht. In d
 | Voraussetzung | Prüfung in JASP | Was tun, wenn verletzt? |
 |---|---|---|
 | **Linearität** | Residuals vs. Predicted Plot: kein gebogenes Muster | Term quadrieren, transformieren |
-| **Normalverteilung der Residuen** | Q-Q-Plot der standardisierten Residuen | bei großem $N$ für Tests/KI meist tolerierbar (s. Hinweis unten); sonst transformieren |
+| **Normalverteilung der Residuen** | Q-Q-Plot der standardisierten Residuen | bei großem $N$ für Tests/KI meist tolerierbar (s. Hinweis unten); sonst transformieren |
 | **Homoskedastizität** (gleiche Streuung) | Residuals vs. Predicted: gleichmäßiges Band | robuste Standardfehler, transformieren |
 | **Keine extreme Multikollinearität** | **VIF** (Variance Inflation Factor) | VIF > 5–10 → Prädiktoren zusammenfassen/entfernen |
 | **Unabhängige Beobachtungen** | aus dem Design, nicht aus Daten | bei genesteten Daten: Mehrebenenmodell (@sec-tag3-mixed) |
@@ -101,7 +101,7 @@ Erinnere Dich an den Datenhinweis (@sec-tag3-datenhinweis): Zwischen den fünf B
 
 $$
 \begin{aligned}
-\widehat{\texttt{N\_mean}} = b_0 &+ b_1\,\texttt{E\_mean} + b_2\,\texttt{V\_mean} \\
+\widehat{\texttt{N\_mean}} = b_0 &+ b_1\,\texttt{E\_mean} + b_2\,\texttt{V\_mean} \\
 &+ b_3\,\texttt{G\_mean} + b_4\,\texttt{O\_mean}
 \end{aligned}
 $$
@@ -112,7 +112,7 @@ Weil alle Skalen leicht positiv zusammenhängen, **bündelt** dieses Modell mehr
 
 $$
 \begin{aligned}
-\widehat{\texttt{N\_mean}} = b_0 &+ b_1\,\texttt{alter} \\
+\widehat{\texttt{N\_mean}} = b_0 &+ b_1\,\texttt{alter} \\
 &+ b_2\,\texttt{bildungsgrad} + b_3\,\texttt{geschlecht}
 \end{aligned}
 $$
@@ -156,11 +156,11 @@ Einen festen Wortlaut gibt es nicht, aber diese Angaben sollten vollständig vor
 
 **Bonus:**
 
-- Bau Modell A als **hierarchische Regression**: Modell 0 = Demografie, Modell 1 = zusätzlich die vier Skalen. Wie groß ist $\Delta R^2$, und ist es signifikant?
-- Tausch das Kriterium: sag `O_mean` aus den anderen vier Skalen vorher. Anderer stärkster Prädiktor?
+- Bau Modell A als **hierarchische Regression**: Modell 0 = Demografie, Modell 1 = zusätzlich die vier Skalen. Wie groß ist $\Delta R^2$, und ist es signifikant?
+- Tausch das Kriterium: Sag `O_mean` aus den anderen vier Skalen vorher. Anderer stärkster Prädiktor?
 
 ::: {.callout-tip title="Für die Abgabe"}
-Notiere für Modell A: R², F, p, den stärksten Prädiktor mit β und den größten VIF; für Modell B: R². Siehe @sec-s04-abschluss.
+Notiere für Modell A: *R*², *F*, *p*, den stärksten Prädiktor mit β und den größten VIF; für Modell B: R². Siehe @sec-s04-abschluss.
 :::
 
 ## Selbstcheck

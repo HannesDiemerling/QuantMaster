@@ -12,7 +12,7 @@ Nach dieser Sitzung …
 
 ## Worum es geht
 
-Heute machst Du aus 21 Items fünf Konstrukte und schätzt die ersten Effekte: Zusammenhänge ($r$) und Unterschiede ($d$). Im Mittelpunkt stehen Effektgrößen und ihre Unsicherheit. Der p-Wert ist nur ein Teil davon.
+Heute machst Du aus 21 Items fünf Konstrukte und schätzt die ersten Effekte: Zusammenhänge ($r$) und Unterschiede ($d$). Im Mittelpunkt stehen Effektgrößen und ihre Unsicherheit. Der *p*-Wert ist nur ein Teil davon.
 
 ## Vorbereitung
 
@@ -24,7 +24,7 @@ Heute machst Du aus 21 Items fünf Konstrukte und schätzt die ersten Effekte: Z
 2. Subskalen bilden & Reliabilität prüfen (@sec-tag2-skalen)
 3. Gemeinsame Frage: Welche Skala ist am wenigsten reliabel, und woran könnte das liegen?
 4. Korrelation & Kausalität (@sec-tag2-korrelation)
-5. t-Tests & Effektgrößen (@sec-tag2-ttest)
+5. *t*-Tests & Effektgrößen (@sec-tag2-ttest)
 6. Fragen und Abgabe (@sec-s03-abschluss)
 
 ::: {.callout-tip title="Speichern nicht vergessen"}

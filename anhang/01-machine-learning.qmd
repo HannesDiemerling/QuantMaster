@@ -18,7 +18,7 @@ Die Verfahren der letzten Kapitel hatten ein Ziel: **erklären**. Sie liefern in
 |---|---|---|
 | Ziel | Erklären, Hypothesen testen | Vorhersagen auf neuen Daten |
 | Wichtigste Frage | „Ist der Effekt da, wie groß?“ | „Wie gut trifft das Modell ungesehene Fälle?“ |
-| Ergebnis | Koeffizienten, p-Werte, BF | Vorhersagegüte (Accuracy, RMSE, AUC) |
+| Ergebnis | Koeffizienten, *p*-Werte, BF | Vorhersagegüte (Accuracy, RMSE, AUC) |
 | Gefahr | Fehlspezifikation | **Overfitting** |
 | Modellgröße | klein, interpretierbar | groß, oft Blackbox |
 
@@ -86,7 +86,7 @@ Vergleich beider Modelle: Welches hat auf den **Testdaten** die höhere AUC?
 Sei nicht enttäuscht (@sec-tag3-datenhinweis): Unsere Daten haben **wenig echtes Signal** (schwache Inter-Skalen-Zusammenhänge) und sind **klein**. Was das heißt:
 
 - Die Trennschärfe (Test-AUC) wird **nur knapp über Zufallsniveau** liegen.
-- Random Forest und neuronales Netz schlagen die **logistische Regression aus @sec-tag3-logistisch kaum**. Bei wenig Signal und kleiner Stichprobe overfitten sie sogar leichter.
+- Random Forest und neuronales Netz schlagen die **logistische Regression** aus @sec-tag3-logistisch **kaum**. Bei wenig Signal und kleiner Stichprobe overfitten sie sogar leichter.
 - **Demografische Features** (Alter, Bildung) tragen voraussichtlich nichts bei.
 
 ::: {.callout-tip title="Was man daraus mitnehmen kann"}
@@ -107,7 +107,7 @@ ML entfaltet seine Stärke bei **großen** Datensätzen (Tausende Fälle) mit **
 
 - **Overfitting**-Gefahr, besonders bei kleinem $N$
 - viele Modelle sind **Blackboxes** und schlecht interpretierbar
-- keine klassischen p-Werte/Koeffizienten → für hypothesentestende Fragen ungeeignet
+- keine klassischen *p*-Werte/Koeffizienten → für hypothesentestende Fragen ungeeignet
 - braucht für seine Stärken meist **viel** mehr Daten, als wir haben
 
 ## Aufgabe

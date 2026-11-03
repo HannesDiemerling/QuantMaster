@@ -37,7 +37,7 @@ Für eigene Studien heißt das: Hypothesen vorher festlegen, Nullbefunde genauso
 | Mehr als zwei Gruppen? | metrisch | ANOVA + post-hoc | @sec-tag2-anova |
 | Zusammenhang zweier Variablen? | metrisch | Korrelation | @sec-tag2-korrelation |
 | Eine Variable aus mehreren vorhersagen? | metrisch | Multiple Regression | @sec-tag3-regression |
-| Hängt der Effekt von einer 3. Variable ab? | metrisch | Moderation | @sec-tag3-moderation |
+| Hängt der Effekt von einer Drittvariable ab? | metrisch | Moderation | @sec-tag3-moderation |
 | Läuft der Effekt über eine Zwischenvariable? | metrisch | Mediation + Bootstrap | @sec-tag3-mediation |
 | Ja/Nein-Ergebnis vorhersagen? | binär | Logistische Regression | @sec-tag3-logistisch |
 | Evidenz *für* die Null zeigen? | beliebig | Bayes-Faktor | @sec-tag3-bayes |
@@ -119,11 +119,11 @@ Fast alle berichten den **p-Wert** und vergessen **Effektgröße und Konfidenzin
 
 **p-Wert:** Wahrscheinlichkeit, ein *so extremes oder noch extremeres* Ergebnis zu beobachten, *wenn H0 wahr ist*. **Nicht** die Wahrscheinlichkeit, dass H0 stimmt.
 
-**Fehler 1. Art (α):** H0 fälschlich verworfen. **Fehler 2. Art (β):** echter Effekt übersehen. **Power** = 1 − β.
+**Fehler 1. Art (α):** H0 fälschlich verworfen. **Fehler 2. Art (β):** echter Effekt übersehen. **Power** = 1 − β.
 
 **Konfidenzintervall:** Bereich plausibler Werte für den Parameter. **Credible Interval:** bayesianisches Pendant, direkt als „95 % Wahrscheinlichkeit, dass der Parameter hier liegt“ interpretierbar.
 
-**Effektgröße:** *Größe* eines Effekts, unabhängig von *n* (Cohen's d, r, η², R²).
+**Effektgröße:** *Größe* eines Effekts, unabhängig von *n* (Cohen's *d*, *r*, η², R²).
 
 **Multikollinearität:** Prädiktoren messen fast dasselbe (VIF prüfen).
 
@@ -151,14 +151,14 @@ Fast alle berichten den **p-Wert** und vergessen **Effektgröße und Konfidenzin
 
 1. Erkläre den Unterschied zwischen Reproduzierbarkeit und Replizierbarkeit.
 2. Warum muss ein Reverse-Item *vor* der Skalenbildung umkodiert werden?
-3. Was sagt ein p-Wert von .03 aus, und was sagt er *nicht*?
-4. Du hast *p* = .001, aber *d* = 0.05 bei *n* = 5000. Wie berichtest und interpretierst Du das?
+3. Was sagt ein *p*-Wert von .03 aus, und was sagt er *nicht*?
+4. Du hast *p* = .001, aber *d* = 0.05 bei *n* = 5 000. Wie berichtest und interpretierst Du das?
 5. Wann nimmst Du Welch's statt Student's *t*-Test?
 6. Warum stapelt man bei vier Gruppen keine sechs *t*-Tests?
 7. Was ist ein partieller Regressionskoeffizient?
 8. Unterscheide Moderation und Mediation an einem eigenen Beispiel.
 9. Was bedeutet ein Odds Ratio von 0.5?
-10. Welche Aussage erlaubt der Bayes-Faktor, die der p-Wert nicht erlaubt?
+10. Welche Aussage erlaubt der Bayes-Faktor, die der *p*-Wert nicht erlaubt?
 11. Was ist Overfitting, und wie schützt Kreuzvalidierung davor?
 12. Wann brauchst Du ein Mixed Model statt einer normalen Regression?
 13. Nenne drei Gründe, warum aus einer Korrelation keine Kausalität folgt.
@@ -173,7 +173,7 @@ Wenn Du jede dieser 16 Fragen in **2–3 Sätzen** frei beantworten kannst, hast
 ## Blaupause für Deine Masterarbeit / Dein Forschungspraktikum
 
 1. **Frage & Hypothesen** zuerst, *vor* der Datenerhebung, am besten präregistriert.
-2. **Design & Power:** Wie viele Personen brauchst Du für den erwarteten Effekt? (Underpowered = vergeudete Mühe.)
+2. **Design & Power:** Wie viele Personen brauchst Du für den erwarteten Effekt? (Underpowered = vergeudete Mühe.)
 3. **Erhebung** sauber dokumentieren, **Ethik/Einverständnis** klären, Daten **pseudonymisieren**.
 4. **Aufbereiten:** bereinigen, Reliabilität, Skalen bilden; jeden Schritt versionieren.
 5. **Deskriptiv** beschreiben, *bevor* Du testest.

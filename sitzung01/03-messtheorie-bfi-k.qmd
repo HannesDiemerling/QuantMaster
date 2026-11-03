@@ -16,7 +16,7 @@ Der BFI-K misst „Persönlichkeit“ mit 21 Fragen. Damit das mehr ist als ein 
 ## Klassische Testtheorie in einem Satz
 
 $$
-X = T + E
+X = T + E
 $$
 
 Der **beobachtete Wert** $X$ einer Antwort ist die Summe aus einem **wahren Wert** $T$ (was die Person „eigentlich“ hat) und einem **Messfehler** $E$ (alles, was wir nicht kontrolliert haben, Tagesform, Stimmung, Aufmerksamkeit). Das ist mathematisch banal, aber konzeptuell der Anker, an dem alle weiteren Begriffe hängen.
@@ -79,7 +79,7 @@ Quelle: Rammstedt, B. & John, O. P. (2005). Kurzversion des Big Five Inventory (
 | Eigenschaft | Wert |
 |---|---|
 | Itemzahl | 21, fortlaufend nummeriert |
-| Antwortskala | 5-Punkt-Likert: 1 = sehr unzutreffend … 5 = sehr zutreffend |
+| Antwortskala | 5-Punkt-Likert: 1 = sehr unzutreffend … 5 = sehr zutreffend |
 | Skalen | E, V, G, N (je 4 Items), O (5 Items) |
 | Bearbeitungszeit | ca. 2–3 Minuten |
 | Einsatzgebiete | Studien mit knapper Erhebungszeit, große Befragungen |

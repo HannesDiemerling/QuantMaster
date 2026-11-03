@@ -16,7 +16,7 @@ Die EFA (@sec-efa) hat gefragt: *Welche* Struktur steckt in den Daten? Die **kon
 ## Messmodell und Strukturmodell
 
 - **Messmodell:** Welche Items messen welchen latenten Faktor? (= CFA)
-- **Strukturmodell:** Wie hängen die latenten Faktoren untereinander zusammen (gerichtete Pfade = Regressionen)?
+- **Strukturmodell:** Wie hängen die latenten Faktoren untereinander zusammen (gerichtete Pfade = Regressionen)?
 
 Vorteil gegenüber Skalenmittelwerten: Ein SEM rechnet mit **messfehlerbereinigten** latenten Variablen. Zusammenhänge werden dadurch nicht durch Unreliabilität abgeschwächt.
 
@@ -47,7 +47,11 @@ Fit-Indizes sind **Faustregeln**, keine Signifikanztests. Mit rund 100 Personen 
 
 1. **Factor → Confirmatory Factor Analysis**.
 2. Lege **fünf Faktoren** an (über den Button zum Hinzufügen eines weiteren Faktors) und ziehe die Items hinein:
-   E: `BFI_01, 06, 11, 16` · V: `02, 07, 12, 17` · G: `03, 08, 13, 18` · N: `04, 09, 14, 19` · O: `05, 10, 15, 20, 21`.
+   - E: `BFI_01`, `06`, `11`, `16`
+   - V: `02`, `07`, `12`, `17`
+   - G: `03`, `08`, `13`, `18`
+   - N: `04`, `09`, `14`, `19`
+   - O: `05`, `10`, `15`, `20`, `21`
 3. *Additional Output:* **Additional fit measures** ankreuzen.
 4. *Plots:* **Model plot** (Pfaddiagramm), optional *Show parameter estimates*.
 5. Lies ab: χ², df, CFI, RMSEA. *Missing data handling* bleibt auf **FIML** (voreingestellt).
@@ -79,4 +83,4 @@ Notiere χ², df, CFI und RMSEA der CFA. Siehe @sec-s06-abschluss.
 
 1. Was ist der Unterschied zwischen Messmodell und Strukturmodell?
 2. Warum fällt ein latenter Zusammenhang meist größer aus als die Korrelation der Skalenmittelwerte?
-3. Ein Modell hat CFI = .82 und RMSEA = .09. Wie bewertest Du den Fit?
+3. Ein Modell hat CFI = .82 und RMSEA = .09. Wie bewertest Du den Fit?

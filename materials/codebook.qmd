@@ -24,9 +24,9 @@ Die maschinenlesbare Variante liegt unter [materials/codebook.csv](codebook.csv)
 | 2 | `geschlecht` | int | nominal | 1, 2, 3 | Demografie |
 | 3 | `alter` | int | metrisch | 18–99 | Demografie |
 | 4 | `bildungsgrad` | int | ordinal | 1–7 | Demografie |
-| 5–25 | `BFI_01` … `BFI_21` | int | ordinal | 1–5 | BFI-K |
+| [5–25]{.nowrap} | `BFI_01` … `BFI_21` | int | ordinal | 1–5 | BFI-K |
 
-**Gesamt:** 4 Demografie-Spalten + 21 BFI-K-Items = **25 Spalten**.
+**Gesamt:** 4 Demografie-Spalten + 21 BFI-K-Items = **25 Spalten**.
 
 Der Gesamtdatensatz `data/combined/m15-gesamt.csv` hat zusätzlich die Spalten `id`, `quelle`, `quelle_datensatz` und `quelle_datei`. Was sie bedeuten, steht in @sec-tag2-kombinieren.
 
@@ -79,7 +79,7 @@ Quelle: Rammstedt, B. & John, O. P. (2005). Kurzversion des Big Five Inventory (
 
 ### Skalen-Zuordnung (Auswertungsschlüssel)
 
-Jeder Faktor wird über mehrere Items gebildet. **R** = Reverse-Item (vor der Aggregation umpolen).
+Jeder Faktor wird über mehrere Items gebildet. **R** = Reverse-Item (vor der Aggregation umpolen).
 
 | Skala | Items | Reverse-Items |
 |---|---|---|
@@ -102,7 +102,7 @@ Wenn Du für Deine **fiktive Person** Original-Antworten erfasst, musst Du die R
 Bei einer 5-stufigen Likert-Skala:
 
 $$
-\text{rekodiert} = 6 - \text{Originalwert}
+\text{rekodiert} = 6 - \text{Originalwert}
 $$
 
 | Original | Rekodiert |

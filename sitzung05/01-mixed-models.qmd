@@ -41,7 +41,7 @@ Du gibst dem Modell also nicht für jede Gruppe einen eigenen Koeffizienten (das
 Die **Intraklassenkorrelation (ICC)** beantwortet die erste Frage, die Du Dir bei genesteten Daten stellst:
 
 $$
-\text{ICC} = \frac{\text{Varianz zwischen den Gruppen}}{\text{Varianz zwischen} + \text{Varianz innerhalb}}
+\text{ICC} = \frac{\text{Varianz zwischen den Gruppen}}{\text{Varianz zwischen} + \text{Varianz innerhalb}}
 $$
 
 | ICC | Bedeutung |
@@ -50,7 +50,7 @@ $$
 | .05–.20 | spürbare Nestung → Mixed Model nötig |
 | > .20 | starke Nestung → Mixed Model unverzichtbar, Gruppenebene wichtig |
 
-Der ICC sagt also: **Wie viel Prozent der Gesamtstreuung geht auf die Gruppenzugehörigkeit zurück?** Schon kleine ICCs (>.05) verzerren normale Tests merklich, wenn die Gruppen groß sind.
+Der ICC sagt also: **Wie viel Prozent der Gesamtstreuung geht auf die Gruppenzugehörigkeit zurück?** Schon kleine ICCs (> .05) verzerren normale Tests merklich, wenn die Gruppen groß sind.
 
 ## In JASP rechnen
 
@@ -63,13 +63,13 @@ Mixed Models stecken im Modul **Mixed Models** (standardmäßig sichtbar; nutzt 
 5. Im Abschnitt **Options**: **Fixed effects estimates** und **Variance/correlation estimates** ankreuzen.
 6. Output lesen:
    - **Fixed effects:** Koeffizienten wie in der normalen Regression, aber mit korrigierten Standardfehlern.
-   - **Variance/correlation estimates:** die Varianz zwischen Gruppen (`quelle_datensatz`) und die Residualvarianz. JASP gibt **keinen ICC** aus, Du berechnest ihn selbst:
+   - **Variance/correlation estimates:** die Varianz zwischen Gruppen (`quelle_datensatz`) und die Residualvarianz. JASP gibt **keinen ICC** aus, Du berechnest ihn selbst (Formel direkt unter dieser Liste).
 
-     $$
-     \text{ICC} = \dfrac{\text{Varianz Gruppe}}{\text{Varianz Gruppe} + \text{Residualvarianz}}
-     $$
+$$
+\text{ICC} = \dfrac{\text{Varianz Gruppe}}{\text{Varianz Gruppe} + \text{Residualvarianz}}
+$$
 
-     Steckt ein Prädiktor im Modell, ist das streng genommen ein ICC *nach Kontrolle* dieses Prädiktors; der klassische ICC stammt aus einem Modell ganz ohne Prädiktor.
+Steckt ein Prädiktor im Modell, ist das streng genommen ein ICC *nach Kontrolle* dieses Prädiktors; der klassische ICC stammt aus einem Modell ganz ohne Prädiktor.
 
 ## Was unsere Daten hergeben
 

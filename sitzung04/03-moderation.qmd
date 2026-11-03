@@ -19,7 +19,7 @@ Bis jetzt haben wir angenommen, dass ein Prädiktor *überall* gleich wirkt. Ein
 Im Modell schlägt sich das als **Interaktionsterm** $X \times W$ nieder:
 
 $$
-\hat{Y} = b_0 + b_1 X + b_2 W + b_3\,(X \times W)
+\hat{Y} = b_0 + b_1 X + b_2 W + b_3\,(X \times W)
 $$
 
 Der entscheidende Koeffizient ist $b_3$: Ist er von Null verschieden, **hängt die Wirkung von $X$ vom Wert von $W$ ab**. Das ist die Moderation.
@@ -37,7 +37,7 @@ Das ist eine der häufigsten Verwechslungen in der Methodenlehre, deshalb gleich
 
 ## Warum zentrieren?
 
-Wenn Du $X$ und $W$ multiplizierst, sind die Einzeleffekte ($b_1$, $b_2$) im Interaktionsmodell nur noch interpretierbar **am Punkt, an dem die jeweils andere Variable = 0 ist**. Bei einer Skala von 1–5 ist „0“ aber außerhalb des sinnvollen Bereichs, der Wert wäre also Unsinn.
+Wenn Du $X$ und $W$ multiplizierst, sind die Einzeleffekte ($b_1$, $b_2$) im Interaktionsmodell nur noch interpretierbar **am Punkt, an dem die jeweils andere Variable = 0 ist**. Bei einer Skala von 1–5 ist „0“ aber außerhalb des sinnvollen Bereichs, der Wert wäre also Unsinn.
 
 Die Lösung: **Zentrieren**. Du ziehst von jedem Prädiktor seinen Mittelwert ab, sodass der neue Mittelwert 0 ist. Dann bedeutet „$X = 0$“ gerade „$X$ = Durchschnitt“, und die Haupteffekte werden wieder sinnvoll interpretierbar. Als Nebeneffekt sinkt die (rechnerische) Multikollinearität zwischen den Termen.
 
@@ -52,7 +52,7 @@ G_mean - mean(G_mean, na.rm = TRUE)
 ```
 
 ::: {.callout-tip title="Zentrieren ändert die Interaktion selbst nicht"}
-$b_3$ (der Interaktionskoeffizient) und seine Signifikanz bleiben durch Zentrieren **unverändert**. Zentriert wird nur, damit die **Haupteffekte** und der **Intercept** interpretierbar werden. Standardisieren (z-Transformation) macht die Haupteffekte ebenso interpretierbar und die Skalen zusätzlich vergleichbar; dabei ändert sich allerdings der Zahlenwert von $b_3$, sein p-Wert bleibt gleich.
+$b_3$ (der Interaktionskoeffizient) und seine Signifikanz bleiben durch Zentrieren **unverändert**. Zentriert wird nur, damit die **Haupteffekte** und der **Intercept** interpretierbar werden. Standardisieren (*z*-Transformation) macht die Haupteffekte ebenso interpretierbar und die Skalen zusätzlich vergleichbar; dabei ändert sich allerdings der Zahlenwert von $b_3$, sein *p*-Wert bleibt gleich.
 :::
 
 ## In JASP rechnen
@@ -111,7 +111,7 @@ Bei rund einem von zwanzig Tests passiert das rein zufällig (Fehler erster Art)
 - Erkläre in zwei Sätzen, warum ein nicht-signifikanter Interaktionsterm hier **erwartbar** war (Verweis auf Datengenerierung und Power).
 
 ::: {.callout-tip title="Für die Abgabe"}
-Notiere $b_3$ und den p-Wert der Interaktion `E_c * G_c`. Siehe @sec-s04-abschluss.
+Notiere $b_3$ und den *p*-Wert der Interaktion `E_c * G_c`. Siehe @sec-s04-abschluss.
 :::
 
 ## Selbstcheck

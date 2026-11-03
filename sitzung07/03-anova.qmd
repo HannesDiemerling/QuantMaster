@@ -1,23 +1,23 @@
-# ANOVA & post-hoc {#sec-tag2-anova}
+# ANOVA & Post-hoc-Tests {#sec-tag2-anova}
 
 ::: {.callout-note title="Lernziele"}
 Nach diesem Kapitel kannst Du …
 
-- erklären, warum man für mehr als zwei Gruppen keine t-Tests stapelt, sondern eine ANOVA rechnet,
+- erklären, warum man für mehr als zwei Gruppen keine *t*-Tests stapelt, sondern eine ANOVA rechnet,
 - in JASP eine einfaktorielle ANOVA durchführen und das Ergebnis lesen,
 - die Effektgröße $\eta^2$ (Eta-Quadrat) interpretieren,
-- den passenden post-hoc-Test wählen und das Multiple-Testing-Problem benennen.
+- den passenden Post-hoc-Test wählen und das Multiple-Testing-Problem benennen.
 :::
 
 ## Worum es geht
 
 Die ANOVA ist die Verallgemeinerung des *t*-Tests aus @sec-tag2-ttest auf mehr als zwei Gruppen und das klassische Auswertungsverfahren für experimentelle Designs mit mehreren Gruppen (@sec-power).
 
-Sobald Du **mehr als zwei Gruppen** vergleichst (z. B. Bildungsgrad mit sieben Stufen oder die zehn Quell-Datensätze), reicht der t-Test nicht mehr. Stapelst Du einfach mehrere t-Tests übereinander, vervielfachst Du die Fehlerwahrscheinlichkeit (Multiple-Testing-Problem). Die **Analysis of Variance (ANOVA)** löst das mit einem einzigen Globaltest, gefolgt von gezielten Folgetests.
+Sobald Du **mehr als zwei Gruppen** vergleichst (z. B. Bildungsgrad mit sieben Stufen oder die zehn Quell-Datensätze), reicht der *t*-Test nicht mehr. Stapelst Du einfach mehrere *t*-Tests übereinander, vervielfachst Du die Fehlerwahrscheinlichkeit (Multiple-Testing-Problem). Die **Analysis of Variance (ANOVA)** löst das mit einem einzigen Globaltest, gefolgt von gezielten Folgetests.
 
 ## Multiple-Testing-Problem in einem Satz
 
-Wenn Du bei $\alpha = .05$ einen einzelnen Test rechnest, ist Deine Fehlerwahrscheinlichkeit 5 %. Bei drei unabhängigen t-Tests steigt die Wahrscheinlichkeit, *mindestens einen* fälschlich signifikanten Befund zu sehen, auf rund $1 - (1 - .05)^3 \approx .14$, also fast jedes siebte Mal. Die ANOVA schützt davor, indem sie *zuerst* einen Globaltest macht.
+Wenn Du bei $\alpha = .05$ einen einzelnen Test rechnest, ist Deine Fehlerwahrscheinlichkeit 5 %. Bei drei unabhängigen *t*-Tests steigt die Wahrscheinlichkeit, *mindestens einen* fälschlich signifikanten Befund zu sehen, auf rund $1 - (1 - .05)^3 \approx .14$, also fast jedes siebte Mal. Die ANOVA schützt davor, indem sie *zuerst* einen Globaltest macht.
 
 ## Die Logik der ANOVA
 
@@ -29,14 +29,14 @@ Die ANOVA zerlegt die Gesamtvarianz der Daten in zwei Teile:
 Der **F-Wert** ist das Verhältnis:
 
 $$
-F = \frac{MS_\text{between}}{MS_\text{within}}
+F = \frac{MS_\text{between}}{MS_\text{within}}
 $$
 
 Ist $F$ groß (Unterschiede zwischen den Gruppen sind groß im Verhältnis zur Streuung innerhalb der Gruppen), dann ist das Ergebnis signifikant.
 
 ## Effektgröße: $\eta^2$ und $\omega^2$
 
-Wie beim t-Test gilt: der p-Wert reicht nicht. Du brauchst eine Effektgröße.
+Wie beim *t*-Test gilt: der *p*-Wert reicht nicht. Du brauchst eine Effektgröße.
 
 | Maß | Bedeutet | Konvention nach Cohen (grobe Orientierung) |
 |---|---|---|
@@ -72,7 +72,7 @@ Bei verletzter Varianzhomogenität: **Welch-ANOVA** (in JASP unter *Assumption C
 
 ## Post-hoc-Tests
 
-Ein signifikanter Global-F sagt: „Irgendwo unter den Gruppen ist ein Unterschied.“ Er sagt nicht: *welche* Gruppen sich unterscheiden. Dafür brauchst Du post-hoc-Vergleiche.
+Ein signifikanter Global-*F* sagt: „Irgendwo unter den Gruppen ist ein Unterschied.“ Er sagt nicht: *welche* Gruppen sich unterscheiden. Dafür brauchst Du Post-hoc-Vergleiche.
 
 | Post-hoc | Anwendung | Charakteristik |
 |---|---|---|
@@ -90,7 +90,7 @@ In JASP ist bei *Correction* **Tukey** schon voreingestellt. Wenn Welch-ANOVA ge
 |---:|---|---|
 | A1 | Personen unterschiedlicher Bildungsgrade unterscheiden sich in Offenheit. | `O_mean` ~ `bildungsgrad` |
 | A2 | Personen unterschiedlicher Bildungsgrade unterscheiden sich in Gewissenhaftigkeit. | `G_mean` ~ `bildungsgrad` |
-| A3 | Die zehn vorgenerierten Quell-Datensätze unterscheiden sich nicht in Extraversion. | `E_mean` ~ `quelle_datensatz` |
+| A3 | Die zehn vorgenerierten Quell-Datensätze unterscheiden sich nicht in Extraversion. | [`E_mean` ~ `quelle_datensatz`]{.nowrap} |
 | A4 | Die drei Geschlechter-Kategorien (1, 2, 3) unterscheiden sich nicht in Neurotizismus. | `N_mean` ~ `geschlecht` |
 
 A3 ist ein **Sanity-Check**: Die Datensätze wurden mit derselben Verteilung erzeugt, sollten sich also eigentlich *nicht* unterscheiden. Wird A3 trotzdem signifikant, ist das noch kein Grund zur Sorge: Bei α = .05 kommt ein solcher Fehler 1. Art auch dann vor, wenn alles stimmt, und bei nur rund zehn Personen pro Datensatz ziehen einzelne Datensätze leicht extremere Werte. Erst wenn ein Datensatz völlig aus der Reihe fällt, lohnt der Blick auf das Kombinieren (@sec-tag2-kombinieren).
@@ -99,9 +99,9 @@ A3 ist ein **Sanity-Check**: Die Datensätze wurden mit derselben Verteilung erz
 
 So könnte ein Bericht aussehen (Zahlen ausgedacht, Deine Werte sehen anders aus):
 
-> Personen unterschiedlicher Bildungsgrade unterschieden sich in Offenheit signifikant, $F(6, 87) = 2.41$, $p = .033$, $\eta^2 = .14$. Tukey-Post-hoc-Vergleiche zeigten, dass Personen mit Promotion (Bildung = 7, $M = 4.12$) deutlich höhere Offenheitswerte hatten als Personen mit Realschulabschluss (Bildung = 3, $M = 3.32$), $p_{\text{tukey}} = .029$. Die übrigen paarweisen Vergleiche waren nicht signifikant.
+> Personen unterschiedlicher Bildungsgrade unterschieden sich in Offenheit signifikant, $F(6, 87) = 2.41$, $p = .033$, $\eta^2 = .14$. Tukey-Post-hoc-Vergleiche zeigten, dass Personen mit Promotion (Bildung = 7, $M = 4.12$) deutlich höhere Offenheitswerte hatten als Personen mit Realschulabschluss (Bildung = 3, $M = 3.32$), $p_{\text{tukey}} = .029$. Die übrigen paarweisen Vergleiche waren nicht signifikant.
 
-Was steht drin: $F$, $df$ Zähler und Nenner, $p$, $\eta^2$, paarweise Befunde mit korrigierten p-Werten.
+Was steht drin: $F$, $df$ Zähler und Nenner, $p$, $\eta^2$, paarweise Befunde mit korrigierten *p*-Werten.
 
 ## Stärken und Schwächen der ANOVA
 
@@ -127,28 +127,28 @@ Rechne in JASP **A1** und **A3** aus der Tabelle oben:
 | # | Test | Variablen |
 |--:|---|---|
 | A1 | Einfaktorielle ANOVA | `O_mean` ~ `bildungsgrad` |
-| A3 | Einfaktorielle ANOVA (Sanity-Check) | `E_mean` ~ `quelle_datensatz` |
+| A3 | Einfaktorielle ANOVA (Sanity-Check) | [`E_mean` ~ `quelle_datensatz`]{.nowrap} |
 
 Für **beide** in den Optionen aktivieren: Descriptive statistics, Estimates of effect size (η², ω²), Homogeneity tests, Q-Q plot residuals, Post Hoc Tests mit Tukey, Descriptives Plots.
 
 Notiere pro ANOVA in **einer Zeile** den vollständigen Bericht:
-*„A#: F(df1, df2) = X.XX, p = .XXX, η² = .XX, Levene p = .XXX, Schluss: …“*
+*„A#: F(df1, df2) = X.XX, p = .XXX, η² = .XX, Levene p = .XXX, Schluss: …“*
 
 Bei **A1** außerdem: nenne die **paarweisen Tukey-Vergleiche, die signifikant sind** (falls vorhanden).
 
 **Bonus:**
 
 - Rechne **A2** zusätzlich (`G_mean` ~ `bildungsgrad`): derselbe Faktor, andere abhängige Variable. Gleicher Befund?
-- Bei A1: **Kruskal-Wallis-Test** als nicht-parametrische Alternative. Ändert sich der p-Wert deutlich?
+- Bei A1: **Kruskal-Wallis-Test** als nicht-parametrische Alternative. Ändert sich der *p*-Wert deutlich?
 - Bei A3: erkläre in zwei Sätzen, **warum der Sanity-Check als nicht-signifikant erwartet wurde** und wie Du Dein tatsächliches Ergebnis einordnest.
 
 ::: {.callout-tip title="Für die Abgabe"}
-Notiere: F(df1, df2), p, η² und Levene-p für A1 sowie p für A3. Siehe @sec-s07-abschluss.
+Notiere: *F*(df1, df2), *p*, η² und Levene-*p* für A1 sowie *p* für A3. Siehe @sec-s07-abschluss.
 :::
 
 ## Selbstcheck
 
-1. Warum stapelt man bei drei Gruppen nicht einfach drei t-Tests?
-2. Was sagt ein signifikanter F-Wert *nicht*?
+1. Warum stapelt man bei drei Gruppen nicht einfach drei *t*-Tests?
+2. Was sagt ein signifikanter *F*-Wert *nicht*?
 3. Wann nimmst Du Games-Howell statt Tukey?
-4. Du hast $F(2, 87) = 4.50$, $p = .014$, $\eta^2 = .09$ und alle drei post-hoc-Vergleiche sind nicht signifikant. Wie kann das sein?
+4. Du hast $F(2, 87) = 4.50$, $p = .014$, $\eta^2 = .09$ und alle drei Post-hoc-Vergleiche sind nicht signifikant. Wie kann das sein?

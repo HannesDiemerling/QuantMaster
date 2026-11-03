@@ -11,7 +11,7 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Im Jahr 2015 versuchte die *Open Science Collaboration*, 100 Studien aus drei renommierten psychologischen Fachzeitschriften zu replizieren. Nur etwa 36 % zeigten in der Replikation einen signifikanten Effekt in dieselbe Richtung wie in der Originalstudie. Das war ein Wendepunkt in der Debatte, die heute als **Replikationskrise** bezeichnet wird. Als Gründe gelten vor allem kleine Stichproben, Publikationsbias und flexible Analyseentscheidungen (p-Hacking).
+Im Jahr 2015 versuchte die *Open Science Collaboration*, 100 Studien aus drei renommierten psychologischen Fachzeitschriften zu replizieren. Nur etwa 36 % zeigten in der Replikation einen signifikanten Effekt in dieselbe Richtung wie in der Originalstudie. Das war ein Wendepunkt in der Debatte, die heute als **Replikationskrise** bezeichnet wird. Als Gründe gelten vor allem kleine Stichproben, Publikationsbias und flexible Analyseentscheidungen (*p*-Hacking).
 
 Die Antwort der Disziplin heißt **Open Science**: offene Daten, offene Materialien, offene Skripte, Preregistration und gelebte Transparenz. Genau so arbeitest Du in diesem Seminar.
 
@@ -38,7 +38,7 @@ Unsere CSV-Dateien mit Codebook und Versionierung sind ein einfaches, aber funkt
 
 ## Preregistration und das Open Science Framework
 
-**Preregistration** bedeutet: Du legst Hypothesen, Stichprobengröße und Analyseplan **vor** der Datenerhebung öffentlich fest. Das schützt vor *p-hacking* und *HARKing* (Hypothesizing After Results are Known). Eine zentrale Plattform dafür ist das [Open Science Framework (OSF)](https://osf.io).
+**Preregistration** bedeutet: Du legst Hypothesen, Stichprobengröße und Analyseplan **vor** der Datenerhebung öffentlich fest. Das schützt vor *p*-Hacking und *HARKing* (Hypothesizing After Results are Known). Eine zentrale Plattform dafür ist das [Open Science Framework (OSF)](https://osf.io).
 
 Im Seminar nutzen wir **GitHub** statt OSF, weil GitHub jede Änderung an Daten und Code versioniert und sich gut für die Lehre eignet. Inhaltlich sind die Ideen dieselben: offen, datiert, nachvollziehbar.
 

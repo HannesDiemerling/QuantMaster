@@ -14,7 +14,7 @@ Nach diesem Kapitel kannst Du …
 
 Eine **Mediation** fragt nach dem **Mechanismus**: Läuft der Effekt von $X$ auf $Y$ **über** eine Zwischenvariable $M$ (den Mediator)? Während die Moderation fragte, *wann* ein Effekt auftritt, fragt die Mediation *wie*, also über welchen Pfad.
 
-> *Beispiel:* Gewissenhaftigkeit ($X$) führt zu besseren Lernstrategien ($M$), und diese führen zu besseren Noten ($Y$). Der Effekt von Gewissenhaftigkeit auf Noten läuft dann (teilweise) **durch** die Lernstrategien.
+> *Beispiel:* Gewissenhaftigkeit $(X)$ führt zu besseren Lernstrategien $(M)$, und diese führen zu besseren Noten $(Y)$. Der Effekt von Gewissenhaftigkeit auf Noten läuft dann (teilweise) **durch** die Lernstrategien.
 
 Das klassische Mediationsdiagramm:
 
@@ -57,7 +57,7 @@ Die Lösung ist der **Bootstrap**, ein **Resampling-Verfahren**. Die Idee ist ve
 3. Berechne in dieser Bootstrap-Stichprobe den indirekten Effekt $a \times b$.
 4. Wiederhole das **sehr oft** (z. B. 5 000-mal).
 5. Du hast jetzt 5 000 Werte für $a \times b$. Das ist die empirische **Verteilung** des indirekten Effekts.
-6. Das **95 %-Konfidenzintervall** sind einfach das 2.5 %- und das 97.5 %-Perzentil dieser 5 000 Werte.
+6. Die Grenzen des **95 %-Konfidenzintervalls** sind einfach das 2,5 %- und das 97,5 %-Perzentil dieser 5 000 Werte.
 
 ::: {.callout-tip title="Die Grundidee des Bootstrap in einem Satz"}
 Statt eine Formel für die Streuung einer Schätzung zu *unterstellen*, lässt der Bootstrap die Daten die Streuung **selbst zeigen**, indem er die Stichprobenziehung viele Male simuliert. Deshalb funktioniert er auch dort, wo es keine saubere Formel gibt.
@@ -78,7 +78,7 @@ Mediation steckt in JASP im **SEM-Modul** (Strukturgleichungsmodelle, siehe @sec
    - **Mediators** (M): z. B. `E_mean`
    - **Outcome** (Y): z. B. `O_mean`
 4. In den Optionen:
-   - Abschnitt **Options**: bei **Method** **Bootstrap** wählen, **Replications** auf 5 000 (mehr = stabiler, dauert länger).
+   - Abschnitt **Options**: bei **Method** **Bootstrap** wählen, **Replications** auf 5 000 (mehr = stabiler, dauert länger).
    - **Confidence intervals** auf 95 %, Typ **Percentile** (alternativ *Bias-corrected percentile*).
 5. Ausführen. Der Output zeigt $a$, $b$, $c'$ (direkt), den **indirekten Effekt** und den **totalen Effekt**, jeweils mit Bootstrap-KI.
 

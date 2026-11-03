@@ -23,13 +23,13 @@ Drei Begriffe, die Du sauber trennen musst:
 | Begriff | Formel | Wertebereich | Bedeutung |
 |---|---|---|---|
 | **Wahrscheinlichkeit** $p$ | Ausgangsgröße | 0 bis 1 | „30 % Chance“ |
-| **Odds** (Chance) | $\dfrac{p}{1-p}$ | 0 bis ∞ | „Verhältnis 30:70 = 0.43“ |
+| **Odds** (Chance) | $\dfrac{p}{1-p}$ | 0 bis ∞ | „Verhältnis 30:70 = 0.43“ |
 | **Logit** | $\ln\!\left(\dfrac{p}{1-p}\right)$ | −∞ bis +∞ | logarithmierte Odds |
 
 Die logistische Regression modelliert den **Logit** linear:
 
 $$
-\ln\!\left(\frac{p}{1-p}\right) = b_0 + b_1 X_1 + \dots + b_k X_k
+\ln\!\left(\frac{p}{1-p}\right) = b_0 + b_1 X_1 + \dots + b_k X_k
 $$
 
 Das ist genau die Regressionsgleichung aus @sec-tag3-regression, nur dass links nicht $Y$, sondern der Logit von $p$ steht. Dadurch bleibt die Vorhersage immer im erlaubten Bereich.
@@ -44,7 +44,7 @@ Der Koeffizient $b_j$ ist im Logit-Maßstab schwer lesbar. Deshalb berichtet man
 | **> 1** | höhere Werte des Prädiktors → Ereignis **wahrscheinlicher** |
 | **< 1** | höhere Werte des Prädiktors → Ereignis **unwahrscheinlicher** |
 
-> *Lesart:* OR = 1.8 für `E_mean` heißt: Pro **+1 Punkt Extraversion** wird die *Chance* (Odds) für das Ereignis um den Faktor 1.8, also um 80 %, größer, bei Kontrolle der anderen Prädiktoren.
+> *Lesart:* OR = 1.8 für `E_mean` heißt: Pro **+1 Punkt Extraversion** wird die *Chance* (Odds) für das Ereignis um den Faktor 1.8, also um 80 %, größer, bei Kontrolle der anderen Prädiktoren.
 
 ::: {.callout-tip title="OR ist kein Wahrscheinlichkeits-Faktor"}
 Ein OR von 2 heißt **nicht**, dass die Wahrscheinlichkeit doppelt so groß wird. Es sind die *Odds*, die sich verdoppeln. Bei kleinen Grundwahrscheinlichkeiten liegen beide nah beieinander, bei großen nicht. Berichte das OR immer mit **Konfidenzintervall**: schließt das KI die **1** ein, ist der Prädiktor nicht signifikant.
@@ -58,7 +58,7 @@ Es gibt kein echtes $R^2$ wie in der linearen Regression. Stattdessen:
 |---|---|
 | **Pseudo-$R^2$** (McFadden, Nagelkerke) | grobe Analogie zum $R^2$; McFadden fällt meist deutlich kleiner aus, .2–.4 gilt dort schon als sehr guter Fit |
 | **Klassifikationstabelle** | wie viele Fälle das Modell richtig in 0/1 einsortiert (Trefferquote) |
-| **AUC / ROC-Kurve** | Trennschärfe: 0.5 = Zufall, 1.0 = perfekt; > 0.7 brauchbar |
+| **AUC / ROC-Kurve** | Trennschärfe: 0.5 = Zufall, 1.0 = perfekt; > 0.7 brauchbar |
 | **Likelihood-Ratio-Test** | testet das Gesamtmodell gegen das Null-Modell |
 
 ::: {.callout-important title="Vorsicht bei der Trefferquote"}
@@ -127,7 +127,7 @@ Einen festen Wortlaut gibt es nicht, aber diese Angaben sollten vollständig vor
 - Interpretiere **ein** OR ausführlich in einem Satz in der Wahrscheinlichkeits-Sprache.
 
 ::: {.callout-tip title="Für die Abgabe"}
-Notiere: χ² und p des Modelltests, Nagelkerke-R², AUC und das Odds Ratio des stärksten Prädiktors. Siehe @sec-s09-abschluss.
+Notiere: χ² und *p* des Modelltests, Nagelkerke-R², AUC und das Odds Ratio des stärksten Prädiktors. Siehe @sec-s09-abschluss.
 :::
 
 ## Selbstcheck

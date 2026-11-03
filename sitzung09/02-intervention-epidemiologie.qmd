@@ -27,9 +27,9 @@ Beispiel-RCT: 100 Personen Therapie, 100 Warteliste. Remission bei 45 % (Therap
 
 | Kennwert | Formel | Beispiel |
 |---|---|---|
-| **Relatives Risiko (RR)** | $p_T / p_K$ | 0.45 / 0.30 = 1.5 |
+| **Relatives Risiko (RR)** | $p_T / p_K$ | 0.45 / 0.30 = 1.5 |
 | **Absolute Risikodifferenz (ARR)**, bei Remission auch absoluter Nutzenzuwachs | $p_T - p_K$ | 0.15 |
-| **Number Needed to Treat (NNT)** | $1 / \text{ARR}$, aufgerundet | 1 / 0.15 = 6.67 → **7** |
+| **Number Needed to Treat (NNT)** | $1 / \text{ARR}$, aufgerundet | 1 / 0.15 = 6.67 → **7** |
 | **Odds Ratio (OR)** | $\dfrac{p_T/(1-p_T)}{p_K/(1-p_K)}$ | (0.45/0.55)/(0.30/0.70) ≈ 1.91 |
 
 Die NNT ist besonders anschaulich: Sieben Personen müssen behandelt werden, damit *eine* zusätzlich remittiert. Bei kontinuierlichen Ergebnissen (z. B. Symptomskalen) nutzt Du stattdessen Cohen's $d$.

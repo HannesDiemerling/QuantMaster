@@ -27,7 +27,7 @@ Zwei Begriffe, die im Alltag oft synonym verwendet werden, in der Statistik aber
 - **Population:** die *Gesamtheit* aller Fälle, über die Du eine Aussage treffen willst (z. B. „alle deutschen Erwachsenen 18–30“). Populationskennwerte (echtes Mittel $\mu$, echte Streuung $\sigma$) sind in der Praxis **unbekannt**.
 - **Stichprobe:** die *Teilmenge*, die Du tatsächlich gemessen hast. Stichproben-Kennwerte ($M$, $SD$) sind **bekannt**. Sie sind Schätzer für die Populationsgrößen.
 
-Der ganze Sinn von inferenzieller Statistik (t-Test, ANOVA, Regression) ist es, von der Stichprobe auf die Population zu schließen.
+Der ganze Sinn von inferenzieller Statistik (*t*-Test, ANOVA, Regression) ist es, von der Stichprobe auf die Population zu schließen.
 
 Dabei spielt die Stichprobengröße eine Schlüsselrolle. Es gibt einen mathematischen Satz, der sagt:
 
@@ -111,7 +111,7 @@ Unsere Stichprobe ist *klein* (90 vorgenerierte Zeilen plus eine Zeile pro Teiln
 - **Geringe Power:** kleine, aber tatsächlich existierende Effekte können wir nicht statistisch nachweisen, sie versacken im Rauschen.
 - **Instabile Schätzer:** Mittelwerte und Korrelationen schwanken stark, wenn nur ein paar Zeilen anders aussehen würden.
 
-Berichte deshalb in Ergebnissen immer **Effektgröße + Konfidenzintervall**, nicht nur den p-Wert. Mehr dazu in @sec-tag2-ttest.
+Berichte deshalb in Ergebnissen immer **Effektgröße + Konfidenzintervall**, nicht nur den *p*-Wert. Mehr dazu in @sec-tag2-ttest.
 
 ## Fehlende Werte (Missings)
 

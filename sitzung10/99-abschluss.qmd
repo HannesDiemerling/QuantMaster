@@ -12,7 +12,7 @@ Schick **eine** Mail innerhalb einer Woche nach Sitzung 10 an [{{< meta kurs.mai
 
 - **Betreff:** `M15 S10 <Kennziffer>`
 - **Anhang:** keiner
-- **Text:** Vorlage kopieren und ausfüllen. Dezimalzahlen mit 2 Nachkommastellen (wo nicht anders angegeben), p-Werte mit 3.
+- **Text:** Vorlage kopieren und ausfüllen. Dezimalzahlen mit 2 Nachkommastellen (wo nicht anders angegeben), *p*-Werte mit 3.
 
 {{< include _abgabe.md >}}
 
@@ -27,7 +27,7 @@ Fragen zur Klausur kannst Du im Plenum stellen oder per Mail an [{{< meta kurs.m
 Wenn Du in der Masterarbeit oder später selbst erhebst und auswertest, helfen Dir diese Quellen weiter:
 
 - Navarro, Foxcroft & Faulkenberry. [Learning Statistics with JASP](https://learnstatswithjasp.com/). Frei verfügbares Lehrbuch, das genau mit dem Programm arbeitet, das Du jetzt kennst. Gut zum Nachschlagen, wenn Du selbst auswertest.
-- Lakens. [Improving Your Statistical Inferences](https://lakens.github.io/statistical_inferences/). Frei online. Vertieft p-Werte, Effektgrößen, Power, Bayes und Open Science, also fast alles aus diesem Seminar, auf einem Niveau, das Spaß macht.
+- Lakens. [Improving Your Statistical Inferences](https://lakens.github.io/statistical_inferences/). Frei online. Vertieft *p*-Werte, Effektgrößen, Power, Bayes und Open Science, also fast alles aus diesem Seminar, auf einem Niveau, das Spaß macht.
 - Kuckartz & Rädiker (2022). *Qualitative Inhaltsanalyse. Methoden, Praxis, Umsetzung mit Software* (5. Aufl.). Beltz Juventa. Der deutschsprachige Standard für kategorienbasierte Auswertung.
 - Braun & Clarke (2006). [Using thematic analysis in psychology](https://doi.org/10.1191/1478088706qp063oa). *Qualitative Research in Psychology*, 3. Der meistzitierte Einstieg in die thematische Analyse.
 

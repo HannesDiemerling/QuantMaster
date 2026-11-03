@@ -36,7 +36,7 @@ d$V_mean <- sc(c("BFI_02", "BFI_07", "BFI_12", "BFI_17"))
 d$G_mean <- sc(c("BFI_03", "BFI_08", "BFI_13", "BFI_18"))
 d$N_mean <- sc(c("BFI_04", "BFI_09", "BFI_14", "BFI_19"))
 d$O_mean <- sc(c("BFI_05", "BFI_10", "BFI_15", "BFI_20", "BFI_21"))
-d$bildung_gruppe <- ifelse(d$bildungsgrad >= 6, "hoch", "niedriger")
+d$bildung_gruppe <- ifelse(d$bildungsgrad >= 6, "hoch", "niedrig")
 d$N_hoch <- ifelse(d$N_mean >= median(d$N_mean, na.rm = TRUE), 1, 0)
 d$E_c <- d$E_mean - mean(d$E_mean, na.rm = TRUE)
 d$G_c <- d$G_mean - mean(d$G_mean, na.rm = TRUE)
@@ -94,7 +94,7 @@ for (i in 1:10) {
   }, "")
   fehler <- c(fehler, sprintf("| %02d | %s | %s |", i, txt[1], txt[2]))
 }
-add("bereinigung", "Datensatz-Nummer", "((Listennummer − 1) mod 10) + 1")
+add("bereinigung", "Datensatznummer", "((Listennummer − 1) mod 10) + 1")
 add("bereinigung", "Fehler 1 (Zeilennummer in JASP, Spalte, gefundener Wert)", "siehe Fehlertabelle unten")
 add("bereinigung", "Fehler 2 (Zeilennummer in JASP, Spalte, gefundener Wert)", "siehe Fehlertabelle unten")
 add("bereinigung", "Ein Satz: Warum setzt Du fehlerhafte Werte auf fehlend, statt die ganze Zeile zu löschen?", hinweis = "Stichprobe/Information bleibt erhalten")
@@ -237,7 +237,7 @@ add("power", "Nötiges N pro Gruppe: d = 0.3, sonst gleich", ceiling(power.t.tes
     ceiling(power.t.test(delta = .3, power = .8)$n) - 1, ceiling(power.t.test(delta = .3, power = .8)$n) + 1)
 num("power", "Power bei n = 30 pro Gruppe und d = 0.5", power.t.test(n = 30, delta = .5)$power, .01)
 a1 <- anova(lm(O_mean ~ factor(bildungsgrad), data = d))
-add("anova", "A1: F(df1, df2) =", sprintf("F(%d, %d) = %s", a1$Df[1], a1$Df[2], fmt(a1$`F value`[1])),
+add("anova", "A1: F(df1, df2)", sprintf("F(%d, %d) = %s", a1$Df[1], a1$Df[2], fmt(a1$`F value`[1])),
     fmt(a1$`F value`[1] - .01), fmt(a1$`F value`[1] + .01))
 pval("anova", "A1: p", a1$`Pr(>F)`[1])
 num("anova", "A1: η²", a1$`Sum Sq`[1] / sum(a1$`Sum Sq`), .01)

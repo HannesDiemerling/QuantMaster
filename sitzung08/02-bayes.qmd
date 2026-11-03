@@ -12,7 +12,7 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Bisher hast Du **frequentistisch** gearbeitet: p-Werte, Signifikanz, „H0 verwerfen oder nicht“. Der p-Wert beantwortet aber eine etwas verdrehte Frage: „Wie überraschend sind meine Daten, *wenn* H0 stimmt?“ In der Psychologie willst Du meist etwas Direkteres wissen:
+Bisher hast Du **frequentistisch** gearbeitet: *p*-Werte, Signifikanz, „H0 verwerfen oder nicht“. Der *p*-Wert beantwortet aber eine etwas verdrehte Frage: „Wie überraschend sind meine Daten, *wenn* H0 stimmt?“ In der Psychologie willst Du meist etwas Direkteres wissen:
 
 > **Wie groß ist der Effekt, und mit welcher Wahrscheinlichkeit ist er überhaupt vorhanden bzw. positiv?**
 
@@ -32,7 +32,7 @@ $$
 | **Likelihood** | Was die **Daten** über den Effekt sagen. |
 | **Posterior** | Dein **aktualisierter** Glaube, nachdem Du die Daten gesehen hast: Prior **plus** Daten. |
 
-In einem Satz: **Posterior = Prior, durch die Daten aktualisiert.** Genau so lernt man auch im Alltag. Man startet mit einer Erwartung und passt sie an die Evidenz an.
+In einem Satz: **Posterior = Prior, durch die Daten aktualisiert.** Genau so lernt man auch im Alltag. Man startet mit einer Erwartung und passt sie an die Evidenz an.
 
 ::: {.callout-tip title="Müssen Priors „subjektiv“ sein?"}
 Ein häufiger Einwand. In der Praxis nutzt JASP **schwach informative Default-Priors** (z. B. eine Cauchy-Verteilung um Null), die kaum etwas vorgeben außer „extrem große Effekte sind unwahrscheinlich“. Mit mehr Daten verliert der Prior ohnehin an Gewicht, und der Posterior wird dann fast vollständig von den Daten bestimmt.
@@ -40,7 +40,7 @@ Ein häufiger Einwand. In der Praxis nutzt JASP **schwach informative Default-Pr
 
 ## Der Posterior als eigentliches Ergebnis
 
-Das Herzstück jeder Bayes-Analyse ist die **Posterior-Verteilung** des Effekts. Während der Frequentismus Dir *einen* Schätzwert plus p-Wert gibt, gibt Dir Bayes eine **ganze Verteilung**: für jeden möglichen Effektwert sagt sie, wie plausibel er nach Sichtung der Daten ist.
+Das Herzstück jeder Bayes-Analyse ist die **Posterior-Verteilung** des Effekts. Während der Frequentismus Dir *einen* Schätzwert plus *p*-Wert gibt, gibt Dir Bayes eine **ganze Verteilung**: für jeden möglichen Effektwert sagt sie, wie plausibel er nach Sichtung der Daten ist.
 
 Aus dieser Verteilung liest Du alles ab, was Dich interessiert:
 
@@ -54,7 +54,7 @@ In JASP siehst Du den Posterior als **Prior-and-Posterior-Plot**: eine Kurve üb
 
 Das **Credible Interval** (glaubwürdiges Intervall) ist der Bereich, in dem der wahre Effekt mit einer bestimmten Wahrscheinlichkeit liegt:
 
-> *„Es besteht eine **95 % Wahrscheinlichkeit**, dass der wahre Effekt zwischen 0.1 und 0.6 liegt.“*
+> *„Mit **95 % Wahrscheinlichkeit** liegt der wahre Effekt zwischen 0.1 und 0.6.“*
 
 Das ist **genau die Aussage, die die meisten Menschen fälschlich vom frequentistischen Konfidenzintervall erwarten**, und die nur das Credible Interval wirklich erlaubt.
 
@@ -84,7 +84,7 @@ Neben der Schätzung gibt es das **Test**-Werkzeug der Bayes-Welt: den **Bayes-F
 | 30–100 | sehr stark |
 | > 100 | extrem |
 
-Werte **unter 1** liest Du als Evidenz **für** die Null (z. B. $BF_{10}=0.2$ → 5:1 für H0). Das ist die eine Sache, die der Bayes-Faktor besser kann als jeder p-Wert: **Evidenz für die Nullhypothese** quantifizieren.
+Werte **unter 1** liest Du als Evidenz **für** die Null (z. B. $BF_{10}=0.2$ → 5:1 für H0). Das ist die eine Sache, die der Bayes-Faktor besser kann als jeder *p*-Wert: **Evidenz für die Nullhypothese** quantifizieren.
 
 ::: {.callout-tip title="Warum hier der Posterior im Fokus steht"}
 Der Bayes-Faktor ist in der Psychologie verbreitet, aber er reduziert das Ergebnis wieder auf eine einzelne Zahl. Für die meisten Fragestellungen (*wie groß* ist der Effekt, *wie sicher* bin ich mir über seine Richtung) ist der **Posterior mit Credible Interval** informativer und leichter zu kommunizieren. Schau ihn Dir zuerst an; den Bayes-Faktor nimmst Du ergänzend dazu.
@@ -127,11 +127,11 @@ Erinnere Dich an den Datenhinweis (@sec-tag3-datenhinweis):
 | | **Frequentistisch** | **Bayesianisch** |
 |---|---|---|
 | Frage | $P(\text{Daten}\mid H_0)$ | $P(\text{Effekt}\mid \text{Daten})$ |
-| Ergebnis | p-Wert, Konfidenzintervall | **Posterior**, Credible Interval, (Bayes-Faktor) |
+| Ergebnis | *p*-Wert, Konfidenzintervall | **Posterior**, Credible Interval, (Bayes-Faktor) |
 | Direkte Wahrscheinlichkeit über den Effekt? | **nein** | **ja** (z. B. [P(Differenz > 0)]{.nowrap}) |
 | Vorwissen | fließt nicht ein | über den Prior explizit |
 | H0 bestätigen? | Punkt-H0 nein (nur „kein relevanter Effekt“ per Äquivalenztest) | ja (BF zugunsten H0 bzw. Posterior nahe Null) |
-| „Daten sammeln bis signifikant“ | ohne Korrektur nicht zulässig (verzerrt p) | gilt als unkritischer (Posterior darf laufend angeschaut werden) |
+| „Daten sammeln bis signifikant“ | ohne Korrektur nicht zulässig (verzerrt *p*) | gilt als unkritischer (Posterior darf laufend angeschaut werden) |
 
 Beide Ansätze sind legitim. In Deiner Masterarbeit kannst Du sogar **beide** berichten. Das wirkt souverän und ist mit JASP kaum Mehraufwand.
 
@@ -153,7 +153,7 @@ Beide Ansätze sind legitim. In Deiner Masterarbeit kannst Du sogar **beide** be
 
 **Pflichtteil für alle:**
 
-1. Rechne den **Bayesianischen Independent-Samples-*t*-Test** `G_mean` ~ `geschlecht` (1 vs. 2) mit **Prior-and-Posterior-Plot** und „Additional info“.
+1. Rechne den **bayesianischen Independent-Samples-*t*-Test** `G_mean` ~ `geschlecht` (1 vs. 2) mit **Prior-and-Posterior-Plot** und „Additional info“.
 2. Lies am Posterior ab: **Median** der Effektgröße $\delta$ und das **95 %-Credible-Interval**. Schließt es die 0 ein?
 3. Rechne die **Bayes-Korrelation** `E_mean` × `O_mean` und lies ebenfalls Median und Credible Interval von $\rho$ ab.
 4. Notiere für **beide** Analysen die zentralen Kennwerte: den **Posterior-Median** und das **95 %-Credible-Interval** des Effekts und formuliere jeweils die Wahrscheinlichkeitsaussage, die daraus folgt (schließt das Intervall die 0 ein oder nicht?).
@@ -164,7 +164,7 @@ Beide Ansätze sind legitim. In Deiner Masterarbeit kannst Du sogar **beide** be
 - Schau Dir den ergänzenden $BF_{10}$ an: Deckt er sich mit dem, was Dir der Posterior schon gezeigt hat?
 
 ::: {.callout-tip title="Für die Abgabe"}
-Notiere für den Bayes-t-Test Median und 95 %-Credible-Interval von δ sowie BF₁₀, für die Bayes-Korrelation Median und Credible Interval von ρ, dazu einen Satz, welche Wahrscheinlichkeitsaussage der Posterior erlaubt, die ein p-Wert nicht erlaubt. Siehe @sec-s08-abschluss.
+Notiere für den Bayes-t-Test Median und 95 %-Credible-Interval von δ sowie BF₁₀, für die Bayes-Korrelation Median und Credible Interval von ρ, dazu einen Satz, welche Wahrscheinlichkeitsaussage der Posterior erlaubt, die ein *p*-Wert nicht erlaubt. Siehe @sec-s08-abschluss.
 :::
 
 ## Selbstcheck
@@ -172,4 +172,4 @@ Notiere für den Bayes-t-Test Median und 95 %-Credible-Interval von δ sowie BF
 1. Was ist der Posterior, und woraus entsteht er?
 2. Warum erlaubt das Credible Interval eine Wahrscheinlichkeitsaussage über den Parameter, das Konfidenzintervall aber nicht?
 3. Das 95 %-Credible-Interval einer Differenz liegt komplett über 0. Welche Wahrscheinlichkeitsaussage kannst Du treffen?
-4. Wann greifst Du ergänzend zum Bayes-Faktor, und was kann er, das der p-Wert nicht kann?
+4. Wann greifst Du ergänzend zum Bayes-Faktor, und was kann er, das der *p*-Wert nicht kann?

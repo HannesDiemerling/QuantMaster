@@ -1,5 +1,7 @@
 /* M15 Workshop — Quarto Book Styles */
 
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap');
+
 :root {
   --m15-blue: #2c7bb6;
   --m15-green: #1a9641;
@@ -148,6 +150,7 @@ mjx-container[display="true"] {
 p code:not(.sourceCode),
 li code:not(.sourceCode) {
   overflow-wrap: anywhere;
+  padding: 0.1em 0.2em;
 }
 td code:not(.sourceCode) {
   overflow-wrap: break-word;
@@ -172,7 +175,7 @@ body.quarto-dark .aa-Form {
 }
 
 /* Abgabe-Vorlagen: umbrochene Zeilen eingerückt, damit jede Frage als eine Zeile erkennbar bleibt */
-pre.sourceCode.default code > span {
+div.sourceCode pre.sourceCode code > span {
   display: inline-block;
   padding-left: 1.5em;
   text-indent: -1.5em;
@@ -198,8 +201,10 @@ body.quarto-dark .sidebar-item-text.active {
   color: #00bc8c;
   font-weight: 600;
 }
-.nowrap {
-  white-space: nowrap;
+.nowrap,
+.nowrap code {
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
 }
 body.quarto-dark .aa-Form svg,
 body.quarto-dark .aa-DetachedSearchButton svg,

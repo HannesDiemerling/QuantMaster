@@ -48,7 +48,7 @@ Am Ende entscheidet auch die **Theorie**: Eine Lösung muss inhaltlich interpret
 3. **Number of Factors:** *Parallel analysis* (voreingestellt, *Based on PC*).
 4. **Rotation:** *Oblique* mit *promax* (voreingestellt), denn Persönlichkeitsfaktoren dürfen korrelieren.
 5. *Output Options:* unter *Assumption checks* **KMO test** und **Bartlett's test**, unter *Plots* **Scree plot**; *Missing values* auf **Exclude cases listwise**.
-6. Lies ab: KMO (Overall MSA), wie viele Faktoren JASP vorschlägt, die Ladungsmatrix (JASP zeigt nur Ladungen über **Display loadings above** = 0.4).
+6. Lies ab: KMO (Overall MSA), wie viele Faktoren JASP vorschlägt, die Ladungsmatrix (JASP zeigt nur Ladungen über **Display loadings above** = 0.4).
 7. Danach: *Number of Factors* auf **Manual** mit **5** Faktoren stellen. Bilden die Items die erwarteten Skalen?
 
 ## Aufgabe

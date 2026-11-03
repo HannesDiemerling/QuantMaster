@@ -14,12 +14,12 @@ Nach diesem Kapitel kannst Du …
 
 Eine **Korrelation** misst, wie stark sich zwei Variablen *gemeinsam* ändern. Sie ist eines der am häufigsten genutzten Werkzeuge in der empirischen Psychologie und gleichzeitig eines der am häufigsten *missinterpretierten*. Dieses Kapitel hat zwei Ziele: Du sollst Korrelationen rechnen können und lernen, Korrelationsbefunde skeptisch zu lesen.
 
-## Pearson r: der Klassiker
+## Pearson *r*: der Klassiker
 
 Pearson's $r$ misst den **linearen** Zusammenhang zweier metrischer Variablen.
 
 $$
-r = \frac{\sum_i (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_i (x_i - \bar{x})^2 \cdot \sum_i (y_i - \bar{y})^2}}
+r = \frac{\sum_i (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_i (x_i - \bar{x})^2 \cdot \sum_i (y_i - \bar{y})^2}}
 $$
 
 Das ist die standardisierte Kovarianz mit einem Wertebereich von immer $-1 \leq r \leq +1$:
@@ -42,7 +42,7 @@ Das ist die standardisierte Kovarianz mit einem Wertebereich von immer $-1 \leq 
 
 ## Spearman ρ: die robuste Alternative
 
-Wenn die Beziehung **nicht** linear ist, sondern nur **monoton**, oder wenn Daten ordinal sind oder Ausreißer enthalten, ist Spearman's $\rho$ besser. Es ist im Prinzip Pearson r, nur auf den **Rängen** der Daten statt den Rohwerten.
+Wenn die Beziehung **nicht** linear ist, sondern nur **monoton**, oder wenn Daten ordinal sind oder Ausreißer enthalten, ist Spearman's $\rho$ besser. Es ist im Prinzip Pearson *r*, nur auf den **Rängen** der Daten statt den Rohwerten.
 
 | Wann? | Welcher Koeffizient? |
 |---|---|
@@ -144,18 +144,18 @@ Aus einer Korrelation kannst Du **nicht** entscheiden, welcher Mechanismus es is
 
 1. **Korrelationsmatrix der 5 Skalenmittelwerte** (`E_mean, V_mean, G_mean, N_mean, O_mean`) in JASP rechnen, mit aktivierten Optionen *Confidence intervals (95%)*, *Report significance*, *Sample size*, *Scatter plots*.
 2. **Die 6 Hypothesen H1–H6 oben** in derselben Reihenfolge durchrechnen. Pro Hypothese **eine Zeile** notieren im Format:
-   *„H#: r = .XX, p = .XXX, 95 %-KI [.XX, .XX], n = XX, Schluss: …“*
+   *„H#: r = .XX, p = .XXX, 95 %-KI [.XX, .XX], n = XX, Schluss: …“*\
    Bei H5 und H6 (Matrizen) genügen das kleinste und das größte $r$ plus Schluss.
 3. Wähl Dir **eine** signifikante Korrelation aus Schritt 1 oder 2 aus und formuliere zu ihr **drei alternative Erklärungen** (Drittvariable, umgekehrte Wirkrichtung, Zufall) in je einem Satz.
 
 **Bonus:**
 
-- Wiederhole H1 zusätzlich **als Spearman** statt Pearson. Wie unterscheidet sich der r-Wert?
+- Wiederhole H1 zusätzlich **als Spearman** statt Pearson. Wie unterscheidet sich der *r*-Wert?
 - Rechne eine **partielle Korrelation** zwischen zwei Skalen unter Kontrolle von `alter` (**Regression → Classical → Correlation**, `alter` ins Feld **Partial out** ziehen).
 - Erzeuge ein **Streudiagramm** (**Descriptives → Descriptive Statistics → Customizable Plots → Scatter plots**) für die Korrelation aus Schritt 3 und überlege, welche Drittvariable den Zusammenhang erklären könnte.
 
 ::: {.callout-tip title="Für die Abgabe"}
-Notiere: r und p für H1, die Zahl signifikanter Hypothesen unter H1–H4 und eine alternative Erklärung. Siehe @sec-s03-abschluss.
+Notiere: *r* und *p* für H1, die Zahl signifikanter Hypothesen unter H1–H4 und eine alternative Erklärung. Siehe @sec-s03-abschluss.
 :::
 
 ## Selbstcheck
