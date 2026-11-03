@@ -32,7 +32,8 @@ Wichtig: Ein Klick auf den **Spaltenkopf** öffnet das Variablen-Fenster (Name, 
 
 1. JASP starten.
 2. **File → Open → Computer → Browse** und Deine `datensatz-XX.csv` auswählen.
-3. JASP zeigt die Tabelle. Oben siehst Du die Variablennamen. Alle 25 Spalten sollten da sein.
+3. Erscheint das Fenster **Data Preview**: Unter **Select Delimiter:** muss das Komma ausgewählt sein. Prüf in der Vorschau, ob die Spalten sauber getrennt sind, dann **Load**.
+4. JASP zeigt die Tabelle. Oben siehst Du die Variablennamen. Alle 25 Spalten sollten da sein.
 
 ## Schritt 2: Variable-Typen setzen
 
@@ -55,8 +56,8 @@ Bevor wir irgendetwas analysieren, schauen wir uns die Daten an:
 1. **Descriptives → Descriptive Statistics** öffnen.
 2. Alle Variablen ins rechte Feld ziehen.
 3. In den Optionen aktivieren:
-   - **Distribution plots** (Histogramme / Bar Charts für jede Variable)
-   - **Frequency tables** (Häufigkeitstabellen)
+   - im Abschnitt **Basic Plots:** **Distribution plots** (Histogramme bzw. Balkendiagramme für jede Variable)
+   - im Abschnitt **Tables:** **Frequency tables** (Häufigkeitstabellen für Nominal- und Ordinal-Variablen)
 
 JASP berechnet:
 
@@ -111,14 +112,18 @@ Du hast drei Möglichkeiten, je nach Fehlertyp:
 - **Zwei Zeilen mit `probandennummer = 4`** → Wenn der Rest plausibel ist, vergib der falschen Zeile die fehlende Nummer aus 1–9 (die Nummern laufen sonst lückenlos von 1 bis 9). Bitte nur ganze Zahlen. Werte wie „8a" kann später niemand mehr verarbeiten.
 - **`bildungsgrad` leer** → so lassen. Das ist bereits ein fehlender Wert.
 
-In JASP änderst Du einen Wert per **Doppelklick** auf die Zelle → Wert ändern oder löschen → Enter. Lässt sich die Zelle nicht bearbeiten, wechsle oben über **Edit Data** in den Bearbeitungsmodus. Rechtsklick auf eine Zelle bietet außerdem *Clear cells* (Zelle leeren) und *Delete row*.
+Zum Ändern wechselst Du zuerst oben über **Edit Data** in den Bearbeitungsmodus. Dort klickst Du doppelt auf die Zelle, änderst oder löschst den Wert und bestätigst mit Enter. Ein Rechtsklick auf eine Zelle bietet außerdem *Clear cells* (Zelle leeren) und *Delete row*. Zurück zu den Analysen geht es über **Analyses** in derselben Leiste.
+
+::: {.callout-tip title="Öffnet sich stattdessen Excel?"}
+Je nach Einstellung öffnet ein Doppelklick auf die Daten außerhalb des Bearbeitungsmodus die Datei in Deinem Tabellenprogramm. Schließ es dann ohne zu speichern und arbeite in JASP über **Edit Data**.
+:::
 
 ## Schritt 6: Exportieren
 
 JASP speichert Analysen in `.jasp`-Dateien, die brauchen wir hier nicht. **Wir brauchen die bereinigte CSV.**
 
 1. **File → Export Data**.
-2. Format: **CSV**.
+2. Format: **CSV** (voreingestellt).
 3. Dateiname: `datensatz-XX-bereinigt.csv` (mit Deiner Nummer).
 4. Speichern an einem Ort, an dem Du sie wiederfindest.
 

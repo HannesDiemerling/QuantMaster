@@ -54,7 +54,7 @@ Gegenmittel kennst Du aus Sitzung 01: **Preregistration**, offene Daten und Skri
 **Frage:** Ist der Unterschied zwischen Frauen und Männern in Gewissenhaftigkeit kleiner als |d| = 0.5? Diese Grenze ist hier für die Übung gesetzt. In einer echten Studie begründest Du vorab, ab welcher Größe ein Unterschied praktisch relevant wäre.
 
 1. Modul **Equivalence T-Tests** über das **„+"** aktivieren.
-2. **Equivalence T-Tests → Classical → Independent Samples T-Test**.
+2. **Equivalence T-Tests → Classical → Equivalence Independent Samples T-Test**.
 3. **Dependent Variables:** `G_mean` · **Grouping Variable:** `geschlecht` (Stufe 3 per Filter ausschließen, wie in @sec-tag2-ttest).
 4. **Equivalence Region:** von −0.5 bis 0.5, **Bounds specification in:** *Cohen's d* (bitte prüfen, voreingestellt ist *Raw*).
 5. **Tests:** *Student* (voreingestellt). Optional **Equivalence bounds plot**.

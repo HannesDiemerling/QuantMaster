@@ -119,7 +119,7 @@ JASP zeigt Cohen's *d* mit Konfidenzintervall. Schau es Dir **immer** an. Ein si
 
 **Frage:** Liegt der mittlere Extraversionswert unserer Stichprobe oberhalb von 3?
 
-1. **T-Tests → Classical → One-Sample T-Test**.
+1. **T-Tests → Classical → One Sample T-Test**.
 2. `E_mean` ins Variablenfeld ziehen.
 3. **Test value:** 3.
 4. **Alternative hypothesis:** „> Test value" wenn Du wirklich nur „oberhalb" testen willst (gerichtete Hypothese), sonst zweiseitig.

@@ -104,7 +104,7 @@ Ein Klick auf den Spaltenkopf öffnet das Variablen-Fenster. In der Tabelle mit 
 2. **Frequency tables** aktivieren.
 3. Prüfe: Kommt bei `quelle_datensatz` jeder Datensatz mit 9 Zeilen vor, plus je eine Zeile für jede fiktive Person, die mit diesem Datensatz hochgeladen wurde? Liegen alle BFI-Items zwischen 1 und 5?
 
-Speichere Deine Arbeit als `.jasp`-Datei (**File → Save as**). Du baust in den nächsten Sitzungen darauf auf.
+Speichere Deine Arbeit als `.jasp`-Datei (**File → Save As**). Du baust in den nächsten Sitzungen darauf auf.
 
 ## Aufgabe
 

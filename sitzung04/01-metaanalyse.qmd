@@ -55,7 +55,7 @@ Die Tabelle aller zehn „Studien" erzeugt der Merge-Workflow automatisch: `data
 
 1. `meta-studien.csv` herunterladen und in JASP öffnen (**File → Open**; es öffnet sich ein neues Fenster).
 2. Modul **Meta-Analysis** über das **„+"** aktivieren.
-3. **Meta-Analysis → Classical → Meta-Analysis**.
+3. **Meta-Analysis → Classical → Classical Meta-Analysis**.
 4. **Effect Size:** `fisher_z` · **Effect Size Standard Error:** `se` · **Study Labels:** `studie`.
 5. **Method:** *Restricted ML* (Random Effects, voreingestellt).
 6. Im Abschnitt *Statistics → Heterogeneity* zusätzlich **I²** ankreuzen.

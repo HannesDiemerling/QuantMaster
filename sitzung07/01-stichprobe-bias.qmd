@@ -50,7 +50,7 @@ Stell Dir vor, Du ziehst nicht eine Stichprobe, sondern sehr viele, jede mit $N$
 Alle Tests aus dem Seminar folgen derselben Logik. Ob *t*, *z* oder *F*: Im Kern wird ein Effekt ins Verhältnis zu seiner Unsicherheit gesetzt. Ein großer Effekt mit großem Standardfehler kann deshalb weniger überzeugend sein als ein kleiner, sehr genau geschätzter.
 
 ::: {.callout-tip title="In JASP"}
-**Descriptives → Descriptive Statistics → Statistics:** Unter *Dispersion* gibt es **S.E. mean**. Damit siehst Du den Standardfehler direkt neben der $SD$.
+**Descriptives → Descriptive Statistics → Statistics:** Unter *Inference* gibt es **S.E. mean** und direkt darunter **Confidence interval for the arithmetic mean**. Damit siehst Du Standardfehler und Konfidenzintervall neben der $SD$.
 :::
 
 ## Wie eine Stichprobe gezogen wird

@@ -96,7 +96,7 @@ Die bayesianischen Pendants liegen direkt neben den frequentistischen Analysen. 
 
 ### Bayes-*t*-Test (Unterschied zweier Gruppen)
 
-1. **T-Tests → Bayesian → Independent Samples T-Test**.
+1. **T-Tests → Bayesian → Bayesian Independent Samples T-Test**.
 2. **Dependent Variables:** `G_mean`, **Grouping Variable:** `geschlecht`. Stufe 3 wie in @sec-tag2-ttest per Filter ausschließen.
 3. In den Optionen:
    - **Plots → Prior and posterior** mit **„Additional info"** → zeigt die Posterior-Verteilung der Effektgröße $\delta$ samt **Median** und **95 %-Credible-Interval**.
@@ -107,13 +107,13 @@ Du liest am Posterior ab: Liegt das Credible Interval ganz auf einer Seite von 0
 
 ### Bayes-Korrelation (Zusammenhang zweier Skalen)
 
-1. **Regression → Bayesian → Correlation**.
+1. **Regression → Bayesian → Bayesian Correlation**.
 2. Variablen `E_mean` und `O_mean`.
 3. Optionen: unter *Plots* **Prior and posterior** mit **Estimation info** ankreuzen → Posterior der Korrelation $\rho$ mit Median und 95 %-Credible-Interval.
 
 ### Bayes-Regression (mehrere Prädiktoren)
 
-**Regression → Bayesian → Linear Regression** gibt für jeden Koeffizienten eine **Posterior-Verteilung** mit Credible Interval aus, die direkte bayesianische Entsprechung zu @sec-tag3-regression.
+**Regression → Bayesian → Bayesian Linear Regression** gibt für jeden Koeffizienten eine **Posterior-Verteilung** mit Credible Interval aus, die direkte bayesianische Entsprechung zu @sec-tag3-regression.
 
 ## Was unsere Daten hergeben
 

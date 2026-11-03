@@ -76,7 +76,7 @@ Du brauchst nur einen Browser und Deinen GitHub-Account, keine zusätzliche Soft
 Die Lehrperson legt Deine Datei ins Repo, danach läuft der Merge-Workflow wie bei allen anderen. Auch ohne Account kannst Du anschließend im Browser kontrollieren, ob alles geklappt hat (Schritt 4).
 
 ::: {.callout-tip title="Vor dem Abschicken prüfen"}
-Öffne die Datei einmal im Texteditor: Die erste Zeile muss mit `probandennummer,geschlecht,alter,…` beginnen, die Werte müssen durch **Kommas** getrennt sein, und es muss **10 Datenzeilen** geben (9 vorgenerierte und die Deiner fiktiven Person). Das gilt für beide Wege.
+Öffne die Datei einmal im Texteditor: Die erste Zeile muss mit `probandennummer,geschlecht,alter,…` beginnen, die Werte sollten durch **Kommas** getrennt sein (Semikolons erkennt der Merge zwar auch, meldet sie aber als Hinweis), und es muss **10 Datenzeilen** geben (9 vorgenerierte und die Deiner fiktiven Person). Das gilt für beide Wege.
 :::
 
 ## Schritt 4: Eigenen Upload kontrollieren

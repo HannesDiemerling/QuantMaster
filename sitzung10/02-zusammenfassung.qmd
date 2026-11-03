@@ -71,23 +71,23 @@ Statt gegen feste Cutoffs interpretierst Du eine Effektgröße sinnvoll so:
 | Deskriptive Statistik | Descriptives → Descriptive Statistics |
 | Reliabilität (α, ω) | Reliability → Classical → Reliability |
 | Korrelation | Regression → Classical → Correlation |
-| *t*-Test | T-Tests → Classical → (One-Sample / Independent Samples / Paired Samples) T-Test |
+| *t*-Test | T-Tests → Classical → (One Sample / Independent Samples / Paired Samples) T-Test |
 | ANOVA | ANOVA → Classical → ANOVA |
 | Multiple Regression | Regression → Classical → Linear Regression |
 | Moderation | Regression → Classical → Linear Regression (+ Interaktionsterm) |
 | Mediation | SEM → Mediation Analysis (Bootstrap) |
 | Logistische Regression | Regression → Classical → Logistic Regression |
-| Bayes-*t*-Test / -Korrelation / -Regression | jeweils „Bayesian …" neben der frequentistischen Variante |
+| Bayes-*t*-Test / -Korrelation / -Regression | im selben Menü unter **Bayesian**, z. B. T-Tests → Bayesian → Bayesian Independent Samples T-Test |
 | Machine Learning | Machine Learning → Classification / Regression / Unsupervised Learning → Clustering |
 | Mixed Model | Mixed Models → Classical → Linear Mixed Models |
 | Faktorenanalyse | Factor → Exploratory Factor Analysis / Principal Component Analysis |
 | CFA / SEM | Factor → Confirmatory Factor Analysis / SEM → Structural Equation Modeling |
 | Netzwerk | Network |
-| Meta-Analyse | Meta-Analysis → Classical → Meta-Analysis |
+| Meta-Analyse | Meta-Analysis → Classical → Classical Meta-Analysis |
 | Poweranalyse | Power → Power |
 | Kreuztabelle | Frequencies → Classical → Contingency Tables |
 | Interrater (κ) | Reliability → Classical → Rater Agreement |
-| Äquivalenztest | Equivalence T-Tests → Classical → Independent Samples T-Test |
+| Äquivalenztest | Equivalence T-Tests → Classical → Equivalence Independent Samples T-Test |
 
 Module, die nicht sichtbar sind, schaltest Du über das blaue **„+"** oben rechts frei.
 
