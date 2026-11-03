@@ -130,7 +130,7 @@ Im BFI-K sind die Skalen *kurz* (4–5 Items). Erwarte deshalb keine sehr hohen 
 - Bei kurzen Skalen wirst Du das aber selten machen, weil die Skala dann zu klein wird (z. B. 3 statt 4 Items).
 - **Item-rest correlation** unter .30 → das Item passt eher schlecht zur Skala.
 
-Warum ist das wichtig? Messfehler schwächt Zusammenhänge ab: Das beobachtete $r$ ist ungefähr das wahre $r$ mal $\sqrt{\text{Rel}_X \cdot \text{Rel}_Y}$. Bei einer Reliabilität von .60 auf beiden Seiten wird aus einem wahren $r = .50$ nur noch etwa $.30$, und die Power sinkt entsprechend.
+Warum ist das wichtig? Messfehler schwächt Zusammenhänge ab: Das beobachtete $r$ ist ungefähr das wahre $r$ mal $\sqrt{\text{Rel}_X \cdot \text{Rel}_Y}$. Bei einer Reliabilität von .60 auf beiden Seiten wird aus einem wahren $r = .50$ nur noch etwa .30, und die Power sinkt entsprechend.
 
 In unseren simulierten Daten solltest Du brauchbare α-Werte sehen (etwa .55–.80). Die Daten wurden so erzeugt, dass Items derselben Skala mit $r \approx .40$ zusammenhängen und Items verschiedener Skalen nur mit $r \approx .10$.
 

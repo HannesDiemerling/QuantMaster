@@ -125,7 +125,7 @@ JASP zeigt Cohen's *d* mit Konfidenzintervall. Schau es Dir **immer** an. Ein si
 3. **Test value:** 3.
 4. **Alternative Hypothesis:** „> Test value“, wenn Du wirklich nur „oberhalb“ testen willst (gerichtete Hypothese), sonst zweiseitig.
 5. Aktiviere in den Options:
-   - **Descriptives** (M, SD)
+   - **Descriptives** (*M*, SD)
    - **Effect size** (Cohen's *d*) mit **Confidence interval**
    - unter *Assumption checks* **Q-Q plot residuals**
    - **Descriptives plots**

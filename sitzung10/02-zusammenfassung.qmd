@@ -34,7 +34,7 @@ Für eigene Studien heißt das: Hypothesen vorher festlegen, Nullbefunde genauso
 |---|---|---|---|
 | Mittelwert gegen festen Wert? | metrisch | Einstichproben-*t*-Test | @sec-tag2-ttest |
 | Zwei Gruppen vergleichen? | metrisch | Unabhängiger *t*-Test | @sec-tag2-ttest |
-| Mehr als zwei Gruppen? | metrisch | ANOVA + post-hoc | @sec-tag2-anova |
+| Mehr als zwei Gruppen? | metrisch | ANOVA + Post-hoc-Tests | @sec-tag2-anova |
 | Zusammenhang zweier Variablen? | metrisch | Korrelation | @sec-tag2-korrelation |
 | Eine Variable aus mehreren vorhersagen? | metrisch | Multiple Regression | @sec-tag3-regression |
 | Hängt der Effekt von einer Drittvariable ab? | metrisch | Moderation | @sec-tag3-moderation |

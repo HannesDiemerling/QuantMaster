@@ -83,7 +83,7 @@ Nenn die Spalte `N_hoch` und setz ihren Typ auf **Nominal**.
    - **Estimates** mit **Odds ratios** und **Confidence intervals**
    - **Statistics → Performance Diagnostics → Confusion matrix** (Klassifikationstabelle) und **Performance Metrics → AUC**
    - **Plots → Performance Plots → ROC plot**
-   - Für den Modelltest musst Du nichts ankreuzen: Die Tabelle **Model Summary** zeigt immer Devianz, $\chi^2$-Test und die Pseudo-$R^2$ (u. a. **Nagelkerke**). Achtung: Die Spalte *df* dort enthält die Residual-Freiheitsgrade. Die df des $\chi^2$-Tests ist die Differenz der df von $M_0$ und $M_1$, also die Zahl der Prädiktoren (hier 4).
+   - Für den Modelltest musst Du nichts ankreuzen: Die Tabelle **Model Summary** zeigt immer Devianz, $\chi^2$-Test und die Pseudo-$R^2$ (u. a. **Nagelkerke**). Achtung: Die Spalte df dort enthält die Residual-Freiheitsgrade. Die df des $\chi^2$-Tests ist die Differenz der df von $M_0$ und $M_1$, also die Zahl der Prädiktoren (hier 4).
 
 ## Was unsere Daten hergeben
 
@@ -117,7 +117,7 @@ Einen festen Wortlaut gibt es nicht, aber diese Angaben sollten vollständig vor
 
 **Pflichtteil für alle:**
 
-1. Bau die binäre Spalte `N_hoch` (Median-Split, Typ Nominal).
+1. Bau die binäre Spalte `N_hoch` (Median-Split, Typ **Nominal**).
 2. Rechne `N_hoch` ~ `E_mean` + `V_mean` + `G_mean` + `O_mean` mit Odds Ratios, KI, Confusion Matrix und ROC/AUC.
 3. Notiere die zentralen Kennwerte: Modelltest ($\chi^2$, df, $p$), Nagelkerke-$R^2$, AUC sowie das Odds Ratio des stärksten Prädiktors mit Konfidenzintervall, dazu Deine Schlussfolgerung.
 
@@ -127,7 +127,7 @@ Einen festen Wortlaut gibt es nicht, aber diese Angaben sollten vollständig vor
 - Interpretiere **ein** OR ausführlich in einem Satz in der Wahrscheinlichkeits-Sprache.
 
 ::: {.callout-tip title="Für die Abgabe"}
-Notiere: χ² und *p* des Modelltests, Nagelkerke-R², AUC und das Odds Ratio des stärksten Prädiktors. Siehe @sec-s09-abschluss.
+Notiere: χ² und *p* des Modelltests, Nagelkerke-*R*², AUC und das Odds Ratio des stärksten Prädiktors. Siehe @sec-s09-abschluss.
 :::
 
 ## Selbstcheck

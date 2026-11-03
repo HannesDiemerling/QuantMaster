@@ -39,7 +39,7 @@ Das ist eine der häufigsten Verwechslungen in der Methodenlehre, deshalb gleich
 
 Wenn Du $X$ und $W$ multiplizierst, sind die Einzeleffekte ($b_1$, $b_2$) im Interaktionsmodell nur noch interpretierbar **am Punkt, an dem die jeweils andere Variable = 0 ist**. Bei einer Skala von 1–5 ist „0“ aber außerhalb des sinnvollen Bereichs, der Wert wäre also Unsinn.
 
-Die Lösung: **Zentrieren**. Du ziehst von jedem Prädiktor seinen Mittelwert ab, sodass der neue Mittelwert 0 ist. Dann bedeutet „$X = 0$“ gerade „$X$ = Durchschnitt“, und die Haupteffekte werden wieder sinnvoll interpretierbar. Als Nebeneffekt sinkt die (rechnerische) Multikollinearität zwischen den Termen.
+Die Lösung: **Zentrieren**. Du ziehst von jedem Prädiktor seinen Mittelwert ab, sodass der neue Mittelwert 0 ist. Dann bedeutet „$X = 0$“ gerade „$X = \text{Durchschnitt}$“, und die Haupteffekte werden wieder sinnvoll interpretierbar. Als Nebeneffekt sinkt die (rechnerische) Multikollinearität zwischen den Termen.
 
 In JASP per **Compute Column** (R-Modus), für jeden beteiligten Prädiktor eine zentrierte Version:
 

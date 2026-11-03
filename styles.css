@@ -151,7 +151,7 @@ blockquote mjx-container:not([display="true"]) {
   margin-left: 0.12em;
 }
 /* nicht direkt nach einer öffnenden Klammer, die der Filter mit der Formel verbunden hat */
-blockquote .nowrap > mjx-container:not(:first-child) {
+blockquote .nowrap-open > .math mjx-container {
   margin-left: 0;
 }
 

@@ -76,7 +76,7 @@ Eine **Metaanalyse** fasst Effektgrößen aus vielen Studien zu einer Gesamtsch�
 
 Wenn Du Lust hast:
 
-- Wähl **eines** der Verfahren und führ es in JASP einmal mit unseren Daten aus (EFA über die 21 Items bietet sich an: Scree-Plot ansehen, kommen ~5 Faktoren raus?).
+- Wähl **eines** der Verfahren und führ es in JASP einmal mit unseren Daten aus (EFA über die 21 Items bietet sich an: Scree-Plot ansehen, kommen etwa 5 Faktoren heraus?).
 - Notiere Dir in einem Satz, was Du siehst.
 
 ::: {.callout-tip title="Freiwillig"}

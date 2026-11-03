@@ -101,7 +101,7 @@ So könnte ein Bericht aussehen (Zahlen ausgedacht, Deine Werte sehen anders aus
 
 > Personen unterschiedlicher Bildungsgrade unterschieden sich in Offenheit signifikant, $F(6, 87) = 2.41$, $p = .033$, $\eta^2 = .14$. Tukey-Post-hoc-Vergleiche zeigten, dass Personen mit Promotion (Bildung = 7, $M = 4.12$) deutlich höhere Offenheitswerte hatten als Personen mit Realschulabschluss (Bildung = 3, $M = 3.32$), $p_{\text{tukey}} = .029$. Die übrigen paarweisen Vergleiche waren nicht signifikant.
 
-Was steht drin: $F$, $df$ Zähler und Nenner, $p$, $\eta^2$, paarweise Befunde mit korrigierten *p*-Werten.
+Was steht drin: $F$, df Zähler und Nenner, $p$, $\eta^2$, paarweise Befunde mit korrigierten *p*-Werten.
 
 ## Stärken und Schwächen der ANOVA
 
@@ -129,7 +129,7 @@ Rechne in JASP **A1** und **A3** aus der Tabelle oben:
 | A1 | Einfaktorielle ANOVA | `O_mean` ~ `bildungsgrad` |
 | A3 | Einfaktorielle ANOVA (Sanity-Check) | [`E_mean` ~ `quelle_datensatz`]{.nowrap} |
 
-Für **beide** in den Optionen aktivieren: Descriptive statistics, Estimates of effect size (η², ω²), Homogeneity tests, Q-Q plot residuals, Post Hoc Tests mit Tukey, Descriptives Plots.
+Für **beide** in den Optionen aktivieren: **Descriptive statistics**, **Estimates of effect size** (η², ω²), **Homogeneity tests**, **Q-Q plot residuals**, **Post Hoc Tests** mit **Tukey**, **Descriptives Plots**.
 
 Notiere pro ANOVA in **einer Zeile** den vollständigen Bericht:
 *„A#: F(df1, df2) = X.XX, p = .XXX, η² = .XX, Levene p = .XXX, Schluss: …“*

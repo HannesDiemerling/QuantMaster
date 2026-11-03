@@ -1,7 +1,7 @@
 <!-- automatisch erzeugt von scripts/antwortbogen.R — nicht von Hand bearbeiten -->
 ```default
-S08-1 Wahrscheinlichkeit für mind. ein falsch-positives Ergebnis bei 10 Tests (α = .05): 
-S08-2 Äquivalenztest G_mean ~ geschlecht (Grenzen d = ±0.5): p (größerer der beiden einseitigen Tests): 
+S08-1 Wahrscheinlichkeit für mind. ein falsch-positives Ergebnis bei 10 Tests (α = .05): 
+S08-2 Äquivalenztest G_mean ~ geschlecht (Grenzen d = ±0.5): p (größerer der beiden einseitigen Tests): 
 S08-3 Sind die Gruppen im Sinne des Äquivalenztests äquivalent? (ja/nein): 
 S08-4 Bayes-t-Test (G_mean ~ geschlecht): Median δ: 
 S08-5 Bayes-t-Test: 95 %-Credible-Interval [untere, obere]: 

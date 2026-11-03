@@ -110,12 +110,14 @@ function Inlines(inl)
     local el = inl[i]
     if el.t == "Math" and el.mathtype == "InlineMath" then
       local group = pandoc.List({ el })
+      local opened = false
       local prev = out[#out]
       if prev and prev.t == "Str" then
         local rest, o = split_tail(prev.text)
         if o then
           if rest == "" then out:remove(#out) else prev.text = rest end
           group:insert(1, pandoc.Str(o))
+          opened = true
         end
       end
       local nxt = inl[i + 1]
@@ -132,7 +134,7 @@ function Inlines(inl)
         end
       end
       if #group > 1 then
-        out:insert(pandoc.Span(group, pandoc.Attr("", { "nowrap" })))
+        out:insert(pandoc.Span(group, pandoc.Attr("", opened and { "nowrap", "nowrap-open" } or { "nowrap" })))
       else
         out:insert(el)
       end
