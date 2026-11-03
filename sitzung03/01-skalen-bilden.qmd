@@ -54,7 +54,7 @@ Für jede Skala legst Du in JASP eine neue Spalte an.
 
 ### Vorgehen pro Skala
 
-1. In der Datenansicht auf das **„+"** über der letzten Spalte klicken. Es öffnet sich **Create Computed Column**.
+1. In der Datenansicht oben rechts auf das **„+"** klicken. Es öffnet sich **Create Computed Column**.
 2. Bei **Name:** `E_mean` eintragen, **Define column through R code** wählen, Typ **Scale**, dann **Create Column**.
 3. Formel ins Code-Feld eintragen:
 

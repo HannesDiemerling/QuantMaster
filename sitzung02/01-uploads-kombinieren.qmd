@@ -37,7 +37,7 @@ Für wenige Dateien ist der Texteditor am sichersten. Ab ein paar Dutzend Dateie
 
 ## Schritt 1: Deine sieben Dateien herunterladen
 
-Öffne im Repo den Ordner [`data/student-uploads/`]({{< meta kurs.repo >}}/tree/main/data/student-uploads). GitHub listet die Dateien alphabetisch. Deine Dateien sind **Deine eigene Datei und die sechs Dateien danach** (am Ende der Liste geht es oben weiter). Das sind 7 Dateien, und sie decken mehrere verschiedene Seed-Datensätze ab.
+Öffne im Repo den Ordner [`data/student-uploads/`]({{< meta kurs.repo >}}/tree/main/data/student-uploads). GitHub listet die Dateien alphabetisch. Deine Dateien sind **Deine eigene Datei und die sechs CSV-Dateien danach** (andere Dateitypen überspringst Du; am Ende der Liste geht es oben weiter). Das sind 7 Dateien, und sie decken mehrere verschiedene Seed-Datensätze ab.
 
 Herunterladen: jede Datei anklicken → **Download raw file** (Pfeil-Symbol oben rechts). Alternative: auf der Repo-Startseite **Code → Download ZIP** und die sieben Dateien aus dem entpackten Ordner nehmen.
 
