@@ -20,12 +20,12 @@ Heute spielst Du den praktischen Kern einer Datenerhebung durch: Daten erfassen,
 Bitte vor der Sitzung zu Hause:
 
 - @sec-tag1-open-science, @sec-tag1-ethik und @sec-tag1-messtheorie lesen
-- JASP installieren und einmal starten
+- JASP installieren und einmal starten. Alle Anleitungen nutzen die **englische** Oberfläche. Zeigt JASP bei Dir Deutsch, stell es um: Menü ☰ → **Einstellungen** → **Bedienoberfläche** → **Bevorzugte Sprache** → *English*.
 - empfohlen: einen GitHub-Account anlegen und den Benutzernamen per Mail an die Lehrperson schicken
 
 ## Inhalte
 
-1. Begrüßung und Teilnehmerliste: Du bekommst Deine Nummern (siehe unten)
+1. Begrüßung, Teilnehmerliste: Du ermittelst Deine Nummern (siehe unten)
 2. @sec-tag1-fragebogen
 3. @sec-tag1-github
 4. Kurze Live-Demo zu JASP: Oberfläche, Datei öffnen, Variablentypen
@@ -36,15 +36,15 @@ Bitte vor der Sitzung zu Hause:
 
 ## Deine Nummern {#sec-nummern}
 
-Die Lehrperson stellt zu Beginn eine **alphabetische Teilnehmerliste** bereit. Deine Position darin ist Deine **Listennummer** $n$. Daraus ergibt sich alles Weitere, Du musst Dir also nichts selbst ausdenken:
+Grundlage ist die **offizielle Teilnehmerliste** der Veranstaltung, die die Lehrperson zu Beginn von Sitzung 01 zeigt. Deine Position darin ist Deine **Listennummer** $n$. Daraus ergibt sich alles Weitere, Du musst Dir also nichts selbst ausdenken:
 
 | Was | Regel | Beispiel $n = 13$ |
 |---|---|---|
 | **Kennziffer** (Dein Pseudonym, Mail-Betreff, Probandennummer Deiner Datenzeile) | $2000 + n$ | 2013 |
 | **Datensatz** (Dein Übungsdatensatz in Sitzung 01) | $((n - 1) \bmod 10) + 1$, also 1, 2, …, 10, dann wieder 1 | 3 |
-| **Kleingruppe** (fester Breakout-Raum für alle Sitzungen) | $n$ geteilt durch 4, aufgerundet; bliebe jemand in der letzten Gruppe allein, kommt er oder sie in die vorletzte | 4 |
+| **Kleingruppe** (fester Breakout-Raum für alle Sitzungen) | $n$ geteilt durch 4, aufgerundet; bliebe jemand in der letzten Gruppe allein, kommt er oder sie in die vorletzte (Beispiel: Bei 37 Personen wäre Nr. 37 allein in Gruppe 10 und kommt deshalb in Gruppe 9) | 4 |
 
-Notiere Dir die drei Zahlen am besten gleich. Du brauchst sie in jeder Sitzung.
+Notiere Dir Listennummer, Kennziffer, Datensatz und Kleingruppe gleich in Sitzung 01 und heb sie gut auf. Du brauchst sie in jeder Sitzung, und sie bleiben das ganze Semester gleich, auch wenn sich die Teilnehmerliste später noch ändert.
 
 ::: {.callout-tip title="Upload-Frist"}
 Der Upload muss bis **zwei Tage vor Sitzung 02** im Repo liegen. Danach wird der Gesamtdatensatz eingefroren, damit alle mit denselben Daten rechnen.

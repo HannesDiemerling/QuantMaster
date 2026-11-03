@@ -10,6 +10,7 @@ on:
     paths:
       - '**.csv'
       - '**.CSV'
+      - 'data/student-uploads/**'
       - '!data/combined/**'
       - 'scripts/merge-uploads.R'
       - '.github/workflows/merge-uploads.yml'
@@ -28,6 +29,8 @@ concurrency:
 jobs:
   merge:
     runs-on: ubuntu-latest
+    env:
+      TZ: Europe/Berlin   # Uhrzeit im Merge-Report in deutscher Zeit
     steps:
       - name: Checkout (aktueller Stand von main)
         uses: actions/checkout@v4

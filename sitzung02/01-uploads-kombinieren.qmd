@@ -37,7 +37,7 @@ Für wenige Dateien ist der Texteditor am sichersten. Ab ein paar Dutzend Dateie
 
 ## Schritt 1: Deine sieben Dateien herunterladen
 
-Öffne im Repo den Ordner [`data/student-uploads/`]({{< meta kurs.repo >}}/tree/main/data/student-uploads). GitHub listet die Dateien alphabetisch. Deine Dateien sind **Deine eigene Datei und die sechs CSV-Dateien danach** (andere Dateitypen überspringst Du; am Ende der Liste geht es oben weiter). Das sind 7 Dateien, und sie decken mehrere verschiedene Seed-Datensätze ab.
+Öffne im Repo den Ordner [`data/student-uploads/`]({{< meta kurs.repo >}}/tree/main/data/student-uploads). GitHub listet die Dateien alphabetisch. Deine Dateien sind **Deine eigene Datei und die sechs CSV-Dateien danach** (andere Dateitypen überspringst Du; am Ende der Liste geht es oben weiter). Hast Du selbst keine Datei hochgeladen, beginn mit der ersten CSV-Datei der Liste. Gibt es weniger als sieben Dateien, nimm alle. Das sind 7 Dateien, und sie decken mehrere verschiedene Seed-Datensätze ab.
 
 Herunterladen: jede Datei anklicken → **Download raw file** (Pfeil-Symbol oben rechts). Alternative: auf der Repo-Startseite **Code → Download ZIP** und die sieben Dateien aus dem entpackten Ordner nehmen.
 
@@ -47,10 +47,10 @@ Herunterladen: jede Datei anklicken → **Download raw file** (Pfeil-Symbol oben
 2. Hänge an die Kopfzeile `,quelle_datei` an und an jede Datenzeile `,` plus den Dateinamen (z. B. `,datensatz-03-2013`).
 3. Für jede weitere Datei: **ohne** Kopfzeile die Datenzeilen kopieren, unten anhängen, Herkunft ergänzen.
 4. Speichern als `meine-kombination.csv` (UTF-8).
-5. **Kontrolle:** Die Datei muss **eine Kopfzeile und 10 × 7 = 70 Datenzeilen** haben, oder weniger, wenn eine Datei kürzer war. Prüf die Zeilenzahl im Editor (Zeilennummer links).
+5. **Kontrolle:** Die Datei muss **eine Kopfzeile und 10 × 7 = 70 Datenzeilen** haben, oder weniger, wenn eine Datei kürzer war. Prüf die Zeilenzahl im Editor: Zeilennummer der letzten Datenzeile minus 1 für die Kopfzeile (eine leere letzte Zeile zählt nicht).
 
 ::: {.callout-tip title="Typische Probleme, auf die Du stoßen kannst"}
-- eine Datei nutzt `;` statt `,` → die Spalten verrutschen,
+- eine Datei nutzt `;` statt `,` → die Spalten verrutschen. Lösung: im Editor *Suchen und Ersetzen*, `;` durch `,` ersetzen, bevor Du die Zeilen anhängst,
 - eine Kopfzeile ist mitten in den Daten gelandet,
 - zwei Dateien enthalten denselben Seed-Datensatz (bei mehr als 10 Teilnehmenden) → dieselben 9 Personen stehen doppelt drin.
 :::
@@ -101,7 +101,7 @@ Ein Klick auf den Spaltenkopf öffnet das Variablen-Fenster. In der Tabelle mit 
 ## Schritt 6: Plausibilitäts-Check
 
 1. **Descriptives → Descriptive Statistics**, alle Variablen außer `quelle_datei` hineinziehen.
-2. **Frequency tables** aktivieren.
+2. **Frequency tables** aktivieren (JASP zeigt sie nur für Variablen mit höchstens 10 verschiedenen Werten, für `id` also keine).
 3. Prüfe: Kommt bei `quelle_datensatz` jeder Datensatz mit 9 Zeilen vor, plus je eine Zeile für jede fiktive Person, die mit diesem Datensatz hochgeladen wurde? Liegen alle BFI-Items zwischen 1 und 5?
 
 Speichere Deine Arbeit als `.jasp`-Datei (**File → Save As**). Du baust in den nächsten Sitzungen darauf auf.

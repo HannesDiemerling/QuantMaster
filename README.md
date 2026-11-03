@@ -9,30 +9,33 @@ Seminar zum Modul **M15: Multivariate Verfahren, Forschungsmethoden & Psychother
 
 ## Quick-Start für Studierende
 
-1. **Vor Sitzung 01:** JASP installieren, empfohlen: GitHub-Account anlegen.
+1. **Vor Sitzung 01:** JASP installieren und auf Englisch stellen, empfohlen: GitHub-Account anlegen.
 2. Seminar-Site öffnen und mit Sitzung 01 starten. Alle Inhalte stehen dort.
 
 ## Quick-Start für die Lehrperson
 
 | Wann | Aufgabe | Wo / Wie |
 |---|---|---|
-| Vor Semesterstart | Alte Uploads löschen | `data/student-uploads/` leeren (`.gitkeep` behalten), `data/combined/` leeren |
+| Vor Semesterstart | Alte Uploads löschen | `data/student-uploads/` leeren (`.gitkeep` und `README.md` behalten) |
 | Vor Semesterstart | Termine eintragen | Tabelle in `index.qmd` |
-| Vor Sitzung 01 | Teilnehmerliste (alphabetisch, Listennummer $n$) erstellen, Studierende mit GitHub-Account als Collaborator einladen (Account ist freiwillig) | Daraus: Kennziffer 2000 + n, Datensatz ((n − 1) mod 10) + 1, Kleingruppe n/4 aufgerundet; GitHub-Benutzernamen per Vorab-Mail |
-| Sitzung 01 | Mail-Uploads (Betreff `M15 Upload <Kennziffer>`) selbst einstellen | Anhang im Repo unter `data/student-uploads/` hochladen (Add file → Upload files); der Merge erkennt den Datensatz am Inhalt, der Dateiname ist egal |
+| Sitzung 01 | Offizielle Teilnehmerliste zeigen (Listennummer $n$ = Position); Stand vom Sitzungstag als Kopie aufheben, damit spätere Änderungen der Liste die Nummern nicht verschieben. Nachzügler bekommen die nächste freie Nummer. Studierende mit GitHub-Account als Collaborator einladen (Account ist freiwillig; max. 50 Einladungen pro Tag, Einladungen verfallen nach 7 Tagen, offene Einladungen unter Settings → Collaborators) | Daraus: Kennziffer 2000 + n, Datensatz ((n − 1) mod 10) + 1, Kleingruppe n/4 aufgerundet; GitHub-Benutzernamen per Vorab-Mail |
+| Sitzung 01 | Mail-Uploads (Betreff `M15 Upload <Kennziffer>`) selbst einstellen | Anhang vorher in `datensatz-XX-<Kennziffer>.csv` umbenennen (gleichnamige Dateien überschreiben sich!), dann unter `data/student-uploads/` hochladen (Add file → Upload files). Möglichst noch in der Sitzung, damit die Person den Report prüfen kann |
 | Sitzung 01 | Uploads laufen automatisch zusammen | Workflow **Merge student uploads** (Actions-Tab) schreibt `data/combined/m15-gesamt.csv`, `merge-report.md` und `meta-studien.csv` |
-| 2 Tage vor Sitzung 02 | Datensatz **einfrieren** | Actions → *Merge student uploads* → **Disable workflow**. Danach rechnen alle mit derselben Datei. |
-| danach | Antwortbogen erzeugen | lokal `Rscript scripts/antwortbogen.R` → `intern/antwortbogen.md` (gitignored, **nie committen**); schreibt auch die Abgabe-Vorlagen `sitzungXX/_abgabe.md` neu |
-| Sitzung 01 | Doppelte Uploads aufräumen | Meldet der Merge-Report „keine gültige/eindeutige Kennziffer" für zwei Dateien derselben Person, die ältere Datei löschen |
+| 2 Tage vor Sitzung 02 | Datensatz **einfrieren** | Letzten Merge-Lauf grün abwarten, dann Actions → *Merge student uploads* → **Disable workflow** und nicht wieder aktivieren (späte Uploads würden sonst Datensatz und Antwortbogen verändern). Danach rechnen alle mit derselben Datei. |
+| danach | Antwortbogen erzeugen | lokal `git pull`, dann `Rscript scripts/antwortbogen.R` → `intern/antwortbogen.md` (gitignored, **nie committen**); schreibt auch die Abgabe-Vorlagen `sitzungXX/_abgabe.md` neu |
+| Sitzung 01 | Uploads zählen | Zahl der Dateien im Merge-Report mit der Zahl der Anwesenden vergleichen. Fehlt jemand trotz Upload, wurde evtl. eine gleichnamige Datei überschrieben: Datei öffnen → *History* → ältere Version → *Download raw file* → unter dem richtigen Namen neu hochladen |
+| Sitzung 01 | Doppelte Uploads aufräumen | Status **DOPPELT** im Merge-Report: die ältere der beiden Dateien löschen (Datei öffnen → „…“ → *Delete file* → Commit) |
 | laufend | Abgaben prüfen | eine Mail pro Person und Sitzung, Betreff `M15 SNN <Kennziffer>`; Felder gegen den Antwortbogen abgleichen |
 
 Hinweise:
 
-- Der **Merge-Report** zeigt pro Upload-Datei: erkannt ja/nein, Seed-Datensatz, gefundene Fehler (z. B. `2/2`), Abweichungen von der Referenz-Bereinigung und Warnungen (falscher Name/Ordner, Semikolon, Zusatzspalten, ungültige Kennziffer). Damit hast Du auch das Feedback zur Bereinigung aus Sitzung 01.
+- **Hilfe-Spickzettel** für Probleme in Sitzung 01–03: `intern/hilfe-spickzettel.md` (lokal, gitignored).
+- Der **Merge-Report** zeigt pro Upload-Datei Kennziffer, Status (ok / PRÜFEN / DOPPELT / IGNORIERT), Seed-Datensatz, gefundene Fehler (z. B. `2/2`), Abweichungen von der Referenz-Bereinigung und Hinweise (falscher Name/Ordner, Semikolon, Zusatzspalten, ungültige Kennziffer). Fiktive Personen werden nur aus eindeutigen Dateien übernommen (genau ein Übungsdatensatz, genau eine fiktive Person). Damit hast Du auch das Feedback zur Bereinigung aus Sitzung 01.
 - Der Merge ist robust gegen typische Upload-Fehler: Er liest alle CSVs unter `data/` und im Repo-Root, erkennt vorgenerierte Zeilen am Inhalt und übernimmt jeden Seed-Datensatz genau einmal. Mit `ALLE_SEEDS <- TRUE` (Standard) sind immer alle zehn Seed-Datensätze enthalten, auch wenn bei kleinen Kursen einer nicht hochgeladen wurde.
 - Bei vielen gleichzeitigen Uploads läuft immer nur ein Merge; der nächste wartet und verarbeitet dann alle neuen Dateien. Rote Läufe sollten nicht vorkommen; falls doch: Actions → *Merge student uploads* → *Run workflow*.
 - `antwortbogen.R` braucht R mit `MASS`, `lme4`, `lavaan` und `BayesFactor` (`install.packages(c("lme4", "lavaan", "BayesFactor"))`). Abgabefelder werden dort pro Kapitel definiert; wer Kapitel verschiebt, passt nur `SITZUNG` an.
 - Fehler-Übersicht der vorgenerierten Datensätze: steht im Antwortbogen (Abschnitt Sitzung 01).
+- Der Merge rechnet mit den Referenzkopien in `scripts/referenz/`. Überschreibt jemand eine Datei in `data/generated/`, bleibt der Gesamtdatensatz korrekt; der Report zeigt dann oben eine ACHTUNG-Zeile, und die Datei sollte zurückgesetzt werden. Werden die Übungsdatensätze absichtlich neu erzeugt, die Kopien in `scripts/referenz/` ebenfalls ersetzen.
 - Die Kontakt-Mailadresse steht zentral in `_quarto.yml` (`kurs.mail`).
 
 ## Repository-Struktur
@@ -51,7 +54,8 @@ Hinweise:
 ├── scripts/
 │   ├── generate-datasets.R       # erzeugt die 10 Datensätze deterministisch
 │   ├── merge-uploads.R           # kombiniert alle Uploads (fail-safe), schreibt Merge-Report
-│   └── antwortbogen.R            # INTERN: Sollwerte + Toleranzbereiche aller Abgabefelder
+│   ├── antwortbogen.R            # INTERN: Sollwerte + Toleranzbereiche aller Abgabefelder
+│   └── referenz/                 # unveränderliche Kopien der Übungsdatensätze für den Merge
 └── .github/workflows/
     ├── publish.yml               # rendert die Site und deployed nach GitHub Pages
     ├── merge-uploads.yml         # bei jedem CSV-Upload: Gesamtdatensatz neu bauen

@@ -158,7 +158,7 @@ Beide Ansätze sind legitim. In Deiner Master-Arbeit kannst Du sogar **beide** b
 3. Rechne die **Bayes-Korrelation** `E_mean` × `O_mean` und lies ebenfalls Median und Credible Interval von $\rho$ ab.
 4. Notiere für **beide** Analysen die zentralen Kennwerte: den **Posterior-Median** und das **95 %-Credible-Interval** des Effekts und formuliere jeweils die Wahrscheinlichkeitsaussage, die daraus folgt (schließt das Intervall die 0 ein oder nicht?).
 
-**Bonus (für die Schnellen):**
+**Bonus:**
 
 - Stell beim *t*-Test die **gerichtete** Hypothese „Gruppe 1 > Gruppe 2" ein. Wie verändert sich der Posterior, und was sagt er über die Wahrscheinlichkeit der Richtung?
 - Schau Dir den ergänzenden $BF_{10}$ an: Deckt er sich mit dem, was Dir der Posterior schon gezeigt hat?

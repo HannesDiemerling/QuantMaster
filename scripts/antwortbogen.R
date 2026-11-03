@@ -95,8 +95,9 @@ for (i in 1:10) {
   fehler <- c(fehler, sprintf("| %02d | %s | %s |", i, txt[1], txt[2]))
 }
 add("bereinigung", "Datensatz-Nummer", "((Listennummer − 1) mod 10) + 1")
-add("bereinigung", "Fehler 1 (Zeile, Spalte, gefundener Wert)", "siehe Fehlertabelle unten")
-add("bereinigung", "Fehler 2 (Zeile, Spalte, gefundener Wert)", "siehe Fehlertabelle unten")
+add("bereinigung", "Fehler 1 (Zeilennummer in JASP, Spalte, gefundener Wert)", "siehe Fehlertabelle unten")
+add("bereinigung", "Fehler 2 (Zeilennummer in JASP, Spalte, gefundener Wert)", "siehe Fehlertabelle unten")
+add("bereinigung", "Ein Satz: Warum setzt Du fehlerhafte Werte auf fehlend, statt die ganze Zeile zu löschen?", hinweis = "Stichprobe/Information bleibt erhalten")
 add("bereinigung", "Name Deiner hochgeladenen Datei (+ „GitHub“ oder „per Mail“)", "datensatz-XX-<Kennziffer>.csv", hinweis = "Abgleich mit data/combined/merge-report.md")
 
 # === Sitzung 2: Gesamtdatensatz & Deskription ==================================
@@ -116,7 +117,8 @@ num("deskriptiv", "Mittelwert BFI_06", mean(d$BFI_06, na.rm = TRUE), .01)
 tb <- table(d$bildungsgrad)
 add("deskriptiv", "Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm)", paste(names(tb)[tb == max(tb)], collapse = " / "))
 add("deskriptiv", "Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/nein + 1 Satz)",
-    if (skew_G1(a) > .5) "nein" else "ja / eher ja", hinweis = sprintf("Schiefe = %s", fmt(skew_G1(a))))
+    if (skew_G1(a) > .5) "nein" else "ja / eher ja",
+    hinweis = sprintf("Schiefe = %s, Shapiro p = %s; begründete Antwort in beide Richtungen ok", fmt(skew_G1(a)), fmt(shapiro.test(a)$p.value, 3)))
 
 # === Sitzung 3: Skalen & Effektgrößen ==========================================
 exact("skalen", "Anzahl gültiger Werte (Valid) von E_mean", sum(!is.na(d$E_mean)),
@@ -134,19 +136,19 @@ num("korrelation", "H1: Pearson r (V_mean × N_mean)", h1$estimate, .01)
 pval("korrelation", "H1: p-Wert", h1$p.value)
 ps <- c(h1$p.value, cor.test(d$O_mean, d$E_mean)$p.value, cor.test(d$G_mean, d$alter)$p.value,
         suppressWarnings(cor.test(d$N_mean, d$bildungsgrad, method = "spearman"))$p.value)
-exact("korrelation", "Wie viele der Hypothesen H1–H4 sind signifikant (p < .05)?", sum(ps < .05),
+exact("korrelation", "Wie viele der Hypothesen H1–H4 sind signifikant (p < .05, zweiseitig getestet)?", sum(ps < .05),
       hinweis = paste("p H1–H4:", paste(fmt(ps, 3), collapse = ", ")))
 add("korrelation", "Eine alternative Erklärung (Drittvariable) für eine der Korrelationen, 1 Satz", hinweis = "plausible Drittvariable")
 t1 <- t.test(d$E_mean, mu = 3)
 num("ttest", "t1: t", t1$statistic, .01)
 num("ttest", "t1: Cohen's d", (mean(d$E_mean, na.rm = TRUE) - 3) / sd(d$E_mean, na.rm = TRUE), .01)
 t2 <- t.test(V_mean ~ geschlecht, data = mw)
-num("ttest", "t2 (Welch-Zeile): t", t2$statistic, .01, hinweis = "Vorzeichen = Gruppe 1 − Gruppe 2")
+num("ttest", "t2 (Welch-Zeile): t", t2$statistic, .01, hinweis = "Vorzeichen egal (hängt von der Gruppenreihenfolge ab), Betrag zählt")
 pval("ttest", "t2 (Welch-Zeile): p", t2$p.value)
 g <- lapply(split(mw$V_mean, mw$geschlecht), na.omit)
 d_pool <- (mean(g[[1]]) - mean(g[[2]])) / sqrt(((length(g[[1]]) - 1) * var(g[[1]]) + (length(g[[2]]) - 1) * var(g[[2]])) / (length(g[[1]]) + length(g[[2]]) - 2))
 d_avg <- (mean(g[[1]]) - mean(g[[2]])) / sqrt((var(g[[1]]) + var(g[[2]])) / 2)
-range2("ttest", "t2: Cohen's d", d_avg, d_pool, .01, hinweis = "Welch-d bzw. gepoolt")
+range2("ttest", "t2: Cohen's d", d_avg, d_pool, .01, hinweis = "Welch-d bzw. gepoolt; Vorzeichen egal, Betrag zählt")
 t3 <- t.test(O_mean ~ bildung_gruppe, data = d)
 pval("ttest", "t3 (Welch-Zeile): p", t3$p.value)
 add("ttest", "Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und welchen Vorbehalt hast Du?", hinweis = "Effektgröße/KI statt nur p")

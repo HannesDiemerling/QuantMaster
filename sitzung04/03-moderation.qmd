@@ -105,7 +105,7 @@ Bei rund einem von zwanzig Tests passiert das rein zufällig (Fehler erster Art)
 3. Lies die **Interaktionszeile** ab und notiere ihre zentralen Kennwerte ($b_3$, $p$, Konfidenzintervall) zusammen mit Deiner Schlussfolgerung, ob eine Moderation vorliegt.
 4. Erzeuge **einen Interaktionsplot** (in JASP unter **Plots → Marginal effects plots**; alternativ beschreibe in einem Satz, wie die Geraden zueinander stehen).
 
-**Bonus (für die Schnellen):**
+**Bonus:**
 
 - Wiederhole mit einem anderen Paar (z. B. `O_c * V_c` auf `G_mean`). Auch null?
 - Erkläre in zwei Sätzen, warum ein nicht-signifikanter Interaktionsterm hier **erwartbar** war (Verweis auf Datengenerierung und Power).

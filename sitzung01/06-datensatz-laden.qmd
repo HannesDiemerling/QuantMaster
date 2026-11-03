@@ -10,11 +10,11 @@ Nach diesem Kapitel hast Du …
 
 ## Worum es geht
 
-Im Repo liegen unter `data/generated/` zehn Datensätze, jeder mit 9 Probanden und genau 2 absichtlichen Fehlern. Du bekommst einen davon zugewiesen, lädst ihn herunter und nimmst ihn mit nach JASP.
+Im Repo liegen unter `data/generated/` zehn Datensätze als CSV-Dateien, jeder mit 9 Probanden und genau 2 absichtlichen Fehlern. Eine CSV-Datei ist eine reine Textdatei: Jede Zeile ist eine Person, und die Werte sind durch Kommas getrennt. Du bekommst einen davon zugewiesen, lädst ihn herunter und nimmst ihn mit nach JASP.
 
 ## Zuweisung
 
-Die Zuweisung ergibt sich aus Deiner **Listennummer** $n$ in der alphabetischen Teilnehmerliste (@sec-nummern): Datensatz $= ((n-1) \bmod 10) + 1$.
+Die Zuweisung ergibt sich aus Deiner **Listennummer** $n$ in der Teilnehmerliste (@sec-nummern): Datensatz $= ((n-1) \bmod 10) + 1$.
 
 | Listennummer | 1 | 2 | … | 10 | 11 | 12 | … | 21 | … |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -23,7 +23,7 @@ Die Zuweisung ergibt sich aus Deiner **Listennummer** $n$ in der alphabetischen 
 Merke Dir Deine Nummer als zweistellige Zahl: `01`, `02`, …, `10`.
 
 ::: {.callout-tip title="Doppelt zugewiesen ist Absicht"}
-Wenn mehr als 10 Teilnehmende dabei sind, bearbeiten zwei (oder mehr) Personen denselben vorgenerierten Datensatz. Später siehst Du, wie unterschiedlich dieselbe Datei bereinigt werden kann.
+Wenn mehr als 10 Teilnehmende dabei sind, bearbeiten zwei (oder mehr) Personen denselben vorgenerierten Datensatz. Deshalb ist der eigene Dateiname beim Hochladen so wichtig (@sec-tag1-upload).
 :::
 
 ## Aufgabe
@@ -37,8 +37,9 @@ GitHub zeigt Dir den CSV-Inhalt als Tabelle.
 
 ### 2. Herunterladen
 
-- Klicke auf den Button **„Download raw file"** (oben rechts, Pfeil-nach-unten-Symbol). Alternativ geht auch ein Rechtsklick auf den Dateinamen → „Save link as …".
-- Speichere die Datei in einem Ordner Deiner Wahl, **ohne den Namen zu ändern**. Sie heißt also weiterhin `datensatz-XX.csv`.
+- Klicke auf den Button **„Download raw file"** (oben rechts, Pfeil-nach-unten-Symbol). Alternativ: Rechtsklick auf den Button **Raw** → *Ziel speichern unter …* bzw. *Verknüpfte Datei laden unter …*. (Ein Rechtsklick auf den Dateinamen speichert dagegen die GitHub-Webseite, nicht die Daten.)
+- Speichere die Datei in einem Ordner Deiner Wahl. Heißt sie danach `datensatz-XX.csv.txt` oder `datensatz-XX (1).csv`, ist das kein Problem, JASP öffnet sie trotzdem.
+- Auf dem Mac blendet der Finder Dateiendungen oft aus. Einblenden: Finder → Einstellungen → Erweitert → *Alle Dateinamensuffixe einblenden*.
 
 ### 3. Datei prüfen
 

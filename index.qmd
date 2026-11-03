@@ -36,7 +36,7 @@ Jedes Kapitel ist gleich aufgebaut: **Lernziele**, kompakter Theorieteil, **Aufg
 
 ## Deine Nummern
 
-In Sitzung 01 bekommst Du über die alphabetische Teilnehmerliste Deine **Listennummer**. Daraus ergeben sich Deine **Kennziffer** (Pseudonym), Dein **Übungsdatensatz** und Deine **Kleingruppe**. Wie das genau funktioniert, steht in @sec-nummern.
+In Sitzung 01 schaust Du in der offiziellen Teilnehmerliste der Veranstaltung nach, an welcher Stelle Du stehst. Das ist Deine **Listennummer**. Merk sie Dir gut, sie gilt für das ganze Semester. Daraus ergeben sich Deine **Kennziffer** (Pseudonym), Dein **Übungsdatensatz** und Deine **Kleingruppe**. Wie das genau funktioniert, steht in @sec-nummern.
 
 ## Abgaben
 
@@ -50,7 +50,7 @@ Pro Sitzung schickst Du **eine** kurze Mail an [{{< meta kurs.mail >}}](mailto:{
 4. **Seminar-Repo** mit Daten und Merge-Report: [{{< meta kurs.repo >}}]({{< meta kurs.repo >}})
 
 ::: {.callout-important title="Vor Sitzung 01 erledigen"}
-- JASP installieren und einmal starten
+- JASP installieren, einmal starten und die Sprache auf Englisch stellen (Menü ☰ → Einstellungen → Bedienoberfläche → Bevorzugte Sprache → English), denn alle Anleitungen nutzen die englischen Bezeichnungen
 - Empfohlen: GitHub-Account anlegen und den Benutzernamen per Mail an die Lehrperson schicken (dann hast Du in Sitzung 01 Schreibrechte)
 - Zur Vorbereitung lesen: @sec-tag1-open-science, @sec-tag1-ethik, @sec-tag1-messtheorie
 :::

@@ -12,11 +12,11 @@ Schick **eine** Mail bis spätestens zum Tag vor Sitzung 02 an [{{< meta kurs.ma
 
 - **Betreff:** `M15 S01 <Kennziffer>`
 - **Anhang:** keiner
-- **Text:** Vorlage kopieren und ausfüllen. Dezimalzahlen mit 2 Nachkommastellen (wo nicht anders angegeben), p-Werte mit 3.
+- **Text:** Vorlage kopieren und ausfüllen.
 
 {{< include _abgabe.md >}}
 
-Hast Du per Mail hochgeladen (Weg B)? Dann ist das keine zweite Abgabe, die Upload-Mail und diese Abgabe-Mail sind getrennt. Schau nach dem Upload im [Merge-Report]({{< meta kurs.repo >}}/blob/main/data/combined/merge-report.md), ob Deine Datei als „ok" erkannt wurde.
+Auch wenn Du Deine Datei per Mail geschickt hast (Weg B), brauchst Du zusätzlich diese Abgabe-Mail. Die Upload-Mail zählt nicht als Abgabe. Schau nach dem Upload im [Merge-Report]({{< meta kurs.repo >}}/blob/main/data/combined/merge-report.md), ob Deine Datei als „ok" erkannt wurde.
 
 ## Offene Fragen?
 

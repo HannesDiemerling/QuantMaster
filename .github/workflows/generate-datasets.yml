@@ -25,11 +25,14 @@ jobs:
         run: Rscript -e 'install.packages(c("readr", "dplyr", "MASS"))'
 
       - name: Generate datasets
-        run: Rscript scripts/generate-datasets.R
+        run: |
+          Rscript scripts/generate-datasets.R
+          mkdir -p scripts/referenz
+          cp data/generated/datensatz-*.csv scripts/referenz/   # Referenz für den Merge aktuell halten
 
       - name: Commit generated datasets
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(data): regenerate seed datasets"
           # Muss in EINER Zeile stehen: die Action liest nur die erste Zeile.
-          file_pattern: data/generated/*.csv scripts/error-overview.md
+          file_pattern: data/generated/*.csv scripts/referenz/*.csv scripts/error-overview.md

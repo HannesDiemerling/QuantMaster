@@ -54,7 +54,7 @@ Für jede Skala legst Du in JASP eine neue Spalte an.
 
 ### Vorgehen pro Skala
 
-1. In der Datenansicht oben rechts auf das **„+"** klicken. Es öffnet sich **Create Computed Column**.
+1. In der Datenansicht auf das **„+"** rechts neben dem letzten Spaltenkopf klicken (nicht das blaue „+" für Module). Es öffnet sich **Create Computed Column**. (Zeigt JASP später einen Fehler oder eine leere Spalte, stehen die BFI-Items vermutlich nicht auf **Scale**.)
 2. Bei **Name:** `E_mean` eintragen, **Define column through R code** wählen, Typ **Scale**, dann **Create Column**.
 3. Formel ins Code-Feld eintragen:
 
@@ -94,7 +94,7 @@ Wenn ein Skalenmittelwert systematisch außerhalb liegt: meistens hast Du ein It
 
 ## Reliabilität: Cronbach's α und McDonald's ω
 
-Die Reliabilität misst, wie **konsistent** die Items einer Skala denselben latenten Wert messen. Zwei gängige Maße:
+Cronbach's α und McDonald's ω schätzen die Reliabilität über die **interne Konsistenz**: wie einheitlich die Items einer Skala denselben latenten Wert messen. (Die Retest-Reliabilität aus Sitzung 01 ist ein anderer Zugang.) Zwei gängige Maße:
 
 | Maß | Idee | Wann verwenden? |
 |---|---|---|
@@ -107,9 +107,9 @@ Die Reliabilität misst, wie **konsistent** die Items einer Skala denselben late
 |---:|---|
 | ≥ .90 | exzellent |
 | .80–.89 | gut |
-| .70–.79 | akzeptabel (gerade so) |
-| .60–.69 | fragwürdig |
-| < .60 | unbrauchbar |
+| .70–.79 | akzeptabel |
+| .60–.69 | eher niedrig |
+| < .60 | niedrig |
 
 Im BFI-K sind die Skalen *kurz* (4–5 Items). Erwarte deshalb keine sehr hohen Werte. Bei so kurzen Skalen sind Werte um .70 normal, einzelne Skalen liegen auch in der Literatur darunter.
 
@@ -129,6 +129,8 @@ Im BFI-K sind die Skalen *kurz* (4–5 Items). Erwarte deshalb keine sehr hohen 
 - Steht in der Spalte **Cronbach's α (if item dropped)** ein Wert *höher* als der Gesamt-α, ist das Item ein Kandidat zum Rauswerfen. Es passt nicht zur Skala.
 - Bei kurzen Skalen wirst Du das aber selten machen, weil die Skala dann zu klein wird (z. B. 3 statt 4 Items).
 - **Item-rest correlation** unter .30 → das Item passt eher schlecht zur Skala.
+
+Warum ist das wichtig? Messfehler schwächt Zusammenhänge ab: Das beobachtete $r$ ist ungefähr das wahre $r$ mal $\sqrt{\text{Rel}_X \cdot \text{Rel}_Y}$. Bei einer Reliabilität von .60 auf beiden Seiten wird aus einem wahren $r = .50$ nur noch etwa $.30$, und die Power sinkt entsprechend.
 
 In unseren simulierten Daten solltest Du brauchbare α-Werte sehen (etwa .60–.80). Die Daten wurden so erzeugt, dass Items derselben Skala mit $r \approx .40$ zusammenhängen und Items verschiedener Skalen nur mit $r \approx .10$.
 
@@ -155,10 +157,10 @@ In unseren simulierten Daten solltest Du brauchbare α-Werte sehen (etwa .60–.
 3. Berechne für **alle fünf Skalen** Cronbach's α und McDonald's ω. Optionen aktivieren: **Item-rest correlation**, **Cronbach's α (if item dropped)**, Missing Values **Delete listwise**.
 4. Notiere in zwei Sätzen: *welche Skala* die höchste und welche die niedrigste Reliabilität hat und ob es ein Item gibt, bei dem „α if dropped" deutlich über dem Gesamt-α liegt.
 
-**Bonus (für die Schnellen):**
+**Bonus:**
 
 - **Pearson-Korrelation der fünf Skalenmittelwerte untereinander** (**Regression → Classical → Correlation** mit den 5 `*_mean`-Variablen). Was siehst Du?
-- Wiederhole die Reliabilität nur für **Personen ab Bildungsgrad 5** (Filter setzen). Verändert sich α deutlich?
+- Wiederhole die Reliabilität nur für **Personen ab Bildungsgrad 5** (Filter setzen). Verändert sich α deutlich? Notiere vorher Deine Abgabewerte und entferne den Filter danach wieder, sonst ändern sich alle Ergebnisse in der Datei.
 
 ::: {.callout-tip title="Für die Abgabe"}
 Notiere: Valid-Anzahl von `E_mean`, Mittelwert und SD von `N_mean`, die Skalen mit höchstem und niedrigstem Cronbach's α. Siehe @sec-s03-abschluss.

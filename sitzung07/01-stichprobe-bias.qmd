@@ -150,7 +150,7 @@ In vielen JASP-Analysen findest Du unter den Optionen eine Einstellung für fehl
 2. Schreib eine **kurze Notiz (2–3 Sätze)**: *Wer steckt in unserem Datensatz?* Beziehe Dich auf mindestens zwei der vier Bias-Typen aus der Tabelle.
 3. Schau in der Descriptives-Tabelle die Anzahl **Missing** je Variable an und benenne das **BFI-Item mit den meisten fehlenden Werten** samt Anzahl (bei Gleichstand eines davon).
 
-**Bonus (für die Schnellen):**
+**Bonus:**
 
 - Boxplot `alter` gruppiert nach `geschlecht`.
 - Bar Chart `bildungsgrad` gruppiert nach `quelle_datensatz` (Feld **Split**; `quelle_datensatz` muss dafür Nominal sein). Sind die zehn vorgenerierten Datensätze in der Bildung vergleichbar verteilt?

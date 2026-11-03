@@ -118,7 +118,7 @@ ML entfaltet seine Stärke bei **großen** Datensätzen (Tausende Fälle) mit **
 2. Rechne dasselbe als **kleines neuronales Netz** (1 Hidden Layer, 2–4 Knoten).
 3. Notiere die zentralen Kennwerte zum Vergleich: die **Test-AUC** von Random Forest, neuronalem Netz und (zum Vergleich) der logistischen Regression aus @sec-tag3-logistisch (Achtung: die wurde auf allen Daten berechnet und ist deshalb eher zu optimistisch), das **wichtigste Feature** und Deine Schlussfolgerung.
 
-**Bonus (für die Schnellen):**
+**Bonus:**
 
 - Füg `alter` und `bildungsgrad` als zusätzliche Features hinzu. Wird die Test-AUC **besser**? Erkläre das Ergebnis.
 - Rechne ein **k-means-Clustering** (**Machine Learning → Unsupervised Learning → Clustering → Neighborhood-Based**) über die fünf Skalen. Wie viele Cluster schlägt JASP vor, und sind sie inhaltlich plausibel?

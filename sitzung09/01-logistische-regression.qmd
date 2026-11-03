@@ -121,7 +121,7 @@ Einen festen Wortlaut gibt es nicht, aber diese Angaben sollten vollständig vor
 2. Rechne `N_hoch` ~ `E_mean` + `V_mean` + `G_mean` + `O_mean` mit Odds Ratios, KI, Confusion Matrix und ROC/AUC.
 3. Notiere die zentralen Kennwerte: Modelltest ($\chi^2$, df, $p$), Nagelkerke-$R^2$, AUC sowie das Odds Ratio des stärksten Prädiktors mit Konfidenzintervall, dazu Deine Schlussfolgerung.
 
-**Bonus (für die Schnellen):**
+**Bonus:**
 
 - Versuch dasselbe mit **`geschlecht` (1 vs. 2)** als Outcome und den Skalen als Prädiktoren. Findet das Modell etwas? Warum (nicht)?
 - Interpretiere **ein** OR ausführlich in einem Satz in der Wahrscheinlichkeits-Sprache.

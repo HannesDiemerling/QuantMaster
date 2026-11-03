@@ -7,7 +7,7 @@ S03-4 Skala mit dem höchsten Cronbach's α (Skala + α):
 S03-5 Skala mit dem niedrigsten Cronbach's α (Skala + α): 
 S03-6 H1: Pearson r (V_mean × N_mean): 
 S03-7 H1: p-Wert: 
-S03-8 Wie viele der Hypothesen H1–H4 sind signifikant (p < .05)?: 
+S03-8 Wie viele der Hypothesen H1–H4 sind signifikant (p < .05, zweiseitig getestet)?: 
 S03-9 Eine alternative Erklärung (Drittvariable) für eine der Korrelationen, 1 Satz: 
 S03-10 t1: t: 
 S03-11 t1: Cohen's d: 

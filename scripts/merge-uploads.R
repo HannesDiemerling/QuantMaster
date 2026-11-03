@@ -30,6 +30,21 @@ KENNZIFFER <- 2001:2099   # gültige Kennziffern (2000 + Listennummer)
 ALLE_SEEDS <- TRUE        # alle 10 Seed-Datensätze aufnehmen, auch wenn einer nicht hochgeladen wurde
                           # (hält N, Metaanalyse und Mixed Model bei kleinen Kursen stabil)
 
+# Referenz = unveränderliche Kopie der Übungsdatensätze in scripts/referenz/.
+# Studierende haben Schreibrechte auf das ganze Repo; lädt jemand versehentlich
+# etwas nach data/generated/, bleibt der Merge trotzdem korrekt und meldet es.
+# Nach einer gewollten Neuerzeugung der Datensätze die Kopien aktualisieren.
+REF_DIR    <- "scripts/referenz"
+SEED_NAMES <- sprintf("datensatz-%02d.csv", 1:10)
+
+seed_hash <- function(path) {
+  x <- read.csv(path, colClasses = "character")
+  f <- tempfile()
+  writeBin(charToRaw(enc2utf8(paste(c(paste(names(x), collapse = ","),
+                                      apply(x, 1, paste, collapse = ",")), collapse = "\n"))), f)
+  unname(tools::md5sum(f))
+}
+
 DEMO  <- c("probandennummer", "geschlecht", "alter", "bildungsgrad")
 BFI   <- sprintf("BFI_%02d", 1:21)
 COLS  <- c(DEMO, BFI)
@@ -55,7 +70,7 @@ load_generator <- function(path) {
 build_reference <- function() {
   g <- load_generator(GENERATOR)
   lapply(seq_len(g$N_DATASETS), function(i) {
-    raw <- read.csv(sprintf("data/generated/datensatz-%02d.csv", i))[COLS]
+    raw <- read.csv(file.path(REF_DIR, SEED_NAMES[i]))[COLS]
     errors <- g$apply_errors(raw, i)$errors
     clean <- raw
     for (err in errors) {
@@ -79,10 +94,32 @@ canonical_names <- function(x) {
   x
 }
 
+# Liest eine Textdatei unabhängig von Kodierung und Zeilenenden (UTF-8 mit/ohne
+# BOM, UTF-16 aus Excel "Unicode-Text", Latin-1, CRLF/LF/CR). Binärdateien
+# (z. B. umbenannte .xlsx) werden erkannt statt das Skript abzubrechen.
+read_lines_any <- function(path) {
+  raw <- readBin(path, "raw", n = file.info(path)$size)
+  if (length(raw) == 0) return(character(0))
+  b <- function(...) as.raw(c(...))
+  if (length(raw) >= 2 && identical(raw[1:2], b(0xff, 0xfe))) {
+    txt <- iconv(list(raw[-(1:2)]), from = "UTF-16LE", to = "UTF-8")
+  } else if (length(raw) >= 2 && identical(raw[1:2], b(0xfe, 0xff))) {
+    txt <- iconv(list(raw[-(1:2)]), from = "UTF-16BE", to = "UTF-8")
+  } else {
+    if (any(raw == as.raw(0))) stop("keine Textdatei (z. B. eine umbenannte Excel- oder JASP-Datei)")
+    if (length(raw) >= 3 && identical(raw[1:3], b(0xef, 0xbb, 0xbf))) raw <- raw[-(1:3)]
+    txt <- rawToChar(raw)
+    Encoding(txt) <- "UTF-8"
+    if (!validUTF8(txt)) txt <- iconv(txt, from = "latin1", to = "UTF-8")
+  }
+  if (is.na(txt)) stop("Zeichenkodierung nicht lesbar")
+  strsplit(txt, "\r\n|\n|\r")[[1]]
+}
+
 read_upload <- function(path) {
-  txt <- readLines(path, warn = FALSE, encoding = "UTF-8")
-  txt <- sub("^﻿", "", txt)
-  txt <- txt[nzchar(trimws(gsub("[,;\t]", "", txt)))]
+  txt <- read_lines_any(path)
+  if (length(txt) > 0 && grepl("^\\s*\"?sep=", txt[1], ignore.case = TRUE)) txt <- txt[-1]   # Excel-Zeile "sep=;"
+  txt <- txt[nzchar(trimws(gsub("[,;\t\"]", "", txt)))]
   if (length(txt) < 2) return(list(error = "Datei ist leer oder hat nur eine Kopfzeile"))
   counts <- c("," = lengths(regmatches(txt[1], gregexpr(",", txt[1]))),
               ";" = lengths(regmatches(txt[1], gregexpr(";", txt[1]))),
@@ -90,7 +127,7 @@ read_upload <- function(path) {
   sep <- names(which.max(counts))
   df <- tryCatch(
     read.table(text = txt, sep = sep, header = TRUE, quote = "\"",
-               colClasses = "character", na.strings = c("", "NA", "na", "."),
+               colClasses = "character", na.strings = c("", "NA", "na", ".", "NaN", "nan", "-", "NULL", "n/a", "N/A", "#NV", "#N/A"),
                strip.white = TRUE, check.names = FALSE, fill = TRUE,
                comment.char = ""),
     error = function(e) NULL)
@@ -105,9 +142,16 @@ read_upload <- function(path) {
   if (sep != ",") notes <- c(notes, sprintf("Trennzeichen '%s' statt Komma", ifelse(sep == "\t", "Tab", sep)))
   extra <- setdiff(names(df), COLS)
   if (length(extra) > 0) notes <- c(notes, sprintf("Zusatzspalten ignoriert: %s", paste(extra, collapse = ", ")))
+  # Labels statt Codes (z. B. JASP-Export mit Wertelabels) für geschlecht zurückübersetzen
+  g <- tolower(trimws(df$geschlecht))
+  df$geschlecht[g %in% c("weiblich", "w", "female", "f", "frau")] <- "1"
+  df$geschlecht[g %in% c("männlich", "maennlich", "m", "male", "mann")] <- "2"
+  df$geschlecht[g %in% c("divers", "d", "diverse", "other")] <- "3"
   out <- as.data.frame(lapply(df[COLS], function(v) {
     v <- gsub(",", ".", trimws(v))
-    suppressWarnings(as.numeric(v))
+    x <- suppressWarnings(as.numeric(v))
+    x[is.nan(x)] <- NA
+    x
   }), check.names = FALSE)
   bad <- sum(is.na(out) & !is.na(as.matrix(df[COLS])))
   if (bad > 0) notes <- c(notes, sprintf("%d nicht-numerische Werte -> fehlend", bad))
@@ -144,15 +188,24 @@ clean_range <- function(df) {
 # --- Hauptteil ---------------------------------------------------------------
 
 main <- function() {
+  ref_files <- file.path(REF_DIR, SEED_NAMES)
+  if (!all(file.exists(ref_files))) stop("Referenzkopien in scripts/referenz/ fehlen (mit git wiederherstellen)")
+  seed_files <- file.path("data/generated", SEED_NAMES)
+  same <- function(a, b) isTRUE(tryCatch(seed_hash(a) == seed_hash(b), error = function(e) FALSE))
+  seed_changed <- seed_files[!vapply(seq_along(seed_files), function(i)
+    file.exists(seed_files[i]) && same(seed_files[i], ref_files[i]), TRUE)]
   ref <- build_reference()
 
   files <- c(list.files("data", pattern = "\\.csv$", recursive = TRUE,
                         full.names = TRUE, ignore.case = TRUE),
              list.files(".", pattern = "\\.csv$", full.names = TRUE, ignore.case = TRUE))
   files <- sub("^\\./", "", files)
-  files <- sort(unique(files[!grepl("^data/(generated|combined)/", files)]))
+  gen_ok <- setdiff(file.path("data/generated", SEED_NAMES), seed_changed)
+  files <- sort(unique(files[!grepl("^data/combined/", files) & !(files %in% gen_ok)]))
+  files <- sort(unique(c(files, list.files(UPLOAD_DIR, pattern = "\\.(txt|tsv)$", recursive = TRUE,
+                                           full.names = TRUE, ignore.case = TRUE))))
   other <- list.files(UPLOAD_DIR, recursive = TRUE, full.names = TRUE)
-  other <- other[!grepl("\\.(csv|gitkeep)$", other, ignore.case = TRUE)]
+  other <- other[!grepl("\\.(csv|txt|tsv|gitkeep)$", other, ignore.case = TRUE) & basename(other) != "README.md"]
 
   report <- list()
   seeds_used <- list()       # ds -> Dateien
@@ -160,13 +213,16 @@ main <- function() {
 
   for (f in files) {
     info <- list(datei = f, status = "ok", ds = NA, eigene = 0, hinweise = character(0),
-                 gefunden = NA, abweichungen = NA)
+                 gefunden = NA, abweichungen = NA, kz = NULL)
     if (!startsWith(f, paste0(UPLOAD_DIR, "/")))
       info$hinweise <- c(info$hinweise, "liegt NICHT in data/student-uploads/")
-    if (!grepl("^datensatz-[0-9]{2}-([0-9]{4}|[a-z]{2,3})\\.csv$", basename(f)))
-      info$hinweise <- c(info$hinweise, "Dateiname weicht vom Schema datensatz-XX-<Kennziffer>.csv ab")
+    if (!grepl("^datensatz-[0-9]{2}-[0-9]{4}\\.csv$", basename(f)))
+      info$hinweise <- c(info$hinweise, "Dateiname weicht vom Schema datensatz-XX-<Kennziffer>.csv ab (für den Merge unkritisch)")
 
-    up <- read_upload(f)
+    up <- tryCatch(read_upload(f),
+                   error = function(e) list(error = paste("Datei nicht lesbar:", conditionMessage(e))))
+    if (!is.null(up$error) && grepl("^Spalten fehlen", up$error))
+      up$error <- paste0(up$error, " (Kopfzeile fehlt oder Trennzeichen gemischt? Datei im Texteditor prüfen)")
     if (!is.null(up$error)) {
       info$status <- "IGNORIERT"
       info$hinweise <- c(info$hinweise, up$error)
@@ -208,17 +264,41 @@ main <- function() {
     }
 
     mine <- df[!is_seed, COLS, drop = FALSE]
-    if (nrow(mine) > 0) {
+    leer <- rowSums(!is.na(mine)) <= 1
+    if (any(leer)) {
+      mine <- mine[!leer, , drop = FALSE]
+      info$status <- "PRÜFEN"
+      info$hinweise <- c(info$hinweise, sprintf("%d fast leere Zeile(n) verworfen (Trennzeichen gemischt? Datei im Texteditor prüfen)", sum(leer)))
+    }
+    pruefen <- function(txt) { info$status <<- "PRÜFEN"; info$hinweise <<- c(info$hinweise, txt) }
+    if (length(ds_in_file) > 1) {
+      # kombinierte Datei (z. B. aus Sitzung 02 oder ein alter Gesamtdatensatz): nichts übernehmen
+      if (nrow(mine) > 0) pruefen(sprintf("kombinierte Datei: %d fiktive Person(en) NICHT übernommen", nrow(mine)))
+      mine <- mine[0, , drop = FALSE]
+    } else if (nrow(mine) > 1) {
+      pruefen(sprintf("%d fiktive Personen in einer Datei, keine übernommen (bitte genau eine)", nrow(mine)))
+      info$kz <- head(mine$probandennummer, 3)
+      mine <- mine[0, , drop = FALSE]
+    } else if (nrow(mine) == 0) {
+      pruefen("keine Zeile einer fiktiven Person gefunden")
+    }
+    if (length(ds_in_file) == 0 && nrow(mine) == 1)
+      pruefen("keine Übungsdaten erkannt (nur die fiktive Person? Bereinigte Übungsdaten fehlen)")
+    if (nrow(mine) == 1) {
+      info$kz <- mine$probandennummer
+      if (is.na(mine$probandennummer) || !(mine$probandennummer %in% KENNZIFFER))
+        pruefen(sprintf("Kennziffer %s ungültig (muss 2000 + Listennummer sein, z. B. 2013)",
+                        ifelse(is.na(mine$probandennummer), "fehlt oder ist keine Zahl,", format(mine$probandennummer))))
       mine <- clean_range(mine)
       if (attr(mine, "n_bad") > 0)
-        info$hinweise <- c(info$hinweise, sprintf("%d Werte außerhalb des Bereichs -> fehlend", attr(mine, "n_bad")))
+        pruefen(sprintf("%d Wert(e) der fiktiven Person außerhalb des erlaubten Bereichs -> fehlend", attr(mine, "n_bad")))
+      if (sum(is.na(mine[COLS])) > 0 && attr(mine, "n_bad") == 0)
+        pruefen(sprintf("%d Wert(e) der fiktiven Person fehlen oder sind keine Zahl", sum(is.na(mine[COLS]))))
       mine$quelle_datensatz <- if (length(ds_in_file) == 1) ds_in_file else NA
       mine$quelle_datei <- f
       own[[f]] <- mine
     }
     info$eigene <- nrow(mine)
-    if (nrow(mine) == 0 && length(ds_in_file) <= 1) info$hinweise <- c(info$hinweise, "keine eigene Zeile gefunden")
-    if (nrow(mine) > 1 && length(ds_in_file) <= 1) info$hinweise <- c(info$hinweise, "mehr als eine eigene Zeile")
     report[[f]] <- info
   }
 
@@ -289,18 +369,40 @@ main <- function() {
     "",
     sprintf("Automatisch erzeugt von `scripts/merge-uploads.R` am %s.", format(Sys.time(), "%d.%m.%Y %H:%M")),
     "",
-    sprintf("**Gesamtdatensatz:** `%s` mit **%d Zeilen** (%d vorgeneriert aus %d Datensätzen, %d eigene Zeilen).",
+    sprintf("**Gesamtdatensatz:** `%s` mit **%d Zeilen** (%d vorgeneriert aus %d Datensätzen, %d fiktive Personen).",
             OUT_CSV, nrow(combined), NROW(seed_df), length(seed_ids), NROW(own_df)),
     "",
-    "Vorgenerierte Zeilen gehen in der Referenz-Bereinigung ein (Fehlerzellen leer, doppelte Probandennummer korrigiert) — unabhängig davon, wie sie in den Uploads bereinigt wurden.",
+    if (length(seed_changed)) paste0("> **ACHTUNG (Lehrperson):** Übungsdatensatz verändert: ",
+                                     paste0("`", seed_changed, "`", collapse = ", "),
+                                     ". Der Merge nutzt trotzdem die richtigen Daten (Kopie in scripts/referenz/). Datei mit `git log -- data/generated` prüfen und zurücksetzen, damit niemand die falsche Datei herunterlädt.\n") else NULL,
+    "Vorgenerierte Zeilen gehen in der Referenz-Bereinigung ein (Fehlerzellen leer, doppelte Probandennummer korrigiert), unabhängig davon, wie sie in den Uploads bereinigt wurden.",
     "",
     "## Dateien",
     "",
-    "| Datei | Status | Datensatz | eigene Zeilen | Fehler gefunden | Abweichungen von Referenz | Hinweise |",
-    "|---|---|---|---:|---|---:|---|"
+    "Suche Deine Datei über Deine **Kennziffer**. Handeln musst Du nur bei Status IGNORIERT, PRÜFEN oder DOPPELT oder wenn bei „Fehler gefunden\" nicht 2/2 steht. Hinweise zu Dateiname oder Trennzeichen sind unkritisch.",
+    "",
+    "| Datei | Kennziffer | Status | Datensatz | fiktive Personen | Fehler gefunden | Abweichungen von Referenz | Hinweise |",
+    "|---|---|---|---|---:|---|---:|---|"
   )
+  # Dieselbe Kennziffer in mehreren Dateien: alle betroffenen Dateien markieren
+  kz_tab <- do.call(rbind, lapply(report, function(i) {
+    k <- unique(i$kz[!is.na(i$kz)])
+    if (length(k) && !grepl(",", cell(i$ds))) data.frame(datei = i$datei, kz = k) else NULL
+  }))
+  for (k in names(report)) {
+    i <- report[[k]]
+    if (is.null(kz_tab) || !length(i$kz)) next
+    fremd <- kz_tab[kz_tab$datei != i$datei & kz_tab$kz %in% i$kz, , drop = FALSE]
+    d <- unique(fremd$kz)
+    if (length(d)) {
+      andere <- unique(fremd$datei)
+      report[[k]]$status <- "DOPPELT"
+      report[[k]]$hinweise <- c(i$hinweise, sprintf("Kennziffer %s auch in %s: sind beide Dateien von Dir, die ältere löschen; sonst Lehrperson fragen",
+                                                     paste(d, collapse = ", "), paste0("`", unique(andere), "`", collapse = ", ")))
+    }
+  }
   for (i in report) {
-    lines <- c(lines, sprintf("| `%s` | %s | %s | %d | %s | %s | %s |", i$datei, i$status, cell(i$ds),
+    lines <- c(lines, sprintf("| `%s` | %s | %s | %s | %d | %s | %s | %s |", i$datei, cell(i$kz), i$status, cell(i$ds),
                               i$eigene, cell(i$gefunden), cell(i$abweichungen), cell(i$hinweise)))
   }
   missing_ds <- setdiff(1:10, as.integer(names(seeds_used)))
@@ -316,5 +418,15 @@ main <- function() {
 }
 
 if (sys.nframe() == 0) {
-  main()
+  # Bricht der Merge ab, steht der Grund im Report (statt eines veralteten Reports)
+  tryCatch(main(), error = function(e) {
+    msg <- conditionMessage(e)
+    con <- file(OUT_REPORT, open = "w", encoding = "UTF-8")
+    writeLines(c("# Merge-Report", "",
+                 sprintf("Automatisch erzeugt am %s.", format(Sys.time(), "%d.%m.%Y %H:%M")), "",
+                 "**Der Merge ist abgebrochen.** Der Gesamtdatensatz wurde nicht aktualisiert. Bitte der Lehrperson Bescheid geben.",
+                 "", paste("Fehler:", msg)), con)
+    close(con)
+    cat(sprintf("::error::Merge abgebrochen: %s\n", msg))
+  })
 }

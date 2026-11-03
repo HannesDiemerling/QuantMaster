@@ -114,7 +114,7 @@ Sind die Pfade $a$ und $b$ klein bis mittel, braucht man für 80 % Power schnell
 2. Lies ab: indirekter Effekt ($a \times b$) mit Bootstrap-KI, direkter Effekt $c'$, totaler Effekt $c$.
 3. Notiere die zentralen Kennwerte: den **indirekten Effekt** ($a \times b$) mit seinem Bootstrap-Konfidenzintervall und Deine Schlussfolgerung, ob eine Mediation vorliegt.
 
-**Bonus (für die Schnellen):**
+**Bonus:**
 
 - Erkläre in zwei Sätzen mit eigenen Worten, **was die 5 000 Replikationen** konkret tun.
 - Tausch die Rollen (X und Y vertauschen). Ändert sich die Schlussfolgerung, und was sagt das über Kausalität aus Querschnittsdaten?

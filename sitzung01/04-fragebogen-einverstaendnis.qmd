@@ -24,7 +24,7 @@ Weil keine echten Personen beschrieben werden, brauchst Du auch keine Einverstä
 
 ### 1. BFI-K ansehen
 
-Den BFI-K-Fragebogen bekommst Du von der Lehrperson. Überflieg ihn kurz, damit Du ein Gefühl dafür bekommst, wie ein psychometrisches Erhebungsinstrument aussieht. Achte darauf, wie Reverse-Items markiert sind und wie die Rekodierung funktioniert. Beides kennst Du aus @sec-tag1-messtheorie.
+Den BFI-K-Fragebogen bekommst Du von der Lehrperson. Überflieg ihn kurz, damit Du ein Gefühl dafür bekommst, wie ein psychometrisches Erhebungsinstrument aussieht. Achte darauf, welche Items umgekehrt formuliert sind. Im Bogen selbst sind sie nicht gekennzeichnet, den Schlüssel findest Du in @sec-tag1-messtheorie.
 
 ### 2. Eine fiktive Person ausdenken
 

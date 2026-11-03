@@ -84,7 +84,7 @@ Die `README.md` enthält dieselbe Übersicht und einen Quick-Start für Studiere
 :::
 
 1. **Account (empfohlen).** Wenn Du schon einen GitHub-Account hast oder einen anlegen möchtest: [github.com](https://github.com) → **Sign up**, E-Mail bestätigen. Schick Deinen Benutzernamen an die Lehrperson, falls noch nicht geschehen.
-2. **Einladung annehmen (nur mit Account).** Die Lehrperson fügt Dich als *Collaborator* hinzu. Du bekommst eine E-Mail von GitHub. Dort auf **View invitation** und dann **Accept invitation** klicken. Ohne angenommene Einladung funktioniert der Upload trotzdem, GitHub legt dann automatisch einen *Pull Request* an (siehe @sec-tag1-upload).
+2. **Einladung annehmen (nur mit Account).** Die Lehrperson fügt Dich als *Collaborator* hinzu. Du bekommst eine E-Mail von GitHub. Dort auf **View invitation** und dann **Accept invitation** klicken. Ohne angenommene Einladung ist das Hochladen gesperrt. Ist der Link abgelaufen (Einladungen gelten 7 Tage), sag der Lehrperson Bescheid oder lade per Mail hoch (siehe @sec-tag1-upload).
 3. **Repo öffnen.** Öffne [das Seminar-Repo]({{< meta kurs.repo >}}) im Browser (mit oder ohne Anmeldung).
 4. **Orientierung.** Klick Dich einmal durch:
    - `data/generated/`: die 10 vorgenerierten Datensätze
@@ -92,7 +92,7 @@ Die `README.md` enthält dieselbe Übersicht und einen Quick-Start für Studiere
    - `sitzung01/`: die heutigen Kapitel als `.qmd`-Quelldateien
 
 ::: {.callout-tip title="Wenn Du keine Schreibrechte siehst"}
-Manchmal dauert es, bis GitHub die Einladung verarbeitet hat. Lade die Seite neu. Hochladen kannst Du in jedem Fall, notfalls als Pull Request oder per Mail.
+Manchmal dauert es, bis GitHub die Einladung verarbeitet hat. Lade die Seite neu. Offene Einladungen findest Du auch unter [{{< meta kurs.repo >}}/invitations]({{< meta kurs.repo >}}/invitations). Hochladen kannst Du in jedem Fall, notfalls per Mail.
 :::
 
 ## Selbstcheck

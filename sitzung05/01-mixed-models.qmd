@@ -100,7 +100,7 @@ Für den Spezialfall „jede Person mehrfach unter wenigen Bedingungen gemessen"
 2. Lies ab: den festen Effekt von `E_mean` und die **Varianzkomponente** für `quelle_datensatz`.
 3. Notiere die zentralen Kennwerte: den **festen Effekt** von `E_mean`, die **Gruppenvarianz** für `quelle_datensatz` und den daraus geschätzten **ICC**, dazu Deine Schlussfolgerung, ob eine relevante Nestung vorliegt.
 
-**Bonus (für die Schnellen):**
+**Bonus:**
 
 - Rechne dieselbe Beziehung als **normale lineare Regression** (ohne Random Effect). Wie nah liegt der Koeffizient am Mixed Model? Warum ist das hier zu erwarten?
 - Erkläre in zwei Sätzen, wie der ICC aussähe, wenn die zehn Datensätze aus **verschiedenen** Populationen stammten.

@@ -134,7 +134,7 @@ Notiere pro ANOVA in **einer Zeile** den vollständigen Bericht:
 
 Bei **A1** außerdem: nenne die **paarweisen Tukey-Vergleiche, die signifikant sind** (falls vorhanden).
 
-**Bonus (für die Schnellen):**
+**Bonus:**
 
 - Rechne **A2** zusätzlich (`G_mean` ~ `bildungsgrad`): derselbe Faktor, andere abhängige Variable. Gleicher Befund?
 - Bei A1: **Kruskal-Wallis-Test** als nicht-parametrische Alternative. Ändert sich der p-Wert deutlich?
