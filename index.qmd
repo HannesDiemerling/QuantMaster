@@ -8,9 +8,9 @@ Zehn Online-Sitzungen per Videokonferenz, von **Semesterwoche 5** bis 14. In jed
 
 | Sitzung | Woche | Datum | Thema | Bezug zur Vorlesung |
 |---|---|---|---|---|
-| 01 | 5 | TBA | Setup & Datenerhebung | 1 Replikationskrise |
-| 02 | 6 | TBA | Gesamtdatensatz & Deskription | 2 Effekte & Effektgrößen |
-| 03 | 7 | TBA | Skalen & Effektgrößen | 2 Effekte & Effektgrößen |
+| 01 | 5 | 04.11.2026 | Setup & Datenerhebung | 1 Replikationskrise |
+| 02 | 6 | 11.11.2026 | Gesamtdatensatz & Deskription | 2 Effekte & Effektgrößen |
+| 03 | 7 | 18.11.2026 | Skalen & Effektgrößen | 2 Effekte & Effektgrößen |
 | 04 | 8 | TBA | Metaanalyse & multiple Regression | 3 Metaanalyse, 4 Multiple Regression |
 | 05 | 9 | TBA | Mehrebenenmodelle & Faktorenanalyse | 5 Mehrebenenmodelle, 6 Faktorenanalyse |
 | 06 | 10 | TBA | Strukturgleichungsmodelle | 7 Strukturgleichungsmodelle |
