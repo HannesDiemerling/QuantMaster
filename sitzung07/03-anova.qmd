@@ -132,7 +132,7 @@ Rechne in JASP **A1** und **A3** aus der Tabelle oben:
 Für **beide** in den Optionen aktivieren: Descriptive statistics, Estimates of effect size (η², ω²), Homogeneity tests, Q-Q plot residuals, Post Hoc Tests mit Tukey, Descriptives Plots.
 
 Notiere pro ANOVA in **einer Zeile** den vollständigen Bericht:
-*„A#: F(df1, df2) = X.XX, p = .XXX, η² = .XX, Levene p = .XXX, Schluss: …“*
+*„A#: F(df1, df2) = X.XX, p = .XXX, η² = .XX, Levene p = .XXX, Schluss: …“*
 
 Bei **A1** außerdem: nenne die **paarweisen Tukey-Vergleiche, die signifikant sind** (falls vorhanden).
 

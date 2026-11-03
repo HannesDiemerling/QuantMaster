@@ -47,7 +47,7 @@ Die **DSGVO** (Datenschutz-Grundverordnung) regelt seit 2018 EU-weit, wie person
 |---|---|---|
 | **Idee** | Bezug zur Person *grundsätzlich* nicht mehr herstellbar | Bezug nur über einen separat aufbewahrten Schlüssel herstellbar |
 | **Beispiel** | aggregierte Statistiken ohne Demografie | Probandennummer 7, Demografie und Antworten erhalten |
-| **DSGVO** | strenggenommen *keine* personenbezogenen Daten mehr | bleibt personenbezogen, die DSGVO gilt |
+| **DSGVO** | streng genommen *keine* personenbezogenen Daten mehr | bleibt personenbezogen, die DSGVO gilt |
 
 Bei kleinen Stichproben mit Demografie ist eine echte Anonymisierung selten möglich. Wer die Teilnehmenden kennt, könnte einzelne Zeilen oft wiedererkennen.
 

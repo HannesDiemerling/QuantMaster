@@ -134,7 +134,7 @@ td, th {
 
 /* Formeln in kursiven Zitaten: Abstand zum Text sichtbar halten */
 blockquote mjx-container:not([display="true"]) {
-  margin: 0 0.12em;
+  margin-left: 0.12em;
 }
 
 /* Breite abgesetzte Formeln seitlich scrollbar statt über den Rand */

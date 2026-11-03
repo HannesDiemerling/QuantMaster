@@ -10,7 +10,7 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Dieses Kapitel ist eine **Landkarte**, kein Trainingslager. Die folgenden Verfahren wirst Du in Master-Arbeit oder Forschungspraktikum vielleicht brauchen. Hier geht es darum, dass Du sie **erkennst**, ihren Zweck verstehst und sie in JASP wiederfindest. EFA, CFA/SEM und Metaanalyse hast Du in den Sitzungen 04 bis 06 schon selbst gerechnet; sie stehen hier nur zum Vergleich. Neu sind Netzwerk- und Clusteranalyse.
+Dieses Kapitel ist eine **Landkarte**, kein Trainingslager. Die folgenden Verfahren wirst Du in Masterarbeit oder Forschungspraktikum vielleicht brauchen. Hier geht es darum, dass Du sie **erkennst**, ihren Zweck verstehst und sie in JASP wiederfindest. EFA, CFA/SEM und Metaanalyse hast Du in den Sitzungen 04 bis 06 schon selbst gerechnet; sie stehen hier nur zum Vergleich. Neu sind Netzwerk- und Clusteranalyse.
 
 ## Faktorenanalyse: EFA und PCA
 
@@ -54,7 +54,7 @@ Clustering ist **unüberwacht** (kein $Y$). Über die fünf Big-Five-Skalen kön
 
 **Frage:** Was sagt die **Gesamtheit** vorhandener Studien zu einem Effekt?
 
-Eine **Metaanalyse** fasst Effektgrößen aus vielen Studien zu einer Gesamtschätzung zusammen, gewichtet nach Präzision (große Studien zählen mehr), und untersucht **Heterogenität** ($I^2$) und **Publikationsbias** (Funnel Plot). Sie gilt als höchste Evidenzstufe für eine Effektfrage und ein realistisches Format für eine Master-Arbeit, **ohne eigene Erhebung**.
+Eine **Metaanalyse** fasst Effektgrößen aus vielen Studien zu einer Gesamtschätzung zusammen, gewichtet nach Präzision (große Studien zählen mehr), und untersucht **Heterogenität** ($I^2$) und **Publikationsbias** (Funnel Plot). Sie gilt als höchste Evidenzstufe für eine Effektfrage und ein realistisches Format für eine Masterarbeit, **ohne eigene Erhebung**.
 
 **In JASP:** **Meta-Analysis**. Du gibst Effektgrößen und Standardfehler je Studie ein und erhältst **Forest Plot**, Gesamteffekt und Heterogenitätsmaße.
 

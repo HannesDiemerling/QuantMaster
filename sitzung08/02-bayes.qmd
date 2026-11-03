@@ -133,7 +133,7 @@ Erinnere Dich an den Datenhinweis (@sec-tag3-datenhinweis):
 | H0 bestätigen? | Punkt-H0 nein (nur „kein relevanter Effekt“ per Äquivalenztest) | ja (BF zugunsten H0 bzw. Posterior nahe Null) |
 | „Daten sammeln bis signifikant“ | ohne Korrektur nicht zulässig (verzerrt p) | gilt als unkritischer (Posterior darf laufend angeschaut werden) |
 
-Beide Ansätze sind legitim. In Deiner Master-Arbeit kannst Du sogar **beide** berichten. Das wirkt souverän und ist mit JASP kaum Mehraufwand.
+Beide Ansätze sind legitim. In Deiner Masterarbeit kannst Du sogar **beide** berichten. Das wirkt souverän und ist mit JASP kaum Mehraufwand.
 
 ## Stärken und Schwächen
 

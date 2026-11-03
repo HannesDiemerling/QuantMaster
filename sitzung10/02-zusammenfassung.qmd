@@ -6,7 +6,7 @@ Das ist Dein **Nachschlagewerk**, gedacht zum Wiederkommen, nicht zum einmaligen
 
 ## Der rote Faden: was wir in zehn Sitzungen gemacht haben
 
-Das Seminar hat **einen vollständigen empirischen Forschungszyklus** nachgebaut, und zwar genau die Schrittfolge, der auch Deine Master-Arbeit folgen wird.
+Das Seminar hat **einen vollständigen empirischen Forschungszyklus** nachgebaut, und zwar genau die Schrittfolge, der auch Deine Masterarbeit folgen wird.
 
 | Sitzungen | Phase | Was Du getan hast |
 |---|---|---|
@@ -170,7 +170,7 @@ Fast alle berichten den **p-Wert** und vergessen **Effektgröße und Konfidenzin
 Wenn Du jede dieser 16 Fragen in **2–3 Sätzen** frei beantworten kannst, hast Du die zentralen Konzepte des Seminars verstanden. Geh die Selbstcheck-Fragen am Ende jedes Kapitels als Ergänzung durch.
 :::
 
-## Blaupause für Deine Master-Arbeit / Dein Forschungspraktikum
+## Blaupause für Deine Masterarbeit / Dein Forschungspraktikum
 
 1. **Frage & Hypothesen** zuerst, *vor* der Datenerhebung, am besten präregistriert.
 2. **Design & Power:** Wie viele Personen brauchst Du für den erwarteten Effekt? (Underpowered = vergeudete Mühe.)

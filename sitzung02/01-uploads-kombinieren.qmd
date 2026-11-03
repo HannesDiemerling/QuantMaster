@@ -83,7 +83,7 @@ Die Kodierung stellst Du in JASP nicht beim Import, sondern unter **File → Pre
 
 ## Schritt 5: Variablentypen setzen
 
-JASP rät die Typen beim Import und liegt dabei oft daneben. Stell deshalb um (Klick auf das Typ-Symbol am Spaltenkopf):
+JASP rät die Typen beim Import und liegt dabei oft daneben. Stell deshalb um (Klick auf das Typ-Symbol am Spaltenkopf). Fett markiert sind die Stellen, an denen JASP am häufigsten falsch rät:
 
 | Variable | Typ in JASP |
 |---|---|
