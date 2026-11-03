@@ -11,7 +11,7 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Im Jahr 2015 versuchte die *Open Science Collaboration*, 100 Studien aus drei renommierten psychologischen Fachzeitschriften zu replizieren. Nur etwa 36 % zeigten in der Replikation einen signifikanten Effekt in dieselbe Richtung wie in der Originalstudie. Das war ein Wendepunkt in der Debatte, die heute als **Replikationskrise** bezeichnet wird. Als Gründe gelten vor allem kleine Stichproben, Publikationsbias und flexible Analyseentscheidungen (p-Hacking).
+Im Jahr 2015 versuchte die *Open Science Collaboration*, 100 Studien aus drei renommierten psychologischen Fachzeitschriften zu replizieren. Nur etwa 36 % zeigten in der Replikation einen signifikanten Effekt in dieselbe Richtung wie in der Originalstudie. Das war ein Wendepunkt in der Debatte, die heute als **Replikationskrise** bezeichnet wird. Als Gründe gelten vor allem kleine Stichproben, Publikationsbias und flexible Analyseentscheidungen (p-Hacking).
 
 Die Antwort der Disziplin heißt **Open Science**: offene Daten, offene Materialien, offene Skripte, Preregistration und gelebte Transparenz. Genau so arbeitest Du in diesem Seminar.
 

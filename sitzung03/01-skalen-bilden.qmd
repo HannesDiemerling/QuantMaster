@@ -87,7 +87,7 @@ Nach dem Berechnen: Variable-Typ jeder neuen Spalte auf **Scale** setzen (sollte
 Lass Descriptives über die fünf neuen Variablen laufen. Erwartung:
 
 - alle Werte zwischen **1.0 und 5.0**
-- Mittelwerte ungefähr im mittleren Bereich (≈ 3), die simulierten Daten sind ohne extreme Schiefe
+- Mittelwerte ungefähr im mittleren Bereich (≈ 3), die simulierten Daten sind ohne extreme Schiefe
 - SD ungefähr 0.7–1.2
 
 Wenn ein Skalenmittelwert systematisch außerhalb liegt: meistens hast Du ein Item vergessen oder eines doppelt eingebaut.
@@ -105,11 +105,11 @@ Cronbach's α und McDonald's ω schätzen die Reliabilität über die **interne 
 
 | α (oder ω) | Bewertung |
 |---:|---|
-| ≥ .90 | exzellent |
+| ≥ .90 | exzellent |
 | .80–.89 | gut |
 | .70–.79 | akzeptabel |
 | .60–.69 | eher niedrig |
-| < .60 | niedrig |
+| < .60 | niedrig |
 
 Im BFI-K sind die Skalen *kurz* (4–5 Items). Erwarte deshalb keine sehr hohen Werte. Bei so kurzen Skalen sind Werte um .70 normal, einzelne Skalen liegen auch in der Literatur darunter.
 

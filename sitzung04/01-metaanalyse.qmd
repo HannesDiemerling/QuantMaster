@@ -32,7 +32,7 @@ Korrelationen werden vorher **Fisher-z-transformiert** ($z = \operatorname{artan
 
 - **$Q$-Test:** Streuen die Effekte stärker, als durch Zufall zu erwarten wäre?
 - **$\tau^2$ / $\tau$:** geschätzte Varianz bzw. SD der *wahren* Effekte.
-- **$I^2$:** Anteil der beobachteten Streuung, der auf echte Unterschiede (statt Zufall) zurückgeht. Faustregel: 25 % gering, 50 % moderat, 75 % hoch.
+- **$I^2$:** Anteil der beobachteten Streuung, der auf echte Unterschiede (statt Zufall) zurückgeht. Faustregel: 25 % gering, 50 % moderat, 75 % hoch.
 
 Bei wenigen, sehr kleinen Studien sind diese Kennwerte selbst sehr unsicher, und genau das ist unsere Situation.
 
@@ -62,7 +62,7 @@ Die Tabelle aller zehn „Studien“ erzeugt der Merge-Workflow automatisch: `da
 7. Im Abschnitt **Forest Plot** **Study information** und **Model information** ankreuzen.
 8. Optional: **Transform effect size → Fisher's z to r**, um das Ergebnis als Korrelation zu sehen. Für die Abgabe brauchst Du die Werte ohne Transformation (Fisher-z).
 
-Lies ab: den gepoolten Effekt mit 95 %-KI und $I^2$. Im Forest Plot siehst Du jede Studie als Punkt mit KI und den gepoolten Effekt als Raute.
+Lies ab: den gepoolten Effekt mit 95 %-KI und $I^2$. Im Forest Plot siehst Du jede Studie als Punkt mit KI und den gepoolten Effekt als Raute.
 
 ## Aufgabe
 
@@ -78,11 +78,11 @@ Lies ab: den gepoolten Effekt mit 95 %-KI und $I^2$. Im Forest Plot siehst Du je
 - **Meta-Analysis → Miscellaneous → Funnel Plot** mit denselben Spalten, dazu unter *Asymmetry tests* den **Egger-Test**. Was erwartest Du hier?
 
 ::: {.callout-tip title="Für die Abgabe"}
-Notiere $r$ Deines Datensatzes, den gepoolten Effekt (Fisher-z), sein 95 %-KI und $I^2$. Siehe @sec-s04-abschluss.
+Notiere $r$ Deines Datensatzes, den gepoolten Effekt (Fisher-z), sein 95 %-KI und $I^2$. Siehe @sec-s04-abschluss.
 :::
 
 ## Selbstcheck
 
 1. Warum bekommen größere Studien in einer Metaanalyse mehr Gewicht?
 2. Was ist der inhaltliche Unterschied zwischen Fixed- und Random-Effects-Modell?
-3. Was sagt ein $I^2$ von 70 %, und warum ist $I^2$ bei zehn Mini-Studien mit Vorsicht zu lesen?
+3. Was sagt ein $I^2$ von 70 %, und warum ist $I^2$ bei zehn Mini-Studien mit Vorsicht zu lesen?

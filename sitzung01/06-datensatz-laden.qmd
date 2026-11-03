@@ -14,7 +14,7 @@ Im Repo liegen unter `data/generated/` zehn Datensätze als CSV-Dateien, jeder m
 
 ## Zuweisung
 
-Die Zuweisung ergibt sich aus Deiner **Listennummer** $n$ in der Teilnehmerliste (@sec-nummern): Datensatz $= ((n-1) \bmod 10) + 1$.
+Die Zuweisung ergibt sich aus Deiner **Listennummer** $n$ in der Teilnehmerliste (@sec-nummern): $\text{Datensatz} = ((n-1) \bmod 10) + 1$.
 
 | Listennummer | 1 | 2 | … | 10 | 11 | 12 | … | 21 | … |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|

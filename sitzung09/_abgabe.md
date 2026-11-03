@@ -1,5 +1,5 @@
 <!-- automatisch erzeugt von scripts/antwortbogen.R — nicht von Hand bearbeiten -->
-```text
+```default
 S09-1 Logistisch: χ² des Modelltests: 
 S09-2 Logistisch: p des Modelltests: 
 S09-3 Logistisch: Nagelkerke R²: 

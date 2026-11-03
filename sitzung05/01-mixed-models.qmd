@@ -46,9 +46,9 @@ $$
 
 | ICC | Bedeutung |
 |---|---|
-| ≈ 0 | Gruppen unterscheiden sich kaum → normale Regression wäre okay |
+| ≈ 0 | Gruppen unterscheiden sich kaum → normale Regression wäre okay |
 | .05–.20 | spürbare Nestung → Mixed Model nötig |
-| > .20 | starke Nestung → Mixed Model unverzichtbar, Gruppenebene wichtig |
+| > .20 | starke Nestung → Mixed Model unverzichtbar, Gruppenebene wichtig |
 
 Der ICC sagt also: **Wie viel Prozent der Gesamtstreuung geht auf die Gruppenzugehörigkeit zurück?** Schon kleine ICCs (>.05) verzerren normale Tests merklich, wenn die Gruppen groß sind.
 
@@ -60,10 +60,10 @@ Mixed Models stecken im Modul **Mixed Models** (standardmäßig sichtbar; nutzt 
 2. **Dependent variable:** das metrische Kriterium (z. B. `O_mean`).
 3. **Fixed effects variables:** die interessierenden Prädiktoren (z. B. `E_mean`).
 4. **Random effects grouping factors:** die Gruppenvariable (bei uns `quelle_datensatz`, sie muss dafür **Nominal** sein). Im Abschnitt **Model → Random effects** sind standardmäßig der **Intercept** (Random Intercept) und zusätzlich jeder Prädiktor (**Random Slope**) angehakt. Für ein reines Random-Intercept-Modell entfernst Du dort das Häkchen beim Prädiktor.
-5. Im Abschnitt **Options** **Fixed effects estimates** und **Variance/correlation estimates** ankreuzen.
+5. Im Abschnitt **Options**: **Fixed effects estimates** und **Variance/correlation estimates** ankreuzen.
 6. Output lesen:
    - **Fixed effects:** Koeffizienten wie in der normalen Regression, aber mit korrigierten Standardfehlern.
-   - **Variance/correlation estimates:** die Varianz zwischen Gruppen (`quelle_datensatz`) und die Residualvarianz. JASP gibt **keinen ICC** aus, Du berechnest ihn selbst: $\text{ICC} = \frac{\text{Varianz Gruppe}}{\text{Varianz Gruppe} + \text{Residualvarianz}}$. Steckt ein Prädiktor im Modell, ist das streng genommen ein ICC *nach Kontrolle* dieses Prädiktors; der klassische ICC stammt aus einem Modell ganz ohne Prädiktor.
+   - **Variance/correlation estimates:** die Varianz zwischen Gruppen (`quelle_datensatz`) und die Residualvarianz. JASP gibt **keinen ICC** aus, Du berechnest ihn selbst: $\text{ICC} = \dfrac{\text{Varianz Gruppe}}{\text{Varianz Gruppe} + \text{Residualvarianz}}$. Steckt ein Prädiktor im Modell, ist das streng genommen ein ICC *nach Kontrolle* dieses Prädiktors; der klassische ICC stammt aus einem Modell ganz ohne Prädiktor.
 
 ## Was unsere Daten hergeben
 
@@ -89,7 +89,7 @@ Für den Spezialfall „jede Person mehrfach unter wenigen Bedingungen gemessen�
 **Schwächen:**
 
 - konzeptuell anspruchsvoller; die Wahl der Random-Struktur will überlegt sein
-- braucht **genug Gruppen** (Faustregel ≥ 20–30 Cluster), sonst ist die Varianzschätzung instabil
+- braucht **genug Gruppen** (Faustregel ≥ 20–30 Cluster), sonst ist die Varianzschätzung instabil
 - Modelle konvergieren bei komplexer Random-Struktur nicht immer
 
 ## Aufgabe

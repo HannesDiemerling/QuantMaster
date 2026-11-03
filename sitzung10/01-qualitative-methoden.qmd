@@ -52,7 +52,7 @@ Die Datei [materials/kodierung-ratings.csv](../materials/kodierung-ratings.csv) 
 2. **Prozentuale Übereinstimmung:** Compute Column `gleich` (R-Code, Typ Scale) mit `ifelse(as.character(rater_a) == as.character(rater_b), 1, 0)`; der Mittelwert dieser Spalte in **Descriptives** × 100 ist die Übereinstimmung in %.
 3. Modul **Reliability** über das **„+“** aktivieren (falls noch nicht geschehen), dann **Reliability → Classical → Rater Agreement**.
 4. `rater_a` und `rater_b` ins Feld **Variables** (*Raters are in columns*). **Cohen's kappa** ankreuzen, *Unweighted* ist voreingestellt.
-5. Lies Cohen's κ ab. Faustregel (Landis & Koch): .41–.60 moderat, .61–.80 substanziell, > .80 fast perfekt.
+5. Lies Cohen's κ ab. Faustregel (Landis & Koch): .41–.60 moderat, .61–.80 substanziell, > .80 fast perfekt.
 
 ## Aufgabe
 

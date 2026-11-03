@@ -18,13 +18,13 @@ Eine **Mediation** fragt nach dem **Mechanismus**: Läuft der Effekt von $X$ auf
 
 Das klassische Mediationsdiagramm:
 
-```text
-        M
-      ↗   ↘
-   a /     \ b
-    /       ↘
-  X --------→ Y
-       c'
+```default
+          M
+        ^   \
+     a /     \ b
+      /       v
+     X ------> Y
+         c'
 ```
 
 - **$a$**: Effekt von $X$ auf $M$
@@ -43,7 +43,7 @@ Die Kernfrage der Mediation ist: **Ist der indirekte Effekt $a \times b$ von Nul
 | **Direkt** | $c'$ | Wirkung von $X$ auf $Y$, die **übrig bleibt**, wenn $M$ drin ist |
 | **Indirekt** | $a \times b$ | Wirkung von $X$ auf $Y$, die **über** $M$ läuft |
 
-- Ist $c'$ ≈ 0, der indirekte Effekt aber deutlich → **vollständige Mediation**.
+- Ist $c'$ ≈ 0, der indirekte Effekt aber deutlich → **vollständige Mediation**.
 - Sind beide deutlich → **partielle Mediation**.
 
 ## Warum Bootstrap? Das eigentliche Thema
@@ -57,7 +57,7 @@ Die Lösung ist der **Bootstrap**, ein **Resampling-Verfahren**. Die Idee ist ve
 3. Berechne in dieser Bootstrap-Stichprobe den indirekten Effekt $a \times b$.
 4. Wiederhole das **sehr oft** (z. B. 5 000-mal).
 5. Du hast jetzt 5 000 Werte für $a \times b$. Das ist die empirische **Verteilung** des indirekten Effekts.
-6. Das **95 %-Konfidenzintervall** sind einfach das 2.5 %- und das 97.5 %-Perzentil dieser 5 000 Werte.
+6. Das **95 %-Konfidenzintervall** sind einfach das 2.5 %- und das 97.5 %-Perzentil dieser 5 000 Werte.
 
 ::: {.callout-tip title="Die Grundidee des Bootstrap in einem Satz"}
 Statt eine Formel für die Streuung einer Schätzung zu *unterstellen*, lässt der Bootstrap die Daten die Streuung **selbst zeigen**, indem er die Stichprobenziehung viele Male simuliert. Deshalb funktioniert er auch dort, wo es keine saubere Formel gibt.
@@ -79,7 +79,7 @@ Mediation steckt in JASP im **SEM-Modul** (Strukturgleichungsmodelle, siehe @sec
    - **Outcome** (Y): z. B. `O_mean`
 4. In den Optionen:
    - Abschnitt **Options**: bei **Method** **Bootstrap** wählen, **Replications** auf 5 000 (mehr = stabiler, dauert länger).
-   - **Confidence intervals** auf 95 %, Typ **Percentile** (alternativ *Bias-corrected percentile*).
+   - **Confidence intervals** auf 95 %, Typ **Percentile** (alternativ *Bias-corrected percentile*).
 5. Ausführen. Der Output zeigt $a$, $b$, $c'$ (direkt), den **indirekten Effekt** und den **totalen Effekt**, jeweils mit Bootstrap-KI.
 
 ## Was unsere Daten hergeben
@@ -89,7 +89,7 @@ Auch hier lohnt der Blick auf den Datenhinweis (@sec-tag3-datenhinweis): In den 
 Ein **klarer indirekter Effekt ist also nicht zu erwarten**. Spannend ist hier vor allem die Logik des Bootstrap, die Dir in vielen anderen Verfahren wieder begegnen wird.
 
 ::: {.callout-important title="Mediation braucht große Stichproben"}
-Sind die Pfade $a$ und $b$ klein bis mittel, braucht man für 80 % Power schnell **150 bis über 500 Personen** (Fritz & MacKinnon, 2007). Mediationsbefunde aus kleinen Stichproben, etwa $N = 30$ aus einer Bachelor-Erhebung, sind deshalb mit Vorsicht zu lesen. Sie gehören zu den häufigsten Überinterpretationen in der Literatur.
+Sind die Pfade $a$ und $b$ klein bis mittel, braucht man für 80 % Power schnell **150 bis über 500 Personen** (Fritz & MacKinnon, 2007). Mediationsbefunde aus kleinen Stichproben, etwa $N = 30$ aus einer Bachelor-Erhebung, sind deshalb mit Vorsicht zu lesen. Sie gehören zu den häufigsten Überinterpretationen in der Literatur.
 :::
 
 ## Stärken und Schwächen
@@ -110,7 +110,7 @@ Sind die Pfade $a$ und $b$ klein bis mittel, braucht man für 80 % Power schnell
 
 **Pflichtteil für alle:**
 
-1. Rechne in JASP die Mediation **X = `G_mean`, M = `E_mean`, Y = `O_mean`** mit **5 000 Bootstrap-Replikationen** und 95 %-Perzentil-KI.
+1. Rechne in JASP die Mediation **X = `G_mean`, M = `E_mean`, Y = `O_mean`** mit **5 000 Bootstrap-Replikationen** und 95 %-Perzentil-KI.
 2. Lies ab: indirekter Effekt ($a \times b$) mit Bootstrap-KI, direkter Effekt $c'$, totaler Effekt $c$.
 3. Notiere die zentralen Kennwerte: den **indirekten Effekt** ($a \times b$) mit seinem Bootstrap-Konfidenzintervall und Deine Schlussfolgerung, ob eine Mediation vorliegt.
 
@@ -120,7 +120,7 @@ Sind die Pfade $a$ und $b$ klein bis mittel, braucht man für 80 % Power schnell
 - Tausch die Rollen (X und Y vertauschen). Ändert sich die Schlussfolgerung, und was sagt das über Kausalität aus Querschnittsdaten?
 
 ::: {.callout-tip title="Für die Abgabe"}
-Notiere: indirekten Effekt, sein 95 %-Bootstrap-KI, den direkten Effekt $c'$ und einen Satz dazu, was der Bootstrap hier gemacht hat. Siehe @sec-s06-abschluss.
+Notiere: indirekten Effekt, sein 95 %-Bootstrap-KI, den direkten Effekt $c'$ und einen Satz dazu, was der Bootstrap hier gemacht hat. Siehe @sec-s06-abschluss.
 :::
 
 ## Selbstcheck

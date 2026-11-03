@@ -1,5 +1,5 @@
 <!-- automatisch erzeugt von scripts/antwortbogen.R — nicht von Hand bearbeiten -->
-```text
+```default
 S05-1 Mixed Model: fester Effekt E_mean (3 Nachkommastellen): 
 S05-2 Mixed Model: Varianz quelle_datensatz (3 Nachkommastellen): 
 S05-3 Mixed Model: ICC, selbst berechnet (3 Nachkommastellen): 

@@ -19,17 +19,17 @@ Fast alle Tests, die Du bisher gerechnet hast, folgen der frequentistischen Logi
 
 | Häufige Fehlinterpretation | Richtig ist |
 |---|---|
-| „p = .03 heißt: H0 ist mit 3 % Wahrscheinlichkeit wahr.“ | p sagt nichts über die Wahrscheinlichkeit von Hypothesen (das kann nur Bayes, @sec-tag3-bayes). |
-| „p > .05 heißt: Es gibt keinen Effekt.“ | Kein Nachweis von Abwesenheit, vielleicht war die Power zu gering (@sec-power). |
+| „p = .03 heißt: H0 ist mit 3 % Wahrscheinlichkeit wahr.“ | p sagt nichts über die Wahrscheinlichkeit von Hypothesen (das kann nur Bayes, @sec-tag3-bayes). |
+| „p > .05 heißt: Es gibt keinen Effekt.“ | Kein Nachweis von Abwesenheit, vielleicht war die Power zu gering (@sec-power). |
 | „Kleines p = großer Effekt.“ | p hängt stark von N ab; bei großem N wird jeder Mini-Effekt signifikant. |
 | „p = .049 und p = .051 sind grundverschieden.“ | Die Evidenz ist praktisch gleich; die Grenze .05 ist eine Konvention. |
 
-## Fehler 1. und 2. Art
+## Fehler 1. und 2. Art
 
 | | H0 wahr | H0 falsch |
 |---|---|---|
-| **H0 verworfen** | Fehler 1. Art (α) | richtig (Power) |
-| **H0 beibehalten** | richtig | Fehler 2. Art (β) |
+| **H0 verworfen** | Fehler 1. Art (α) | richtig (Power) |
+| **H0 beibehalten** | richtig | Fehler 2. Art (β) |
 
 ## Wenn viele Tests gerechnet werden
 
@@ -37,7 +37,7 @@ Fast alle Tests, die Du bisher gerechnet hast, folgen der frequentistischen Logi
 
 **Fragwürdige Forschungspraktiken (QRPs):**
 
-- **p-Hacking:** so lange Variablen, Ausreißerregeln, Teilstichproben oder Kovariaten ausprobieren, bis p < .05.
+- **p-Hacking:** so lange Variablen, Ausreißerregeln, Teilstichproben oder Kovariaten ausprobieren, bis p < .05.
 - **Optional Stopping:** Daten erheben, testen, weitererheben, bis es „klappt“.
 - **HARKing:** Hypothesen nachträglich so formulieren, als hätte man das Ergebnis vorhergesagt.
 
@@ -58,7 +58,7 @@ Gegenmittel kennst Du aus Sitzung 01: **Preregistration**, offene Daten und Skri
 3. **Dependent Variables:** `G_mean` · **Grouping Variable:** `geschlecht` (Stufe 3 per Filter ausschließen, wie in @sec-tag2-ttest, und den Filter nach dem Notieren der Werte wieder entfernen).
 4. **Equivalence Region:** von −0.5 bis 0.5, **Bounds specification in:** *Cohen's d* (bitte prüfen, voreingestellt ist *Raw*).
 5. **Tests:** *Student* (voreingestellt). Optional **Equivalence bounds plot**.
-6. Lies den p-Wert des Äquivalenztests ab (der größere der beiden einseitigen Tests). Ist er < .05, liegen die Gruppen innerhalb der Grenzen, sie sind also „äquivalent“.
+6. Lies den p-Wert des Äquivalenztests ab (der größere der beiden einseitigen Tests). Ist er < .05, liegen die Gruppen innerhalb der Grenzen, sie sind also „äquivalent“.
 
 Optional zur Anschauung: Modul **Learn Stats** → **P Values** simuliert, wie p-Werte unter H0 und H1 verteilt sind.
 

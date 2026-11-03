@@ -22,10 +22,10 @@ Zwei Wege, über die einfache Korrelation hinauszugehen: über **Studien** hinwe
 ## Inhalte
 
 1. Kurzer Input: zehn Datensätze als zehn Studien
-2. @sec-meta
+2. Metaanalyse (@sec-meta)
 3. Forest Plot gemeinsam lesen, dann der Schritt von der Korrelation zur Regression
-4. @sec-tag3-regression
-5. @sec-tag3-moderation
+4. Multiple Regression (@sec-tag3-regression)
+5. Moderation & Interaktionen (@sec-tag3-moderation)
 6. Fragen und Abgabe (@sec-s04-abschluss)
 
 ## Eine wichtige Sache über unseren Datensatz {#sec-tag3-datenhinweis}

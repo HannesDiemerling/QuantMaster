@@ -21,7 +21,7 @@ Heute verbindest Du Messmodelle (CFA) mit gerichteten Zusammenhängen zwischen l
 ## Inhalte
 
 1. Kurzer Input: Messmodell und Strukturmodell, lavaan-Syntax
-2. @sec-cfa-sem
+2. Konfirmatorische Faktorenanalyse & Strukturgleichungsmodelle (@sec-cfa-sem)
 3. Fit-Indizes lesen, Mediation als SEM
-4. @sec-tag3-mediation
+4. Mediation & Bootstrap (@sec-tag3-mediation)
 5. Fragen und Abgabe (@sec-s06-abschluss)

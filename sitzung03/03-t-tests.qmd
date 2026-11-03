@@ -36,7 +36,7 @@ Konkret:
 - **Alternativhypothese H1:** Die Mittelwerte sind verschieden.
 - Der p-Wert ist die *Wahrscheinlichkeit*, einen so großen (oder größeren) Unterschied unter H0 rein zufällig zu sehen.
 
-Wenn $p < \alpha$ (typischerweise .05), verwerfen wir H0. Das heißt **nicht**, dass H1 wahr ist, und auch nicht, dass H0 mit 95 % Wahrscheinlichkeit falsch ist. Es heißt nur: Wenn H0 stimmen würde, wären Daten wie unsere ziemlich überraschend.
+Wenn $p < \alpha$ (typischerweise .05), verwerfen wir H0. Das heißt **nicht**, dass H1 wahr ist, und auch nicht, dass H0 mit 95 % Wahrscheinlichkeit falsch ist. Es heißt nur: Wenn H0 stimmen würde, wären Daten wie unsere ziemlich überraschend.
 
 ::: {.callout-important title="Was der p-Wert *nicht* ist"}
 - *Nicht* die Wahrscheinlichkeit, dass H0 wahr ist.
@@ -62,7 +62,7 @@ Aus $\beta$ ergibt sich die **Power** eines Tests als $1 - \beta$, also die Wahr
 - **Streuung der Daten** (weniger Rauschen → mehr Power)
 - **Signifikanzniveau $\alpha$** (lockerer → mehr Power, aber auch mehr falsche Alarme)
 
-Faustregel: für mittlere Effekte ($d = 0.5$) und $\alpha = .05$ brauchst Du pro Gruppe etwa **64 Personen** für 80 % Power. Unsere Seminar-Stichprobe ist deshalb deutlich underpowered für kleine bis mittlere Effekte. Echte Effekte werden hier also häufig übersehen.
+Faustregel: für mittlere Effekte ($d = 0.5$) und $\alpha = .05$ brauchst Du pro Gruppe etwa **64 Personen** für 80 % Power. Unsere Seminar-Stichprobe ist deshalb deutlich underpowered für kleine bis mittlere Effekte. Echte Effekte werden hier also häufig übersehen.
 
 ## Annahmen und warum sie wichtig sind
 
@@ -154,7 +154,7 @@ Solange Stufe 3 herausgefiltert ist, rechnet JASP **alle** Analysen in der Datei
 
 In APA-ähnlicher Form sieht ein t-Test-Bericht so aus (Zahlen ausgedacht):
 
-> Frauen ($M = 3.42$, $SD = 0.72$, $n = 64$) und Männer ($M = 3.09$, $SD = 0.81$, $n = 28$) unterschieden sich im Verträglichkeitswert nicht signifikant, $t(46.5) = 1.86$, $p = .069$, $d = 0.44$, 95 %-KI [−0.01, 0.89]. Der geschätzte Unterschied ist nicht klein, das Konfidenzintervall schließt aber auch einen Nulleffekt ein.
+> Frauen ($M = 3.42$, $SD = 0.72$, $n = 64$) und Männer ($M = 3.09$, $SD = 0.81$, $n = 28$) unterschieden sich im Verträglichkeitswert nicht signifikant, $t(46.5) = 1.86$, $p = .069$, $d = 0.44$, 95 %-KI [−0.01, 0.89]. Der geschätzte Unterschied ist nicht klein, das Konfidenzintervall schließt aber auch einen Nulleffekt ein.
 
 Beachte: vollständige Information, nicht nur das p.
 
@@ -208,7 +208,7 @@ Rechne in JASP **genau diese drei** (immer mit Welch + Effektgröße Cohen's *d*
 |--:|---|---|---|
 | t1 | One-Sample (zweiseitig) | `E_mean` vs. 3 | Mittlere Extraversion liegt nicht bei der Skalenmitte |
 | t2 | Independent (zweiseitig) | `V_mean` ~ `geschlecht` (1 vs. 2) | Frauen und Männer unterscheiden sich in Verträglichkeit |
-| t3 | Independent (zweiseitig) | `O_mean` ~ Bildungsgruppe | Personen mit Bildung ≥ 6 (Master/Promotion) unterscheiden sich in Offenheit von denen mit ≤ 5 |
+| t3 | Independent (zweiseitig) | `O_mean` ~ Bildungsgruppe | Personen mit Bildung ≥ 6 (Master/Promotion) unterscheiden sich in Offenheit von denen mit ≤ 5 |
 
 Für t3 brauchst Du eine neue Spalte `bildung_gruppe` via Compute Column (**Define column through R code**, Typ **Nominal**):
 ```r
@@ -216,7 +216,7 @@ ifelse(as.numeric(as.character(bildungsgrad)) >= 6, "hoch", "niedriger")
 ```
 
 Notiere für jeden der drei Tests **eine Zeile** im Format:
-*„t#: t(df) = X.XX, p = .XXX, d = X.XX, 95 %-KI [X.XX, X.XX], n = XX, Schluss: …“*
+*„t#: t(df) = X.XX, p = .XXX, d = X.XX, 95 %-KI [X.XX, X.XX], n = XX, Schluss: …“*
 
 **Bonus:**
 

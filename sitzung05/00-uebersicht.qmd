@@ -20,7 +20,7 @@ Zwei Verfahren, die Strukturen in Daten sichtbar machen: Mehrebenenmodelle berü
 ## Inhalte
 
 1. Kurzer Input: Nestung und ICC
-2. @sec-tag3-mixed
+2. Mehrebenen- & gemischte Modelle (@sec-tag3-mixed)
 3. Von Gruppen zu latenten Faktoren
-4. @sec-efa
+4. Explorative Faktorenanalyse (@sec-efa)
 5. Fragen und Abgabe (@sec-s05-abschluss)

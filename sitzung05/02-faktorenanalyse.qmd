@@ -29,7 +29,7 @@ Der BFI-K behauptet: Hinter 21 Items stecken **fünf** Persönlichkeitsfaktoren.
 
 | Kriterium | Regel | Problem |
 |---|---|---|
-| **Kaiser-Kriterium** | Faktoren mit Eigenwert > 1 | überschätzt die Zahl oft |
+| **Kaiser-Kriterium** | Faktoren mit Eigenwert > 1 | überschätzt die Zahl oft |
 | **Scree Plot** | Faktoren vor dem „Knick“ | subjektiv |
 | **Parallelanalyse** | Faktoren, deren Eigenwert größer ist als bei Zufallsdaten | gilt als bestes Standardverfahren |
 

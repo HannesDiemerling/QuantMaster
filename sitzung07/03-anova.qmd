@@ -17,7 +17,7 @@ Sobald Du **mehr als zwei Gruppen** vergleichst (z. B. Bildungsgrad mit sieben S
 
 ## Multiple-Testing-Problem in einem Satz
 
-Wenn Du bei $\alpha = .05$ einen einzelnen Test rechnest, ist Deine Fehlerwahrscheinlichkeit 5 %. Bei drei unabhängigen t-Tests steigt die Wahrscheinlichkeit, *mindestens einen* fälschlich signifikanten Befund zu sehen, auf rund $1 - (1 - .05)^3 \approx .14$, also fast jedes siebte Mal. Die ANOVA schützt davor, indem sie *zuerst* einen Globaltest macht.
+Wenn Du bei $\alpha = .05$ einen einzelnen Test rechnest, ist Deine Fehlerwahrscheinlichkeit 5 %. Bei drei unabhängigen t-Tests steigt die Wahrscheinlichkeit, *mindestens einen* fälschlich signifikanten Befund zu sehen, auf rund $1 - (1 - .05)^3 \approx .14$, also fast jedes siebte Mal. Die ANOVA schützt davor, indem sie *zuerst* einen Globaltest macht.
 
 ## Die Logik der ANOVA
 
@@ -93,7 +93,7 @@ In JASP ist bei *Correction* **Tukey** schon voreingestellt. Wenn Welch-ANOVA ge
 | A3 | Die zehn vorgenerierten Quell-Datensätze unterscheiden sich nicht in Extraversion. | `E_mean` ~ `quelle_datensatz` |
 | A4 | Die drei Geschlechter-Kategorien (1, 2, 3) unterscheiden sich nicht in Neurotizismus. | `N_mean` ~ `geschlecht` |
 
-A3 ist ein **Sanity-Check**: Die Datensätze wurden mit derselben Verteilung erzeugt, sollten sich also eigentlich *nicht* unterscheiden. Wird A3 trotzdem signifikant, ist das noch kein Grund zur Sorge: Bei α = .05 kommt ein solcher Fehler 1. Art auch dann vor, wenn alles stimmt, und bei nur rund zehn Personen pro Datensatz ziehen einzelne Datensätze leicht extremere Werte. Erst wenn ein Datensatz völlig aus der Reihe fällt, lohnt der Blick auf das Kombinieren (@sec-tag2-kombinieren).
+A3 ist ein **Sanity-Check**: Die Datensätze wurden mit derselben Verteilung erzeugt, sollten sich also eigentlich *nicht* unterscheiden. Wird A3 trotzdem signifikant, ist das noch kein Grund zur Sorge: Bei α = .05 kommt ein solcher Fehler 1. Art auch dann vor, wenn alles stimmt, und bei nur rund zehn Personen pro Datensatz ziehen einzelne Datensätze leicht extremere Werte. Erst wenn ein Datensatz völlig aus der Reihe fällt, lohnt der Blick auf das Kombinieren (@sec-tag2-kombinieren).
 
 ## Ein vollständiger Bericht
 

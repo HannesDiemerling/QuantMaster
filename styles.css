@@ -96,3 +96,59 @@ blockquote {
 .sidebar-item-text {
   hyphens: auto;
 }
+
+/* Tabellen: Spaltenbreite nach Inhalt (Pandoc verteilt sonst nach Strichzahl der Trennzeile) */
+table colgroup col {
+  width: auto !important;
+}
+td, th {
+  hyphens: auto;
+}
+.table > thead th {
+  background-color: var(--m15-th-bg);
+}
+@media (max-width: 767.98px) {
+  main table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+/* Breite abgesetzte Formeln seitlich scrollbar statt über den Rand */
+mjx-container[display="true"] {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Lange Inline-Code-Angaben dürfen umbrechen */
+p code:not(.sourceCode),
+li code:not(.sourceCode),
+td code:not(.sourceCode) {
+  overflow-wrap: anywhere;
+}
+
+#quarto-sidebar {
+  hyphens: auto;
+}
+
+/* Dunkelmodus: Lesbarkeit */
+body.quarto-dark :is(h1, h2, h3, h4, h5) code {
+  background-color: var(--m15-th-bg);
+  color: inherit;
+}
+body.quarto-dark .breadcrumb li:last-of-type a,
+body.quarto-dark .breadcrumb-item.active {
+  color: var(--m15-muted);
+}
+body.quarto-dark #quarto-sidebar {
+  background-color: #2b3035;
+}
+body.quarto-dark .sidebar-item-text.active {
+  color: #00bc8c;
+  font-weight: 600;
+}
+.nowrap {
+  white-space: nowrap;
+}

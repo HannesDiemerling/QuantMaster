@@ -21,7 +21,7 @@ Heute stellst Du das Werkzeug infrage, das Du bisher ständig benutzt hast: den 
 ## Inhalte
 
 1. Kleines Quiz: Was bedeutet p = .03?
-2. @sec-nhst
-3. Von „p < .05“ zu Wahrscheinlichkeitsaussagen
-4. @sec-tag3-bayes
+2. Signifikanztests und ihre Kritik (@sec-nhst)
+3. Von „p < .05“ zu Wahrscheinlichkeitsaussagen
+4. Bayes vs. Frequentismus (@sec-tag3-bayes)
 5. Fragen und Abgabe (@sec-s08-abschluss)

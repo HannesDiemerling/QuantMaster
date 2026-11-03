@@ -35,7 +35,7 @@ Bei jedem Test hängen vier Größen zusammen. Kennst Du drei, folgt die vierte:
 
 | Größe | Bedeutung | Typischer Wert |
 |---|---|---|
-| **α** | Wahrscheinlichkeit, einen Effekt zu „finden“, der nicht existiert (Fehler 1. Art) | .05 |
+| **α** | Wahrscheinlichkeit, einen Effekt zu „finden“, der nicht existiert (Fehler 1. Art) | .05 |
 | **Power (1 − β)** | Wahrscheinlichkeit, einen existierenden Effekt zu finden | .80 oder .90 |
 | **Effektgröße** | angenommene Größe des wahren Effekts (z. B. Cohen's $d$) | aus Literatur/Metaanalyse oder kleinster relevanter Effekt |
 | **N** | Stichprobengröße | wird meist berechnet |

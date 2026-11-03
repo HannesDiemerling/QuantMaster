@@ -21,10 +21,10 @@ Heute machst Du aus 21 Items fünf Konstrukte und schätzt die ersten Effekte: Z
 ## Inhalte
 
 1. Kurzer Input: Warum fassen wir Items zu Skalen zusammen? Was sagen $r$ und $d$?
-2. @sec-tag2-skalen
+2. Subskalen bilden & Reliabilität prüfen (@sec-tag2-skalen)
 3. Gemeinsame Frage: Welche Skala ist am wenigsten reliabel, und woran könnte das liegen?
-4. @sec-tag2-korrelation
-5. @sec-tag2-ttest
+4. Korrelation & Kausalität (@sec-tag2-korrelation)
+5. t-Tests & Effektgrößen (@sec-tag2-ttest)
 6. Fragen und Abgabe (@sec-s03-abschluss)
 
 ::: {.callout-tip title="Speichern nicht vergessen"}

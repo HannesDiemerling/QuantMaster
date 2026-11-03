@@ -21,7 +21,7 @@ In der Psychotherapieforschung sind Ergebnisse oft binär: remittiert oder nicht
 ## Inhalte
 
 1. Kurzer Input: Wahrscheinlichkeit, Odds und Odds Ratio
-2. @sec-tag3-logistisch
+2. Logistische Regression (@sec-tag3-logistisch)
 3. Vom Odds Ratio zur NNT
-4. @sec-epi
+4. Interventions-, Evaluations- & Epidemiologieforschung (@sec-epi)
 5. Fragen und Abgabe (@sec-s09-abschluss)

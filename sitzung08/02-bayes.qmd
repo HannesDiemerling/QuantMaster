@@ -16,7 +16,7 @@ Bisher hast Du **frequentistisch** gearbeitet: p-Werte, Signifikanz, „H0 verwe
 
 > **Wie groß ist der Effekt, und mit welcher Wahrscheinlichkeit ist er überhaupt vorhanden bzw. positiv?**
 
-Genau das liefert die **bayesianische** Inferenz. Statt einer Ja/Nein-Entscheidung bekommst Du eine **Wahrscheinlichkeitsverteilung über den Effekt** und kannst Sätze sagen wie: *„Mit 95 % Wahrscheinlichkeit liegt der wahre Unterschied zwischen 0.1 und 0.6 Punkten“* oder *„Mit 88 % Wahrscheinlichkeit ist Gruppe A größer als Gruppe B.“* JASP ist genau dafür gebaut.
+Genau das liefert die **bayesianische** Inferenz. Statt einer Ja/Nein-Entscheidung bekommst Du eine **Wahrscheinlichkeitsverteilung über den Effekt** und kannst Sätze sagen wie: *„Mit 95 % Wahrscheinlichkeit liegt der wahre Unterschied zwischen 0.1 und 0.6 Punkten“* oder *„Mit 88 % Wahrscheinlichkeit ist Gruppe A größer als Gruppe B.“* JASP ist genau dafür gebaut.
 
 ## Die drei Bausteine: Prior, Likelihood, Posterior
 
@@ -54,20 +54,20 @@ In JASP siehst Du den Posterior als **Prior-and-Posterior-Plot**: eine Kurve üb
 
 Das **Credible Interval** (glaubwürdiges Intervall) ist der Bereich, in dem der wahre Effekt mit einer bestimmten Wahrscheinlichkeit liegt:
 
-> *„Es besteht eine **95 % Wahrscheinlichkeit**, dass der wahre Effekt zwischen 0.1 und 0.6 liegt.“*
+> *„Es besteht eine **95 % Wahrscheinlichkeit**, dass der wahre Effekt zwischen 0.1 und 0.6 liegt.“*
 
 Das ist **genau die Aussage, die die meisten Menschen fälschlich vom frequentistischen Konfidenzintervall erwarten**, und die nur das Credible Interval wirklich erlaubt.
 
 ::: {.callout-important title="Credible Interval vs. Konfidenzintervall"}
-- **Konfidenzintervall** (frequentistisch): „Würde ich das Experiment unendlich oft wiederholen, würden 95 % solcher Intervalle den wahren Wert enthalten.“ Eine Aussage über das *Verfahren*, **nicht** über diesen einen konkreten Bereich.
-- **Credible Interval** (bayesianisch): „Mit 95 % Wahrscheinlichkeit liegt der wahre Wert in *diesem* Bereich.“ Eine Aussage über den *Parameter*, direkt und intuitiv.
+- **Konfidenzintervall** (frequentistisch): „Würde ich das Experiment unendlich oft wiederholen, würden 95 % solcher Intervalle den wahren Wert enthalten.“ Eine Aussage über das *Verfahren*, **nicht** über diesen einen konkreten Bereich.
+- **Credible Interval** (bayesianisch): „Mit 95 % Wahrscheinlichkeit liegt der wahre Wert in *diesem* Bereich.“ Eine Aussage über den *Parameter*, direkt und intuitiv.
 :::
 
 ### „Wie wahrscheinlich unterscheiden sich zwei Werte?“
 
 Genau diese Frage beantwortet der Posterior direkt. Betrachte die Posterior-Verteilung der **Differenz** (oder der Effektgröße $\delta$) zwischen zwei Gruppen:
 
-- Liegt das **gesamte** 95 %-Credible-Interval **über 0**, kannst Du sagen: *„Mit mindestens 97.5 % Wahrscheinlichkeit ist die Differenz positiv, Gruppe A liegt über Gruppe B.“*
+- Liegt das **gesamte** 95 %-Credible-Interval **über 0**, kannst Du sagen: *„Mit mindestens 97.5 % Wahrscheinlichkeit ist die Differenz positiv, Gruppe A liegt über Gruppe B.“*
 - Schließt das Credible Interval die **0 ein**, ist die Richtung unsicher: ein Teil der Wahrscheinlichkeitsmasse liegt links, ein Teil rechts von Null.
 
 Der **Anteil der Posterior-Masse über Null** ist also direkt die **Wahrscheinlichkeit, dass der Effekt positiv ist**. Das ist die psychologisch nützlichste Lesart: kein „signifikant ja/nein“, sondern ein abgestuftes *„so sicher bin ich mir, dass hier ein Unterschied in diese Richtung besteht.“*
@@ -82,7 +82,7 @@ Neben der Schätzung gibt es das **Test**-Werkzeug der Bayes-Welt: den **Bayes-F
 | 3–10 | moderat |
 | 10–30 | stark |
 | 30–100 | sehr stark |
-| > 100 | extrem |
+| > 100 | extrem |
 
 Werte **unter 1** liest Du als Evidenz **für** die Null (z. B. $BF_{10}=0.2$ → 5:1 für H0). Das ist die eine Sache, die der Bayes-Faktor besser kann als jeder p-Wert: **Evidenz für die Nullhypothese** quantifizieren.
 
@@ -99,8 +99,8 @@ Die bayesianischen Pendants liegen direkt neben den frequentistischen Analysen. 
 1. **T-Tests → Bayesian → Independent Samples T-Test**.
 2. **Dependent Variables:** `G_mean`, **Grouping Variable:** `geschlecht`. Stufe 3 wie in @sec-tag2-ttest per Filter ausschließen und den Filter nach dem Notieren der Werte wieder entfernen, bevor Du die Bayes-Korrelation rechnest.
 3. In den Optionen:
-   - **Plots → Prior and posterior** mit **„Additional info“** → zeigt die Posterior-Verteilung der Effektgröße $\delta$ samt **Median** und **95 %-Credible-Interval**.
-   - Optional unter *Plots* **Descriptives**.
+   - **Plots → Prior and posterior** mit **„Additional info“** → zeigt die Posterior-Verteilung der Effektgröße $\delta$ samt **Median** und **95 %-Credible-Interval**.
+   - Optional *Plots* → **Descriptives**.
    - Den $BF_{10}$ siehst Du ergänzend in der Ergebnistabelle.
 
 Du liest am Posterior ab: Liegt das Credible Interval ganz auf einer Seite von 0? Dann ist die Richtung wahrscheinlich; umschließt es 0, bleibt sie offen.
@@ -109,7 +109,7 @@ Du liest am Posterior ab: Liegt das Credible Interval ganz auf einer Seite von 0
 
 1. **Regression → Bayesian → Correlation**.
 2. Variablen `E_mean` und `O_mean`.
-3. Optionen: Abschnitt **Plot Individual Pairs** aufklappen, `E_mean` und `O_mean` als Paar ins rechte Feld ziehen und **Prior and posterior** mit **Estimation info** ankreuzen → Posterior der Korrelation $\rho$ mit Median und 95 %-Credible-Interval.
+3. Optionen: Abschnitt **Plot Individual Pairs** aufklappen, `E_mean` und `O_mean` als Paar ins rechte Feld ziehen und **Prior and posterior** mit **Estimation info** ankreuzen → Posterior der Korrelation $\rho$ mit Median und 95 %-Credible-Interval.
 
 ### Bayes-Regression (mehrere Prädiktoren)
 
@@ -128,7 +128,7 @@ Erinnere Dich an den Datenhinweis (@sec-tag3-datenhinweis):
 |---|---|---|
 | Frage | $P(\text{Daten}\mid H_0)$ | $P(\text{Effekt}\mid \text{Daten})$ |
 | Ergebnis | p-Wert, Konfidenzintervall | **Posterior**, Credible Interval, (Bayes-Faktor) |
-| Direkte Wahrscheinlichkeit über den Effekt? | **nein** | **ja** (z. B. P(Differenz > 0)) |
+| Direkte Wahrscheinlichkeit über den Effekt? | **nein** | **ja** (z. B. P(Differenz > 0)) |
 | Vorwissen | fließt nicht ein | über den Prior explizit |
 | H0 bestätigen? | Punkt-H0 nein (nur „kein relevanter Effekt“ per Äquivalenztest) | ja (BF zugunsten H0 bzw. Posterior nahe Null) |
 | „Daten sammeln bis signifikant“ | ohne Korrektur nicht zulässig (verzerrt p) | gilt als unkritischer (Posterior darf laufend angeschaut werden) |
@@ -154,9 +154,9 @@ Beide Ansätze sind legitim. In Deiner Master-Arbeit kannst Du sogar **beide** b
 **Pflichtteil für alle:**
 
 1. Rechne den **Bayesianischen Independent-Samples-*t*-Test** `G_mean` ~ `geschlecht` (1 vs. 2) mit **Prior-and-Posterior-Plot** und „Additional info“.
-2. Lies am Posterior ab: **Median** der Effektgröße $\delta$ und das **95 %-Credible-Interval**. Schließt es die 0 ein?
+2. Lies am Posterior ab: **Median** der Effektgröße $\delta$ und das **95 %-Credible-Interval**. Schließt es die 0 ein?
 3. Rechne die **Bayes-Korrelation** `E_mean` × `O_mean` und lies ebenfalls Median und Credible Interval von $\rho$ ab.
-4. Notiere für **beide** Analysen die zentralen Kennwerte: den **Posterior-Median** und das **95 %-Credible-Interval** des Effekts und formuliere jeweils die Wahrscheinlichkeitsaussage, die daraus folgt (schließt das Intervall die 0 ein oder nicht?).
+4. Notiere für **beide** Analysen die zentralen Kennwerte: den **Posterior-Median** und das **95 %-Credible-Interval** des Effekts und formuliere jeweils die Wahrscheinlichkeitsaussage, die daraus folgt (schließt das Intervall die 0 ein oder nicht?).
 
 **Bonus:**
 
@@ -164,12 +164,12 @@ Beide Ansätze sind legitim. In Deiner Master-Arbeit kannst Du sogar **beide** b
 - Schau Dir den ergänzenden $BF_{10}$ an: Deckt er sich mit dem, was Dir der Posterior schon gezeigt hat?
 
 ::: {.callout-tip title="Für die Abgabe"}
-Notiere für den Bayes-t-Test Median und 95 %-Credible-Interval von δ sowie BF₁₀, für die Bayes-Korrelation Median und Credible Interval von ρ, dazu einen Satz, welche Wahrscheinlichkeitsaussage der Posterior erlaubt, die ein p-Wert nicht erlaubt. Siehe @sec-s08-abschluss.
+Notiere für den Bayes-t-Test Median und 95 %-Credible-Interval von δ sowie BF₁₀, für die Bayes-Korrelation Median und Credible Interval von ρ, dazu einen Satz, welche Wahrscheinlichkeitsaussage der Posterior erlaubt, die ein p-Wert nicht erlaubt. Siehe @sec-s08-abschluss.
 :::
 
 ## Selbstcheck
 
 1. Was ist der Posterior, und woraus entsteht er?
 2. Warum erlaubt das Credible Interval eine Wahrscheinlichkeitsaussage über den Parameter, das Konfidenzintervall aber nicht?
-3. Das 95 %-Credible-Interval einer Differenz liegt komplett über 0. Welche Wahrscheinlichkeitsaussage kannst Du treffen?
+3. Das 95 %-Credible-Interval einer Differenz liegt komplett über 0. Welche Wahrscheinlichkeitsaussage kannst Du treffen?
 4. Wann greifst Du ergänzend zum Bayes-Faktor, und was kann er, das der p-Wert nicht kann?

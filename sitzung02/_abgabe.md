@@ -1,5 +1,5 @@
 <!-- automatisch erzeugt von scripts/antwortbogen.R — nicht von Hand bearbeiten -->
-```text
+```default
 S02-1 Datenzeilen in Deiner selbst kombinierten Datei (ohne Kopfzeile): 
 S02-2 Zeilen in m15-gesamt.csv: 
 S02-3 Davon Zeilen mit quelle = studierende: 

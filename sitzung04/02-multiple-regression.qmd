@@ -47,7 +47,7 @@ Jedes $b_j$ ist der **partielle** Effekt von $X_j$, also der Beitrag dieses Prä
 | **$p$ pro Koeffizient** | Testet, ob ein einzelner Prädiktor (bei Kontrolle der anderen) von 0 verschieden ist. |
 
 ::: {.callout-tip title="R² richtig einordnen"}
-$R^2 = .25$ heißt: 25 % der Streuung in $Y$ werden erklärt, 75 % nicht. In der Persönlichkeits- und Sozialpsychologie sind $R^2$-Werte von .05–.30 ganz normal, Menschen sind eben nicht deterministisch. Erwarte keine .80 wie in der Physik.
+$R^2 = .25$ heißt: 25 % der Streuung in $Y$ werden erklärt, 75 % nicht. In der Persönlichkeits- und Sozialpsychologie sind $R^2$-Werte von .05–.30 ganz normal, Menschen sind eben nicht deterministisch. Erwarte keine .80 wie in der Physik.
 :::
 
 ## Voraussetzungen und wie Du sie prüfst
@@ -57,7 +57,7 @@ $R^2 = .25$ heißt: 25 % der Streuung in $Y$ werden erklärt, 75 % nicht. In der
 | **Linearität** | Residuals vs. Predicted Plot: kein gebogenes Muster | Term quadrieren, transformieren |
 | **Normalverteilung der Residuen** | Q-Q-Plot der standardisierten Residuen | bei großem $N$ für Tests/KI meist tolerierbar (s. Hinweis unten); sonst transformieren |
 | **Homoskedastizität** (gleiche Streuung) | Residuals vs. Predicted: gleichmäßiges Band | robuste Standardfehler, transformieren |
-| **Keine extreme Multikollinearität** | **VIF** (Variance Inflation Factor) | VIF > 5–10 → Prädiktoren zusammenfassen/entfernen |
+| **Keine extreme Multikollinearität** | **VIF** (Variance Inflation Factor) | VIF > 5–10 → Prädiktoren zusammenfassen/entfernen |
 | **Unabhängige Beobachtungen** | aus dem Design, nicht aus Daten | bei genesteten Daten: Mehrebenenmodell (@sec-tag3-mixed) |
 
 **Multikollinearität** heißt: zwei Prädiktoren messen fast dasselbe. Dann „streiten“ sie sich um die erklärte Varianz, und die einzelnen $b$ werden instabil. Der **VIF** zeigt das: Werte nahe 1 sind ideal, über 5 wird's heikel.

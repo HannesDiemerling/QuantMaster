@@ -127,6 +127,9 @@ execute:
 
 lang: de
 
+filters:
+  - filters/nowrap-math.lua
+
 # Zentrale Kursdaten — in den Kapiteln per {{< meta kurs.mail >}} eingebunden
 kurs:
   mail: "hannes.diemerling@gmail.com"

@@ -308,7 +308,7 @@ for (s in unique(all$sitzung)) {
   x <- all[all$sitzung == s, ]
   con <- file(sprintf("sitzung%02d/_abgabe.md", s), "w", encoding = "UTF-8")
   writeLines(c("<!-- automatisch erzeugt von scripts/antwortbogen.R — nicht von Hand bearbeiten -->",
-               "```text", sprintf("%s %s: ", x$feld, x$frage), "```"), con)
+               "```default", sprintf("%s %s%s ", x$feld, x$frage, ifelse(grepl("\\?$", x$frage), "", ":")), "```"), con)
   close(con)
 }
 

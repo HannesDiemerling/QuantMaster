@@ -22,9 +22,9 @@ Aus vielen Uploads wird *ein* Datensatz. Du kombinierst zuerst selbst ein paar D
 ## Inhalte
 
 1. Gemeinsamer Blick in den Merge-Report: Was ist beim Upload schiefgegangen?
-2. @sec-tag2-kombinieren
+2. Uploads kombinieren & Gesamtdatensatz öffnen (@sec-tag2-kombinieren)
 3. Eindeutige IDs, der offizielle Gesamtdatensatz und Variablentypen
-4. @sec-tag2-deskriptive
+4. Deskriptive Statistik & Plots (@sec-tag2-deskriptive)
 5. Boxplot und Q-Q-Plot gemeinsam lesen, Abgabe (@sec-s02-abschluss)
 
 ## Erinnerung: Demo-Charakter

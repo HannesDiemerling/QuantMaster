@@ -58,9 +58,9 @@ $$
 
 Ein $z = 1$ bedeutet: dieser Wert liegt eine Standardabweichung *über* dem Mittel. Ein $z = -2$ bedeutet: zwei Standardabweichungen *unter* dem Mittel. Bei einer halbwegs normalverteilten Variable gilt grob:
 
-- ca. 68 % der Werte liegen zwischen $z = -1$ und $z = +1$
-- ca. 95 % liegen zwischen $z = -2$ und $z = +2$
-- ca. 99,7 % liegen zwischen $z = -3$ und $z = +3$
+- ca. 68 % der Werte liegen zwischen $z = -1$ und $z = +1$
+- ca. 95 % liegen zwischen $z = -2$ und $z = +2$
+- ca. 99.7 % liegen zwischen $z = -3$ und $z = +3$
 
 Diese **Standardisierung** macht Werte verschiedener Variablen vergleichbar. Dieselbe Idee steckt in Cohen's *d* (Sitzung 03): ein Unterschied in Einheiten der Standardabweichung. Wenn jemand bei der Skala Extraversion ein $z = +1.5$ hat und gleichzeitig bei Offenheit ein $z = +0.2$, weißt Du: für diese Person ist Extraversion deutlich ausgeprägter als Offenheit, *relativ zum Durchschnitt der Gruppe*.
 

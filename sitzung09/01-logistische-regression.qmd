@@ -22,7 +22,7 @@ Drei Begriffe, die Du sauber trennen musst:
 
 | Begriff | Formel | Wertebereich | Bedeutung |
 |---|---|---|---|
-| **Wahrscheinlichkeit** $p$ | Ausgangsgröße | 0 bis 1 | „30 % Chance“ |
+| **Wahrscheinlichkeit** $p$ | Ausgangsgröße | 0 bis 1 | „30 % Chance“ |
 | **Odds** (Chance) | $\dfrac{p}{1-p}$ | 0 bis ∞ | „Verhältnis 30:70 = 0.43“ |
 | **Logit** | $\ln\!\left(\dfrac{p}{1-p}\right)$ | −∞ bis +∞ | logarithmierte Odds |
 
@@ -41,10 +41,10 @@ Der Koeffizient $b_j$ ist im Logit-Maßstab schwer lesbar. Deshalb berichtet man
 | OR | Bedeutung |
 |---|---|
 | **= 1** | Prädiktor hat keinen Effekt |
-| **> 1** | höhere Werte des Prädiktors → Ereignis **wahrscheinlicher** |
-| **< 1** | höhere Werte des Prädiktors → Ereignis **unwahrscheinlicher** |
+| **> 1** | höhere Werte des Prädiktors → Ereignis **wahrscheinlicher** |
+| **< 1** | höhere Werte des Prädiktors → Ereignis **unwahrscheinlicher** |
 
-> *Lesart:* OR = 1.8 für `E_mean` heißt: Pro **+1 Punkt Extraversion** wird die *Chance* (Odds) für das Ereignis um den Faktor 1.8, also um 80 %, größer, bei Kontrolle der anderen Prädiktoren.
+> *Lesart:* OR = 1.8 für `E_mean` heißt: Pro **+1 Punkt Extraversion** wird die *Chance* (Odds) für das Ereignis um den Faktor 1.8, also um 80 %, größer, bei Kontrolle der anderen Prädiktoren.
 
 ::: {.callout-tip title="OR ist kein Wahrscheinlichkeits-Faktor"}
 Ein OR von 2 heißt **nicht**, dass die Wahrscheinlichkeit doppelt so groß wird. Es sind die *Odds*, die sich verdoppeln. Bei kleinen Grundwahrscheinlichkeiten liegen beide nah beieinander, bei großen nicht. Berichte das OR immer mit **Konfidenzintervall**: schließt das KI die **1** ein, ist der Prädiktor nicht signifikant.
@@ -58,11 +58,11 @@ Es gibt kein echtes $R^2$ wie in der linearen Regression. Stattdessen:
 |---|---|
 | **Pseudo-$R^2$** (McFadden, Nagelkerke) | grobe Analogie zum $R^2$; McFadden fällt meist deutlich kleiner aus, .2–.4 gilt dort schon als sehr guter Fit |
 | **Klassifikationstabelle** | wie viele Fälle das Modell richtig in 0/1 einsortiert (Trefferquote) |
-| **AUC / ROC-Kurve** | Trennschärfe: 0.5 = Zufall, 1.0 = perfekt; > 0.7 brauchbar |
+| **AUC / ROC-Kurve** | Trennschärfe: 0.5 = Zufall, 1.0 = perfekt; > 0.7 brauchbar |
 | **Likelihood-Ratio-Test** | testet das Gesamtmodell gegen das Null-Modell |
 
 ::: {.callout-important title="Vorsicht bei der Trefferquote"}
-Wenn 90 % aller Fälle „Nein“ sind, erreicht ein Modell, das **immer „Nein“** sagt, schon 90 % Treffer, ohne irgendetwas gelernt zu haben. Schau deshalb nicht nur auf die Gesamttrefferquote, sondern auf **AUC** und die Treffer **pro Klasse**.
+Wenn 90 % aller Fälle „Nein“ sind, erreicht ein Modell, das **immer „Nein“** sagt, schon 90 % Treffer, ohne irgendetwas gelernt zu haben. Schau deshalb nicht nur auf die Gesamttrefferquote, sondern auf **AUC** und die Treffer **pro Klasse**.
 :::
 
 ## In JASP rechnen
@@ -109,7 +109,7 @@ Einen festen Wortlaut gibt es nicht, aber diese Angaben sollten vollständig vor
 
 **Schwächen:**
 
-- braucht **mehr** Fälle pro Prädiktor als die lineare Regression (Faustregel: ≥ 10 Ereignisse pro Prädiktor)
+- braucht **mehr** Fälle pro Prädiktor als die lineare Regression (Faustregel: ≥ 10 Ereignisse pro Prädiktor)
 - OR werden oft mit Wahrscheinlichkeits-Verhältnissen verwechselt
 - ein Median-Split (wie hier zur Übung) **verschenkt Information**. In echten Studien nimmt man eine *natürlich* binäre Variable, kein künstlich zerschnittenes Kontinuum
 
@@ -123,7 +123,7 @@ Einen festen Wortlaut gibt es nicht, aber diese Angaben sollten vollständig vor
 
 **Bonus:**
 
-- Versuch dasselbe mit **`geschlecht` (1 vs. 2, Stufe 3 per Filter ausschließen und danach den Filter wieder entfernen)** als Outcome und den Skalen als Prädiktoren. Findet das Modell etwas? Warum (nicht)?
+- Versuch dasselbe mit **`geschlecht`** (1 vs. 2, Stufe 3 per Filter ausschließen und danach den Filter wieder entfernen) als Outcome und den Skalen als Prädiktoren. Findet das Modell etwas? Warum (nicht)?
 - Interpretiere **ein** OR ausführlich in einem Satz in der Wahrscheinlichkeits-Sprache.
 
 ::: {.callout-tip title="Für die Abgabe"}
@@ -135,4 +135,4 @@ Notiere: χ² und p des Modelltests, Nagelkerke-R², AUC und das Odds Ratio des 
 1. Warum nimmst Du für eine Ja/Nein-Variable keine lineare Regression?
 2. Was ist der Unterschied zwischen Wahrscheinlichkeit, Odds und Logit?
 3. Ein OR von 0.6 mit KI [0.4, 0.9]: Was bedeutet das inhaltlich?
-4. Warum ist eine Gesamttrefferquote von 90 % allein noch kein gutes Zeichen?
+4. Warum ist eine Gesamttrefferquote von 90 % allein noch kein gutes Zeichen?

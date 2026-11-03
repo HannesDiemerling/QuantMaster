@@ -30,7 +30,7 @@ Ein Modell, das die **vorhandenen** Daten perfekt beschreibt, ist wertlos, wenn 
 
 Die Gegenmaßnahme ist methodisch sauber und einfach:
 
-1. **Train/Test-Split:** Teile die Daten z. B. 70 % Training / 30 % Test. Trainiere nur auf dem Trainingsteil, beurteile **nur** auf dem ungesehenen Testteil.
+1. **Train/Test-Split:** Teile die Daten z. B. 70 % Training / 30 % Test. Trainiere nur auf dem Trainingsteil, beurteile **nur** auf dem ungesehenen Testteil.
 2. **Kreuzvalidierung (k-fold):** Teile die Daten in $k$ Blöcke (z. B. 5). Trainiere auf 4, teste auf dem 5., rotiere durch, mittle die Güte. Das nutzt die Daten effizienter, was bei kleinem $N$ wichtig ist.
 
 ::: {.callout-tip title="Die zentrale Idee des Kapitels"}
@@ -43,7 +43,7 @@ JASP bietet für **Regression** (metrisches Ziel) und **Classification** (katego
 
 | Verfahren | Kurz |
 |---|---|
-| **Regularized Linear (LASSO/Ridge/Elastic Net)** | nur unter Regression: lineare Regression mit „Bestrafung“, schrumpft unwichtige Koeffizienten gegen 0 |
+| **Regularized Linear (LASSO/Ridge/Elastic Net)** | nur unter Regression: lineare Regression mit „Bestrafung“, schrumpft unwichtige Koeffizienten gegen 0 |
 | **Decision Tree** | Folge von Ja/Nein-Fragen; sehr interpretierbar, aber instabil |
 | **Random Forest** | viele Bäume gemittelt; robust, liefert **Variable Importance** |
 | **Boosting** | Bäume, die sequenziell die Fehler der Vorgänger ausbessern; oft sehr treffsicher |
@@ -68,7 +68,7 @@ Das Modul **Machine Learning** schaltest Du zuerst über das **„+“** oben re
 1. **Machine Learning → Classification → Random Forest** (Analyse „Random Forest Classification“).
 2. **Target:** `N_hoch`. **Features:** `E_mean`, `V_mean`, `G_mean`, `O_mean`.
 3. Optionen:
-   - **Data Split Preferences:** bei **Holdout Test Data** z. B. 30 % als Testdaten (k-fold-Kreuzvalidierung bietet JASP für Random Forest und neuronale Netze nicht an).
+   - **Data Split Preferences:** bei **Holdout Test Data** z. B. 30 % als Testdaten (k-fold-Kreuzvalidierung bietet JASP für Random Forest und neuronale Netze nicht an).
    - **Set seed** ankreuzen (z. B. 1), damit der Zufalls-Split reproduzierbar ist.
    - **Tables → Feature importance** anzeigen (Plot: **Mean decrease in accuracy**).
    - **Tables → Confusion matrix** und **Plots → ROC curves**. Die **AUC** steht in der Tabelle **Model performance** (unter *Tables* ankreuzen, Testdaten).
@@ -114,7 +114,7 @@ ML entfaltet seine Stärke bei **großen** Datensätzen (Tausende Fälle) mit **
 
 **Aufgabe:**
 
-1. Rechne eine **Random-Forest-Classification** für `N_hoch` mit den vier Skalen als Features, **mit Holdout-Testdaten (30 %) und Set seed**. Lies die **Test-AUC** und die **Feature importance** ab.
+1. Rechne eine **Random-Forest-Classification** für `N_hoch` mit den vier Skalen als Features, **mit Holdout-Testdaten (30 %) und Set seed**. Lies die **Test-AUC** und die **Feature importance** ab.
 2. Rechne dasselbe als **kleines neuronales Netz** (1 Hidden Layer, 2–4 Knoten).
 3. Notiere die zentralen Kennwerte zum Vergleich: die **Test-AUC** von Random Forest, neuronalem Netz und (zum Vergleich) der logistischen Regression aus @sec-tag3-logistisch (Achtung: die wurde auf allen Daten berechnet und ist deshalb eher zu optimistisch), das **wichtigste Feature** und Deine Schlussfolgerung.
 

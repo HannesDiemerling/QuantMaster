@@ -61,16 +61,16 @@ Für dieses Seminar reicht jeder dieser Wege. Nimm einfach den, der Dir am meist
 
 Unser Repository liegt unter **[{{< meta kurs.repo >}}]({{< meta kurs.repo >}})** und enthält:
 
-```
+```default
 QuantMaster/
-├── index.qmd               # Landing-Page der Site
-├── sitzung01/ … sitzung10/ # die Seminar-Kapitel
-├── materials/              # Codebook, CSV-Template
+├── index.qmd               # Startseite
+├── sitzung01/ … sitzung10/ # Kapitel
+├── materials/              # Codebook
 ├── data/
-│   ├── generated/          # 10 vorgenerierte Datensätze
-│   ├── student-uploads/    # ← HIER lädst Du gleich Deine Datei hoch
-│   └── combined/           # Gesamtdatensatz (vom Workflow automatisch erzeugt)
-└── scripts/                # R-Skripte (Datensatzgenerierung, Merge)
+│   ├── generated/          # 10 Übungsdatensätze
+│   ├── student-uploads/    # ← HIER hochladen
+│   └── combined/           # Gesamtdatensatz (automatisch)
+└── scripts/                # R-Skripte
 ```
 
 Die `README.md` enthält dieselbe Übersicht und einen Quick-Start für Studierende und Lehrperson.

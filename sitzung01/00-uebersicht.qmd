@@ -19,19 +19,19 @@ Heute spielst Du den praktischen Kern einer Datenerhebung durch: Daten erfassen,
 
 Bitte vor der Sitzung zu Hause:
 
-- @sec-tag1-open-science, @sec-tag1-ethik und @sec-tag1-messtheorie lesen
+- Open Science & Reproduzierbarkeit (@sec-tag1-open-science), Forschungsethik (@sec-tag1-ethik) und Messtheorie & der BFI-K (@sec-tag1-messtheorie) lesen
 - JASP installieren und einmal starten. Alle Anleitungen nutzen die **englische** Oberfläche. Zeigt JASP bei Dir Deutsch, stell es um: Menü ☰ → **Einstellungen** → **Bedienoberfläche** → **Bevorzugte Sprache** → *English*.
 - empfohlen: einen GitHub-Account anlegen und den Benutzernamen per Mail an die Lehrperson schicken
 
 ## Inhalte
 
 1. Begrüßung, Teilnehmerliste: Du ermittelst Deine Nummern (siehe unten)
-2. @sec-tag1-fragebogen
-3. @sec-tag1-github
+2. Fragebogen & fiktive Person (@sec-tag1-fragebogen)
+3. GitHub-Einstieg (@sec-tag1-github)
 4. Kurze Live-Demo zu JASP: Oberfläche, Datei öffnen, Variablentypen
-5. @sec-tag1-laden
-6. @sec-tag1-bereinigung
-7. @sec-tag1-upload
+5. Deinen Datensatz herunterladen (@sec-tag1-laden)
+6. Datenbereinigung in JASP (@sec-tag1-bereinigung)
+7. Fiktive Person ergänzen und hochladen (@sec-tag1-upload)
 8. Gemeinsame Upload-Kontrolle und Abgabe (@sec-s01-abschluss)
 
 ## Deine Nummern {#sec-nummern}

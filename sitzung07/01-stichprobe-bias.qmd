@@ -45,7 +45,7 @@ Stell Dir vor, Du ziehst nicht eine Stichprobe, sondern sehr viele, jede mit $N$
 
 - Die Streuung der Stichprobenverteilung ist der **Standardfehler** ($SE$). Für den Mittelwert gilt $SE = SD / \sqrt{N}$. Der $SE$ beschreibt, wie genau ein Kennwert geschätzt ist. Die $SD$ beschreibt dagegen, wie stark die Personen streuen.
 - Weil der $SE$ nur mit $\sqrt{N}$ schrumpft, braucht man für eine doppelt so genaue Schätzung viermal so viele Personen. Bei $SD = 10$ ist $SE = 2$ für $N = 25$ und $SE = 1$ für $N = 100$.
-- Nach dem Zentralen Grenzwertsatz (@sec-tag2-ttest) ist die Stichprobenverteilung bei ausreichend großem $N$ annähernd normal. Daraus ergibt sich das **95 %-Konfidenzintervall**: ungefähr Schätzwert $\pm 1.96 \times SE$. Bei kleinen Stichproben nimmt man statt 1.96 den etwas größeren Wert aus der *t*-Verteilung.
+- Nach dem Zentralen Grenzwertsatz (@sec-tag2-ttest) ist die Stichprobenverteilung bei ausreichend großem $N$ annähernd normal. Daraus ergibt sich das **95 %-Konfidenzintervall**: ungefähr Schätzwert $\pm 1.96 \times SE$. Bei kleinen Stichproben nimmt man statt 1.96 den etwas größeren Wert aus der *t*-Verteilung.
 
 Alle Tests aus dem Seminar folgen derselben Logik. Ob *t*, *z* oder *F*: Im Kern wird ein Effekt ins Verhältnis zu seiner Unsicherheit gesetzt. Ein großer Effekt mit großem Standardfehler kann deshalb weniger überzeugend sein als ein kleiner, sehr genau geschätzter.
 
@@ -60,7 +60,7 @@ Alle Tests aus dem Seminar folgen derselben Logik. Ob *t*, *z* oder *F*: Im Kern
 | **Einfache Zufallsstichprobe** | Jede Person der Population hat dieselbe Chance, gezogen zu werden. | Ideal der Inferenzstatistik, in der Praxis selten erreichbar |
 | **Geschichtete Stichprobe** | Population in Schichten teilen (z. B. Altersgruppen), in jeder Schicht zufällig ziehen. | Bevölkerungsumfragen, wenn kleine Gruppen sicher vertreten sein sollen |
 | **Klumpenstichprobe** | Ganze Gruppen zufällig ziehen (z. B. Praxen, Schulklassen) und alle darin befragen. | Versorgungsforschung; erzeugt genestete Daten (@sec-tag3-mixed) |
-| **Quotenstichprobe** | Vorgegebene Anteile (z. B. 50 % Frauen) gezielt auffüllen, aber nicht zufällig. | Markt- und Meinungsforschung |
+| **Quotenstichprobe** | Vorgegebene Anteile (z. B. 50 % Frauen) gezielt auffüllen, aber nicht zufällig. | Markt- und Meinungsforschung |
 | **Gelegenheitsstichprobe** | Wer erreichbar ist und mitmacht. | Studierendenpools, Online-Studien, Ambulanzen |
 
 In der Psychotherapieforschung sind Gelegenheitsstichproben der Normalfall, etwa alle Patient:innen einer Hochschulambulanz. Das ist kein Fehler, schränkt aber ein, auf wen sich Ergebnisse übertragen lassen. Genau hier setzen die Bias-Typen im nächsten Abschnitt an.
@@ -154,7 +154,7 @@ In vielen JASP-Analysen findest Du unter den Optionen eine Einstellung für fehl
 
 - Boxplot `alter` gruppiert nach `geschlecht`.
 - Bar Chart `bildungsgrad` gruppiert nach `quelle_datensatz` (Feld **Split**; `quelle_datensatz` muss dafür Nominal sein). Sind die zehn vorgenerierten Datensätze in der Bildung vergleichbar verteilt?
-- Lass Dir für `alter` zusätzlich **S.E. mean** ausgeben und rechne das 95 %-Konfidenzintervall des Mittelwerts grob von Hand aus ($M \pm 2 \times SE$).
+- Lass Dir für `alter` zusätzlich **S.E. mean** ausgeben und rechne das 95 %-Konfidenzintervall des Mittelwerts grob von Hand aus ($M \pm 2 \times SE$).
 
 ::: {.callout-tip title="Für die Abgabe"}
 Notiere das BFI-Item mit den meisten fehlenden Werten und Deine 2–3-Sätze-Notiz zur Stichprobe. Siehe @sec-s07-abschluss.
@@ -164,5 +164,5 @@ Notiere das BFI-Item mit den meisten fehlenden Werten und Deine 2–3-Sätze-Not
 
 1. Was unterscheidet einen Stichprobenfehler von einem Stichprobenbias?
 2. Warum reicht ein Mittelwert allein nicht, um „die Persönlichkeit junger Erwachsener“ zu beschreiben?
-3. Eine Studie hat 40 % Drop-out, und die Abbrecher:innen hatten zu Beginn höhere Symptomwerte. Welcher Missing-Mechanismus liegt nahe, und welches Verfahren würdest Du wählen?
+3. Eine Studie hat 40 % Drop-out, und die Abbrecher:innen hatten zu Beginn höhere Symptomwerte. Welcher Missing-Mechanismus liegt nahe, und welches Verfahren würdest Du wählen?
 4. Welche Bias-Typen sind in unserem Seminar-Datensatz besonders einschlägig, und welche eher nicht (Stichwort: keine echte Erhebung, sondern fiktive Personen)?
