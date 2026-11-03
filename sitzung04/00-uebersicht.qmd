@@ -33,7 +33,7 @@ Zwei Wege, über die einfache Korrelation hinauszugehen: über **Studien** hinwe
 Du arbeitest mit dem Gesamtdatensatz `m15-gesamt.csv` und Deinen Skalen `E_mean`, `V_mean`, `G_mean`, `N_mean`, `O_mean` aus Sitzung 03. Bevor es losgeht, solltest Du wissen, **wie diese Daten entstanden sind**. Sonst interpretierst Du die Ergebnisse leicht falsch.
 
 ::: {.callout-important title="Was in den Daten *wirklich* steckt"}
-1. **Innerhalb** jeder Big-Five-Skala hängen die Items moderat zusammen (Konstruktion: $r \approx .40$). → Die Skalen „funktionieren".
+1. **Innerhalb** jeder Big-Five-Skala hängen die Items moderat zusammen (Konstruktion: $r \approx .40$). → Die Skalen „funktionieren“.
 2. **Zwischen** den fünf Skalen gibt es einen **schwach positiven** Zusammenhang (Item-Ebene $r \approx .10$, Skalen-Ebene ca. $r \approx .15$–$.20$). **Das ist das einzige echte Signal zwischen verschiedenen Konstrukten.**
 3. **Demografie und Persönlichkeit sind komplett unabhängig** generiert. Alter, Geschlecht und Bildungsgrad hängen mit **keiner** Skala zusammen.
 :::

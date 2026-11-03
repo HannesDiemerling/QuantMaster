@@ -22,20 +22,20 @@ Weil keine echten Personen beschrieben werden, brauchst Du auch keine Einverstä
 
 ## Aufgabe
 
-### 1. BFI-K ansehen
+### BFI-K ansehen
 
 Den BFI-K-Fragebogen bekommst Du von der Lehrperson. Überflieg ihn kurz, damit Du ein Gefühl dafür bekommst, wie ein psychometrisches Erhebungsinstrument aussieht. Achte darauf, welche Items umgekehrt formuliert sind. Im Bogen selbst sind sie nicht gekennzeichnet, den Schlüssel findest Du in @sec-tag1-messtheorie.
 
-### 2. Eine fiktive Person ausdenken
+### Eine fiktive Person ausdenken
 
 Überleg Dir eine Person, die es nicht gibt, und notiere:
 
 - Geschlecht, Alter und höchsten Bildungsabschluss (die Codes stehen im [Codebook](../materials/codebook.qmd))
-- in ein, zwei Stichworten, wie sie so ist, zum Beispiel „gesellig, etwas chaotisch, neugierig"
+- in ein, zwei Stichworten, wie sie so ist, zum Beispiel „gesellig, etwas chaotisch, neugierig“
 
 Die Person darf ruhig ganz anders sein als Du. Plausibel sollte sie trotzdem sein.
 
-### 3. Den BFI-K für diese Person ausfüllen
+### Den BFI-K für diese Person ausfüllen
 
 Geh die 21 Items durch und kreuze an, wie Deine fiktive Person antworten würde (1 bis 5). Notiere die Werte. Du trägst sie in @sec-tag1-upload als eigene Zeile in den Datensatz ein.
 

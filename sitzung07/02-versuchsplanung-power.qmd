@@ -35,7 +35,7 @@ Bei jedem Test hängen vier Größen zusammen. Kennst Du drei, folgt die vierte:
 
 | Größe | Bedeutung | Typischer Wert |
 |---|---|---|
-| **α** | Wahrscheinlichkeit, einen Effekt zu „finden", der nicht existiert (Fehler 1. Art) | .05 |
+| **α** | Wahrscheinlichkeit, einen Effekt zu „finden“, der nicht existiert (Fehler 1. Art) | .05 |
 | **Power (1 − β)** | Wahrscheinlichkeit, einen existierenden Effekt zu finden | .80 oder .90 |
 | **Effektgröße** | angenommene Größe des wahren Effekts (z. B. Cohen's $d$) | aus Literatur/Metaanalyse oder kleinster relevanter Effekt |
 | **N** | Stichprobengröße | wird meist berechnet |
@@ -48,7 +48,7 @@ Die Effektgröße für die Planung sollte nicht aus einer einzelnen, kleinen Pil
 
 ## In JASP rechnen
 
-1. Modul **Power** über das **„+"** aktivieren, dann **Power → Power**.
+1. Modul **Power** über das **„+“** aktivieren, dann **Power → Power**.
 2. **Statistical test:** *Independent Samples T-Test*.
 3. **I want to calculate the …** *Sample Size N*.
 4. **Minimal effect size of interest:** 0.5 · **Minimal desired power:** 0.8 (Achtung: voreingestellt ist 0.9) · **Type I error rate:** 0.05 · **Alternative Hypothesis:** *Two-sided*.

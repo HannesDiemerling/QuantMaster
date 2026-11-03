@@ -28,7 +28,7 @@ Der entscheidende Koeffizient ist $b_3$: Ist er von Null verschieden, **hängt d
 
 Das ist eine der häufigsten Verwechslungen in der Methodenlehre, deshalb gleich hier sauber:
 
-| | **Moderation** | **Mediation** (nächstes Kapitel) |
+| | **Moderation** | **Mediation** (Sitzung 06) |
 |---|---|---|
 | Frage | *Wann / für wen* ist der Effekt stark? | *Wie / über was* läuft der Effekt? |
 | Rolle der 3. Variable | verändert die **Stärke** des Effekts | überträgt den Effekt als **Zwischenschritt** |
@@ -37,9 +37,9 @@ Das ist eine der häufigsten Verwechslungen in der Methodenlehre, deshalb gleich
 
 ## Warum zentrieren?
 
-Wenn Du $X$ und $W$ multiplizierst, sind die Einzeleffekte ($b_1$, $b_2$) im Interaktionsmodell nur noch interpretierbar **am Punkt, an dem die jeweils andere Variable = 0 ist**. Bei einer Skala von 1–5 ist „0" aber außerhalb des sinnvollen Bereichs, der Wert wäre also Unsinn.
+Wenn Du $X$ und $W$ multiplizierst, sind die Einzeleffekte ($b_1$, $b_2$) im Interaktionsmodell nur noch interpretierbar **am Punkt, an dem die jeweils andere Variable = 0 ist**. Bei einer Skala von 1–5 ist „0“ aber außerhalb des sinnvollen Bereichs, der Wert wäre also Unsinn.
 
-Die Lösung: **Zentrieren**. Du ziehst von jedem Prädiktor seinen Mittelwert ab, sodass der neue Mittelwert 0 ist. Dann bedeutet „$X = 0$" gerade „$X$ = Durchschnitt", und die Haupteffekte werden wieder sinnvoll interpretierbar. Als Nebeneffekt sinkt die (rechnerische) Multikollinearität zwischen den Termen.
+Die Lösung: **Zentrieren**. Du ziehst von jedem Prädiktor seinen Mittelwert ab, sodass der neue Mittelwert 0 ist. Dann bedeutet „$X = 0$“ gerade „$X$ = Durchschnitt“, und die Haupteffekte werden wieder sinnvoll interpretierbar. Als Nebeneffekt sinkt die (rechnerische) Multikollinearität zwischen den Termen.
 
 In JASP per **Compute Column** (R-Modus), für jeden beteiligten Prädiktor eine zentrierte Version:
 
@@ -52,7 +52,7 @@ G_mean - mean(G_mean, na.rm = TRUE)
 ```
 
 ::: {.callout-tip title="Zentrieren ändert die Interaktion selbst nicht"}
-$b_3$ (der Interaktionskoeffizient) und seine Signifikanz bleiben durch Zentrieren **unverändert**. Zentriert wird nur, damit die **Haupteffekte** und der **Intercept** interpretierbar werden. Standardisieren (z-Transformation) tut dasselbe plus Vergleichbarkeit der Skalen.
+$b_3$ (der Interaktionskoeffizient) und seine Signifikanz bleiben durch Zentrieren **unverändert**. Zentriert wird nur, damit die **Haupteffekte** und der **Intercept** interpretierbar werden. Standardisieren (z-Transformation) macht die Haupteffekte ebenso interpretierbar und die Skalen zusätzlich vergleichbar; dabei ändert sich allerdings der Zahlenwert von $b_3$, sein p-Wert bleibt gleich.
 :::
 
 ## In JASP rechnen
@@ -60,7 +60,7 @@ $b_3$ (der Interaktionskoeffizient) und seine Signifikanz bleiben durch Zentrier
 1. **Regression → Classical → Linear Regression**.
 2. **Dependent Variable:** $Y$ (z. B. `N_mean`).
 3. **Covariates:** die **zentrierten** Prädiktoren (z. B. `E_c`, `G_c`).
-4. Im Abschnitt **Model**: beide Prädiktoren links gemeinsam markieren (Strg-/Cmd-Klick) und nach rechts in die **Model terms** ziehen. JASP bietet dabei an, sie als **Interaktion** hinzuzufügen. Dein Modell enthält dann: `E_c`, `G_c` **und** `E_c * G_c`.
+4. Im Abschnitt **Model**: beide Prädiktoren links gemeinsam markieren (Strg-/Cmd-Klick) und nach rechts in das Feld **Model 1** ziehen. JASP fügt sie dabei als **Interaktion** hinzu. Dein Modell enthält dann: `E_c`, `G_c` **und** `E_c * G_c`.
 5. Optionen: Estimates mit Confidence intervals, Model fit.
 
 Der Output zeigt drei Zeilen: die zwei Haupteffekte und die Interaktion `E_c * G_c`. **Auf die Interaktionszeile schaust Du zuerst.**
@@ -93,17 +93,17 @@ Bei rund einem von zwanzig Tests passiert das rein zufällig (Fehler erster Art)
 
 - **hoher Power-Bedarf**: Kleine Stichproben finden echte Interaktionen selten
 - ohne Zentrierung schwer interpretierbare Haupteffekte
-- viele mögliche Interaktionen → Multiple-Testing-Gefahr, wenn man „herumprobiert"
+- viele mögliche Interaktionen → Multiple-Testing-Gefahr, wenn man „herumprobiert“
 - Interpretation anspruchsvoller als bei Haupteffekten
 
 ## Aufgabe
 
 **Pflichtteil für alle:**
 
-1. Bau zwei zentrierte Spalten `E_c` und `G_c` per Compute Column.
+1. Bau zwei zentrierte Spalten `E_c` und `G_c` per Compute Column (Typ **Scale**).
 2. Rechne in JASP das Modell `N_mean` ~ `E_c` + `G_c` + `E_c * G_c`.
 3. Lies die **Interaktionszeile** ab und notiere ihre zentralen Kennwerte ($b_3$, $p$, Konfidenzintervall) zusammen mit Deiner Schlussfolgerung, ob eine Moderation vorliegt.
-4. Erzeuge **einen Interaktionsplot** (in JASP unter **Plots → Marginal effects plots**; alternativ beschreibe in einem Satz, wie die Geraden zueinander stehen).
+4. Erzeuge **einen Interaktionsplot** (in JASP im Abschnitt **Descriptives Plots**: `E_c` nach **Horizontal Axis**, `G_c` nach **Separate Lines**; alternativ beschreibe in einem Satz, wie die Geraden zueinander stehen).
 
 **Bonus:**
 

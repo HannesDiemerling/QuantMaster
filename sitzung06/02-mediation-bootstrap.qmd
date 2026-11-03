@@ -12,13 +12,13 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Eine **Mediation** fragt nach dem **Mechanismus**: Läuft der Effekt von $X$ auf $Y$ **über** eine Zwischenvariable $M$ (den Mediator)? Während die Moderation fragte *wann* ein Effekt auftritt, fragt die Mediation *wie*, also über welchen Pfad.
+Eine **Mediation** fragt nach dem **Mechanismus**: Läuft der Effekt von $X$ auf $Y$ **über** eine Zwischenvariable $M$ (den Mediator)? Während die Moderation fragte, *wann* ein Effekt auftritt, fragt die Mediation *wie*, also über welchen Pfad.
 
 > *Beispiel:* Gewissenhaftigkeit ($X$) führt zu besseren Lernstrategien ($M$), und diese führen zu besseren Noten ($Y$). Der Effekt von Gewissenhaftigkeit auf Noten läuft dann (teilweise) **durch** die Lernstrategien.
 
 Das klassische Mediationsdiagramm:
 
-```
+```text
         M
       ↗   ↘
    a /     \ b
@@ -48,7 +48,7 @@ Die Kernfrage der Mediation ist: **Ist der indirekte Effekt $a \times b$ von Nul
 
 ## Warum Bootstrap? Das eigentliche Thema
 
-Der indirekte Effekt $a \times b$ ist ein **Produkt** zweier geschätzter Zahlen. Solche Produkte sind **nicht normalverteilt**, sondern schief und haben eine ungewöhnliche Form. Der klassische Test (der eine Normalverteilung annimmt, „Sobel-Test") liegt deshalb oft daneben.
+Der indirekte Effekt $a \times b$ ist ein **Produkt** zweier geschätzter Zahlen. Solche Produkte sind **nicht normalverteilt**, sondern schief und haben eine ungewöhnliche Form. Der klassische Test (der eine Normalverteilung annimmt, „Sobel-Test“) liegt deshalb oft daneben.
 
 Die Lösung ist der **Bootstrap**, ein **Resampling-Verfahren**. Die Idee ist verblüffend einfach und mächtig:
 
@@ -71,7 +71,7 @@ Der Bootstrap ist weit über die Mediation hinaus nützlich: für Effektgrößen
 
 Mediation steckt in JASP im **SEM-Modul** (Strukturgleichungsmodelle, siehe @sec-cfa-sem).
 
-1. Falls nötig, **SEM-Modul** über das **„+"** aktivieren.
+1. Falls nötig, **SEM-Modul** über das **„+“** aktivieren.
 2. **SEM → Mediation Analysis**.
 3. Felder zuweisen:
    - **Predictors** (X): z. B. `G_mean`
@@ -120,12 +120,12 @@ Sind die Pfade $a$ und $b$ klein bis mittel, braucht man für 80 % Power schnell
 - Tausch die Rollen (X und Y vertauschen). Ändert sich die Schlussfolgerung, und was sagt das über Kausalität aus Querschnittsdaten?
 
 ::: {.callout-tip title="Für die Abgabe"}
-Notiere: indirekten Effekt, sein 95 %-Bootstrap-KI und den direkten Effekt $c'$. Siehe @sec-s06-abschluss.
+Notiere: indirekten Effekt, sein 95 %-Bootstrap-KI, den direkten Effekt $c'$ und einen Satz dazu, was der Bootstrap hier gemacht hat. Siehe @sec-s06-abschluss.
 :::
 
 ## Selbstcheck
 
 1. Was ist der Unterschied zwischen direktem, indirektem und totalem Effekt?
 2. Warum nimmt man für den indirekten Effekt einen Bootstrap statt eines normalen $z$-Tests?
-3. Beschreibe in einem Satz, was „mit Zurücklegen neu ziehen" beim Bootstrap bedeutet.
+3. Beschreibe in einem Satz, was „mit Zurücklegen neu ziehen“ beim Bootstrap bedeutet.
 4. Warum ist Mediation aus einem Querschnitt kausal so schwer zu verteidigen?

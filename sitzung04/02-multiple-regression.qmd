@@ -39,14 +39,14 @@ Jedes $b_j$ ist der **partielle** Effekt von $X_j$, also der Beitrag dieses Prä
 
 | Kennzahl | Was sie bedeutet |
 |---|---|
-| **$b$ (unstandardisiert)** | Effekt in den *Originaleinheiten* von $X$ und $Y$. „Pro +1 in $X_1$ ändert sich $Y$ um $b_1$." |
+| **$b$ (unstandardisiert)** | Effekt in den *Originaleinheiten* von $X$ und $Y$. „Pro +1 in $X_1$ ändert sich $Y$ um $b_1$.“ |
 | **$\beta$ (standardisiert)** | Effekt in *Standardabweichungen*. Macht Prädiktoren mit verschiedenen Skalen vergleichbar. |
 | **$R^2$** | Anteil der Varianz in $Y$, den das Modell **gemeinsam** erklärt (0 bis 1). |
-| **adjustiertes $R^2$** | $R^2$, das für die Zahl der Prädiktoren bestraft. **Bei mehreren Prädiktoren zusätzlich berichten.** |
-| **$F$-Test** | Testet, ob das Modell als Ganzes besser ist als „nur der Mittelwert". |
+| **adjustiertes $R^2$** | $R^2$, das für die Zahl der Prädiktoren bestraft wird. **Bei mehreren Prädiktoren zusätzlich berichten.** |
+| **$F$-Test** | Testet, ob das Modell als Ganzes besser ist als „nur der Mittelwert“. |
 | **$p$ pro Koeffizient** | Testet, ob ein einzelner Prädiktor (bei Kontrolle der anderen) von 0 verschieden ist. |
 
-::: {.callout-tip title="$R^2$ richtig einordnen"}
+::: {.callout-tip title="R² richtig einordnen"}
 $R^2 = .25$ heißt: 25 % der Streuung in $Y$ werden erklärt, 75 % nicht. In der Persönlichkeits- und Sozialpsychologie sind $R^2$-Werte von .05–.30 ganz normal, Menschen sind eben nicht deterministisch. Erwarte keine .80 wie in der Physik.
 :::
 
@@ -60,7 +60,7 @@ $R^2 = .25$ heißt: 25 % der Streuung in $Y$ werden erklärt, 75 % nicht. In der
 | **Keine extreme Multikollinearität** | **VIF** (Variance Inflation Factor) | VIF > 5–10 → Prädiktoren zusammenfassen/entfernen |
 | **Unabhängige Beobachtungen** | aus dem Design, nicht aus Daten | bei genesteten Daten: Mehrebenenmodell (@sec-tag3-mixed) |
 
-**Multikollinearität** heißt: zwei Prädiktoren messen fast dasselbe. Dann „streiten" sie sich um die erklärte Varianz, und die einzelnen $b$ werden instabil. Der **VIF** zeigt das: Werte nahe 1 sind ideal, über 5 wird's heikel.
+**Multikollinearität** heißt: zwei Prädiktoren messen fast dasselbe. Dann „streiten“ sie sich um die erklärte Varianz, und die einzelnen $b$ werden instabil. Der **VIF** zeigt das: Werte nahe 1 sind ideal, über 5 wird's heikel.
 
 ::: {.callout-important title="Was der Grenzwertsatz hier wirklich sagt"}
 Ein großes $N$ macht Deine **Residuen nicht normalverteilt**. Eine schiefe Verteilung bleibt schief, egal wie viele Fälle Du hast.
@@ -69,7 +69,7 @@ Der **Zentrale Grenzwertsatz** sagt etwas Spezifischeres: Die **Summe (bzw. der 
 
 Warum hilft das der Regression? Weil ein Regressionskoeffizient $b$ **selbst so eine Summe ist**, im Kern eine gewichtete Summe der vielen unabhängigen Fehlerbeiträge über alle Fälle. Genau deshalb nähert sich die **Stichprobenverteilung von $b$** mit wachsendem $N$ einer Normalverteilung an, *auch wenn die Residuen schief sind*. Und nur das brauchen **p-Werte und Konfidenzintervalle**: Sie setzen voraus, dass der *Schätzer* normalverteilt ist, nicht die Daten oder die Residuen.
 
-Bei **kleinem** $N$ (wie bei uns mit gut 100 Personen, und erst recht darunter) ist diese Annäherung noch nicht gut. Dann schaust Du den Q-Q-Plot genauer an und ziehst ggf. eine Transformation oder ein robustes Verfahren in Betracht.
+Bei **kleinem** $N$ (wie bei uns mit rund 100 Personen, und erst recht darunter) ist diese Annäherung nicht garantiert. Dann schaust Du den Q-Q-Plot genauer an und ziehst ggf. eine Transformation oder ein robustes Verfahren in Betracht.
 :::
 
 ## In JASP rechnen
@@ -79,14 +79,14 @@ Bei **kleinem** $N$ (wie bei uns mit gut 100 Personen, und erst recht darunter) 
 3. **Covariates:** die metrischen Prädiktoren (z. B. `E_mean`, `V_mean`, `G_mean`, `O_mean`).
    - Kategoriale Prädiktoren mit mehr als zwei Stufen kommen unter **Factors** (JASP bildet automatisch Dummy-Variablen).
 4. In den Optionen aktivieren:
-   - **Model fit** (voreingestellt) und **R squared change** (für Modellvergleiche)
+   - **Model fit** und **R squared change** (beide voreingestellt). In der *Model Summary* steht $M_0$ für das leere Nullmodell; Deine Werte stehen in der Zeile $M_1$.
    - **Estimates** (voreingestellt; die Tabelle enthält auch die standardisierten Koeffizienten $\beta$) und **Confidence intervals**
    - **Tolerance and VIF** (Kollinearität; *Collinearity diagnostics* zeigt dagegen Eigenwerte und Konditionsindizes)
    - unter **Plots → Residuals Plots:** **Residuals vs. predicted** und **Q-Q plot standardized residuals**
 
 ### Hierarchische Regression: Modelle vergleichen
 
-Oft willst Du wissen: *Bringt ein zusätzlicher Block von Prädiktoren überhaupt etwas?* Dafür baust Du in JASP unter **„Model"** mehrere Blöcke:
+Oft willst Du wissen: *Bringt ein zusätzlicher Block von Prädiktoren überhaupt etwas?* Dafür baust Du in JASP unter **„Model“** mehrere Blöcke:
 
 - **Modell 0:** nur die Kontrollvariablen (z. B. `alter`, `geschlecht`).
 - **Modell 1:** zusätzlich die interessierenden Prädiktoren (z. B. die anderen Skalen).
@@ -160,6 +160,6 @@ Notiere für Modell A: R², F, p, den stärksten Prädiktor mit β und den grö�
 ## Selbstcheck
 
 1. Was bedeutet es, dass ein Regressionskoeffizient ein *partieller* Effekt ist?
-2. Warum berichtest Du bei mehreren Prädiktoren das adjustierte statt des normalen $R^2$?
+2. Warum berichtest Du bei mehreren Prädiktoren das adjustierte zusätzlich zum normalen $R^2$?
 3. Ein VIF von 8 für zwei Prädiktoren: Was ist das Problem und was tust Du?
 4. Modell B aus dem Beispiel wird nicht signifikant. Ist Deine Analyse gescheitert? Begründe.

@@ -10,7 +10,7 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-GitHub ist die Plattform, auf der unser Repo und diese Seminar-Site liegen. Du musst kein Git-Profi werden. Du brauchst aber ein mentales Modell, was passiert, wenn Du eine Datei „committest" oder „pullst".
+GitHub ist die Plattform, auf der unser Repo und diese Seminar-Site liegen. Du musst kein Git-Profi werden. Du brauchst aber ein mentales Modell, was passiert, wenn Du eine Datei „committest“ oder „pullst“.
 
 ## Git vs. GitHub
 
@@ -28,7 +28,7 @@ Kurzform: Git macht die Versionierung, GitHub macht die Zusammenarbeit.
 |---|---|
 | **Repository** (kurz: Repo) | Projekt-Ordner mit Versionsgeschichte. |
 | **Branch** | parallele Entwicklungsspur. Der Hauptstrang heißt meist `main`. |
-| **Commit** | gespeicherter Schnappschuss mit Begründung („Commit-Message"). |
+| **Commit** | gespeicherter Schnappschuss mit Begründung („Commit-Message“). |
 | **Push** | lokale Commits zu GitHub hochladen. |
 | **Pull** | Änderungen von GitHub lokal holen. |
 | **Pull Request (PR)** | Vorschlag, Änderungen aus einem Branch in einen anderen zu übernehmen. Dient dem Review. |
@@ -42,7 +42,7 @@ Für dieses Seminar reicht jeder dieser Wege. Nimm einfach den, der Dir am meist
 ### Weg 1: github.com im Browser *(empfohlen)*
 
 - Du arbeitest direkt auf der Webseite.
-- Dateien hochladen über „Add file → Upload files".
+- Dateien hochladen über „Add file → Upload files“.
 - Editieren in der Browser-Maske (Stift-Symbol).
 - Kein Git auf dem Laptop nötig.
 
@@ -50,7 +50,7 @@ Für dieses Seminar reicht jeder dieser Wege. Nimm einfach den, der Dir am meist
 
 - Grafische App ([desktop.github.com](https://desktop.github.com)).
 - Repository wird auf Deinen Laptop **geklont**, Du arbeitest mit lokalen Dateien.
-- „Commit" und „Push" sind je ein Button.
+- „Commit“ und „Push“ sind je ein Button.
 
 ### Weg 3: Kommandozeile
 

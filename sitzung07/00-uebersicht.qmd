@@ -19,7 +19,7 @@ Was eine Studie aussagen kann, entscheidet sich meist vor der Datenerhebung: Des
 
 ## Vorbereitung
 
-- Das Modul **Power** (über das **„+"** oben rechts aktivieren)
+- Das Modul **Power** (über das **„+“** oben rechts aktivieren)
 
 ## Inhalte
 

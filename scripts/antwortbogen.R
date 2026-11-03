@@ -165,7 +165,9 @@ s2 <- (k - 1) * sum(wf) / (sum(wf)^2 - sum(wf^2)); I2 <- 100 * tau2 / (tau2 + s2
 add("meta", "r in Deinem eigenen Seed-Datensatz (E_mean × O_mean, 2 Nachkommastellen)", "siehe Spalte r",
     hinweis = paste("r je Datensatz:", paste(sprintf("%02d: %s", ms$quelle_datensatz, fmt(ms$r)), collapse = "; ")))
 num("meta", "Gepoolter Effekt (Fisher-z, Random Effects)", mu, .02)
-add("meta", "95 %-KI des gepoolten Effekts [untere, obere]", sprintf("[%s, %s]", fmt(mu - 1.96 * se_mu), fmt(mu + 1.96 * se_mu)), hinweis = "Grenzen ±0.03 ok")
+se_kh <- sqrt(sum(w * (yi - mu)^2) / (k - 1)) * se_mu; t_kh <- qt(.975, k - 1)  # JASP-Standard: Knapp-Hartung
+add("meta", "95 %-KI des gepoolten Effekts [untere, obere]", sprintf("[%s, %s]", fmt(mu - t_kh * se_kh), fmt(mu + t_kh * se_kh)),
+    hinweis = sprintf("JASP-Standard Knapp-Hartung; mit z-Test [%s, %s] ebenfalls ok; Grenzen ±0.03", fmt(mu - 1.96 * se_mu), fmt(mu + 1.96 * se_mu)))
 num("meta", "I² (in %)", I2, 10, k = 1, hinweis = sprintf("Q = %s; bei τ² = 0 ist I² = 0", fmt(Q)))
 mA <- lm(N_mean ~ E_mean + V_mean + G_mean + O_mean, data = d); sA <- summary(mA); fA <- sA$fstatistic
 num("regression", "Modell A: R²", sA$r.squared, .01)
@@ -228,7 +230,7 @@ add("mediation", "Ein Satz: Was hat der Bootstrap hier gemacht?", hinweis = "500
 miss <- colSums(is.na(d[BFI])); top <- names(miss)[miss == max(miss)]
 add("bias", "BFI-Item mit den meisten fehlenden Werten (Item + Anzahl)", sprintf("%s (%d)", paste(top, collapse = " / "), max(miss)),
     hinweis = "bei Gleichstand ist jedes genannte Item korrekt")
-add("bias", "Stichprobe in 2–3 Sätzen: Wer ist drin, welcher Bias-Typ ist am relevantesten?", hinweis = "jung, weiblich, hoch gebildet; Selection-Bias")
+add("bias", "Stichprobe in 2–3 Sätzen: Wer ist drin, welche (mind. zwei) Bias-Typen sind relevant?", hinweis = "jung, weiblich, hoch gebildet; Selection-Bias")
 add("power", "Nötiges N pro Gruppe: d = 0.5, Power .80, α = .05, zweiseitig", ceiling(power.t.test(delta = .5, power = .8)$n),
     ceiling(power.t.test(delta = .5, power = .8)$n) - 1, ceiling(power.t.test(delta = .5, power = .8)$n) + 1)
 add("power", "Nötiges N pro Gruppe: d = 0.3, sonst gleich", ceiling(power.t.test(delta = .3, power = .8)$n),

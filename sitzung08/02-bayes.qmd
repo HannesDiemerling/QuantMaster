@@ -6,17 +6,17 @@ Nach diesem Kapitel kannst Du …
 - den grundlegenden Unterschied zwischen frequentistischer und bayesianischer Inferenz erklären,
 - Prior, Likelihood und **Posterior** in eigenen Worten beschreiben,
 - den **Posterior** als das zentrale Ergebnis lesen, als ganze Verteilung plausibler Effektwerte,
-- ein **Credible Interval** interpretieren und daraus eine **direkte Wahrscheinlichkeitsaussage** ableiten („mit welcher Wahrscheinlichkeit unterscheiden sich zwei Gruppen?"),
+- ein **Credible Interval** interpretieren und daraus eine **direkte Wahrscheinlichkeitsaussage** ableiten („mit welcher Wahrscheinlichkeit unterscheiden sich zwei Gruppen?“),
 - den Bayes-Faktor einordnen und wissen, warum die *Schätz*-Perspektive in der Psychologie oft die nützlichere ist.
 :::
 
 ## Worum es geht
 
-Bisher hast Du **frequentistisch** gearbeitet: p-Werte, Signifikanz, „H0 verwerfen oder nicht". Der p-Wert beantwortet aber eine etwas verdrehte Frage: „Wie überraschend sind meine Daten, *wenn* H0 stimmt?" In der Psychologie willst Du meist etwas Direkteres wissen:
+Bisher hast Du **frequentistisch** gearbeitet: p-Werte, Signifikanz, „H0 verwerfen oder nicht“. Der p-Wert beantwortet aber eine etwas verdrehte Frage: „Wie überraschend sind meine Daten, *wenn* H0 stimmt?“ In der Psychologie willst Du meist etwas Direkteres wissen:
 
 > **Wie groß ist der Effekt, und mit welcher Wahrscheinlichkeit ist er überhaupt vorhanden bzw. positiv?**
 
-Genau das liefert die **bayesianische** Inferenz. Statt einer Ja/Nein-Entscheidung bekommst Du eine **Wahrscheinlichkeitsverteilung über den Effekt** und kannst Sätze sagen wie: *„Mit 95 % Wahrscheinlichkeit liegt der wahre Unterschied zwischen 0.1 und 0.6 Punkten"* oder *„Mit 88 % Wahrscheinlichkeit ist Gruppe A größer als Gruppe B."* JASP ist genau dafür gebaut.
+Genau das liefert die **bayesianische** Inferenz. Statt einer Ja/Nein-Entscheidung bekommst Du eine **Wahrscheinlichkeitsverteilung über den Effekt** und kannst Sätze sagen wie: *„Mit 95 % Wahrscheinlichkeit liegt der wahre Unterschied zwischen 0.1 und 0.6 Punkten“* oder *„Mit 88 % Wahrscheinlichkeit ist Gruppe A größer als Gruppe B.“* JASP ist genau dafür gebaut.
 
 ## Die drei Bausteine: Prior, Likelihood, Posterior
 
@@ -28,14 +28,14 @@ $$
 
 | Baustein | Bedeutung |
 |---|---|
-| **Prior** | Was Du **vor** den Daten über den Effekt für plausibel hältst (z. B. „riesige Effekte sind unwahrscheinlich"). |
+| **Prior** | Was Du **vor** den Daten über den Effekt für plausibel hältst (z. B. „riesige Effekte sind unwahrscheinlich“). |
 | **Likelihood** | Was die **Daten** über den Effekt sagen. |
 | **Posterior** | Dein **aktualisierter** Glaube, nachdem Du die Daten gesehen hast: Prior **plus** Daten. |
 
 In einem Satz: **Posterior = Prior, durch die Daten aktualisiert.** Genau so lernt man auch im Alltag. Man startet mit einer Erwartung und passt sie an die Evidenz an.
 
 ::: {.callout-tip title="Müssen Priors „subjektiv“ sein?"}
-Ein häufiger Einwand. In der Praxis nutzt JASP **schwach informative Default-Priors** (z. B. eine Cauchy-Verteilung um Null), die kaum etwas vorgeben außer „extrem große Effekte sind unwahrscheinlich". Mit mehr Daten verliert der Prior ohnehin an Gewicht, und der Posterior wird dann fast vollständig von den Daten bestimmt.
+Ein häufiger Einwand. In der Praxis nutzt JASP **schwach informative Default-Priors** (z. B. eine Cauchy-Verteilung um Null), die kaum etwas vorgeben außer „extrem große Effekte sind unwahrscheinlich“. Mit mehr Daten verliert der Prior ohnehin an Gewicht, und der Posterior wird dann fast vollständig von den Daten bestimmt.
 :::
 
 ## Der Posterior als eigentliches Ergebnis
@@ -54,27 +54,27 @@ In JASP siehst Du den Posterior als **Prior-and-Posterior-Plot**: eine Kurve üb
 
 Das **Credible Interval** (glaubwürdiges Intervall) ist der Bereich, in dem der wahre Effekt mit einer bestimmten Wahrscheinlichkeit liegt:
 
-> *„Es besteht eine **95 % Wahrscheinlichkeit**, dass der wahre Effekt zwischen 0.1 und 0.6 liegt."*
+> *„Es besteht eine **95 % Wahrscheinlichkeit**, dass der wahre Effekt zwischen 0.1 und 0.6 liegt.“*
 
 Das ist **genau die Aussage, die die meisten Menschen fälschlich vom frequentistischen Konfidenzintervall erwarten**, und die nur das Credible Interval wirklich erlaubt.
 
 ::: {.callout-important title="Credible Interval vs. Konfidenzintervall"}
-- **Konfidenzintervall** (frequentistisch): „Würde ich das Experiment unendlich oft wiederholen, würden 95 % solcher Intervalle den wahren Wert enthalten." Eine Aussage über das *Verfahren*, **nicht** über diesen einen konkreten Bereich.
-- **Credible Interval** (bayesianisch): „Mit 95 % Wahrscheinlichkeit liegt der wahre Wert in *diesem* Bereich." Eine Aussage über den *Parameter*, direkt und intuitiv.
+- **Konfidenzintervall** (frequentistisch): „Würde ich das Experiment unendlich oft wiederholen, würden 95 % solcher Intervalle den wahren Wert enthalten.“ Eine Aussage über das *Verfahren*, **nicht** über diesen einen konkreten Bereich.
+- **Credible Interval** (bayesianisch): „Mit 95 % Wahrscheinlichkeit liegt der wahre Wert in *diesem* Bereich.“ Eine Aussage über den *Parameter*, direkt und intuitiv.
 :::
 
-### „Wie wahrscheinlich unterscheiden sich zwei Werte?"
+### „Wie wahrscheinlich unterscheiden sich zwei Werte?“
 
 Genau diese Frage beantwortet der Posterior direkt. Betrachte die Posterior-Verteilung der **Differenz** (oder der Effektgröße $\delta$) zwischen zwei Gruppen:
 
-- Liegt das **gesamte** 95 %-Credible-Interval **über 0**, kannst Du sagen: *„Mit mindestens 97.5 % Wahrscheinlichkeit ist die Differenz positiv, Gruppe A liegt über Gruppe B."*
+- Liegt das **gesamte** 95 %-Credible-Interval **über 0**, kannst Du sagen: *„Mit mindestens 97.5 % Wahrscheinlichkeit ist die Differenz positiv, Gruppe A liegt über Gruppe B.“*
 - Schließt das Credible Interval die **0 ein**, ist die Richtung unsicher: ein Teil der Wahrscheinlichkeitsmasse liegt links, ein Teil rechts von Null.
 
-Der **Anteil der Posterior-Masse über Null** ist also direkt die **Wahrscheinlichkeit, dass der Effekt positiv ist**. Das ist die psychologisch nützlichste Lesart: kein „signifikant ja/nein", sondern ein abgestuftes *„so sicher bin ich mir, dass hier ein Unterschied in diese Richtung besteht."*
+Der **Anteil der Posterior-Masse über Null** ist also direkt die **Wahrscheinlichkeit, dass der Effekt positiv ist**. Das ist die psychologisch nützlichste Lesart: kein „signifikant ja/nein“, sondern ein abgestuftes *„so sicher bin ich mir, dass hier ein Unterschied in diese Richtung besteht.“*
 
 ## Der Bayes-Faktor (kurz, der Vollständigkeit halber)
 
-Neben der Schätzung gibt es das **Test**-Werkzeug der Bayes-Welt: den **Bayes-Faktor (BF)**. Er ist ein Verhältnis zwischen zwei Hypothesen. $BF_{10}$ sagt, wie viel wahrscheinlicher die Daten unter „Effekt vorhanden" gegenüber „kein Effekt" sind.
+Neben der Schätzung gibt es das **Test**-Werkzeug der Bayes-Welt: den **Bayes-Faktor (BF)**. Er ist ein Verhältnis zwischen zwei Hypothesen. $BF_{10}$ sagt, wie viel wahrscheinlicher die Daten unter „Effekt vorhanden“ gegenüber „kein Effekt“ sind.
 
 | $BF_{10}$ | Lesart |
 |---:|---|
@@ -96,31 +96,31 @@ Die bayesianischen Pendants liegen direkt neben den frequentistischen Analysen. 
 
 ### Bayes-*t*-Test (Unterschied zweier Gruppen)
 
-1. **T-Tests → Bayesian → Bayesian Independent Samples T-Test**.
-2. **Dependent Variables:** `G_mean`, **Grouping Variable:** `geschlecht`. Stufe 3 wie in @sec-tag2-ttest per Filter ausschließen.
+1. **T-Tests → Bayesian → Independent Samples T-Test**.
+2. **Dependent Variables:** `G_mean`, **Grouping Variable:** `geschlecht`. Stufe 3 wie in @sec-tag2-ttest per Filter ausschließen und den Filter nach dem Notieren der Werte wieder entfernen, bevor Du die Bayes-Korrelation rechnest.
 3. In den Optionen:
-   - **Plots → Prior and posterior** mit **„Additional info"** → zeigt die Posterior-Verteilung der Effektgröße $\delta$ samt **Median** und **95 %-Credible-Interval**.
-   - Optional **Descriptives plots**.
+   - **Plots → Prior and posterior** mit **„Additional info“** → zeigt die Posterior-Verteilung der Effektgröße $\delta$ samt **Median** und **95 %-Credible-Interval**.
+   - Optional unter *Plots* **Descriptives**.
    - Den $BF_{10}$ siehst Du ergänzend in der Ergebnistabelle.
 
 Du liest am Posterior ab: Liegt das Credible Interval ganz auf einer Seite von 0? Dann ist die Richtung wahrscheinlich; umschließt es 0, bleibt sie offen.
 
 ### Bayes-Korrelation (Zusammenhang zweier Skalen)
 
-1. **Regression → Bayesian → Bayesian Correlation**.
+1. **Regression → Bayesian → Correlation**.
 2. Variablen `E_mean` und `O_mean`.
-3. Optionen: unter *Plots* **Prior and posterior** mit **Estimation info** ankreuzen → Posterior der Korrelation $\rho$ mit Median und 95 %-Credible-Interval.
+3. Optionen: Abschnitt **Plot Individual Pairs** aufklappen, `E_mean` und `O_mean` als Paar ins rechte Feld ziehen und **Prior and posterior** mit **Estimation info** ankreuzen → Posterior der Korrelation $\rho$ mit Median und 95 %-Credible-Interval.
 
 ### Bayes-Regression (mehrere Prädiktoren)
 
-**Regression → Bayesian → Bayesian Linear Regression** gibt für jeden Koeffizienten eine **Posterior-Verteilung** mit Credible Interval aus, die direkte bayesianische Entsprechung zu @sec-tag3-regression.
+**Regression → Bayesian → Linear Regression** gibt für jeden Koeffizienten eine **Posterior-Verteilung** mit Credible Interval aus, die direkte bayesianische Entsprechung zu @sec-tag3-regression.
 
 ## Was unsere Daten hergeben
 
 Erinnere Dich an den Datenhinweis (@sec-tag3-datenhinweis):
 
-- **`G_mean` ~ `geschlecht`** (kein eingebauter Effekt): Der Posterior der Differenz liegt **um Null herum**, das Credible Interval schließt die **0 ein**. Lesart: *„Wir können **nicht** mit hoher Wahrscheinlichkeit sagen, dass sich die Gruppen unterscheiden. Beide Richtungen bleiben plausibel."* Hier ist schlicht kein Effekt vorhanden.
-- **`E_mean` × `O_mean`** (schwaches, echtes Signal): Der Posterior von $\rho$ liegt **eher** über Null, aber nicht eindeutig. Lesart: *„Mit erhöhter, aber nicht erdrückender Wahrscheinlichkeit besteht ein positiver Zusammenhang."* Genau diese **abgestufte Unsicherheit** macht der Posterior sichtbar, statt sie in ein „signifikant/nicht signifikant" zu pressen. Wie deutlich es ausfällt, hängt auch von den Zeilen Eurer fiktiven Personen ab.
+- **`G_mean` ~ `geschlecht`** (kein eingebauter Effekt): Der Posterior der Differenz liegt **um Null herum**, das Credible Interval schließt die **0 ein**. Lesart: *„Wir können **nicht** mit hoher Wahrscheinlichkeit sagen, dass sich die Gruppen unterscheiden. Beide Richtungen bleiben plausibel.“* Hier ist schlicht kein Effekt vorhanden.
+- **`E_mean` × `O_mean`** (schwaches, echtes Signal): Der Posterior von $\rho$ liegt **eher** über Null, aber nicht eindeutig. Lesart: *„Mit erhöhter, aber nicht erdrückender Wahrscheinlichkeit besteht ein positiver Zusammenhang.“* Genau diese **abgestufte Unsicherheit** macht der Posterior sichtbar, statt sie in ein „signifikant/nicht signifikant“ zu pressen. Wie deutlich es ausfällt, hängt auch von den Zeilen Eurer fiktiven Personen ab.
 
 ## Frequentismus und Bayes im Vergleich
 
@@ -130,8 +130,8 @@ Erinnere Dich an den Datenhinweis (@sec-tag3-datenhinweis):
 | Ergebnis | p-Wert, Konfidenzintervall | **Posterior**, Credible Interval, (Bayes-Faktor) |
 | Direkte Wahrscheinlichkeit über den Effekt? | **nein** | **ja** (z. B. P(Differenz > 0)) |
 | Vorwissen | fließt nicht ein | über den Prior explizit |
-| H0 bestätigen? | nein | ja (BF zugunsten H0 bzw. Posterior nahe Null) |
-| „Daten sammeln bis signifikant" | ohne Korrektur nicht zulässig (verzerrt p) | gilt als unkritischer (Posterior darf laufend angeschaut werden) |
+| H0 bestätigen? | Punkt-H0 nein (nur „kein relevanter Effekt“ per Äquivalenztest) | ja (BF zugunsten H0 bzw. Posterior nahe Null) |
+| „Daten sammeln bis signifikant“ | ohne Korrektur nicht zulässig (verzerrt p) | gilt als unkritischer (Posterior darf laufend angeschaut werden) |
 
 Beide Ansätze sind legitim. In Deiner Master-Arbeit kannst Du sogar **beide** berichten. Das wirkt souverän und ist mit JASP kaum Mehraufwand.
 
@@ -153,18 +153,18 @@ Beide Ansätze sind legitim. In Deiner Master-Arbeit kannst Du sogar **beide** b
 
 **Pflichtteil für alle:**
 
-1. Rechne den **Bayesianischen Independent-Samples-*t*-Test** `G_mean` ~ `geschlecht` (1 vs. 2) mit **Prior-and-Posterior-Plot** und „Additional info".
+1. Rechne den **Bayesianischen Independent-Samples-*t*-Test** `G_mean` ~ `geschlecht` (1 vs. 2) mit **Prior-and-Posterior-Plot** und „Additional info“.
 2. Lies am Posterior ab: **Median** der Effektgröße $\delta$ und das **95 %-Credible-Interval**. Schließt es die 0 ein?
 3. Rechne die **Bayes-Korrelation** `E_mean` × `O_mean` und lies ebenfalls Median und Credible Interval von $\rho$ ab.
 4. Notiere für **beide** Analysen die zentralen Kennwerte: den **Posterior-Median** und das **95 %-Credible-Interval** des Effekts und formuliere jeweils die Wahrscheinlichkeitsaussage, die daraus folgt (schließt das Intervall die 0 ein oder nicht?).
 
 **Bonus:**
 
-- Stell beim *t*-Test die **gerichtete** Hypothese „Gruppe 1 > Gruppe 2" ein. Wie verändert sich der Posterior, und was sagt er über die Wahrscheinlichkeit der Richtung?
+- Stell beim *t*-Test die **gerichtete** Hypothese „Gruppe 1 > Gruppe 2“ ein. Wie verändert sich der Posterior, und was sagt er über die Wahrscheinlichkeit der Richtung?
 - Schau Dir den ergänzenden $BF_{10}$ an: Deckt er sich mit dem, was Dir der Posterior schon gezeigt hat?
 
 ::: {.callout-tip title="Für die Abgabe"}
-Notiere für den Bayes-t-Test Median und 95 %-Credible-Interval von δ sowie BF₁₀, für die Bayes-Korrelation Median und Credible Interval von ρ. Siehe @sec-s08-abschluss.
+Notiere für den Bayes-t-Test Median und 95 %-Credible-Interval von δ sowie BF₁₀, für die Bayes-Korrelation Median und Credible Interval von ρ, dazu einen Satz, welche Wahrscheinlichkeitsaussage der Posterior erlaubt, die ein p-Wert nicht erlaubt. Siehe @sec-s08-abschluss.
 :::
 
 ## Selbstcheck

@@ -22,8 +22,8 @@ Drei Begriffe, die Du sauber trennen musst:
 
 | Begriff | Formel | Wertebereich | Bedeutung |
 |---|---|---|---|
-| **Wahrscheinlichkeit** $p$ | Ausgangsgröße | 0 bis 1 | „30 % Chance" |
-| **Odds** (Chance) | $\dfrac{p}{1-p}$ | 0 bis ∞ | „Verhältnis 30:70 = 0.43" |
+| **Wahrscheinlichkeit** $p$ | Ausgangsgröße | 0 bis 1 | „30 % Chance“ |
+| **Odds** (Chance) | $\dfrac{p}{1-p}$ | 0 bis ∞ | „Verhältnis 30:70 = 0.43“ |
 | **Logit** | $\ln\!\left(\dfrac{p}{1-p}\right)$ | −∞ bis +∞ | logarithmierte Odds |
 
 Die logistische Regression modelliert den **Logit** linear:
@@ -56,13 +56,13 @@ Es gibt kein echtes $R^2$ wie in der linearen Regression. Stattdessen:
 
 | Maß | Was es sagt |
 |---|---|
-| **Pseudo-$R^2$** (McFadden, Nagelkerke) | grobe Analogie zum $R^2$; Nagelkerke .2–.4 gilt als ordentlich |
+| **Pseudo-$R^2$** (McFadden, Nagelkerke) | grobe Analogie zum $R^2$; McFadden fällt meist deutlich kleiner aus, .2–.4 gilt dort schon als sehr guter Fit |
 | **Klassifikationstabelle** | wie viele Fälle das Modell richtig in 0/1 einsortiert (Trefferquote) |
 | **AUC / ROC-Kurve** | Trennschärfe: 0.5 = Zufall, 1.0 = perfekt; > 0.7 brauchbar |
 | **Likelihood-Ratio-Test** | testet das Gesamtmodell gegen das Null-Modell |
 
 ::: {.callout-important title="Vorsicht bei der Trefferquote"}
-Wenn 90 % aller Fälle „Nein" sind, erreicht ein Modell, das **immer „Nein"** sagt, schon 90 % Treffer, ohne irgendetwas gelernt zu haben. Schau deshalb nicht nur auf die Gesamttrefferquote, sondern auf **AUC** und die Treffer **pro Klasse**.
+Wenn 90 % aller Fälle „Nein“ sind, erreicht ein Modell, das **immer „Nein“** sagt, schon 90 % Treffer, ohne irgendetwas gelernt zu haben. Schau deshalb nicht nur auf die Gesamttrefferquote, sondern auf **AUC** und die Treffer **pro Klasse**.
 :::
 
 ## In JASP rechnen
@@ -83,11 +83,11 @@ Nenn die Spalte `N_hoch` und setz ihren Typ auf **Nominal**.
    - **Estimates** mit **Odds ratios** und **Confidence intervals**
    - **Statistics → Performance Diagnostics → Confusion matrix** (Klassifikationstabelle) und **Performance Metrics → AUC**
    - **Plots → Performance Plots → ROC plot**
-   - Für den Modelltest musst Du nichts ankreuzen: Die Tabelle **Model Summary** zeigt immer Devianz, $\chi^2$-Test und die Pseudo-$R^2$ (u. a. **Nagelkerke**)
+   - Für den Modelltest musst Du nichts ankreuzen: Die Tabelle **Model Summary** zeigt immer Devianz, $\chi^2$-Test und die Pseudo-$R^2$ (u. a. **Nagelkerke**). Achtung: Die Spalte *df* dort enthält die Residual-Freiheitsgrade. Die df des $\chi^2$-Tests ist die Differenz der df von $M_0$ und $M_1$, also die Zahl der Prädiktoren (hier 4).
 
 ## Was unsere Daten hergeben
 
-Mit Blick auf den Datenhinweis (@sec-tag3-datenhinweis): Da die Skalen untereinander schwach positiv zusammenhängen, kann ein aus **mehreren** Skalen gebautes Modell für „hoher vs. niedriger Neurotizismus" ein gewisses Signal aufnehmen. Eine perfekte Trennung ist aber nicht zu erwarten, die Trennschärfe (AUC) wird bei einer kleinen Stichprobe eher bescheiden ausfallen.
+Mit Blick auf den Datenhinweis (@sec-tag3-datenhinweis): Da die Skalen untereinander schwach positiv zusammenhängen, kann ein aus **mehreren** Skalen gebautes Modell für „hoher vs. niedriger Neurotizismus“ ein gewisses Signal aufnehmen. Eine perfekte Trennung ist aber nicht zu erwarten, die Trennschärfe (AUC) wird bei einer kleinen Stichprobe eher mäßig ausfallen.
 
 Würdest Du dagegen versuchen, **`geschlecht`** aus den Skalen vorherzusagen, ist **kaum etwas** zu erwarten (Demografie ist unabhängig). Das ist ein guter Kontrast-Versuch für den Bonus.
 
@@ -123,7 +123,7 @@ Einen festen Wortlaut gibt es nicht, aber diese Angaben sollten vollständig vor
 
 **Bonus:**
 
-- Versuch dasselbe mit **`geschlecht` (1 vs. 2)** als Outcome und den Skalen als Prädiktoren. Findet das Modell etwas? Warum (nicht)?
+- Versuch dasselbe mit **`geschlecht` (1 vs. 2, Stufe 3 per Filter ausschließen und danach den Filter wieder entfernen)** als Outcome und den Skalen als Prädiktoren. Findet das Modell etwas? Warum (nicht)?
 - Interpretiere **ein** OR ausführlich in einem Satz in der Wahrscheinlichkeits-Sprache.
 
 ::: {.callout-tip title="Für die Abgabe"}

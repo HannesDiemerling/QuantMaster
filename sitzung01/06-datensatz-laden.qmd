@@ -5,7 +5,7 @@ Nach diesem Kapitel hast Du …
 
 - Deine persönliche Datensatz-Nummer,
 - die zugehörige CSV-Datei lokal auf Deinem Laptop,
-- ein klares Bild davon, was als nächstes mit dieser Datei passiert.
+- ein klares Bild davon, was als Nächstes mit dieser Datei passiert.
 :::
 
 ## Worum es geht
@@ -28,26 +28,26 @@ Wenn mehr als 10 Teilnehmende dabei sind, bearbeiten zwei (oder mehr) Personen d
 
 ## Aufgabe
 
-### 1. Datensatz finden
+### Datensatz finden
 
 1. Öffne im Browser den Ordner [`data/generated/` im Seminar-Repo]({{< meta kurs.repo >}}/tree/main/data/generated).
 2. Klick auf `datensatz-XX.csv`, wobei `XX` Deine Nummer ist (z. B. `datensatz-03.csv`).
 
 GitHub zeigt Dir den CSV-Inhalt als Tabelle.
 
-### 2. Herunterladen
+### Herunterladen
 
-- Klicke auf den Button **„Download raw file"** (oben rechts, Pfeil-nach-unten-Symbol). Alternativ: Rechtsklick auf den Button **Raw** → *Ziel speichern unter …* bzw. *Verknüpfte Datei laden unter …*. (Ein Rechtsklick auf den Dateinamen speichert dagegen die GitHub-Webseite, nicht die Daten.)
+- Klicke auf den Button **„Download raw file“** (oben rechts, Pfeil-nach-unten-Symbol). Alternativ: Rechtsklick auf den Button **Raw** → *Link speichern unter …* (Chrome, Edge), *Ziel speichern unter …* (Firefox) bzw. *Verknüpfte Datei laden unter …* (Safari). (Ein Rechtsklick auf den Dateinamen speichert dagegen die GitHub-Webseite, nicht die Daten.)
 - Speichere die Datei in einem Ordner Deiner Wahl. Heißt sie danach `datensatz-XX.csv.txt` oder `datensatz-XX (1).csv`, ist das kein Problem, JASP öffnet sie trotzdem.
 - Auf dem Mac blendet der Finder Dateiendungen oft aus. Einblenden: Finder → Einstellungen → Erweitert → *Alle Dateinamensuffixe einblenden*.
 
-### 3. Datei prüfen
+### Datei prüfen
 
 Öffne die Datei kurz mit einem Texteditor (oder direkt in JASP). Du solltest sehen:
 
 - Eine Header-Zeile mit 25 Spaltennamen (`probandennummer, geschlecht, alter, bildungsgrad, BFI_01, …, BFI_21`)
 - 9 Datenzeilen mit Probandennummern 1–9
-- Zwei der Zeilen enthalten irgendwo einen kleinen Defekt. Den findest Du gleich.
+- Irgendwo stecken zwei kleine Defekte, manchmal beide in derselben Zeile. Die findest Du gleich.
 
 ::: {.callout-important title="Lieber nicht mit Excel öffnen"}
 Excel mit deutschen Ländereinstellungen erwartet Semikolons statt Kommas, zeigt die Datei dann in einer einzigen Spalte an und speichert sie beim nächsten Mal im falschen Format. Für die Bereinigung nutzt Du **JASP**. Zum kurzen Anschauen ist ein Texteditor (Notepad, VS Code, BBEdit) sicherer.
@@ -64,5 +64,5 @@ Du erlebst hier die kleinste sinnvolle Variante eines echten Datentransfers in e
 ## Selbstcheck
 
 1. Welche Datensatznummer hast Du, und wie heißt Deine Datei?
-2. Was passiert, wenn mehrere Studierende denselben Datensatz bearbeiten? Gibt es dadurch doppelte Zeilen im Gesamtdatensatz? (Hinweis: das regelt der Merge-Workflow, siehe @sec-tag1-upload.)
+2. Was passiert, wenn mehrere Studierende denselben Datensatz bearbeiten? Gibt es dadurch doppelte Zeilen im Gesamtdatensatz? (Hinweis: Das regelt der Merge-Workflow, siehe @sec-tag1-upload.)
 3. In welchem Ordner liegen die vorgenerierten Datensätze?

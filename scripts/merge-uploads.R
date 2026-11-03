@@ -367,7 +367,7 @@ main <- function() {
   lines <- c(
     "# Merge-Report",
     "",
-    sprintf("Automatisch erzeugt von `scripts/merge-uploads.R` am %s.", format(Sys.time(), "%d.%m.%Y %H:%M")),
+    sprintf("Automatisch erzeugt von `scripts/merge-uploads.R` am %s.", format(Sys.time(), "%d.%m.%Y %H:%M", tz = "Europe/Berlin")),
     "",
     sprintf("**Gesamtdatensatz:** `%s` mit **%d Zeilen** (%d vorgeneriert aus %d Datensätzen, %d fiktive Personen).",
             OUT_CSV, nrow(combined), NROW(seed_df), length(seed_ids), NROW(own_df)),
@@ -379,7 +379,7 @@ main <- function() {
     "",
     "## Dateien",
     "",
-    "Suche Deine Datei über Deine **Kennziffer**. Handeln musst Du nur bei Status IGNORIERT, PRÜFEN oder DOPPELT oder wenn bei „Fehler gefunden\" nicht 2/2 steht. Hinweise zu Dateiname oder Trennzeichen sind unkritisch.",
+    "Suche Deine Datei über Deine **Kennziffer**. Handeln musst Du nur bei Status IGNORIERT, PRÜFEN oder DOPPELT oder wenn bei „Fehler gefunden“ nicht 2/2 steht. Hinweise zu Dateiname oder Trennzeichen sind unkritisch.",
     "",
     "| Datei | Kennziffer | Status | Datensatz | fiktive Personen | Fehler gefunden | Abweichungen von Referenz | Hinweise |",
     "|---|---|---|---|---:|---|---:|---|"
@@ -423,7 +423,7 @@ if (sys.nframe() == 0) {
     msg <- conditionMessage(e)
     con <- file(OUT_REPORT, open = "w", encoding = "UTF-8")
     writeLines(c("# Merge-Report", "",
-                 sprintf("Automatisch erzeugt am %s.", format(Sys.time(), "%d.%m.%Y %H:%M")), "",
+                 sprintf("Automatisch erzeugt am %s.", format(Sys.time(), "%d.%m.%Y %H:%M", tz = "Europe/Berlin")), "",
                  "**Der Merge ist abgebrochen.** Der Gesamtdatensatz wurde nicht aktualisiert. Bitte der Lehrperson Bescheid geben.",
                  "", paste("Fehler:", msg)), con)
     close(con)

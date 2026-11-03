@@ -19,7 +19,7 @@ Damit der Schritt sauber ist, prüfst Du anschließend für jede Skala die **Rel
 
 Drei Gründe, warum man Item-Mittelwerte bildet:
 
-1. **Konstruktbreite:** Extraversion ist mehr als ein einzelnes „bin gesellig"-Item. Vier Items decken das Konstrukt breiter ab und schwächen einzelne Item-Marotten ab.
+1. **Konstruktbreite:** Extraversion ist mehr als ein einzelnes „bin gesellig“-Item. Vier Items decken das Konstrukt breiter ab und schwächen einzelne Item-Marotten ab.
 2. **Messfehler:** Jedes Item misst mit Fehler. Beim Mitteln über mehrere Items gleichen sich zufällige Fehler teilweise aus (klassische Testtheorie: $X = T + E$). Je mehr Items, desto kleiner der Anteil der Fehlervarianz am Skalenwert.
 3. **Anschluss an Literatur und Praxis:** Big-Five-Profile werden auf Skalen-Ebene berichtet, sonst wird's unlesbar.
 
@@ -54,7 +54,7 @@ Für jede Skala legst Du in JASP eine neue Spalte an.
 
 ### Vorgehen pro Skala
 
-1. In der Datenansicht auf das **„+"** rechts neben dem letzten Spaltenkopf klicken (nicht das blaue „+" für Module). Es öffnet sich **Create Computed Column**. (Zeigt JASP später einen Fehler oder eine leere Spalte, stehen die BFI-Items vermutlich nicht auf **Scale**.)
+1. In der Datenansicht auf das **„+“** rechts neben dem letzten Spaltenkopf klicken (nicht das blaue „+“ für Module). Es öffnet sich **Create Computed Column**. (Zeigt JASP später einen Fehler oder eine leere Spalte, stehen die BFI-Items vermutlich nicht auf **Scale**.)
 2. Bei **Name:** `E_mean` eintragen, **Define column through R code** wählen, Typ **Scale**, dann **Create Column**.
 3. Formel ins Code-Feld eintragen:
 
@@ -88,7 +88,7 @@ Lass Descriptives über die fünf neuen Variablen laufen. Erwartung:
 
 - alle Werte zwischen **1.0 und 5.0**
 - Mittelwerte ungefähr im mittleren Bereich (≈ 3), die simulierten Daten sind ohne extreme Schiefe
-- SD ungefähr 0.5–1.0
+- SD ungefähr 0.7–1.2
 
 Wenn ein Skalenmittelwert systematisch außerhalb liegt: meistens hast Du ein Item vergessen oder eines doppelt eingebaut.
 
@@ -115,11 +115,11 @@ Im BFI-K sind die Skalen *kurz* (4–5 Items). Erwarte deshalb keine sehr hohen 
 
 ### In JASP
 
-1. Modul **Reliability** über das **„+"** oben rechts aktivieren, dann **Reliability → Classical → Reliability**.
-2. Zieh die **Items einer Skala** in das Feld „Variables" (z. B. `BFI_01`, `BFI_06`, `BFI_11`, `BFI_16` für Extraversion).
+1. Modul **Reliability** über das **„+“** oben rechts aktivieren, dann **Reliability → Classical → Reliability**.
+2. Zieh die **Items einer Skala** in das Feld „Variables“ (z. B. `BFI_01`, `BFI_06`, `BFI_11`, `BFI_16` für Extraversion).
 3. In den Options:
    - Abschnitt **Scale Statistics:** **Cronbach's α** ankreuzen (**McDonald's ω** ist schon an)
-   - Abschnitt **Individual Item Statistics:** **Mean** und **SD** (Item-Kennwerte), **Item-rest correlation** (Korrelation jedes Items mit der Skala ohne dieses Item; zeigt, ob ein Item „nicht reinpasst") und **Cronbach's α (if item dropped)** (wie sich α verändert, wenn man das Item rausnimmt)
+   - Abschnitt **Individual Item Statistics:** **Mean** und **SD** (Item-Kennwerte), **Item-rest correlation** (Korrelation jedes Items mit der Skala ohne dieses Item; zeigt, ob ein Item „nicht reinpasst“) und **Cronbach's α (if item dropped)** (wie sich α verändert, wenn man das Item rausnimmt)
    - Abschnitt **Advanced Options → Missing Values:** **Delete listwise** (damit alle dieselben Werte bekommen)
 
 4. Wiederhole für alle fünf Skalen.
@@ -132,7 +132,7 @@ Im BFI-K sind die Skalen *kurz* (4–5 Items). Erwarte deshalb keine sehr hohen 
 
 Warum ist das wichtig? Messfehler schwächt Zusammenhänge ab: Das beobachtete $r$ ist ungefähr das wahre $r$ mal $\sqrt{\text{Rel}_X \cdot \text{Rel}_Y}$. Bei einer Reliabilität von .60 auf beiden Seiten wird aus einem wahren $r = .50$ nur noch etwa $.30$, und die Power sinkt entsprechend.
 
-In unseren simulierten Daten solltest Du brauchbare α-Werte sehen (etwa .60–.80). Die Daten wurden so erzeugt, dass Items derselben Skala mit $r \approx .40$ zusammenhängen und Items verschiedener Skalen nur mit $r \approx .10$.
+In unseren simulierten Daten solltest Du brauchbare α-Werte sehen (etwa .55–.80). Die Daten wurden so erzeugt, dass Items derselben Skala mit $r \approx .40$ zusammenhängen und Items verschiedener Skalen nur mit $r \approx .10$.
 
 ## Stärken und Schwächen der Aggregation
 
@@ -155,12 +155,12 @@ In unseren simulierten Daten solltest Du brauchbare α-Werte sehen (etwa .60–.
 1. Bau **fünf neue Spalten** per Compute Column: `E_mean`, `V_mean`, `G_mean`, `N_mean`, `O_mean`.
 2. Lass Descriptives über genau diese fünf Variablen laufen. Liegen alle Werte zwischen 1 und 5?
 3. Berechne für **alle fünf Skalen** Cronbach's α und McDonald's ω. Optionen aktivieren: **Item-rest correlation**, **Cronbach's α (if item dropped)**, Missing Values **Delete listwise**.
-4. Notiere in zwei Sätzen: *welche Skala* die höchste und welche die niedrigste Reliabilität hat und ob es ein Item gibt, bei dem „α if dropped" deutlich über dem Gesamt-α liegt.
+4. Notiere in zwei Sätzen: *welche Skala* die höchste und welche die niedrigste Reliabilität hat und ob es ein Item gibt, bei dem „α if dropped“ deutlich über dem Gesamt-α liegt.
 
 **Bonus:**
 
 - **Pearson-Korrelation der fünf Skalenmittelwerte untereinander** (**Regression → Classical → Correlation** mit den 5 `*_mean`-Variablen). Was siehst Du?
-- Wiederhole die Reliabilität nur für **Personen ab Bildungsgrad 5** (Filter setzen). Verändert sich α deutlich? Notiere vorher Deine Abgabewerte und entferne den Filter danach wieder, sonst ändern sich alle Ergebnisse in der Datei.
+- Wiederhole die Reliabilität nur für **Personen ab Bildungsgrad 5** (Filter setzen: Doppelklick auf den Spaltenkopf `bildungsgrad`, in der Spalte **Filter** die Häkchen bei 1 bis 4 entfernen). Verändert sich α deutlich? Notiere vorher Deine Abgabewerte und entferne den Filter danach wieder, sonst ändern sich alle Ergebnisse in der Datei.
 
 ::: {.callout-tip title="Für die Abgabe"}
 Notiere: Valid-Anzahl von `E_mean`, Mittelwert und SD von `N_mean`, die Skalen mit höchstem und niedrigstem Cronbach's α. Siehe @sec-s03-abschluss.

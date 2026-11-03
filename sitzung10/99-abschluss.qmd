@@ -4,7 +4,7 @@
 
 - Du kannst qualitative Methoden einordnen und eine Interrater-Übereinstimmung berechnen.
 - Du hast einen vollständigen Forschungsworkflow durchlaufen, von der Erhebung bis zu Strukturgleichungsmodellen.
-- Du hast gesehen, wie oft „kein Effekt" das richtige Ergebnis ist, und wie man das sauber berichtet.
+- Du hast gesehen, wie oft „kein Effekt“ das richtige Ergebnis ist, und wie man das sauber berichtet.
 
 ## Abgabe
 
@@ -22,7 +22,7 @@ Fehlt Dir noch eine Abgabe aus einer früheren Sitzung? Dann hol sie jetzt nach,
 
 Fragen zur Klausur kannst Du im Plenum stellen oder per Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}) schicken.
 
-## Zum Nachschlagen für später
+## Zum Weiterlesen
 
 Wenn Du in der Masterarbeit oder später selbst erhebst und auswertest, helfen Dir diese Quellen weiter:
 

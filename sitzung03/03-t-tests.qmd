@@ -66,11 +66,12 @@ Faustregel: für mittlere Effekte ($d = 0.5$) und $\alpha = .05$ brauchst Du pro
 
 ## Annahmen und warum sie wichtig sind
 
-Der klassische t-Test (Student's t) hat drei Annahmen:
+Der klassische t-Test (Student's t) hat vier Annahmen:
 
 1. **Skalenniveau:** abhängige Variable mindestens *intervallskaliert* (metrisch).
 2. **Normalverteilung:** die Werte sind in jeder Gruppe annähernd normalverteilt.
 3. **Varianzhomogenität:** die beiden Gruppen haben ungefähr gleiche Streuung.
+4. **Unabhängigkeit:** jede Person steckt nur einmal und nur in einer Gruppe in den Daten, die Beobachtungen beeinflussen sich nicht gegenseitig.
 
 ::: {.callout-tip title="Warum die Normalverteilungs-Annahme bei größerem N erstaunlich verzeihlich ist"}
 Es gibt einen mathematischen Satz mit erstaunlichen Konsequenzen: den **Zentralen Grenzwertsatz**. Er besagt, dass die *Verteilung des Stichprobenmittelwerts* mit wachsendem $N$ immer näher an eine **Normalverteilung** rückt, und zwar **unabhängig davon, wie die ursprüngliche Variable selbst verteilt ist**.
@@ -111,7 +112,7 @@ Also: Mittelwertsunterschied in Einheiten der gepoolten Standardabweichung.
 
 Beispiel: $d = 0.5$ heißt, die Gruppen unterscheiden sich um *eine halbe Standardabweichung*. Das ist im Bildungs- und Persönlichkeitskontext schon ordentlich.
 
-JASP zeigt Cohen's *d* mit Konfidenzintervall. Schau es Dir **immer** an. Ein signifikanter t-Test bei $N = 200$ kann ein klitzekleines $d$ haben (was statistisch da, aber praktisch irrelevant ist), während ein nicht-signifikantes Ergebnis bei $N = 18$ ein riesiges $d$ haben kann (was inhaltlich relevant ist, aber statistisch nicht abgesichert).
+JASP zeigt Cohen's *d* mit Konfidenzintervall. Schau es Dir **immer** an. Ein signifikanter t-Test bei $N = 2000$ kann ein klitzekleines $d$ haben (was statistisch da, aber praktisch irrelevant ist), während ein nicht-signifikantes Ergebnis bei $N = 18$ ein riesiges $d$ haben kann (was inhaltlich relevant ist, aber statistisch nicht abgesichert).
 
 ## In JASP rechnen
 
@@ -122,11 +123,11 @@ JASP zeigt Cohen's *d* mit Konfidenzintervall. Schau es Dir **immer** an. Ein si
 1. **T-Tests → Classical → One Sample T-Test**.
 2. `E_mean` ins Variablenfeld ziehen.
 3. **Test value:** 3.
-4. **Alternative hypothesis:** „> Test value" wenn Du wirklich nur „oberhalb" testen willst (gerichtete Hypothese), sonst zweiseitig.
+4. **Alternative Hypothesis:** „> Test value“ wenn Du wirklich nur „oberhalb“ testen willst (gerichtete Hypothese), sonst zweiseitig.
 5. Aktiviere in den Options:
    - **Descriptives** (M, SD)
    - **Effect size** (Cohen's d) mit **Confidence interval**
-   - unter *Assumption Checks* **Q-Q plot residuals**
+   - unter *Assumption checks* **Q-Q plot residuals**
    - **Descriptives plots**
 
 ### Unabhängiger t-Test
@@ -134,8 +135,8 @@ JASP zeigt Cohen's *d* mit Konfidenzintervall. Schau es Dir **immer** an. Ein si
 **Frage:** Unterscheiden sich Frauen und Männer im Verträglichkeitswert?
 
 1. **T-Tests → Classical → Independent Samples T-Test**.
-2. **Dependent Variables:** `V_mean`. **Grouping Variable:** `geschlecht`.
-3. Der t-Test braucht **genau zwei** Gruppen. `geschlecht` hat drei Stufen. Schließ Stufe 3 (divers) aus: Klick auf den Spaltenkopf `geschlecht`, in der Tabelle mit Filter / Value / Label beim Wert 3 das Häkchen in der Spalte **Filter** entfernen. Danach zählt JASP nur noch Fälle mit 1 und 2 (bei sehr kleinem $n$ wäre ein Vergleich mit Gruppe 3 ohnehin nicht sinnvoll). Den Filter nach den t-Tests wieder entfernen (alle Häkchen wieder setzen).
+2. Der t-Test braucht **genau zwei** Gruppen. `geschlecht` hat drei Stufen, deshalb **zuerst** Stufe 3 (divers) ausschließen, sonst nimmt JASP die Variable gar nicht als Grouping Variable an: Doppelklick auf den Spaltenkopf `geschlecht`, in der Tabelle mit Filter / Value / Label beim Wert 3 das Häkchen in der Spalte **Filter** entfernen. Danach zählt JASP nur noch Fälle mit 1 und 2 (bei sehr kleinem $n$ wäre ein Vergleich mit Gruppe 3 ohnehin nicht sinnvoll).
+3. **Dependent Variables:** `V_mean`. **Grouping Variable:** `geschlecht`.
 
 ::: {.callout-important title="Der Filter wirkt auf alle Analysen"}
 Solange Stufe 3 herausgefiltert ist, rechnet JASP **alle** Analysen in der Datei neu, auch Skalen, Korrelationen und die anderen t-Tests. Deshalb: alle anderen Werte vorher notieren, den Filter nur für den Geschlechter-Vergleich setzen, dessen Werte notieren und den Filter **sofort** wieder entfernen. Der Geschlechter-t-Test zeigt danach eine Fehlermeldung, das ist in Ordnung.
@@ -147,10 +148,11 @@ Solange Stufe 3 herausgefiltert ist, rechnet JASP **alle** Analysen in der Datei
    - **Descriptives** + **Descriptives plots**
    - unter *Assumption Checks* **Normality** (Shapiro-Wilk; deskriptiv interessant, aber nicht überbewerten)
    - unter *Assumption Checks* **Equality of variances**, Methode **Levene's** (informativ, aber direkt Welch nehmen)
+5. Werte notieren, dann den Filter wieder entfernen (alle Häkchen wieder setzen).
 
 ### Wie das Ergebnis berichten
 
-In APA-ähnlicher Form sieht ein t-Test-Bericht so aus:
+In APA-ähnlicher Form sieht ein t-Test-Bericht so aus (Zahlen ausgedacht):
 
 > Frauen ($M = 3.42$, $SD = 0.72$, $n = 64$) und Männer ($M = 3.09$, $SD = 0.81$, $n = 28$) unterschieden sich im Verträglichkeitswert nicht signifikant, $t(46.5) = 1.86$, $p = .069$, $d = 0.44$, 95 %-KI [−0.01, 0.89]. Der geschätzte Unterschied ist nicht klein, das Konfidenzintervall schließt aber auch einen Nulleffekt ein.
 
@@ -210,11 +212,11 @@ Rechne in JASP **genau diese drei** (immer mit Welch + Effektgröße Cohen's *d*
 
 Für t3 brauchst Du eine neue Spalte `bildung_gruppe` via Compute Column (**Define column through R code**, Typ **Nominal**):
 ```r
-ifelse(bildungsgrad >= 6, "hoch", "niedriger")
+ifelse(as.numeric(as.character(bildungsgrad)) >= 6, "hoch", "niedriger")
 ```
 
 Notiere für jeden der drei Tests **eine Zeile** im Format:
-*„t#: t(df) = X.XX, p = .XXX, d = X.XX, 95 %-KI [X.XX, X.XX], n = XX, Schluss: …"*
+*„t#: t(df) = X.XX, p = .XXX, d = X.XX, 95 %-KI [X.XX, X.XX], n = XX, Schluss: …“*
 
 **Bonus:**
 

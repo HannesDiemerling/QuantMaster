@@ -13,7 +13,7 @@ Nach diesem Kapitel kannst Du …
 
 Eine einzelne Studie ist selten das letzte Wort, das hat die Replikationskrise gezeigt (Vorlesung 1 und 3). Eine **Metaanalyse** fasst die Effekte vieler Studien zu einer Gesamtschätzung zusammen und fragt, wie stark die Studien voneinander abweichen.
 
-Unser Datensatz eignet sich dafür überraschend gut: Die zehn Seed-Datensätze sind wie **zehn kleine Studien** mit jeweils gut 10 Personen (9 vorgenerierte plus die fiktiven Personen aus den Uploads zu diesem Datensatz). Jede schätzt denselben Zusammenhang. Wir nehmen die Korrelation zwischen Extraversion und Offenheit.
+Unser Datensatz eignet sich dafür überraschend gut: Die zehn Seed-Datensätze sind wie **zehn kleine Studien** mit jeweils rund 10 Personen (9 vorgenerierte plus die fiktiven Personen aus den Uploads zu diesem Datensatz). Jede schätzt denselben Zusammenhang. Wir nehmen die Korrelation zwischen Extraversion und Offenheit.
 
 ## Die Grundidee: gewichtetes Mitteln
 
@@ -38,29 +38,29 @@ Bei wenigen, sehr kleinen Studien sind diese Kennwerte selbst sehr unsicher, und
 
 ## Publikationsbias
 
-Signifikante Ergebnisse werden eher veröffentlicht. Dann fehlen kleine Studien mit kleinen Effekten, und die Metaanalyse überschätzt den Effekt. Prüfwerkzeuge: **Funnel Plot** (Asymmetrie?), **Egger-Test**, **Trim-and-Fill**. In unserer Übung gibt es keinen Publikationsbias, denn alle „Studien" sind enthalten.
+Signifikante Ergebnisse werden eher veröffentlicht. Dann fehlen kleine Studien mit kleinen Effekten, und die Metaanalyse überschätzt den Effekt. Prüfwerkzeuge: **Funnel Plot** (Asymmetrie?), **Egger-Test**, **Trim-and-Fill**. In unserer Übung gibt es keinen Publikationsbias, denn alle „Studien“ sind enthalten.
 
 ## In JASP rechnen
 
 ### Schritt 1: Eine Studie selbst berechnen
 
 1. Öffne Deine JASP-Datei mit `m15-gesamt.csv` und den Skalenspalten.
-2. Filter auf Deinen Seed-Datensatz: Spaltenkopf `quelle_datensatz` anklicken, in der Spalte **Filter** alle Häkchen außer bei Deiner Datensatznummer entfernen.
+2. Filter auf Deinen Seed-Datensatz: Doppelklick auf den Spaltenkopf `quelle_datensatz`, in der Spalte **Filter** alle Häkchen außer bei Deiner Datensatznummer entfernen.
 3. **Regression → Classical → Correlation** mit `E_mean` und `O_mean`. Notiere $r$.
 4. Filter wieder zurücksetzen (alle Häkchen setzen).
 
 ### Schritt 2: Alle Studien zusammenfassen
 
-Die Tabelle aller zehn „Studien" erzeugt der Merge-Workflow automatisch: `data/combined/meta-studien.csv` (Spalten `studie`, `n`, `r`, `fisher_z`, `se`). Prüfe, ob Dein $r$ aus Schritt 1 mit der Zeile Deines Datensatzes übereinstimmt.
+Die Tabelle aller zehn „Studien“ erzeugt der Merge-Workflow automatisch: `data/combined/meta-studien.csv` (Spalten `studie`, `n`, `r`, `fisher_z`, `se`). Prüfe, ob Dein $r$ aus Schritt 1 mit der Zeile Deines Datensatzes übereinstimmt.
 
-1. `meta-studien.csv` herunterladen und in JASP öffnen (**File → Open**; es öffnet sich ein neues Fenster).
-2. Modul **Meta-Analysis** über das **„+"** aktivieren.
-3. **Meta-Analysis → Classical → Classical Meta-Analysis**.
+1. `meta-studien.csv` herunterladen (im Repo unter `data/combined/`, Button **Download raw file**) und in JASP öffnen (**File → Open**; es öffnet sich ein neues Fenster).
+2. Modul **Meta-Analysis** über das **„+“** aktivieren.
+3. **Meta-Analysis → Classical → Meta-Analysis**.
 4. **Effect Size:** `fisher_z` · **Effect Size Standard Error:** `se` · **Study Labels:** `studie`.
 5. **Method:** *Restricted ML* (Random Effects, voreingestellt).
 6. Im Abschnitt *Statistics → Heterogeneity* zusätzlich **I²** ankreuzen.
-7. Im Abschnitt **Forest Plot** den Plot aktivieren.
-8. Optional: **Transform effect size → Fisher's z to r**, um das Ergebnis als Korrelation zu sehen.
+7. Im Abschnitt **Forest Plot** **Study information** und **Model information** ankreuzen.
+8. Optional: **Transform effect size → Fisher's z to r**, um das Ergebnis als Korrelation zu sehen. Für die Abgabe brauchst Du die Werte ohne Transformation (Fisher-z).
 
 Lies ab: den gepoolten Effekt mit 95 %-KI und $I^2$. Im Forest Plot siehst Du jede Studie als Punkt mit KI und den gepoolten Effekt als Raute.
 

@@ -86,3 +86,13 @@ blockquote {
   margin: 1em 0;
   border-radius: 4px;
 }
+
+/* Langer Buchtitel in der Sidebar: umbrechen statt abschneiden */
+.sidebar-title {
+  font-size: 1.15rem;
+  hyphens: auto;
+  overflow-wrap: anywhere;
+}
+.sidebar-item-text {
+  hyphens: auto;
+}

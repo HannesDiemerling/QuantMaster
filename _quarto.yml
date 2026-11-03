@@ -8,12 +8,12 @@ project:
     - "materials/codebook.qmd"
   resources:
     - "materials/*.csv"
+    - "assets/mathjax/tex-svg-full.js"
 
 book:
   title: "M15: Quantitative Forschungsmethoden"
   subtitle: "Online-Seminar HMU, 10 Sitzungen"
   author: "Hannes Diemerling"
-  date: "2026"
   repo-url: https://github.com/hannesdiemerling/QuantMaster
   repo-actions: [edit, issue]
   search: true
@@ -115,6 +115,10 @@ format:
     callout-appearance: default
     fig-responsive: true
     link-external-newwindow: true
+    # MathJax liegt lokal im Repo, damit Formeln auch ohne CDN (Werbeblocker, Firmennetz) rendern
+    html-math-method:
+      method: mathjax
+      url: "assets/mathjax/tex-svg-full.js"
 
 execute:
   freeze: auto

@@ -45,14 +45,14 @@ Für eigene Studien heißt das: Hypothesen vorher festlegen, Nullbefunde genauso
 | Genestete / wiederholte Messungen? | metrisch | Mixed Model | @sec-tag3-mixed |
 | Struktur hinter vielen Items? | Items | EFA / CFA | @sec-efa, @sec-cfa-sem |
 | Studienlage zusammenfassen? | Effektgrößen aus Studien | Meta-Analyse | @sec-meta |
-| „Kein relevanter Unterschied" belegen? | metrisch | Äquivalenztest (TOST) | @sec-nhst |
+| „Kein relevanter Unterschied“ belegen? | metrisch | Äquivalenztest (TOST) | @sec-nhst |
 | Wirksamkeit mit Ja/Nein-Ergebnis? | binär | RR, NNT, Kreuztabelle | @sec-epi |
 | Übereinstimmung zweier Kodierer? | kategorial | Cohen's κ | @sec-quali |
 | Wie viele Personen brauche ich? | beliebig | Poweranalyse | @sec-power |
 
 ## Effektgrößen einordnen
 
-Die bekannten „klein / mittel / groß"-Schwellen (Cohen 1988) sind **bewusst keine** Tabelle in diesem Nachschlagewerk. Sie sind willkürlich gesetzt und taugen **nicht als universeller Maßstab**. In den Kapiteln tauchen sie deshalb nur als grobe Orientierung auf. Cohen selbst hat sie nur als Notbehelf für Felder *ohne* eigene Vergleichswerte gedacht und vor mechanischer Anwendung gewarnt. Was in einem Forschungsfeld „groß" ist, kann in einem anderen unbedeutend sein.
+Die bekannten „klein / mittel / groß“-Schwellen (Cohen 1988) sind **bewusst keine** Tabelle in diesem Nachschlagewerk. Sie sind willkürlich gesetzt und taugen **nicht als universeller Maßstab**. In den Kapiteln tauchen sie deshalb nur als grobe Orientierung auf. Cohen selbst hat sie nur als Notbehelf für Felder *ohne* eigene Vergleichswerte gedacht und vor mechanischer Anwendung gewarnt. Was in einem Forschungsfeld „groß“ ist, kann in einem anderen unbedeutend sein.
 
 Statt gegen feste Cutoffs interpretierst Du eine Effektgröße sinnvoll so:
 
@@ -61,7 +61,7 @@ Statt gegen feste Cutoffs interpretierst Du eine Effektgröße sinnvoll so:
 - **Mit Unsicherheit:** Berichte **immer** das **Konfidenzintervall** (bzw. Credible Interval) und die **Stichprobengröße $n$**. Ein Punktschätzer ohne Intervall verschweigt, wie genau er überhaupt ist.
 
 ::: {.callout-tip title="Die wichtigste Regel"}
-**Berichte die Effektgröße, aber interpretiere sie im Kontext, nicht gegen eine universelle Schablone.** Eine Zahl wie $d = 0.4$ ist weder von sich aus „mittel" noch „klein"; ihre Bedeutung ergibt sich aus dem Forschungsfeld und der praktischen Konsequenz.
+**Berichte die Effektgröße, aber interpretiere sie im Kontext, nicht gegen eine universelle Schablone.** Eine Zahl wie $d = 0.4$ ist weder von sich aus „mittel“ noch „klein“; ihre Bedeutung ergibt sich aus dem Forschungsfeld und der praktischen Konsequenz.
 :::
 
 ## JASP-Schnellzugriff (Menüpfade)
@@ -77,19 +77,19 @@ Statt gegen feste Cutoffs interpretierst Du eine Effektgröße sinnvoll so:
 | Moderation | Regression → Classical → Linear Regression (+ Interaktionsterm) |
 | Mediation | SEM → Mediation Analysis (Bootstrap) |
 | Logistische Regression | Regression → Classical → Logistic Regression |
-| Bayes-*t*-Test / -Korrelation / -Regression | im selben Menü unter **Bayesian**, z. B. T-Tests → Bayesian → Bayesian Independent Samples T-Test |
+| Bayes-*t*-Test / -Korrelation / -Regression | im selben Menü unter **Bayesian**, z. B. T-Tests → Bayesian → Independent Samples T-Test |
 | Machine Learning | Machine Learning → Classification / Regression / Unsupervised Learning → Clustering |
 | Mixed Model | Mixed Models → Classical → Linear Mixed Models |
 | Faktorenanalyse | Factor → Exploratory Factor Analysis / Principal Component Analysis |
 | CFA / SEM | Factor → Confirmatory Factor Analysis / SEM → Structural Equation Modeling |
 | Netzwerk | Network |
-| Meta-Analyse | Meta-Analysis → Classical → Classical Meta-Analysis |
+| Meta-Analyse | Meta-Analysis → Classical → Meta-Analysis |
 | Poweranalyse | Power → Power |
 | Kreuztabelle | Frequencies → Classical → Contingency Tables |
 | Interrater (κ) | Reliability → Classical → Rater Agreement |
-| Äquivalenztest | Equivalence T-Tests → Classical → Equivalence Independent Samples T-Test |
+| Äquivalenztest | Equivalence T-Tests → Classical → Independent Samples T-Test |
 
-Module, die nicht sichtbar sind, schaltest Du über das blaue **„+"** oben rechts frei.
+Module, die nicht sichtbar sind, schaltest Du über das blaue **„+“** oben rechts frei.
 
 ## Was Du berichten musst
 
@@ -121,7 +121,7 @@ Fast alle berichten den **p-Wert** und vergessen **Effektgröße und Konfidenzin
 
 **Fehler 1. Art (α):** H0 fälschlich verworfen. **Fehler 2. Art (β):** echter Effekt übersehen. **Power** = 1 − β.
 
-**Konfidenzintervall:** Bereich plausibler Werte für den Parameter. **Credible Interval:** bayesianisches Pendant, direkt als „95 % Wahrscheinlichkeit, dass der Parameter hier liegt" interpretierbar.
+**Konfidenzintervall:** Bereich plausibler Werte für den Parameter. **Credible Interval:** bayesianisches Pendant, direkt als „95 % Wahrscheinlichkeit, dass der Parameter hier liegt“ interpretierbar.
 
 **Effektgröße:** *Größe* eines Effekts, unabhängig von *n* (Cohen's d, r, η², R²).
 

@@ -3,7 +3,7 @@
 ::: {.callout-note title="Lernziele"}
 Nach diesem Kapitel kannst Du …
 
-- einen Datensatz in JASP öffnen und die Variable-Typen korrekt setzen,
+- einen Datensatz in JASP öffnen und die Variablentypen korrekt setzen,
 - mit Descriptive Statistics auffällige Werte identifizieren,
 - die 2 absichtlichen Fehler in Deinem Datensatz finden,
 - begründen, ob Du einen Fehler korrigierst, auf fehlend setzt oder die Zeile entfernst,
@@ -20,13 +20,13 @@ JASP ist in drei Bereiche aufgeteilt:
 
 | Bereich | Inhalt |
 |---|---|
-| **Oben** | Leiste mit dem Hauptmenü (☰, hier heißt es „File": Open, Save, Export Data, …) und den Analyse-Modulen als Buttons (Descriptives, T-Tests, ANOVA, Regression, …) |
+| **Oben** | Leiste mit dem Hauptmenü (☰, hier heißt es „File“: Open, Save, Export Data, …) und den Analyse-Modulen als Buttons (Descriptives, T-Tests, ANOVA, Regression, …) |
 | **Links** | Datenansicht (ähnlich wie eine Tabellenkalkulation), hier siehst Du Deine Variablen |
 | **Rechts** | Output mit Analyse-Ergebnissen |
 
-Menüpfade in diesem Seminar beginnen deshalb direkt mit dem Modul-Button, z. B. **Descriptives → Descriptive Statistics**. Module, die nicht sichtbar sind (z. B. Reliability, Machine Learning, SEM), schaltest Du über das blaue **„+"** oben rechts frei.
+Menüpfade in diesem Seminar beginnen deshalb direkt mit dem Modul-Button, z. B. **Descriptives → Descriptive Statistics**. Module, die nicht sichtbar sind (z. B. Reliability, Machine Learning, SEM), schaltest Du über das blaue **„+“** oben rechts frei.
 
-Wichtig: Ein Klick auf den **Spaltenkopf** öffnet das Variablen-Fenster (Name, Typ, Werte und Labels).
+Wichtig: Ein Doppelklick auf den **Spaltenkopf** öffnet das Variablen-Fenster (Name, Typ, Werte und Labels).
 
 ## Schritt 1: Datensatz öffnen
 
@@ -35,7 +35,7 @@ Wichtig: Ein Klick auf den **Spaltenkopf** öffnet das Variablen-Fenster (Name, 
 3. Erscheint das Fenster **Data Preview**: Unter **Select Delimiter:** muss das Komma ausgewählt sein. Prüf in der Vorschau, ob die Spalten sauber getrennt sind, dann **Load**.
 4. JASP zeigt die Tabelle. Oben siehst Du die Variablennamen. Alle 25 Spalten sollten da sein.
 
-## Schritt 2: Variable-Typen setzen
+## Schritt 2: Variablentypen setzen
 
 JASP rät den Typ beim Import anhand der Werte, und das passt oft nicht. Kontrolliere deshalb jede Spalte und stell sie so ein:
 
@@ -56,12 +56,12 @@ Bevor wir irgendetwas analysieren, schauen wir uns die Daten an:
 1. **Descriptives → Descriptive Statistics** öffnen.
 2. Alle Variablen ins rechte Feld ziehen.
 3. In den Optionen aktivieren:
-   - im Abschnitt **Basic Plots:** **Distribution plots** (Histogramme bzw. Balkendiagramme für jede Variable)
-   - im Abschnitt **Tables:** **Frequency tables** (Häufigkeitstabellen für Nominal- und Ordinal-Variablen)
+   - im Abschnitt **Basic Plots**: **Distribution plots** (Histogramme bzw. Balkendiagramme für jede Variable)
+   - im Abschnitt **Tables**: **Frequency tables** (Häufigkeitstabellen für Nominal- und Ordinal-Variablen)
 
 JASP berechnet:
 
-- Mean, SD, Min und Max für Scale-Variablen
+- Mean, SD, Minimum und Maximum für Scale-Variablen
 - Häufigkeitstabellen für Nominal- / Ordinal-Variablen
 - Anzahl fehlender Werte je Variable
 
@@ -69,7 +69,7 @@ JASP berechnet:
 
 ### Strategie A: Wertebereich prüfen
 
-Geh die Descriptives-Tabelle von oben nach unten durch und vergleiche **Min** und **Max** mit dem Codebook:
+Geh die Descriptives-Tabelle Variable für Variable durch (jede Variable ist eine Spalte) und vergleiche **Minimum** und **Maximum** mit dem Codebook:
 
 | Variable | Erlaubter Bereich |
 |---|---|
@@ -77,7 +77,7 @@ Geh die Descriptives-Tabelle von oben nach unten durch und vergleiche **Min** un
 | `bildungsgrad` | 1–7 |
 | `BFI_*` | 1–5 |
 
-**Ein BFI-Item mit Min = 0 oder Max = 9? Treffer.** **Alter = 7? Treffer.** `probandennummer` und `geschlecht` sind Nominal-Variablen, für sie zeigt JASP kein Min/Max. Die prüfst Du mit Strategie B.
+**Ein BFI-Item mit Minimum 0 oder Maximum 9? Treffer.** **Alter = 7? Treffer.** `probandennummer` und `geschlecht` sind Nominal-Variablen, für sie zeigt JASP kein Minimum/Maximum. Die prüfst Du mit Strategie B.
 
 ### Strategie B: Häufigkeitstabellen
 
@@ -88,7 +88,7 @@ Bei `geschlecht`, `bildungsgrad`, `probandennummer`: prüfe die Frequency Tables
 
 ### Strategie C: Missings
 
-Die Descriptives-Tabelle enthält die Spalte **Missing**. Steht dort irgendwo eine 1 (oder mehr), während Du keine fehlenden Werte erwartest: hingucken.
+Die Descriptives-Tabelle enthält die Zeile **Missing**. Steht dort irgendwo eine 1 (oder mehr), während Du keine fehlenden Werte erwartest: hingucken.
 
 ## Schritt 5: Fehler behandeln
 
@@ -96,7 +96,7 @@ Du hast drei Möglichkeiten, je nach Fehlertyp:
 
 | Vorgehen | Wann? |
 |---|---|
-| **Korrigieren** | Nur wenn der „richtige" Wert klar erkennbar ist (selten) |
+| **Korrigieren** | Nur wenn der „richtige“ Wert klar erkennbar ist (selten) |
 | **Auf fehlend setzen** (Zelle leeren) | Wenn der wahre Wert nicht rekonstruierbar ist, der Rest der Zeile aber brauchbar |
 | **Zeile komplett entfernen** | Wenn der Fall insgesamt unbrauchbar oder mehrfach defekt ist |
 
@@ -107,7 +107,7 @@ Du hast drei Möglichkeiten, je nach Fehlertyp:
 - **`BFI_07 = 7`** oder **`BFI_07 = 0`** → Zelle leeren (Wert ist außerhalb 1–5 und nicht reparierbar).
 - **`alter = 200`** oder **`alter = 7`** → Zelle leeren.
 - **`geschlecht = 4`** → Zelle leeren (es gibt nur die Codes 1–3).
-- **Zwei Zeilen mit `probandennummer = 4`** → Wenn der Rest plausibel ist, vergib der Zeile, die nicht in die Reihenfolge passt, die fehlende Nummer aus 1–9 (die Nummern laufen sonst lückenlos von 1 bis 9). Beispiel: Steht die zweite 4 an Position 7 und fehlt die 7, wird sie zur 7. Bitte nur ganze Zahlen. Werte wie „8a" kann später niemand mehr verarbeiten.
+- **Zwei Zeilen mit `probandennummer = 4`** → Wenn der Rest plausibel ist, vergib der Zeile, die nicht in die Reihenfolge passt, die fehlende Nummer aus 1–9 (die Nummern laufen sonst lückenlos von 1 bis 9). Beispiel: Steht eine der beiden 4en an Position 7 und fehlt die 7, wird sie zur 7. Bitte nur ganze Zahlen. Werte wie „8a“ kann später niemand mehr verarbeiten.
 - **`bildungsgrad` leer** → das ist einer der absichtlichen Fehler, denn die Demografie muss laut Codebook vollständig sein. Die Zelle bleibt leer (der wahre Wert ist nicht rekonstruierbar), notier sie aber als gefundenen Fehler. Dasselbe gilt für ein leeres BFI-Item.
 
 Zum Ändern wechselst Du zuerst oben über **Edit Data** in den Bearbeitungsmodus. Dort klickst Du doppelt auf die Zelle, änderst oder löschst den Wert und bestätigst mit Enter. Ein Rechtsklick auf eine Zelle bietet außerdem *Clear cells* (Zelle leeren) und *Delete row*. Zurück zu den Analysen geht es über **Analyses** in derselben Leiste.
@@ -120,7 +120,7 @@ Je nach Einstellung öffnet ein Doppelklick auf die Daten außerhalb des Bearbei
 
 JASP speichert Analysen in `.jasp`-Dateien, die brauchen wir hier nicht. **Wir brauchen die bereinigte CSV.**
 
-1. **File → Export Data**.
+1. **File → Export Data → Computer → Browse**.
 2. Format: **CSV** (voreingestellt).
 3. Dateiname: `datensatz-XX-bereinigt.csv` (mit Deiner Nummer).
 4. Speichern an einem Ort, an dem Du sie wiederfindest.
@@ -132,7 +132,7 @@ Falls JASP beim Export Werte als Kommazahlen schreibt (z. B. `3.00` statt `3`), 
 ## Aufgabe
 
 1. Öffne Deinen Datensatz in JASP.
-2. Setze die Variable-Typen.
+2. Setze die Variablentypen.
 3. Lass Descriptives über alle Variablen laufen.
 4. Identifiziere die **zwei** absichtlichen Fehler.
 5. Behandle sie (auf fehlend setzen oder neue Nummer vergeben).
@@ -147,5 +147,5 @@ Notiere Deine Datensatz-Nummer, beide Fehler (Zeilennummer in JASP, Spalte, gefu
 ## Selbstcheck
 
 1. Welche zwei Fehler hast Du gefunden? Wo lagen sie (Zeile, Spalte)?
-2. Warum ist „Wert auf fehlend setzen" oft besser als „Zeile löschen"?
+2. Warum ist „Wert auf fehlend setzen“ oft besser als „Zeile löschen“?
 3. Wo gehört die exportierte CSV-Datei hin, und in welchem Format?

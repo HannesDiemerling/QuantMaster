@@ -16,12 +16,12 @@ Heute stellst Du das Werkzeug infrage, das Du bisher ständig benutzt hast: den 
 
 ## Vorbereitung
 
-- Das Modul **Equivalence T-Tests** (über das **„+"** aktivieren); die Bayes-Analysen liegen in T-Tests und Regression
+- Das Modul **Equivalence T-Tests** (über das **„+“** aktivieren); die Bayes-Analysen liegen in T-Tests und Regression
 
 ## Inhalte
 
 1. Kleines Quiz: Was bedeutet p = .03?
 2. @sec-nhst
-3. Von „p < .05" zu Wahrscheinlichkeitsaussagen
+3. Von „p < .05“ zu Wahrscheinlichkeitsaussagen
 4. @sec-tag3-bayes
 5. Fragen und Abgabe (@sec-s08-abschluss)

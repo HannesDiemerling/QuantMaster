@@ -94,9 +94,9 @@ Hier kommen sechs Hypothesen, die *inhaltlich* Sinn ergeben, formuliert so, wie 
 | H5 | Innerhalb der Extraversions-Skala korrelieren alle Items mindestens mit $r > .20$ miteinander. | Korrelationsmatrix der 4 E-Items | nach Konstruktion ja |
 | H6 | Items aus *unterschiedlichen* Skalen korrelieren nur schwach. | Korrelationsmatrix `BFI_06` (E) × `BFI_07` (V) × `BFI_08` (G) × `BFI_09` (N) × `BFI_10` (O) | $r \approx 0$–$.20$ |
 
-Rechne alle sechs in JASP, und zwar **zweiseitig** (Voreinstellung *Correlated*), auch wenn die Hypothese eine Richtung nennt. Ob die Richtung stimmt, liest Du am Vorzeichen von $r$ ab. Für H4 muss `bildungsgrad` in die Analyse; nimmt JASP die Ordinal-Variable nicht an, stell ihren Typ in der Datenansicht (Typ-Symbol am Spaltenkopf) auf Scale (Spearman nutzt ohnehin nur die Ränge) und danach wieder auf Ordinal. Schreib Dir zu jedem Ergebnis eine Zeile auf, zum Beispiel so (Zahlen ausgedacht):
+Rechne alle sechs in JASP, und zwar **zweiseitig** (Voreinstellung *Correlated*), auch wenn die Hypothese eine Richtung nennt. Ob die Richtung stimmt, liest Du am Vorzeichen von $r$ ab. Für H4 muss `bildungsgrad` in die Analyse; nimmt JASP die Ordinal-Variable nicht an, stell ihren Typ in der Datenansicht (Typ-Symbol am Spaltenkopf) auf Scale (Spearman nutzt ohnehin nur die Ränge). Notier Dir die H4-Werte, bevor Du den Typ wieder auf Ordinal stellst, denn dann bricht die Analyse ab. Schreib Dir zu jedem Ergebnis eine Zeile auf, zum Beispiel so (Zahlen ausgedacht):
 
-> *„H2: $r = .19$, $p = .041$, 95 %-KI [.01, .36]. Die Richtung passt zur Hypothese, das Konfidenzintervall ist aber so breit, dass auch eine sehr kleine wahre Korrelation plausibel bleibt."*
+> *„H2: $r = .19$, $p = .041$, 95 %-KI [.01, .36]. Die Richtung passt zur Hypothese, das Konfidenzintervall ist aber so breit, dass auch eine sehr kleine wahre Korrelation plausibel bleibt.“*
 
 Vergleiche Deine Ergebnisse mit der Erwartungsspalte. Wo sie deutlich abweichen, liegt das an der Art, wie unsere Daten simuliert wurden. Was genau dahintersteckt, erfährst Du in Sitzung 04 (@sec-tag3-datenhinweis).
 
@@ -144,8 +144,9 @@ Aus einer Korrelation kannst Du **nicht** entscheiden, welcher Mechanismus es is
 
 1. **Korrelationsmatrix der 5 Skalenmittelwerte** (`E_mean, V_mean, G_mean, N_mean, O_mean`) in JASP rechnen, mit aktivierten Optionen *Confidence intervals (95%)*, *Report significance*, *Sample size*, *Scatter plots*.
 2. **Die 6 Hypothesen H1–H6 oben** in derselben Reihenfolge durchrechnen. Pro Hypothese **eine Zeile** notieren im Format:
-   *„H#: r = .XX, p = .XXX, 95 %-KI [.XX, .XX], n = XX, Schluss: …"*
-3. Wähl Dir **eine** signifikante Korrelation aus Schritt 2 aus und formuliere zu ihr **drei alternative Erklärungen** (Drittvariable, umgekehrte Wirkrichtung, Zufall) in je einem Satz.
+   *„H#: r = .XX, p = .XXX, 95 %-KI [.XX, .XX], n = XX, Schluss: …“*
+   Bei H5 und H6 (Matrizen) genügen das kleinste und das größte $r$ plus Schluss.
+3. Wähl Dir **eine** signifikante Korrelation aus Schritt 1 oder 2 aus und formuliere zu ihr **drei alternative Erklärungen** (Drittvariable, umgekehrte Wirkrichtung, Zufall) in je einem Satz.
 
 **Bonus:**
 

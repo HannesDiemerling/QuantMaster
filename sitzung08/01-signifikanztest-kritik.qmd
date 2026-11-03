@@ -19,10 +19,10 @@ Fast alle Tests, die Du bisher gerechnet hast, folgen der frequentistischen Logi
 
 | Häufige Fehlinterpretation | Richtig ist |
 |---|---|
-| „p = .03 heißt: H0 ist mit 3 % Wahrscheinlichkeit wahr." | p sagt nichts über die Wahrscheinlichkeit von Hypothesen (das kann nur Bayes, @sec-tag3-bayes). |
-| „p > .05 heißt: Es gibt keinen Effekt." | Kein Nachweis von Abwesenheit, vielleicht war die Power zu gering (@sec-power). |
-| „Kleines p = großer Effekt." | p hängt stark von N ab; bei großem N wird jeder Mini-Effekt signifikant. |
-| „p = .049 und p = .051 sind grundverschieden." | Die Evidenz ist praktisch gleich; die Grenze .05 ist eine Konvention. |
+| „p = .03 heißt: H0 ist mit 3 % Wahrscheinlichkeit wahr.“ | p sagt nichts über die Wahrscheinlichkeit von Hypothesen (das kann nur Bayes, @sec-tag3-bayes). |
+| „p > .05 heißt: Es gibt keinen Effekt.“ | Kein Nachweis von Abwesenheit, vielleicht war die Power zu gering (@sec-power). |
+| „Kleines p = großer Effekt.“ | p hängt stark von N ab; bei großem N wird jeder Mini-Effekt signifikant. |
+| „p = .049 und p = .051 sind grundverschieden.“ | Die Evidenz ist praktisch gleich; die Grenze .05 ist eine Konvention. |
 
 ## Fehler 1. und 2. Art
 
@@ -38,7 +38,7 @@ Fast alle Tests, die Du bisher gerechnet hast, folgen der frequentistischen Logi
 **Fragwürdige Forschungspraktiken (QRPs):**
 
 - **p-Hacking:** so lange Variablen, Ausreißerregeln, Teilstichproben oder Kovariaten ausprobieren, bis p < .05.
-- **Optional Stopping:** Daten erheben, testen, weitererheben, bis es „klappt".
+- **Optional Stopping:** Daten erheben, testen, weitererheben, bis es „klappt“.
 - **HARKing:** Hypothesen nachträglich so formulieren, als hätte man das Ergebnis vorhergesagt.
 
 Gegenmittel kennst Du aus Sitzung 01: **Preregistration**, offene Daten und Skripte, Registered Reports.
@@ -46,19 +46,19 @@ Gegenmittel kennst Du aus Sitzung 01: **Preregistration**, offene Daten und Skri
 ## Alternativen und Ergänzungen
 
 - **Effektgrößen + Konfidenzintervalle** statt nur p (@sec-tag2-ttest).
-- **Äquivalenztests (TOST):** prüfen, ob ein Effekt *kleiner* ist als eine vorab festgelegte, praktisch unbedeutende Grenze. Damit kann man „kein relevanter Unterschied" tatsächlich belegen.
+- **Äquivalenztests (TOST):** prüfen, ob ein Effekt *kleiner* ist als eine vorab festgelegte, praktisch unbedeutende Grenze. Damit kann man „kein relevanter Unterschied“ tatsächlich belegen.
 - **Bayesianische Verfahren:** Wahrscheinlichkeitsaussagen über Hypothesen und Parameter (@sec-tag3-bayes).
 
 ## In JASP rechnen: Äquivalenztest
 
 **Frage:** Ist der Unterschied zwischen Frauen und Männern in Gewissenhaftigkeit kleiner als |d| = 0.5? Diese Grenze ist hier für die Übung gesetzt. In einer echten Studie begründest Du vorab, ab welcher Größe ein Unterschied praktisch relevant wäre.
 
-1. Modul **Equivalence T-Tests** über das **„+"** aktivieren.
-2. **Equivalence T-Tests → Classical → Equivalence Independent Samples T-Test**.
-3. **Dependent Variables:** `G_mean` · **Grouping Variable:** `geschlecht` (Stufe 3 per Filter ausschließen, wie in @sec-tag2-ttest).
+1. Modul **Equivalence T-Tests** über das **„+“** aktivieren.
+2. **Equivalence T-Tests → Classical → Independent Samples T-Test**.
+3. **Dependent Variables:** `G_mean` · **Grouping Variable:** `geschlecht` (Stufe 3 per Filter ausschließen, wie in @sec-tag2-ttest, und den Filter nach dem Notieren der Werte wieder entfernen).
 4. **Equivalence Region:** von −0.5 bis 0.5, **Bounds specification in:** *Cohen's d* (bitte prüfen, voreingestellt ist *Raw*).
 5. **Tests:** *Student* (voreingestellt). Optional **Equivalence bounds plot**.
-6. Lies den p-Wert des Äquivalenztests ab (der größere der beiden einseitigen Tests). Ist er < .05, liegen die Gruppen innerhalb der Grenzen, sie sind also „äquivalent".
+6. Lies den p-Wert des Äquivalenztests ab (der größere der beiden einseitigen Tests). Ist er < .05, liegen die Gruppen innerhalb der Grenzen, sie sind also „äquivalent“.
 
 Optional zur Anschauung: Modul **Learn Stats** → **P Values** simuliert, wie p-Werte unter H0 und H1 verteilt sind.
 
@@ -68,7 +68,7 @@ Optional zur Anschauung: Modul **Learn Stats** → **P Values** simuliert, wie p
 
 1. Berechne von Hand: Wahrscheinlichkeit für mindestens ein falsch-positives Ergebnis bei 10 unabhängigen Tests mit α = .05.
 2. Rechne den Äquivalenztest für `G_mean` ~ `geschlecht` mit Grenzen ±0.5 (Cohen's d).
-3. Vergleiche mit dem normalen *t*-Test: Was folgt aus „nicht signifikant", und was aus dem Äquivalenztest?
+3. Vergleiche mit dem normalen *t*-Test: Was folgt aus „nicht signifikant“, und was aus dem Äquivalenztest?
 
 **Bonus:**
 
@@ -81,5 +81,5 @@ Notiere die α-Kumulierung für 10 Tests, den p-Wert des Äquivalenztests und De
 ## Selbstcheck
 
 1. Was genau sagt ein p-Wert von .03 aus?
-2. Warum ist „nicht signifikant" kein Beleg für „kein Effekt"?
+2. Warum ist „nicht signifikant“ kein Beleg für „kein Effekt“?
 3. Nenne zwei fragwürdige Forschungspraktiken und je ein Gegenmittel.

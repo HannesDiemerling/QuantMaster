@@ -16,7 +16,7 @@ Letzter Schritt heute: Du hängst die Zeile Deiner fiktiven Person an den berein
 
 Öffne `datensatz-XX-bereinigt.csv` in einem Editor Deiner Wahl:
 
-- **Texteditor** (erste Wahl): unter Windows Rechtsklick auf die Datei → *Öffnen mit* → **Editor**; auf dem Mac Rechtsklick → *Öffnen mit* → **TextEdit** (steht im Menü Format „In formatierten Text umwandeln", nichts anklicken, die Datei ist dann schon reiner Text) oder BBEdit. Zum Umbenennen auf dem Mac: Ablage → *Umbenennen …*; fragt TextEdit nach „.txt", wähle „.csv verwenden". Ein Doppelklick öffnet meist Excel oder Numbers, das willst Du hier nicht.
+- **Texteditor** (erste Wahl): unter Windows Rechtsklick auf die Datei → *Öffnen mit* → **Editor**; auf dem Mac Rechtsklick → *Öffnen mit* → **TextEdit** (steht im Menü Format „In formatierten Text umwandeln“, nichts anklicken, die Datei ist dann schon reiner Text) oder BBEdit. Zum Umbenennen auf dem Mac: Ablage → *Umbenennen …*; fragt TextEdit nach „.txt“, wähle „.csv verwenden“. Ein Doppelklick öffnet meist Excel oder Numbers, das willst Du hier nicht.
 - **JASP:** geht auch, ist aber zum reinen Tippen umständlich
 - **Tabellen-Tool:** Excel oder LibreOffice Calc, aber Vorsicht mit automatischen Konvertierungen und Semikolons
 
@@ -63,12 +63,12 @@ Du brauchst nur einen Browser und Deinen GitHub-Account, keine zusätzliche Soft
 1. Auf [github.com](https://github.com) anmelden (oben rechts **Sign in**).
 2. Den Ordner [`data/student-uploads/`]({{< meta kurs.repo >}}/tree/main/data/student-uploads) im Seminar-Repo öffnen (oder im Repo nacheinander auf **`data`** und **`student-uploads`** klicken). Oben über der Liste steht jetzt `QuantMaster / data / student-uploads /`.
 3. Rechts über der Dateiliste auf den Button **Add file** klicken und im Menü **Upload files** wählen.
-4. Deine Datei `datensatz-XX-<Kennziffer>.csv` aus dem Datei-Explorer bzw. Finder in das große Feld *„Drag files here …"* ziehen oder auf **choose your files** klicken und sie auswählen. Die Datei erscheint unter dem Feld mit ihrem Namen.
-5. Darunter steht der Kasten **Commit changes**. Ins erste Feld eine kurze Beschreibung schreiben, z. B. *„Upload Datensatz 03, Kennziffer 2013"*.
+4. Deine Datei `datensatz-XX-<Kennziffer>.csv` aus dem Datei-Explorer bzw. Finder in das große Feld *„Drag files here …“* ziehen oder auf **choose your files** klicken und sie auswählen. Die Datei erscheint unter dem Feld mit ihrem Namen.
+5. Darunter steht der Kasten **Commit changes**. Ins erste Feld eine kurze Beschreibung schreiben, z. B. *„Upload Datensatz 03, Kennziffer 2013“*.
 6. Je nach Rechten siehst Du:
-   - **„Commit directly to the `main` branch"** → ausgewählt lassen, dann den grünen Button **Commit changes** klicken. Fertig.
-   - **„Create a new branch for this commit and start a pull request"** → bitte auf **Commit directly to the `main` branch** umstellen. Gibt es diese Option nicht oder ist das Hochladen gesperrt, hast Du noch keine Schreibrechte (Einladung nicht angenommen oder abgelaufen). Dann nimm Weg B per Mail.
-7. Zurück im Ordner `data/student-uploads/` sollte Deine Datei in der Liste stehen. Meldet GitHub „Commit failed", lade die Datei einfach noch einmal hoch. Das kann passieren, wenn viele gleichzeitig hochladen.
+   - **„Commit directly to the `main` branch“** → ausgewählt lassen, dann den grünen Button **Commit changes** klicken. Fertig.
+   - **„Create a new branch for this commit and start a pull request“** → bitte auf **Commit directly to the `main` branch** umstellen. Gibt es diese Option nicht oder ist das Hochladen gesperrt, hast Du noch keine Schreibrechte (Einladung nicht angenommen oder abgelaufen). Dann nimm Weg B per Mail.
+7. Zurück im Ordner `data/student-uploads/` sollte Deine Datei in der Liste stehen. Meldet GitHub „Commit failed“, lade die Datei einfach noch einmal hoch. Das kann passieren, wenn viele gleichzeitig hochladen.
 
 ### Weg B: per Mail (ohne GitHub-Account)
 
@@ -112,7 +112,7 @@ Im Merge-Report siehst Du für Deine Datei (über Deine Kennziffer) den Status, 
 2. Datei korrekt benannt hochladen, über GitHub (Weg A) oder per Mail (Weg B).
 3. Im Repo prüfen, dass Deine Datei dort liegt und die Zeilenzahl stimmt.
 4. Vor dem Upload: Stimmen die Reverse-Items Deiner fiktiven Person? Rechne eins nach (z. B. angekreuzt 2 → eingetragen 4).
-5. Nach ein paar Minuten den [Merge-Report]({{< meta kurs.repo >}}/blob/main/data/combined/merge-report.md) öffnen: Such dort nach Deiner **Kennziffer**. Steht bei Deiner Datei Status „ok" und bei „Fehler gefunden" 2/2? Dann ist alles gut. Hinweise zu Dateiname oder Trennzeichen sind unkritisch. Bei IGNORIERT oder PRÜFEN korrigieren und unter **demselben Dateinamen** erneut hochladen. Bei DOPPELT gibt es Deine Kennziffer in zwei Dateien. Sind beide von Dir, lösch die mit dem falschen oder älteren Namen (Datei anklicken → „…" oben rechts → *Delete file* → *Commit changes*). Ist eine davon nicht von Dir oder hast Du per Mail hochgeladen, sag der Lehrperson Bescheid. Wenn gerade viele gleichzeitig hochladen, kann es etwas länger dauern, bis Deine Datei im Report auftaucht.
+5. Nach ein paar Minuten den [Merge-Report]({{< meta kurs.repo >}}/blob/main/data/combined/merge-report.md) öffnen: Such dort nach Deiner **Kennziffer**. Steht bei Deiner Datei Status „ok“ und bei „Fehler gefunden“ 2/2? Dann ist alles gut. Hinweise zu Dateiname oder Trennzeichen sind unkritisch. Bei IGNORIERT oder PRÜFEN korrigieren und unter **demselben Dateinamen** erneut hochladen. Bei DOPPELT gibt es Deine Kennziffer in zwei Dateien. Sind beide von Dir, lösch die mit dem falschen oder älteren Namen (Datei anklicken → „…“ oben rechts → *Delete file* → *Commit changes*). Ist eine davon nicht von Dir oder hast Du per Mail hochgeladen, sag der Lehrperson Bescheid. Wenn gerade viele gleichzeitig hochladen, kann es etwas länger dauern, bis Deine Datei im Report auftaucht.
 
 ::: {.callout-tip title="Für die Abgabe"}
 Notiere Datensatz-Nummer, beide gefundenen Fehler und den Dateinamen für die Abgabe (@sec-s01-abschluss).

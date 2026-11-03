@@ -30,9 +30,9 @@ Diese Site ist Dein **wichtigstes Lernmaterial**. Die Sitzungen folgen alle eine
 
 Was in einer Sitzung drankommt und was Du vorher vorbereiten solltest, steht jeweils auf ihrer Übersichtsseite.
 
-Wenn Du hängenbleibst: zuerst in der Kleingruppe fragen, dann die Lehrperson in den Breakout-Raum holen (Hilfe-Button bzw. „Hand heben").
+Wenn Du hängenbleibst: zuerst in der Kleingruppe fragen, dann die Lehrperson in den Breakout-Raum holen (Hilfe-Button bzw. „Hand heben“).
 
-Jedes Kapitel ist gleich aufgebaut: **Lernziele**, kompakter Theorieteil, **Aufgabe** (meist in JASP), **Selbstcheck**.
+Die meisten Kapitel sind gleich aufgebaut: **Lernziele**, kompakter Theorieteil, **Aufgabe** (meist in JASP), **Selbstcheck**.
 
 ## Deine Nummern
 

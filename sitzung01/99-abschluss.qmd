@@ -16,7 +16,7 @@ Schick **eine** Mail bis spätestens zum Tag vor Sitzung 02 an [{{< meta kurs.ma
 
 {{< include _abgabe.md >}}
 
-Auch wenn Du Deine Datei per Mail geschickt hast (Weg B), brauchst Du zusätzlich diese Abgabe-Mail. Die Upload-Mail zählt nicht als Abgabe. Schau nach dem Upload im [Merge-Report]({{< meta kurs.repo >}}/blob/main/data/combined/merge-report.md), ob Deine Datei als „ok" erkannt wurde.
+Auch wenn Du Deine Datei per Mail geschickt hast (Weg B), brauchst Du zusätzlich diese Abgabe-Mail. Die Upload-Mail zählt nicht als Abgabe. Schau nach dem Upload im [Merge-Report]({{< meta kurs.repo >}}/blob/main/data/combined/merge-report.md), ob Deine Datei als „ok“ erkannt wurde.
 
 ## Offene Fragen?
 
@@ -27,7 +27,7 @@ Ist etwas unklar geblieben, oder hat Dich ein Ergebnis überrascht? Bring es ins
 Freiwillig, für alle, die tiefer einsteigen wollen:
 
 - Open Science Collaboration (2015). [Estimating the reproducibility of psychological science](https://doi.org/10.1126/science.aac4716). *Science*, 349. Die Studie, mit der die Replikationskrise richtig Fahrt aufgenommen hat.
-- Simmons, Nelson & Simonsohn (2011). [False-positive psychology](https://doi.org/10.1177/0956797611417632). *Psychological Science*, 22. Zeigt sehr anschaulich, wie man mit ein paar harmlos wirkenden Analyseentscheidungen fast alles „signifikant" bekommt.
+- Simmons, Nelson & Simonsohn (2011). [False-positive psychology](https://doi.org/10.1177/0956797611417632). *Psychological Science*, 22. Zeigt sehr anschaulich, wie man mit ein paar harmlos wirkenden Analyseentscheidungen fast alles „signifikant“ bekommt.
 - [Getting Started mit JASP](https://jasp-stats.org/getting-started/). Offizielle Einstiegsseite mit kurzen Anleitungen und Videos, falls Du die Oberfläche noch einmal in Ruhe durchgehen willst.
 
 ## Ausblick auf Sitzung 02

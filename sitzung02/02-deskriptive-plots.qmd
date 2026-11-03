@@ -25,7 +25,7 @@ Bevor Du irgendwelche Kennzahlen berechnest, eine ältere, aber sehr nützliche 
 | **Verhältnis** (ratio) | wie Intervall, plus absoluter Nullpunkt | `alter` in Jahren | + Verhältnisse, Quotienten |
 
 ::: {.callout-tip title="Streit-Klassiker"}
-Likert-Items wie unsere BFI-Items sind streng genommen **ordinal**. Die Abstände zwischen *„weder noch"* und *„eher zutreffend"* sind nicht objektiv gleich groß zu *„eher zutreffend"* / *„sehr zutreffend"*. In der Praxis behandelt man sie in psychologischer Forschung trotzdem fast immer wie Intervalldaten, weil das die Auswertungsmöglichkeiten dramatisch erweitert (Mittelwert, Korrelation, Regression) und weil die Verzerrung in der Regel klein ist. Es gibt aber Spezialfälle, in denen Du auf strikt ordinale Verfahren (Spearman, Kruskal-Wallis) zurückgreifen würdest.
+Likert-Items wie unsere BFI-Items sind streng genommen **ordinal**. Die Abstände zwischen *„weder noch“* und *„eher zutreffend“* sind nicht objektiv gleich groß zu *„eher zutreffend“* / *„sehr zutreffend“*. In der Praxis behandelt man sie in psychologischer Forschung trotzdem fast immer wie Intervalldaten, weil das die Auswertungsmöglichkeiten dramatisch erweitert (Mittelwert, Korrelation, Regression) und weil die Verzerrung in der Regel klein ist. Es gibt aber Spezialfälle, in denen Du auf strikt ordinale Verfahren (Spearman, Kruskal-Wallis) zurückgreifen würdest.
 :::
 
 ## Die zentralen Kennzahlen
@@ -80,7 +80,7 @@ Wenn ein Q-Q-Plot (siehe unten) zeigt, dass Deine Daten in etwa entlang der Diag
 | Zwei metrische Variablen | Scatter Plot (Streudiagramm) |
 | Eine metrische Variable + eine Gruppe | Boxplot nach Gruppe, Violin Plot, Raincloud Plot |
 
-Alle diese Plots findest Du in **Descriptives → Descriptive Statistics**, in den Abschnitten **Basic Plots** und **Customizable Plots**.
+Fast alle diese Plots findest Du in **Descriptives → Descriptive Statistics**, in den Abschnitten **Basic Plots** und **Customizable Plots**.
 
 ## Wo in JASP welche Plots liegen
 
@@ -121,8 +121,8 @@ Leg für Plot 7 und Plot 8 jeweils eine **eigene** Descriptives-Analyse an, nur 
 **Bonus:**
 
 - Plot 9: Density Plots mehrerer BFI-Items aus derselben Skala (z. B. `BFI_01`, `BFI_06`, `BFI_11`, `BFI_16` für Extraversion)
-- Plot 10: Bar Charts der 4 E-Items, um zu sehen, ob die Antworten über die E-Items hinweg konsistent sind
-- Plot 11: Histogramm von `bildungsgrad` (auch wenn ordinal, nur zur Anschauung)
+- Plot 10: Distribution plots der 4 E-Items nebeneinander, um zu sehen, ob die Antworten über die E-Items hinweg konsistent sind
+- Plot 11: Pie chart von `geschlecht` (Basic Plots → **Pie charts**). Was zeigt er besser oder schlechter als das Balkendiagramm?
 - Notiere zu jedem Bonus-Plot in einem Satz: was Du siehst.
 
 ::: {.callout-tip title="Für die Abgabe"}
@@ -133,7 +133,7 @@ Lies aus Tabellen und Plots ab: Anzahl `geschlecht = 1` (Frequency table), Mitte
 
 **Stärken:**
 
-- macht Daten überhaupt erst „lesbar"
+- macht Daten überhaupt erst „lesbar“
 - deckt Plausibilitätsprobleme früh auf (ohne deskriptiven Block wären die Fehler aus Sitzung 01 unentdeckt geblieben)
 - Plots zeigen, was Tests in Zahlen verstecken (Stichwort: Anscombe-Quartett)
 
@@ -141,7 +141,7 @@ Lies aus Tabellen und Plots ab: Anzahl `geschlecht = 1` (Frequency table), Mitte
 
 - **keine** Inferenz: Du kannst aus deskriptiven Werten nicht auf eine Population schließen
 - **keine** Aussage über Unterschiede oder Zusammenhänge
-- Wahl der Kennzahl beeinflusst, was „zu sehen" ist (M vs. Median bei schiefen Verteilungen sieht sehr unterschiedlich aus)
+- Wahl der Kennzahl beeinflusst, was „zu sehen“ ist (M vs. Median bei schiefen Verteilungen sieht sehr unterschiedlich aus)
 
 Deskriptive Statistik ist also die Grundlage jeder Analyse, beantwortet aber selbst noch keine Forschungsfrage.
 
@@ -150,4 +150,4 @@ Deskriptive Statistik ist also die Grundlage jeder Analyse, beantwortet aber sel
 1. Wann ist der Median dem Mittelwert vorzuziehen?
 2. Was siehst Du in einem Boxplot, das in einem Histogramm nicht direkt sichtbar ist (und umgekehrt)?
 3. Welche Plot-Art würdest Du für `bildungsgrad` wählen, und warum *nicht* ein Histogramm?
-4. Warum reicht „SD = 1.2" als Streumaß-Angabe nicht, wenn die Verteilung extrem schief ist?
+4. Warum reicht „SD = 1.2“ als Streumaß-Angabe nicht, wenn die Verteilung extrem schief ist?

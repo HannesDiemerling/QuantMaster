@@ -51,11 +51,11 @@ In JASP werden $\eta^2$ und $\omega^2$ optional in der ANOVA-Tabelle angezeigt.
 **Frage:** Unterscheiden sich Personen verschiedener Bildungsstufen in Offenheit?
 
 1. **ANOVA → Classical → ANOVA**.
-2. **Dependent Variable:** `O_mean`. **Fixed Factors:** `bildungsgrad`.
+2. **Dependent Variable:** `O_mean`. **Fixed Factors:** `bildungsgrad`. Nimmt JASP die Variable dort nicht an, stell ihren Typ in der Datenansicht (Typ-Symbol am Spaltenkopf) auf **Nominal**.
 3. Aktiviere in den Options:
    - unter *Display*: **Descriptive statistics** (M, SD pro Gruppe) und **Estimates of effect size** mit **η²** und **ω²**
-   - unter *Assumption Checks*: **Homogeneity tests** (Levene) und **Q-Q plot of residuals**
-   - unter *Post Hoc Tests*: `bildungsgrad` nach rechts ziehen, bei *Correction* **Tukey** ankreuzen (siehe unten)
+   - unter *Assumption Checks*: **Homogeneity tests** (Levene) und **Q-Q plot residuals**
+   - unter *Post Hoc Tests*: `bildungsgrad` nach rechts ziehen, bei *Correction* ist **Tukey** schon angekreuzt (siehe unten)
    - unter *Descriptives Plots*: `bildungsgrad` auf **Horizontal Axis** (Plot der Gruppenmittelwerte)
 
 ### Annahmen prüfen
@@ -72,7 +72,7 @@ Bei verletzter Varianzhomogenität: **Welch-ANOVA** (in JASP unter *Assumption C
 
 ## Post-hoc-Tests
 
-Ein signifikanter Global-F sagt: „Irgendwo unter den Gruppen ist ein Unterschied." Er sagt nicht: *welche* Gruppen sich unterscheiden. Dafür brauchst Du post-hoc-Vergleiche.
+Ein signifikanter Global-F sagt: „Irgendwo unter den Gruppen ist ein Unterschied.“ Er sagt nicht: *welche* Gruppen sich unterscheiden. Dafür brauchst Du post-hoc-Vergleiche.
 
 | Post-hoc | Anwendung | Charakteristik |
 |---|---|---|
@@ -82,7 +82,7 @@ Ein signifikanter Global-F sagt: „Irgendwo unter den Gruppen ist ein Unterschi
 | **Holm** | wie Bonferroni, sequenziell | gleiche Kontrolle, mehr Power |
 | **Games-Howell** | bei Varianzungleichheit | Welch-Variante des Tukey |
 
-In JASP ist zunächst **keine** Korrektur angekreuzt. Wähle **Tukey** selbst. Wenn Welch-ANOVA gerechnet wurde, nimm stattdessen **Games-Howell** (unter *Type*).
+In JASP ist bei *Correction* **Tukey** schon voreingestellt. Wenn Welch-ANOVA gerechnet wurde, nimm stattdessen **Games-Howell** (unter *Type*).
 
 ## Beispielhypothesen für unsere Stichprobe
 
@@ -93,11 +93,13 @@ In JASP ist zunächst **keine** Korrektur angekreuzt. Wähle **Tukey** selbst. W
 | A3 | Die zehn vorgenerierten Quell-Datensätze unterscheiden sich nicht in Extraversion. | `E_mean` ~ `quelle_datensatz` |
 | A4 | Die drei Geschlechter-Kategorien (1, 2, 3) unterscheiden sich nicht in Neurotizismus. | `N_mean` ~ `geschlecht` |
 
-A3 ist ein wichtiger **Sanity-Check**: Die Datensätze wurden mit derselben Verteilung erzeugt, sollten sich also *nicht* unterscheiden. Wenn doch: zufällige Stichprobenstreuung (ein paar Datensätze ziehen halt extremere Werte) oder beim Kombinieren (@sec-tag2-kombinieren) wurden Zeilen falsch zugeordnet.
+A3 ist ein **Sanity-Check**: Die Datensätze wurden mit derselben Verteilung erzeugt, sollten sich also eigentlich *nicht* unterscheiden. Wird A3 trotzdem signifikant, ist das noch kein Grund zur Sorge: Bei α = .05 kommt ein solcher Fehler 1. Art auch dann vor, wenn alles stimmt, und bei nur rund zehn Personen pro Datensatz ziehen einzelne Datensätze leicht extremere Werte. Erst wenn ein Datensatz völlig aus der Reihe fällt, lohnt der Blick auf das Kombinieren (@sec-tag2-kombinieren).
 
 ## Ein vollständiger Bericht
 
-> Personen unterschiedlicher Bildungsgrade unterschieden sich in Offenheit signifikant, $F(6, 87) = 2.41$, $p = .034$, $\eta^2 = .14$. Tukey-Post-hoc-Vergleiche zeigten, dass Personen mit Promotion (Bildung = 7, $M = 4.12$) deutlich höhere Offenheitswerte hatten als Personen mit Realschulabschluss (Bildung = 3, $M = 3.32$), $p_{\text{tukey}} = .029$. Die übrigen paarweisen Vergleiche waren nicht signifikant.
+So könnte ein Bericht aussehen (Zahlen ausgedacht, Deine Werte sehen anders aus):
+
+> Personen unterschiedlicher Bildungsgrade unterschieden sich in Offenheit signifikant, $F(6, 87) = 2.41$, $p = .033$, $\eta^2 = .14$. Tukey-Post-hoc-Vergleiche zeigten, dass Personen mit Promotion (Bildung = 7, $M = 4.12$) deutlich höhere Offenheitswerte hatten als Personen mit Realschulabschluss (Bildung = 3, $M = 3.32$), $p_{\text{tukey}} = .029$. Die übrigen paarweisen Vergleiche waren nicht signifikant.
 
 Was steht drin: $F$, $df$ Zähler und Nenner, $p$, $\eta^2$, paarweise Befunde mit korrigierten p-Werten.
 
@@ -127,10 +129,10 @@ Rechne in JASP **A1** und **A3** aus der Tabelle oben:
 | A1 | Einfaktorielle ANOVA | `O_mean` ~ `bildungsgrad` |
 | A3 | Einfaktorielle ANOVA (Sanity-Check) | `E_mean` ~ `quelle_datensatz` |
 
-Für **beide** in den Optionen aktivieren: Descriptive statistics, Estimates of effect size (η², ω²), Homogeneity tests, Q-Q plot of residuals, Post Hoc Tests mit Tukey, Descriptives Plots.
+Für **beide** in den Optionen aktivieren: Descriptive statistics, Estimates of effect size (η², ω²), Homogeneity tests, Q-Q plot residuals, Post Hoc Tests mit Tukey, Descriptives Plots.
 
 Notiere pro ANOVA in **einer Zeile** den vollständigen Bericht:
-*„A#: F(df1, df2) = X.XX, p = .XXX, η² = .XX, Levene p = .XXX, Schluss: …"*
+*„A#: F(df1, df2) = X.XX, p = .XXX, η² = .XX, Levene p = .XXX, Schluss: …“*
 
 Bei **A1** außerdem: nenne die **paarweisen Tukey-Vergleiche, die signifikant sind** (falls vorhanden).
 
@@ -138,7 +140,7 @@ Bei **A1** außerdem: nenne die **paarweisen Tukey-Vergleiche, die signifikant s
 
 - Rechne **A2** zusätzlich (`G_mean` ~ `bildungsgrad`): derselbe Faktor, andere abhängige Variable. Gleicher Befund?
 - Bei A1: **Kruskal-Wallis-Test** als nicht-parametrische Alternative. Ändert sich der p-Wert deutlich?
-- Bei A3: erkläre in zwei Sätzen, **warum der Sanity-Check als nicht-signifikant erwartet wurde** und was ein signifikanter Befund über unseren Kombinations-Schritt aus @sec-tag2-kombinieren sagen würde.
+- Bei A3: erkläre in zwei Sätzen, **warum der Sanity-Check als nicht-signifikant erwartet wurde** und wie Du Dein tatsächliches Ergebnis einordnest.
 
 ::: {.callout-tip title="Für die Abgabe"}
 Notiere: F(df1, df2), p, η² und Levene-p für A1 sowie p für A3. Siehe @sec-s07-abschluss.
@@ -149,4 +151,4 @@ Notiere: F(df1, df2), p, η² und Levene-p für A1 sowie p für A3. Siehe @sec-s
 1. Warum stapelt man bei drei Gruppen nicht einfach drei t-Tests?
 2. Was sagt ein signifikanter F-Wert *nicht*?
 3. Wann nimmst Du Games-Howell statt Tukey?
-4. Du hast $F(2, 87) = 4.50$, $p = .013$, $\eta^2 = .09$ und alle drei post-hoc-Vergleiche sind nicht signifikant. Wie kann das sein?
+4. Du hast $F(2, 87) = 4.50$, $p = .014$, $\eta^2 = .09$ und alle drei post-hoc-Vergleiche sind nicht signifikant. Wie kann das sein?

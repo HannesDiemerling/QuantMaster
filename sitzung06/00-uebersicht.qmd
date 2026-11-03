@@ -16,7 +16,7 @@ Heute verbindest Du Messmodelle (CFA) mit gerichteten Zusammenhängen zwischen l
 
 ## Vorbereitung
 
-- Das Modul **SEM** (über das **„+"** oben rechts aktivieren)
+- Das Modul **SEM** (über das **„+“** oben rechts aktivieren)
 
 ## Inhalte
 

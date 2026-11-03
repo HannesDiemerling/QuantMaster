@@ -46,7 +46,7 @@ Im Seminar nutzen wir **GitHub** statt OSF, weil GitHub jede Änderung an Daten 
 
 GitHub ist eine Plattform für versionierte Zusammenarbeit:
 
-- Jede Änderung an Dateien wird mit Datum, Autor und Begründung („Commit-Message") gespeichert.
+- Jede Änderung an Dateien wird mit Datum, Autor und Begründung („Commit-Message“) gespeichert.
 - Du kannst zu jedem früheren Stand zurückkehren.
 - Mehrere Personen können parallel arbeiten, ohne sich gegenseitig zu überschreiben.
 - Das Repo dieses Seminars ist **öffentlich**. Jede und jeder kann nachsehen, wie der Datensatz entstanden ist.
@@ -69,4 +69,4 @@ Was Du in Sitzung 01 machst, ist gelebte Open Science im Kleinen:
 1. Worin unterscheidet sich Reproduzierbarkeit von Replizierbarkeit?
 2. Nenne zwei Gründe, warum viele Befunde nicht replizierten.
 3. Warum ist Versionierung wichtig für Reproduzierbarkeit?
-4. Was bedeutet das „A" in FAIR, und wie setzen wir es in diesem Seminar um?
+4. Was bedeutet das „A“ in FAIR, und wie setzen wir es in diesem Seminar um?

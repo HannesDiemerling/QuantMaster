@@ -11,7 +11,7 @@ Nach diesem Kapitel kannst Du …
 
 ## Worum es geht
 
-Der BFI-K misst „Persönlichkeit" mit 21 Fragen. Damit das mehr ist als ein Persönlichkeitsquiz aus einer Zeitschrift, braucht es ein Minimum an Testtheorie. Dieses Kapitel ist kompakt, Du baust aber später darauf auf: in Sitzung 03 (Reliabilität) und in den Sitzungen 05 und 06 (Faktorenanalyse).
+Der BFI-K misst „Persönlichkeit“ mit 21 Fragen. Damit das mehr ist als ein Persönlichkeitsquiz aus einer Zeitschrift, braucht es ein Minimum an Testtheorie. Dieses Kapitel ist kompakt, Du baust aber später darauf auf: in Sitzung 03 (Reliabilität) und in den Sitzungen 05 und 06 (Faktorenanalyse).
 
 ## Klassische Testtheorie in einem Satz
 
@@ -19,14 +19,14 @@ $$
 X = T + E
 $$
 
-Der **beobachtete Wert** $X$ einer Antwort ist die Summe aus einem **wahren Wert** $T$ (was die Person „eigentlich" hat) und einem **Messfehler** $E$ (alles, was wir nicht kontrolliert haben, Tagesform, Stimmung, Aufmerksamkeit). Das ist mathematisch banal, aber konzeptuell der Anker, an dem alle weiteren Begriffe hängen.
+Der **beobachtete Wert** $X$ einer Antwort ist die Summe aus einem **wahren Wert** $T$ (was die Person „eigentlich“ hat) und einem **Messfehler** $E$ (alles, was wir nicht kontrolliert haben, Tagesform, Stimmung, Aufmerksamkeit). Das ist mathematisch banal, aber konzeptuell der Anker, an dem alle weiteren Begriffe hängen.
 
 ## Item, Skala, Subskala
 
 | Begriff | Bedeutung | Beispiel |
 |---|---|---|
-| **Item** | eine einzelne Frage | „Ich bin gesprächig." |
-| **Skala** | Gruppe von Items, die ein gemeinsames Konstrukt messen | „Extraversion", 4 Items |
+| **Item** | eine einzelne Frage | „Ich bin gesprächig.“ |
+| **Skala** | Gruppe von Items, die ein gemeinsames Konstrukt messen | „Extraversion“, 4 Items |
 | **Subskala** | Skala innerhalb eines größeren Instruments | Extraversion *innerhalb* des BFI-K |
 
 ## Die drei Hauptgütekriterien
@@ -43,12 +43,12 @@ Vertiefung folgt in **Sitzung 03** (Reliabilität mit Cronbach's α und McDonald
 
 Manche Items sind so formuliert, dass eine *hohe* Zustimmung eine *niedrige* Ausprägung der Skala bedeutet. Beispiel aus dem BFI-K (Item 1, Skala Extraversion):
 
-> „Ich bin eher zurückhaltend, reserviert." Wer hier 5 („sehr zutreffend") ankreuzt, ist *weniger* extravertiert.
+> „Ich bin eher zurückhaltend, reserviert.“ Wer hier 5 („sehr zutreffend“) ankreuzt, ist *weniger* extravertiert.
 
 Solche **Reverse-Items** dienen zwei Zwecken:
 
 1. **Antworttendenzen ausgleichen.** Manche Personen kreuzen reflexhaft alles in derselben Richtung an (Akquieszenz). Reverse-Items zwingen zum Lesen.
-2. **Konstruktbreite erfassen.** Extraversion *ist* nicht nur „gesprächig sein", sondern auch das *Fehlen* von Zurückhaltung.
+2. **Konstruktbreite erfassen.** Extraversion *ist* nicht nur „gesprächig sein“, sondern auch das *Fehlen* von Zurückhaltung.
 
 ::: {.callout-important title="Rekodierung VOR der Aggregation"}
 Vor der Berechnung eines Skalenmittelwertes **müssen** alle Items in dieselbe Richtung gepolt werden. Sonst löschen sich Reverse-Items gegen die anderen Items teilweise aus, und Du misst Rauschen statt Konstrukt.
@@ -68,7 +68,7 @@ Das Big-Five-Modell ist die heute dominierende Taxonomie der Persönlichkeit. F�
 | **V**erträglichkeit | Agreeableness | empathisch, kooperativ ↔ konfrontativ, kritisch |
 | **N**eurotizismus | Neuroticism | ängstlich, sensibel ↔ gelassen, stabil |
 
-Im Englischen merkt man sich die fünf Faktoren als „OCEAN". Im Codebook nutzen wir die deutschen Anfangsbuchstaben E, V, G, N und O.
+Im Englischen merkt man sich die fünf Faktoren als „OCEAN“. Im Codebook nutzen wir die deutschen Anfangsbuchstaben E, V, G, N und O.
 
 Das Modell hat sich faktorenanalytisch in vielen Sprachen und Kulturen wiederholt gezeigt, einer der stabilsten Befunde der Persönlichkeitsforschung.
 
