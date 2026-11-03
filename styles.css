@@ -1,6 +1,8 @@
 /* M15 Workshop — Quarto Book Styles */
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap');
+/* echte Kursivschnitte (Cosmo lädt Source Sans Pro nur aufrecht, sonst kippt der Browser die Schrift künstlich) */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,400;1,600;1,700&display=swap');
 
 :root {
   --m15-blue: #2c7bb6;
@@ -132,6 +134,16 @@ td, th {
   .anchorjs-link {
     display: none;
   }
+  main #title-block-header.quarto-title-block {
+    margin-bottom: 1rem !important;
+  }
+  main table mjx-container {
+    font-size: 90% !important;
+  }
+}
+
+#TOC {
+  hyphens: auto;
 }
 
 /* Formeln in kursiven Zitaten: Abstand zum Text sichtbar halten */

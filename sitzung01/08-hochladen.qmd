@@ -37,7 +37,7 @@ Damit alle Zeilen im Datensatz dieselbe Polung haben, sind die **Reverse-Items 1
 
 ## Schritt 2: Datei korrekt benennen
 
-Speichere die Datei unter einem festen Schema, damit man später die Herkunft erkennen kann. Im Windows-Editor: *Datei → Speichern unter*, Dateityp **Alle Dateien (\*.\*)**, Codierung **UTF-8**. Sonst wird leicht `.csv.txt` daraus.
+Speichere die Datei unter einem festen Schema, damit man später die Herkunft erkennen kann. Im Windows-Editor: *Datei → Speichern unter*, Dateityp **Alle Dateien** (`*.*`), Codierung **UTF-8**. Sonst wird leicht `.csv.txt` daraus.
 
 ```default
 datensatz-<XX>-<Kennziffer>.csv

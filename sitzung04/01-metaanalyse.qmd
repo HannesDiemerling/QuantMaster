@@ -19,7 +19,7 @@ Unser Datensatz eignet sich dafür überraschend gut: Die zehn Seed-Datensätze 
 
 Jede Studie liefert einen Effekt $y_i$ und dessen Unsicherheit (Standardfehler $SE_i$). Präzisere Studien (größeres $n$, kleineres $SE$) bekommen mehr Gewicht: $w_i = 1 / SE_i^2$.
 
-Korrelationen werden vorher **Fisher-z-transformiert** ($z = \operatorname{artanh}(r)$), weil $z$ annähernd normalverteilt ist und einen einfachen Standardfehler hat: $SE_z = 1/\sqrt{n-3}$. Das Ergebnis kann man am Ende wieder in $r$ zurückrechnen (bei kleinen Werten gilt $z \approx r$).
+Korrelationen werden vorher **Fisher-*z*-transformiert** ($z = \operatorname{artanh}(r)$), weil $z$ annähernd normalverteilt ist und einen einfachen Standardfehler hat: $SE_z = 1/\sqrt{n-3}$. Das Ergebnis kann man am Ende wieder in $r$ zurückrechnen (bei kleinen Werten gilt $z \approx r$).
 
 ## Fixed vs. Random Effects
 
@@ -60,7 +60,7 @@ Die Tabelle aller zehn „Studien“ erzeugt der Merge-Workflow automatisch: `da
 5. **Method:** *Restricted ML* (Random Effects, voreingestellt).
 6. Im Abschnitt *Statistics → Heterogeneity* zusätzlich **I²** ankreuzen.
 7. Im Abschnitt **Forest Plot** **Study information** und **Model information** ankreuzen.
-8. Optional: **Transform effect size → Fisher's z to r**, um das Ergebnis als Korrelation zu sehen. Für die Abgabe brauchst Du die Werte ohne Transformation (Fisher-z).
+8. Optional: **Transform effect size → Fisher's z to r**, um das Ergebnis als Korrelation zu sehen. Für die Abgabe brauchst Du die Werte ohne Transformation (Fisher-*z*).
 
 Lies ab: den gepoolten Effekt mit 95 %-KI und $I^2$. Im Forest Plot siehst Du jede Studie als Punkt mit KI und den gepoolten Effekt als Raute.
 
@@ -78,7 +78,7 @@ Lies ab: den gepoolten Effekt mit 95 %-KI und $I^2$. Im Forest Plot siehst Du j
 - **Meta-Analysis → Miscellaneous → Funnel Plot** mit denselben Spalten, dazu unter *Asymmetry tests* den **Egger-Test**. Was erwartest Du hier?
 
 ::: {.callout-tip title="Für die Abgabe"}
-Notiere $r$ Deines Datensatzes, den gepoolten Effekt (Fisher-z), sein 95 %-KI und $I^2$. Siehe @sec-s04-abschluss.
+Notiere $r$ Deines Datensatzes, den gepoolten Effekt (Fisher-*z*), sein 95 %-KI und $I^2$. Siehe @sec-s04-abschluss.
 :::
 
 ## Selbstcheck

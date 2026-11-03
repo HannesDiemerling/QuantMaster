@@ -74,9 +74,9 @@ Mediation steckt in JASP im **SEM-Modul** (Strukturgleichungsmodelle, siehe @sec
 1. Falls nötig, **SEM-Modul** über das **„+“** aktivieren.
 2. **SEM → Mediation Analysis**.
 3. Felder zuweisen:
-   - **Predictors** (X): z. B. `G_mean`
-   - **Mediators** (M): z. B. `E_mean`
-   - **Outcome** (Y): z. B. `O_mean`
+   - **Predictors** ($X$): z. B. `G_mean`
+   - **Mediators** ($M$): z. B. `E_mean`
+   - **Outcome** ($Y$): z. B. `O_mean`
 4. In den Optionen:
    - Abschnitt **Options**: bei **Method** **Bootstrap** wählen, **Replications** auf 5 000 (mehr = stabiler, dauert länger).
    - **Confidence intervals** auf 95 %, Typ **Percentile** (alternativ *Bias-corrected percentile*).
@@ -110,14 +110,14 @@ Sind die Pfade $a$ und $b$ klein bis mittel, braucht man für 80 % Power schnel
 
 **Pflichtteil für alle:**
 
-1. Rechne in JASP die Mediation **X = `G_mean`, M = `E_mean`, Y = `O_mean`** mit **5 000 Bootstrap-Replikationen** und 95 %-Perzentil-KI.
+1. Rechne in JASP die Mediation **$X$ = `G_mean`, $M$ = `E_mean`, $Y$ = `O_mean`** mit **5 000 Bootstrap-Replikationen** und 95 %-Perzentil-KI.
 2. Lies ab: indirekter Effekt ($a \times b$) mit Bootstrap-KI, direkter Effekt $c'$, totaler Effekt $c$.
 3. Notiere die zentralen Kennwerte: den **indirekten Effekt** ($a \times b$) mit seinem Bootstrap-Konfidenzintervall und Deine Schlussfolgerung, ob eine Mediation vorliegt.
 
 **Bonus:**
 
 - Erkläre in zwei Sätzen mit eigenen Worten, **was die 5 000 Replikationen** konkret tun.
-- Tausch die Rollen (X und Y vertauschen). Ändert sich die Schlussfolgerung, und was sagt das über Kausalität aus Querschnittsdaten?
+- Tausch die Rollen ($X$ und $Y$ vertauschen). Ändert sich die Schlussfolgerung, und was sagt das über Kausalität aus Querschnittsdaten?
 
 ::: {.callout-tip title="Für die Abgabe"}
 Notiere: indirekten Effekt, sein 95 %-Bootstrap-KI, den direkten Effekt $c'$ und einen Satz dazu, was der Bootstrap hier gemacht hat. Siehe @sec-s06-abschluss.

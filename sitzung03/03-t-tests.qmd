@@ -20,7 +20,7 @@ Dieses Kapitel frischt den *t*-Test aus dem Bachelor auf und vertieft Effektgrö
 
 | Test | Wann verwenden? | Beispiel |
 |---|---|---|
-| **Einstichproben-t-Test** | Vergleich eines Mittelwerts mit einem festen Wert | Liegt der Mittelwert unserer Stichprobe in Extraversion oberhalb von 3 (Skalenmitte)? |
+| **Einstichproben-*t*-Test** | Vergleich eines Mittelwerts mit einem festen Wert | Liegt der Mittelwert unserer Stichprobe in Extraversion oberhalb von 3 (Skalenmitte)? |
 | **Unabhängiger *t*-Test** | Zwei unabhängige Gruppen | Unterscheiden sich Frauen und Männer in Verträglichkeit? |
 | **Abhängiger *t*-Test** (paired) | Zwei *gepaarte* Messungen | Symptomwert derselben Personen vor und nach einer Therapie; bei *uns* nicht relevant, weil wir keine Wiederholungsmessungen haben |
 
@@ -38,7 +38,7 @@ Konkret:
 
 Wenn $p < \alpha$ (typischerweise .05), verwerfen wir H0. Das heißt **nicht**, dass H1 wahr ist, und auch nicht, dass H0 mit 95 % Wahrscheinlichkeit falsch ist. Es heißt nur: Wenn H0 stimmen würde, wären Daten wie unsere ziemlich überraschend.
 
-::: {.callout-important title="Was der p-Wert *nicht* ist"}
+::: {.callout-important title="Was der *p*-Wert *nicht* ist"}
 - *Nicht* die Wahrscheinlichkeit, dass H0 wahr ist.
 - *Nicht* die Wahrscheinlichkeit, dass das Ergebnis bei Replikation gleich aussieht.
 - *Nicht* die Größe oder Wichtigkeit des Effekts.
@@ -73,7 +73,7 @@ Der klassische *t*-Test (Student's *t*) hat vier Annahmen:
 3. **Varianzhomogenität:** die beiden Gruppen haben ungefähr gleiche Streuung.
 4. **Unabhängigkeit:** jede Person steckt nur einmal und nur in einer Gruppe in den Daten, die Beobachtungen beeinflussen sich nicht gegenseitig.
 
-::: {.callout-tip title="Warum die Normalverteilungs-Annahme bei größerem N erstaunlich verzeihlich ist"}
+::: {.callout-tip title="Warum die Normalverteilungs-Annahme bei größerem *N* erstaunlich verzeihlich ist"}
 Es gibt einen mathematischen Satz mit erstaunlichen Konsequenzen: den **Zentralen Grenzwertsatz**. Er besagt, dass die *Verteilung des Stichprobenmittelwerts* mit wachsendem $N$ immer näher an eine **Normalverteilung** rückt, und zwar **unabhängig davon, wie die ursprüngliche Variable selbst verteilt ist**.
 
 Auch wenn Deine Einzelantworten extrem schief sind: sobald $N$ ausreichend groß ist (Faustregel: $N > 30$ pro Gruppe), verhalten sich die *Mittelwerte* fast normal, und genau die testet der *t*-Test. Deshalb ist der *t*-Test in der Praxis viel robuster gegen Normalverteilungsverletzungen, als sein Name vermuten lässt. Bei sehr kleinen Stichproben gilt die Verzeihlichkeit allerdings *nicht*, dann ist die Annahme wieder kritisch.
@@ -116,7 +116,7 @@ JASP zeigt Cohen's *d* mit Konfidenzintervall. Schau es Dir **immer** an. Ein si
 
 ## In JASP rechnen
 
-### Einstichproben-t-Test
+### Einstichproben-*t*-Test
 
 **Frage:** Liegt der mittlere Extraversionswert unserer Stichprobe oberhalb von 3?
 
@@ -139,7 +139,7 @@ JASP zeigt Cohen's *d* mit Konfidenzintervall. Schau es Dir **immer** an. Ein si
 3. **Dependent Variables:** `V_mean`. **Grouping Variable:** `geschlecht`.
 
 ::: {.callout-important title="Der Filter wirkt auf alle Analysen"}
-Solange Stufe 3 herausgefiltert ist, rechnet JASP **alle** Analysen in der Datei neu, auch Skalen, Korrelationen und die anderen *t*-Tests. Deshalb: alle anderen Werte vorher notieren, den Filter nur für den Geschlechter-Vergleich setzen, dessen Werte notieren und den Filter **sofort** wieder entfernen. Der Geschlechter-t-Test zeigt danach eine Fehlermeldung, das ist in Ordnung.
+Solange Stufe 3 herausgefiltert ist, rechnet JASP **alle** Analysen in der Datei neu, auch Skalen, Korrelationen und die anderen *t*-Tests. Deshalb: alle anderen Werte vorher notieren, den Filter nur für den Geschlechter-Vergleich setzen, dessen Werte notieren und den Filter **sofort** wieder entfernen. Der Geschlechter-*t*-Test zeigt danach eine Fehlermeldung, das ist in Ordnung.
 :::
 4. Aktiviere in den Options:
    - **Student** (voreingestellt) und zusätzlich **Welch**. JASP zeigt beide Zeilen untereinander
@@ -150,7 +150,7 @@ Solange Stufe 3 herausgefiltert ist, rechnet JASP **alle** Analysen in der Datei
    - unter *Assumption Checks* **Equality of variances**, Methode **Levene's** (informativ, aber direkt Welch nehmen)
 5. Werte notieren, dann den Filter wieder entfernen (alle Häkchen wieder setzen).
 
-### Wie das Ergebnis berichten
+### Das Ergebnis berichten
 
 In APA-ähnlicher Form sieht ein *t*-Test-Bericht so aus (Zahlen ausgedacht):
 
@@ -207,7 +207,7 @@ Rechne in JASP **genau diese drei** (immer mit Welch + Effektgröße Cohen's *d*
 | # | Test-Typ | Variablen | Hypothese |
 |--:|---|---|---|
 | t1 | One-Sample (zweiseitig) | `E_mean` vs. 3 | Mittlere Extraversion liegt nicht bei der Skalenmitte |
-| t2 | Independent (zweiseitig) | `V_mean` ~ `geschlecht` (1 vs. 2) | Frauen und Männer unterscheiden sich in Verträglichkeit |
+| t2 | Independent (zweiseitig) | `V_mean` ~ `geschlecht` (1 vs. 2) | Frauen und Männer unterscheiden sich in Verträglichkeit |
 | t3 | Independent (zweiseitig) | `O_mean` ~ Bildungsgruppe | Personen mit Bildung ≥ 6 (Master/Promotion) unterscheiden sich in Offenheit von denen mit ≤ 5 |
 
 Für t3 brauchst Du eine neue Spalte `bildung_gruppe` via Compute Column (**Define column through R code**, Typ **Nominal**):
@@ -220,7 +220,7 @@ Notiere für jeden der drei Tests **eine Zeile** im Format:
 
 **Bonus:**
 
-- **Bonus-t-Test** Deiner Wahl mit einer Hypothese, die Du Dir *selbst* überlegst. Halte fest, warum sie inhaltlich Sinn ergibt.
+- **Bonus-*t*-Test** Deiner Wahl mit einer Hypothese, die Du Dir *selbst* überlegst. Halte fest, warum sie inhaltlich Sinn ergibt.
 - Für **t2** zusätzlich den **Mann-Whitney U-Test** rechnen und die *p*-Werte vergleichen.
 - Für **t3** den Q-Q-Plot der Residuen ansehen. Ist die Normalverteilungsannahme erfüllt?
 

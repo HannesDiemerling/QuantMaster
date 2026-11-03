@@ -81,7 +81,7 @@ Unsere Personen sind in **10 Quell-Datensätze** (`quelle_datensatz`) genestet, 
 Das Mixed Model **zeigt Dir** also selbst, wie viel Nestung vorliegt. Es ist damit auch ein Werkzeug, um zu prüfen, ob man es überhaupt braucht. Mit nur 10 Gruppen liegen wir allerdings unter der Faustregel von 20–30 Clustern (siehe unten), die geschätzte Gruppenvarianz ist also selbst recht unsicher. In echten genesteten Daten (Klassen, Behandelnde, Messwiederholungen) wäre der ICC deutlich größer und das Modell unverzichtbar.
 
 ::: {.callout-tip title="Der kleine Bruder: Repeated-Measures-ANOVA"}
-Für den Spezialfall „jede Person mehrfach unter wenigen Bedingungen gemessen“ gibt es die **Repeated-Measures-ANOVA** (in JASP unter ANOVA → Classical → Repeated Measures ANOVA). Sie ist einfacher, aber unflexibler. Mixed Models verallgemeinern sie: Sie kommen mit unbalancierten Daten, fehlenden Messzeitpunkten und kontinuierlicher Zeit zurecht. Deshalb sind sie in der modernen Längsschnittforschung Standard.
+Für den Spezialfall „jede Person mehrfach unter wenigen Bedingungen gemessen“ gibt es die **Repeated-Measures-ANOVA** (in JASP unter **ANOVA → Classical → Repeated Measures ANOVA**). Sie ist einfacher, aber unflexibler. Mixed Models verallgemeinern sie: Sie kommen mit unbalancierten Daten, fehlenden Messzeitpunkten und kontinuierlicher Zeit zurecht. Deshalb sind sie in der modernen Längsschnittforschung Standard.
 :::
 
 ## Stärken und Schwächen

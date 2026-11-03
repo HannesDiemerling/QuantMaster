@@ -93,7 +93,7 @@ Module, die nicht sichtbar sind, schaltest Du über das blaue **„+“** oben r
 
 ## Was Du berichten musst
 
-Es gibt nicht *den einen* Wortlaut. Hauptsache, die wichtigen Angaben sind vollständig da. Quer durch alle Verfahren gilt: **Teststatistik + Freiheitsgrade, p-Wert, Effektgröße, ein Unsicherheitsmaß (Konfidenz-/Credible-Intervall) und die Stichprobengröße $n$.** Was pro Verfahren konkret dazugehört:
+Es gibt nicht *den einen* Wortlaut. Hauptsache, die wichtigen Angaben sind vollständig da. Quer durch alle Verfahren gilt: **Teststatistik + Freiheitsgrade, *p*-Wert, Effektgröße, ein Unsicherheitsmaß (Konfidenz-/Credible-Intervall) und die Stichprobengröße $n$.** Was pro Verfahren konkret dazugehört:
 
 | Verfahren | Diese Angaben gehören in den Bericht |
 |---|---|
@@ -106,7 +106,7 @@ Es gibt nicht *den einen* Wortlaut. Hauptsache, die wichtigen Angaben sind volls
 | **Bayes (Schätzung)** | Posterior-Median und Credible Interval des Effekts; ergänzend ggf. der Bayes-Faktor |
 
 ::: {.callout-tip title="Die eine Sache, die am häufigsten fehlt"}
-Fast alle berichten den **p-Wert** und vergessen **Effektgröße und Konfidenzintervall**. Genau die beiden tragen aber die inhaltliche Aussage: *wie groß* der Effekt ist und *wie sicher* Du Dir bist. Ohne sie ist ein Ergebnis kaum interpretierbar.
+Fast alle berichten den ***p*-Wert** und vergessen **Effektgröße und Konfidenzintervall**. Genau die beiden tragen aber die inhaltliche Aussage: *wie groß* der Effekt ist und *wie sicher* Du Dir bist. Ohne sie ist ein Ergebnis kaum interpretierbar.
 :::
 
 ## Begriffslexikon
@@ -117,7 +117,7 @@ Fast alle berichten den **p-Wert** und vergessen **Effektgröße und Konfidenzin
 
 **Reverse-Item:** gegenläufig gepoltes Item; vor dem Aggregieren umkodieren (6 − Wert bei 5er-Skala).
 
-**p-Wert:** Wahrscheinlichkeit, ein *so extremes oder noch extremeres* Ergebnis zu beobachten, *wenn H0 wahr ist*. **Nicht** die Wahrscheinlichkeit, dass H0 stimmt.
+***p*-Wert:** Wahrscheinlichkeit, ein *so extremes oder noch extremeres* Ergebnis zu beobachten, *wenn H0 wahr ist*. **Nicht** die Wahrscheinlichkeit, dass H0 stimmt.
 
 **Fehler 1. Art (α):** H0 fälschlich verworfen. **Fehler 2. Art (β):** echter Effekt übersehen. **Power** = 1 − β.
 

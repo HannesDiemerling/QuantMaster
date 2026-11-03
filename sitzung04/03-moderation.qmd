@@ -60,7 +60,7 @@ $b_3$ (der Interaktionskoeffizient) und seine Signifikanz bleiben durch Zentrier
 1. **Regression → Classical → Linear Regression**.
 2. **Dependent Variable:** $Y$ (z. B. `N_mean`).
 3. **Covariates:** die **zentrierten** Prädiktoren (z. B. `E_c`, `G_c`).
-4. Im Abschnitt **Model**: beide Prädiktoren links gemeinsam markieren (Strg-/Cmd-Klick) und nach rechts in das Feld **Model 1** ziehen. JASP fügt sie dabei als **Interaktion** hinzu. Dein Modell enthält dann: `E_c`, `G_c` **und** `E_c * G_c`.
+4. Im Abschnitt **Model**: beide Prädiktoren links gemeinsam markieren (Strg-/Cmd-Klick) und nach rechts in das Feld **Model 1** ziehen. JASP fügt sie dabei als **Interaktion** hinzu. Dein Modell enthält dann: `E_c`, `G_c` und `E_c * G_c`.
 5. Optionen: Estimates mit Confidence intervals, Model fit.
 
 Der Output zeigt drei Zeilen: die zwei Haupteffekte und die Interaktion `E_c * G_c`. **Auf die Interaktionszeile schaust Du zuerst.**

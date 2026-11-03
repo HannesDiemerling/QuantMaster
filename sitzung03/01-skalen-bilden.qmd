@@ -80,7 +80,7 @@ Wiederhol das Ganze für `V_mean`, `G_mean`, `N_mean` und `O_mean`:
 (BFI_05 + BFI_10 + BFI_15 + BFI_20 + BFI_21) / 5
 ```
 
-Nach dem Berechnen: Variable-Typ jeder neuen Spalte auf **Scale** setzen (sollte JASP automatisch tun, aber prüfen).
+Nach dem Berechnen: Variablentyp jeder neuen Spalte auf **Scale** setzen (sollte JASP automatisch tun, aber prüfen).
 
 ### Plausibilitäts-Check
 

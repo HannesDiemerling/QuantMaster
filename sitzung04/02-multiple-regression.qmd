@@ -46,7 +46,7 @@ Jedes $b_j$ ist der **partielle** Effekt von $X_j$, also der Beitrag dieses Prä
 | **$F$-Test** | Testet, ob das Modell als Ganzes besser ist als „nur der Mittelwert“. |
 | **$p$ pro Koeffizient** | Testet, ob ein einzelner Prädiktor (bei Kontrolle der anderen) von 0 verschieden ist. |
 
-::: {.callout-tip title="R² richtig einordnen"}
+::: {.callout-tip title="*R*² richtig einordnen"}
 $R^2 = .25$ heißt: 25 % der Streuung in $Y$ werden erklärt, 75 % nicht. In der Persönlichkeits- und Sozialpsychologie sind $R^2$-Werte von .05–.30 ganz normal, Menschen sind eben nicht deterministisch. Erwarte keine .80 wie in der Physik.
 :::
 
@@ -67,7 +67,7 @@ Ein großes $N$ macht Deine **Residuen nicht normalverteilt**. Eine schiefe Vert
 
 Der **Zentrale Grenzwertsatz** sagt etwas Spezifischeres: Die **Summe (bzw. der Mittelwert) vieler unabhängiger Zufallsvariablen** mit endlicher Varianz ist bei wachsendem $N$ annähernd **normalverteilt**, und zwar *unabhängig davon*, wie die einzelnen Variablen selbst verteilt sind.
 
-Warum hilft das der Regression? Weil ein Regressionskoeffizient $b$ **selbst so eine Summe ist**, im Kern eine gewichtete Summe der vielen unabhängigen Fehlerbeiträge über alle Fälle. Genau deshalb nähert sich die **Stichprobenverteilung von $b$** mit wachsendem $N$ einer Normalverteilung an, *auch wenn die Residuen schief sind*. Und nur das brauchen **p-Werte und Konfidenzintervalle**: Sie setzen voraus, dass der *Schätzer* normalverteilt ist, nicht die Daten oder die Residuen.
+Warum hilft das der Regression? Weil ein Regressionskoeffizient $b$ **selbst so eine Summe ist**, im Kern eine gewichtete Summe der vielen unabhängigen Fehlerbeiträge über alle Fälle. Genau deshalb nähert sich die **Stichprobenverteilung von $b$** mit wachsendem $N$ einer Normalverteilung an, *auch wenn die Residuen schief sind*. Und nur das brauchen ***p*-Werte und Konfidenzintervalle**: Sie setzen voraus, dass der *Schätzer* normalverteilt ist, nicht die Daten oder die Residuen.
 
 Bei **kleinem** $N$ (wie bei uns mit rund 100 Personen, und erst recht darunter) ist diese Annäherung nicht garantiert. Dann schaust Du den Q-Q-Plot genauer an und ziehst ggf. eine Transformation oder ein robustes Verfahren in Betracht.
 :::
@@ -160,7 +160,7 @@ Einen festen Wortlaut gibt es nicht, aber diese Angaben sollten vollständig vor
 - Tausch das Kriterium: Sag `O_mean` aus den anderen vier Skalen vorher. Anderer stärkster Prädiktor?
 
 ::: {.callout-tip title="Für die Abgabe"}
-Notiere für Modell A: *R*², *F*, *p*, den stärksten Prädiktor mit β und den größten VIF; für Modell B: R². Siehe @sec-s04-abschluss.
+Notiere für Modell A: *R*², *F*, *p*, den stärksten Prädiktor mit β und den größten VIF; für Modell B: *R*². Siehe @sec-s04-abschluss.
 :::
 
 ## Selbstcheck

@@ -67,7 +67,7 @@ Das ist **genau die Aussage, die die meisten Menschen fälschlich vom frequentis
 
 Genau diese Frage beantwortet der Posterior direkt. Betrachte die Posterior-Verteilung der **Differenz** (oder der Effektgröße $\delta$) zwischen zwei Gruppen:
 
-- Liegt das **gesamte** 95 %-Credible-Interval **über 0**, kannst Du sagen: *„Mit mindestens 97.5 % Wahrscheinlichkeit ist die Differenz positiv, Gruppe A liegt über Gruppe B.“*
+- Liegt das **gesamte** 95 %-Credible-Interval **über 0**, kannst Du sagen: *„Mit mindestens 97,5 % Wahrscheinlichkeit ist die Differenz positiv, Gruppe A liegt über Gruppe B.“*
 - Schließt das Credible Interval die **0 ein**, ist die Richtung unsicher: ein Teil der Wahrscheinlichkeitsmasse liegt links, ein Teil rechts von Null.
 
 Der **Anteil der Posterior-Masse über Null** ist also direkt die **Wahrscheinlichkeit, dass der Effekt positiv ist**. Das ist die psychologisch nützlichste Lesart: kein „signifikant ja/nein“, sondern ein abgestuftes *„so sicher bin ich mir, dass hier ein Unterschied in diese Richtung besteht.“*
@@ -128,7 +128,7 @@ Erinnere Dich an den Datenhinweis (@sec-tag3-datenhinweis):
 |---|---|---|
 | Frage | $P(\text{Daten}\mid H_0)$ | $P(\text{Effekt}\mid \text{Daten})$ |
 | Ergebnis | *p*-Wert, Konfidenzintervall | **Posterior**, Credible Interval, (Bayes-Faktor) |
-| Direkte Wahrscheinlichkeit über den Effekt? | **nein** | **ja** (z. B. [P(Differenz > 0)]{.nowrap}) |
+| Direkte Wahrscheinlichkeit über den Effekt? | **nein** | **ja** (z. B. [*P*(Differenz > 0)]{.nowrap}) |
 | Vorwissen | fließt nicht ein | über den Prior explizit |
 | H0 bestätigen? | Punkt-H0 nein (nur „kein relevanter Effekt“ per Äquivalenztest) | ja (BF zugunsten H0 bzw. Posterior nahe Null) |
 | „Daten sammeln bis signifikant“ | ohne Korrektur nicht zulässig (verzerrt *p*) | gilt als unkritischer (Posterior darf laufend angeschaut werden) |
@@ -164,7 +164,7 @@ Beide Ansätze sind legitim. In Deiner Masterarbeit kannst Du sogar **beide** be
 - Schau Dir den ergänzenden $BF_{10}$ an: Deckt er sich mit dem, was Dir der Posterior schon gezeigt hat?
 
 ::: {.callout-tip title="Für die Abgabe"}
-Notiere für den Bayes-t-Test Median und 95 %-Credible-Interval von δ sowie BF₁₀, für die Bayes-Korrelation Median und Credible Interval von ρ, dazu einen Satz, welche Wahrscheinlichkeitsaussage der Posterior erlaubt, die ein *p*-Wert nicht erlaubt. Siehe @sec-s08-abschluss.
+Notiere für den Bayes-*t*-Test Median und 95 %-Credible-Interval von δ sowie BF₁₀, für die Bayes-Korrelation Median und Credible Interval von ρ, dazu einen Satz, welche Wahrscheinlichkeitsaussage der Posterior erlaubt, die ein *p*-Wert nicht erlaubt. Siehe @sec-s08-abschluss.
 :::
 
 ## Selbstcheck

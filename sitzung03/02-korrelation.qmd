@@ -92,7 +92,7 @@ Hier kommen sechs Hypothesen, die *inhaltlich* Sinn ergeben, formuliert so, wie 
 | H3 | Gewissenhaftigkeit und Alter hängen *positiv* zusammen. | Pearson `G_mean` × `alter` | klein bis mittel positiv |
 | H4 | Neurotizismus und Bildungsgrad hängen *negativ* zusammen. | Spearman `N_mean` × `bildungsgrad` | klein negativ |
 | H5 | Innerhalb der Extraversions-Skala korrelieren alle Items mindestens mit $r > .20$ miteinander. | Korrelationsmatrix der 4 E-Items | nach Konstruktion ja |
-| H6 | Items aus *unterschiedlichen* Skalen korrelieren nur schwach. | Korrelationsmatrix `BFI_06` (E) × `BFI_07` (V) × `BFI_08` (G) × `BFI_09` (N) × `BFI_10` (O) | $r \approx 0$–$.20$ |
+| H6 | Items aus *unterschiedlichen* Skalen korrelieren nur schwach. | Korrelationsmatrix `BFI_06` (E) × `BFI_07` (V) × `BFI_08` (G) × `BFI_09` (N) × `BFI_10` (O) | $r \approx 0$–$.20$ |
 
 Rechne alle sechs in JASP, und zwar **zweiseitig** (Voreinstellung *Correlated*), auch wenn die Hypothese eine Richtung nennt. Ob die Richtung stimmt, liest Du am Vorzeichen von $r$ ab. Für H4 muss `bildungsgrad` in die Analyse; nimmt JASP die Ordinal-Variable nicht an, stell ihren Typ in der Datenansicht (Typ-Symbol am Spaltenkopf) auf Scale (Spearman nutzt ohnehin nur die Ränge). Notier Dir die H4-Werte, bevor Du den Typ wieder auf Ordinal stellst, denn dann bricht die Analyse ab. Schreib Dir zu jedem Ergebnis eine Zeile auf, zum Beispiel so (Zahlen ausgedacht):
 
@@ -108,7 +108,7 @@ Wenn $X$ und $Y$ korrelieren, gibt es mindestens **fünf** mögliche Erklärunge
 |---|---|
 | **$X$ verursacht $Y$** | Mehr Schlaf → bessere Stimmung |
 | **$Y$ verursacht $X$** | Bessere Stimmung → mehr Schlaf |
-| **Drittvariable $Z$ verursacht beides** | Ferien (Z) → mehr Schlaf (X) und bessere Stimmung (Y) |
+| **Drittvariable $Z$ verursacht beides** | Ferien ($Z$) → mehr Schlaf ($X$) und bessere Stimmung ($Y$) |
 | **Selektion** | Studie nur unter Schichtarbeitenden; alles dort hängt mit Schichtdienst zusammen |
 | **Zufall** | bei vielen getesteten Paaren wird statistisch irgendwas signifikant |
 

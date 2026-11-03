@@ -153,7 +153,7 @@ In vielen JASP-Analysen findest Du unter den Optionen eine Einstellung für fehl
 **Bonus:**
 
 - Boxplot `alter` gruppiert nach `geschlecht`.
-- Bar Chart `bildungsgrad` gruppiert nach `quelle_datensatz` (Feld **Split**; `quelle_datensatz` muss dafür Nominal sein). Sind die zehn vorgenerierten Datensätze in der Bildung vergleichbar verteilt?
+- Bar Chart `bildungsgrad` gruppiert nach `quelle_datensatz` (Feld **Split**; `quelle_datensatz` muss dafür **Nominal** sein). Sind die zehn vorgenerierten Datensätze in der Bildung vergleichbar verteilt?
 - Lass Dir für `alter` zusätzlich **S.E. mean** ausgeben und rechne das 95 %-Konfidenzintervall des Mittelwerts grob von Hand aus ($M \pm 2 \times SE$).
 
 ::: {.callout-tip title="Für die Abgabe"}

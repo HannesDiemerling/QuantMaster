@@ -39,3 +39,8 @@ intern/
 QuantMaster/CLAUDE.md
 # Agent-Spezifikation, nur lokal
 CLAUDE.md
+
+# Reste eines abgebrochenen Renders im Projektordner (gehören nach _site/)
+/index.html
+/site_libs/
+/search.json

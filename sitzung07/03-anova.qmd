@@ -26,7 +26,7 @@ Die ANOVA zerlegt die Gesamtvarianz der Daten in zwei Teile:
 - **Zwischen-Gruppen-Varianz** ($MS_\text{between}$): Wie unterscheiden sich die Gruppenmittelwerte voneinander?
 - **Innerhalb-Gruppen-Varianz** ($MS_\text{within}$): Wie viel Streuung gibt es *innerhalb* jeder Gruppe?
 
-Der **F-Wert** ist das Verhältnis:
+Der ***F*-Wert** ist das Verhältnis:
 
 $$
 F = \frac{MS_\text{between}}{MS_\text{within}}
@@ -53,7 +53,7 @@ In JASP werden $\eta^2$ und $\omega^2$ optional in der ANOVA-Tabelle angezeigt.
 1. **ANOVA → Classical → ANOVA**.
 2. **Dependent Variable:** `O_mean`. **Fixed Factors:** `bildungsgrad`. Nimmt JASP die Variable dort nicht an, stell ihren Typ in der Datenansicht (Typ-Symbol am Spaltenkopf) auf **Nominal**.
 3. Aktiviere in den Options:
-   - unter *Display*: **Descriptive statistics** (M, SD pro Gruppe) und **Estimates of effect size** mit **η²** und **ω²**
+   - unter *Display*: **Descriptive statistics** (*M*, SD pro Gruppe) und **Estimates of effect size** mit **η²** und **ω²**
    - unter *Assumption Checks*: **Homogeneity tests** (Levene) und **Q-Q plot residuals**
    - unter *Post Hoc Tests*: `bildungsgrad` nach rechts ziehen, bei *Correction* ist **Tukey** schon angekreuzt (siehe unten)
    - unter *Descriptives Plots*: `bildungsgrad` auf **Horizontal Axis** (Plot der Gruppenmittelwerte)

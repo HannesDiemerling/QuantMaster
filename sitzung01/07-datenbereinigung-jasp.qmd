@@ -113,7 +113,7 @@ Du hast drei Möglichkeiten, je nach Fehlertyp:
 Zum Ändern wechselst Du zuerst oben über **Edit Data** in den Bearbeitungsmodus. Dort klickst Du doppelt auf die Zelle, änderst oder löschst den Wert und bestätigst mit Enter. Ein Rechtsklick auf eine Zelle bietet außerdem *Clear cells* (Zelle leeren) und *Delete row*. Zurück zu den Analysen geht es über **Analyses** in derselben Leiste.
 
 ::: {.callout-tip title="Öffnet sich stattdessen Excel?"}
-Je nach Einstellung öffnet ein Doppelklick auf die Daten außerhalb des Bearbeitungsmodus die Datei in Deinem Tabellenprogramm. Schließ es dann ohne zu speichern und arbeite in JASP über **Edit Data**.
+Je nach Einstellung öffnet ein Doppelklick auf die Daten außerhalb des Bearbeitungsmodus die Datei in Deinem Tabellenprogramm. Schließ es dann, ohne zu speichern, und arbeite in JASP über **Edit Data**.
 :::
 
 ## Schritt 6: Exportieren

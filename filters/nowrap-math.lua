@@ -46,7 +46,7 @@ end
 -- nur schließende Satzzeichen, z. B. „…“ oder „…“.“
 local function closing_punct(s)
   local n = utf8.len(s)
-  if n == nil or n > 3 or s:match("%w") then return false end
+  if n == nil or n > 3 or s:match("[A-Za-z0-9]") then return false end
   local first = s:sub(1, 1)
   return first ~= "(" and first ~= "[" and s:sub(1, 3) ~= "„"
 end
@@ -60,7 +60,7 @@ local function tiny_word(s)
   local greek = s:byte(1) == 0xCE or s:byte(1) == 0xCF
   if not (first:match("%w") or greek) then return false end
   local rest = greek and s:sub(3) or s:sub(2)
-  return rest == "" or not rest:match("%w")
+  return rest == "" or not rest:match("[A-Za-z0-9]")
 end
 
 local RELATION = { ["="] = true, ["≈"] = true, ["<"] = true, [">"] = true, ["≤"] = true, ["≥"] = true, ["~"] = true, ["×"] = true }
@@ -82,7 +82,7 @@ function Inlines(inl)
     elseif el.t == "Code" and utf8.len(el.text) and utf8.len(el.text) <= 30 and el.text:match("[%s%-]") then
       -- kurzer Code mit Leerzeichen oder Bindestrich (Dateiname, Formel) bleibt in einer Zeile
       tmp:insert(nowrap({ el })); j = j + 1
-    elseif el.t == "Space" and nx and nx.t == "Str" and tiny_word(nx.text) then
+    elseif el.t == "Space" and nx and nx.t == "Str" and (tiny_word(nx.text) or tiny_word(nx.text:match("^(.-)\u{00A0}") or "")) then
       -- einzelnes Zeichen (α, ω, n, „2“) nicht allein an den Zeilenanfang
       tmp:insert(pandoc.Str("\u{00A0}")); j = j + 1
     elseif el.t == "Space" and nx and nx.t == "Str" and closing_punct(nx.text) then
