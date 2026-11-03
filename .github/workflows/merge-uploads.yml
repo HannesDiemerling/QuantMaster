@@ -45,7 +45,5 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(data): Gesamtdatensatz aktualisiert"
-          file_pattern: |
-            data/combined/m15-gesamt.csv
-            data/combined/merge-report.md
-            data/combined/meta-studien.csv
+          # Muss in EINER Zeile stehen: die Action liest nur die erste Zeile.
+          file_pattern: data/combined/m15-gesamt.csv data/combined/merge-report.md data/combined/meta-studien.csv

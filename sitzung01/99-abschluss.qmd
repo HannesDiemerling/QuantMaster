@@ -16,7 +16,7 @@ Schick **eine** Mail bis spätestens zum Tag vor Sitzung 02 an [{{< meta kurs.ma
 
 {{< include _abgabe.md >}}
 
-Hast Du per Mail hochgeladen (Weg B)? Dann ist das keine zweite Abgabe, die Upload-Mail und diese Abgabe-Mail sind getrennt. Schau nach dem Upload in `data/combined/merge-report.md`, ob Deine Datei als „ok" erkannt wurde.
+Hast Du per Mail hochgeladen (Weg B)? Dann ist das keine zweite Abgabe, die Upload-Mail und diese Abgabe-Mail sind getrennt. Schau nach dem Upload im [Merge-Report]({{< meta kurs.repo >}}/blob/main/data/combined/merge-report.md), ob Deine Datei als „ok" erkannt wurde.
 
 ## Offene Fragen?
 

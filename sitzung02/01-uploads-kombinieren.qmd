@@ -37,7 +37,7 @@ Für wenige Dateien ist der Texteditor am sichersten. Ab ein paar Dutzend Dateie
 
 ## Schritt 1: Deine sieben Dateien herunterladen
 
-Öffne im Repo `data/student-uploads/`. GitHub listet die Dateien alphabetisch. Deine Dateien sind **Deine eigene Datei und die sechs Dateien danach** (am Ende der Liste geht es oben weiter). Das sind 7 Dateien, und sie decken mehrere verschiedene Seed-Datensätze ab.
+Öffne im Repo den Ordner [`data/student-uploads/`]({{< meta kurs.repo >}}/tree/main/data/student-uploads). GitHub listet die Dateien alphabetisch. Deine Dateien sind **Deine eigene Datei und die sechs Dateien danach** (am Ende der Liste geht es oben weiter). Das sind 7 Dateien, und sie decken mehrere verschiedene Seed-Datensätze ab.
 
 Herunterladen: jede Datei anklicken → **Download raw file** (Pfeil-Symbol oben rechts). Alternative: auf der Repo-Startseite **Code → Download ZIP** und die sieben Dateien aus dem entpackten Ordner nehmen.
 
@@ -57,7 +57,7 @@ Herunterladen: jede Datei anklicken → **Download raw file** (Pfeil-Symbol oben
 
 ## Schritt 3: Mit dem offiziellen Gesamtdatensatz vergleichen
 
-Öffne `data/combined/merge-report.md` im Repo. Dort steht pro Upload-Datei, welcher Seed-Datensatz erkannt wurde und welche Probleme es gab. Vergleiche mit dem, was Du in Schritt 2 gesehen hast: Hat das Skript dieselben Probleme gefunden?
+Öffne den [Merge-Report]({{< meta kurs.repo >}}/blob/main/data/combined/merge-report.md) (`data/combined/merge-report.md`). Dort steht pro Upload-Datei, welcher Seed-Datensatz erkannt wurde und welche Probleme es gab. Vergleiche mit dem, was Du in Schritt 2 gesehen hast: Hat das Skript dieselben Probleme gefunden?
 
 Im **offiziellen** Gesamtdatensatz `data/combined/m15-gesamt.csv` ist das schon gelöst:
 
@@ -83,15 +83,15 @@ Die Kodierung stellst Du in JASP nicht beim Import, sondern unter **File → Pre
 
 ## Schritt 5: Variablentypen setzen
 
-JASP importiert Ganzzahl-Spalten mit 3–10 verschiedenen Werten als **Ordinal**. Stell deshalb um (Klick auf das Typ-Symbol am Spaltenkopf):
+JASP rät die Typen beim Import und liegt dabei oft daneben. Stell deshalb um (Klick auf das Typ-Symbol am Spaltenkopf):
 
 | Variable | Typ in JASP |
 |---|---|
 | `id`, `probandennummer` | Nominal |
-| `geschlecht` | **Nominal** (wird als Ordinal importiert) |
+| `geschlecht` | **Nominal** |
 | `alter` | Scale |
 | `bildungsgrad` | Ordinal |
-| `BFI_01` … `BFI_21` | **Scale** (werden als Ordinal importiert) |
+| `BFI_01` … `BFI_21` | **Scale** |
 | `quelle`, `quelle_datensatz`, `quelle_datei` | Nominal |
 
 ::: {.callout-tip title="Labels vergeben (optional)"}

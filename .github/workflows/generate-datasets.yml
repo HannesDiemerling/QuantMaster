@@ -31,6 +31,5 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(data): regenerate seed datasets"
-          file_pattern: |
-            data/generated/*.csv
-            scripts/error-overview.md
+          # Muss in EINER Zeile stehen: die Action liest nur die erste Zeile.
+          file_pattern: data/generated/*.csv scripts/error-overview.md

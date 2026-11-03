@@ -59,7 +59,7 @@ Für dieses Seminar reicht jeder dieser Wege. Nimm einfach den, der Dir am meist
 
 ## Das Seminar-Repo
 
-Unser Repository enthält:
+Unser Repository liegt unter **[{{< meta kurs.repo >}}]({{< meta kurs.repo >}})** und enthält:
 
 ```
 QuantMaster/
@@ -85,7 +85,7 @@ Die `README.md` enthält dieselbe Übersicht und einen Quick-Start für Studiere
 
 1. **Account (empfohlen).** Wenn Du schon einen GitHub-Account hast oder einen anlegen möchtest: [github.com](https://github.com) → **Sign up**, E-Mail bestätigen. Schick Deinen Benutzernamen an die Lehrperson, falls noch nicht geschehen.
 2. **Einladung annehmen (nur mit Account).** Die Lehrperson fügt Dich als *Collaborator* hinzu. Du bekommst eine E-Mail von GitHub. Dort auf **View invitation** und dann **Accept invitation** klicken. Ohne angenommene Einladung funktioniert der Upload trotzdem, GitHub legt dann automatisch einen *Pull Request* an (siehe @sec-tag1-upload).
-3. **Repo öffnen.** Öffne das Seminar-Repo im Browser (mit oder ohne Anmeldung).
+3. **Repo öffnen.** Öffne [das Seminar-Repo]({{< meta kurs.repo >}}) im Browser (mit oder ohne Anmeldung).
 4. **Orientierung.** Klick Dich einmal durch:
    - `data/generated/`: die 10 vorgenerierten Datensätze
    - `materials/codebook.csv`: die verbindliche Spaltenbeschreibung

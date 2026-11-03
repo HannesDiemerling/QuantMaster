@@ -47,6 +47,7 @@ Pro Sitzung schickst Du **eine** kurze Mail an [{{< meta kurs.mail >}}](mailto:{
 1. **JASP**, kostenlos unter [jasp-stats.org](https://jasp-stats.org)
 2. **GitHub-Account**, empfohlen, aber keine Pflicht. Kostenlos unter [github.com](https://github.com). Ohne Account schickst Du Deine Datei einmal per Mail.
 3. **Laptop** mit Kamera/Mikro für die Videokonferenz
+4. **Seminar-Repo** mit Daten und Merge-Report: [{{< meta kurs.repo >}}]({{< meta kurs.repo >}})
 
 ::: {.callout-important title="Vor Sitzung 01 erledigen"}
 - JASP installieren und einmal starten

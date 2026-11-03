@@ -194,7 +194,8 @@ main <- function() {
         if (err$spalte == "probandennummer") {
           ok <- !anyDuplicated(rows$probandennummer)
         } else {
-          ok <- length(hit) > 0 && all(is.na(rows[hit, err$spalte]))
+          # Zeile ganz entfernt zählt ebenfalls als behandelt
+          ok <- length(hit) == 0 || all(is.na(rows[hit, err$spalte]))
         }
         found <- found + ok
       }
@@ -254,12 +255,18 @@ main <- function() {
   }
 
   combined <- rbind(seed_df, own_df)
+  if (is.null(combined)) {
+    # Noch keine Uploads: leere Tabellen mit Kopfzeile schreiben statt abzustürzen
+    combined <- data.frame(id = numeric(0), as.data.frame(setNames(rep(list(numeric(0)), length(COLS)), COLS)),
+                           quelle = character(0), quelle_datensatz = numeric(0), quelle_datei = character(0),
+                           check.names = FALSE)
+  }
   dir.create(dirname(OUT_CSV), showWarnings = FALSE, recursive = TRUE)
   write.csv(combined, OUT_CSV, row.names = FALSE, na = "", fileEncoding = "UTF-8")
 
   # Für die Metaanalyse (Sitzung 04): jeder Seed-Datensatz samt zugeordneter
   # eigener Zeilen ist eine "Studie"; Effekt = Korrelation E_mean × O_mean.
-  sc <- function(i) rowSums(combined[sprintf("BFI_%02d", i)]) / length(i)
+  sc <- function(i) rowSums(as.matrix(combined[sprintf("BFI_%02d", i)])) / length(i)
   e <- sc(c(1, 6, 11, 16)); o <- sc(c(5, 10, 15, 20, 21))
   meta <- do.call(rbind, lapply(sort(unique(na.omit(combined$quelle_datensatz))), function(s) {
     ok <- which(combined$quelle_datensatz == s & !is.na(e) & !is.na(o))
@@ -268,6 +275,8 @@ main <- function() {
     data.frame(studie = sprintf("Datensatz %02d", s), quelle_datensatz = s, n = length(ok),
                r = round(r, 3), fisher_z = round(atanh(r), 3), se = round(1 / sqrt(length(ok) - 3), 3))
   }))
+  if (is.null(meta)) meta <- data.frame(studie = character(0), quelle_datensatz = numeric(0), n = numeric(0),
+                                        r = numeric(0), fisher_z = numeric(0), se = numeric(0))
   write.csv(meta, OUT_META, row.names = FALSE, fileEncoding = "UTF-8")
 
   # --- Report ------------------------------------------------------------------

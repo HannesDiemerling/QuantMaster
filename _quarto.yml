@@ -126,3 +126,4 @@ lang: de
 # Zentrale Kursdaten — in den Kapiteln per {{< meta kurs.mail >}} eingebunden
 kurs:
   mail: "hannes.diemerling@gmail.com"
+  repo: "https://github.com/HannesDiemerling/QuantMaster"
