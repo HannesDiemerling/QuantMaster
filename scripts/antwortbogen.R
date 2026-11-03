@@ -264,7 +264,7 @@ if (has("BayesFactor")) {
   bf <- extractBF(bt)$bf; num("bayes", "Bayes-t-Test: BF10", bf, max(.05, .05 * bf))
   eo <- na.omit(d[c("E_mean", "O_mean")])
   rh <- as.numeric(posterior(correlationBF(eo$E_mean, eo$O_mean, rscale = 1), iterations = 20000, progress = FALSE)[, "rho"])
-  num("bayes", "Bayes-Korrelation (E_mean × O_mean): Median ρ", median(rh), .02)
+  num("bayes", "Bayes-Korrelation (E_mean × O_mean): Median rho (ρ)", median(rh), .02)
   add("bayes", "Bayes-Korrelation: 95 %-Credible-Interval [untere, obere]", sprintf("[%s, %s]", fmt(quantile(rh, .025)), fmt(quantile(rh, .975))), hinweis = "±0.03 ok")
 } else for (i in 1:5) add("bayes", "Bayes", "nicht berechnet (BayesFactor fehlt)")
 add("bayes", "Ein Satz: Welche Wahrscheinlichkeitsaussage erlaubt der Posterior, die ein p-Wert nicht erlaubt?")

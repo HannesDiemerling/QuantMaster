@@ -38,7 +38,7 @@ Fast alle Tests, die Du bisher gerechnet hast, folgen der frequentistischen Logi
 **Fragwürdige Forschungspraktiken (QRPs):**
 
 - **p-Hacking:** so lange Variablen, Ausreißerregeln, Teilstichproben oder Kovariaten ausprobieren, bis p < .05.
-- **Optional Stopping:** Daten erheben, testen, weitererheben, bis es „klappt“.
+- **Optional Stopping:** Daten erheben, testen, weiter erheben, bis es „klappt“.
 - **HARKing:** Hypothesen nachträglich so formulieren, als hätte man das Ergebnis vorhergesagt.
 
 Gegenmittel kennst Du aus Sitzung 01: **Preregistration**, offene Daten und Skripte, Registered Reports.
@@ -66,7 +66,7 @@ Optional zur Anschauung: Modul **Learn Stats** → **P Values** simuliert, wie p
 
 **Pflichtteil:**
 
-1. Berechne von Hand: Wahrscheinlichkeit für mindestens ein falsch-positives Ergebnis bei 10 unabhängigen Tests mit α = .05.
+1. Berechne von Hand: Wahrscheinlichkeit für mindestens ein falsch-positives Ergebnis bei 10 unabhängigen Tests mit α = .05.
 2. Rechne den Äquivalenztest für `G_mean` ~ `geschlecht` mit Grenzen ±0.5 (Cohen's d).
 3. Vergleiche mit dem normalen *t*-Test: Was folgt aus „nicht signifikant“, und was aus dem Äquivalenztest?
 

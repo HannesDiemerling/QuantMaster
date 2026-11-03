@@ -21,7 +21,7 @@ Viele Probleme einer Studie lassen sich hinterher nicht mehr reparieren: ein Des
 | **Quasi-Experiment** | Manipulation oder natürliche Gruppen, **keine** Randomisierung | eingeschränkt |
 | **Korrelative Studie** | nur Messung, keine Manipulation | nein |
 
-Weitere Unterscheidung: **between-subjects** (verschiedene Personen pro Bedingung) vs. **within-subjects** (dieselben Personen in allen Bedingungen, z. B. Prä-Post). Within-Designs brauchen weniger Personen, haben aber Reihenfolge- und Übungseffekte.
+Weitere Unterscheidung: **between-subjects** (verschiedene Personen pro Bedingung) vs. **within-subjects** (dieselben Personen in allen Bedingungen, z. B. Prä-Post). Within-Designs brauchen weniger Personen, haben aber Reihenfolge- und Übungseffekte.
 
 ## Validität und Störvariablen
 
@@ -36,15 +36,15 @@ Bei jedem Test hängen vier Größen zusammen. Kennst Du drei, folgt die vierte:
 | Größe | Bedeutung | Typischer Wert |
 |---|---|---|
 | **α** | Wahrscheinlichkeit, einen Effekt zu „finden“, der nicht existiert (Fehler 1. Art) | .05 |
-| **Power (1 − β)** | Wahrscheinlichkeit, einen existierenden Effekt zu finden | .80 oder .90 |
-| **Effektgröße** | angenommene Größe des wahren Effekts (z. B. Cohen's $d$) | aus Literatur/Metaanalyse oder kleinster relevanter Effekt |
+| **Power (1 − β)** | Wahrscheinlichkeit, einen existierenden Effekt zu finden | .80 oder .90 |
+| **Effektgröße** | angenommene Größe des wahren Effekts (z. B. Cohen's $d$) | aus Literatur/Metaanalyse oder kleinster relevanter Effekt |
 | **N** | Stichprobengröße | wird meist berechnet |
 
 - **A priori** (vor der Studie): Wie viele Personen brauche ich? Das ist der Normalfall.
 - **Sensitivitätsanalyse:** Welchen Effekt kann ich mit meinem N zuverlässig finden?
 - **Post-hoc-Power** aus dem beobachteten Effekt ist **wenig informativ**, sie ist nur eine Umformung des p-Werts.
 
-Die Effektgröße für die Planung sollte nicht aus einer einzelnen, kleinen Pilotstudie kommen (überschätzt meist), sondern z. B. aus einer Metaanalyse (@sec-meta).
+Die Effektgröße für die Planung sollte nicht aus einer einzelnen, kleinen Pilotstudie kommen (überschätzt meist), sondern z. B. aus einer Metaanalyse (@sec-meta).
 
 ## In JASP rechnen
 
@@ -60,9 +60,9 @@ Die Effektgröße für die Planung sollte nicht aus einer einzelnen, kleinen Pil
 
 **Pflichtteil:**
 
-1. Nötiges N pro Gruppe für $d = 0.5$ und $d = 0.3$ (Power .80, α = .05, zweiseitig).
+1. Nötiges N pro Gruppe für $d = 0.5$ und $d = 0.3$ (Power .80, α = .05, zweiseitig).
 2. Power bei $n = 30$ pro Gruppe und $d = 0.5$.
-3. Ein Satz: Was bedeutet das für die Gruppenvergleiche in unserem Seminar-Datensatz (z. B. t2 aus @sec-tag2-ttest)?
+3. Ein Satz: Was bedeutet das für die Gruppenvergleiche in unserem Seminar-Datensatz (z. B. t2 aus @sec-tag2-ttest)?
 
 **Bonus:**
 

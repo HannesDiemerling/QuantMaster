@@ -32,17 +32,17 @@ Beispiel-RCT: 100 Personen Therapie, 100 Warteliste. Remission bei 45 % (Therap
 | **Number Needed to Treat (NNT)** | $1 / \text{ARR}$, aufgerundet | 1 / 0.15 = 6.67 → **7** |
 | **Odds Ratio (OR)** | $\dfrac{p_T/(1-p_T)}{p_K/(1-p_K)}$ | (0.45/0.55)/(0.30/0.70) ≈ 1.91 |
 
-Die NNT ist besonders anschaulich: Sieben Personen müssen behandelt werden, damit *eine* zusätzlich remittiert. Bei kontinuierlichen Ergebnissen (z. B. Symptomskalen) nutzt Du stattdessen Cohen's $d$.
+Die NNT ist besonders anschaulich: Sieben Personen müssen behandelt werden, damit *eine* zusätzlich remittiert. Bei kontinuierlichen Ergebnissen (z. B. Symptomskalen) nutzt Du stattdessen Cohen's $d$.
 
 ## Epidemiologie und Ätiologie
 
-- **Prävalenz:** Anteil Erkrankter zu einem Zeitpunkt bzw. in einem Zeitraum (z. B. 12-Monats-Prävalenz).
+- **Prävalenz:** Anteil Erkrankter zu einem Zeitpunkt bzw. in einem Zeitraum (z. B. 12-Monats-Prävalenz).
 - **Inzidenz:** Anteil *Neuerkrankungen* in einem Zeitraum, bezogen auf alle, die zu Beginn noch nicht erkrankt waren.
 - **Designs:**
   - **Querschnitt** (Prävalenz; keine zeitliche Reihenfolge),
   - **Kohortenstudie** (Exponierte vs. Nicht-Exponierte über die Zeit; liefert RR),
   - **Fall-Kontroll-Studie** (Erkrankte vs. Gesunde, rückblickend nach Exposition gefragt; liefert nur das **OR**).
-- **Risikofaktor ≠ Ursache:** Auch hier gilt Korrelation ≠ Kausalität (@sec-tag2-korrelation). Konfundierung (z. B. sozioökonomischer Status) muss kontrolliert werden, z. B. per logistischer Regression (@sec-tag3-logistisch).
+- **Risikofaktor ≠ Ursache:** Auch hier gilt Korrelation ≠ Kausalität (@sec-tag2-korrelation). Konfundierung (z. B. sozioökonomischer Status) muss kontrolliert werden, z. B. per logistischer Regression (@sec-tag3-logistisch).
 
 ## In JASP rechnen: Kreuztabelle
 

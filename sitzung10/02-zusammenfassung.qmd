@@ -44,7 +44,7 @@ Für eigene Studien heißt das: Hypothesen vorher festlegen, Nullbefunde genauso
 | Bestmögliche Vorhersage, viele Daten? | beliebig | Machine Learning (Anhang) | @sec-tag3-ml |
 | Genestete / wiederholte Messungen? | metrisch | Mixed Model | @sec-tag3-mixed |
 | Struktur hinter vielen Items? | Items | EFA / CFA | @sec-efa, @sec-cfa-sem |
-| Studienlage zusammenfassen? | Effektgrößen aus Studien | Meta-Analyse | @sec-meta |
+| Studienlage zusammenfassen? | Effektgrößen aus Studien | Metaanalyse | @sec-meta |
 | „Kein relevanter Unterschied“ belegen? | metrisch | Äquivalenztest (TOST) | @sec-nhst |
 | Wirksamkeit mit Ja/Nein-Ergebnis? | binär | RR, NNT, Kreuztabelle | @sec-epi |
 | Übereinstimmung zweier Kodierer? | kategorial | Cohen's κ | @sec-quali |
@@ -77,13 +77,13 @@ Statt gegen feste Cutoffs interpretierst Du eine Effektgröße sinnvoll so:
 | Moderation | Regression → Classical → Linear Regression (+ Interaktionsterm) |
 | Mediation | SEM → Mediation Analysis (Bootstrap) |
 | Logistische Regression | Regression → Classical → Logistic Regression |
-| Bayes-*t*-Test / -Korrelation / -Regression | im selben Menü unter **Bayesian**, z. B. T-Tests → Bayesian → Independent Samples T-Test |
+| Bayes-*t*-Test, Bayes-Korrelation, Bayes-Regression | im selben Menü unter **Bayesian**, z. B. T-Tests → Bayesian → Independent Samples T-Test |
 | Machine Learning | Machine Learning → Classification / Regression / Unsupervised Learning → Clustering |
 | Mixed Model | Mixed Models → Classical → Linear Mixed Models |
 | Faktorenanalyse | Factor → Exploratory Factor Analysis / Principal Component Analysis |
 | CFA / SEM | Factor → Confirmatory Factor Analysis / SEM → Structural Equation Modeling |
 | Netzwerk | Network |
-| Meta-Analyse | Meta-Analysis → Classical → Meta-Analysis |
+| Metaanalyse | Meta-Analysis → Classical → Meta-Analysis |
 | Poweranalyse | Power → Power |
 | Kreuztabelle | Frequencies → Classical → Contingency Tables |
 | Interrater (κ) | Reliability → Classical → Rater Agreement |

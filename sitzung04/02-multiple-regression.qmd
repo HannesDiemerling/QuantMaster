@@ -75,8 +75,8 @@ Bei **kleinem** $N$ (wie bei uns mit rund 100 Personen, und erst recht darunter)
 ## In JASP rechnen
 
 1. **Regression → Classical → Linear Regression**.
-2. **Dependent Variable:** das Kriterium $Y$ (z. B. `N_mean`).
-3. **Covariates:** die metrischen Prädiktoren (z. B. `E_mean`, `V_mean`, `G_mean`, `O_mean`).
+2. **Dependent Variable:** das Kriterium $Y$ (z. B. `N_mean`).
+3. **Covariates:** die metrischen Prädiktoren (z. B. `E_mean`, `V_mean`, `G_mean`, `O_mean`).
    - Kategoriale Prädiktoren mit mehr als zwei Stufen kommen unter **Factors** (JASP bildet automatisch Dummy-Variablen).
 4. In den Optionen aktivieren:
    - **Model fit** und **R squared change** (beide voreingestellt). In der *Model Summary* steht $M_0$ für das leere Nullmodell; Deine Werte stehen in der Zeile $M_1$.
@@ -88,8 +88,8 @@ Bei **kleinem** $N$ (wie bei uns mit rund 100 Personen, und erst recht darunter)
 
 Oft willst Du wissen: *Bringt ein zusätzlicher Block von Prädiktoren überhaupt etwas?* Dafür baust Du in JASP unter **„Model“** mehrere Blöcke:
 
-- **Modell 0:** nur die Kontrollvariablen (z. B. `alter`, `geschlecht`).
-- **Modell 1:** zusätzlich die interessierenden Prädiktoren (z. B. die anderen Skalen).
+- **Modell 0:** nur die Kontrollvariablen (z. B. `alter`, `geschlecht`).
+- **Modell 1:** zusätzlich die interessierenden Prädiktoren (z. B. die anderen Skalen).
 
 JASP zeigt dann **$\Delta R^2$** und einen $F$-Test dafür: *Erklärt Modell 1 signifikant mehr als Modell 0?*
 
@@ -100,7 +100,10 @@ Erinnere Dich an den Datenhinweis (@sec-tag3-datenhinweis): Zwischen den fünf B
 **Modell A sollte (teilweise) etwas finden.** Wir sagen Neurotizismus aus den vier anderen Skalen vorher:
 
 $$
-\widehat{\texttt{N\_mean}} = b_0 + b_1\,\texttt{E\_mean} + b_2\,\texttt{V\_mean} + b_3\,\texttt{G\_mean} + b_4\,\texttt{O\_mean}
+\begin{aligned}
+\widehat{\texttt{N\_mean}} = b_0 &+ b_1\,\texttt{E\_mean} + b_2\,\texttt{V\_mean} \\
+&+ b_3\,\texttt{G\_mean} + b_4\,\texttt{O\_mean}
+\end{aligned}
 $$
 
 Weil alle Skalen leicht positiv zusammenhängen, **bündelt** dieses Modell mehrere kleine Signale. Hier ist also *am ehesten* etwas zu finden. Einzelne Prädiktoren können dabei trotzdem nicht signifikant sein, bei einer kleinen Stichprobe ist das normal.
@@ -108,7 +111,10 @@ Weil alle Skalen leicht positiv zusammenhängen, **bündelt** dieses Modell mehr
 **Modell B sollte (fast) nichts finden.** Wir sagen dieselbe Skala aus der Demografie vorher:
 
 $$
-\widehat{\texttt{N\_mean}} = b_0 + b_1\,\texttt{alter} + b_2\,\texttt{bildungsgrad} + b_3\,\texttt{geschlecht}
+\begin{aligned}
+\widehat{\texttt{N\_mean}} = b_0 &+ b_1\,\texttt{alter} \\
+&+ b_2\,\texttt{bildungsgrad} + b_3\,\texttt{geschlecht}
+\end{aligned}
 $$
 
 Hier ist **kaum etwas** zu erwarten, denn in diesen Daten gibt es den Zusammenhang schlicht nicht. Falls doch ein Koeffizient signifikant wird, ist das eher ein **Fehler erster Art** (Zufallstreffer) als ein echter Effekt. Ein Nullbefund ist hier das, was zur Datenlage passt, und kein Versagen Deiner Analyse.

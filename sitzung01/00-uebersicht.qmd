@@ -38,7 +38,7 @@ Bitte vor der Sitzung zu Hause:
 
 Grundlage ist die **offizielle Teilnehmerliste** der Veranstaltung, die die Lehrperson zu Beginn von Sitzung 01 zeigt. Deine Position darin ist Deine **Listennummer** $n$. Daraus ergibt sich alles Weitere, Du musst Dir also nichts selbst ausdenken:
 
-| Was | Regel | Beispiel $n = 13$ |
+| Was | Regel | Beispiel $n = 13$ |
 |---|---|---|
 | **Kennziffer** (Dein Pseudonym, Mail-Betreff, Probandennummer Deiner Datenzeile) | $2000 + n$ | 2013 |
 | **Datensatz** (Dein Übungsdatensatz in Sitzung 01) | $((n - 1) \bmod 10) + 1$, also 1, 2, …, 10, dann wieder 1 | 3 |

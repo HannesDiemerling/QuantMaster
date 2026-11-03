@@ -55,7 +55,7 @@ Die Lösung ist der **Bootstrap**, ein **Resampling-Verfahren**. Die Idee ist ve
 1. Nimm Deine $N$ Beobachtungen.
 2. **Ziehe mit Zurücklegen** eine neue Stichprobe derselben Größe $N$. (Manche Personen kommen doppelt vor, andere gar nicht. Das ist gewollt.)
 3. Berechne in dieser Bootstrap-Stichprobe den indirekten Effekt $a \times b$.
-4. Wiederhole das **sehr oft** (z. B. 5 000-mal).
+4. Wiederhole das **sehr oft** (z. B. 5 000-mal).
 5. Du hast jetzt 5 000 Werte für $a \times b$. Das ist die empirische **Verteilung** des indirekten Effekts.
 6. Das **95 %-Konfidenzintervall** sind einfach das 2.5 %- und das 97.5 %-Perzentil dieser 5 000 Werte.
 
@@ -74,9 +74,9 @@ Mediation steckt in JASP im **SEM-Modul** (Strukturgleichungsmodelle, siehe @sec
 1. Falls nötig, **SEM-Modul** über das **„+“** aktivieren.
 2. **SEM → Mediation Analysis**.
 3. Felder zuweisen:
-   - **Predictors** (X): z. B. `G_mean`
-   - **Mediators** (M): z. B. `E_mean`
-   - **Outcome** (Y): z. B. `O_mean`
+   - **Predictors** (X): z. B. `G_mean`
+   - **Mediators** (M): z. B. `E_mean`
+   - **Outcome** (Y): z. B. `O_mean`
 4. In den Optionen:
    - Abschnitt **Options**: bei **Method** **Bootstrap** wählen, **Replications** auf 5 000 (mehr = stabiler, dauert länger).
    - **Confidence intervals** auf 95 %, Typ **Percentile** (alternativ *Bias-corrected percentile*).

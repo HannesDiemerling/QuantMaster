@@ -101,7 +101,12 @@ blockquote {
 table colgroup col {
   width: auto !important;
 }
+main table.table {
+  width: auto;
+  max-width: 100%;
+}
 td, th {
+  -webkit-hyphens: auto;
   hyphens: auto;
 }
 .table > thead th {
@@ -110,9 +115,26 @@ td, th {
 @media (max-width: 767.98px) {
   main table {
     display: block;
+    width: fit-content;
     max-width: 100%;
     overflow-x: auto;
+    font-size: 0.9rem;
   }
+  main table td,
+  main table th {
+    padding: 0.4rem 0.35rem;
+  }
+  main table.table {
+    width: fit-content;
+  }
+  .anchorjs-link {
+    display: none;
+  }
+}
+
+/* Formeln in kursiven Zitaten: Abstand zum Text sichtbar halten */
+blockquote mjx-container:not([display="true"]) {
+  margin: 0 0.12em;
 }
 
 /* Breite abgesetzte Formeln seitlich scrollbar statt über den Rand */
@@ -124,9 +146,36 @@ mjx-container[display="true"] {
 
 /* Lange Inline-Code-Angaben dürfen umbrechen */
 p code:not(.sourceCode),
-li code:not(.sourceCode),
-td code:not(.sourceCode) {
+li code:not(.sourceCode) {
   overflow-wrap: anywhere;
+}
+td code:not(.sourceCode) {
+  overflow-wrap: break-word;
+}
+li code:not(.sourceCode) {
+  white-space: pre-wrap;
+}
+/* Kopier-Button nicht über dem Text */
+div.sourceCode pre {
+  padding-right: 2.5rem;
+}
+@media (max-width: 767.98px) {
+  main td {
+    overflow-wrap: break-word;
+  }
+}
+body.quarto-dark .aa-DetachedSearchButton,
+body.quarto-dark .aa-Form {
+  background-color: #2b3035;
+  border-color: #495057;
+  color: #e3e6ea;
+}
+
+/* Abgabe-Vorlagen: umbrochene Zeilen eingerückt, damit jede Frage als eine Zeile erkennbar bleibt */
+pre.sourceCode.default code > span {
+  display: inline-block;
+  padding-left: 1.5em;
+  text-indent: -1.5em;
 }
 
 #quarto-sidebar {
@@ -151,4 +200,19 @@ body.quarto-dark .sidebar-item-text.active {
 }
 .nowrap {
   white-space: nowrap;
+}
+body.quarto-dark .aa-Form svg,
+body.quarto-dark .aa-DetachedSearchButton svg,
+body.quarto-dark .aa-SubmitIcon {
+  color: #adb5bd;
+  fill: currentColor;
+}
+body.quarto-dark .aa-Input::placeholder {
+  color: #adb5bd;
+}
+/* Such-Lupe im Dunkelmodus sichtbar (Formular- und Button-Variante des Suchfelds) */
+body.quarto-dark #quarto-search .aa-Autocomplete svg.aa-SubmitIcon,
+body.quarto-dark #quarto-search .aa-DetachedSearchButtonIcon {
+  color: #ced4da !important;
+  opacity: 1 !important;
 }

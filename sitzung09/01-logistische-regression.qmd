@@ -83,7 +83,7 @@ Nenn die Spalte `N_hoch` und setz ihren Typ auf **Nominal**.
    - **Estimates** mit **Odds ratios** und **Confidence intervals**
    - **Statistics → Performance Diagnostics → Confusion matrix** (Klassifikationstabelle) und **Performance Metrics → AUC**
    - **Plots → Performance Plots → ROC plot**
-   - Für den Modelltest musst Du nichts ankreuzen: Die Tabelle **Model Summary** zeigt immer Devianz, $\chi^2$-Test und die Pseudo-$R^2$ (u. a. **Nagelkerke**). Achtung: Die Spalte *df* dort enthält die Residual-Freiheitsgrade. Die df des $\chi^2$-Tests ist die Differenz der df von $M_0$ und $M_1$, also die Zahl der Prädiktoren (hier 4).
+   - Für den Modelltest musst Du nichts ankreuzen: Die Tabelle **Model Summary** zeigt immer Devianz, $\chi^2$-Test und die Pseudo-$R^2$ (u. a. **Nagelkerke**). Achtung: Die Spalte *df* dort enthält die Residual-Freiheitsgrade. Die df des $\chi^2$-Tests ist die Differenz der df von $M_0$ und $M_1$, also die Zahl der Prädiktoren (hier 4).
 
 ## Was unsere Daten hergeben
 
@@ -95,7 +95,7 @@ Würdest Du dagegen versuchen, **`geschlecht`** aus den Skalen vorherzusagen, is
 
 Einen festen Wortlaut gibt es nicht, aber diese Angaben sollten vollständig vorkommen:
 
-- der **Modelltest** gegen das Null-Modell ($\chi^2$ mit df, $p$), ein **Pseudo-$R^2$** (z. B. Nagelkerke) und die **Trennschärfe** (AUC),
+- der **Modelltest** gegen das Null-Modell ($\chi^2$ mit df, $p$), ein **Pseudo-$R^2$** (z. B. Nagelkerke) und die **Trennschärfe** (AUC),
 - **pro Prädiktor** das **Odds Ratio** mit Konfidenzintervall und $p$-Wert,
 - für einen berichtenswerten Prädiktor eine kurze Interpretation des OR in Chancen-/Wahrscheinlichkeits-Sprache.
 

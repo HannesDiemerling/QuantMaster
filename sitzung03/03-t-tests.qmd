@@ -86,7 +86,7 @@ Auch wenn Deine Einzelantworten extrem schief sind: sobald $N$ ausreichend groß
 | Varianzhomogenität verletzt | **Welch's t-Test** (in JASP per Häkchen, fast immer besser als der Levene-Test-Umweg) |
 | Normalverteilung deutlich verletzt + kleines N | **Mann-Whitney U-Test** (nicht-parametrisch) |
 | Skalenniveau nur ordinal | Mann-Whitney U-Test |
-| Ausreißer | robuste Verfahren (z. B. Yuens *t*-Test mit getrimmten Mittelwerten) oder Mann-Whitney |
+| Ausreißer | robuste Verfahren (z. B. Yuens *t*-Test mit getrimmten Mittelwerten) oder Mann-Whitney |
 
 ::: {.callout-tip title="Faustregel"}
 Wenn Du keine Zeit für Annahmen-Diagnose hast oder Du Dir unsicher bist: **immer Welch's t-Test** rechnen. Er ist im schlimmsten Fall fast so präzise wie Student's t und im besten Fall deutlich robuster.
@@ -233,4 +233,4 @@ Notiere aus der **Welch-Zeile** (bei t1 gibt es nur eine Zeile): t und Cohen's d
 1. Wann nimmst Du Welch's t statt Student's t, und warum eigentlich *immer*?
 2. Was sagt ein Cohen's $d = 0.20$? Reicht das, um einen Befund spannend zu finden?
 3. Du hast einen *t*-Test mit $p = .03$ und $d = 0.08$. Was steht in Deinem Ergebnisbericht?
-4. Welches Verfahren wählst Du, wenn die abhängige Variable ordinal ist (z. B. ein einzelnes BFI-Item)?
+4. Welches Verfahren wählst Du, wenn die abhängige Variable ordinal ist (z. B. ein einzelnes BFI-Item)?

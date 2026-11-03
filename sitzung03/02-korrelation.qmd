@@ -88,7 +88,7 @@ Hier kommen sechs Hypothesen, die *inhaltlich* Sinn ergeben, formuliert so, wie 
 | # | Hypothese | Berechnung | Erwartung (aus der Literatur) |
 |---:|---|---|---|
 | H1 | Verträglichkeit und Neurotizismus hängen *negativ* zusammen. | Pearson `V_mean` × `N_mean` | schwach bis mittel negativ ($r \approx -.20$) |
-| H2 | Offenheit und Extraversion hängen *positiv* zusammen. | Pearson `O_mean` × `E_mean` | schwach-positiv ($r \approx +.15$) |
+| H2 | Offenheit und Extraversion hängen *positiv* zusammen. | Pearson `O_mean` × `E_mean` | schwach positiv ($r \approx +.15$) |
 | H3 | Gewissenhaftigkeit und Alter hängen *positiv* zusammen. | Pearson `G_mean` × `alter` | klein bis mittel positiv |
 | H4 | Neurotizismus und Bildungsgrad hängen *negativ* zusammen. | Spearman `N_mean` × `bildungsgrad` | klein negativ |
 | H5 | Innerhalb der Extraversions-Skala korrelieren alle Items mindestens mit $r > .20$ miteinander. | Korrelationsmatrix der 4 E-Items | nach Konstruktion ja |

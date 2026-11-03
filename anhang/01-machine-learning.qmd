@@ -30,8 +30,8 @@ Ein Modell, das die **vorhandenen** Daten perfekt beschreibt, ist wertlos, wenn 
 
 Die Gegenmaßnahme ist methodisch sauber und einfach:
 
-1. **Train/Test-Split:** Teile die Daten z. B. 70 % Training / 30 % Test. Trainiere nur auf dem Trainingsteil, beurteile **nur** auf dem ungesehenen Testteil.
-2. **Kreuzvalidierung (k-fold):** Teile die Daten in $k$ Blöcke (z. B. 5). Trainiere auf 4, teste auf dem 5., rotiere durch, mittle die Güte. Das nutzt die Daten effizienter, was bei kleinem $N$ wichtig ist.
+1. **Train/Test-Split:** Teile die Daten z. B. 70 % Training / 30 % Test. Trainiere nur auf dem Trainingsteil, beurteile **nur** auf dem ungesehenen Testteil.
+2. **Kreuzvalidierung (k-fold):** Teile die Daten in $k$ Blöcke (z. B. 5). Trainiere auf 4, teste auf dem 5., rotiere durch, mittle die Güte. Das nutzt die Daten effizienter, was bei kleinem $N$ wichtig ist.
 
 ::: {.callout-tip title="Die zentrale Idee des Kapitels"}
 Wie gut ein Modell wirklich ist, zeigt sich **nur** auf Daten, die es beim Training **nicht gesehen** hat. Auf den Trainingsdaten sieht fast jedes Modell gut aus. Diese Trennung von Trainieren und Bewerten ist der Kern von ML und ein Prinzip, das auch in die klassische Forschung gehört.
@@ -39,7 +39,7 @@ Wie gut ein Modell wirklich ist, zeigt sich **nur** auf Daten, die es beim Train
 
 ## Ein paar ML-Verfahren in JASP
 
-JASP bietet für **Regression** (metrisches Ziel) und **Classification** (kategoriales Ziel) jeweils u. a.:
+JASP bietet für **Regression** (metrisches Ziel) und **Classification** (kategoriales Ziel) jeweils u. a.:
 
 | Verfahren | Kurz |
 |---|---|
@@ -49,7 +49,7 @@ JASP bietet für **Regression** (metrisches Ziel) und **Classification** (katego
 | **Boosting** | Bäume, die sequenziell die Fehler der Vorgänger ausbessern; oft sehr treffsicher |
 | **K-Nearest Neighbors** | sagt anhand der ähnlichsten Nachbarn vorher |
 | **Neural Network** | Schichten von „Neuronen“, lernen flexible nicht-lineare Muster |
-| **Clustering** (k-means u. a.) | findet Gruppen **ohne** Zielvariable (unüberwacht) |
+| **Clustering** (k-means u. a.) | findet Gruppen **ohne** Zielvariable (unüberwacht) |
 
 ### Neuronale Netze in zwei Absätzen
 
@@ -68,8 +68,8 @@ Das Modul **Machine Learning** schaltest Du zuerst über das **„+“** oben re
 1. **Machine Learning → Classification → Random Forest** (Analyse „Random Forest Classification“).
 2. **Target:** `N_hoch`. **Features:** `E_mean`, `V_mean`, `G_mean`, `O_mean`.
 3. Optionen:
-   - **Data Split Preferences:** bei **Holdout Test Data** z. B. 30 % als Testdaten (k-fold-Kreuzvalidierung bietet JASP für Random Forest und neuronale Netze nicht an).
-   - **Set seed** ankreuzen (z. B. 1), damit der Zufalls-Split reproduzierbar ist.
+   - **Data Split Preferences:** bei **Holdout Test Data** z. B. 30 % als Testdaten (k-fold-Kreuzvalidierung bietet JASP für Random Forest und neuronale Netze nicht an).
+   - **Set seed** ankreuzen (z. B. 1), damit der Zufalls-Split reproduzierbar ist.
    - **Tables → Feature importance** anzeigen (Plot: **Mean decrease in accuracy**).
    - **Tables → Confusion matrix** und **Plots → ROC curves**. Die **AUC** steht in der Tabelle **Model performance** (unter *Tables* ankreuzen, Testdaten).
 
@@ -77,7 +77,7 @@ Das Modul **Machine Learning** schaltest Du zuerst über das **„+“** oben re
 
 1. **Machine Learning → Classification → Neural Network** (Analyse „Neural Network Classification“).
 2. Dieselben Target/Features, derselbe Holdout-Split und Seed.
-3. Optionen: eine kleine Architektur unter **Network Topology → Manual** (z. B. **Hidden layer 1** mit 2–4 **Nodes**), **Confusion matrix** und AUC aus **Model performance**. Optional den Plot **Network structure** (zeigt Eingänge, verdeckte Schicht, Ausgang).
+3. Optionen: eine kleine Architektur unter **Network Topology → Manual** (z. B. **Hidden layer 1** mit 2–4 **Nodes**), **Confusion matrix** und AUC aus **Model performance**. Optional den Plot **Network structure** (zeigt Eingänge, verdeckte Schicht, Ausgang).
 
 Vergleich beider Modelle: Welches hat auf den **Testdaten** die höhere AUC?
 
@@ -111,8 +111,6 @@ ML entfaltet seine Stärke bei **großen** Datensätzen (Tausende Fälle) mit **
 - braucht für seine Stärken meist **viel** mehr Daten, als wir haben
 
 ## Aufgabe
-
-**Aufgabe:**
 
 1. Rechne eine **Random-Forest-Classification** für `N_hoch` mit den vier Skalen als Features, **mit Holdout-Testdaten (30 %) und Set seed**. Lies die **Test-AUC** und die **Feature importance** ab.
 2. Rechne dasselbe als **kleines neuronales Netz** (1 Hidden Layer, 2–4 Knoten).

@@ -36,7 +36,7 @@ Der Gesamtdatensatz `data/combined/m15-gesamt.csv` hat zusätzlich die Spalten `
 
 - Ganzzahl, innerhalb eines Datensatzes eindeutig.
 - In den vorgenerierten Datensätzen: 1–9.
-- Die Zeile Deiner fiktiven Person bekommt Deine Kennziffer ($2000 + n$, z. B. 2013).
+- Die Zeile Deiner fiktiven Person bekommt Deine Kennziffer ($2000 + n$, z. B. 2013).
 
 ### `geschlecht`
 
@@ -89,7 +89,7 @@ Jeder Faktor wird über mehrere Items gebildet. **R** = Reverse-Item (vor der Ag
 | Neurotizismus (N) | 4, 9R, 14, 19 | 9 |
 | Offenheit (O) | 5, 10, 15, 20, 21R | 21 |
 
-In den Spaltennamen entspricht Item *n* der Spalte `BFI_<nn>` (z. B. Item 6 → `BFI_06`, Item 11 → `BFI_11`).
+In den Spaltennamen entspricht Item *n* der Spalte `BFI_<nn>` (z. B. Item 6 → `BFI_06`, Item 11 → `BFI_11`).
 
 ::: {.callout-important title="Bereits rekodiert"}
 In den **vorgenerierten Datensätzen** (`data/generated/datensatz-XX.csv`) sind alle BFI-K-Items **bereits rekodiert**: Reverse-Items wurden umgepolt, sodass eine hohe Zahl in jedem Item eine hohe Ausprägung der jeweiligen Skala bedeutet.

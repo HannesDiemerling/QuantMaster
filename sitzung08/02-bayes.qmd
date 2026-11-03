@@ -28,14 +28,14 @@ $$
 
 | Baustein | Bedeutung |
 |---|---|
-| **Prior** | Was Du **vor** den Daten über den Effekt für plausibel hältst (z. B. „riesige Effekte sind unwahrscheinlich“). |
+| **Prior** | Was Du **vor** den Daten über den Effekt für plausibel hältst (z. B. „riesige Effekte sind unwahrscheinlich“). |
 | **Likelihood** | Was die **Daten** über den Effekt sagen. |
 | **Posterior** | Dein **aktualisierter** Glaube, nachdem Du die Daten gesehen hast: Prior **plus** Daten. |
 
 In einem Satz: **Posterior = Prior, durch die Daten aktualisiert.** Genau so lernt man auch im Alltag. Man startet mit einer Erwartung und passt sie an die Evidenz an.
 
 ::: {.callout-tip title="Müssen Priors „subjektiv“ sein?"}
-Ein häufiger Einwand. In der Praxis nutzt JASP **schwach informative Default-Priors** (z. B. eine Cauchy-Verteilung um Null), die kaum etwas vorgeben außer „extrem große Effekte sind unwahrscheinlich“. Mit mehr Daten verliert der Prior ohnehin an Gewicht, und der Posterior wird dann fast vollständig von den Daten bestimmt.
+Ein häufiger Einwand. In der Praxis nutzt JASP **schwach informative Default-Priors** (z. B. eine Cauchy-Verteilung um Null), die kaum etwas vorgeben außer „extrem große Effekte sind unwahrscheinlich“. Mit mehr Daten verliert der Prior ohnehin an Gewicht, und der Posterior wird dann fast vollständig von den Daten bestimmt.
 :::
 
 ## Der Posterior als eigentliches Ergebnis
@@ -84,7 +84,7 @@ Neben der Schätzung gibt es das **Test**-Werkzeug der Bayes-Welt: den **Bayes-F
 | 30–100 | sehr stark |
 | > 100 | extrem |
 
-Werte **unter 1** liest Du als Evidenz **für** die Null (z. B. $BF_{10}=0.2$ → 5:1 für H0). Das ist die eine Sache, die der Bayes-Faktor besser kann als jeder p-Wert: **Evidenz für die Nullhypothese** quantifizieren.
+Werte **unter 1** liest Du als Evidenz **für** die Null (z. B. $BF_{10}=0.2$ → 5:1 für H0). Das ist die eine Sache, die der Bayes-Faktor besser kann als jeder p-Wert: **Evidenz für die Nullhypothese** quantifizieren.
 
 ::: {.callout-tip title="Warum hier der Posterior im Fokus steht"}
 Der Bayes-Faktor ist in der Psychologie verbreitet, aber er reduziert das Ergebnis wieder auf eine einzelne Zahl. Für die meisten Fragestellungen (*wie groß* ist der Effekt, *wie sicher* bin ich mir über seine Richtung) ist der **Posterior mit Credible Interval** informativer und leichter zu kommunizieren. Schau ihn Dir zuerst an; den Bayes-Faktor nimmst Du ergänzend dazu.
@@ -128,7 +128,7 @@ Erinnere Dich an den Datenhinweis (@sec-tag3-datenhinweis):
 |---|---|---|
 | Frage | $P(\text{Daten}\mid H_0)$ | $P(\text{Effekt}\mid \text{Daten})$ |
 | Ergebnis | p-Wert, Konfidenzintervall | **Posterior**, Credible Interval, (Bayes-Faktor) |
-| Direkte Wahrscheinlichkeit über den Effekt? | **nein** | **ja** (z. B. P(Differenz > 0)) |
+| Direkte Wahrscheinlichkeit über den Effekt? | **nein** | **ja** (z. B. [P(Differenz > 0)]{.nowrap}) |
 | Vorwissen | fließt nicht ein | über den Prior explizit |
 | H0 bestätigen? | Punkt-H0 nein (nur „kein relevanter Effekt“ per Äquivalenztest) | ja (BF zugunsten H0 bzw. Posterior nahe Null) |
 | „Daten sammeln bis signifikant“ | ohne Korrektur nicht zulässig (verzerrt p) | gilt als unkritischer (Posterior darf laufend angeschaut werden) |

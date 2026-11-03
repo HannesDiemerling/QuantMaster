@@ -19,7 +19,7 @@ Dieses Kapitel ist eine **Landkarte**, kein Trainingslager. Die folgenden Verfah
 - **Explorative Faktorenanalyse (EFA):** Du weißt *nicht* vorab, wie viele Faktoren es gibt, und lässt sie aus den Daten auftauchen. Für unseren BFI-K würdest Du erwarten, dass sich grob **fünf** Faktoren zeigen (die Big Five), bei rund 100 Personen und 21 Items aber nur unscharf.
 - **Hauptkomponentenanalyse (PCA):** verwandt, aber datenreduzierend statt modellbasiert; gut zum Zusammenfassen, nicht zum Theorie-Testen.
 
-**In JASP:** **Factor** → Exploratory Factor Analysis bzw. Principal Component Analysis. Achte auf den **Scree plot**, die Faktorenzahl (z. B. über **Eigenvalues above** 1, das Kaiser-Kriterium) und die **Faktorladungen** (welches Item lädt auf welchem Faktor).
+**In JASP:** **Factor** → Exploratory Factor Analysis bzw. Principal Component Analysis. Achte auf den **Scree plot**, die Faktorenzahl (z. B. über **Eigenvalues above** 1, das Kaiser-Kriterium) und die **Faktorladungen** (welches Item lädt auf welchem Faktor).
 
 ## CFA und Strukturgleichungsmodelle (SEM)
 
@@ -48,13 +48,13 @@ Statt latenter Faktoren zeichnet die **Netzwerkanalyse** Variablen als Knoten un
 
 Clustering ist **unüberwacht** (kein $Y$). Über die fünf Big-Five-Skalen könntest Du nach „Persönlichkeitstypen“ suchen. Methoden: **k-means**, hierarchisches Clustering, modellbasiertes Clustering.
 
-**In JASP:** **Machine Learning → Unsupervised Learning → Clustering**, z. B. **Neighborhood-Based** für k-means (vgl. Bonus in @sec-tag3-ml). Bei zufällig-kontinuierlichen Daten wie unseren sind „Typen“ mit Vorsicht zu genießen. Cluster lassen sich *immer* finden, ob sie *real* sind, ist eine andere Frage.
+**In JASP:** **Machine Learning → Unsupervised Learning → Clustering**, z. B. **Neighborhood-Based** für k-means (vgl. Bonus in @sec-tag3-ml). Bei zufällig-kontinuierlichen Daten wie unseren sind „Typen“ mit Vorsicht zu genießen. Cluster lassen sich *immer* finden, ob sie *real* sind, ist eine andere Frage.
 
-## Meta-Analyse
+## Metaanalyse
 
 **Frage:** Was sagt die **Gesamtheit** vorhandener Studien zu einem Effekt?
 
-Eine **Meta-Analyse** fasst Effektgrößen aus vielen Studien zu einer Gesamtschätzung zusammen, gewichtet nach Präzision (große Studien zählen mehr), und untersucht **Heterogenität** ($I^2$) und **Publikationsbias** (Funnel Plot). Sie gilt als höchste Evidenzstufe für eine Effektfrage und ein realistisches Format für eine Master-Arbeit, **ohne eigene Erhebung**.
+Eine **Metaanalyse** fasst Effektgrößen aus vielen Studien zu einer Gesamtschätzung zusammen, gewichtet nach Präzision (große Studien zählen mehr), und untersucht **Heterogenität** ($I^2$) und **Publikationsbias** (Funnel Plot). Sie gilt als höchste Evidenzstufe für eine Effektfrage und ein realistisches Format für eine Master-Arbeit, **ohne eigene Erhebung**.
 
 **In JASP:** **Meta-Analysis**. Du gibst Effektgrößen und Standardfehler je Studie ein und erhältst **Forest Plot**, Gesamteffekt und Heterogenitätsmaße.
 
@@ -67,7 +67,7 @@ Eine **Meta-Analyse** fasst Effektgrößen aus vielen Studien zu einer Gesamtsch
 | Mehrere Gleichungen + latente Variablen zusammen? | SEM |
 | Wie hängen Variablen als System zusammen? | Netzwerkanalyse |
 | Gibt es Personen-Untergruppen ohne Zielvariable? | Clusteranalyse |
-| Was sagen *alle* Studien zusammen? | Meta-Analyse |
+| Was sagen *alle* Studien zusammen? | Metaanalyse |
 | Binäres Ergebnis vorhersagen? | logistische Regression (@sec-tag3-logistisch) |
 | Genestete / Längsschnittdaten? | Mixed Model (@sec-tag3-mixed) |
 | Bestmögliche Vorhersage, viele Daten? | Machine Learning (@sec-tag3-ml) |

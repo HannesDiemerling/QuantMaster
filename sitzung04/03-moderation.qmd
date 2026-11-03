@@ -58,8 +58,8 @@ $b_3$ (der Interaktionskoeffizient) und seine Signifikanz bleiben durch Zentrier
 ## In JASP rechnen
 
 1. **Regression → Classical → Linear Regression**.
-2. **Dependent Variable:** $Y$ (z. B. `N_mean`).
-3. **Covariates:** die **zentrierten** Prädiktoren (z. B. `E_c`, `G_c`).
+2. **Dependent Variable:** $Y$ (z. B. `N_mean`).
+3. **Covariates:** die **zentrierten** Prädiktoren (z. B. `E_c`, `G_c`).
 4. Im Abschnitt **Model**: beide Prädiktoren links gemeinsam markieren (Strg-/Cmd-Klick) und nach rechts in das Feld **Model 1** ziehen. JASP fügt sie dabei als **Interaktion** hinzu. Dein Modell enthält dann: `E_c`, `G_c` **und** `E_c * G_c`.
 5. Optionen: Estimates mit Confidence intervals, Model fit.
 
@@ -107,7 +107,7 @@ Bei rund einem von zwanzig Tests passiert das rein zufällig (Fehler erster Art)
 
 **Bonus:**
 
-- Wiederhole mit einem anderen Paar (z. B. `O_c * V_c` auf `G_mean`). Auch null?
+- Wiederhole mit einem anderen Paar (z. B. `O_c * V_c` auf `G_mean`). Auch null?
 - Erkläre in zwei Sätzen, warum ein nicht-signifikanter Interaktionsterm hier **erwartbar** war (Verweis auf Datengenerierung und Power).
 
 ::: {.callout-tip title="Für die Abgabe"}

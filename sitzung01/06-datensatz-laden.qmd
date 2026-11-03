@@ -31,7 +31,7 @@ Wenn mehr als 10 Teilnehmende dabei sind, bearbeiten zwei (oder mehr) Personen d
 ### Datensatz finden
 
 1. Öffne im Browser den Ordner [`data/generated/` im Seminar-Repo]({{< meta kurs.repo >}}/tree/main/data/generated).
-2. Klick auf `datensatz-XX.csv`, wobei `XX` Deine Nummer ist (z. B. `datensatz-03.csv`).
+2. Klick auf `datensatz-XX.csv`, wobei `XX` Deine Nummer ist (z. B. `datensatz-03.csv`).
 
 GitHub zeigt Dir den CSV-Inhalt als Tabelle.
 

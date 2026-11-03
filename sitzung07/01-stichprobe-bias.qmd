@@ -24,7 +24,7 @@ Inhaltlich sagen die Daten deshalb wenig über echte Menschen aus. Für das Meth
 
 Zwei Begriffe, die im Alltag oft synonym verwendet werden, in der Statistik aber strikt getrennt sind:
 
-- **Population:** die *Gesamtheit* aller Fälle, über die Du eine Aussage treffen willst (z. B. „alle deutschen Erwachsenen 18–30“). Populationskennwerte (echtes Mittel $\mu$, echte Streuung $\sigma$) sind in der Praxis **unbekannt**.
+- **Population:** die *Gesamtheit* aller Fälle, über die Du eine Aussage treffen willst (z. B. „alle deutschen Erwachsenen 18–30“). Populationskennwerte (echtes Mittel $\mu$, echte Streuung $\sigma$) sind in der Praxis **unbekannt**.
 - **Stichprobe:** die *Teilmenge*, die Du tatsächlich gemessen hast. Stichproben-Kennwerte ($M$, $SD$) sind **bekannt**. Sie sind Schätzer für die Populationsgrößen.
 
 Der ganze Sinn von inferenzieller Statistik (t-Test, ANOVA, Regression) ist es, von der Stichprobe auf die Population zu schließen.
@@ -33,7 +33,7 @@ Dabei spielt die Stichprobengröße eine Schlüsselrolle. Es gibt einen mathemat
 
 > Wenn Du Deine Stichprobe immer größer machst, **konvergiert** das Stichprobenmittel $M$ gegen das wahre Populationsmittel $\mu$.
 
-Das ist das **Gesetz der großen Zahlen**. In einfachen Worten: viele Daten sind mit hoher Sicherheit nah an der Wahrheit, wenige Daten können weit daneben liegen, aber eben rein zufällig. Aus 12 Personen einen Bevölkerungs-Mittelwert schätzen ist deshalb nicht falsch, aber unsicher; aus 12.000 ist es ziemlich präzise.
+Das ist das **Gesetz der großen Zahlen**. In einfachen Worten: viele Daten sind mit hoher Sicherheit nah an der Wahrheit, wenige Daten können weit daneben liegen, aber eben rein zufällig. Aus 12 Personen einen Bevölkerungs-Mittelwert schätzen ist deshalb nicht falsch, aber unsicher; aus 12 000 ist es ziemlich präzise.
 
 ::: {.callout-important title="Die wichtige Einschränkung"}
 Das Gesetz der großen Zahlen hilft Dir **nur**, wenn die Stichprobe *unverzerrt* ist. Bei einem **Bias** (siehe nächster Abschnitt) bringt Dir mehr *N* gar nichts. Du näherst Dich nur immer präziser dem **falschen** Wert. Genau das ist das Tückische an Bias: man merkt es nicht durch Mehr-Daten-Sammeln.
@@ -58,9 +58,9 @@ Alle Tests aus dem Seminar folgen derselben Logik. Ob *t*, *z* oder *F*: Im Kern
 | Verfahren | Vorgehen | Typisch für |
 |---|---|---|
 | **Einfache Zufallsstichprobe** | Jede Person der Population hat dieselbe Chance, gezogen zu werden. | Ideal der Inferenzstatistik, in der Praxis selten erreichbar |
-| **Geschichtete Stichprobe** | Population in Schichten teilen (z. B. Altersgruppen), in jeder Schicht zufällig ziehen. | Bevölkerungsumfragen, wenn kleine Gruppen sicher vertreten sein sollen |
-| **Klumpenstichprobe** | Ganze Gruppen zufällig ziehen (z. B. Praxen, Schulklassen) und alle darin befragen. | Versorgungsforschung; erzeugt genestete Daten (@sec-tag3-mixed) |
-| **Quotenstichprobe** | Vorgegebene Anteile (z. B. 50 % Frauen) gezielt auffüllen, aber nicht zufällig. | Markt- und Meinungsforschung |
+| **Geschichtete Stichprobe** | Population in Schichten teilen (z. B. Altersgruppen), in jeder Schicht zufällig ziehen. | Bevölkerungsumfragen, wenn kleine Gruppen sicher vertreten sein sollen |
+| **Klumpenstichprobe** | Ganze Gruppen zufällig ziehen (z. B. Praxen, Schulklassen) und alle darin befragen. | Versorgungsforschung; erzeugt genestete Daten (@sec-tag3-mixed) |
+| **Quotenstichprobe** | Vorgegebene Anteile (z. B. 50 % Frauen) gezielt auffüllen, aber nicht zufällig. | Markt- und Meinungsforschung |
 | **Gelegenheitsstichprobe** | Wer erreichbar ist und mitmacht. | Studierendenpools, Online-Studien, Ambulanzen |
 
 In der Psychotherapieforschung sind Gelegenheitsstichproben der Normalfall, etwa alle Patient:innen einer Hochschulambulanz. Das ist kein Fehler, schränkt aber ein, auf wen sich Ergebnisse übertragen lassen. Genau hier setzen die Bias-Typen im nächsten Abschnitt an.
@@ -115,13 +115,13 @@ Berichte deshalb in Ergebnissen immer **Effektgröße + Konfidenzintervall**, ni
 
 ## Fehlende Werte (Missings)
 
-Erinnerung aus Sitzung 01: Bei der Bereinigung hast Du Werte „auf fehlend gesetzt“, wenn sie nicht reparierbar waren. In echten Studien verteilen sich fehlende Werte oft nicht zufällig, sondern haben ein Muster (z. B. *„Personen, die müde waren, lassen das letzte Item öfter offen“*). Drei Arten unterscheidet die Literatur:
+Erinnerung aus Sitzung 01: Bei der Bereinigung hast Du Werte „auf fehlend gesetzt“, wenn sie nicht reparierbar waren. In echten Studien verteilen sich fehlende Werte oft nicht zufällig, sondern haben ein Muster (z. B. *„Personen, die müde waren, lassen das letzte Item öfter offen“*). Drei Arten unterscheidet die Literatur:
 
 | Bezeichnung | Bedeutung |
 |---|---|
 | **MCAR** (Missing Completely At Random) | Fehlen rein zufällig. Angenehm, aber selten realistisch. |
-| **MAR** (Missing At Random) | Fehlen abhängig von *beobachteten* Variablen (z. B. ältere Personen lassen häufiger Items aus). |
-| **MNAR** (Missing Not At Random) | Fehlen abhängig vom *unbeobachteten* Wert selbst (z. B. depressive Personen überspringen Items zu depressiven Symptomen). |
+| **MAR** (Missing At Random) | Fehlen abhängig von *beobachteten* Variablen (z. B. ältere Personen lassen häufiger Items aus). |
+| **MNAR** (Missing Not At Random) | Fehlen abhängig vom *unbeobachteten* Wert selbst (z. B. depressive Personen überspringen Items zu depressiven Symptomen). |
 
 JASP zeigt Dir in der Descriptives-Tabelle für jede Variable die Anzahl **Missing**. Schau einmal hin: gibt es Items mit deutlich mehr Missings als andere? Das kann auf MAR oder MNAR hindeuten und ist ein Anlass, im echten Forschungskontext genauer hinzuschauen.
 

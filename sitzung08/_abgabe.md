@@ -6,7 +6,7 @@ S08-3 Sind die Gruppen im Sinne des Äquivalenztests äquivalent? (ja/nein):
 S08-4 Bayes-t-Test (G_mean ~ geschlecht): Median δ: 
 S08-5 Bayes-t-Test: 95 %-Credible-Interval [untere, obere]: 
 S08-6 Bayes-t-Test: BF10: 
-S08-7 Bayes-Korrelation (E_mean × O_mean): Median ρ: 
+S08-7 Bayes-Korrelation (E_mean × O_mean): Median rho (ρ): 
 S08-8 Bayes-Korrelation: 95 %-Credible-Interval [untere, obere]: 
 S08-9 Ein Satz: Welche Wahrscheinlichkeitsaussage erlaubt der Posterior, die ein p-Wert nicht erlaubt? 
 ```

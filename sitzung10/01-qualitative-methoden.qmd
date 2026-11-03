@@ -19,20 +19,20 @@ Nicht jede Forschungsfrage lässt sich mit Fragebögen und Mittelwerten beantwor
 |---|---|---|
 | **Ziel** | Hypothesen prüfen, verallgemeinern | Phänomene verstehen, Theorien entwickeln |
 | **Daten** | Zahlen (standardisierte Messung) | Texte, Bilder, Beobachtungen |
-| **Stichprobe** | groß, möglichst repräsentativ | klein, gezielt ausgewählt (z. B. bis zur *theoretischen Sättigung*) |
+| **Stichprobe** | groß, möglichst repräsentativ | klein, gezielt ausgewählt (z. B. bis zur *theoretischen Sättigung*) |
 | **Rolle der Forschenden** | möglichst unabhängig | Teil des Prozesses → Reflexivität |
 
 ## Erhebung und Auswertung
 
-- **Erhebung:** (halb-)strukturierte Interviews, Fokusgruppen, teilnehmende Beobachtung, Dokumente (z. B. Therapieprotokolle).
+- **Erhebung:** (halb-)strukturierte Interviews, Fokusgruppen, teilnehmende Beobachtung, Dokumente (z. B. Therapieprotokolle).
 - **Auswertung:**
-  - **Qualitative Inhaltsanalyse** (z. B. nach Mayring oder Kuckartz): Text wird anhand eines Kategoriensystems kodiert, deduktiv (aus Theorie) oder induktiv (aus dem Material).
+  - **Qualitative Inhaltsanalyse** (z. B. nach Mayring oder Kuckartz): Text wird anhand eines Kategoriensystems kodiert, deduktiv (aus Theorie) oder induktiv (aus dem Material).
   - **Thematische Analyse:** Themen über Interviews hinweg identifizieren.
   - **Grounded Theory:** aus den Daten heraus schrittweise eine Theorie entwickeln.
 
 ## Gütekriterien
 
-Objektivität, Reliabilität und Validität im engeren Sinn passen nur bedingt. Gebräuchlich sind u. a.: **Transparenz** (Vorgehen dokumentiert), **intersubjektive Nachvollziehbarkeit**, **Reflexivität** (eigene Vorannahmen offenlegen), **kommunikative Validierung** (Rückmeldung durch Teilnehmende) und **Triangulation** (mehrere Methoden, Daten oder Forschende).
+Objektivität, Reliabilität und Validität im engeren Sinn passen nur bedingt. Gebräuchlich sind u. a.: **Transparenz** (Vorgehen dokumentiert), **intersubjektive Nachvollziehbarkeit**, **Reflexivität** (eigene Vorannahmen offenlegen), **kommunikative Validierung** (Rückmeldung durch Teilnehmende) und **Triangulation** (mehrere Methoden, Daten oder Forschende).
 
 Bei kategorienbasierten Verfahren kodieren oft **zwei Personen unabhängig** dasselbe Material. Ihre Übereinstimmung wird quantifiziert, und hier treffen sich beide Welten.
 

@@ -69,7 +69,7 @@ QuantMaster/
 ├── data/
 │   ├── generated/          # 10 Übungsdatensätze
 │   ├── student-uploads/    # ← HIER hochladen
-│   └── combined/           # Gesamtdatensatz (automatisch)
+│   └── combined/           # Gesamtdatensatz
 └── scripts/                # R-Skripte
 ```
 

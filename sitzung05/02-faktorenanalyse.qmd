@@ -17,11 +17,11 @@ Der BFI-K behauptet: Hinter 21 Items stecken **fünf** Persönlichkeitsfaktoren.
 
 | Begriff | Bedeutung |
 |---|---|
-| **Latenter Faktor** | nicht direkt beobachtbare Variable (z. B. Extraversion), die mehrere Items beeinflusst |
+| **Latenter Faktor** | nicht direkt beobachtbare Variable (z. B. Extraversion), die mehrere Items beeinflusst |
 | **Ladung** | Zusammenhang eines Items mit einem Faktor (ähnlich einer Korrelation); ab ca. .40 gilt ein Item als „zugehörig“ |
 | **Kommunalität** | Anteil der Varianz eines Items, der durch die Faktoren erklärt wird |
 | **Eigenwert** | erklärte Varianz eines Faktors (in „Item-Einheiten“) |
-| **Rotation** | macht die Lösung interpretierbarer; *orthogonal* (Faktoren unkorreliert, z. B. varimax) oder *oblique* (Faktoren dürfen korrelieren, z. B. promax) |
+| **Rotation** | macht die Lösung interpretierbarer; *orthogonal* (Faktoren unkorreliert, z. B. varimax) oder *oblique* (Faktoren dürfen korrelieren, z. B. promax) |
 
 **EFA vs. PCA:** Die PCA fasst die *gesamte* Varianz der Items in Komponenten zusammen (Datenreduktion). Die EFA modelliert nur die *gemeinsame* Varianz und trennt sie vom Messfehler. Sie ist das Modell der klassischen Testtheorie und passt besser zur Frage nach latenten Konstrukten.
 

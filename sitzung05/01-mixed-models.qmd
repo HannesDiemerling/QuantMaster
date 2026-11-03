@@ -57,13 +57,19 @@ Der ICC sagt also: **Wie viel Prozent der Gesamtstreuung geht auf die Gruppenzug
 Mixed Models stecken im Modul **Mixed Models** (standardmäßig sichtbar; nutzt im Hintergrund `lme4`).
 
 1. **Mixed Models → Classical → Linear Mixed Models**.
-2. **Dependent variable:** das metrische Kriterium (z. B. `O_mean`).
-3. **Fixed effects variables:** die interessierenden Prädiktoren (z. B. `E_mean`).
+2. **Dependent variable:** das metrische Kriterium (z. B. `O_mean`).
+3. **Fixed effects variables:** die interessierenden Prädiktoren (z. B. `E_mean`).
 4. **Random effects grouping factors:** die Gruppenvariable (bei uns `quelle_datensatz`, sie muss dafür **Nominal** sein). Im Abschnitt **Model → Random effects** sind standardmäßig der **Intercept** (Random Intercept) und zusätzlich jeder Prädiktor (**Random Slope**) angehakt. Für ein reines Random-Intercept-Modell entfernst Du dort das Häkchen beim Prädiktor.
 5. Im Abschnitt **Options**: **Fixed effects estimates** und **Variance/correlation estimates** ankreuzen.
 6. Output lesen:
    - **Fixed effects:** Koeffizienten wie in der normalen Regression, aber mit korrigierten Standardfehlern.
-   - **Variance/correlation estimates:** die Varianz zwischen Gruppen (`quelle_datensatz`) und die Residualvarianz. JASP gibt **keinen ICC** aus, Du berechnest ihn selbst: $\text{ICC} = \dfrac{\text{Varianz Gruppe}}{\text{Varianz Gruppe} + \text{Residualvarianz}}$. Steckt ein Prädiktor im Modell, ist das streng genommen ein ICC *nach Kontrolle* dieses Prädiktors; der klassische ICC stammt aus einem Modell ganz ohne Prädiktor.
+   - **Variance/correlation estimates:** die Varianz zwischen Gruppen (`quelle_datensatz`) und die Residualvarianz. JASP gibt **keinen ICC** aus, Du berechnest ihn selbst:
+
+     $$
+     \text{ICC} = \dfrac{\text{Varianz Gruppe}}{\text{Varianz Gruppe} + \text{Residualvarianz}}
+     $$
+
+     Steckt ein Prädiktor im Modell, ist das streng genommen ein ICC *nach Kontrolle* dieses Prädiktors; der klassische ICC stammt aus einem Modell ganz ohne Prädiktor.
 
 ## Was unsere Daten hergeben
 
@@ -106,7 +112,7 @@ Für den Spezialfall „jede Person mehrfach unter wenigen Bedingungen gemessen�
 - Erkläre in zwei Sätzen, wie der ICC aussähe, wenn die zehn Datensätze aus **verschiedenen** Populationen stammten.
 
 ::: {.callout-tip title="Für die Abgabe"}
-Notiere: festen Effekt von `E_mean`, die Varianz von `quelle_datensatz` und den daraus berechneten ICC. Siehe @sec-s05-abschluss.
+Notiere: den festen Effekt von `E_mean`, die Varianz von `quelle_datensatz` und den daraus berechneten ICC. Siehe @sec-s05-abschluss.
 :::
 
 ## Selbstcheck

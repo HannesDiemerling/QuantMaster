@@ -13,7 +13,7 @@ Nach diesem Kapitel kannst Du …
 
 Die ANOVA ist die Verallgemeinerung des *t*-Tests aus @sec-tag2-ttest auf mehr als zwei Gruppen und das klassische Auswertungsverfahren für experimentelle Designs mit mehreren Gruppen (@sec-power).
 
-Sobald Du **mehr als zwei Gruppen** vergleichst (z. B. Bildungsgrad mit sieben Stufen oder die zehn Quell-Datensätze), reicht der t-Test nicht mehr. Stapelst Du einfach mehrere t-Tests übereinander, vervielfachst Du die Fehlerwahrscheinlichkeit (Multiple-Testing-Problem). Die **Analysis of Variance (ANOVA)** löst das mit einem einzigen Globaltest, gefolgt von gezielten Folgetests.
+Sobald Du **mehr als zwei Gruppen** vergleichst (z. B. Bildungsgrad mit sieben Stufen oder die zehn Quell-Datensätze), reicht der t-Test nicht mehr. Stapelst Du einfach mehrere t-Tests übereinander, vervielfachst Du die Fehlerwahrscheinlichkeit (Multiple-Testing-Problem). Die **Analysis of Variance (ANOVA)** löst das mit einem einzigen Globaltest, gefolgt von gezielten Folgetests.
 
 ## Multiple-Testing-Problem in einem Satz
 
@@ -39,7 +39,7 @@ Ist $F$ groß (Unterschiede zwischen den Gruppen sind groß im Verhältnis zur S
 Wie beim t-Test gilt: der p-Wert reicht nicht. Du brauchst eine Effektgröße.
 
 | Maß | Bedeutet | Konvention nach Cohen (grobe Orientierung) |
-|---:|---|---|
+|---|---|---|
 | **$\eta^2$ (Eta-Quadrat)** | Anteil der Gesamtvarianz, der durch die Gruppen erklärt wird | klein .01, mittel .06, groß .14 |
 | **$\omega^2$ (Omega-Quadrat)** | weniger verzerrte Variante von $\eta^2$ | dieselben Werte, präziser bei kleinem $N$ |
 | **partielles $\eta^2_p$** | bei mehrfaktorieller ANOVA: Anteil pro Faktor | dieselben Werte, vorsichtig bei Vergleichen über Studien hinweg |
@@ -80,7 +80,7 @@ Ein signifikanter Global-F sagt: „Irgendwo unter den Gruppen ist ein Unterschi
 | **Scheffé** | sehr konservativ, beliebige Kontraste | Power gering, breit verteidigbar |
 | **Bonferroni** | wenige geplante Vergleiche | konservativ, aber transparent |
 | **Holm** | wie Bonferroni, sequenziell | gleiche Kontrolle, mehr Power |
-| **Games-Howell** | bei Varianzungleichheit | Welch-Variante des Tukey |
+| **[Games-Howell]{.nowrap}** | bei Varianzungleichheit | Welch-Variante des Tukey |
 
 In JASP ist bei *Correction* **Tukey** schon voreingestellt. Wenn Welch-ANOVA gerechnet wurde, nimm stattdessen **Games-Howell** (unter *Type*).
 
@@ -93,7 +93,7 @@ In JASP ist bei *Correction* **Tukey** schon voreingestellt. Wenn Welch-ANOVA ge
 | A3 | Die zehn vorgenerierten Quell-Datensätze unterscheiden sich nicht in Extraversion. | `E_mean` ~ `quelle_datensatz` |
 | A4 | Die drei Geschlechter-Kategorien (1, 2, 3) unterscheiden sich nicht in Neurotizismus. | `N_mean` ~ `geschlecht` |
 
-A3 ist ein **Sanity-Check**: Die Datensätze wurden mit derselben Verteilung erzeugt, sollten sich also eigentlich *nicht* unterscheiden. Wird A3 trotzdem signifikant, ist das noch kein Grund zur Sorge: Bei α = .05 kommt ein solcher Fehler 1. Art auch dann vor, wenn alles stimmt, und bei nur rund zehn Personen pro Datensatz ziehen einzelne Datensätze leicht extremere Werte. Erst wenn ein Datensatz völlig aus der Reihe fällt, lohnt der Blick auf das Kombinieren (@sec-tag2-kombinieren).
+A3 ist ein **Sanity-Check**: Die Datensätze wurden mit derselben Verteilung erzeugt, sollten sich also eigentlich *nicht* unterscheiden. Wird A3 trotzdem signifikant, ist das noch kein Grund zur Sorge: Bei α = .05 kommt ein solcher Fehler 1. Art auch dann vor, wenn alles stimmt, und bei nur rund zehn Personen pro Datensatz ziehen einzelne Datensätze leicht extremere Werte. Erst wenn ein Datensatz völlig aus der Reihe fällt, lohnt der Blick auf das Kombinieren (@sec-tag2-kombinieren).
 
 ## Ein vollständiger Bericht
 

@@ -24,7 +24,7 @@ JASP ist in drei Bereiche aufgeteilt:
 | **Links** | Datenansicht (ähnlich wie eine Tabellenkalkulation), hier siehst Du Deine Variablen |
 | **Rechts** | Output mit Analyse-Ergebnissen |
 
-Menüpfade in diesem Seminar beginnen deshalb direkt mit dem Modul-Button, z. B. **Descriptives → Descriptive Statistics**. Module, die nicht sichtbar sind (z. B. Reliability, Machine Learning, SEM), schaltest Du über das blaue **„+“** oben rechts frei.
+Menüpfade in diesem Seminar beginnen deshalb direkt mit dem Modul-Button, z. B. **Descriptives → Descriptive Statistics**. Module, die nicht sichtbar sind (z. B. Reliability, Machine Learning, SEM), schaltest Du über das blaue **„+“** oben rechts frei.
 
 Wichtig: Ein Doppelklick auf den **Spaltenkopf** öffnet das Variablen-Fenster (Name, Typ, Werte und Labels).
 
@@ -126,7 +126,7 @@ JASP speichert Analysen in `.jasp`-Dateien, die brauchen wir hier nicht. **Wir b
 4. Speichern an einem Ort, an dem Du sie wiederfindest.
 
 ::: {.callout-tip title="Häufiges Problem"}
-Falls JASP beim Export Werte als Kommazahlen schreibt (z. B. `3.00` statt `3`), ist das für unseren Workflow kein Problem. Der Merge-Workflow liest beides.
+Falls JASP beim Export Werte als Kommazahlen schreibt (z. B. `3.00` statt `3`), ist das für unseren Workflow kein Problem. Der Merge-Workflow liest beides.
 :::
 
 ## Aufgabe

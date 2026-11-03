@@ -61,7 +61,7 @@ book:
         - sitzung05/01-mixed-models.qmd
         - sitzung05/02-faktorenanalyse.qmd
         - sitzung05/99-abschluss.qmd
-    - part: "Sitzung 06 · Woche 10 · Strukturgleichungsmodelle"
+    - part: "Sitzung 06 · Woche 10 · Struktur­gleichungs­modelle"
       chapters:
         - sitzung06/00-uebersicht.qmd
         - sitzung06/01-cfa-sem.qmd

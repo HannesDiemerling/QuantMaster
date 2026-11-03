@@ -34,7 +34,7 @@ Beides gleich aussagekräftig, solange alle Items dasselbe Antwortformat haben (
 | | Vorteil | Nachteil |
 |---|---|---|
 | **Mittelwert** | Skala bleibt auf 1–5, direkt mit Items vergleichbar | technisch etwas mehr Aufwand bei Missings |
-| **Summe** | einfacher zu rechnen | Skala ändert sich (E z. B. 4–20), weniger intuitiv |
+| **Summe** | einfacher zu rechnen | Skala ändert sich (E z. B. 4–20), weniger intuitiv |
 
 Wir nehmen den **Mittelwert**, weil er leichter zu interpretieren ist. Achtung bei Missings: Die Formel unten ergibt **fehlend**, sobald auch nur ein Item der Skala fehlt. Das ist eine bewusste, strenge Regel (wir rechnen nur mit vollständigen Skalen). JASP kennt auch die Funktion `rowMeanNaRm(...)`, die fehlende Items einfach überspringt. Für die Abgabe nutzt Du aber die Formel unten, damit alle dieselben Werte haben.
 
@@ -116,7 +116,7 @@ Im BFI-K sind die Skalen *kurz* (4–5 Items). Erwarte deshalb keine sehr hohen 
 ### In JASP
 
 1. Modul **Reliability** über das **„+“** oben rechts aktivieren, dann **Reliability → Classical → Reliability**.
-2. Zieh die **Items einer Skala** in das Feld „Variables“ (z. B. `BFI_01`, `BFI_06`, `BFI_11`, `BFI_16` für Extraversion).
+2. Zieh die **Items einer Skala** in das Feld „Variables“ (z. B. `BFI_01`, `BFI_06`, `BFI_11`, `BFI_16` für Extraversion).
 3. In den Options:
    - Abschnitt **Scale Statistics:** **Cronbach's α** ankreuzen (**McDonald's ω** ist schon an)
    - Abschnitt **Individual Item Statistics:** **Mean** und **SD** (Item-Kennwerte), **Item-rest correlation** (Korrelation jedes Items mit der Skala ohne dieses Item; zeigt, ob ein Item „nicht reinpasst“) und **Cronbach's α (if item dropped)** (wie sich α verändert, wenn man das Item rausnimmt)
@@ -127,7 +127,7 @@ Im BFI-K sind die Skalen *kurz* (4–5 Items). Erwarte deshalb keine sehr hohen 
 ### Interpretation
 
 - Steht in der Spalte **Cronbach's α (if item dropped)** ein Wert *höher* als der Gesamt-α, ist das Item ein Kandidat zum Rauswerfen. Es passt nicht zur Skala.
-- Bei kurzen Skalen wirst Du das aber selten machen, weil die Skala dann zu klein wird (z. B. 3 statt 4 Items).
+- Bei kurzen Skalen wirst Du das aber selten machen, weil die Skala dann zu klein wird (z. B. 3 statt 4 Items).
 - **Item-rest correlation** unter .30 → das Item passt eher schlecht zur Skala.
 
 Warum ist das wichtig? Messfehler schwächt Zusammenhänge ab: Das beobachtete $r$ ist ungefähr das wahre $r$ mal $\sqrt{\text{Rel}_X \cdot \text{Rel}_Y}$. Bei einer Reliabilität von .60 auf beiden Seiten wird aus einem wahren $r = .50$ nur noch etwa $.30$, und die Power sinkt entsprechend.
