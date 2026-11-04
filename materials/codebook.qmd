@@ -36,7 +36,7 @@ Der Gesamtdatensatz `data/combined/m15-gesamt.csv` hat zusätzlich die Spalten `
 
 - Ganzzahl, innerhalb eines Datensatzes eindeutig.
 - In den vorgenerierten Datensätzen: 1–9.
-- Die Zeile Deiner fiktiven Person bekommt Deine Kennziffer ($2000 + n$, z. B. 2013).
+- Die Zeile Deiner fiktiven Person bekommt Deine Kennziffer (Deine Matrikelnummer, z. B. 1234567).
 
 ### `geschlecht`
 

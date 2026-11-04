@@ -40,7 +40,7 @@ In Sitzung 01 schaust Du in der offiziellen Teilnehmerliste der Veranstaltung na
 
 ## Abgaben
 
-Pro Sitzung schickst Du **eine** kurze Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}) mit dem Betreff `M15 SNN <Kennziffer>`, also zum Beispiel `M15 S03 2013`. Die Vorlage zum Kopieren steht jeweils im Abschluss-Kapitel der Sitzung. Abgegeben werden fast nur **Zahlen und kurze Antworten**, die Du aus Deinen JASP-Analysen abliest. Screenshots und Plots brauchst Du nicht zu schicken. Weil alle mit demselben Gesamtdatensatz arbeiten, sind die Ergebnisse direkt vergleichbar.
+Pro Sitzung schickst Du **eine** kurze Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}) mit dem Betreff `M15 SNN <Kennziffer>`, also zum Beispiel `M15 S03 1234567`. Die Vorlage zum Kopieren steht jeweils im Abschluss-Kapitel der Sitzung. Abgegeben werden fast nur **Zahlen und kurze Antworten**, die Du aus Deinen JASP-Analysen abliest. Screenshots und Plots brauchst Du nicht zu schicken. Weil alle mit demselben Gesamtdatensatz arbeiten, sind die Ergebnisse direkt vergleichbar.
 
 ## Software und Zugänge
 

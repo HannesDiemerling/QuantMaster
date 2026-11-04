@@ -26,7 +26,8 @@ OUT_REPORT <- "data/combined/merge-report.md"
 OUT_META   <- "data/combined/meta-studien.csv"
 UPLOAD_DIR <- "data/student-uploads"
 MIN_MATCH  <- 19          # so viele BFI-Items müssen übereinstimmen
-KENNZIFFER <- 2001:2099   # gültige Kennziffern (2000 + Listennummer)
+# gültige Kennziffer: ganze Zahl mit 4 bis 12 Stellen, z. B. die Matrikelnummer
+is_kz <- function(x) !is.na(x) & x == round(x) & x >= 1000 & x < 1e12
 ALLE_SEEDS <- TRUE        # alle 10 Seed-Datensätze aufnehmen, auch wenn einer nicht hochgeladen wurde
                           # (hält N, Metaanalyse und Mixed Model bei kleinen Kursen stabil)
 
@@ -216,7 +217,7 @@ main <- function() {
                  gefunden = NA, abweichungen = NA, kz = NULL)
     if (!startsWith(f, paste0(UPLOAD_DIR, "/")))
       info$hinweise <- c(info$hinweise, "liegt NICHT in data/student-uploads/")
-    if (!grepl("^datensatz-[0-9]{2}-[0-9]{4}\\.csv$", basename(f)))
+    if (!grepl("^datensatz-[0-9]{2}-[0-9]{4,12}\\.csv$", basename(f)))
       info$hinweise <- c(info$hinweise, "Dateiname weicht vom Schema datensatz-XX-<Kennziffer>.csv ab (für den Merge unkritisch)")
 
     up <- tryCatch(read_upload(f),
@@ -286,9 +287,9 @@ main <- function() {
       pruefen("keine Übungsdaten erkannt (nur die fiktive Person? Bereinigte Übungsdaten fehlen)")
     if (nrow(mine) == 1) {
       info$kz <- mine$probandennummer
-      if (is.na(mine$probandennummer) || !(mine$probandennummer %in% KENNZIFFER))
-        pruefen(sprintf("Kennziffer %s ungültig (muss 2000 + Listennummer sein, z. B. 2013)",
-                        ifelse(is.na(mine$probandennummer), "fehlt oder ist keine Zahl,", format(mine$probandennummer))))
+      if (!is_kz(mine$probandennummer))
+        pruefen(sprintf("Kennziffer %s ungültig (ganze Zahl mit mindestens 4 Stellen, z. B. Deine Matrikelnummer)",
+                        ifelse(is.na(mine$probandennummer), "fehlt oder ist keine Zahl,", format(mine$probandennummer, scientific = FALSE))))
       mine <- clean_range(mine)
       if (attr(mine, "n_bad") > 0)
         pruefen(sprintf("%d Wert(e) der fiktiven Person außerhalb des erlaubten Bereichs -> fehlend", attr(mine, "n_bad")))
@@ -323,10 +324,10 @@ main <- function() {
     }
     own_df <- own_df[!dup, ]
     pn <- own_df$probandennummer
-    valid <- !is.na(pn) & pn %in% KENNZIFFER & !(pn %in% pn[duplicated(pn)])
+    valid <- is_kz(pn) & !(pn %in% pn[duplicated(pn)]) & !(pn %in% seed_df$id)
     own_df$id <- ifelse(valid, pn, NA)
     fallback <- which(!valid)
-    own_df$id[fallback] <- 3000 + seq_along(fallback)
+    own_df$id[fallback] <- max(c(seed_df$id, own_df$id), na.rm = TRUE) + seq_along(fallback)
     for (f in unique(own_df$quelle_datei[fallback])) {
       k <- fallback[own_df$quelle_datei[fallback] == f]
       dup_notes <- c(dup_notes, sprintf("`%s`: Probandennummer %s keine gültige/eindeutige Kennziffer -> id %s",

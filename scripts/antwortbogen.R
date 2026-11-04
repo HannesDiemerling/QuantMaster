@@ -72,7 +72,7 @@ auc <- function(score, y) { r <- rank(score); n1 <- sum(y == 1); n0 <- sum(y == 
 has <- function(p) requireNamespace(p, quietly = TRUE)
 
 # === Sitzung 1: Einstieg & Bereinigung =========================================
-add("einstieg", "Kennziffer", "2000 + Listennummer", hinweis = "mit Teilnehmerliste abgleichen")
+add("einstieg", "Kennziffer", "Matrikelnummer", hinweis = "mit Merge-Report abgleichen")
 add("einstieg", "GitHub-Benutzername (oder „kein Account“)", hinweis = "falls vorhanden: Collaborator-Einladung verschicken")
 add("einstieg", "Ein Reverse-Item wurde mit 2 beantwortet. Rekodierter Wert", "4")
 add("einstieg", "Anzahl Reverse-Items im BFI-K", "8", hinweis = "Items 1, 2, 8, 9, 11, 12, 17, 21")
