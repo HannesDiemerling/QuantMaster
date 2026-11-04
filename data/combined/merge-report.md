@@ -1,6 +1,6 @@
 # Merge-Report
 
-Automatisch erzeugt von `scripts/merge-uploads.R` am 04.11.2026 12:40.
+Automatisch erzeugt von `scripts/merge-uploads.R` am 04.11.2026 12:43.
 
 **Gesamtdatensatz:** `data/combined/m15-gesamt.csv` mit **92 Zeilen** (90 vorgeneriert aus 10 Datensätzen, 2 fiktive Personen).
 
@@ -19,3 +19,4 @@ Suche Deine Datei über Deine **Kennziffer**. Handeln musst Du nur bei Status IG
 ## Weitere Hinweise
 
 - Nicht hochgeladene Seed-Datensätze: 01, 02, 04, 05, 06, 07, 08, 10 (trotzdem im Gesamtdatensatz enthalten)
+- Ignoriert (kein CSV): `data/student-uploads/datensatz-08-817.jasp`
