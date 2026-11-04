@@ -1,6 +1,6 @@
 # Merge-Report
 
-Automatisch erzeugt von `scripts/merge-uploads.R` am 04.11.2026 12:37.
+Automatisch erzeugt von `scripts/merge-uploads.R` am 04.11.2026 12:38.
 
 **Gesamtdatensatz:** `data/combined/m15-gesamt.csv` mit **91 Zeilen** (90 vorgeneriert aus 10 Datensätzen, 1 fiktive Personen).
 
@@ -13,6 +13,7 @@ Suche Deine Datei über Deine **Kennziffer**. Handeln musst Du nur bei Status IG
 | Datei | Kennziffer | Status | Datensatz | fiktive Personen | Fehler gefunden | Abweichungen von Referenz | Hinweise |
 |---|---|---|---|---:|---|---:|---|
 | `data/student-uploads/datensatz-03-31005.csv` | 261831005 | ok | 03 | 1 | 2/2 | 0 | – |
+| `data/student-uploads/datensatz-08 – 31015.csv` | – | IGNORIERT | – | 0 | – | – | Dateiname weicht vom Schema datensatz-XX-<Kennziffer>.csv ab (für den Merge unkritisch); Spalten fehlen: probandennummer, geschlecht, alter, bildungsgrad, BFI_01 (Kopfzeile fehlt oder Trennzeichen gemischt? Datei im Texteditor prüfen) |
 
 ## Weitere Hinweise
 
