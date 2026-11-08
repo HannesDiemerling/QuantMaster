@@ -44,7 +44,7 @@ datensatz-<XX>-<Kennziffer>.csv
 ```
 
 - `<XX>` ist Deine zweistellige Datensatznummer.
-- `<Kennziffer>` ist Deine vierstellige Kennziffer (@sec-nummern).
+- `<Kennziffer>` ist Deine Kennziffer, also Deine Matrikelnummer (@sec-nummern).
 - Beispiel: `datensatz-03-1234567.csv` (Datensatz 3, Kennziffer 1234567).
 - Bitte **keine Namen oder Initialen** im Dateinamen. Das Repo ist öffentlich.
 
@@ -60,15 +60,31 @@ Es gibt zwei Wege. **Weg A** ist empfohlen, **Weg B** ist der Ausweg ohne GitHub
 
 Du brauchst nur einen Browser und Deinen GitHub-Account, keine zusätzliche Software.
 
+**Vorher einmalig: Einladung annehmen.** Die Lehrperson lädt Dich als *Collaborator* ein. Die Einladung kommt per Mail von GitHub, Du findest sie auch unter [{{< meta kurs.repo >}}/invitations]({{< meta kurs.repo >}}/invitations). Klick dort auf **Accept invitation**. Erst danach darfst Du hochladen.
+
+**Hochladen:**
+
 1. Auf [github.com](https://github.com) anmelden (oben rechts **Sign in**).
-2. Den Ordner [`data/student-uploads/`]({{< meta kurs.repo >}}/tree/main/data/student-uploads) im Seminar-Repo öffnen (oder im Repo nacheinander auf **`data`** und **`student-uploads`** klicken). Oben über der Liste steht jetzt `QuantMaster / data / student-uploads /`.
-3. Rechts über der Dateiliste auf den Button **Add file** klicken und im Menü **Upload files** wählen.
-4. Deine Datei `datensatz-XX-<Kennziffer>.csv` aus dem Datei-Explorer bzw. Finder in das große Feld „*Drag files here …*“ ziehen oder auf **choose your files** klicken und sie auswählen. Die Datei erscheint unter dem Feld mit ihrem Namen.
-5. Darunter steht der Kasten **Commit changes**. Ins erste Feld eine kurze Beschreibung schreiben, z. B. *„Upload Datensatz 03, Kennziffer 1234567“*.
-6. Je nach Rechten siehst Du:
-   - **„Commit directly to the `main` branch“** → ausgewählt lassen, dann den grünen Button **Commit changes** klicken. Fertig.
-   - **„Create a new branch for this commit and start a pull request“** → bitte auf **Commit directly to the `main` branch** umstellen. Gibt es diese Option nicht oder ist das Hochladen gesperrt, hast Du noch keine Schreibrechte (Einladung nicht angenommen oder abgelaufen). Dann nimm Weg B per Mail.
-7. Zurück im Ordner `data/student-uploads/` sollte Deine Datei in der Liste stehen. Meldet GitHub „Commit failed“, lade die Datei einfach noch einmal hoch. Das kann passieren, wenn viele gleichzeitig hochladen.
+2. Den Ordner [`data/student-uploads/`]({{< meta kurs.repo >}}/tree/main/data/student-uploads) öffnen. Kontrolle: Oben über der Dateiliste steht `QuantMaster / data / student-uploads /`. Steht dort etwas anderes (z. B. nur `QuantMaster` oder `data / generated`), bist Du im falschen Ordner.
+3. Rechts über der Dateiliste auf **Add file** klicken und **Upload files** wählen.
+4. Deine Datei `datensatz-XX-<Kennziffer>.csv` aus dem Datei-Explorer bzw. Finder in das große Feld „*Drag files here …*“ ziehen oder auf **choose your files** klicken und sie auswählen. Unter dem Feld erscheint der Dateiname. Steht dort mehr als eine Datei, entferne die anderen mit dem **×** daneben.
+5. Darunter steht der Kasten **Commit changes**. Ins erste Feld eine kurze Beschreibung schreiben, z. B. *„Upload Datensatz 03, Kennziffer 1234567“*. Das zweite Feld kannst Du leer lassen.
+6. Darunter stehen zwei Optionen. Wähl **Commit directly to the `main` branch** (das ist normalerweise schon ausgewählt).
+7. Den grünen Button **Commit changes** klicken. GitHub springt zurück in den Ordner, und Deine Datei steht in der Liste. Fertig.
+
+**Wenn es anders aussieht:**
+
+| Was Du siehst | Was es bedeutet | Was Du tust |
+|---|---|---|
+| **Add file** fehlt, „Upload files“ ist ausgegraut oder GitHub meldet, dass Du keine Schreibrechte hast | Einladung noch nicht angenommen oder abgelaufen | Einladung annehmen (siehe oben). Klappt es nicht, Weg B per Mail |
+| Nur die Option **Create a new branch for this commit and start a pull request** | Du hast doch keine Schreibrechte | Wie oben: Einladung prüfen |
+| Du hast versehentlich **Create a new branch … pull request** gewählt und landest auf einer Seite „Open a pull request“ | Deine Datei liegt noch nicht im Ordner, sondern wartet als Vorschlag | Auf **Create pull request** klicken. Das Repo übernimmt den Vorschlag nach etwa einer Minute automatisch, Du bekommst dazu einen Kommentar. Schließ die Seite nicht vorher |
+| „Commit failed“ oder eine Fehlermeldung beim Speichern | Gleichzeitig haben viele hochgeladen | Seite neu laden und die Datei noch einmal hochladen |
+| Es gibt schon eine Datei mit Deinem Namen | Du hast schon einmal hochgeladen | Für eine Korrektur einfach unter **demselben Namen** hochladen, GitHub ersetzt die alte Datei |
+
+::: {.callout-important title="Nur Deine eigene Datei"}
+Mit Schreibrechten könntest Du technisch jede Datei im Repo ändern. Lade nur Deine eigene Datei in `data/student-uploads/` hoch und ändere oder lösche nichts anderes. Lädst Du eine Datei unter dem Namen einer anderen Person hoch, überschreibst Du deren Upload.
+:::
 
 ### Weg B: per Mail (ohne GitHub-Account)
 
