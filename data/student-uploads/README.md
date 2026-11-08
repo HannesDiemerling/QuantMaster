@@ -1,6 +1,6 @@
 # Uploads (hier hochladen)
 
-Lade hier Deine bereinigte Datei hoch: **`datensatz-XX-<Kennziffer>.csv`**, zum Beispiel `datensatz-03-1234567.csv`.
+Lade hier Deine bereinigte Datei hoch: **`datensatz-XX-<Kennziffer>.csv`**, zum Beispiel `datensatz-07-1234567.csv`.
 
 - Immer mit Deiner Kennziffer im Namen, sonst kannst Du die Datei einer anderen Person überschreiben.
 - Korrigierte Fassung? Unter **demselben** Namen erneut hochladen.

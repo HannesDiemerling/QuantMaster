@@ -18,13 +18,14 @@ Seminar zum Modul **M15: Multivariate Verfahren, Forschungsmethoden & Psychother
 |---|---|---|
 | Vor Semesterstart | Alte Uploads löschen | `data/student-uploads/` leeren (`.gitkeep` und `README.md` behalten) |
 | Vor Semesterstart | Termine eintragen | Tabelle in `index.qmd` |
-| Sitzung 01 | Kennziffer erklären (mindestens die letzten 4 Ziffern der Matrikelnummer, bis 12, nur Ziffern), Kleingruppen einteilen. Studierende mit GitHub-Account als Collaborator einladen (Account ist freiwillig; max. 50 Einladungen pro Tag, Einladungen verfallen nach 7 Tagen, offene Einladungen unter Settings → Collaborators) | Daraus: Kennziffer 2000 + n, Datensatz ((n − 1) mod 10) + 1, Kleingruppe n/4 aufgerundet; GitHub-Benutzernamen per Vorab-Mail |
+| Vor Semesterstart | Kollegin ohne Repo-Kenntnis einbinden | Als Collaborator mit Schreibrechten einladen. `intern/hilfe-spickzettel.md` und `intern/zeitplan.md` direkt schicken (gitignored). Sie friert ihre Gruppe selbst über Actions ein. Den Antwortbogen erzeugt die Lehrperson mit R und schickt ihn. Lehrperson, Mail, Ordner und Termine in `sitzung01/00-uebersicht.qmd` und `index.qmd` eintragen |
+| Sitzung 01 | Kennziffer erklären (mindestens die letzten 4 Ziffern der Matrikelnummer, bis 12, nur Ziffern), Kleingruppen einteilen. Studierende mit GitHub-Account als Collaborator einladen (Account ist freiwillig; max. 50 Einladungen pro Tag, Einladungen verfallen nach 7 Tagen, offene Einladungen unter Settings → Collaborators) | Datensatz = letzte Ziffer der Kennziffer, 0 = 10; Kleingruppen zu viert einteilen und notieren; GitHub-Benutzernamen per Vorab-Mail |
 | Sitzung 01 | Mail-Uploads (Betreff `M15 Upload <Kennziffer>`) selbst einstellen | Anhang vorher in `datensatz-XX-<Kennziffer>.csv` umbenennen (gleichnamige Dateien überschreiben sich!), dann unter `data/student-uploads/` hochladen (Add file → Upload files). Möglichst noch in der Sitzung, damit die Person den Report prüfen kann |
 | Sitzung 01 | Uploads laufen automatisch zusammen | Workflow **Merge student uploads** (Actions-Tab) schreibt `data/combined/m15-gesamt.csv`, `merge-report.md` und `meta-studien.csv` |
-| 2 Tage vor Sitzung 02 der Gruppe | Datensatz **einfrieren** | Actions → *Datensatz einfrieren* → **Run workflow** → Gruppenname (z. B. Nachname, Kleinbuchstaben). Der Lauf merged zuerst alle Uploads, repariert formale Fehler, prüft, ob sich rechnen lässt, und schreibt `data/combined/eingefroren/<gruppe>/`. Danach kurz in `pruefbericht.md` schauen und der Gruppe den Ordnernamen nennen. Ein vorhandener Ordner wird nie überschrieben. Der Merge-Workflow bleibt immer aktiv, die Gruppen laden in denselben Ordner hoch, und jeder Stand enthält alle bis dahin vorhandenen Personen. |
-| danach | Antwortbogen erzeugen | lokal `git pull`, dann `Rscript scripts/antwortbogen.R <gruppe>` → `intern/antwortbogen-<gruppe>.md` (gitignored, **nie committen**, an Kolleginnen und Kollegen direkt schicken); schreibt auch die Abgabe-Vorlagen `sitzungXX/_abgabe.md` neu |
 | Sitzung 01 | Uploads zählen | Zahl der Dateien im Merge-Report mit der Zahl der Anwesenden vergleichen. Fehlt jemand trotz Upload, wurde evtl. eine gleichnamige Datei überschrieben: Datei öffnen → *History* → ältere Version → *Download raw file* → unter dem richtigen Namen neu hochladen |
 | Sitzung 01 | Doppelte Uploads aufräumen | Status **DOPPELT** im Merge-Report: die ältere der beiden Dateien löschen (Datei öffnen → „…“ → *Delete file* → Commit) |
+| 2 Tage vor Sitzung 02 der Gruppe | Datensatz **einfrieren** | Actions → *Datensatz einfrieren* → **Run workflow** → Gruppenname (z. B. Nachname, Kleinbuchstaben). Der Lauf merged zuerst alle Uploads, repariert formale Fehler, prüft, ob sich rechnen lässt, und schreibt `data/combined/eingefroren/<gruppe>/`. Danach kurz in `pruefbericht.md` schauen und der Gruppe den Ordnernamen nennen. Ein vorhandener Ordner wird nie überschrieben. Änderungen von Studierenden in einem Stand dreht der Workflow *Eingefrorene Stände schützen* automatisch zurück. Einen Stand ändern oder löschen geht nur mit `[stand-aendern]` im Commit-Titel, gedacht nur für Testläufe. Rot wird das Einfrieren bei ungültigem Gruppennamen, vorhandenem Stand, gescheiterter Reparatur oder fehlenden Python-Paketen (einfach neu starten) oder wenn keine fiktive Person da ist; dann wird nichts geschrieben. Der Merge-Workflow bleibt immer aktiv, die Gruppen laden in denselben Ordner hoch, und jeder Stand enthält alle bis dahin vorhandenen Personen. **Einfrieren rot:** Lauf öffnen, Zeile `Nicht eingefroren: …` lesen, es wurde nichts geschrieben. Gruppenname ungültig: neu starten. Stand vorhanden („gibt es schon einen eingefrorenen Stand“): Ordner absichtlich löschen, dann neu starten. Merge abgebrochen: erst Merge reparieren. Skala oder Gruppe zu klein: Uploads prüfen. **Lauf grün:** `pruefbericht.md` querlesen. Steht dort „Upload-Reparatur lief nicht“: Ordner löschen und neu einfrieren. |
+| danach | Antwortbogen erzeugen | lokal `git pull`, dann `Rscript scripts/antwortbogen.R <gruppe>` → `intern/antwortbogen-<gruppe>.md` (gitignored, **nie committen**, an Kolleginnen und Kollegen direkt schicken); schreibt auch die Abgabe-Vorlagen `sitzungXX/_abgabe.md` neu |
 | laufend | Abgaben prüfen | eine Mail pro Person und Sitzung, Betreff `M15 SNN <Kennziffer>`; Felder gegen den Antwortbogen abgleichen |
 
 Hinweise:
@@ -36,7 +37,7 @@ Hinweise:
 - `antwortbogen.R` braucht R mit `MASS`, `lme4`, `lavaan` und `BayesFactor` (`install.packages(c("lme4", "lavaan", "BayesFactor"))`). Abgabefelder werden dort pro Kapitel definiert; wer Kapitel verschiebt, passt nur `SITZUNG` an.
 - Fehler-Übersicht der vorgenerierten Datensätze: steht im Antwortbogen (Abschnitt Sitzung 01).
 - Der Merge rechnet mit den Referenzkopien in `scripts/referenz/`. Überschreibt jemand eine Datei in `data/generated/`, bleibt der Gesamtdatensatz korrekt; der Report zeigt dann oben eine ACHTUNG-Zeile, und die Datei sollte zurückgesetzt werden. Werden die Übungsdatensätze absichtlich neu erzeugt, die Kopien in `scripts/referenz/` ebenfalls ersetzen.
-- Die Kontakt-Mailadresse steht zentral in `_quarto.yml` (`kurs.mail`).
+- Die Kontakt-Mailadresse steht zentral in `_quarto.yml` (`kurs.mail`) und gilt nur für Gruppe 1. Weitere Lehrpersonen stehen in der Tabelle in `sitzung01/00-uebersicht.qmd`.
 
 ## Repository-Struktur
 
@@ -54,11 +55,17 @@ Hinweise:
 ├── scripts/
 │   ├── generate-datasets.R       # erzeugt die 10 Datensätze deterministisch
 │   ├── merge-uploads.R           # kombiniert alle Uploads (fail-safe), schreibt Merge-Report
+│   ├── meta-studien.R            # Effekttabelle für die Metaanalyse (Sitzung 04)
+│   ├── repair-uploads.py         # repariert Kopien der Uploads fürs Einfrieren
+│   ├── freeze-dataset.R          # friert den Stand einer Gruppe ein, schreibt pruefbericht.md
+│   ├── check-upload-pr.py        # prüft, ob ein Pull Request nur Uploads enthält
 │   ├── antwortbogen.R            # INTERN: Sollwerte + Toleranzbereiche aller Abgabefelder
 │   └── referenz/                 # unveränderliche Kopien der Übungsdatensätze für den Merge
 └── .github/workflows/
     ├── publish.yml               # rendert die Site und deployed nach GitHub Pages
     ├── merge-uploads.yml         # bei jedem CSV-Upload: Gesamtdatensatz neu bauen
+    ├── freeze-dataset.yml        # manuell: friert den Datensatz einer Gruppe ein
+    ├── accept-upload-pr.yml      # übernimmt Upload-Pull-Requests automatisch
     └── generate-datasets.yml     # manuell: erzeugt + committet die 10 Übungsdatensätze
 ```
 

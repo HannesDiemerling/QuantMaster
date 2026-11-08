@@ -30,7 +30,7 @@ Zwei Wege, über die einfache Korrelation hinauszugehen: über **Studien** hinwe
 
 ## Eine wichtige Sache über unseren Datensatz {#sec-tag3-datenhinweis}
 
-Du arbeitest mit dem Gesamtdatensatz `m15-gesamt.csv` und Deinen Skalen `E_mean`, `V_mean`, `G_mean`, `N_mean`, `O_mean` aus Sitzung 03. Bevor es losgeht, solltest Du wissen, **wie diese Daten entstanden sind**. Sonst interpretierst Du die Ergebnisse leicht falsch.
+Du arbeitest mit dem eingefrorenen Gesamtdatensatz `m15-gesamt.csv` aus dem Ordner Deiner Gruppe unter `data/combined/eingefroren/` und Deinen Skalen `E_mean`, `V_mean`, `G_mean`, `N_mean`, `O_mean` aus Sitzung 03. Bevor es losgeht, solltest Du wissen, **wie diese Daten entstanden sind**. Sonst interpretierst Du die Ergebnisse leicht falsch.
 
 ::: {.callout-important title="Was in den Daten *wirklich* steckt"}
 1. **Innerhalb** jeder Big-Five-Skala hängen die Items moderat zusammen (Konstruktion: $r \approx .40$) → die Skalen „funktionieren“.

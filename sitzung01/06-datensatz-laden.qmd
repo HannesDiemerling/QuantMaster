@@ -14,7 +14,7 @@ Im Repo liegen unter `data/generated/` zehn Datensätze als CSV-Dateien, jeder m
 
 ## Zuweisung
 
-Dein Datensatz ist die **letzte Ziffer Deiner Kennziffer** (@sec-nummern), eine 0 steht für Datensatz 10.
+Dein Datensatz ist die **letzte Ziffer Deiner Kennziffer** (@sec-nummern), eine 0 steht für Datensatz 10. Hast Du schon eine Datei mit einer anderen Datensatznummer hochgeladen, bleibst Du dabei. Maßgeblich ist die Nummer in Deinem Dateinamen.
 
 | Letzte Ziffer | 1 | 2 | … | 9 | 0 |
 |---|---:|---:|---:|---:|---:|
@@ -23,7 +23,7 @@ Dein Datensatz ist die **letzte Ziffer Deiner Kennziffer** (@sec-nummern), eine 
 Merke Dir Deine Nummer als zweistellige Zahl: `01`, `02`, …, `10`.
 
 ::: {.callout-tip title="Doppelt zugewiesen ist Absicht"}
-Wenn mehr als 10 Teilnehmende dabei sind, bearbeiten zwei (oder mehr) Personen denselben vorgenerierten Datensatz. Deshalb ist der eigene Dateiname beim Hochladen so wichtig (@sec-tag1-upload).
+Oft haben mehrere Personen dieselbe letzte Ziffer und bearbeiten denselben Datensatz. Deshalb ist der eigene Dateiname beim Hochladen so wichtig (@sec-tag1-upload).
 :::
 
 ## Aufgabe

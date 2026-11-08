@@ -95,7 +95,7 @@ JASP zeigt dann **$\Delta R^2$** und einen $F$-Test dafür: *Erklärt Modell 1 s
 
 ## Was unsere Daten hergeben
 
-Erinnere Dich an den Datenhinweis (@sec-tag3-datenhinweis): Zwischen den fünf Big-Five-Skalen steckt ein **schwaches, echtes Signal**, zwischen Demografie und Persönlichkeit dagegen **keines**. Das gibt zwei lehrreiche Modelle. Wie sie genau ausfallen, hängt auch von den Zeilen Eurer fiktiven Personen ab:
+Erinnere Dich an den Datenhinweis (@sec-tag3-datenhinweis): Zwischen den fünf Big-Five-Skalen steckt ein **schwaches, echtes Signal**, zwischen Demografie und Persönlichkeit dagegen **keines**. Das gibt zwei lehrreiche Modelle. Wie sie genau ausfallen, hängt auch von den Zeilen der fiktiven Personen ab:
 
 **Modell A sollte (teilweise) etwas finden.** Wir sagen Neurotizismus aus den vier anderen Skalen vorher:
 

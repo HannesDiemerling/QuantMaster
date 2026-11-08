@@ -21,7 +21,7 @@ Bitte vor der Sitzung zu Hause:
 
 - Open Science & Reproduzierbarkeit (@sec-tag1-open-science), Forschungsethik (@sec-tag1-ethik) und Messtheorie & der BFI-K (@sec-tag1-messtheorie) lesen
 - JASP installieren und einmal starten. Alle Anleitungen nutzen die **englische** Oberfläche. Zeigt JASP bei Dir Deutsch, stell es um: Menü ☰ → **Einstellungen** → **Bedienoberfläche** → **Bevorzugte Sprache** → *English*.
-- empfohlen: einen GitHub-Account anlegen und den Benutzernamen per Mail an die Lehrperson schicken
+- empfohlen: einen GitHub-Account anlegen und den Benutzernamen per Mail an Deine Lehrperson (@sec-lehrperson) schicken
 
 ## Inhalte
 
@@ -36,26 +36,28 @@ Bitte vor der Sitzung zu Hause:
 
 ## Deine Nummern {#sec-nummern}
 
-Grundlage ist Deine **Matrikelnummer**. Daraus ergibt sich alles Weitere, Du musst Dir also nichts selbst ausdenken:
+Grundlage ist Deine **Matrikelnummer**. Daraus ergeben sich Kennziffer und Datensatz. Die Kleingruppe teilt Dir die Lehrperson mit. Du musst Dir also nichts selbst ausdenken:
 
 | Was | Regel | Beispiel Matrikelnummer 1234567 |
 |---|---|---|
-| **Kennziffer** (Mail-Betreff, Probandennummer Deiner Datenzeile) | Mindestens die letzten 4 Ziffern Deiner Matrikelnummer, gern mehr, höchstens 12. Nur Ziffern. Beginnt Deine Nummer mit 0, nimm eine Ziffer mehr, denn JASP lässt führende Nullen weg | 4567 oder 1234567 |
+| **Kennziffer** (Mail-Betreff, Probandennummer Deiner Datenzeile) | Mindestens die letzten 4 Ziffern Deiner Matrikelnummer, gern mehr, höchstens 12. Nur Ziffern. Beginnt Deine Kennziffer mit 0, nimm so viele Ziffern mehr, bis vorne keine 0 mehr steht, denn JASP lässt führende Nullen weg. Nimm überall genau dieselbe Zahl: Probandennummer, Dateiname, Mail-Betreff. | 4567 oder 1234567 |
 | **Datensatz** (Dein Übungsdatensatz in Sitzung 01) | Die letzte Ziffer Deiner Kennziffer, eine 0 steht für Datensatz 10 | 7 |
 | **Kleingruppe** (fester Breakout-Raum für alle Sitzungen) | Teilt die Lehrperson in Sitzung 01 ein | wird angesagt |
+
+Hast Du schon eine Datei mit einer anderen Datensatznummer hochgeladen, bleibst Du dabei. Maßgeblich ist die Nummer in Deinem Dateinamen.
 
 Notiere Dir Kennziffer, Datensatz und Kleingruppe gleich in Sitzung 01 und heb sie gut auf. Du brauchst sie in jeder Sitzung, und sie bleiben das ganze Semester gleich.
 
 ::: {.callout-tip title="Upload-Frist"}
-Der Upload muss bis **zwei Tage vor Sitzung 02 Deiner Gruppe** im Repo liegen. Danach wird der Gesamtdatensatz für Deine Gruppe eingefroren, damit alle in der Gruppe mit denselben Daten rechnen.
+Der Upload muss bis **zwei Tage vor Sitzung 02 Deiner Gruppe** im Repo liegen. Danach wird der Gesamtdatensatz für Deine Gruppe eingefroren, damit alle in der Gruppe mit denselben Daten rechnen. Bist Du später dran, lad trotzdem hoch. Du rechnest dann mit dem festen Stand Deiner Gruppe, in dem Deine Person fehlt, und die Abgaben gehen ganz normal.
 :::
 
 ## Deine Lehrperson {#sec-lehrperson}
 
 Der Kurs läuft in mehreren Gruppen. Deine Mails und Abgaben gehen an die Lehrperson Deiner Gruppe:
 
-| Gruppe | Lehrperson | Mail |
-|---|---|---|
-| 1 | Hannes Diemerling | [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}) |
-| 2 | TBA | TBA |
+| Gruppe | Lehrperson | Mail | Ordner im Repo |
+|---|---|---|---|
+| 1 | Hannes Diemerling | [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}) | TBA |
+| 2 | TBA | TBA | TBA |
 

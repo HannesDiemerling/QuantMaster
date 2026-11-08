@@ -44,8 +44,8 @@ datensatz-<XX>-<Kennziffer>.csv
 ```
 
 - `<XX>` ist Deine zweistellige Datensatznummer.
-- `<Kennziffer>` ist Deine Kennziffer (@sec-nummern), nur Ziffern.
-- Beispiel: `datensatz-03-1234567.csv` (Datensatz 3, Kennziffer 1234567).
+- `<Kennziffer>` ist Deine Kennziffer (@sec-nummern), nur Ziffern. Nimm überall genau dieselbe Zahl: Probandennummer, Dateiname, Mail-Betreff.
+- Beispiel: `datensatz-07-1234567.csv` (Datensatz 7, Kennziffer 1234567).
 - Bitte **keine Namen oder Initialen** im Dateinamen. Das Repo ist öffentlich.
 
 ::: {.callout-important title="Wichtig: Kennziffer im Dateinamen"}
@@ -68,7 +68,7 @@ Du brauchst nur einen Browser und Deinen GitHub-Account, keine zusätzliche Soft
 2. Den Ordner [`data/student-uploads/`]({{< meta kurs.repo >}}/tree/main/data/student-uploads) öffnen. Kontrolle: Oben über der Dateiliste steht `QuantMaster / data / student-uploads /`. Steht dort etwas anderes (z. B. nur `QuantMaster` oder `data / generated`), bist Du im falschen Ordner.
 3. Rechts über der Dateiliste auf **Add file** klicken und **Upload files** wählen.
 4. Deine Datei `datensatz-XX-<Kennziffer>.csv` aus dem Datei-Explorer bzw. Finder in das große Feld „*Drag files here …*“ ziehen oder auf **choose your files** klicken und sie auswählen. Unter dem Feld erscheint der Dateiname. Steht dort mehr als eine Datei, entferne die anderen mit dem **×** daneben.
-5. Darunter steht der Kasten **Commit changes**. Ins erste Feld eine kurze Beschreibung schreiben, z. B. *„Upload Datensatz 03, Kennziffer 1234567“*. Das zweite Feld kannst Du leer lassen.
+5. Darunter steht der Kasten **Commit changes**. Ins erste Feld eine kurze Beschreibung schreiben, z. B. *„Upload Datensatz 07, Kennziffer 1234567“*. Das zweite Feld kannst Du leer lassen.
 6. Darunter stehen zwei Optionen. Wähl **Commit directly to the `main` branch** (das ist normalerweise schon ausgewählt).
 7. Den grünen Button **Commit changes** klicken. GitHub springt zurück in den Ordner, und Deine Datei steht in der Liste. Fertig.
 
@@ -100,7 +100,7 @@ Die Lehrperson legt Deine Datei ins Repo, danach läuft der Merge-Workflow wie b
 :::
 
 ::: {.callout-tip title="Upload-Frist"}
-Der Upload muss spätestens **zwei Tage vor Sitzung 02 Deiner Gruppe** im Repo liegen. Per Mail bitte einen Tag früher schicken, damit die Lehrperson die Datei noch einstellen kann.
+Der Upload muss spätestens **zwei Tage vor Sitzung 02 Deiner Gruppe** im Repo liegen. Per Mail bitte einen Tag früher schicken, damit die Lehrperson die Datei noch einstellen kann. Bist Du später dran, lad trotzdem hoch. Du rechnest dann mit dem festen Stand Deiner Gruppe, in dem Deine Person fehlt, und die Abgaben gehen ganz normal.
 :::
 
 ## Schritt 4: Eigenen Upload kontrollieren

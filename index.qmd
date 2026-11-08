@@ -40,7 +40,7 @@ Deine **Kennziffer** (Pseudonym) nimmst Du aus Deiner Matrikelnummer, daraus erg
 
 ## Abgaben
 
-Pro Sitzung schickst Du **eine** kurze Mail an Deine Lehrperson (@sec-lehrperson) mit dem Betreff `M15 SNN <Kennziffer>`, also zum Beispiel `M15 S03 1234567`. Die Vorlage zum Kopieren steht jeweils im Abschluss-Kapitel der Sitzung. Abgegeben werden fast nur **Zahlen und kurze Antworten**, die Du aus Deinen JASP-Analysen abliest. Screenshots und Plots brauchst Du nicht zu schicken. Weil alle mit demselben Gesamtdatensatz arbeiten, sind die Ergebnisse direkt vergleichbar.
+Pro Sitzung schickst Du **eine** kurze Mail an Deine Lehrperson (@sec-lehrperson) mit dem Betreff `M15 SNN <Kennziffer>`, also zum Beispiel `M15 S03 1234567`. Die Vorlage zum Kopieren steht jeweils im Abschluss-Kapitel der Sitzung. Abgegeben werden fast nur **Zahlen und kurze Antworten**, die Du aus Deinen JASP-Analysen abliest. Screenshots und Plots brauchst Du nicht zu schicken. Weil alle in Deiner Gruppe mit demselben Gesamtdatensatz arbeiten, sind die Ergebnisse direkt vergleichbar.
 
 ## Software und Zugänge
 
@@ -51,7 +51,7 @@ Pro Sitzung schickst Du **eine** kurze Mail an Deine Lehrperson (@sec-lehrperson
 
 ::: {.callout-important title="Vor Sitzung 01 erledigen"}
 - JASP installieren, einmal starten und die Sprache auf Englisch stellen (Menü ☰ → Einstellungen → Bedienoberfläche → Bevorzugte Sprache → English), denn alle Anleitungen nutzen die englischen Bezeichnungen
-- Empfohlen: GitHub-Account anlegen und den Benutzernamen per Mail an die Lehrperson schicken (dann hast Du in Sitzung 01 Schreibrechte)
+- Empfohlen: GitHub-Account anlegen und den Benutzernamen per Mail an Deine Lehrperson (@sec-lehrperson) schicken (dann hast Du in Sitzung 01 Schreibrechte)
 - Zur Vorbereitung lesen: @sec-tag1-open-science, @sec-tag1-ethik, @sec-tag1-messtheorie
 :::
 
@@ -61,7 +61,7 @@ Im Laufe des Seminars entsteht **ein gemeinsamer Datensatz**, und jeder Schritt 
 
 - In Sitzung 01 bekommst Du einen von zehn vorgenerierten Übungsdatensätzen, findest Fehler, bereinigst ihn in JASP, ergänzt eine Zeile für eine **fiktive Person** und lädst die Datei hoch, entweder über GitHub oder per Mail.
 - Ein GitHub-Workflow kombiniert alle Uploads automatisch zu `data/combined/m15-gesamt.csv`. Vor Sitzung 02 wird daraus ein fester Stand für Deine Gruppe. In Sitzung 02 probierst Du das Kombinieren selbst aus.
-- Mit diesem Datensatz arbeiten alle bis Sitzung 10.
+- Mit diesem Datensatz arbeiten alle in Deiner Gruppe bis Sitzung 10.
 
 Die Datenerhebung ist nur **simuliert**. Du beschreibst darin nicht Dich selbst, sondern eine ausgedachte Person, und echte Namen kommen nirgends vor.
 

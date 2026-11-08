@@ -13,7 +13,7 @@ Nach diesem Kapitel kannst Du …
 
 Eine einzelne Studie ist selten das letzte Wort, das hat die Replikationskrise gezeigt (Vorlesung 1 und 3). Eine **Metaanalyse** fasst die Effekte vieler Studien zu einer Gesamtschätzung zusammen und fragt, wie stark die Studien voneinander abweichen.
 
-Unser Datensatz eignet sich dafür überraschend gut: Die zehn Seed-Datensätze sind wie **zehn kleine Studien** mit jeweils rund 10 Personen (9 vorgenerierte plus die fiktiven Personen aus den Uploads zu diesem Datensatz). Jede schätzt denselben Zusammenhang. Wir nehmen die Korrelation zwischen Extraversion und Offenheit.
+Unser Datensatz eignet sich dafür überraschend gut: Die zehn Seed-Datensätze sind wie **zehn kleine Studien** mit jeweils 8 bis gut 20 Personen (9 vorgenerierte plus die fiktiven Personen aus den Uploads zu diesem Datensatz). Jede schätzt denselben Zusammenhang. Wir nehmen die Korrelation zwischen Extraversion und Offenheit. Personen mit fehlenden Items in diesen beiden Skalen zählen dabei nicht mit.
 
 ## Die Grundidee: gewichtetes Mitteln
 
@@ -44,14 +44,14 @@ Signifikante Ergebnisse werden eher veröffentlicht. Dann fehlen kleine Studien 
 
 ### Schritt 1: Eine Studie selbst berechnen
 
-1. Öffne Deine JASP-Datei mit `m15-gesamt.csv` und den Skalenspalten.
-2. Filter auf Deinen Seed-Datensatz: Doppelklick auf den Spaltenkopf `quelle_datensatz`, in der Spalte **Filter** alle Häkchen außer bei Deiner Datensatznummer entfernen.
+1. Öffne Deine JASP-Datei mit dem eingefrorenen `m15-gesamt.csv` Deiner Gruppe und den Skalenspalten.
+2. Filter auf Deinen Seed-Datensatz: Doppelklick auf den Spaltenkopf `quelle_datensatz`, in der Spalte **Filter** alle Häkchen außer bei Deiner Datensatznummer entfernen. Hast Du schon eine Datei hochgeladen, gilt die Nummer in Deinem Dateinamen. Bei neuen Uploads ist es die letzte Ziffer Deiner Kennziffer, eine 0 steht für Datensatz 10 (siehe @sec-nummern).
 3. **Regression → Classical → Correlation** mit `E_mean` und `O_mean`. Notiere $r$.
 4. Filter wieder zurücksetzen (alle Häkchen setzen).
 
 ### Schritt 2: Alle Studien zusammenfassen
 
-Die Tabelle aller zehn „Studien“ liegt neben Deinem Gesamtdatensatz: `meta-studien.csv` im Ordner Deiner Gruppe (Spalten `studie`, `n`, `r`, `fisher_z`, `se`). Prüfe, ob Dein $r$ aus Schritt 1 mit der Zeile Deines Datensatzes übereinstimmt.
+Die Tabelle aller zehn „Studien“ liegt neben Deinem Gesamtdatensatz: `meta-studien.csv` im Ordner Deiner Gruppe (Spalten `studie`, `quelle_datensatz`, `n`, `r`, `fisher_z`, `se`). Prüfe, ob Dein $r$ aus Schritt 1 mit der Zeile Deines Datensatzes übereinstimmt.
 
 1. `meta-studien.csv` herunterladen (im Repo unter [`data/combined/eingefroren/`]({{< meta kurs.repo >}}/tree/main/data/combined/eingefroren), Ordner Deiner Gruppe, Button **Download raw file**) und in JASP öffnen (**File → Open**; es öffnet sich ein neues Fenster).
 2. Modul **Meta-Analysis** über das **„+“** aktivieren.

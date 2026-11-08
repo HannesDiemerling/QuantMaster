@@ -25,10 +25,12 @@ options(scipen = 100)     # Kennziffern wie 100000 nie als 1e+05 schreiben
 source("scripts/meta-studien.R", local = TRUE, encoding = "UTF-8")
 
 GENERATOR  <- "scripts/generate-datasets.R"
-OUT_CSV    <- "data/combined/m15-gesamt.csv"
-OUT_REPORT <- "data/combined/merge-report.md"
-OUT_META   <- "data/combined/meta-studien.csv"
-UPLOAD_DIR <- "data/student-uploads"
+# Die beiden Umgebungsvariablen setzt nur freeze-dataset.R (reparierte Kopien, eigene Ausgabe)
+OUT_DIR    <- Sys.getenv("MERGE_OUT_DIR", "data/combined")
+OUT_CSV    <- file.path(OUT_DIR, "m15-gesamt.csv")
+OUT_REPORT <- file.path(OUT_DIR, "merge-report.md")
+OUT_META   <- file.path(OUT_DIR, "meta-studien.csv")
+UPLOAD_DIR <- Sys.getenv("MERGE_UPLOAD_DIR", "data/student-uploads")
 MIN_MATCH  <- 19          # so viele BFI-Items müssen übereinstimmen
 # gültige Kennziffer: ganze Zahl mit 4 bis 12 Stellen, z. B. die Matrikelnummer
 is_kz <- function(x) !is.na(x) & x == round(x) & x >= 1000 & x < 1e12
@@ -202,12 +204,12 @@ main <- function() {
   ref <- build_reference()
 
   files <- sort(unique(list.files(UPLOAD_DIR, pattern = "\\.(csv|txt|tsv)$", recursive = TRUE,
-                                  full.names = TRUE, ignore.case = TRUE)))
+                                  full.names = TRUE, ignore.case = TRUE)), method = "radix")   # unabhängig von der Locale
   # CSV-Dateien außerhalb des Upload-Ordners gehen nicht ein, werden aber gemeldet
   anderswo <- sub("^\\./", "", c(list.files("data", pattern = "\\.csv$", recursive = TRUE,
                                             full.names = TRUE, ignore.case = TRUE),
                                  list.files(".", pattern = "\\.csv$", full.names = TRUE, ignore.case = TRUE)))
-  anderswo <- sort(setdiff(anderswo[!grepl("^data/combined/", anderswo)],
+  anderswo <- sort(setdiff(anderswo[!grepl("^data/(combined|student-uploads)/", anderswo)],
                            c(files, file.path("data/generated", SEED_NAMES))))
   other <- list.files(UPLOAD_DIR, recursive = TRUE, full.names = TRUE)
   other <- other[!grepl("\\.(csv|txt|tsv|gitkeep)$", other, ignore.case = TRUE) & basename(other) != "README.md"]
@@ -242,6 +244,17 @@ main <- function() {
 
     m <- t(apply(as.matrix(df[BFI]), 1, match_seed, ref = ref))
     is_seed <- !is.na(m[, "ds"])
+    # Zwei Zeilen treffen dieselbe Übungszeile, eine davon mit Kennziffer: Das ist eine
+    # fiktive Person, die aus einer Übungszeile abgeschrieben wurde.
+    zeile_key <- paste(m[, "ds"], m[, "zeile"])
+    doppelt <- is_seed & zeile_key %in% zeile_key[is_seed & duplicated(zeile_key)]
+    kz_ok <- is_kz(df$probandennummer)
+    if (any(doppelt & kz_ok) && any(doppelt & !kz_ok)) is_seed[doppelt & kz_ok] <- FALSE
+    # Fremde Übungszeile mit Kennziffer: ebenfalls eine abgeschriebene Person
+    if (length(unique(m[is_seed, "ds"])) > 1) {
+      haupt <- as.numeric(names(which.max(table(m[is_seed, "ds"]))))
+      is_seed[is_seed & m[, "ds"] != haupt & kz_ok] <- FALSE
+    }
     ds_in_file <- unique(m[is_seed, "ds"])
     if (length(ds_in_file) > 0) {
       info$ds <- paste(sprintf("%02d", sort(ds_in_file)), collapse = ", ")
@@ -295,14 +308,16 @@ main <- function() {
     if (nrow(mine) == 1) {
       info$kz <- mine$probandennummer
       if (!is_kz(mine$probandennummer))
-        pruefen(sprintf("Kennziffer %s ungültig (4 bis 12 Ziffern aus Deiner Matrikelnummer, nur Zahlen. Beginnt sie mit 0, nimm eine Ziffer mehr)",
+        pruefen(sprintf("Kennziffer %s ungültig (4 bis 12 Ziffern aus Deiner Matrikelnummer, nur Zahlen. Beginnt sie mit 0, nimm so viele Ziffern mehr, bis vorne keine 0 mehr steht)",
                         ifelse(is.na(mine$probandennummer), "fehlt oder ist keine Zahl,", format(mine$probandennummer, scientific = FALSE))))
       mine <- clean_range(mine)
       if (attr(mine, "n_bad") > 0)
         pruefen(sprintf("%d Wert(e) der fiktiven Person außerhalb des erlaubten Bereichs -> fehlend", attr(mine, "n_bad")))
       if (sum(is.na(mine[COLS])) > 0 && attr(mine, "n_bad") == 0)
         pruefen(sprintf("%d Wert(e) der fiktiven Person fehlen oder sind keine Zahl", sum(is.na(mine[COLS]))))
-      mine$quelle_datensatz <- if (length(ds_in_file) == 1) ds_in_file else NA
+      # ohne erkannte Übungszeilen: Datensatznummer aus dem Dateinamen, falls vorhanden
+      ds_name <- suppressWarnings(as.integer(sub("^datensatz[^0-9]*([0-9]{1,2})[^0-9].*$", "\\1", basename(f))))
+      mine$quelle_datensatz <- if (length(ds_in_file) == 1) ds_in_file else if (!is.na(ds_name) && ds_name %in% 1:10) ds_name else NA
       mine$quelle_datei <- f
       own[[f]] <- mine
     }
@@ -324,7 +339,12 @@ main <- function() {
   dup_notes <- character(0)
   if (!is.null(own_df) && nrow(own_df) > 0) {
     key <- apply(own_df[COLS], 1, paste, collapse = "|")
-    dup <- duplicated(key)
+    # Bei Doppelten gewinnt die Datei, deren Name die Kennziffer enthält (die eigene Datei)
+    eigen <- mapply(function(k, f) !is.na(k) && grepl(format(k, scientific = FALSE), basename(f), fixed = TRUE),
+                    own_df$probandennummer, own_df$quelle_datei)
+    ord <- order(!eigen)
+    dup <- logical(length(key))
+    dup[ord] <- duplicated(key[ord])
     for (f in unique(own_df$quelle_datei[dup])) {
       dup_notes <- c(dup_notes, sprintf("`%s`: %d eigene Zeile(n) schon in anderer Datei enthalten -> nur einmal übernommen",
                                         f, sum(dup & own_df$quelle_datei == f)))

@@ -1,24 +1,30 @@
 # scripts/freeze-dataset.R
 #
 # Friert den aktuellen Gesamtdatensatz für eine Gruppe ein.
-#   Aufruf aus dem Repo-Root: Rscript scripts/freeze-dataset.R <gruppe>
+#   Aufruf aus dem Repo-Root:
+#     python scripts/repair-uploads.py data/student-uploads <arbeitsordner>
+#     Rscript scripts/freeze-dataset.R <gruppe> <arbeitsordner>
 #   Ausgabe: data/combined/eingefroren/<gruppe>/
 #            m15-gesamt.csv, meta-studien.csv, merge-report.md, pruefbericht.md
 #
 # Ablauf:
-#   1. Reparieren: Formal Falsches wird geleert oder entfernt, jede Änderung
+#   1. Merge über die reparierten Kopien der Uploads (repair-uploads.py). Wurde ein
+#      Arbeitsordner angegeben, aber die Reparatur lief nicht durch, bricht der Lauf ab.
+#      Nur ohne Arbeitsordner (lokal) werden die Originale genommen, der Bericht sagt das.
+#   2. Reparieren: Formal Falsches wird geleert oder entfernt, jede Änderung
 #      steht im Prüfbericht. Plausible, aber inhaltlich falsche Werte (etwa
 #      vergessenes Umpolen) kann kein Prüfer erkennen.
-#   2. Rechen-Check: Die Analysen laufen so, wie die Studierenden rechnen.
-#   3. Nur wenn alles besteht, wird der Ordner geschrieben (erst temporär,
+#   3. Rechen-Check: Die Analysen laufen so, wie die Studierenden rechnen.
+#   4. Nur wenn alles besteht, wird der Ordner geschrieben (erst temporär,
 #      dann umbenennen). Ein vorhandener Ordner wird nie überschrieben.
+#
+# Der Live-Stand in data/combined/ bleibt dabei unberührt.
 #
 # Nur base R. Bereiche und Spalten kommen aus merge-uploads.R.
 
 options(scipen = 100)
 
-IN_CSV    <- "data/combined/m15-gesamt.csv"
-IN_REPORT <- "data/combined/merge-report.md"
+UPLOADS   <- "data/student-uploads"
 OUT_ROOT  <- "data/combined/eingefroren"
 MIN_FAELLE <- 30          # so viele vollständige Fälle braucht jede Skala
 MIN_GRUPPE <- 5           # so viele Personen braucht jede Gruppe im Vergleich
@@ -34,6 +40,38 @@ for (e in parse("scripts/merge-uploads.R", encoding = "UTF-8")) {
   # nur die Konstanten, damit Bereiche und Spalten nur an einer Stelle stehen
   if (is.call(e) && identical(e[[1]], as.name("<-")) &&
       is.name(e[[2]]) && as.character(e[[2]]) %in% c("DEMO", "BFI", "COLS", "RANGE")) eval(e, m)
+}
+
+# Führt den Merge über die reparierten Kopien aus. Gibt Eingabedateien und Upload-Log zurück.
+merge_lauf <- function(arbeit) {
+  test <- Sys.getenv("FREEZE_TEST_INPUT")   # nur für Tests: fertige Merge-Ausgabe verwenden
+  if (nzchar(test)) return(list(ordner = test, log = NULL, repariert = TRUE, up = UPLOADS))
+  up <- UPLOADS
+  log <- NULL
+  repariert <- FALSE
+  if (!is.na(arbeit)) {
+    # Das Log entsteht erst am Ende des Laufs: Fehlt es, ist die Reparatur nicht durchgelaufen
+    f <- file.path(arbeit, "reparatur-log.tsv")
+    if (!file.exists(f) || !dir.exists(file.path(arbeit, "uploads")))
+      fail("Die Upload-Reparatur ist nicht durchgelaufen, ohne sie würden Personen fehlen. Lauf neu starten")
+    up <- normalizePath(file.path(arbeit, "uploads"), winslash = "/")
+    repariert <- TRUE
+    z <- readLines(f, encoding = "UTF-8", warn = FALSE)
+    z <- z[grepl("\t", z, fixed = TRUE)]
+    if (length(z)) log <- data.frame(datei = sub("\t.*$", "", z), was = sub("^[^\t]*\t", "", z))
+    if (any(grepl("nicht installiert", z, fixed = TRUE)))
+      fail("Python-Pakete fehlen (Schritt „Pakete für Numbers und Excel“), Numbers- oder Excel-Dateien wären verloren. Lauf neu starten")
+  } else {
+    cat("::warning::Ohne Arbeitsordner: Uploads wurden nicht repariert.\n")
+  }
+  aus <- tempfile("freeze-merge-")
+  dir.create(aus)
+  aus <- normalizePath(aus, winslash = "/")
+  Sys.setenv(MERGE_UPLOAD_DIR = up, MERGE_OUT_DIR = aus)
+  rc <- system2(file.path(R.home("bin"), "Rscript"), "scripts/merge-uploads.R")
+  Sys.unsetenv(c("MERGE_UPLOAD_DIR", "MERGE_OUT_DIR"))
+  if (rc != 0) fail("Merge beendet mit Status ", rc)
+  list(ordner = aus, log = log, repariert = repariert, up = up)
 }
 
 # Gibt die Zeilennummern und alten Werte der Reparaturen zurück
@@ -75,6 +113,29 @@ reparieren <- function(x) {
   z <- st[duplicated(key)]
   notiere(z, "(Zeile)", "exakte Doppelzeile", "entfernt")
   entfernen <- c(entfernen, z)
+
+  # dieselbe Person unter anderer Nummer, etwa erneut hochgeladen mit längerer Kennziffer.
+  # Fast leere Zeilen zählen nicht, dort wären gleiche Werte Zufall.
+  st <- setdiff(which(x$quelle == "studierende"), entfernen)
+  ohne_nr <- setdiff(m$COLS, "probandennummer")
+  st <- st[rowSums(!is.na(x[st, ohne_nr, drop = FALSE])) >= 20]
+  if (length(st) > 1) {
+    key <- apply(x[st, ohne_nr, drop = FALSE], 1, paste, collapse = "|")
+    nr <- ifelse(is.na(x$probandennummer[st]), "", x$probandennummer[st])
+    # Nur wenn eine Nummer das Ende oder der Anfang der anderen ist (817 und 81712).
+    # Zwei verschiedene Kennziffern mit gleichen Werten bleiben zwei Personen.
+    bester <- order(-nchar(nr))              # die längste Kennziffer bleibt
+    z <- integer(0)
+    for (i in seq_along(bester)) for (j in seq_len(i - 1)) {
+      a <- nr[bester[i]]; b <- nr[bester[j]]
+      if (key[bester[i]] == key[bester[j]] && nzchar(a) && (startsWith(b, a) || endsWith(b, a))) {
+        z <- c(z, st[bester[i]])
+        break
+      }
+    }
+    notiere(z, "(Zeile)", x$probandennummer[z], "entfernt: gleiche Person wie eine andere Datei, nur andere Nummer")
+    entfernen <- c(entfernen, z)
+  }
 
   # id: fehlend, keine ganze Zahl oder doppelt
   id <- zahl(x$id)
@@ -126,9 +187,11 @@ rechen_check <- function(x, meta) {
       if (!length(p) || !is.finite(p[1])) nicht_ok(name, " lässt sich nicht berechnen")
     }
     laeuft("Korrelation", cor.test(sk$E, sk$O)$p.value)
-    laeuft("t-Test", t.test(sk$E[x$geschlecht %in% 1:2] ~ x$geschlecht[x$geschlecht %in% 1:2])$p.value)
-    laeuft("Regression", summary(lm(sk$N ~ sk$E + sk$G))$coefficients[2, 4])
-    laeuft("ANOVA", summary(aov(sk$E ~ factor(x$bildungsgrad)))[[1]][1, 5])
+    # dieselben Modelle wie in den Abgaben (Sitzungen 03, 04 und 07)
+    laeuft("t-Test Geschlecht", t.test(sk$V[x$geschlecht %in% 1:2] ~ x$geschlecht[x$geschlecht %in% 1:2])$p.value)
+    laeuft("t-Test Bildung", t.test(sk$O ~ bg)$p.value)
+    laeuft("Regression", summary(lm(sk$N ~ sk$E + sk$V + sk$G + sk$O))$coefficients[2, 4])
+    laeuft("ANOVA", summary(aov(sk$O ~ factor(x$bildungsgrad)))[[1]][1, 5])
   }
 
   if (nrow(meta) != 10) nicht_ok("Meta-Tabelle hat ", nrow(meta), " statt 10 Zeilen")
@@ -139,13 +202,19 @@ rechen_check <- function(x, meta) {
 
 main <- function() {
   args <- commandArgs(trailingOnly = TRUE)
-  gruppe <- if (length(args) == 1) args else ""
+  gruppe <- if (length(args) %in% 1:2) args[1] else ""
+  arbeit <- if (length(args) == 2) args[2] else NA_character_
   if (!grepl("^[a-z0-9]+(-[a-z0-9]+)*$", gruppe) || nchar(gruppe) > 40)
     fail("Gruppenname ungültig. Erlaubt sind Kleinbuchstaben, Ziffern und Bindestriche, z. B. diemerling")
   ziel <- file.path(OUT_ROOT, gruppe)
+  if (identical(suppressWarnings(system2("git", c("check-ignore", "-q", paste0(ziel, "/")), stdout = FALSE, stderr = FALSE)), 0L))
+    fail("Gruppenname „", gruppe, "“ ist in .gitignore gesperrt und ließe sich nicht speichern. Bitte einen anderen Namen wählen")
   if (file.exists(ziel))
     fail("Für die Gruppe „", gruppe, "“ gibt es schon einen eingefrorenen Stand. Er wird nicht überschrieben")
-  if (!file.exists(IN_CSV) || !file.exists(IN_REPORT)) fail(IN_CSV, " oder ", IN_REPORT, " fehlt")
+  ml <- merge_lauf(arbeit)
+  IN_CSV <- file.path(ml$ordner, "m15-gesamt.csv")
+  IN_REPORT <- file.path(ml$ordner, "merge-report.md")
+  if (!file.exists(IN_CSV) || !file.exists(IN_REPORT)) fail("Merge hat ", IN_CSV, " oder ", IN_REPORT, " nicht geschrieben")
   report <- readLines(IN_REPORT, encoding = "UTF-8", warn = FALSE)
   if (any(grepl("Der Merge ist abgebrochen", report, fixed = TRUE)))
     fail("Der letzte Merge ist abgebrochen, der Gesamtdatensatz ist nicht aktuell. Siehe ", IN_REPORT)
@@ -157,6 +226,12 @@ main <- function() {
   if (length(fehlt)) fail("Spalten fehlen im Gesamtdatensatz: ", paste(fehlt, collapse = ", "))
   zusatz <- setdiff(names(x), spalten)
   x <- x[spalten]
+  # Arbeitspfade und angehängte Endung umgewandelter Dateien durch die echten Namen ersetzen
+  echt <- function(v) gsub("\\.(numbers|jasp|xlsx)\\.csv", ".\\1", gsub(ml$up, UPLOADS, v, fixed = TRUE))
+  x$quelle_datei <- echt(x$quelle_datei)
+  report <- echt(gsub(ml$ordner, ziel, report, fixed = TRUE))
+  if (!any(x$quelle == "studierende", na.rm = TRUE))
+    fail("Keine einzige fiktive Person im Datensatz. Liegen die Uploads in data/student-uploads/?")
   falsch <- which(is.na(x$quelle) | !(x$quelle %in% c("generiert", "studierende")))
   if (length(falsch)) fail("Unbekannter Wert in Spalte quelle, Zeile ", paste(head(falsch, 5), collapse = ", "))
 
@@ -178,6 +253,17 @@ main <- function() {
     sprintf("**Datensatz:** %d Zeilen (%d vorgeneriert, %d fiktive Personen).", nrow(x), nrow(x) - n_st, n_st), "",
     "**Rechen-Check:** bestanden (Übungsdatensätze vollständig, fünf Skalen, Gruppenvergleiche, Korrelation, t-Test, Regression, ANOVA, Meta-Tabelle).", "",
     if (length(zusatz)) c(sprintf("Zusatzspalten entfernt: %s", paste(zusatz, collapse = ", ")), "") else NULL,
+    if (!ml$repariert) c("**Achtung:** Die Upload-Reparatur lief nicht, es wurden die Originaldateien verwendet.", "") else NULL,
+    sprintf("**Nicht verwendet:** %d Datei(en), siehe `merge-report.md`.",
+            sum(grepl("| IGNORIERT |", report, fixed = TRUE)) + sum(grepl("^- Ignoriert \\(kein CSV\\)", report))), "",
+    if (any(grepl("\\| (DOPPELT|PRÜFEN) \\|", report))) c("## Bitte ansehen", "",
+      "Diese Personen sind enthalten, aber auffällig (etwa zwei Dateien mit derselben Kennziffer).", "",
+      report[grepl("^\\| Datei \\|", report)], report[grepl("^\\|---", report)][1],
+      report[grepl("\\| (DOPPELT|PRÜFEN) \\|", report)], "") else NULL,
+    sprintf("## Reparaturen an den Uploads (%d)", NROW(ml$log)), "",
+    if (NROW(ml$log) == 0) "Keine." else c("| Datei | Was |", "|---|---|",
+      sprintf("| `%s` | %s |", ml$log$datei, zelle(ml$log$was))),
+    "",
     sprintf("## Reparaturen (%d)", n_rep), "",
     if (n_rep == 0) "Keine. Der Gesamtdatensatz ging unverändert ein."
     else c("Zeile = Datenzeile im Gesamtdatensatz vor der Reparatur.", "",
@@ -193,7 +279,9 @@ main <- function() {
   write.csv(x, file.path(tmp, "m15-gesamt.csv"), row.names = FALSE, na = "", fileEncoding = "UTF-8",
             quote = which(names(x) %in% c("quelle", "quelle_datei")))
   write.csv(meta, file.path(tmp, "meta-studien.csv"), row.names = FALSE, fileEncoding = "UTF-8")
-  if (!file.copy(IN_REPORT, file.path(tmp, "merge-report.md"))) fail("Merge-Report nicht kopierbar")
+  con <- file(file.path(tmp, "merge-report.md"), open = "w", encoding = "UTF-8")
+  writeLines(report, con)
+  close(con)
   con <- file(file.path(tmp, "pruefbericht.md"), open = "w", encoding = "UTF-8")
   writeLines(bericht, con)
   close(con)

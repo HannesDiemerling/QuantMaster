@@ -16,7 +16,7 @@ Aus vielen Uploads wird *ein* Datensatz. Du kombinierst zuerst selbst ein paar D
 
 ## Vorbereitung
 
-- Deine Datei aus Sitzung 01 sollte im Repo liegen. Ob sie als „ok“ erkannt wurde, siehst Du im [Merge-Report]({{< meta kurs.repo >}}/blob/main/data/combined/merge-report.md).
+- Deine Datei aus Sitzung 01 sollte im Repo liegen. Ob sie als „ok“ erkannt wurde, siehst Du im [Merge-Report]({{< meta kurs.repo >}}/blob/main/data/combined/merge-report.md). Dieser Report zeigt den aktuellen Stand aller Uploads, auch von Personen, die später dazukamen. Zeilenzahlen können deshalb von Deiner Datei abweichen. Für die Abgabe zählt die Datei im Ordner Deiner Gruppe. Was beim Einfrieren repariert wurde, steht dort in `pruefbericht.md`.
 - JASP ist installiert und startet.
 
 ## Inhalte

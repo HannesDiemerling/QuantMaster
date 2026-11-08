@@ -33,13 +33,14 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           PR: ${{ github.event.pull_request.number }}
+          SHA: ${{ github.event.pull_request.head.sha }}
           AUTHOR: ${{ github.event.pull_request.user.login }}
           REPO: ${{ github.repository }}
           BRANCH: ${{ github.event.repository.default_branch }}
         run: |
           gh api --paginate --slurp "repos/$REPO/pulls/$PR/files" > files.json
           if python3 scripts/check-upload-pr.py files.json "$AUTHOR" "$REPO" > result.txt; then
-            gh pr merge "$PR" --repo "$REPO" --squash --delete-branch=false
+            gh pr merge "$PR" --repo "$REPO" --squash --delete-branch=false --match-head-commit "$SHA"
             gh workflow run merge-uploads.yml --repo "$REPO" --ref "$BRANCH"
             gh pr comment "$PR" --repo "$REPO" --body "Danke, Dein Upload ist übernommen. In ein paar Minuten steht er im [Merge-Report](https://github.com/$REPO/blob/$BRANCH/data/combined/merge-report.md). Such dort nach Deiner Kennziffer."
           else

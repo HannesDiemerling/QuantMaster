@@ -16,7 +16,7 @@ Nach diesem Kapitel kannst Du …
 Bevor Du Ergebnisse verallgemeinerst, musst Du wissen, **wer** in Deinem Datensatz drinsteckt und, genauso wichtig, wer **nicht**. In unserem Fall ist die Antwort besonders unsauber, weil unser Datensatz aus zwei Quellen besteht:
 
 - **Simulierte Probanden** (`data/generated/`) mit einer Verteilung, die typisch für Psychologie-Studierende ist: überwiegend weiblich, jung, hoch gebildet.
-- **„Studierenden-Zeilen“**: fiktive Personen, die Ihr Euch ausgedacht habt, weil die Erhebung nur simuliert ist (siehe @sec-tag1-fragebogen).
+- **„Studierenden-Zeilen“**: fiktive Personen, die sich die Teilnehmenden ausgedacht haben, weil die Erhebung nur simuliert ist (siehe @sec-tag1-fragebogen).
 
 Inhaltlich sagen die Daten deshalb wenig über echte Menschen aus. Für das Methodische spielt das keine Rolle.
 
@@ -106,7 +106,7 @@ Auch ohne exakte Zahlen ist klar: unsere Stichprobe ist **kein Querschnitt** der
 
 ## Stichprobengröße und statistische Aussagen
 
-Unsere Stichprobe ist *klein* (90 vorgenerierte Zeilen plus eine Zeile pro Teilnehmer:in, also etwa 100–130). Das hat zwei Konsequenzen:
+Unsere Stichprobe ist *klein* (90 vorgenerierte Zeilen plus die fiktiven Personen, die bis zum Einfrieren Deines Stands hochgeladen wurden; die genaue Zahl siehst Du in JASP). Das hat zwei Konsequenzen:
 
 - **Geringe Power:** kleine, aber tatsächlich existierende Effekte können wir nicht statistisch nachweisen, sie versacken im Rauschen.
 - **Instabile Schätzer:** Mittelwerte und Korrelationen schwanken stark, wenn nur ein paar Zeilen anders aussehen würden.

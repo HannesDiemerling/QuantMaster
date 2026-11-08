@@ -80,10 +80,10 @@ Die `README.md` enthält dieselbe Übersicht und einen Quick-Start für Studiere
 ::: {.callout-tip title="Brauche ich einen GitHub-Account?"}
 **Zum Ansehen und Herunterladen: nein.** Das Repo ist öffentlich. Datensätze, Codebook und Merge-Report kannst Du ohne Anmeldung öffnen und herunterladen.
 
-**Zum Hochladen: ja.** GitHub erlaubt Uploads nur mit Account. Wir **empfehlen** ein (kostenloses) Konto, weil Du so den Workflow einer echten Open-Science-Studie selbst durchläufst. Wer keinen Account möchte, schickt seine Datei stattdessen per Mail an die Lehrperson (siehe @sec-tag1-upload). Nachteile hast Du dadurch keine.
+**Zum Hochladen: ja.** GitHub erlaubt Uploads nur mit Account. Wir **empfehlen** ein (kostenloses) Konto, weil Du so den Workflow einer echten Open-Science-Studie selbst durchläufst. Möchtest Du keinen Account, schickst Du Deine Datei stattdessen per Mail an Deine Lehrperson (@sec-lehrperson, siehe auch @sec-tag1-upload). Nachteile hast Du dadurch keine.
 :::
 
-1. **Account (empfohlen).** Wenn Du schon einen GitHub-Account hast oder einen anlegen möchtest: [github.com](https://github.com) → **Sign up**, E-Mail bestätigen. Schick Deinen Benutzernamen an die Lehrperson, falls noch nicht geschehen.
+1. **Account (empfohlen).** Wenn Du schon einen GitHub-Account hast oder einen anlegen möchtest: [github.com](https://github.com) → **Sign up**, E-Mail bestätigen. Schick Deinen Benutzernamen an Deine Lehrperson (@sec-lehrperson), falls noch nicht geschehen.
 2. **Einladung annehmen (nur mit Account).** Die Lehrperson fügt Dich als *Collaborator* hinzu. Du bekommst eine E-Mail von GitHub. Dort auf **View invitation** und dann **Accept invitation** klicken. Ohne angenommene Einladung ist das Hochladen gesperrt. Ist der Link abgelaufen (Einladungen gelten 7 Tage), sag der Lehrperson Bescheid oder lade per Mail hoch (siehe @sec-tag1-upload).
 3. **Repo öffnen.** Öffne [das Seminar-Repo]({{< meta kurs.repo >}}) im Browser (mit oder ohne Anmeldung).
 4. **Orientierung.** Klick Dich einmal durch:

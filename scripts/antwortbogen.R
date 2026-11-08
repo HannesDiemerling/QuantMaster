@@ -103,7 +103,7 @@ for (i in 1:10) {
   }, "")
   fehler <- c(fehler, sprintf("| %02d | %s | %s |", i, txt[1], txt[2]))
 }
-add("bereinigung", "Datensatznummer", "letzte Ziffer der Kennziffer, 0 = 10")
+add("bereinigung", "Datensatznummer", "Nummer im Dateinamen (Report-Spalte Datensatz), neue Uploads: letzte Ziffer, 0 = 10")
 add("bereinigung", "Fehler 1 (Zeilennummer in JASP, Spalte, gefundener Wert)", "siehe Fehlertabelle unten")
 add("bereinigung", "Fehler 2 (Zeilennummer in JASP, Spalte, gefundener Wert)", "siehe Fehlertabelle unten")
 add("bereinigung", "Ein Satz: Warum setzt Du fehlerhafte Werte auf fehlend, statt die ganze Zeile zu löschen?", hinweis = "Stichprobe/Information bleibt erhalten")

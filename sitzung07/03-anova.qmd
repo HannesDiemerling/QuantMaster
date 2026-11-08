@@ -93,7 +93,7 @@ In JASP ist bei *Correction* **Tukey** schon voreingestellt. Wenn Welch-ANOVA ge
 | A3 | Die zehn vorgenerierten Quell-Datensätze unterscheiden sich nicht in Extraversion. | [`E_mean` ~ `quelle_datensatz`]{.nowrap} |
 | A4 | Die drei Geschlechter-Kategorien (1, 2, 3) unterscheiden sich nicht in Neurotizismus. | `N_mean` ~ `geschlecht` |
 
-A3 ist ein **Sanity-Check**: Die Datensätze wurden mit derselben Verteilung erzeugt, sollten sich also eigentlich *nicht* unterscheiden. Wird A3 trotzdem signifikant, ist das noch kein Grund zur Sorge: Bei α = .05 kommt ein solcher Fehler 1. Art auch dann vor, wenn alles stimmt, und bei nur rund zehn Personen pro Datensatz ziehen einzelne Datensätze leicht extremere Werte. Erst wenn ein Datensatz völlig aus der Reihe fällt, lohnt der Blick auf das Kombinieren (@sec-tag2-kombinieren).
+A3 ist ein **Sanity-Check**: Die Datensätze wurden mit derselben Verteilung erzeugt, sollten sich also eigentlich *nicht* unterscheiden. Wird A3 trotzdem signifikant, ist das noch kein Grund zur Sorge: Bei α = .05 kommt ein solcher Fehler 1. Art auch dann vor, wenn alles stimmt, und bei nur rund zehn Personen pro Datensatz ziehen einzelne Datensätze leicht extremere Werte. Erst wenn ein Datensatz völlig aus der Reihe fällt, lohnt der Blick in den `merge-report.md` im Ordner Deiner Gruppe (@sec-tag2-kombinieren).
 
 ## Ein vollständiger Bericht
 

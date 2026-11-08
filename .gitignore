@@ -3,7 +3,8 @@ _site/
 _freeze/
 .quarto/
 *.html
-!index.html
+!/index.html
+*.log
 
 # R
 .Rproj.user/

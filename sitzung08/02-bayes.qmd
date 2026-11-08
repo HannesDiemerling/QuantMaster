@@ -120,7 +120,7 @@ Du liest am Posterior ab: Liegt das Credible Interval ganz auf einer Seite von 0
 Erinnere Dich an den Datenhinweis (@sec-tag3-datenhinweis):
 
 - **`G_mean` ~ `geschlecht`** (kein eingebauter Effekt): Der Posterior der Differenz liegt **um Null herum**, das Credible Interval schließt die **0 ein**. Lesart: *„Wir können **nicht** mit hoher Wahrscheinlichkeit sagen, dass sich die Gruppen unterscheiden. Beide Richtungen bleiben plausibel.“* Hier ist schlicht kein Effekt vorhanden.
-- **`E_mean` × `O_mean`** (schwaches, echtes Signal): Der Posterior von $\rho$ liegt **eher** über Null, aber nicht eindeutig. Lesart: *„Mit erhöhter, aber nicht erdrückender Wahrscheinlichkeit besteht ein positiver Zusammenhang.“* Genau diese **abgestufte Unsicherheit** macht der Posterior sichtbar, statt sie in ein „signifikant/nicht signifikant“ zu pressen. Wie deutlich es ausfällt, hängt auch von den Zeilen Eurer fiktiven Personen ab.
+- **`E_mean` × `O_mean`** (schwaches, echtes Signal): Der Posterior von $\rho$ liegt **eher** über Null, aber nicht eindeutig. Lesart: *„Mit erhöhter, aber nicht erdrückender Wahrscheinlichkeit besteht ein positiver Zusammenhang.“* Genau diese **abgestufte Unsicherheit** macht der Posterior sichtbar, statt sie in ein „signifikant/nicht signifikant“ zu pressen. Wie deutlich es ausfällt, hängt auch von den Zeilen der fiktiven Personen ab.
 
 ## Frequentismus und Bayes im Vergleich
 

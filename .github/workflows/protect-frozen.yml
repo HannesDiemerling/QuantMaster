@@ -1,0 +1,68 @@
+name: Eingefrorene Stände schützen
+
+# Ändert jemand mit Schreibrechten versehentlich etwas in einem eingefrorenen Stand,
+# wird genau das zurückgedreht. Soll ein Stand absichtlich gelöscht werden (nur bei
+# Testläufen), gehört [stand-aendern] in den Commit-Titel. Dieser Schutz ist gegen
+# Versehen gedacht, nicht gegen Absicht.
+# Der Workflow „Datensatz einfrieren“ löst das nicht aus, weil Bot-Pushes keine Workflows starten.
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'data/combined/eingefroren/*/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: protect-frozen
+  cancel-in-progress: false
+
+jobs:
+  restore:
+    if: github.actor != github.repository_owner && !contains(github.event.head_commit.message, '[stand-aendern]')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      # Sollzustand je Gruppe ist der letzte berechtigte Commit dieses Ordners (Bot oder
+      # [stand-aendern]). Das hängt nicht am einzelnen Push: Mehrere Pushes, Force-Pushes und
+      # verworfene wartende Läufe enden alle beim selben Stand.
+      - name: Änderung zurückdrehen
+        env:
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          set -o pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          ordner=$(mktemp)
+          git -c core.quotepath=off log --format= --name-only -- data/combined/eingefroren/ |
+            sed -n 's#^\(data/combined/eingefroren/[^/]*\)/.*#\1#p' | sort -u > "$ordner"
+          while IFS= read -r dir; do
+            anker=$(git log --format='%H%x09%ce%x09%s' -- "$dir" |
+              awk -F'\t' '!f && ($2 ~ /github-actions\[bot\]/ || $3 ~ /\[stand-aendern\]/) {print $1; f=1}')
+            if [ -z "$anker" ]; then
+              # Kein berechtigter Commit gefunden: nichts löschen, was womöglich echt ist
+              echo "::warning::$dir hat keinen berechtigten Commit und wurde nicht verändert"
+              continue
+            fi
+            git --literal-pathspecs diff --name-only --no-renames -z "$anker" HEAD -- "$dir" |
+            while IFS= read -r -d '' pfad; do
+              if git cat-file -e "$anker:$pfad" 2>/dev/null; then
+                git --literal-pathspecs checkout -q "$anker" -- "$pfad"
+              else
+                git --literal-pathspecs rm -qf -- "$pfad"
+              fi
+            done
+          done < "$ordner"
+          if git diff --cached --quiet; then echo "Nichts zurückzudrehen"; exit 0; fi
+          git commit -q -m "chore(data): eingefrorenen Stand wiederhergestellt"
+          for i in 1 2 3 4 5; do
+            if git pull -q --rebase origin "$BRANCH" && git push -q origin "HEAD:$BRANCH"; then echo "gepusht (Versuch $i)"; exit 0; fi
+            echo "Push fehlgeschlagen, neuer Versuch"; sleep $((i * 5))
+          done
+          exit 1

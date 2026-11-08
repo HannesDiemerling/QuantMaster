@@ -8,7 +8,7 @@ Erlaubt sind nur neue oder geänderte Dateien direkt in data/student-uploads/ mi
 .csv/.txt/.tsv. Eine bestehende Datei darf nur überschreiben, wer sie selbst hochgeladen hat.
 Zum Testen ohne GitHub-API: Umgebungsvariable HISTORY_JSON = {"pfad": ["login", ...]}.
 """
-import json, os, re, subprocess, sys
+import json, os, re, subprocess, sys, urllib.parse
 
 ALLOWED = re.compile(r"^data/student-uploads/[^/]+\.(csv|txt|tsv)$", re.IGNORECASE)
 MAX_FILES = 5
@@ -19,7 +19,7 @@ def history(path, repo):
     """GitHub-Logins aller Commits, die die Datei auf main berührt haben."""
     if "HISTORY_JSON" in os.environ:
         return json.loads(os.environ["HISTORY_JSON"]).get(path, [])
-    out = subprocess.run(["gh", "api", "--paginate", f"repos/{repo}/commits?path={path}&sha=main",
+    out = subprocess.run(["gh", "api", "--paginate", f"repos/{repo}/commits?path={urllib.parse.quote(path)}&sha=main",
                           "--jq", ".[].author.login"], capture_output=True, text=True, check=True).stdout
     return [l for l in out.split("\n") if l]
 
@@ -32,7 +32,7 @@ def check(files, author, repo):
         reasons.append(f"{len(files)} Dateien, erlaubt sind höchstens {MAX_FILES}")
     for f in files:
         name, status = f.get("filename", ""), f.get("status", "")
-        if not ALLOWED.match(name):
+        if not ALLOWED.fullmatch(name) or re.search(r"[\x00-\x1f\x7f]", name):
             reasons.append(f"{name}: nur CSV-Dateien direkt in data/student-uploads/ sind erlaubt")
             continue
         if status not in ("added", "modified"):
