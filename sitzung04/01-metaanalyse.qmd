@@ -51,9 +51,9 @@ Signifikante Ergebnisse werden eher veröffentlicht. Dann fehlen kleine Studien 
 
 ### Schritt 2: Alle Studien zusammenfassen
 
-Die Tabelle aller zehn „Studien“ erzeugt der Merge-Workflow automatisch: `data/combined/meta-studien.csv` (Spalten `studie`, `n`, `r`, `fisher_z`, `se`). Prüfe, ob Dein $r$ aus Schritt 1 mit der Zeile Deines Datensatzes übereinstimmt.
+Die Tabelle aller zehn „Studien“ liegt neben Deinem Gesamtdatensatz: `meta-studien.csv` im Ordner Deiner Gruppe (Spalten `studie`, `n`, `r`, `fisher_z`, `se`). Prüfe, ob Dein $r$ aus Schritt 1 mit der Zeile Deines Datensatzes übereinstimmt.
 
-1. `meta-studien.csv` herunterladen (im Repo unter `data/combined/`, Button **Download raw file**) und in JASP öffnen (**File → Open**; es öffnet sich ein neues Fenster).
+1. `meta-studien.csv` herunterladen (im Repo unter [`data/combined/eingefroren/`]({{< meta kurs.repo >}}/tree/main/data/combined/eingefroren), Ordner Deiner Gruppe, Button **Download raw file**) und in JASP öffnen (**File → Open**; es öffnet sich ein neues Fenster).
 2. Modul **Meta-Analysis** über das **„+“** aktivieren.
 3. **Meta-Analysis → Classical → Meta-Analysis**.
 4. **Effect Size:** `fisher_z` · **Effect Size Standard Error:** `se` · **Study Labels:** `studie`.

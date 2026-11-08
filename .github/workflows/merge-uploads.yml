@@ -2,8 +2,9 @@ name: Merge student uploads
 
 # Kombiniert alle Studierenden-Uploads zu data/combined/m15-gesamt.csv und
 # schreibt data/combined/merge-report.md (was wurde erkannt, welche Probleme).
-# Läuft bei jedem Push, der eine CSV-Datei betrifft — auch wenn sie im falschen
-# Ordner gelandet ist. Manuell startbar über Actions > "Run workflow".
+# Läuft bei jedem Push, der eine CSV-Datei betrifft. Verwendet werden nur Dateien
+# aus data/student-uploads/; CSVs anderswo stehen als IGNORIERT im Report.
+# Manuell startbar über Actions > "Run workflow".
 on:
   push:
     branches: [main, master]
@@ -13,6 +14,7 @@ on:
       - 'data/student-uploads/**'
       - '!data/combined/**'
       - 'scripts/merge-uploads.R'
+      - 'scripts/meta-studien.R'
       - '.github/workflows/merge-uploads.yml'
   workflow_dispatch:
 

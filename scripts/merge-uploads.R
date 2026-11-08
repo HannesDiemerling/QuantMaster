@@ -8,8 +8,9 @@
 # Fail-safe-Prinzip: Studierende machen beim Upload Fehler (falscher Name,
 # falscher Ordner, Semikolon statt Komma, Zusatzspalten, ...). Das Skript
 # verlässt sich deshalb NICHT auf Dateinamen, sondern auf den Inhalt:
-#   - Gelesen werden alle .csv unter data/ (außer generated/ und combined/)
-#     sowie im Repo-Root.
+#   - Verwendet werden nur Dateien in data/student-uploads/. CSV-Dateien an
+#     anderen Stellen (außer data/combined/ und den Übungsdatensätzen) gehen
+#     nicht ein, stehen aber als IGNORIERT im Report.
 #   - Zeilen, die zu >= 19 von 21 BFI-Items mit einer vorgenerierten Zeile
 #     übereinstimmen, sind "Seed-Zeilen". Jeder hochgeladene Seed-Datensatz
 #     geht genau einmal ein — in der Referenz-Bereinigung (Fehlerzellen leer,
@@ -19,6 +20,9 @@
 #
 # Nur base R + MASS (wird mit R ausgeliefert). Aufruf aus dem Repo-Root:
 #   Rscript scripts/merge-uploads.R
+
+options(scipen = 100)     # Kennziffern wie 100000 nie als 1e+05 schreiben
+source("scripts/meta-studien.R", local = TRUE, encoding = "UTF-8")
 
 GENERATOR  <- "scripts/generate-datasets.R"
 OUT_CSV    <- "data/combined/m15-gesamt.csv"
@@ -197,14 +201,14 @@ main <- function() {
     file.exists(seed_files[i]) && same(seed_files[i], ref_files[i]), TRUE)]
   ref <- build_reference()
 
-  files <- c(list.files("data", pattern = "\\.csv$", recursive = TRUE,
-                        full.names = TRUE, ignore.case = TRUE),
-             list.files(".", pattern = "\\.csv$", full.names = TRUE, ignore.case = TRUE))
-  files <- sub("^\\./", "", files)
-  gen_ok <- setdiff(file.path("data/generated", SEED_NAMES), seed_changed)
-  files <- sort(unique(files[!grepl("^data/combined/", files) & !(files %in% gen_ok)]))
-  files <- sort(unique(c(files, list.files(UPLOAD_DIR, pattern = "\\.(txt|tsv)$", recursive = TRUE,
-                                           full.names = TRUE, ignore.case = TRUE))))
+  files <- sort(unique(list.files(UPLOAD_DIR, pattern = "\\.(csv|txt|tsv)$", recursive = TRUE,
+                                  full.names = TRUE, ignore.case = TRUE)))
+  # CSV-Dateien außerhalb des Upload-Ordners gehen nicht ein, werden aber gemeldet
+  anderswo <- sub("^\\./", "", c(list.files("data", pattern = "\\.csv$", recursive = TRUE,
+                                            full.names = TRUE, ignore.case = TRUE),
+                                 list.files(".", pattern = "\\.csv$", full.names = TRUE, ignore.case = TRUE)))
+  anderswo <- sort(setdiff(anderswo[!grepl("^data/combined/", anderswo)],
+                           c(files, file.path("data/generated", SEED_NAMES))))
   other <- list.files(UPLOAD_DIR, recursive = TRUE, full.names = TRUE)
   other <- other[!grepl("\\.(csv|txt|tsv|gitkeep)$", other, ignore.case = TRUE) & basename(other) != "README.md"]
 
@@ -212,11 +216,14 @@ main <- function() {
   seeds_used <- list()       # ds -> Dateien
   own <- list()
 
+  for (f in anderswo) {
+    report[[f]] <- list(datei = f, status = "IGNORIERT", ds = NA, eigene = 0, gefunden = NA, abweichungen = NA, kz = NULL,
+                        hinweise = "liegt NICHT in data/student-uploads/ und wurde deshalb nicht verwendet. Bitte dort hochladen")
+  }
+
   for (f in files) {
     info <- list(datei = f, status = "ok", ds = NA, eigene = 0, hinweise = character(0),
                  gefunden = NA, abweichungen = NA, kz = NULL)
-    if (!startsWith(f, paste0(UPLOAD_DIR, "/")))
-      info$hinweise <- c(info$hinweise, "liegt NICHT in data/student-uploads/")
     if (!grepl("^datensatz-[0-9]{2}-[0-9]{4,12}\\.csv$", basename(f)))
       info$hinweise <- c(info$hinweise, "Dateiname weicht vom Schema datensatz-XX-<Kennziffer>.csv ab (für den Merge unkritisch)")
 
@@ -288,7 +295,7 @@ main <- function() {
     if (nrow(mine) == 1) {
       info$kz <- mine$probandennummer
       if (!is_kz(mine$probandennummer))
-        pruefen(sprintf("Kennziffer %s ungültig (ganze Zahl mit mindestens 4 Stellen, z. B. Deine Matrikelnummer)",
+        pruefen(sprintf("Kennziffer %s ungültig (4 bis 12 Ziffern aus Deiner Matrikelnummer, nur Zahlen. Beginnt sie mit 0, nimm eine Ziffer mehr)",
                         ifelse(is.na(mine$probandennummer), "fehlt oder ist keine Zahl,", format(mine$probandennummer, scientific = FALSE))))
       mine <- clean_range(mine)
       if (attr(mine, "n_bad") > 0)
@@ -350,18 +357,7 @@ main <- function() {
 
   # Für die Metaanalyse (Sitzung 04): jeder Seed-Datensatz samt zugeordneter
   # eigener Zeilen ist eine "Studie"; Effekt = Korrelation E_mean × O_mean.
-  sc <- function(i) rowSums(as.matrix(combined[sprintf("BFI_%02d", i)])) / length(i)
-  e <- sc(c(1, 6, 11, 16)); o <- sc(c(5, 10, 15, 20, 21))
-  meta <- do.call(rbind, lapply(sort(unique(na.omit(combined$quelle_datensatz))), function(s) {
-    ok <- which(combined$quelle_datensatz == s & !is.na(e) & !is.na(o))
-    if (length(ok) < 5) return(NULL)
-    r <- cor(e[ok], o[ok])
-    data.frame(studie = sprintf("Datensatz %02d", s), quelle_datensatz = s, n = length(ok),
-               r = round(r, 3), fisher_z = round(atanh(r), 3), se = round(1 / sqrt(length(ok) - 3), 3))
-  }))
-  if (is.null(meta)) meta <- data.frame(studie = character(0), quelle_datensatz = numeric(0), n = numeric(0),
-                                        r = numeric(0), fisher_z = numeric(0), se = numeric(0))
-  write.csv(meta, OUT_META, row.names = FALSE, fileEncoding = "UTF-8")
+  write.csv(meta_studien(combined), OUT_META, row.names = FALSE, fileEncoding = "UTF-8")
 
   # --- Report ------------------------------------------------------------------
   cell <- function(x) if (length(x) == 0 || all(is.na(x))) "–" else paste(x, collapse = "; ")
@@ -398,7 +394,7 @@ main <- function() {
     if (length(d)) {
       andere <- unique(fremd$datei)
       report[[k]]$status <- "DOPPELT"
-      report[[k]]$hinweise <- c(i$hinweise, sprintf("Kennziffer %s auch in %s: sind beide Dateien von Dir, die ältere löschen; sonst Lehrperson fragen",
+      report[[k]]$hinweise <- c(i$hinweise, sprintf("Kennziffer %s auch in %s: sind beide Dateien von Dir, die ältere löschen; gehören sie zwei Personen, nimmt eine von Euch eine Ziffer mehr aus der Matrikelnummer",
                                                      paste(d, collapse = ", "), paste0("`", unique(andere), "`", collapse = ", ")))
     }
   }

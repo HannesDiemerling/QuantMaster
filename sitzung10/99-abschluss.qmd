@@ -8,7 +8,7 @@
 
 ## Abgabe
 
-Schick **eine** Mail innerhalb einer Woche nach Sitzung 10 an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
+Schick **eine** Mail innerhalb einer Woche nach Sitzung 10 an Deine Lehrperson (@sec-lehrperson).
 
 - **Betreff:** `M15 S10 <Kennziffer>`
 - **Anhang:** keiner
@@ -20,7 +20,7 @@ Fehlt Dir noch eine Abgabe aus einer früheren Sitzung? Dann hol sie jetzt nach,
 
 ## Offene Fragen?
 
-Fragen zur Klausur kannst Du im Plenum stellen oder per Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}) schicken.
+Fragen zur Klausur kannst Du im Plenum stellen oder per Mail an Deine Lehrperson (@sec-lehrperson) schicken.
 
 ## Zum Weiterlesen
 

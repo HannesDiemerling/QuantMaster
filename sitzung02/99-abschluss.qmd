@@ -3,12 +3,12 @@
 ## Kurz zusammengefasst
 
 - Du hast mehrere Uploads selbst kombiniert und die Fallstricke erlebt.
-- Du arbeitest ab jetzt mit dem offiziellen `m15-gesamt.csv`.
+- Du arbeitest ab jetzt mit dem offiziellen `m15-gesamt.csv` aus dem Ordner Deiner Gruppe.
 - Du hast Kennwerte und Plots für die Stichprobe erstellt und interpretiert.
 
 ## Abgabe
 
-Schick **eine** Mail bis spätestens zum Tag vor Sitzung 03 an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
+Schick **eine** Mail bis spätestens zum Tag vor Sitzung 03 an Deine Lehrperson (@sec-lehrperson).
 
 - **Betreff:** `M15 S02 <Kennziffer>`
 - **Anhang:** keiner
@@ -18,7 +18,7 @@ Schick **eine** Mail bis spätestens zum Tag vor Sitzung 03 an [{{< meta kurs.ma
 
 ## Offene Fragen?
 
-Ist etwas unklar geblieben, oder hat Dich ein Ergebnis überrascht? Bring es ins Abschlussplenum oder schreib eine kurze Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}). Meistens haben andere dieselbe Frage.
+Ist etwas unklar geblieben, oder hat Dich ein Ergebnis überrascht? Bring es ins Abschlussplenum oder schreib eine kurze Mail an Deine Lehrperson (@sec-lehrperson). Meistens haben andere dieselbe Frage.
 
 ## Zum Weiterlesen
 

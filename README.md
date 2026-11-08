@@ -18,11 +18,11 @@ Seminar zum Modul **M15: Multivariate Verfahren, Forschungsmethoden & Psychother
 |---|---|---|
 | Vor Semesterstart | Alte Uploads löschen | `data/student-uploads/` leeren (`.gitkeep` und `README.md` behalten) |
 | Vor Semesterstart | Termine eintragen | Tabelle in `index.qmd` |
-| Sitzung 01 | Offizielle Teilnehmerliste zeigen (Listennummer $n$ = Position); Stand vom Sitzungstag als Kopie aufheben, damit spätere Änderungen der Liste die Nummern nicht verschieben. Nachzügler bekommen die nächste freie Nummer. Studierende mit GitHub-Account als Collaborator einladen (Account ist freiwillig; max. 50 Einladungen pro Tag, Einladungen verfallen nach 7 Tagen, offene Einladungen unter Settings → Collaborators) | Daraus: Kennziffer 2000 + n, Datensatz ((n − 1) mod 10) + 1, Kleingruppe n/4 aufgerundet; GitHub-Benutzernamen per Vorab-Mail |
+| Sitzung 01 | Kennziffer erklären (mindestens die letzten 4 Ziffern der Matrikelnummer, bis 12, nur Ziffern), Kleingruppen einteilen. Studierende mit GitHub-Account als Collaborator einladen (Account ist freiwillig; max. 50 Einladungen pro Tag, Einladungen verfallen nach 7 Tagen, offene Einladungen unter Settings → Collaborators) | Daraus: Kennziffer 2000 + n, Datensatz ((n − 1) mod 10) + 1, Kleingruppe n/4 aufgerundet; GitHub-Benutzernamen per Vorab-Mail |
 | Sitzung 01 | Mail-Uploads (Betreff `M15 Upload <Kennziffer>`) selbst einstellen | Anhang vorher in `datensatz-XX-<Kennziffer>.csv` umbenennen (gleichnamige Dateien überschreiben sich!), dann unter `data/student-uploads/` hochladen (Add file → Upload files). Möglichst noch in der Sitzung, damit die Person den Report prüfen kann |
 | Sitzung 01 | Uploads laufen automatisch zusammen | Workflow **Merge student uploads** (Actions-Tab) schreibt `data/combined/m15-gesamt.csv`, `merge-report.md` und `meta-studien.csv` |
-| 2 Tage vor Sitzung 02 | Datensatz **einfrieren** | Letzten Merge-Lauf grün abwarten, dann Actions → *Merge student uploads* → **Disable workflow** und nicht wieder aktivieren (späte Uploads würden sonst Datensatz und Antwortbogen verändern). Danach rechnen alle mit derselben Datei. |
-| danach | Antwortbogen erzeugen | lokal `git pull`, dann `Rscript scripts/antwortbogen.R` → `intern/antwortbogen.md` (gitignored, **nie committen**); schreibt auch die Abgabe-Vorlagen `sitzungXX/_abgabe.md` neu |
+| 2 Tage vor Sitzung 02 der Gruppe | Datensatz **einfrieren** | Actions → *Datensatz einfrieren* → **Run workflow** → Gruppenname (z. B. Nachname, Kleinbuchstaben). Der Lauf merged zuerst alle Uploads, repariert formale Fehler, prüft, ob sich rechnen lässt, und schreibt `data/combined/eingefroren/<gruppe>/`. Danach kurz in `pruefbericht.md` schauen und der Gruppe den Ordnernamen nennen. Ein vorhandener Ordner wird nie überschrieben. Der Merge-Workflow bleibt immer aktiv, die Gruppen laden in denselben Ordner hoch, und jeder Stand enthält alle bis dahin vorhandenen Personen. |
+| danach | Antwortbogen erzeugen | lokal `git pull`, dann `Rscript scripts/antwortbogen.R <gruppe>` → `intern/antwortbogen-<gruppe>.md` (gitignored, **nie committen**, an Kolleginnen und Kollegen direkt schicken); schreibt auch die Abgabe-Vorlagen `sitzungXX/_abgabe.md` neu |
 | Sitzung 01 | Uploads zählen | Zahl der Dateien im Merge-Report mit der Zahl der Anwesenden vergleichen. Fehlt jemand trotz Upload, wurde evtl. eine gleichnamige Datei überschrieben: Datei öffnen → *History* → ältere Version → *Download raw file* → unter dem richtigen Namen neu hochladen |
 | Sitzung 01 | Doppelte Uploads aufräumen | Status **DOPPELT** im Merge-Report: die ältere der beiden Dateien löschen (Datei öffnen → „…“ → *Delete file* → Commit) |
 | laufend | Abgaben prüfen | eine Mail pro Person und Sitzung, Betreff `M15 SNN <Kennziffer>`; Felder gegen den Antwortbogen abgleichen |
@@ -31,7 +31,7 @@ Hinweise:
 
 - **Hilfe-Spickzettel** für Probleme in Sitzung 01–03: `intern/hilfe-spickzettel.md` (lokal, gitignored).
 - Der **Merge-Report** zeigt pro Upload-Datei Kennziffer, Status (ok / PRÜFEN / DOPPELT / IGNORIERT), Seed-Datensatz, gefundene Fehler (z. B. `2/2`), Abweichungen von der Referenz-Bereinigung und Hinweise (falscher Name/Ordner, Semikolon, Zusatzspalten, ungültige Kennziffer). Fiktive Personen werden nur aus eindeutigen Dateien übernommen (genau ein Übungsdatensatz, genau eine fiktive Person). Damit hast Du auch das Feedback zur Bereinigung aus Sitzung 01.
-- Der Merge ist robust gegen typische Upload-Fehler: Er liest alle CSVs unter `data/` und im Repo-Root, erkennt vorgenerierte Zeilen am Inhalt und übernimmt jeden Seed-Datensatz genau einmal. Mit `ALLE_SEEDS <- TRUE` (Standard) sind immer alle zehn Seed-Datensätze enthalten, auch wenn bei kleinen Kursen einer nicht hochgeladen wurde.
+- Der Merge ist robust gegen typische Upload-Fehler: Er nimmt nur Dateien aus `data/student-uploads/` (CSVs anderswo stehen als IGNORIERT im Report), erkennt vorgenerierte Zeilen am Inhalt und übernimmt jeden Seed-Datensatz genau einmal. Mit `ALLE_SEEDS <- TRUE` (Standard) sind immer alle zehn Seed-Datensätze enthalten, auch wenn bei kleinen Kursen einer nicht hochgeladen wurde.
 - Bei vielen gleichzeitigen Uploads läuft immer nur ein Merge; der nächste wartet und verarbeitet dann alle neuen Dateien. Rote Läufe sollten nicht vorkommen; falls doch: Actions → *Merge student uploads* → *Run workflow*.
 - `antwortbogen.R` braucht R mit `MASS`, `lme4`, `lavaan` und `BayesFactor` (`install.packages(c("lme4", "lavaan", "BayesFactor"))`). Abgabefelder werden dort pro Kapitel definiert; wer Kapitel verschiebt, passt nur `SITZUNG` an.
 - Fehler-Übersicht der vorgenerierten Datensätze: steht im Antwortbogen (Abschnitt Sitzung 01).
@@ -50,7 +50,7 @@ Hinweise:
 ├── data/
 │   ├── generated/                # 10 vorgenerierte Übungsdatensätze
 │   ├── student-uploads/          # Uploads der Studierenden
-│   └── combined/                 # m15-gesamt.csv + merge-report.md (vom Workflow erzeugt)
+│   └── combined/                 # m15-gesamt.csv + merge-report.md (vom Workflow erzeugt), eingefroren/<gruppe>/
 ├── scripts/
 │   ├── generate-datasets.R       # erzeugt die 10 Datensätze deterministisch
 │   ├── merge-uploads.R           # kombiniert alle Uploads (fail-safe), schreibt Merge-Report

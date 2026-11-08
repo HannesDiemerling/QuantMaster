@@ -10,14 +10,23 @@
 # Skript anhand von SITZUNG automatisch. Wer Kapitel verschiebt, ändert nur
 # SITZUNG und lässt das Skript neu laufen.
 #
-# Grundlage der Sollwerte: der eingefrorene Gesamtdatensatz
-# data/combined/m15-gesamt.csv. Aufruf aus dem Repo-Root:
-#   Rscript scripts/antwortbogen.R
+# Grundlage der Sollwerte ist der eingefrorene Stand einer Gruppe. Aufruf aus
+# dem Repo-Root:
+#   Rscript scripts/antwortbogen.R <gruppe>   -> intern/antwortbogen-<gruppe>.md
+# Ohne Gruppe wird der Live-Stand data/combined/m15-gesamt.csv verwendet:
+#   Rscript scripts/antwortbogen.R            -> intern/antwortbogen.md
 # Benötigt: base R, MASS, lme4, lavaan, BayesFactor. Fehlt ein Paket, wird das
 # Feld als "nicht berechnet" markiert.
 
-DATA <- "data/combined/m15-gesamt.csv"
+.args <- commandArgs(trailingOnly = TRUE)
+DIR  <- "data/combined"
 OUT  <- "intern/antwortbogen.md"
+if (length(.args) >= 1) {
+  DIR <- file.path("data/combined/eingefroren", .args[1])
+  OUT <- sprintf("intern/antwortbogen-%s.md", .args[1])
+  if (!dir.exists(DIR)) stop("Für die Gruppe '", .args[1], "' gibt es keinen eingefrorenen Stand (", DIR, "). Erst git pull, Namen prüfen.", call. = FALSE)
+}
+DATA <- file.path(DIR, "m15-gesamt.csv")
 set.seed(2026)
 
 SITZUNG <- c(einstieg = 1, bereinigung = 1, kombinieren = 2, deskriptiv = 2,
@@ -94,7 +103,7 @@ for (i in 1:10) {
   }, "")
   fehler <- c(fehler, sprintf("| %02d | %s | %s |", i, txt[1], txt[2]))
 }
-add("bereinigung", "Datensatznummer", "((Listennummer − 1) mod 10) + 1")
+add("bereinigung", "Datensatznummer", "letzte Ziffer der Kennziffer, 0 = 10")
 add("bereinigung", "Fehler 1 (Zeilennummer in JASP, Spalte, gefundener Wert)", "siehe Fehlertabelle unten")
 add("bereinigung", "Fehler 2 (Zeilennummer in JASP, Spalte, gefundener Wert)", "siehe Fehlertabelle unten")
 add("bereinigung", "Ein Satz: Warum setzt Du fehlerhafte Werte auf fehlend, statt die ganze Zeile zu löschen?", hinweis = "Stichprobe/Information bleibt erhalten")
@@ -154,7 +163,7 @@ pval("ttest", "t3 (Welch-Zeile): p", t3$p.value)
 add("ttest", "Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und welchen Vorbehalt hast Du?", hinweis = "Effektgröße/KI statt nur p")
 
 # === Sitzung 4: Metaanalyse & Regression =======================================
-ms <- read.csv("data/combined/meta-studien.csv")
+ms <- read.csv(file.path(DIR, "meta-studien.csv"))
 yi <- ms$fisher_z; vi <- ms$se^2; k <- length(yi)
 nll <- function(t2) { w <- 1 / (vi + t2); mu <- sum(w * yi) / sum(w)
   0.5 * (sum(log(vi + t2)) + log(sum(w)) + sum(w * (yi - mu)^2)) }

@@ -2,13 +2,13 @@
 
 ## Kurz zusammengefasst
 
-- Du kennst Deine Listennummer, Kennziffer, Datensatznummer und Kleingruppe.
+- Du kennst Deine Kennziffer, Datensatznummer und Kleingruppe.
 - Du hast eine fiktive Person beschrieben und einen kompletten Daten-Workflow durchlaufen: herunterladen, bereinigen, ergänzen, hochladen.
 - Du hast in JASP zwei absichtliche Fehler gefunden, behandelt und Deine Datei hochgeladen.
 
 ## Abgabe
 
-Schick **eine** Mail bis spätestens zum Tag vor Sitzung 02 an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
+Schick **eine** Mail bis spätestens zum Tag vor Sitzung 02 an Deine Lehrperson (@sec-lehrperson).
 
 - **Betreff:** `M15 S01 <Kennziffer>`
 - **Anhang:** keiner
@@ -20,7 +20,7 @@ Auch wenn Du Deine Datei per Mail geschickt hast (Weg B), brauchst Du zusätzlic
 
 ## Offene Fragen?
 
-Ist etwas unklar geblieben, oder hat Dich ein Ergebnis überrascht? Bring es ins Abschlussplenum oder schreib eine kurze Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}). Meistens haben andere dieselbe Frage.
+Ist etwas unklar geblieben, oder hat Dich ein Ergebnis überrascht? Bring es ins Abschlussplenum oder schreib eine kurze Mail an Deine Lehrperson (@sec-lehrperson). Meistens haben andere dieselbe Frage.
 
 ## Zum Weiterlesen
 

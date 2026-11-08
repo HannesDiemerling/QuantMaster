@@ -24,7 +24,7 @@ Füge **eine neue Zeile am Ende** ein und trag die Werte der fiktiven Person aus
 
 | Spalte | Inhalt |
 |---|---|
-| `probandennummer` | Deine **Kennziffer** (Deine Matrikelnummer, siehe @sec-nummern), z. B. `1234567` |
+| `probandennummer` | Deine **Kennziffer** (mindestens die letzten 4 Ziffern Deiner Matrikelnummer, siehe @sec-nummern), z. B. `1234567` |
 | `geschlecht` | 1 / 2 / 3 (Code) der fiktiven Person |
 | `alter` | Alter der fiktiven Person |
 | `bildungsgrad` | 1–7 (Code) der fiktiven Person |
@@ -44,7 +44,7 @@ datensatz-<XX>-<Kennziffer>.csv
 ```
 
 - `<XX>` ist Deine zweistellige Datensatznummer.
-- `<Kennziffer>` ist Deine Kennziffer, also Deine Matrikelnummer (@sec-nummern).
+- `<Kennziffer>` ist Deine Kennziffer (@sec-nummern), nur Ziffern.
 - Beispiel: `datensatz-03-1234567.csv` (Datensatz 3, Kennziffer 1234567).
 - Bitte **keine Namen oder Initialen** im Dateinamen. Das Repo ist öffentlich.
 
@@ -88,7 +88,7 @@ Mit Schreibrechten könntest Du technisch jede Datei im Repo ändern. Lade nur D
 
 ### Weg B: per Mail (ohne GitHub-Account)
 
-1. Neue Mail an [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}).
+1. Neue Mail an Deine Lehrperson (@sec-lehrperson).
 2. **Betreff:** `M15 Upload <Kennziffer>` (z. B. `M15 Upload 1234567`).
 3. **Anhang:** Deine Datei `datensatz-XX-<Kennziffer>.csv`. Bitte genau die CSV-Datei, keine Excel- oder JASP-Datei und kein Screenshot.
 4. Text: nicht nötig.
@@ -100,7 +100,7 @@ Die Lehrperson legt Deine Datei ins Repo, danach läuft der Merge-Workflow wie b
 :::
 
 ::: {.callout-tip title="Upload-Frist"}
-Der Upload muss spätestens **zwei Tage vor Sitzung 02** im Repo liegen. Per Mail bitte einen Tag früher schicken, damit die Lehrperson die Datei noch einstellen kann.
+Der Upload muss spätestens **zwei Tage vor Sitzung 02 Deiner Gruppe** im Repo liegen. Per Mail bitte einen Tag früher schicken, damit die Lehrperson die Datei noch einstellen kann.
 :::
 
 ## Schritt 4: Eigenen Upload kontrollieren
@@ -115,7 +115,7 @@ Wenn Du einen Fehler entdeckst: korrigiere lokal und lade die Datei erneut hoch 
 
 Jeder Upload startet im Repo-Reiter **Actions** den Workflow *Merge student uploads*. Er dauert 1–2 Minuten und
 
-1. liest alle CSV-Dateien, auch falsch benannte oder im falschen Ordner abgelegte,
+1. liest alle CSV-Dateien aus `data/student-uploads/`, auch falsch benannte (Dateien in anderen Ordnern werden nicht verwendet und stehen mit einem Hinweis im Report),
 2. erkennt die vorgenerierten Zeilen am Inhalt und übernimmt jeden Seed-Datensatz **genau einmal** (in einer Referenz-Bereinigung),
 3. hängt die Zeilen aller fiktiven Personen an und setzt unmögliche Werte auf fehlend,
 4. schreibt `data/combined/m15-gesamt.csv` und den Bericht `data/combined/merge-report.md`.

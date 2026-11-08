@@ -59,7 +59,7 @@ Herunterladen: jede Datei anklicken → **Download raw file** (Pfeil-Symbol oben
 
 Öffne den [Merge-Report]({{< meta kurs.repo >}}/blob/main/data/combined/merge-report.md) (`data/combined/merge-report.md`). Dort steht pro Upload-Datei, welcher Seed-Datensatz erkannt wurde und welche Probleme es gab. Vergleiche mit dem, was Du in Schritt 2 gesehen hast: Hat das Skript dieselben Probleme gefunden?
 
-Im **offiziellen** Gesamtdatensatz `data/combined/m15-gesamt.csv` ist das schon gelöst:
+Im **offiziellen** Gesamtdatensatz `m15-gesamt.csv` ist das schon gelöst:
 
 | Spalte | Bedeutung |
 |---|---|
@@ -73,9 +73,10 @@ Jeder der zehn Seed-Datensätze steht **genau einmal** drin, auch wenn er mehrfa
 
 ## Schritt 4: Gesamtdatensatz in JASP öffnen
 
-1. `m15-gesamt.csv` herunterladen (**Download raw file**).
-2. In JASP: **File → Open → Computer → Browse** und die Datei wählen.
-3. Erscheint das Fenster **Data Preview**: Unter **Select Delimiter:** das Komma wählen, prüfen, ob die Vorschau saubere Spalten zeigt, dann **Load**.
+1. Im Repo den Ordner [`data/combined/eingefroren/`]({{< meta kurs.repo >}}/tree/main/data/combined/eingefroren) öffnen und darin den **Ordner Deiner Gruppe**. Den Namen nennt Dir Deine Lehrperson. Dieser Stand ändert sich nicht mehr und enthält auch Personen aus anderen Gruppen, das ist so gewollt.
+2. `m15-gesamt.csv` herunterladen (**Download raw file**).
+3. In JASP: **File → Open → Computer → Browse** und die Datei wählen.
+4. Erscheint das Fenster **Data Preview**: Unter **Select Delimiter:** das Komma wählen, prüfen, ob die Vorschau saubere Spalten zeigt, dann **Load**.
 
 ::: {.callout-tip title="Umlaute kaputt?"}
 Die Kodierung stellst Du in JASP nicht beim Import, sondern unter **File → Preferences → Data** ein. Unsere Datei ist UTF-8, in der Regel passt die Standardeinstellung.

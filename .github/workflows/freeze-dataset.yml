@@ -1,0 +1,63 @@
+name: Datensatz einfrieren
+
+# Friert den aktuellen Gesamtdatensatz für eine Gruppe ein: Actions > "Datensatz
+# einfrieren" > "Run workflow" > Gruppenname. Der Lauf führt zuerst den Merge aus,
+# enthält also alle Uploads, die in dem Moment in data/student-uploads/ liegen.
+# Ergebnis: data/combined/eingefroren/<gruppe>/ (samt pruefbericht.md).
+# Ein vorhandener Ordner wird nie überschrieben.
+on:
+  workflow_dispatch:
+    inputs:
+      gruppe:
+        description: "Name der Gruppe (Kleinbuchstaben, Ziffern, Bindestriche), z. B. diemerling"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+# Eigene Gruppe statt "merge-uploads": Dort würde ein wartender Lauf von neuen
+# Uploads verdrängt. Es wird nur der neue Ordner committet, Konflikte mit dem
+# Merge sind damit ausgeschlossen.
+concurrency:
+  group: freeze-${{ inputs.gruppe }}
+  cancel-in-progress: false
+
+jobs:
+  freeze:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Europe/Berlin
+      GRUPPE: ${{ inputs.gruppe }}
+    steps:
+      - name: Checkout (aktueller Stand von main)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Merge uploads
+        run: Rscript scripts/merge-uploads.R
+
+      - name: Einfrieren und prüfen
+        run: Rscript scripts/freeze-dataset.R "$GRUPPE"
+
+      # Nur der neue Ordner wird committet. Der Live-Stand bleibt Sache des Merge-Workflows.
+      - name: Commit frozen dataset
+        env:
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "data/combined/eingefroren/$GRUPPE"
+          git checkout -- data/combined/m15-gesamt.csv data/combined/merge-report.md data/combined/meta-studien.csv
+          git commit -q -m "chore(data): Datensatz für Gruppe $GRUPPE eingefroren"
+          for i in 1 2 3 4 5; do
+            if git pull -q --rebase origin "$BRANCH" && git push -q origin "HEAD:$BRANCH"; then echo "gepusht (Versuch $i)"; exit 0; fi
+            echo "Push fehlgeschlagen, neuer Versuch"; sleep $((i * 5))
+          done
+          exit 1
