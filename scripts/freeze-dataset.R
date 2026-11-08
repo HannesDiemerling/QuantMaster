@@ -205,7 +205,7 @@ main <- function() {
   gruppe <- if (length(args) %in% 1:2) args[1] else ""
   arbeit <- if (length(args) == 2) args[2] else NA_character_
   if (!grepl("^[a-z0-9]+(-[a-z0-9]+)*$", gruppe) || nchar(gruppe) > 40)
-    fail("Gruppenname ungültig. Erlaubt sind Kleinbuchstaben, Ziffern und Bindestriche, z. B. diemerling")
+    fail("Gruppenname ungültig. Erlaubt sind Kleinbuchstaben, Ziffern und Bindestriche, z. B. hannes")
   ziel <- file.path(OUT_ROOT, gruppe)
   if (identical(suppressWarnings(system2("git", c("check-ignore", "-q", paste0(ziel, "/")), stdout = FALSE, stderr = FALSE)), 0L))
     fail("Gruppenname „", gruppe, "“ ist in .gitignore gesperrt und ließe sich nicht speichern. Bitte einen anderen Namen wählen")

@@ -58,6 +58,6 @@ Der Kurs läuft in mehreren Gruppen. Deine Mails und Abgaben gehen an die Lehrpe
 
 | Gruppe | Lehrperson | Mail | Ordner im Repo |
 |---|---|---|---|
-| 1 | Hannes Diemerling | [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}) | TBA |
-| 2 | TBA | TBA | TBA |
+| 1 | Hannes Diemerling | [{{< meta kurs.mail >}}](mailto:{{< meta kurs.mail >}}) | `hannes` |
+| 2 | TBA | TBA | `frederike` |
 

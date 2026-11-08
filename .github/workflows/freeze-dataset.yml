@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
     inputs:
       gruppe:
-        description: "Name der Gruppe (Kleinbuchstaben, Ziffern, Bindestriche), z. B. diemerling"
+        description: "Name der Gruppe (Kleinbuchstaben, Ziffern, Bindestriche), z. B. hannes"
         required: true
         type: string
 
