@@ -9,11 +9,11 @@ Nach dieser Sitzung …
 - hast Du einen Datensatz in JASP auf Fehler geprüft, bereinigt und zusammen mit der Zeile Deiner fiktiven Person hochgeladen.
 :::
 
-**Semesterwoche 5** · Bezug zur Vorlesung: Vorlesung 1 (Replikationskrise). Die Vorbereitung vertieft Open Science und legt mit der Messtheorie die Grundlage für alles Weitere.
+Bezug zur Vorlesung: Vorlesung 1 (Replikationskrise). Die Vorbereitung vertieft Open Science und legt mit der Messtheorie die Grundlage für alles Weitere.
 
 ## Worum es geht
 
-Heute spielst Du den praktischen Kern einer Datenerhebung durch: Daten erfassen, holen, prüfen, bereinigen, ergänzen und zentral ablegen. Die Daten, die Du beisteuerst, beschreiben eine **fiktive Person**, nicht Dich selbst (@sec-tag1-fragebogen). Aus allen Uploads entsteht automatisch der gemeinsame Seminar-Datensatz, mit dem wir ab Sitzung 02 arbeiten.
+Heute spielst Du den praktischen Kern einer Datenerhebung durch: Daten erfassen, holen, prüfen, bereinigen, ergänzen und zentral ablegen. Die Daten, die Du beisteuerst, beschreiben eine **fiktive Person**, nicht Dich selbst (@sec-tag1-fragebogen). Aus allen Uploads entsteht automatisch der gemeinsame Seminar-Datensatz, mit dem wir ab Sitzung 02 arbeiten. Eine Abgabe gibt es heute nicht, Ziel ist Dein Upload.
 
 ## Vorbereitung
 
@@ -32,7 +32,7 @@ Bitte vor der Sitzung zu Hause:
 5. Deinen Datensatz herunterladen (@sec-tag1-laden)
 6. Datenbereinigung in JASP (@sec-tag1-bereinigung)
 7. Fiktive Person ergänzen und hochladen (@sec-tag1-upload)
-8. Gemeinsame Upload-Kontrolle und Abgabe (@sec-s01-abschluss)
+8. Gemeinsame Upload-Kontrolle und Abschluss (@sec-s01-abschluss)
 
 ## Deine Nummern {#sec-nummern}
 
@@ -40,11 +40,11 @@ Grundlage ist Deine **Matrikelnummer**. Daraus ergeben sich Kennziffer und Daten
 
 | Was | Regel | Beispiel Matrikelnummer 1234567 |
 |---|---|---|
-| **Kennziffer** (Mail-Betreff, Probandennummer Deiner Datenzeile) | Mindestens die letzten 4 Ziffern Deiner Matrikelnummer, gern mehr, höchstens 12. Nur Ziffern. Beginnt Deine Kennziffer mit 0, nimm so viele Ziffern mehr, bis vorne keine 0 mehr steht, denn JASP lässt führende Nullen weg. Nimm überall genau dieselbe Zahl: Probandennummer, Dateiname, Mail-Betreff. | 4567 oder 1234567 |
+| **Kennziffer** (Probandennummer Deiner Datenzeile, Dateiname, Abgabe) | Die letzten 6 Ziffern Deiner Matrikelnummer. Beginnt Deine Kennziffer mit 0, nimm so viele Ziffern mehr, bis vorne keine 0 mehr steht, denn JASP lässt führende Nullen weg. Nimm überall genau dieselbe Zahl: Probandennummer, Dateiname, Abgabe. | 234567 |
 | **Datensatz** (Dein Übungsdatensatz in Sitzung 01) | Die letzte Ziffer Deiner Kennziffer, eine 0 steht für Datensatz 10 | 7 |
 | **Kleingruppe** (fester Breakout-Raum für alle Sitzungen) | Teilt die Lehrperson in Sitzung 01 ein | wird angesagt |
 
-Hast Du schon eine Datei mit einer anderen Datensatznummer hochgeladen, bleibst Du dabei. Maßgeblich ist die Nummer in Deinem Dateinamen.
+Sonst sind auch andere Zahlen in Ordnung, Hauptsache, Du bleibst bei einer Nummer. Nur 1 bis 9 sind schon für die Übungszeilen vergeben. Hast Du schon eine Datei mit einer anderen Kennziffer oder Datensatznummer hochgeladen, bleibst Du dabei. Maßgeblich sind die Nummern in Deinem Dateinamen.
 
 Notiere Dir Kennziffer, Datensatz und Kleingruppe gleich in Sitzung 01 und heb sie gut auf. Du brauchst sie in jeder Sitzung, und sie bleiben das ganze Semester gleich.
 
@@ -54,7 +54,7 @@ Der Upload muss bis **zwei Tage vor Sitzung 02 Deiner Gruppe** im Repo liegen. D
 
 ## Deine Lehrperson {#sec-lehrperson}
 
-Der Kurs läuft in mehreren Gruppen. Deine Mails und Abgaben gehen an die Lehrperson Deiner Gruppe:
+Der Kurs läuft in mehreren Gruppen. Bei Fragen und für Mails ist die Lehrperson Deiner Gruppe da. Den Ordner im Repo brauchst Du für Deinen Gesamtdatensatz und Deine Abgaben:
 
 | Gruppe | Lehrperson | Mail | Ordner im Repo |
 |---|---|---|---|

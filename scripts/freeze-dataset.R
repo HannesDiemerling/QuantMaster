@@ -5,7 +5,8 @@
 #     python scripts/repair-uploads.py data/student-uploads <arbeitsordner>
 #     Rscript scripts/freeze-dataset.R <gruppe> <arbeitsordner>
 #   Ausgabe: data/combined/eingefroren/<gruppe>/
-#            m15-gesamt.csv, meta-studien.csv, merge-report.md, pruefbericht.md
+#            m15-gesamt.csv, meta-studien.csv, merge-report.md, pruefbericht.md,
+#            zuordnung.csv (Kennziffer, id, Datei, Konto, Lehrperson)
 #
 # Ablauf:
 #   1. Merge über die reparierten Kopien der Uploads (repair-uploads.py). Wurde ein
@@ -67,15 +68,16 @@ merge_lauf <- function(arbeit) {
   aus <- tempfile("freeze-merge-")
   dir.create(aus)
   aus <- normalizePath(aus, winslash = "/")
-  Sys.setenv(MERGE_UPLOAD_DIR = up, MERGE_OUT_DIR = aus)
+  Sys.setenv(MERGE_UPLOAD_DIR = up, MERGE_OUT_DIR = aus, MERGE_KONTEN_CSV = file.path(aus, "konten-roh.csv"))
   rc <- system2(file.path(R.home("bin"), "Rscript"), "scripts/merge-uploads.R")
-  Sys.unsetenv(c("MERGE_UPLOAD_DIR", "MERGE_OUT_DIR"))
+  Sys.unsetenv(c("MERGE_UPLOAD_DIR", "MERGE_OUT_DIR", "MERGE_KONTEN_CSV"))
   if (rc != 0) fail("Merge beendet mit Status ", rc)
   list(ordner = aus, log = log, repariert = repariert, up = up)
 }
 
-# Gibt die Zeilennummern und alten Werte der Reparaturen zurück
-reparieren <- function(x) {
+# Gibt die Zeilennummern und alten Werte der Reparaturen zurück. konten: je Zeile von x die
+# Spalten konto und lehr (kann fehlen)
+reparieren <- function(x, konten = NULL) {
   log <- list()
   notiere <- function(z, sp, alt, was) {
     if (length(z)) log[[length(log) + 1]] <<- data.frame(zeile = z, id = x$id[z], spalte = sp, alt = alt, aktion = was)
@@ -126,9 +128,15 @@ reparieren <- function(x) {
     # Zwei verschiedene Kennziffern mit gleichen Werten bleiben zwei Personen.
     bester <- order(-nchar(nr))              # die längste Kennziffer bleibt
     z <- integer(0)
+    # Lehrpersonen laden für andere hoch, dort zählt nur die Kennziffer. Zwei verschiedene
+    # Konten sind zwei Personen. In beiden Fällen bleiben beide Zeilen.
+    lehr <- function(k) !is.null(konten) && isTRUE(konten$lehr[st[k]])
+    fremd <- function(p, q) !is.null(konten) && nzchar(konten$konto[st[p]]) && nzchar(konten$konto[st[q]]) &&
+      tolower(konten$konto[st[p]]) != tolower(konten$konto[st[q]])
     for (i in seq_along(bester)) for (j in seq_len(i - 1)) {
       a <- nr[bester[i]]; b <- nr[bester[j]]
-      if (key[bester[i]] == key[bester[j]] && nzchar(a) && (startsWith(b, a) || endsWith(b, a))) {
+      if (key[bester[i]] == key[bester[j]] && nzchar(a) && (startsWith(b, a) || endsWith(b, a)) &&
+          !lehr(bester[i]) && !lehr(bester[j]) && !fremd(bester[i], bester[j])) {
         z <- c(z, st[bester[i]])
         break
       }
@@ -145,9 +153,17 @@ reparieren <- function(x) {
   gueltig[behalten[duplicated(id[behalten])]] <- FALSE
   z <- setdiff(which(!gueltig), entfernen)
   if (length(z)) {
-    neu <- max(c(0, id[gueltig])) + seq_along(z)
+    # unterhalb sehr langer Kennziffern, sonst wären die neuen ids nicht mehr genau
+    belegt <- id[gueltig]
+    kand <- max(c(0, belegt[belegt < 1e12]))
+    neu <- numeric(0)
+    while (length(neu) < length(z)) {
+      kand <- kand + 1
+      if (!(kand %in% belegt)) neu <- c(neu, kand)
+    }
+    neu <- format(neu, scientific = FALSE, trim = TRUE)
     notiere(z, "id", x$id[z], paste("neu vergeben:", neu))
-    x$id[z] <- as.character(neu)
+    x$id[z] <- neu
   }
 
   if (length(entfernen)) x <- x[-entfernen, , drop = FALSE]
@@ -226,8 +242,8 @@ main <- function() {
   if (length(fehlt)) fail("Spalten fehlen im Gesamtdatensatz: ", paste(fehlt, collapse = ", "))
   zusatz <- setdiff(names(x), spalten)
   x <- x[spalten]
-  # Arbeitspfade und angehängte Endung umgewandelter Dateien durch die echten Namen ersetzen
-  echt <- function(v) gsub("\\.(numbers|jasp|xlsx)\\.csv", ".\\1", gsub(ml$up, UPLOADS, v, fixed = TRUE))
+  # Arbeitspfade, __personN und angehängte Endung umgewandelter Dateien durch die echten Namen ersetzen
+  echt <- function(v) gsub("\\.(numbers|jasp|xlsx)\\.csv", ".\\1", gsub("__person[0-9]+(\\.[A-Za-z]+)", "\\1", gsub(ml$up, UPLOADS, v, fixed = TRUE)))
   x$quelle_datei <- echt(x$quelle_datei)
   report <- echt(gsub(ml$ordner, ziel, report, fixed = TRUE))
   if (!any(x$quelle == "studierende", na.rm = TRUE))
@@ -235,13 +251,48 @@ main <- function() {
   falsch <- which(is.na(x$quelle) | !(x$quelle %in% c("generiert", "studierende")))
   if (length(falsch)) fail("Unbekannter Wert in Spalte quelle, Zeile ", paste(head(falsch, 5), collapse = ", "))
 
-  rep <- reparieren(x)
+  # Zuordnung Kennziffer, Datei, Konto aus dem Merge (fehlt nur im Testmodus)
+  roh <- file.path(ml$ordner, "konten-roh.csv")
+  konten <- if (file.exists(roh)) tryCatch(read.csv(roh, colClasses = "character", check.names = FALSE, na.strings = character(0), encoding = "UTF-8"),
+                                           error = function(e) NULL) else NULL
+  if (!is.null(konten) && nrow(konten)) konten$quelle_datei <- echt(konten$quelle_datei)
+  je_zeile <- function(x) {
+    leer <- data.frame(konto = rep("", nrow(x)), lehr = rep(FALSE, nrow(x)))
+    if (is.null(konten) || !nrow(konten)) return(leer)
+    k <- match(x$quelle_datei, konten$quelle_datei)
+    k[x$quelle != "studierende"] <- NA
+    data.frame(konto = ifelse(is.na(k), "", konten$konto[k]), lehr = !is.na(k) & konten$lehrperson[k] == "ja")
+  }
+
+  rep <- reparieren(x, je_zeile(x))
   x <- rep$x
   zahlen <- x
   for (sp in c("id", m$COLS, "quelle_datensatz")) zahlen[[sp]] <- as.numeric(x[[sp]])
   meta <- m$meta_studien(zahlen)
   probleme <- rechen_check(zahlen, meta)
   if (length(probleme)) fail(paste(probleme, collapse = "; "))
+
+  # Zuordnung für die Abgabenprüfung. Eine Zeile je Upload (mehrere Personen in einer Datei: je eine)
+  pn <- ifelse(is.na(x$probandennummer), "", x$probandennummer)
+  zuordnung <- data.frame(kennziffer = character(0), id = character(0), datei = character(0), konto = character(0), lehrperson = character(0))
+  if (!is.null(konten) && nrow(konten)) {
+    k <- match(paste(konten$quelle_datei, konten$kennziffer), paste(x$quelle_datei, pn))
+    # ohne brauchbare Kennziffer (keine ganze Zahl, sehr lang): über die Datei
+    frei <- is.na(k) & !nzchar(konten$kennziffer)
+    k[frei] <- match(konten$quelle_datei[frei], x$quelle_datei)
+    zuordnung <- data.frame(kennziffer = konten$kennziffer, id = ifelse(is.na(k), "", x$id[k]), datei = konten$datei,
+                            konto = konten$konto, lehrperson = konten$lehrperson)
+    zuordnung <- zuordnung[order(zuordnung$datei, zuordnung$kennziffer, method = "radix"), , drop = FALSE]
+  }
+  ohne_konto <- is.null(konten) || !nrow(konten) || !any(nzchar(konten$konto))
+
+  # Der Abschnitt „Bitte ansehen“ aus dem Merge-Report (Konten mit mehreren Kennziffern)
+  ab <- which(report == "## Bitte ansehen")
+  bitte <- if (length(ab)) {
+    ende <- which(startsWith(report, "## ") & seq_along(report) > ab[1])
+    z <- report[(ab[1] + 1):(if (length(ende)) ende[1] - 1 else length(report))]
+    z[nzchar(trimws(z))]
+  } else character(0)
 
   # Bericht
   n_st <- sum(x$quelle == "studierende")
@@ -254,12 +305,14 @@ main <- function() {
     "**Rechen-Check:** bestanden (Übungsdatensätze vollständig, fünf Skalen, Gruppenvergleiche, Korrelation, t-Test, Regression, ANOVA, Meta-Tabelle).", "",
     if (length(zusatz)) c(sprintf("Zusatzspalten entfernt: %s", paste(zusatz, collapse = ", ")), "") else NULL,
     if (!ml$repariert) c("**Achtung:** Die Upload-Reparatur lief nicht, es wurden die Originaldateien verwendet.", "") else NULL,
+    if (ohne_konto) c("**Hinweis:** Keine Konto-Zuordnung, die Git-Historie fehlt (flacher Klon oder kein Repository). `zuordnung.csv` enthält dann nur Kennziffer und Datei.", "") else NULL,
     sprintf("**Nicht verwendet:** %d Datei(en), siehe `merge-report.md`.",
             sum(grepl("| IGNORIERT |", report, fixed = TRUE)) + sum(grepl("^- Ignoriert \\(kein CSV\\)", report))), "",
-    if (any(grepl("\\| (DOPPELT|PRÜFEN) \\|", report))) c("## Bitte ansehen", "",
-      "Diese Personen sind enthalten, aber auffällig (etwa zwei Dateien mit derselben Kennziffer).", "",
+    if (any(grepl("\\| (DOPPELT|PRÜFEN) \\|", report)) || length(bitte)) c("## Bitte ansehen", "",
+      if (any(grepl("\\| (DOPPELT|PRÜFEN) \\|", report))) c("Diese Personen sind enthalten, aber auffällig (etwa zwei Dateien mit derselben Kennziffer).", "",
       report[grepl("^\\| Datei \\|", report)], report[grepl("^\\|---", report)][1],
       report[grepl("\\| (DOPPELT|PRÜFEN) \\|", report)], "") else NULL,
+      bitte, if (length(bitte)) "" else NULL) else NULL,
     sprintf("## Reparaturen an den Uploads (%d)", NROW(ml$log)), "",
     if (NROW(ml$log) == 0) "Keine." else c("| Datei | Was |", "|---|---|",
       sprintf("| `%s` | %s |", ml$log$datei, zelle(ml$log$was))),
@@ -285,6 +338,7 @@ main <- function() {
   con <- file(file.path(tmp, "pruefbericht.md"), open = "w", encoding = "UTF-8")
   writeLines(bericht, con)
   close(con)
+  write.csv(zuordnung, file.path(tmp, "zuordnung.csv"), row.names = FALSE, fileEncoding = "UTF-8")
   if (!file.rename(tmp, ziel)) fail("Ordner ", ziel, " konnte nicht angelegt werden")
   cat(sprintf("Eingefroren: %s (%d Zeilen, %d fiktive Personen, %d Reparaturen)\n", ziel, nrow(x), n_st, n_rep))
 }

@@ -8,7 +8,7 @@ Nach dieser Sitzung …
 - rechnest Du eine Kreuztabelle mit Odds Ratio in JASP.
 :::
 
-**Semesterwoche 13** · Bezug zur Vorlesung: Vorlesung 12 (Interventions- und Evaluationsforschung, Ätiologie- und Epidemiologieforschung).
+Bezug zur Vorlesung: Vorlesung 12 (Interventions- und Evaluationsforschung, Ätiologie- und Epidemiologieforschung).
 
 ## Worum es geht
 
@@ -24,4 +24,4 @@ In der Psychotherapieforschung sind Ergebnisse oft binär: remittiert oder nicht
 2. Logistische Regression (@sec-tag3-logistisch)
 3. Vom Odds Ratio zur NNT
 4. Interventions-, Evaluations- & Epidemiologieforschung (@sec-epi)
-5. Fragen und Abgabe (@sec-s09-abschluss)
+5. Fragen und Abgabe hochladen (@sec-s09-abschluss)

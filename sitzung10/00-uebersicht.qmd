@@ -8,7 +8,7 @@ Nach dieser Sitzung …
 - weißt Du, wo Du später nachschlagen kannst.
 :::
 
-**Semesterwoche 14** · Bezug zur Vorlesung: Vorlesung 13 (Qualitative Methoden), Vorbereitung auf Vorlesung 14 (Wiederholung und Klausur).
+Bezug zur Vorlesung: Vorlesung 13 (Qualitative Methoden), Vorbereitung auf Vorlesung 14 (Wiederholung und Klausur).
 
 ## Worum es geht
 
@@ -24,5 +24,5 @@ Die letzte Sitzung öffnet den Blick über Zahlen hinaus und schließt den Bogen
 1. Kurzer Input: Wann qualitativ, wann quantitativ?
 2. Qualitative Methoden & Mixed Methods (@sec-quali)
 3. Gemeinsame Zusammenfassung (@sec-tag3-nachschlagewerk) und Fragen zur Klausur
-4. Abschluss, Feedback und Abgabe (@sec-s10-abschluss)
+4. Abschluss, Feedback und Abgabe hochladen (@sec-s10-abschluss)
 

@@ -1,0 +1,6 @@
+# Lehrpersonen laden für Studierende ohne Account hoch. Ihre Uploads werden nie zu einer
+# Person zusammengezogen, dort zählt nur die Kennziffer.
+# Eine Zeile je GitHub-Login oder Name, Groß- und Kleinschreibung egal. Zeilen mit # sind Kommentare.
+# Keine E-Mail-Adressen eintragen.
+HannesDiemerling
+Hannes Diemerling

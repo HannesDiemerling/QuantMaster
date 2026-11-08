@@ -36,7 +36,7 @@ Der Gesamtdatensatz `m15-gesamt.csv` hat zusätzlich die Spalten `id`, `quelle`,
 
 - Ganzzahl, innerhalb eines Datensatzes eindeutig.
 - In den vorgenerierten Datensätzen: 1–9.
-- Die Zeile Deiner fiktiven Person bekommt Deine Kennziffer (mindestens die letzten 4 Ziffern Deiner Matrikelnummer, z. B. 1234567).
+- Die Zeile Deiner fiktiven Person bekommt Deine Kennziffer (die letzten 6 Ziffern Deiner Matrikelnummer, z. B. 234567).
 
 ### `geschlecht`
 

@@ -140,10 +140,6 @@ Falls JASP beim Export Werte als Kommazahlen schreibt (z. B. `3.00` statt `3`),
 
 Wenn Du Dir bei einem Fehler unsicher bist, frag die Lehrperson, **bevor** Du eine Zeile löschst.
 
-::: {.callout-tip title="Für die Abgabe"}
-Notiere Deine Datensatznummer, beide Fehler (Zeilennummer in JASP, Spalte, gefundener Wert) und einen Satz, warum Du fehlerhafte Werte auf fehlend setzt, statt die Zeile zu löschen. Siehe @sec-s01-abschluss.
-:::
-
 ## Selbstcheck
 
 1. Welche zwei Fehler hast Du gefunden? Wo lagen sie (Zeile, Spalte)?

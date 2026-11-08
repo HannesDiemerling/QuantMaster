@@ -1,0 +1,56 @@
+name: Abgaben prüfen
+
+# Prüft bei jeder Änderung unter abgaben/ alle Abgaben gegen die gehashten Sollwerte und schreibt
+# Rückmeldungen und UEBERSICHT.md (scripts/pruefe-abgaben.py, nur Python-Standardbibliothek).
+# Die Prüfung ist zustandslos: Jeder Lauf nimmt den neuesten Stand und arbeitet alle Dateien ab.
+# Darum genügt es, dass nur ein Lauf wartet, auch wenn viele Abgaben gleichzeitig eingehen.
+# Pushes mit GITHUB_TOKEN starten keinen neuen Lauf, es gibt also keine Schleife.
+# Manuell startbar über Actions > "Abgaben prüfen" > "Run workflow".
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'abgaben/**'
+      - 'scripts/pruefe-abgaben.py'
+      - '.github/workflows/pruefe-abgaben.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pruefe-abgaben
+  cancel-in-progress: false
+
+jobs:
+  pruefen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TZ: Europe/Berlin
+      PYTHONDONTWRITEBYTECODE: "1"
+      BRANCH: ${{ github.ref_name }}
+    steps:
+      - name: Checkout (aktueller Stand von main)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      # Bei einem abgelehnten Push wird nicht rebased, sondern vom neuesten Stand aus neu geprüft.
+      # Die Ausgaben lassen sich jederzeit neu erzeugen, und neue Abgaben kommen gleich mit.
+      - name: Prüfen und Rückmeldungen committen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for i in 1 2 3 4 5; do
+            git fetch -q origin "$BRANCH"
+            git reset -q --hard "origin/$BRANCH"
+            python3 scripts/pruefe-abgaben.py
+            git add -A -- abgaben
+            if git diff --cached --quiet; then echo "Keine Änderungen"; exit 0; fi
+            git commit -q -m "chore(abgaben): Rückmeldungen aktualisiert"
+            if git push -q origin "HEAD:$BRANCH"; then echo "gepusht (Versuch $i)"; exit 0; fi
+            echo "Push fehlgeschlagen, neuer Versuch"; sleep $((i * 5))
+          done
+          exit 1

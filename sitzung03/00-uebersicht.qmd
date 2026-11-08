@@ -8,7 +8,7 @@ Nach dieser Sitzung …
 - berichtest Du *t*-Tests vollständig mit Cohen's *d*.
 :::
 
-**Semesterwoche 7** · Bezug zur Vorlesung: Vorlesung 2 (Effekte und Effektgrößen), jetzt angewendet auf unseren Seminar-Datensatz.
+Bezug zur Vorlesung: Vorlesung 2 (Effekte und Effektgrößen), jetzt angewendet auf unseren Seminar-Datensatz.
 
 ## Worum es geht
 
@@ -25,7 +25,7 @@ Heute machst Du aus 21 Items fünf Konstrukte und schätzt die ersten Effekte: Z
 3. Gemeinsame Frage: Welche Skala ist am wenigsten reliabel, und woran könnte das liegen?
 4. Korrelation & Kausalität (@sec-tag2-korrelation)
 5. *t*-Tests & Effektgrößen (@sec-tag2-ttest)
-6. Fragen und Abgabe (@sec-s03-abschluss)
+6. Fragen und Abgabe hochladen (@sec-s03-abschluss)
 
 ::: {.callout-tip title="Speichern nicht vergessen"}
 Die fünf Skalenspalten brauchst Du in allen weiteren Sitzungen. Speichere Deine Arbeit als `.jasp`-Datei (**File → Save As**).

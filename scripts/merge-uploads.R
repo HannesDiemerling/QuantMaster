@@ -32,8 +32,11 @@ OUT_REPORT <- file.path(OUT_DIR, "merge-report.md")
 OUT_META   <- file.path(OUT_DIR, "meta-studien.csv")
 UPLOAD_DIR <- Sys.getenv("MERGE_UPLOAD_DIR", "data/student-uploads")
 MIN_MATCH  <- 19          # so viele BFI-Items müssen übereinstimmen
-# gültige Kennziffer: ganze Zahl mit 4 bis 12 Stellen, z. B. die Matrikelnummer
-is_kz <- function(x) !is.na(x) & x == round(x) & x >= 1000 & x < 1e12
+# Gültige Kennziffer: jede ganze Zahl ab 10. Gedacht sind die letzten 6 Ziffern der
+# Matrikelnummer, andere Zahlen sind auch ok, wichtig ist nur, bei einer zu bleiben.
+# 1 bis 9 sind die Nummern der Übungszeilen. Ab 16 Stellen kann R die Zahl nicht mehr
+# genau speichern (zwei Personen würden zu einer), solche Zeilen bekommen eine Ersatz-id.
+is_kz <- function(x) !is.na(x) & x == round(x) & x >= 10 & x < 1e15
 ALLE_SEEDS <- TRUE        # alle 10 Seed-Datensätze aufnehmen, auch wenn einer nicht hochgeladen wurde
                           # (hält N, Metaanalyse und Mixed Model bei kleinen Kursen stabil)
 
@@ -43,6 +46,10 @@ ALLE_SEEDS <- TRUE        # alle 10 Seed-Datensätze aufnehmen, auch wenn einer 
 # Nach einer gewollten Neuerzeugung der Datensätze die Kopien aktualisieren.
 REF_DIR    <- "scripts/referenz"
 SEED_NAMES <- sprintf("datensatz-%02d.csv", 1:10)
+
+# Konto-Zuordnung (nur für den Report, sie ändert nie die Daten)
+ORIG_DIR   <- "data/student-uploads"   # immer der echte Ordner, auch wenn der Merge über Kopien läuft
+LEHR_DATEI <- "scripts/lehrpersonen.txt"
 
 seed_hash <- function(path) {
   x <- read.csv(path, colClasses = "character")
@@ -192,6 +199,64 @@ clean_range <- function(df) {
   df
 }
 
+# --- Konten aus der Git-Historie ------------------------------------------------
+# Nie eine Abbruchursache: Ohne Git, ohne Repository oder bei flachem Klon bleibt die
+# Spalte Konto leer. Ein flacher Klon ist ausgeschlossen, weil dort alle Dateien scheinbar
+# aus dem letzten Commit stammen. E-Mail-Adressen werden nur verglichen, nie ausgegeben.
+
+lehrpersonen_lesen <- function(pfad = LEHR_DATEI) {
+  z <- tryCatch(readLines(pfad, encoding = "UTF-8", warn = FALSE), error = function(e) character(0), warning = function(w) character(0))
+  z <- iconv(z, "UTF-8", "UTF-8", sub = "")
+  z <- sub("^\ufeff", "", z)
+  z <- trimws(sub("#.*$", "", z))
+  tolower(z[nzchar(z)])
+}
+
+konto_text <- function(x) {
+  x <- sub("@.*$", "", iconv(x, "UTF-8", "UTF-8", sub = ""))      # falls jemand die E-Mail als Namen eingetragen hat
+  trimws(substr(gsub("[^\\p{L}\\p{N} ._-]", "", x, perl = TRUE), 1, 60))
+}
+
+konten_lesen <- function() {
+  leer <- data.frame(pfad = character(0), konto = character(0), schluessel = character(0), lehr = logical(0))
+  git <- function(args) {
+    f <- tempfile("git-")
+    on.exit(unlink(f))
+    rc <- tryCatch(suppressWarnings(system2("git", args, stdout = f, stderr = FALSE)), error = function(e) 1L)
+    if (!identical(as.integer(rc), 0L) || !file.exists(f)) return(NULL)
+    readLines(f, encoding = "UTF-8", warn = FALSE)
+  }
+  flach <- git(c("rev-parse", "--is-shallow-repository"))
+  if (is.null(flach) || identical(trimws(flach[1]), "true")) return(leer)
+  z <- git(c("-c", "core.quotepath=false", "log", "--format=%x01%an%x1f%ae", "--name-only",
+             "--no-renames", "--diff-filter=ACMR", "--relative", "--", ORIG_DIR))
+  if (is.null(z)) return(leer)
+  lehr <- lehrpersonen_lesen()
+  praefix <- paste0(ORIG_DIR, "/")
+  gesehen <- new.env()
+  out <- list()
+  aktuell <- NULL
+  for (l in z) {
+    if (startsWith(l, "\001")) {
+      teile <- strsplit(substring(l, 2), "\037", fixed = TRUE)[[1]]
+      name <- if (length(teile) >= 1) teile[1] else ""
+      mail <- if (length(teile) >= 2) teile[2] else ""
+      aktuell <- if (grepl("[bot]", paste(name, mail), fixed = TRUE)) NULL else {   # Bot-Commits zählen nicht
+        m <- regmatches(mail, regexec("^(?:[0-9]+\\+)?([^@+]+)@users\\.noreply\\.github\\.com$", mail, ignore.case = TRUE, perl = TRUE))[[1]]
+        login <- if (length(m) == 2) m[2] else ""
+        anzeige <- if (nzchar(login)) login else konto_text(name)
+        schl <- tolower(if (nzchar(login)) login else if (nzchar(mail)) mail else name)
+        list(konto = anzeige, schluessel = schl, lehr = any(tolower(trimws(c(login, name, anzeige))) %in% lehr))
+      }
+    } else if (nzchar(l) && !is.null(aktuell) && startsWith(l, praefix) && is.null(gesehen[[l]])) {
+      gesehen[[l]] <- TRUE                                 # der neueste Commit steht zuerst
+      out[[length(out) + 1]] <- c(list(pfad = l), aktuell)
+    }
+  }
+  if (!length(out)) return(leer)
+  do.call(rbind, lapply(out, as.data.frame))
+}
+
 # --- Hauptteil ---------------------------------------------------------------
 
 main <- function() {
@@ -205,14 +270,33 @@ main <- function() {
 
   files <- sort(unique(list.files(UPLOAD_DIR, pattern = "\\.(csv|txt|tsv)$", recursive = TRUE,
                                   full.names = TRUE, ignore.case = TRUE)), method = "radix")   # unabhängig von der Locale
-  # CSV-Dateien außerhalb des Upload-Ordners gehen nicht ein, werden aber gemeldet
-  anderswo <- sub("^\\./", "", c(list.files("data", pattern = "\\.csv$", recursive = TRUE,
+  # Datendateien außerhalb des Upload-Ordners gehen nicht ein, werden aber gemeldet
+  anderswo <- sub("^\\./", "", c(list.files("data", pattern = "\\.(csv|xlsx|xls|ods|numbers|jasp)$", recursive = TRUE,
                                             full.names = TRUE, ignore.case = TRUE),
-                                 list.files(".", pattern = "\\.csv$", full.names = TRUE, ignore.case = TRUE)))
+                                 list.files(".", pattern = "\\.(csv|xlsx|xls|ods|numbers|jasp)$", full.names = TRUE, ignore.case = TRUE)))
   anderswo <- sort(setdiff(anderswo[!grepl("^data/(combined|student-uploads)/", anderswo)],
                            c(files, file.path("data/generated", SEED_NAMES))))
   other <- list.files(UPLOAD_DIR, recursive = TRUE, full.names = TRUE)
   other <- other[!grepl("\\.(csv|txt|tsv|gitkeep)$", other, ignore.case = TRUE) & basename(other) != "README.md"]
+
+  konten <- tryCatch(konten_lesen(), error = function(e) data.frame(pfad = character(0), konto = character(0), schluessel = character(0), lehr = logical(0)))
+  # Kopien aus repair-uploads.py zurück auf die Originaldatei abbilden (anderer Ordner, angehängtes
+  # .csv bei umgewandelten Dateien, __personN bei mehreren Personen in einer Datei)
+  herkunft <- function(f) {
+    rel <- substring(f, nchar(UPLOAD_DIR) + 2)
+    ohne <- sub("__person[0-9]+(\\.[^./]*)$", "\\1", rel)
+    kand <- unique(c(rel, ohne, sub("\\.csv$", "", ohne, ignore.case = TRUE)))
+    pfade <- file.path(ORIG_DIR, kand)
+    treffer <- pfade[pfade %in% konten$pfad | file.exists(pfade)]
+    orig <- if (length(treffer)) treffer[1] else file.path(ORIG_DIR, sub("\\.(numbers|jasp|xlsx)\\.csv$", ".\\1", ohne, ignore.case = TRUE))
+    k <- match(orig, konten$pfad)
+    if (is.na(k)) return(list(original = orig, konto = "", schluessel = "", lehr = FALSE))
+    list(original = orig, konto = konten$konto[k], schluessel = konten$schluessel[k], lehr = konten$lehr[k])
+  }
+  konto_zelle <- function(i) {
+    if (is.null(i$konto) || !nzchar(i$konto)) return("–")
+    if (isTRUE(i$lehr)) paste0(i$konto, " (für andere hochgeladen)") else i$konto
+  }
 
   report <- list()
   seeds_used <- list()       # ds -> Dateien
@@ -226,7 +310,8 @@ main <- function() {
   for (f in files) {
     info <- list(datei = f, status = "ok", ds = NA, eigene = 0, hinweise = character(0),
                  gefunden = NA, abweichungen = NA, kz = NULL)
-    if (!grepl("^datensatz-[0-9]{2}-[0-9]{4,12}\\.csv$", basename(f)))
+    info <- c(info, herkunft(f))
+    if (!grepl("^datensatz-[0-9]{2}-[0-9]+\\.csv$", basename(f)))
       info$hinweise <- c(info$hinweise, "Dateiname weicht vom Schema datensatz-XX-<Kennziffer>.csv ab (für den Merge unkritisch)")
 
     up <- tryCatch(read_upload(f),
@@ -307,9 +392,14 @@ main <- function() {
       pruefen("keine Übungsdaten erkannt (nur die fiktive Person? Bereinigte Übungsdaten fehlen)")
     if (nrow(mine) == 1) {
       info$kz <- mine$probandennummer
-      if (!is_kz(mine$probandennummer))
-        pruefen(sprintf("Kennziffer %s ungültig (4 bis 12 Ziffern aus Deiner Matrikelnummer, nur Zahlen. Beginnt sie mit 0, nimm so viele Ziffern mehr, bis vorne keine 0 mehr steht)",
-                        ifelse(is.na(mine$probandennummer), "fehlt oder ist keine Zahl,", format(mine$probandennummer, scientific = FALSE))))
+      if (!is_kz(mine$probandennummer)) {
+        pn <- mine$probandennummer
+        pruefen(if (!is.na(pn) && pn >= 1e15)
+          sprintf("Kennziffer %s hat mehr als 15 Stellen und lässt sich nicht genau speichern. Nimm die letzten 6 Ziffern Deiner Matrikelnummer", format(pn, scientific = FALSE))
+        else
+          sprintf("Kennziffer %s ungültig. Trag die letzten 6 Ziffern Deiner Matrikelnummer ein (nur Ziffern, 1 bis 9 sind die Nummern der Übungszeilen). Andere Zahlen sind auch ok, wichtig ist, dass Du bei einer bleibst",
+                  ifelse(is.na(pn), "fehlt oder ist keine Zahl,", format(pn, scientific = FALSE))))
+      }
       mine <- clean_range(mine)
       if (attr(mine, "n_bad") > 0)
         pruefen(sprintf("%d Wert(e) der fiktiven Person außerhalb des erlaubten Bereichs -> fehlend", attr(mine, "n_bad")))
@@ -354,10 +444,18 @@ main <- function() {
     valid <- is_kz(pn) & !(pn %in% pn[duplicated(pn)]) & !(pn %in% seed_df$id)
     own_df$id <- ifelse(valid, pn, NA)
     fallback <- which(!valid)
-    own_df$id[fallback] <- max(c(seed_df$id, own_df$id), na.rm = TRUE) + seq_along(fallback)
+    # Ersatz-ids unterhalb sehr langer Kennziffern, sonst wären sie im CSV nicht mehr genau
+    belegt <- c(seed_df$id, own_df$id[!is.na(own_df$id)])
+    kand <- max(belegt[belegt < 1e12])
+    neu <- numeric(0)
+    while (length(neu) < length(fallback)) {
+      kand <- kand + 1
+      if (!(kand %in% belegt)) neu <- c(neu, kand)
+    }
+    own_df$id[fallback] <- neu
     for (f in unique(own_df$quelle_datei[fallback])) {
       k <- fallback[own_df$quelle_datei[fallback] == f]
-      dup_notes <- c(dup_notes, sprintf("`%s`: Probandennummer %s keine gültige/eindeutige Kennziffer -> id %s",
+      dup_notes <- c(dup_notes, sprintf("`%s`: Probandennummer %s ist ungültig, doppelt oder als id schon vergeben -> id %s (die Kennziffer bleibt in der Spalte probandennummer)",
                                         f, paste(own_df$probandennummer[k], collapse = ", "),
                                         paste(own_df$id[k], collapse = ", ")))
     }
@@ -396,10 +494,10 @@ main <- function() {
     "",
     "## Dateien",
     "",
-    "Suche Deine Datei über Deine **Kennziffer**. Handeln musst Du nur bei Status IGNORIERT, PRÜFEN oder DOPPELT oder wenn bei „Fehler gefunden“ nicht 2/2 steht. Hinweise zu Dateiname oder Trennzeichen sind unkritisch.",
+    "Suche Deine Datei über Deine **Kennziffer** (die letzten 6 Ziffern Deiner Matrikelnummer; andere Zahlen sind auch ok, wichtig ist, dass Du bei einer bleibst). Handeln musst Du nur bei Status IGNORIERT, PRÜFEN oder DOPPELT oder wenn bei „Fehler gefunden“ nicht 2/2 steht. Hinweise zu Dateiname oder Trennzeichen sind unkritisch.",
     "",
-    "| Datei | Kennziffer | Status | Datensatz | fiktive Personen | Fehler gefunden | Abweichungen von Referenz | Hinweise |",
-    "|---|---|---|---|---:|---|---:|---|"
+    "| Datei | Kennziffer | Status | Datensatz | fiktive Personen | Fehler gefunden | Abweichungen von Referenz | Hinweise | Konto |",
+    "|---|---|---|---|---:|---|---:|---|---|"
   )
   # Dieselbe Kennziffer in mehreren Dateien: alle betroffenen Dateien markieren
   kz_tab <- do.call(rbind, lapply(report, function(i) {
@@ -418,19 +516,57 @@ main <- function() {
                                                      paste(d, collapse = ", "), paste0("`", unique(andere), "`", collapse = ", ")))
     }
   }
-  for (i in report) {
-    lines <- c(lines, sprintf("| `%s` | %s | %s | %s | %d | %s | %s | %s |", i$datei, cell(i$kz), i$status, cell(i$ds),
-                              i$eigene, cell(i$gefunden), cell(i$abweichungen), cell(i$hinweise)))
+  # Ein Konto, mehrere Kennziffern: sichtbar machen, nichts automatisch ändern. Lehrpersonen laden für andere hoch.
+  bitte <- character(0)
+  mit_konto <- Filter(function(i) nzchar(if (is.null(i$schluessel)) "" else i$schluessel) && !isTRUE(i$lehr) &&
+                        length(i$kz) == 1 && is_kz(i$kz), report)
+  schl <- vapply(mit_konto, function(i) i$schluessel, "")
+  for (s in unique(schl[duplicated(schl)])) {
+    gr <- mit_konto[schl == s]
+    kzs <- vapply(gr, function(i) format(i$kz, scientific = FALSE, trim = TRUE), "")
+    if (length(unique(kzs)) < 2 || length(unique(vapply(gr, function(i) i$original, ""))) < 2) next
+    werte <- vapply(gr, function(i) {
+      o <- own[[i$datei]]
+      if (is.null(o)) NA_character_ else paste(unlist(o[setdiff(COLS, "probandennummer")]), collapse = "|")
+    }, "")
+    gleich <- !anyNA(werte) && length(unique(werte)) == 1
+    bitte <- c(bitte, sprintf("- Konto `%s` hat mehrere Kennziffern hochgeladen: %s. %s", gr[[1]]$konto,
+                              paste0(kzs, " (`", vapply(gr, function(i) i$original, ""), "`)", collapse = ", "),
+                              if (gleich) "Die Werte der fiktiven Person sind gleich, das ist sehr wahrscheinlich eine Person: bitte bei einer Nummer bleiben und die andere Datei löschen."
+                              else "Ist das eine Person, bitte bei einer Nummer bleiben und die andere Datei löschen. Hast Du für jemand anderen hochgeladen, ist alles in Ordnung."))
+    for (i in gr) report[[i$datei]]$hinweise <- c(report[[i$datei]]$hinweise, "dieses Konto hat mehrere Kennziffern, siehe „Bitte ansehen“")
   }
+  for (i in report) {
+    lines <- c(lines, sprintf("| `%s` | %s | %s | %s | %d | %s | %s | %s | %s |", i$datei, cell(i$kz), i$status, cell(i$ds),
+                              i$eigene, cell(i$gefunden), cell(i$abweichungen), cell(i$hinweise), konto_zelle(i)))
+  }
+  if (length(bitte)) lines <- c(lines, "", "## Bitte ansehen", "", bitte)
   missing_ds <- setdiff(1:10, as.integer(names(seeds_used)))
+  konto_ohne <- function(p) {
+    h <- herkunft(p)
+    if (nzchar(h$konto)) sprintf(" (Konto: %s)", konto_zelle(h)) else ""
+  }
   lines <- c(lines, "", "## Weitere Hinweise", "",
              if (length(missing_ds)) sprintf("- Nicht hochgeladene Seed-Datensätze: %s%s", paste(sprintf("%02d", missing_ds), collapse = ", "),
                                              if (ALLE_SEEDS) " (trotzdem im Gesamtdatensatz enthalten)" else ""),
-             if (length(other)) sprintf("- Ignoriert (kein CSV): `%s`", other),
-             if (length(dup_notes)) paste0("- ", dup_notes))
+             if (length(other)) sprintf("- Ignoriert (kein CSV): `%s`%s", other, vapply(other, konto_ohne, "")),
+             if (length(dup_notes)) paste0("- ", dup_notes),
+             if (!nrow(konten)) "- Konto-Zuordnung nicht verfügbar (keine vollständige Git-Historie), die Spalte Konto bleibt leer.")
   con <- file(OUT_REPORT, open = "w", encoding = "UTF-8")
   writeLines(lines, con)
   close(con)
+  # Nur beim Einfrieren gesetzt: Zuordnung Kennziffer zu Datei und Konto für freeze-dataset.R
+  konten_csv <- Sys.getenv("MERGE_KONTEN_CSV")
+  if (nzchar(konten_csv)) {
+    ein <- Filter(function(i) !is.null(i$original), report)
+    kz1 <- function(i) if (length(i$kz) == 1 && !is.na(i$kz) && i$kz == round(i$kz) && i$kz < 1e15) format(i$kz, scientific = FALSE, trim = TRUE) else ""
+    d <- data.frame(kennziffer = vapply(ein, kz1, ""),
+                    datei = vapply(ein, function(i) i$original, ""),
+                    konto = vapply(ein, function(i) i$konto, ""),
+                    lehrperson = vapply(ein, function(i) if (!nzchar(i$konto)) "" else if (isTRUE(i$lehr)) "ja" else "nein", ""),
+                    quelle_datei = vapply(ein, function(i) i$datei, ""))
+    write.csv(d, konten_csv, row.names = FALSE, fileEncoding = "UTF-8")
+  }
   message(sprintf("Wrote %s (%d rows) and %s", OUT_CSV, nrow(combined), OUT_REPORT))
 }
 

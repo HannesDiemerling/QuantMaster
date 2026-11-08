@@ -26,7 +26,7 @@ Diese Site ist Dein **wichtigstes Lernmaterial**. Die Sitzungen folgen alle eine
 1. **Plenum:** kurzer Input der Lehrperson im Videocall.
 2. **Self-Study** mit der Site in Deiner **Kleingruppe** im Breakout-Raum. Jede und jeder arbeitet selbst, Ihr helft Euch aber gegenseitig.
 3. **Zwischenplenum:** typische Stolpersteine klären.
-4. **Abschluss-Plenum:** Fragen, Ausblick, Abgabe.
+4. **Abschluss-Plenum:** Fragen, Ausblick und ab Sitzung 02 die Abgabe.
 
 Was in einer Sitzung drankommt und was Du vorher vorbereiten solltest, steht jeweils auf ihrer Übersichtsseite.
 
@@ -36,16 +36,16 @@ Die meisten Kapitel sind gleich aufgebaut: **Lernziele**, kompakter Theorieteil,
 
 ## Deine Nummern
 
-Deine **Kennziffer** (Pseudonym) nimmst Du aus Deiner Matrikelnummer, daraus ergibt sich auch Dein **Übungsdatensatz**. Deine **Kleingruppe** teilt die Lehrperson ein. Merk Dir alles gut, es gilt für das ganze Semester. Wie das genau funktioniert, steht in @sec-nummern.
+Deine **Kennziffer** (Pseudonym) sind die letzten 6 Ziffern Deiner Matrikelnummer, daraus ergibt sich auch Dein **Übungsdatensatz**. Deine **Kleingruppe** teilt die Lehrperson ein. Merk Dir alles gut, es gilt für das ganze Semester. Wie das genau funktioniert, steht in @sec-nummern.
 
 ## Abgaben
 
-Pro Sitzung schickst Du **eine** kurze Mail an Deine Lehrperson (@sec-lehrperson) mit dem Betreff `M15 SNN <Kennziffer>`, also zum Beispiel `M15 S03 1234567`. Die Vorlage zum Kopieren steht jeweils im Abschluss-Kapitel der Sitzung. Abgegeben werden fast nur **Zahlen und kurze Antworten**, die Du aus Deinen JASP-Analysen abliest. Screenshots und Plots brauchst Du nicht zu schicken. Weil alle in Deiner Gruppe mit demselben Gesamtdatensatz arbeiten, sind die Ergebnisse direkt vergleichbar.
+Sitzung 01 hat keine Abgabe, dort lädst Du nur Deinen Datensatz hoch. Ab Sitzung 02 lädst Du pro Sitzung **eine** kurze Textdatei ins Repo hoch, die nach Deiner Kennziffer benannt ist, also zum Beispiel `234567.txt`. Am besten machst Du das noch in der Sitzung oder an ihrem Ende. Danach nur, wenn es mehr Aufwand war oder die Zeit nicht gereicht hat. Wie das geht und die Vorlage zum Kopieren findest Du jeweils im Abschluss-Kapitel der Sitzung. Ohne GitHub-Account schickst Du die Datei per Mail an Deine Lehrperson (@sec-lehrperson), die sie für Dich einstellt. Abgegeben werden fast nur **Zahlen und kurze Antworten**, die Du aus Deinen JASP-Analysen abliest. Screenshots und Plots brauchst Du nicht. Weil alle in Deiner Gruppe mit demselben Gesamtdatensatz arbeiten, sind die Ergebnisse direkt vergleichbar.
 
 ## Software und Zugänge
 
 1. **JASP**, kostenlos unter [jasp-stats.org](https://jasp-stats.org)
-2. **GitHub-Account**, empfohlen, aber keine Pflicht. Kostenlos unter [github.com](https://github.com). Ohne Account schickst Du Deine Datei einmal per Mail.
+2. **GitHub-Account**, empfohlen, aber keine Pflicht. Kostenlos unter [github.com](https://github.com). Ohne Account schickst Du Deine Dateien per Mail an Deine Lehrperson.
 3. **Laptop** mit Kamera/Mikro für die Videokonferenz
 4. **Seminar-Repo** mit Daten und Merge-Report: [{{< meta kurs.repo >}}]({{< meta kurs.repo >}})
 

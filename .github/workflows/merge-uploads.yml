@@ -14,6 +14,7 @@ on:
       - 'data/student-uploads/**'
       - '!data/combined/**'
       - 'scripts/merge-uploads.R'
+      - 'scripts/lehrpersonen.txt'
       - 'scripts/meta-studien.R'
       - '.github/workflows/merge-uploads.yml'
   workflow_dispatch:
@@ -38,6 +39,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.ref_name }}
+          fetch-depth: 0   # volle Historie, damit der Report jede Datei einem Konto zuordnen kann
 
       - name: Set up R
         uses: r-lib/actions/setup-r@v2

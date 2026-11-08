@@ -7,11 +7,7 @@
 
 ## Abgabe
 
-Schick **eine** Mail bis spätestens zum Tag vor Sitzung 04 an Deine Lehrperson (@sec-lehrperson).
-
-- **Betreff:** `M15 S03 <Kennziffer>`
-- **Anhang:** keiner
-- **Text:** Vorlage kopieren und ausfüllen. Dezimalzahlen mit 2 Nachkommastellen (wo nicht anders angegeben), *p*-Werte mit 3.
+Am besten trägst Du Deine Werte noch in der Sitzung oder an ihrem Ende ein. Reicht die Zeit nicht oder war es mehr Aufwand, kannst Du auch danach abgeben.
 
 {{< include _abgabe.md >}}
 

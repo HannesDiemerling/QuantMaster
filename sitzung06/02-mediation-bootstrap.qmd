@@ -120,7 +120,7 @@ Sind die Pfade $a$ und $b$ klein bis mittel, braucht man für 80 % Power schnel
 - Tausch die Rollen ($X$ und $Y$ vertauschen). Ändert sich die Schlussfolgerung, und was sagt das über Kausalität aus Querschnittsdaten?
 
 ::: {.callout-tip title="Für die Abgabe"}
-Notiere: indirekten Effekt, sein 95 %-Bootstrap-KI, den direkten Effekt $c'$ und einen Satz dazu, was der Bootstrap hier gemacht hat. Siehe @sec-s06-abschluss.
+Notiere: indirekten Effekt, sein 95 %-Bootstrap-KI, ob es die 0 enthält, den direkten Effekt $c'$ und einen Satz dazu, was der Bootstrap hier gemacht hat. Siehe @sec-s06-abschluss.
 :::
 
 ## Selbstcheck

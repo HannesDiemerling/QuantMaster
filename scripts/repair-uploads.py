@@ -277,8 +277,16 @@ def near_row(cells, refs, kandidaten, grenze):
 
 
 def valid_kz(v):
+    """Jede ganze Zahl ab 10, wie is_kz in merge-uploads.R. 1 bis 9 sind die Nummern der
+    Übungszeilen, ab 16 Stellen kann der Merge die Zahl nicht mehr genau speichern."""
     v = str(v).strip()
-    return v.isdigit() and 1000 <= int(v) < 10**12
+    return v.isdecimal() and 10 <= int(v) < 10**15
+
+
+def zeilen_nummer(v):
+    """Nummer einer Übungszeile (1 bis 9, auch als 05 geschrieben)."""
+    v = str(v).strip()
+    return v.isdecimal() and 1 <= int(v) <= 9
 
 
 def fix_kz(v, kz_name):
@@ -399,7 +407,7 @@ def repair_table(cells, raw, sep, head, name, refs, log):
         log(f"{unlesbar} Zeile(n) mit zu vielen Feldern verworfen (Dezimalkomma in einer Kommadatei?)")
         changed = True
 
-    m = re.match(r"^datensatz[\s\-_\u2013\u2014]*(\d{1,2})[\s\-_\u2013\u2014]+(\d{4,12})(?=\s*(\(\d+\))?\.[A-Za-z])", name, re.I)
+    m = re.match(r"^datensatz[\s\-_\u2013\u2014]*(\d{1,2})[\s\-_\u2013\u2014]+(\d{2,15})(?=\s*(\(\d+\))?\.[A-Za-z])", name, re.I)
     kz_name = str(int(m.group(2))) if m else ""
     ds_name = int(m.group(1)) if m else None
     for row in rows:
@@ -456,7 +464,7 @@ def repair_table(cells, raw, sep, head, name, refs, log):
                 continue                # die eine Zeile mit der Kennziffer aus dem Dateinamen ist die Person
             nah = near_row([rows[i][b] for b in BFI], refs, haupt, MIN_NEAR if gefunden else MIN_NEAR_OHNE)
             # Nummer 1 bis 9: immer Übungszeile. Sonst nur, wenn die Referenzzeile noch fehlt
-            if nah and (pn in list("123456789") or nah not in belegt):
+            if nah and (zeilen_nummer(pn) or nah not in belegt):
                 beschaedigt.append(i)
     if beschaedigt:
         log(f"{len(beschaedigt)} beschädigte oder umgepolte Übungszeile(n) mit Nummer {', '.join(rows[i]['probandennummer'] for i in beschaedigt)} nicht als Person gewertet. Waren sie umgepolt, kann auch die Person umgepolt sein")
@@ -466,11 +474,12 @@ def repair_table(cells, raw, sep, head, name, refs, log):
         changed = True
     personen = []
     if len(andere) > 1:
-        # Personen sind alle Zeilen mit einer anderen Nummer als 1 bis 9, auch ungültige wie 817
-        klein = list("123456789") + [""]
-        voll = [i for i in andere if valid_kz(rows[i]["probandennummer"])
-                or sum(bool(rows[i][b]) for b in BFI) >= 15] or andere   # fast leere Zeilen zählen nicht
-        kandidaten = [i for i in voll if rows[i]["probandennummer"] not in klein]
+        # Personen sind alle Zeilen mit einer anderen Nummer als 1 bis 9. Fast leere Zeilen zählen
+        # nur mit langer Nummer, eine kleine Zahl mit wenigen Werten ist eher eine Fußzeile
+        pn_ok = lambda p: valid_kz(p) and int(p) >= 1000
+        voll = [i for i in andere if pn_ok(rows[i]["probandennummer"])
+                or sum(bool(rows[i][b]) for b in BFI) >= 15] or andere
+        kandidaten = [i for i in voll if rows[i]["probandennummer"] and not zeilen_nummer(rows[i]["probandennummer"])]
         if kandidaten:
             personen = kandidaten
         else:

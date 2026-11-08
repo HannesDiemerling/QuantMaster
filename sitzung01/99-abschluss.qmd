@@ -1,4 +1,4 @@
-# Sitzung 01: Abschluss & Abgabe {#sec-s01-abschluss}
+# Sitzung 01: Abschluss {#sec-s01-abschluss}
 
 ## Kurz zusammengefasst
 
@@ -6,17 +6,9 @@
 - Du hast eine fiktive Person beschrieben und einen kompletten Daten-Workflow durchlaufen: herunterladen, bereinigen, ergänzen, hochladen.
 - Du hast in JASP zwei absichtliche Fehler gefunden, behandelt und Deine Datei hochgeladen.
 
-## Abgabe
+## Upload-Kontrolle
 
-Schick **eine** Mail bis spätestens zum Tag vor Sitzung 02 an Deine Lehrperson (@sec-lehrperson).
-
-- **Betreff:** `M15 S01 <Kennziffer>`
-- **Anhang:** keiner
-- **Text:** Vorlage kopieren und ausfüllen.
-
-{{< include _abgabe.md >}}
-
-Auch wenn Du Deine Datei per Mail geschickt hast (Weg B), brauchst Du zusätzlich diese Abgabe-Mail. Die Upload-Mail zählt nicht als Abgabe. Schau nach dem Upload im [Merge-Report]({{< meta kurs.repo >}}/blob/main/data/combined/merge-report.md), ob Deine Datei als „ok“ erkannt wurde.
+Heute gibt es keine Abgabe, Dein Ziel ist der Upload. Schau im [Merge-Report]({{< meta kurs.repo >}}/blob/main/data/combined/merge-report.md) nach, ob Deine Datei als „ok“ erkannt wurde.
 
 ## Offene Fragen?
 

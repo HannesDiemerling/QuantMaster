@@ -24,7 +24,7 @@ Füge **eine neue Zeile am Ende** ein und trag die Werte der fiktiven Person aus
 
 | Spalte | Inhalt |
 |---|---|
-| `probandennummer` | Deine **Kennziffer** (mindestens die letzten 4 Ziffern Deiner Matrikelnummer, siehe @sec-nummern), z. B. `1234567` |
+| `probandennummer` | Deine **Kennziffer** (die letzten 6 Ziffern Deiner Matrikelnummer, siehe @sec-nummern), z. B. `234567` |
 | `geschlecht` | 1 / 2 / 3 (Code) der fiktiven Person |
 | `alter` | Alter der fiktiven Person |
 | `bildungsgrad` | 1–7 (Code) der fiktiven Person |
@@ -44,8 +44,8 @@ datensatz-<XX>-<Kennziffer>.csv
 ```
 
 - `<XX>` ist Deine zweistellige Datensatznummer.
-- `<Kennziffer>` ist Deine Kennziffer (@sec-nummern), nur Ziffern. Nimm überall genau dieselbe Zahl: Probandennummer, Dateiname, Mail-Betreff.
-- Beispiel: `datensatz-07-1234567.csv` (Datensatz 7, Kennziffer 1234567).
+- `<Kennziffer>` ist Deine Kennziffer (@sec-nummern), nur Ziffern. Nimm überall genau dieselbe Zahl: Probandennummer, Dateiname, Abgabe.
+- Beispiel: `datensatz-07-234567.csv` (Datensatz 7, Kennziffer 234567).
 - Bitte **keine Namen oder Initialen** im Dateinamen. Das Repo ist öffentlich.
 
 ::: {.callout-important title="Wichtig: Kennziffer im Dateinamen"}
@@ -68,7 +68,7 @@ Du brauchst nur einen Browser und Deinen GitHub-Account, keine zusätzliche Soft
 2. Den Ordner [`data/student-uploads/`]({{< meta kurs.repo >}}/tree/main/data/student-uploads) öffnen. Kontrolle: Oben über der Dateiliste steht `QuantMaster / data / student-uploads /`. Steht dort etwas anderes (z. B. nur `QuantMaster` oder `data / generated`), bist Du im falschen Ordner.
 3. Rechts über der Dateiliste auf **Add file** klicken und **Upload files** wählen.
 4. Deine Datei `datensatz-XX-<Kennziffer>.csv` aus dem Datei-Explorer bzw. Finder in das große Feld „*Drag files here …*“ ziehen oder auf **choose your files** klicken und sie auswählen. Unter dem Feld erscheint der Dateiname. Steht dort mehr als eine Datei, entferne die anderen mit dem **×** daneben.
-5. Darunter steht der Kasten **Commit changes**. Ins erste Feld eine kurze Beschreibung schreiben, z. B. *„Upload Datensatz 07, Kennziffer 1234567“*. Das zweite Feld kannst Du leer lassen.
+5. Darunter steht der Kasten **Commit changes**. Ins erste Feld eine kurze Beschreibung schreiben, z. B. *„Upload Datensatz 07, Kennziffer 234567“*. Das zweite Feld kannst Du leer lassen.
 6. Darunter stehen zwei Optionen. Wähl **Commit directly to the `main` branch** (das ist normalerweise schon ausgewählt).
 7. Den grünen Button **Commit changes** klicken. GitHub springt zurück in den Ordner, und Deine Datei steht in der Liste. Fertig.
 
@@ -89,7 +89,7 @@ Mit Schreibrechten könntest Du technisch jede Datei im Repo ändern. Lade nur D
 ### Weg B: per Mail (ohne GitHub-Account)
 
 1. Neue Mail an Deine Lehrperson (@sec-lehrperson).
-2. **Betreff:** `M15 Upload <Kennziffer>` (z. B. `M15 Upload 1234567`).
+2. **Betreff:** `M15 Upload <Kennziffer>` (z. B. `M15 Upload 234567`).
 3. **Anhang:** Deine Datei `datensatz-XX-<Kennziffer>.csv`. Bitte genau die CSV-Datei, keine Excel- oder JASP-Datei und kein Screenshot.
 4. Text: nicht nötig.
 
@@ -130,8 +130,8 @@ Im Merge-Report siehst Du für Deine Datei (über Deine Kennziffer) den Status, 
 4. Vor dem Upload: Stimmen die Reverse-Items Deiner fiktiven Person? Rechne eins nach (z. B. angekreuzt 2 → eingetragen 4).
 5. Nach ein paar Minuten den [Merge-Report]({{< meta kurs.repo >}}/blob/main/data/combined/merge-report.md) öffnen: Such dort nach Deiner **Kennziffer**. Steht bei Deiner Datei Status „ok“ und bei „Fehler gefunden“ 2/2? Dann ist alles gut. Hinweise zu Dateiname oder Trennzeichen sind unkritisch. Bei IGNORIERT oder PRÜFEN korrigieren und unter **demselben Dateinamen** erneut hochladen. Bei DOPPELT gibt es Deine Kennziffer in zwei Dateien. Sind beide von Dir, lösch die mit dem falschen oder älteren Namen (Datei anklicken → „…“ oben rechts → *Delete file* → *Commit changes*). Ist eine davon nicht von Dir oder hast Du per Mail hochgeladen, sag der Lehrperson Bescheid. Wenn gerade viele gleichzeitig hochladen, kann es etwas länger dauern, bis Deine Datei im Report auftaucht.
 
-::: {.callout-tip title="Für die Abgabe"}
-Notiere Datensatznummer, beide gefundenen Fehler und den Dateinamen für die Abgabe (@sec-s01-abschluss).
+::: {.callout-tip title="Für die nächsten Sitzungen"}
+Notiere Kennziffer, Datensatznummer und Dateinamen. Heute gibt es keine Abgabe, ab Sitzung 02 brauchst Du sie aber wieder.
 :::
 
 ## Selbstcheck

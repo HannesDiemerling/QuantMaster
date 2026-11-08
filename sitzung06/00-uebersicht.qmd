@@ -8,7 +8,7 @@ Nach dieser Sitzung …
 - rechnest Du eine Mediation mit Bootstrap-Konfidenzintervall.
 :::
 
-**Semesterwoche 10** · Bezug zur Vorlesung: Vorlesung 7 (Strukturgleichungsmodelle).
+Bezug zur Vorlesung: Vorlesung 7 (Strukturgleichungsmodelle).
 
 ## Worum es geht
 
@@ -24,4 +24,4 @@ Heute verbindest Du Messmodelle (CFA) mit gerichteten Zusammenhängen zwischen l
 2. Konfirmatorische Faktorenanalyse & Strukturgleichungsmodelle (@sec-cfa-sem)
 3. Fit-Indizes lesen, Mediation als SEM
 4. Mediation & Bootstrap (@sec-tag3-mediation)
-5. Fragen und Abgabe (@sec-s06-abschluss)
+5. Fragen und Abgabe hochladen (@sec-s06-abschluss)

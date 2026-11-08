@@ -5,12 +5,14 @@ Aufruf: python3 scripts/check-upload-pr.py <files.json> <pr-autor> <owner/repo>
 Ausgabe: erste Zeile OK oder ABGELEHNT, danach Gründe. Exit-Code 0 = übernehmen.
 
 Erlaubt sind nur neue oder geänderte Dateien direkt in data/student-uploads/ mit Endung
-.csv/.txt/.tsv. Eine bestehende Datei darf nur überschreiben, wer sie selbst hochgeladen hat.
+.csv/.txt/.tsv und Abgaben abgaben/<gruppe>/sitzungNN/<Kennziffer>.txt. Eine bestehende Datei
+darf nur überschreiben, wer sie selbst hochgeladen hat.
 Zum Testen ohne GitHub-API: Umgebungsvariable HISTORY_JSON = {"pfad": ["login", ...]}.
 """
 import json, os, re, subprocess, sys, urllib.parse
 
 ALLOWED = re.compile(r"^data/student-uploads/[^/]+\.(csv|txt|tsv)$", re.IGNORECASE)
+ABGABE = re.compile(r"^abgaben/[a-z0-9-]+/sitzung\d{2}/\d{1,20}\.txt$")
 MAX_FILES = 5
 MAX_LINES = 500
 
@@ -32,8 +34,8 @@ def check(files, author, repo):
         reasons.append(f"{len(files)} Dateien, erlaubt sind höchstens {MAX_FILES}")
     for f in files:
         name, status = f.get("filename", ""), f.get("status", "")
-        if not ALLOWED.fullmatch(name) or re.search(r"[\x00-\x1f\x7f]", name):
-            reasons.append(f"{name}: nur CSV-Dateien direkt in data/student-uploads/ sind erlaubt")
+        if not (ALLOWED.fullmatch(name) or ABGABE.fullmatch(name)) or re.search(r"[\x00-\x1f\x7f]", name):
+            reasons.append(f"{name}: nur CSV-Dateien direkt in data/student-uploads/ oder Abgaben unter abgaben/<Gruppe>/sitzungNN/<Kennziffer>.txt sind erlaubt")
             continue
         if status not in ("added", "modified"):
             reasons.append(f"{name}: Status „{status}“ (nur neue oder geänderte Dateien)")

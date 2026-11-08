@@ -7,7 +7,7 @@ Nach dieser Sitzung …
 - rechnest Du eine explorative Faktorenanalyse und begründest die Faktorenzahl.
 :::
 
-**Semesterwoche 9** · Bezug zur Vorlesung: Vorlesungen 5 (Mehrebenenmodelle) und 6 (Faktorenanalyse).
+Bezug zur Vorlesung: Vorlesungen 5 (Mehrebenenmodelle) und 6 (Faktorenanalyse).
 
 ## Worum es geht
 
@@ -23,4 +23,4 @@ Zwei Verfahren, die Strukturen in Daten sichtbar machen: Mehrebenenmodelle berü
 2. Mehrebenen- & gemischte Modelle (@sec-tag3-mixed)
 3. Von Gruppen zu latenten Faktoren
 4. Explorative Faktorenanalyse (@sec-efa)
-5. Fragen und Abgabe (@sec-s05-abschluss)
+5. Fragen und Abgabe hochladen (@sec-s05-abschluss)

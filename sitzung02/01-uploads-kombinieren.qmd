@@ -44,7 +44,7 @@ Herunterladen: jede Datei anklicken → **Download raw file** (Pfeil-Symbol oben
 ## Schritt 2: Zu einer Datei zusammenführen
 
 1. Öffne die erste Datei im Texteditor (VS Code, Notepad++, TextEdit im Modus „Reiner Text“).
-2. Hänge an die Kopfzeile `,quelle_datei` an und an jede Datenzeile `,` plus den Dateinamen (z. B. `,datensatz-07-1234567`).
+2. Hänge an die Kopfzeile `,quelle_datei` an und an jede Datenzeile `,` plus den Dateinamen (z. B. `,datensatz-07-234567`).
 3. Für jede weitere Datei: **ohne** Kopfzeile die Datenzeilen kopieren, unten anhängen, Herkunft ergänzen.
 4. Speichern als `meine-kombination.csv` (UTF-8).
 5. **Kontrolle:** Die Datei muss **eine Kopfzeile und 10 × 7 = 70 Datenzeilen** haben, oder weniger, wenn eine Datei kürzer war. Prüf die Zeilenzahl im Editor: Zeilennummer der letzten Datenzeile minus 1 für die Kopfzeile (eine leere letzte Zeile zählt nicht).
@@ -63,7 +63,7 @@ Im **offiziellen** Gesamtdatensatz `m15-gesamt.csv` ist das schon gelöst:
 
 | Spalte | Bedeutung |
 |---|---|
-| `id` | global eindeutige ID: vorgenerierte Personen: $\text{Datensatz} \times 100 + \text{Probandennummer}$ (z. B. 305), Zeilen der fiktiven Personen = Kennziffer (z. B. 1234567) |
+| `id` | global eindeutige ID: vorgenerierte Personen: $\text{Datensatz} \times 100 + \text{Probandennummer}$ (z. B. 305), Zeilen der fiktiven Personen = Kennziffer (z. B. 234567) |
 | `probandennummer` … `BFI_21` | die 25 bekannten Spalten |
 | `quelle` | `generiert` oder `studierende` |
 | `quelle_datensatz` | Nummer des Seed-Datensatzes (1–10) |

@@ -2,8 +2,9 @@ name: Accept student upload PR
 
 # Studierende ohne Schreibrechte laden über „Add file → Create new file“ hoch; GitHub macht
 # daraus einen Pull Request aus ihrem Fork. Dieser Workflow übernimmt ihn automatisch, wenn er
-# nur Upload-Dateien in data/student-uploads/ enthält (Prüfung: scripts/check-upload-pr.py),
-# und startet danach den Merge. Alles andere bleibt offen und bekommt einen Kommentar.
+# nur Upload-Dateien in data/student-uploads/ oder Abgaben unter abgaben/ enthält (Prüfung:
+# scripts/check-upload-pr.py), und startet danach Merge oder Prüfung. Alles andere bleibt offen
+# und bekommt einen Kommentar.
 #
 # Sicherheit: pull_request_target läuft mit dem Code von main. Aus dem Pull Request wird
 # NICHTS ausgecheckt oder ausgeführt, nur seine Dateiliste über die API gelesen.
@@ -40,12 +41,23 @@ jobs:
         run: |
           gh api --paginate --slurp "repos/$REPO/pulls/$PR/files" > files.json
           if python3 scripts/check-upload-pr.py files.json "$AUTHOR" "$REPO" > result.txt; then
-            gh pr merge "$PR" --repo "$REPO" --squash --delete-branch=false --match-head-commit "$SHA"
-            gh workflow run merge-uploads.yml --repo "$REPO" --ref "$BRANCH"
-            gh pr comment "$PR" --repo "$REPO" --body "Danke, Dein Upload ist übernommen. In ein paar Minuten steht er im [Merge-Report](https://github.com/$REPO/blob/$BRANCH/data/combined/merge-report.md). Such dort nach Deiner Kennziffer."
+            if ! gh pr merge "$PR" --repo "$REPO" --squash --delete-branch=false --match-head-commit "$SHA"; then
+              gh pr comment "$PR" --repo "$REPO" --body "Dein Pull Request ist in Ordnung, ließ sich aber gerade nicht automatisch übernehmen. Sag bitte Deiner Lehrperson Bescheid, sie übernimmt ihn von Hand."
+              exit 1
+            fi
+            hinweis=""
+            if grep -q '"filename": *"data/student-uploads/' files.json; then
+              gh workflow run merge-uploads.yml --repo "$REPO" --ref "$BRANCH"
+              hinweis="In ein paar Minuten steht Dein Upload im [Merge-Report](https://github.com/$REPO/blob/$BRANCH/data/combined/merge-report.md). Such dort nach Deiner Kennziffer. "
+            fi
+            if grep -q '"filename": *"abgaben/' files.json; then
+              gh workflow run pruefe-abgaben.yml --repo "$REPO" --ref "$BRANCH"
+              hinweis="${hinweis}Deine Abgabe ist übernommen, die Rückmeldung liegt kurz darauf neben Deiner Datei als \`<Deine Kennziffer>-rueckmeldung.md\`."
+            fi
+            gh pr comment "$PR" --repo "$REPO" --body "Danke, das ist übernommen. $hinweis"
           else
             { echo "Dieser Pull Request wurde nicht automatisch übernommen:"; echo; tail -n +2 result.txt; echo;
-              echo "Bitte nur Deine eigene CSV-Datei in \`data/student-uploads/\` anlegen. Bei Fragen die Lehrperson ansprechen."; } > comment.md
+              echo "Bitte nur Deine eigene CSV-Datei in \`data/student-uploads/\` anlegen oder Deine Abgabe unter \`abgaben/<Gruppe>/sitzungNN/<Kennziffer>.txt\`. Bei Fragen die Lehrperson ansprechen."; } > comment.md
             gh pr comment "$PR" --repo "$REPO" --body-file comment.md
             cat result.txt
           fi

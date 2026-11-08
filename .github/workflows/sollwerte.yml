@@ -1,0 +1,150 @@
+name: Sollwerte erzeugen
+
+# Berechnet aus dem eingefrorenen Stand einer Gruppe die gehashte Datei
+# data/combined/eingefroren/<gruppe>/sollwerte.json. Startet automatisch nach
+# „Datensatz einfrieren“, lässt sich aber auch von Hand starten (etwa wenn ein
+# Lauf fehlgeschlagen ist): Actions > "Sollwerte erzeugen" > "Run workflow" > Gruppenname.
+#
+# Eine vorhandene sollwerte.json bleibt immer unverändert. Nur wenn im Feld „korrektur“
+# genau "KORRIGIEREN <gruppe>" steht, wird sie mit höherer Versionsnummer neu berechnet.
+# Der eingefrorene Stand selbst wird hier nie verändert.
+#
+# Klartext der Sollwerte entsteht nur in einer temporären Datei außerhalb des Repos und wird
+# weder ausgegeben noch als Artifact gespeichert, denn Logs und Artifacts eines öffentlichen
+# Repos kann jede Person lesen.
+on:
+  workflow_dispatch:
+    inputs:
+      gruppe:
+        description: "Name der Gruppe, genau wie der Ordner unter data/combined/eingefroren/"
+        required: true
+        type: string
+      korrektur:
+        description: "Nur für eine bewusste Korrektur: KORRIGIEREN <gruppe>. Sonst leer lassen."
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: sollwerte-${{ inputs.gruppe }}
+  cancel-in-progress: false
+
+jobs:
+  sollwerte:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      TZ: Europe/Berlin
+      GRUPPE: ${{ inputs.gruppe }}
+      KORREKTUR: ${{ inputs.korrektur }}
+      # Datum des CRAN-Abbilds: legt die Paketversionen fest. Nur bewusst ändern.
+      R_SNAPSHOT: "2026-11-02"
+    steps:
+      - name: Checkout (aktueller Stand von main)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Eingaben prüfen
+        id: vorab
+        run: |
+          if ! [[ "$GRUPPE" =~ ^[a-z0-9-]+$ ]]; then
+            echo "::error::Ungültiger Gruppenname. Erlaubt sind Kleinbuchstaben, Ziffern und Bindestriche."; exit 1
+          fi
+          ziel="data/combined/eingefroren/$GRUPPE"
+          if [ ! -f "$ziel/m15-gesamt.csv" ]; then
+            echo "::error::Für die Gruppe $GRUPPE gibt es keinen eingefrorenen Stand."; exit 1
+          fi
+          if [ -n "$KORREKTUR" ] && [ "$KORREKTUR" != "KORRIGIEREN $GRUPPE" ]; then
+            echo "::error::Das Feld korrektur muss leer sein oder genau KORRIGIEREN $GRUPPE enthalten."; exit 1
+          fi
+          if [ -f "$ziel/sollwerte.json" ] && [ -z "$KORREKTUR" ]; then
+            echo "::notice::sollwerte.json für $GRUPPE existiert schon und bleibt unverändert."
+            echo "weiter=nein" >> "$GITHUB_OUTPUT"
+          else
+            echo "weiter=ja" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up R
+        if: steps.vorab.outputs.weiter == 'ja'
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.6.1"
+          use-public-rspm: true
+
+      - name: Systembibliotheken
+        if: steps.vorab.outputs.weiter == 'ja'
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libnlopt-dev libgmp-dev libmpfr-dev libcurl4-openssl-dev
+
+      - name: R-Pakete installieren
+        if: steps.vorab.outputs.weiter == 'ja'
+        run: |
+          cat > "$RUNNER_TEMP/pakete.R" <<'RSKRIPT'
+          pkgs <- c("MASS", "lme4", "lavaan", "BayesFactor")
+          snap <- sprintf("https://packagemanager.posit.co/cran/__linux__/noble/%s", Sys.getenv("R_SNAPSHOT"))
+          fehlt <- function() pkgs[!vapply(pkgs, requireNamespace, logical(1), quietly = TRUE)]
+          for (repo in c(snap, "https://packagemanager.posit.co/cran/__linux__/noble/latest")) {
+            options(repos = c(CRAN = repo))
+            if (length(fehlt())) try(install.packages(fehlt(), Ncpus = 2))
+            if (!length(fehlt())) break
+            message("Noch nicht installiert: ", paste(fehlt(), collapse = ", "), ", naechster Versuch")
+          }
+          if (length(fehlt())) stop("Pakete fehlen: ", paste(fehlt(), collapse = ", "))
+          for (p in pkgs) message(p, " ", packageVersion(p))
+          RSKRIPT
+          Rscript "$RUNNER_TEMP/pakete.R"
+
+      - name: Set up Python
+        if: steps.vorab.outputs.weiter == 'ja'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Schreibt nichts ins Repo außer sollwerte.json. Die Spec mit Klartext liegt in $RUNNER_TEMP.
+      - name: Sollwerte berechnen
+        if: steps.vorab.outputs.weiter == 'ja'
+        run: |
+          Rscript scripts/antwortbogen.R "$GRUPPE" --nur-spec --streng --spec "$RUNNER_TEMP/spec.json"
+          if [ -n "$KORREKTUR" ]; then
+            python3 -B scripts/pruefe-abgaben.py --baue-sollwerte "$RUNNER_TEMP/spec.json" "$GRUPPE" --korrektur
+          else
+            python3 -B scripts/pruefe-abgaben.py --baue-sollwerte "$RUNNER_TEMP/spec.json" "$GRUPPE"
+          fi
+          rm -f "$RUNNER_TEMP/spec.json"
+
+      - name: Commit sollwerte.json
+        if: steps.vorab.outputs.weiter == 'ja'
+        env:
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          datei="data/combined/eingefroren/$GRUPPE/sollwerte.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$datei"
+          if git diff --cached --quiet; then echo "Keine Änderung an sollwerte.json"; exit 0; fi
+          if [ "$(git diff --cached --name-only)" != "$datei" ]; then
+            echo "::error::Unerwartete Änderungen, nichts committet."; git diff --cached --name-only; exit 1
+          fi
+          git commit -q -m "chore(data): Sollwerte für Gruppe $GRUPPE"
+          for i in 1 2 3 4 5; do
+            if git pull -q --rebase origin "$BRANCH" && git push -q origin "HEAD:$BRANCH"; then echo "gepusht (Versuch $i)"; exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            echo "Push fehlgeschlagen, neuer Versuch"; sleep $((i * 5))
+          done
+          exit 1
+
+      # Bot-Pushes starten keine Workflows, deshalb wird die Prüfung ausdrücklich angestoßen.
+      # So werden Abgaben nachgeprüft, die vor den Sollwerten eingegangen sind.
+      - name: Abgaben nachprüfen
+        if: steps.vorab.outputs.weiter == 'ja'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ github.ref_name }}
+        run: gh workflow run pruefe-abgaben.yml --repo "$GITHUB_REPOSITORY" --ref "$BRANCH"

@@ -3,9 +3,10 @@ name: Deploy to Pages
 on:
   push:
     branches: [main, master]
-    # Studierenden-Uploads ändern die Site nicht — kein Rebuild pro Upload.
+    # Uploads und Abgaben ändern die Site nicht, also kein Rebuild pro Datei.
     paths-ignore:
       - 'data/**'
+      - 'abgaben/**'
   workflow_dispatch:
 
 permissions:

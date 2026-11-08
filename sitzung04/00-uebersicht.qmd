@@ -8,7 +8,7 @@ Nach dieser Sitzung …
 - testest Du eine Moderation mit zentrierten Prädiktoren.
 :::
 
-**Semesterwoche 8** · Bezug zur Vorlesung: Vorlesungen 3 (Metaanalyse) und 4 (Multiple Regression).
+Bezug zur Vorlesung: Vorlesungen 3 (Metaanalyse) und 4 (Multiple Regression).
 
 ## Worum es geht
 
@@ -26,7 +26,7 @@ Zwei Wege, über die einfache Korrelation hinauszugehen: über **Studien** hinwe
 3. Forest Plot gemeinsam lesen, dann der Schritt von der Korrelation zur Regression
 4. Multiple Regression (@sec-tag3-regression)
 5. Moderation & Interaktionen (@sec-tag3-moderation)
-6. Fragen und Abgabe (@sec-s04-abschluss)
+6. Fragen und Abgabe hochladen (@sec-s04-abschluss)
 
 ## Eine wichtige Sache über unseren Datensatz {#sec-tag3-datenhinweis}
 
