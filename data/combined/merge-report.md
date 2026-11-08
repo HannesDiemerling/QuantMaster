@@ -1,8 +1,8 @@
 # Merge-Report
 
-Automatisch erzeugt von `scripts/merge-uploads.R` am 08.11.2026 15:35.
+Automatisch erzeugt von `scripts/merge-uploads.R` am 08.11.2026 15:40.
 
-**Gesamtdatensatz:** `data/combined/m15-gesamt.csv` mit **94 Zeilen** (90 vorgeneriert aus 10 Datensätzen, 4 fiktive Personen).
+**Gesamtdatensatz:** `data/combined/m15-gesamt.csv` mit **93 Zeilen** (90 vorgeneriert aus 10 Datensätzen, 3 fiktive Personen).
 
 Vorgenerierte Zeilen gehen in der Referenz-Bereinigung ein (Fehlerzellen leer, doppelte Probandennummer korrigiert), unabhängig davon, wie sie in den Uploads bereinigt wurden.
 
@@ -16,10 +16,9 @@ Suche Deine Datei über Deine **Kennziffer**. Handeln musst Du nur bei Status IG
 | `data/student-uploads/datensatz-02-31009.csv` | 231831009 | ok | 02 | 1 | 2/2 | 0 | – |
 | `data/student-uploads/datensatz-03-31005.csv` | 261831005 | ok | 03 | 1 | 2/2 | 0 | – |
 | `data/student-uploads/datensatz-08 – 31015.csv` | – | IGNORIERT | – | 0 | – | – | Dateiname weicht vom Schema datensatz-XX-<Kennziffer>.csv ab (für den Merge unkritisch); Spalten fehlen: probandennummer, geschlecht, alter, bildungsgrad, BFI_01 (Kopfzeile fehlt oder Trennzeichen gemischt? Datei im Texteditor prüfen) |
-| `data/student-uploads/datensatz-09-123456789.csv` | 2099 | ok | 09 | 1 | 2/2 | 0 | – |
 
 ## Weitere Hinweise
 
-- Nicht hochgeladene Seed-Datensätze: 04, 05, 06, 07, 08, 10 (trotzdem im Gesamtdatensatz enthalten)
+- Nicht hochgeladene Seed-Datensätze: 04, 05, 06, 07, 08, 09, 10 (trotzdem im Gesamtdatensatz enthalten)
 - Ignoriert (kein CSV): `data/student-uploads/datensatz-07-31014.numbers`
 - Ignoriert (kein CSV): `data/student-uploads/datensatz-08-817.jasp`
