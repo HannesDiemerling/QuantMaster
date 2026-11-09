@@ -578,6 +578,20 @@ def zuordnung_von(pfad):
     return k2kz, kz2k, uploads
 
 
+def gleiche_nummer(a, b):
+    """Können a und b dieselbe Kennziffer in anderer Länge sein?
+    Ja, wenn die kürzere das Ende der längeren ist (mindestens 4 Ziffern) oder die letzten 6 Ziffern gleich sind."""
+    if a == b:
+        return True
+    gemeinsam = 0
+    for x, y in zip(reversed(a), reversed(b)):
+        if x != y:
+            break
+        gemeinsam += 1
+    kuerzere = min(len(a), len(b))
+    return (gemeinsam == kuerzere and kuerzere >= 4) or gemeinsam >= 6
+
+
 def datensatz_von(kz, uploads):
     """Datensatznummer: aus dem Upload-Dateinamen, sonst letzte Ziffer, 0 = 10."""
     if kz in uploads:
@@ -638,7 +652,11 @@ def lade_gruppen(wurzel):
                         for r in csv.DictReader(fh):
                             if str(r.get("quelle", "")).strip().lower() == "studierende":
                                 try:
-                                    info["stand"].add(str(int(float(r["probandennummer"]))))
+                                    nr = str(int(float(r["probandennummer"])))
+                                    info["stand"].add(nr)
+                                    d_nr = int(float(r.get("quelle_datensatz") or 0))
+                                    if 1 <= d_nr <= 10:
+                                        info["uploads_z"].setdefault(nr, d_nr)
                                 except (KeyError, TypeError, ValueError):
                                     pass
                 except OSError:
@@ -1151,6 +1169,23 @@ def auswerten(a, gruppen, gruppen_namen, lehr, uploads):
         a["hinweise"].append(f"Diese Datei wurde zuletzt von einem anderen GitHub-Konto geändert ({letzte['konto']}, zuerst {erste['konto']}). Die frühere Fassung bleibt in der Historie erhalten.")
         a["kurz_hinweise"].append(f"zuletzt von anderem Konto ({letzte['konto']}, zuerst {erste['konto']})")
 
+    # Dieselbe Nummer in anderer Länge (z. B. nur die letzten 6 Ziffern), auch ohne Konto-Treffer
+    bekannt = set(info_gr.get("stand") or set()) | set(info_gr.get("uploads_z", {}))
+    if a["kz_int"] and bekannt and a["kz_int"] not in bekannt and a["kz_int"] not in uploads and not a.get("kz_zugeordnet"):
+        passend = sorted(z for z in bekannt if gleiche_nummer(a["kz_int"], z))
+        if len(passend) == 1:
+            a["kz_zugeordnet"] = passend[0]
+            a["hinweise"].append(f"Die Kennziffer im Dateinamen steht so nicht im Stand Deiner Gruppe, passt aber eindeutig zu {passend[0]}. Darüber wurde Deine Abgabe zugeordnet. Du kannst bei Deiner Nummer bleiben.")
+            a["kurz_hinweise"].append(f"über Nummer zugeordnet zu {passend[0]}")
+            besitzer = kz2k.get(passend[0])
+            if besitzer and letzte and not lehr_letzte and besitzer not in (_konto_key(letzte), _konto_key(erste)):
+                a["kurz_hinweise"].append(f"Nummer laut Upload von anderem Konto ({besitzer})")
+        elif passend:
+            a["hinweise"].append(f"Die Kennziffer im Dateinamen passt zu mehreren Personen im Stand ({', '.join(passend)}). Bitte nimm Deine vollständige Kennziffer aus dem Upload.")
+            a["kurz_hinweise"].append("Kennziffer mehrdeutig: " + ", ".join(passend))
+        else:
+            a["kurz_hinweise"].append("Kennziffer nicht im Stand")
+
     if a["problem"]:
         a["kurz_hinweise"].append({"leer": "Datei ist leer", "zu_gross": "Datei ist zu groß", "binaer": "Datei ist kein Text (z. B. Word oder PDF)", "nicht_lesbar": "Datei nicht lesbar"}.get(a["problem"], a["problem"]))
     if not a["gruppe"] or not a["sitzung"] or a["problem"]:
@@ -1172,7 +1207,10 @@ def auswerten(a, gruppen, gruppen_namen, lehr, uploads):
     a["tipps"] = {fid: sf.get("tipp", "") for fid, sf in felder_s.items()}
     a["sf_typ"] = {fid: sf.get("typ") for fid, sf in felder_s.items()}
     kz_d = a.get("kz_zugeordnet") or a["kz_int"]
-    datensatz = datensatz_von(kz_d, {**uploads, **info.get("uploads_z", {})}) if kz_d else None
+    zu_datensatz = {**uploads, **info.get("uploads_z", {})}
+    datensatz = datensatz_von(kz_d, zu_datensatz) if kz_d else None
+    if datensatz and kz_d not in zu_datensatz and any("pd" in sf for sf in felder_s.values()):
+        a["hinweise"].append(f"Deine Kennziffer finde ich nicht im Stand Deiner Gruppe. Für die Aufgabe zu Deinem eigenen Datensatz gehe ich deshalb von Datensatz {datensatz} aus (letzte Ziffer Deiner Kennziffer). Hast Du einen anderen bearbeitet, sag Deiner Lehrperson Bescheid.")
     a["ergebnis"] = bewerte(antworten, sw, a["gruppe"], felder_s, datensatz)
     unbekannt = [f for f in antworten if re.match(r"S\d+-", f) and f not in felder_s]
     if unbekannt:
