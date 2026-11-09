@@ -108,6 +108,16 @@ def zahlen_in(text, ganz=False):
     return werte
 
 
+def minus_zusammen(text):
+    """- 0,61 ist -0,61, wenn das Minus am Anfang oder nach = : ( [ ; , bis oder und steht. 0,12 - 0,45 bleibt ein Bereich."""
+    def ersetze(m):
+        davor = m.string[:m.start()].rstrip()
+        if not davor or davor[-1] in "=:([;,≈" or re.search(r"(?<![a-zäöüß])(bis|und)$", davor, re.I):
+            return m.group(1)
+        return m.group(0)
+    return re.sub(r"([-−–—])\s+(?=[.,]?\d)", ersetze, text)
+
+
 def auf_k(d, k):
     return d.quantize(Decimal(1).scaleb(-k), rounding=ROUND_HALF_UP)
 
@@ -379,7 +389,7 @@ def pruefe_feld(gruppe, fid, sf, ant, datensatz=None):
                 return ("ohne_sollwert", ant, "Dein Datensatz ist nicht bekannt.")
             teil = f"wert.d{int(datensatz)}"
             hset = set(sf["pd"][str(datensatz)])
-        zs = zahlen_in(ant)
+        zs = zahlen_in(minus_zusammen(ant))
         if not zs:
             return ("nicht_lesbar", ant, "Hier fehlt eine Zahl.")
         z = abs(zs[0]) if sf.get("abs") else zs[0]
@@ -418,7 +428,7 @@ def pruefe_feld(gruppe, fid, sf, ant, datensatz=None):
                 token = "<.001"
         return ("richtig" if _in(gruppe, fid, "wert", token, h) else "falsch", token.replace("<.001", "< .001"), "")
     if typ == "intervall":
-        zs = zahlen_in(ant)
+        zs = zahlen_in(minus_zusammen(ant))
         if len(zs) < 2:
             return ("nicht_lesbar", ant, "Hier fehlen die beiden Grenzen, zum Beispiel [0.10, 0.35].")
         a, b = zs[0], zs[1]

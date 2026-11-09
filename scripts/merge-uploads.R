@@ -228,12 +228,14 @@ konten_lesen <- function() {
   }
   flach <- git(c("rev-parse", "--is-shallow-repository"))
   if (is.null(flach) || identical(trimws(flach[1]), "true")) return(leer)
-  z <- git(c("-c", "core.quotepath=false", "log", "--format=%x01%an%x1f%ae", "--name-only",
-             "--no-renames", "--diff-filter=ACMR", "--relative", "--", ORIG_DIR))
+  z <- git(c("-c", "core.quotepath=false", "log", "--format=%x01%an%x1f%ae", "--name-status",
+             "-M", "--diff-filter=ACMR", "--relative"))
   if (is.null(z)) return(leer)
   lehr <- lehrpersonen_lesen()
   praefix <- paste0(ORIG_DIR, "/")
   gesehen <- new.env()
+  umzug <- new.env()                                       # alter Pfad -> heutiger Pfad
+  jetzt <- function(p) { ziel <- umzug[[p]]; if (is.null(ziel)) p else ziel }
   out <- list()
   aktuell <- NULL
   for (l in z) {
@@ -248,9 +250,18 @@ konten_lesen <- function() {
         schl <- tolower(if (nzchar(login)) login else if (nzchar(mail)) mail else name)
         list(konto = anzeige, schluessel = schl, lehr = any(tolower(trimws(c(login, name, anzeige))) %in% lehr))
       }
-    } else if (nzchar(l) && !is.null(aktuell) && startsWith(l, praefix) && is.null(gesehen[[l]])) {
-      gesehen[[l]] <- TRUE                                 # der neueste Commit steht zuerst
-      out[[length(out) + 1]] <- c(list(pfad = l), aktuell)
+    } else if (nzchar(l)) {
+      teile <- strsplit(l, "\t", fixed = TRUE)[[1]]
+      if (length(teile) < 2) next
+      pfad <- jetzt(teile[length(teile)])
+      if (startsWith(teile[1], "R") && length(teile) == 3) {
+        umzug[[teile[2]]] <- pfad
+        if (identical(teile[1], "R100")) next              # reines Verschieben sagt nichts darüber, wer hochgeladen hat
+      }
+      if (!is.null(aktuell) && startsWith(pfad, praefix) && is.null(gesehen[[pfad]])) {
+        gesehen[[pfad]] <- TRUE                            # der neueste Commit steht zuerst
+        out[[length(out) + 1]] <- c(list(pfad = pfad), aktuell)
+      }
     }
   }
   if (!length(out)) return(leer)
