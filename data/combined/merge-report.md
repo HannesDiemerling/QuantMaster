@@ -1,8 +1,8 @@
 # Merge-Report
 
-Automatisch erzeugt von `scripts/merge-uploads.R` am 10.11.2026 19:30.
+Automatisch erzeugt von `scripts/merge-uploads.R` am 10.11.2026 19:42.
 
-**Gesamtdatensatz:** `data/combined/m15-gesamt.csv` mit **108 Zeilen** (90 vorgeneriert aus 10 Datensätzen, 18 fiktive Personen).
+**Gesamtdatensatz:** `data/combined/m15-gesamt.csv` mit **109 Zeilen** (90 vorgeneriert aus 10 Datensätzen, 19 fiktive Personen).
 
 Vorgenerierte Zeilen gehen in der Referenz-Bereinigung ein (Fehlerzellen leer, doppelte Probandennummer korrigiert), unabhängig davon, wie sie in den Uploads bereinigt wurden.
 
@@ -29,6 +29,7 @@ Suche Deine Datei über Deine **Kennziffer** (die letzten 6 Ziffern Deiner Matri
 | `data/student-uploads/datensatz-08 – 31015.csv` | – | IGNORIERT | – | 0 | – | – | Dateiname weicht vom Schema datensatz-XX-<Kennziffer>.csv ab (für den Merge unkritisch); Spalten fehlen: probandennummer, geschlecht, alter, bildungsgrad, BFI_01 (Kopfzeile fehlt oder Trennzeichen gemischt? Datei im Texteditor prüfen) | Mrmcmg |
 | `data/student-uploads/datensatz-08-831028.csv` | 10 | ok | 08 | 1 | 1/2 | 1 | – | PaulinaSchaubert |
 | `data/student-uploads/datensatz-08-<831008>.csv` | 831008 | ok | 08 | 1 | 2/2 | 0 | Dateiname weicht vom Schema datensatz-XX-<Kennziffer>.csv ab (für den Merge unkritisch) | HB0412 |
+| `data/student-uploads/datensatz-09-31030 bereinigt.csv` | 31030 | ok | 09 | 1 | 2/2 | 0 | Dateiname weicht vom Schema datensatz-XX-<Kennziffer>.csv ab (für den Merge unkritisch) | Siahmardy |
 | `data/student-uploads/datensatz-09-831029.csv` | 831029 | PRÜFEN | 09 | 1 | 2/2 | 0 | Zusatzspalten ignoriert: column 26, column 27, column 28, column 29, column 30, column 31, column 32; nur 8 von 9 Seed-Zeilen; 1 Wert(e) der fiktiven Person fehlen oder sind keine Zahl | melinaahke |
 | `data/student-uploads/datensatz-10-831020.csv` | 831020 | ok | 10 | 1 | 2/2 | 0 | – | michellekhl |
 
