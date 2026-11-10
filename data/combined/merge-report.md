@@ -1,6 +1,6 @@
 # Merge-Report
 
-Automatisch erzeugt von `scripts/merge-uploads.R` am 10.11.2026 10:10.
+Automatisch erzeugt von `scripts/merge-uploads.R` am 10.11.2026 11:00.
 
 **Gesamtdatensatz:** `data/combined/m15-gesamt.csv` mit **95 Zeilen** (90 vorgeneriert aus 10 Datensätzen, 5 fiktive Personen).
 
