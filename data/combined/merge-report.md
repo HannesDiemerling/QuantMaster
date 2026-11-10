@@ -1,8 +1,8 @@
 # Merge-Report
 
-Automatisch erzeugt von `scripts/merge-uploads.R` am 09.11.2026 14:12.
+Automatisch erzeugt von `scripts/merge-uploads.R` am 10.11.2026 10:10.
 
-**Gesamtdatensatz:** `data/combined/m15-gesamt.csv` mit **94 Zeilen** (90 vorgeneriert aus 10 Datensätzen, 4 fiktive Personen).
+**Gesamtdatensatz:** `data/combined/m15-gesamt.csv` mit **95 Zeilen** (90 vorgeneriert aus 10 Datensätzen, 5 fiktive Personen).
 
 Vorgenerierte Zeilen gehen in der Referenz-Bereinigung ein (Fehlerzellen leer, doppelte Probandennummer korrigiert), unabhängig davon, wie sie in den Uploads bereinigt wurden.
 
@@ -12,6 +12,7 @@ Suche Deine Datei über Deine **Kennziffer** (die letzten 6 Ziffern Deiner Matri
 
 | Datei | Kennziffer | Status | Datensatz | fiktive Personen | Fehler gefunden | Abweichungen von Referenz | Hinweise | Konto |
 |---|---|---|---|---:|---|---:|---|---|
+| `data/student-uploads/Datensatz-10-261831036.csv` | 261831036 | ok | 10 | 1 | 2/2 | 0 | Dateiname weicht vom Schema datensatz-XX-<Kennziffer>.csv ab (für den Merge unkritisch); Trennzeichen ';' statt Komma | luciamexeses-cyber |
 | `data/student-uploads/datensatz-01-261831001.csv` | 261831001 | ok | 01 | 1 | 2/2 | 0 | – | HannesDiemerling (für andere hochgeladen) |
 | `data/student-uploads/datensatz-02-31009.csv` | 231831009 | ok | 02 | 1 | 2/2 | 0 | – | HannesDiemerling (für andere hochgeladen) |
 | `data/student-uploads/datensatz-03-31005.csv` | 261831005 | ok | 03 | 1 | 2/2 | 0 | – | claudiabirkle |
@@ -20,8 +21,9 @@ Suche Deine Datei über Deine **Kennziffer** (die letzten 6 Ziffern Deiner Matri
 
 ## Weitere Hinweise
 
-- Nicht hochgeladene Seed-Datensätze: 05, 06, 07, 08, 09, 10 (trotzdem im Gesamtdatensatz enthalten)
+- Nicht hochgeladene Seed-Datensätze: 05, 06, 07, 08, 09 (trotzdem im Gesamtdatensatz enthalten)
 - Ignoriert (kein CSV): `data/student-uploads/datensatz-05-26183.numbers` (Konto: kemismudzinski)
 - Ignoriert (kein CSV): `data/student-uploads/datensatz-07-31014.numbers` (Konto: la03-m)
 - Ignoriert (kein CSV): `data/student-uploads/datensatz-08-817.jasp` (Konto: svenjaschmidt1312)
-- Ignoriert (kein CSV): `data/student-uploads/datensatz-10-261831036.xlsx` (Konto: HannesDiemerling (für andere hochgeladen))
+- Ignoriert (kein CSV): `data/student-uploads/datensatz-10-261831036.xlsx` (Konto: luciamexeses-cyber)
+- Ignoriert (kein CSV): `data/student-uploads/Datensatz-10-261831036.xlsx` (Konto: luciamexeses-cyber)
