@@ -1,8 +1,8 @@
 # Merge-Report
 
-Automatisch erzeugt von `scripts/merge-uploads.R` am 10.11.2026 14:06.
+Automatisch erzeugt von `scripts/merge-uploads.R` am 10.11.2026 14:43.
 
-**Gesamtdatensatz:** `data/combined/m15-gesamt.csv` mit **106 Zeilen** (90 vorgeneriert aus 10 Datensätzen, 16 fiktive Personen).
+**Gesamtdatensatz:** `data/combined/m15-gesamt.csv` mit **107 Zeilen** (90 vorgeneriert aus 10 Datensätzen, 17 fiktive Personen).
 
 Vorgenerierte Zeilen gehen in der Referenz-Bereinigung ein (Fehlerzellen leer, doppelte Probandennummer korrigiert), unabhängig davon, wie sie in den Uploads bereinigt wurden.
 
@@ -24,6 +24,7 @@ Suche Deine Datei über Deine **Kennziffer** (die letzten 6 Ziffern Deiner Matri
 | `data/student-uploads/datensatz-04-831024.csv` | 831024 | ok | 04 | 1 | 2/2 | 0 | – | larapff |
 | `data/student-uploads/datensatz-04-831040.csv` | 831040 | ok | 04 | 1 | 2/2 | 0 | – | Tobiaseckelmann |
 | `data/student-uploads/datensatz-05-831025.csv` | 831025 | ok | 05 | 1 | 2/2 | 0 | nur 8 von 9 Seed-Zeilen | luise2205 |
+| `data/student-uploads/datensatz-07-831027.csv` | 831027 | ok | 07 | 1 | 1/2 | 1 | – | annarcw |
 | `data/student-uploads/datensatz-08 – 31015.csv` | – | IGNORIERT | – | 0 | – | – | Dateiname weicht vom Schema datensatz-XX-<Kennziffer>.csv ab (für den Merge unkritisch); Spalten fehlen: probandennummer, geschlecht, alter, bildungsgrad, BFI_01 (Kopfzeile fehlt oder Trennzeichen gemischt? Datei im Texteditor prüfen) | Mrmcmg |
 | `data/student-uploads/datensatz-08-831028.csv` | 10 | ok | 08 | 1 | 1/2 | 1 | – | PaulinaSchaubert |
 | `data/student-uploads/datensatz-08-<831008>.csv` | 831008 | ok | 08 | 1 | 2/2 | 0 | Dateiname weicht vom Schema datensatz-XX-<Kennziffer>.csv ab (für den Merge unkritisch) | HB0412 |
@@ -32,7 +33,7 @@ Suche Deine Datei über Deine **Kennziffer** (die letzten 6 Ziffern Deiner Matri
 
 ## Weitere Hinweise
 
-- Nicht hochgeladene Seed-Datensätze: 06, 07 (trotzdem im Gesamtdatensatz enthalten)
+- Nicht hochgeladene Seed-Datensätze: 06 (trotzdem im Gesamtdatensatz enthalten)
 - Ignoriert (kein CSV): `data/student-uploads/datensatz-04-1002.jasp` (Konto: Clara Rummler)
 - Ignoriert (kein CSV): `data/student-uploads/datensatz-05-1003.jasp` (Konto: theresaschwanebeck)
 - Ignoriert (kein CSV): `data/student-uploads/datensatz-05-26183.numbers` (Konto: kemismudzinski)
