@@ -1,6 +1,6 @@
 # Merge-Report
 
-Automatisch erzeugt von `scripts/merge-uploads.R` am 10.11.2026 11:10.
+Automatisch erzeugt von `scripts/merge-uploads.R` am 10.11.2026 12:19.
 
 **Gesamtdatensatz:** `data/combined/m15-gesamt.csv` mit **95 Zeilen** (90 vorgeneriert aus 10 Datensätzen, 5 fiktive Personen).
 
@@ -28,3 +28,4 @@ Suche Deine Datei über Deine **Kennziffer** (die letzten 6 Ziffern Deiner Matri
 - Ignoriert (kein CSV): `data/student-uploads/datensatz-08-817.jasp` (Konto: svenjaschmidt1312)
 - Ignoriert (kein CSV): `data/student-uploads/datensatz-10-261831036.xlsx` (Konto: luciamexeses-cyber)
 - Ignoriert (kein CSV): `data/student-uploads/Datensatz-10-261831036.xlsx` (Konto: luciamexeses-cyber)
+- Ignoriert (kein CSV): `data/student-uploads/datensatz07_261831031.jasp` (Konto: janinakilian)
