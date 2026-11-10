@@ -8,16 +8,16 @@ Zehn Online-Sitzungen per Videokonferenz. Der Kurs läuft in mehreren leicht ver
 
 | Sitzung | Gruppe 1 | Gruppe 2 | Thema | Bezug zur Vorlesung |
 |---|---|---|---|---|
-| 01 | 04.11.2026 | TBA | Setup & Datenerhebung | 1 Replikationskrise |
-| 02 | 11.11.2026 | TBA | Gesamtdatensatz & Deskription | 2 Effekte & Effektgrößen |
-| 03 | 18.11.2026 | TBA | Skalen & Effektgrößen | 2 Effekte & Effektgrößen |
-| 04 | TBA | TBA | Metaanalyse & multiple Regression | 3 Metaanalyse, 4 Multiple Regression |
-| 05 | TBA | TBA | Mehrebenenmodelle & Faktorenanalyse | 5 Mehrebenenmodelle, 6 Faktorenanalyse |
-| 06 | TBA | TBA | Strukturgleichungsmodelle | 7 Strukturgleichungsmodelle |
-| 07 | TBA | TBA | Versuchsplanung, Stichprobe & Power | 8 Versuchsplanung/Biases/fehlende Werte, 9 Stichprobenplanung |
-| 08 | TBA | TBA | Signifikanztest-Kritik & Bayes | 10 Bayes, 11 Frequentismus & Kritik |
-| 09 | TBA | TBA | Intervention & Epidemiologie | 12 Interventions-/Evaluations-, Ätiologie-/Epidemiologieforschung |
-| 10 | TBA | TBA | Qualitative Methoden & Abschluss | 13 Qualitative Methoden, 14 Klausurvorbereitung |
+| 01 | 04.11.2026 | 10.11.2026 | Setup & Datenerhebung | 1 Replikationskrise |
+| 02 | 11.11.2026 | 17.11.2026 | Gesamtdatensatz & Deskription | 2 Effekte & Effektgrößen |
+| 03 | 18.11.2026 | 20.11.2026 | Skalen & Effektgrößen | 2 Effekte & Effektgrößen |
+| 04 | TBA | 04.12.2026 | Metaanalyse & multiple Regression | 3 Metaanalyse, 4 Multiple Regression |
+| 05 | TBA | 12.01.2027 | Mehrebenenmodelle & Faktorenanalyse | 5 Mehrebenenmodelle, 6 Faktorenanalyse |
+| 06 | TBA | 15.01.2027 | Strukturgleichungsmodelle | 7 Strukturgleichungsmodelle |
+| 07 | TBA | 22.01.2027 | Versuchsplanung, Stichprobe & Power | 8 Versuchsplanung/Biases/fehlende Werte, 9 Stichprobenplanung |
+| 08 | TBA | 29.01.2027 | Signifikanztest-Kritik & Bayes | 10 Bayes, 11 Frequentismus & Kritik |
+| 09 | TBA | 02.02.2027 | Intervention & Epidemiologie | 12 Interventions-/Evaluations-, Ätiologie-/Epidemiologieforschung |
+| 10 | TBA | 05.02.2027 | Qualitative Methoden & Abschluss | 13 Qualitative Methoden, 14 Klausurvorbereitung |
 
 ## So läuft eine Sitzung
 
