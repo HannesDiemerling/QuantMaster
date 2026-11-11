@@ -6,7 +6,7 @@ S02-5 Mittelwert alter: 29.23
 S02-6 SD alter: 8.187
 S02-7 Median alter: 27
 S02-8 IQR alter: 10
-S02-9 Schiefe (Skewness) alter (3 Nachkommastellen): 1.
+S02-9 Schiefe (Skewness) alter (3 Nachkommastellen): 1.571
 S02-10 Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt): 3
 S02-11 Mittelwert BFI_06: 3.017
 S02-12 Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm): Bachelor
