@@ -5,7 +5,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 8.
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
 | 261831001 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 12:46 | 3 | NadineRittmeier |   |
-| 261831013 | 10 | 0 | 0 | 1 | 1/1 | 11.11.2026, 12:53 | 2 | MiriamLebert |   |
+| 261831013 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 12:53 | 3 | MiriamLebert |   |
 | 31030 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 12:47 | 1 | Siahmardy |   |
 | 817 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 12:45 | 1 | svenjaschmidt1312 | über Konto zugeordnet zu 261831017 |
 | 831004 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 12:45 | 1 | nele-ui |   |
@@ -20,7 +20,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 8.
 | Kennziffer | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | 261831001 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
-| 261831013 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ? | T |
+| 261831013 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 31030 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 817 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831004 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
@@ -40,7 +40,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 8.
 | S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 8 von 8 |
 | S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 8 von 8 |
 | S02-11 | Mittelwert BFI&#95;06 | 7 von 8 |
-| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 7 von 8 |
+| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 8 von 8 |
 
 ## Details je Kennziffer
 
@@ -66,7 +66,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 
 </details>
 
-<details><summary><b>261831013</b>: 10 von 11 richtig</summary>
+<details><summary><b>261831013</b>: 11 von 11 richtig</summary>
 
 | Feld | Frage | Abgabe | Ergebnis |
 |---|---|---|---|
@@ -81,7 +81,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 1.571 | ✓ richtig |
 | S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 3 | ✓ richtig |
 | S02-11 | Mittelwert BFI&#95;06 | 3.02 | ✓ richtig |
-| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | Bachelor | ? nicht lesbar |
+| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 5 | ✓ richtig |
 | S02-13 | Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/n… | Ja, größtenteils liegen die Punkte auf der Diagonalen. | liest Deine Lehrperson |
 
 </details>
