@@ -1,11 +1,12 @@
 # Übersicht Gruppe hannes, Sitzung 02
 
-Prüfstand: Version 1 der Sollwerte. Abgaben: 13.
+Prüfstand: Version 1 der Sollwerte. Abgaben: 14.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
 | 1002 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 12:57 | 1 | Clara Rummler | über Konto zugeordnet zu 261831002 |
 | 1003 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 13:03 | 1 | theresaschwanebeck | über Konto zugeordnet zu 261831003 |
+| 1018 | 9 | 0 | 2 | 0 | 1/1 | 11.11.2026, 13:16 | 1 | Tommytrn02 | über Konto zugeordnet zu 261831018 |
 | 261831001 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 12:46 | 3 | NadineRittmeier |   |
 | 261831013 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 12:53 | 3 | MiriamLebert |   |
 | 31005 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 13:01 | 1 | claudiabirkle | über Konto zugeordnet zu 261831005 |
@@ -26,6 +27,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 13.
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | 1002 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 1003 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 1018 | – | – | – | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831001 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831013 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 31005 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
@@ -40,17 +42,17 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 13.
 
 | Feld | Frage | Treffer |
 |---|---|---|
-| S02-2 | Zeilen in m15-gesamt.csv | 13 von 13 |
-| S02-3 | Davon Zeilen mit quelle = studierende | 12 von 13 |
-| S02-4 | Anzahl Personen mit geschlecht = 1 | 13 von 13 |
-| S02-5 | Mittelwert alter | 13 von 13 |
-| S02-6 | SD alter | 13 von 13 |
-| S02-7 | Median alter | 13 von 13 |
-| S02-8 | IQR alter | 13 von 13 |
-| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 13 von 13 |
-| S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 13 von 13 |
-| S02-11 | Mittelwert BFI&#95;06 | 13 von 13 |
-| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 13 von 13 |
+| S02-2 | Zeilen in m15-gesamt.csv | 13 von 14 |
+| S02-3 | Davon Zeilen mit quelle = studierende | 12 von 14 |
+| S02-4 | Anzahl Personen mit geschlecht = 1 | 14 von 14 |
+| S02-5 | Mittelwert alter | 14 von 14 |
+| S02-6 | SD alter | 14 von 14 |
+| S02-7 | Median alter | 14 von 14 |
+| S02-8 | IQR alter | 14 von 14 |
+| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 14 von 14 |
+| S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 14 von 14 |
+| S02-11 | Mittelwert BFI&#95;06 | 14 von 14 |
+| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 14 von 14 |
 
 ## Details je Kennziffer
 
@@ -97,6 +99,28 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S02-13 | Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/n… | Nein, die Punkte weichen besonders an den Rändern deutlich von der Diagonalen ab. | liest Deine Lehrperson |
 
 - Die Kennziffer im Dateinamen steht nicht im Stand Deiner Gruppe. Über Dein GitHub-Konto gehört zu Dir die Kennziffer 261831003, darüber wurde Deine Abgabe zugeordnet. Du kannst bei Deiner Nummer bleiben.
+
+</details>
+
+<details><summary><b>1018</b>: 9 von 11 richtig</summary>
+
+| Feld | Frage | Abgabe | Ergebnis |
+|---|---|---|---|
+| S02-1 | Datenzeilen in Deiner selbst kombinierten Datei (ohne Kopfz… |   | – fehlt |
+| S02-2 | Zeilen in m15-gesamt.csv |   | – fehlt |
+| S02-3 | Davon Zeilen mit quelle = studierende |   | – fehlt |
+| S02-4 | Anzahl Personen mit geschlecht = 1 | 71 | ✓ richtig |
+| S02-5 | Mittelwert alter | 29.23 | ✓ richtig |
+| S02-6 | SD alter | 8.19 | ✓ richtig |
+| S02-7 | Median alter | 27.00 | ✓ richtig |
+| S02-8 | IQR alter | 10.00 | ✓ richtig |
+| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 1.571 | ✓ richtig |
+| S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 3 | ✓ richtig |
+| S02-11 | Mittelwert BFI&#95;06 | 3.02 | ✓ richtig |
+| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 5 | ✓ richtig |
+| S02-13 | Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/n… | Die punkte liegen fast alle auf der diagonalen mit wenigen ausreißern. | liest Deine Lehrperson |
+
+- Die Kennziffer im Dateinamen steht nicht im Stand Deiner Gruppe. Über Dein GitHub-Konto gehört zu Dir die Kennziffer 261831018, darüber wurde Deine Abgabe zugeordnet. Du kannst bei Deiner Nummer bleiben.
 
 </details>
 
