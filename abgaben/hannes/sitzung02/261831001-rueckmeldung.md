@@ -3,17 +3,17 @@
 **Gruppe:** hannes  
 **Sitzung:** 02  
 **Kennziffer:** 261831001  
-**Eingegangen:** 11.11.2026, 12:43  
-**Fassung:** 1  
+**Eingegangen:** 11.11.2026, 12:45  
+**Fassung:** 2  
 **Eingestellt von:** NadineRittmeier  
 **Prüfstand:** Version 1
 
-**9 von 11 prüfbaren Feldern sind richtig.** Zum Korrigieren öffnest Du Deine Datei im Ordner, klickst oben rechts auf das Stift-Symbol, änderst die Werte und klickst auf *Commit changes*. Die Rückmeldung wird dann neu erzeugt.
+**10 von 11 prüfbaren Feldern sind richtig.** Zum Korrigieren öffnest Du Deine Datei im Ordner, klickst oben rechts auf das Stift-Symbol, änderst die Werte und klickst auf *Commit changes*. Die Rückmeldung wird dann neu erzeugt.
 
 | Feld | Frage | Deine Antwort (so verstanden) | Ergebnis |
 |---|---|---|---|
 | S02-1 | Datenzeilen in Deiner selbst kombinierten Datei (ohne Kopfzeile) | 67 | ~ unplausibel |
-| S02-2 | Zeilen in m15-gesamt.csv | 121 | ✗ falsch · Nimm die Datei aus dem Ordner Deiner Gruppe, nicht den Live-Stand. |
+| S02-2 | Zeilen in m15-gesamt.csv | 120 | ✓ richtig |
 | S02-3 | Davon Zeilen mit quelle = studierende | 30 | ✓ richtig |
 | S02-4 | Anzahl Personen mit geschlecht = 1 | 71 | ✓ richtig |
 | S02-5 | Mittelwert alter | 29.23 | ✓ richtig |
@@ -31,4 +31,4 @@
 
 **S02-13** Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/nein + 1 Satz)
 
-> Nein- die Punkte weichen vor allem im oberen Bereich deutlich von der Diagonalen ab.
+> Nein, die Punkte weichen vor allem im oberen Bereich deutlich von der Diagonalen ab.
