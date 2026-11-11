@@ -11,7 +11,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 9.
 | 817 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 12:45 | 1 | svenjaschmidt1312 | über Konto zugeordnet zu 261831017 |
 | 831004 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 12:45 | 1 | nele-ui |   |
 | 831007 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 12:42 | 1 | chiaralorenzhmu07 |   |
-| 831015 | 8 | 3 | 0 | 0 | 1/1 | 11.11.2026, 12:53 | 1 | Mrmcmg | über Konto zugeordnet zu 31015 |
+| 831015 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 12:56 | 2 | Mrmcmg | über Konto zugeordnet zu 31015 |
 | 831036 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 12:45 | 1 | luciamexeses-cyber | über Konto zugeordnet zu 261831036 |
 
 ## Felder im Überblick
@@ -27,7 +27,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 9.
 | 817 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831004 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831007 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
-| 831015 | ~ | ✓ | ✓ | ✓ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✗ | ✓ | T |
+| 831015 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831036 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 
 | Feld | Frage | Treffer |
@@ -35,13 +35,13 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 9.
 | S02-2 | Zeilen in m15-gesamt.csv | 9 von 9 |
 | S02-3 | Davon Zeilen mit quelle = studierende | 9 von 9 |
 | S02-4 | Anzahl Personen mit geschlecht = 1 | 9 von 9 |
-| S02-5 | Mittelwert alter | 8 von 9 |
-| S02-6 | SD alter | 8 von 9 |
+| S02-5 | Mittelwert alter | 9 von 9 |
+| S02-6 | SD alter | 9 von 9 |
 | S02-7 | Median alter | 9 von 9 |
 | S02-8 | IQR alter | 9 von 9 |
 | S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 9 von 9 |
 | S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 9 von 9 |
-| S02-11 | Mittelwert BFI&#95;06 | 8 von 9 |
+| S02-11 | Mittelwert BFI&#95;06 | 9 von 9 |
 | S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 9 von 9 |
 
 ## Details je Kennziffer
@@ -190,7 +190,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 
 </details>
 
-<details><summary><b>831015</b>: 8 von 11 richtig</summary>
+<details><summary><b>831015</b>: 11 von 11 richtig</summary>
 
 | Feld | Frage | Abgabe | Ergebnis |
 |---|---|---|---|
@@ -198,13 +198,13 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S02-2 | Zeilen in m15-gesamt.csv | 120 | ✓ richtig |
 | S02-3 | Davon Zeilen mit quelle = studierende | 30 | ✓ richtig |
 | S02-4 | Anzahl Personen mit geschlecht = 1 | 71 | ✓ richtig |
-| S02-5 | Mittelwert alter | 29.00 | ✗ falsch |
-| S02-6 | SD alter | 8.00 | ✗ falsch |
+| S02-5 | Mittelwert alter | 29.23 | ✓ richtig |
+| S02-6 | SD alter | 8.19 | ✓ richtig |
 | S02-7 | Median alter | 27.00 | ✓ richtig |
 | S02-8 | IQR alter | 10.00 | ✓ richtig |
 | S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 1.571 | ✓ richtig |
 | S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 3 | ✓ richtig |
-| S02-11 | Mittelwert BFI&#95;06 | 3.00 | ✗ falsch |
+| S02-11 | Mittelwert BFI&#95;06 | 3.02 | ✓ richtig |
 | S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 5 | ✓ richtig |
 | S02-13 | Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/n… | Ja. Es gibt jedoch eine U-förmige Abweichung, wodurch nicht alle Punkte auf der Diagonalen liegen. | liest Deine Lehrperson |
 
