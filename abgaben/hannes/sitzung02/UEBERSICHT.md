@@ -5,7 +5,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 7.
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
 | 261831001 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 12:46 | 3 | NadineRittmeier |   |
-| 261831013 | 9 | 1 | 0 | 1 | 1/1 | 11.11.2026, 12:49 | 1 | MiriamLebert |   |
+| 261831013 | 10 | 0 | 0 | 1 | 1/1 | 11.11.2026, 12:53 | 2 | MiriamLebert |   |
 | 31030 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 12:47 | 1 | Siahmardy |   |
 | 817 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 12:45 | 1 | svenjaschmidt1312 | über Konto zugeordnet zu 261831017 |
 | 831004 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 12:45 | 1 | nele-ui |   |
@@ -19,7 +19,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 7.
 | Kennziffer | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | 261831001 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
-| 261831013 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✓ | ✓ | ? | T |
+| 261831013 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ? | T |
 | 31030 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 817 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831004 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
@@ -35,7 +35,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 7.
 | S02-6 | SD alter | 7 von 7 |
 | S02-7 | Median alter | 7 von 7 |
 | S02-8 | IQR alter | 7 von 7 |
-| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 6 von 7 |
+| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 7 von 7 |
 | S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 7 von 7 |
 | S02-11 | Mittelwert BFI&#95;06 | 7 von 7 |
 | S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 6 von 7 |
@@ -64,7 +64,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 
 </details>
 
-<details><summary><b>261831013</b>: 9 von 11 richtig</summary>
+<details><summary><b>261831013</b>: 10 von 11 richtig</summary>
 
 | Feld | Frage | Abgabe | Ergebnis |
 |---|---|---|---|
@@ -76,7 +76,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S02-6 | SD alter | 8.19 | ✓ richtig |
 | S02-7 | Median alter | 27.00 | ✓ richtig |
 | S02-8 | IQR alter | 10.00 | ✓ richtig |
-| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 1.000 | ✗ falsch |
+| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 1.571 | ✓ richtig |
 | S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 3 | ✓ richtig |
 | S02-11 | Mittelwert BFI&#95;06 | 3.02 | ✓ richtig |
 | S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | Bachelor | ? nicht lesbar |

@@ -3,12 +3,12 @@
 **Gruppe:** hannes  
 **Sitzung:** 02  
 **Kennziffer:** 261831013  
-**Eingegangen:** 11.11.2026, 12:49  
-**Fassung:** 1  
+**Eingegangen:** 11.11.2026, 12:53  
+**Fassung:** 2  
 **Eingestellt von:** MiriamLebert  
 **Prüfstand:** Version 1
 
-**9 von 11 prüfbaren Feldern sind richtig.** Zum Korrigieren öffnest Du Deine Datei im Ordner, klickst oben rechts auf das Stift-Symbol, änderst die Werte und klickst auf *Commit changes*. Die Rückmeldung wird dann neu erzeugt.
+**10 von 11 prüfbaren Feldern sind richtig.** Zum Korrigieren öffnest Du Deine Datei im Ordner, klickst oben rechts auf das Stift-Symbol, änderst die Werte und klickst auf *Commit changes*. Die Rückmeldung wird dann neu erzeugt.
 
 | Feld | Frage | Deine Antwort (so verstanden) | Ergebnis |
 |---|---|---|---|
@@ -20,7 +20,7 @@
 | S02-6 | SD alter | 8.19 | ✓ richtig |
 | S02-7 | Median alter | 27.00 | ✓ richtig |
 | S02-8 | IQR alter | 10.00 | ✓ richtig |
-| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 1.000 | ✗ falsch · Hier sind 3 Nachkommastellen gefragt. |
+| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 1.571 | ✓ richtig |
 | S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 3 | ✓ richtig |
 | S02-11 | Mittelwert BFI&#95;06 | 3.02 | ✓ richtig |
 | S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | Bachelor | ? nicht lesbar · Hier fehlt eine Zahl. Gefragt ist die Stufe, also die Zahl unter dem höchsten Balken, nicht die Höhe des Balkens. |
