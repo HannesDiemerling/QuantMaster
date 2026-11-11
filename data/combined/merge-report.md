@@ -1,8 +1,8 @@
 # Merge-Report
 
-Automatisch erzeugt von `scripts/merge-uploads.R` am 11.11.2026 10:16.
+Automatisch erzeugt von `scripts/merge-uploads.R` am 11.11.2026 10:30.
 
-**Gesamtdatensatz:** `data/combined/m15-gesamt.csv` mit **109 Zeilen** (90 vorgeneriert aus 10 Datensätzen, 19 fiktive Personen).
+**Gesamtdatensatz:** `data/combined/m15-gesamt.csv` mit **110 Zeilen** (90 vorgeneriert aus 10 Datensätzen, 20 fiktive Personen).
 
 Vorgenerierte Zeilen gehen in der Referenz-Bereinigung ein (Fehlerzellen leer, doppelte Probandennummer korrigiert), unabhängig davon, wie sie in den Uploads bereinigt wurden.
 
@@ -17,6 +17,7 @@ Suche Deine Datei über Deine **Kennziffer** (die letzten 6 Ziffern Deiner Matri
 | `data/student-uploads/datensatz-01-831004.csv` | 831004 | ok | 01 | 1 | 2/2 | 0 | Trennzeichen ';' statt Komma | nele-ui |
 | `data/student-uploads/datensatz-01-831011.csv` | 831011 | ok | 01 | 1 | 2/2 | 0 | – | amelieawhmu |
 | `data/student-uploads/datensatz-02-31009.csv` | 231831009 | ok | 02 | 1 | 2/2 | 0 | – | HannesDiemerling (für andere hochgeladen) |
+| `data/student-uploads/datensatz-03-261831038.csv` | 261831038 | ok | 03 | 1 | 2/2 | 0 | – | b9fcy2z6m8-creator |
 | `data/student-uploads/datensatz-03-31005.csv` | 261831005 | ok | 03 | 1 | 2/2 | 0 | – | claudiabirkle |
 | `data/student-uploads/datensatz-03-831023.csv` | 831023 | ok | 03 | 1 | 2/2 | 0 | – | Lene26 |
 | `data/student-uploads/datensatz-03-831033.csv` | 831033 | ok | 03 | 1 | 2/2 | 0 | Zusatzspalten ignoriert: column 26, column 27, column 28, column 29, column 30, column 31, column 32; nur 8 von 9 Seed-Zeilen | ampfeil |
