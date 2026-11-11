@@ -1,5 +1,5 @@
 S02-1 Datenzeilen in Deiner selbst kombinierten Datei (ohne Kopfzeile): 67
-S02-2 Zeilen in m15-gesamt.csv: 121
+S02-2 Zeilen in m15-gesamt.csv: 120
 S02-3 Davon Zeilen mit quelle = studierende: 30
 S02-4 Anzahl Personen mit geschlecht = 1: 71
 S02-5 Mittelwert alter: 29,23
@@ -10,4 +10,4 @@ S02-9 Schiefe (Skewness) alter (3 Nachkommastellen): 1,571
 S02-10 Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt): 3
 S02-11 Mittelwert BFI_06: 3,02
 S02-12 Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm): Bachelor
-S02-13 Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/nein + 1 Satz): Nein- die Punkte weichen vor allem im oberen Bereich deutlich von der Diagonalen ab.
+S02-13 Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/nein + 1 Satz): Nein, die Punkte weichen vor allem im oberen Bereich deutlich von der Diagonalen ab.
