@@ -3,12 +3,12 @@
 **Gruppe:** hannes  
 **Sitzung:** 02  
 **Kennziffer:** 261831001  
-**Eingegangen:** 11.11.2026, 12:45  
-**Fassung:** 2  
+**Eingegangen:** 11.11.2026, 12:46  
+**Fassung:** 3  
 **Eingestellt von:** NadineRittmeier  
 **Prüfstand:** Version 1
 
-**10 von 11 prüfbaren Feldern sind richtig.** Zum Korrigieren öffnest Du Deine Datei im Ordner, klickst oben rechts auf das Stift-Symbol, änderst die Werte und klickst auf *Commit changes*. Die Rückmeldung wird dann neu erzeugt.
+**11 von 11 prüfbaren Feldern sind richtig.** Sehr schön, alles passt. Zum Korrigieren öffnest Du Deine Datei im Ordner, klickst oben rechts auf das Stift-Symbol, änderst die Werte und klickst auf *Commit changes*. Die Rückmeldung wird dann neu erzeugt.
 
 | Feld | Frage | Deine Antwort (so verstanden) | Ergebnis |
 |---|---|---|---|
@@ -23,7 +23,7 @@
 | S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 1.571 | ✓ richtig |
 | S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 3 | ✓ richtig |
 | S02-11 | Mittelwert BFI&#95;06 | 3.02 | ✓ richtig |
-| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | Bachelor | ? nicht lesbar · Hier fehlt eine Zahl. Gefragt ist die Stufe, also die Zahl unter dem höchsten Balken, nicht die Höhe des Balkens. |
+| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 5 | ✓ richtig |
 
 ~ zählt nicht in die Trefferzahl, ? heißt, dass ich die Antwort nicht als Zahl lesen konnte.
 
