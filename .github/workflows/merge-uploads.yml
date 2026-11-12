@@ -1,9 +1,12 @@
 name: Merge student uploads
 
-# Kombiniert alle Studierenden-Uploads zu data/combined/m15-gesamt.csv und
-# schreibt data/combined/merge-report.md (was wurde erkannt, welche Probleme).
-# Läuft bei jedem Push, der eine CSV-Datei betrifft. Verwendet werden nur Dateien
-# aus data/student-uploads/; CSVs anderswo stehen als IGNORIERT im Report.
+# Schreibt data/combined/merge-report.md: welche Uploads erkannt wurden und wo es hakt.
+# Einen Live-Datensatz gibt es nicht, gerechnet wird mit dem eingefrorenen Stand der
+# Gruppe (data/combined/eingefroren/<gruppe>/). Läuft bei jedem Push, der eine CSV-Datei
+# oder den Upload-Ordner betrifft. Verwendet werden nur Dateien aus data/student-uploads/;
+# CSVs anderswo stehen als IGNORIERT im Report. Vorher bekommen Uploads mit Namen, die
+# unter Windows nicht gehen (etwa <> oder nur Groß/Klein verschieden), einen sauberen Namen
+# (scripts/dateinamen.py, nie überschreiben, nie löschen).
 # Manuell startbar über Actions > "Run workflow".
 on:
   push:
@@ -14,6 +17,7 @@ on:
       - 'data/student-uploads/**'
       - '!data/combined/**'
       - 'scripts/merge-uploads.R'
+      - 'scripts/dateinamen.py'
       - 'scripts/lehrpersonen.txt'
       - 'scripts/meta-studien.R'
       - '.github/workflows/merge-uploads.yml'
@@ -31,9 +35,13 @@ concurrency:
 
 jobs:
   merge:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04   # fest, weil der R-Cache zum System passen muss
+    timeout-minutes: 15     # Sicherheitsnetz, ein normaler Lauf braucht weit weniger
     env:
       TZ: Europe/Berlin   # Uhrzeit im Merge-Report in deutscher Zeit
+      BRANCH: ${{ github.ref_name }}
+      MERGE_NUR_REPORT: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
     steps:
       - name: Checkout (aktueller Stand von main)
         uses: actions/checkout@v4
@@ -41,29 +49,74 @@ jobs:
           ref: ${{ github.ref_name }}
           fetch-depth: 0   # volle Historie, damit der Report jede Datei einem Konto zuordnen kann
 
+      # R kommt aus dem Cache, das spart die Installation, die selten hängt. Fehlt der Cache
+      # oder startet R daraus nicht, installiert setup-r wie bisher (zwei Versuche).
+      # Cache neu aufbauen: im Schlüssel v1 durch v2 ersetzen.
+      - name: Ordner für den R-Cache
+        id: r-ordner
+        continue-on-error: true
+        timeout-minutes: 1
+        run: sudo mkdir -p /opt/R && sudo chown "$USER" /opt/R
+      - name: R aus dem Cache holen
+        id: r-cache-holen
+        if: steps.r-ordner.outcome == 'success'
+        continue-on-error: true
+        timeout-minutes: 2
+        uses: actions/cache@v4
+        with:
+          path: /opt/R/4.6.1
+          key: r-4.6.1-ubuntu24.04-v1
+      - name: R aus dem Cache prüfen
+        id: r-probe
+        if: steps.r-cache-holen.outputs.cache-hit == 'true'
+        continue-on-error: true
+        timeout-minutes: 1
+        run: |
+          /opt/R/4.6.1/bin/Rscript -e 'library(MASS); cat(R.version.string, "\n")'
+          echo "/opt/R/4.6.1/bin" >> "$GITHUB_PATH"
+
       - name: Set up R
+        id: setup-r
+        if: steps.r-probe.outcome != 'success'
+        continue-on-error: true
+        timeout-minutes: 3
         uses: r-lib/actions/setup-r@v2
         with:
+          r-version: "4.6.1"
+          use-public-rspm: true
+      # Ein abgebrochener erster Versuch kann dpkg halb fertig hinterlassen, das räumt dieser Schritt auf
+      - name: Paketverwaltung aufräumen
+        if: steps.r-probe.outcome != 'success' && steps.setup-r.outcome != 'success'
+        continue-on-error: true
+        timeout-minutes: 2
+        run: sudo dpkg --configure -a || true
+      - name: Set up R (zweiter Versuch)
+        if: steps.r-probe.outcome != 'success' && steps.setup-r.outcome != 'success'
+        timeout-minutes: 4
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.6.1"
           use-public-rspm: true
 
-      - name: Merge uploads
-        run: Rscript scripts/merge-uploads.R
-
-      # Während des Laufs können weitere Uploads auf main landen. Deshalb vor dem
-      # Push den neuen Stand holen (rebase) und bei Bedarf erneut versuchen.
-      # data/combined/ wird nur von diesem Workflow geschrieben, es gibt also
-      # keine Konflikte; neuere Uploads verarbeitet der nächste Lauf.
-      - name: Commit combined dataset
-        env:
-          BRANCH: ${{ github.ref_name }}
+      # Bei einem abgelehnten Push wird nicht rebased, sondern vom neuesten Stand aus neu
+      # gerechnet: Der Report lässt sich jederzeit neu erzeugen, neue Uploads kommen gleich mit.
+      # Umbenennungen kommen in einen eigenen Commit vor dem Merge, damit der Report die Datei
+      # schon unter dem neuen Namen dem richtigen Konto zuordnet.
+      - name: Dateinamen bereinigen, Report erzeugen und committen
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/combined/m15-gesamt.csv data/combined/merge-report.md data/combined/meta-studien.csv
-          if git diff --cached --quiet; then echo "Keine Änderungen am Gesamtdatensatz"; exit 0; fi
-          git commit -q -m "chore(data): Gesamtdatensatz aktualisiert"
           for i in 1 2 3 4 5; do
-            if git pull -q --rebase origin "$BRANCH" && git push -q origin "HEAD:$BRANCH"; then echo "gepusht (Versuch $i)"; exit 0; fi
+            if ! git fetch -q origin "$BRANCH"; then echo "Holen fehlgeschlagen, neuer Versuch"; sleep $((i * 5)); continue; fi
+            git reset -q --hard "origin/$BRANCH"
+            python3 scripts/dateinamen.py --anwenden data/student-uploads || echo "::warning::Dateinamen nicht bereinigt"
+            git diff --cached --quiet || git commit -q -m "chore(data): Dateinamen der Uploads bereinigt"
+            git rm -q --ignore-unmatch -- data/combined/m15-gesamt.csv data/combined/meta-studien.csv
+            Rscript scripts/merge-uploads.R
+            git add -- data/combined/merge-report.md
+            git diff --cached --quiet || git commit -q -m "chore(data): Merge-Report aktualisiert"
+            if [ "$(git rev-parse HEAD)" = "$(git rev-parse "origin/$BRANCH")" ]; then echo "Keine Änderungen"; exit 0; fi
+            if git push -q origin "HEAD:$BRANCH"; then echo "gepusht (Versuch $i)"; exit 0; fi
             echo "Push fehlgeschlagen, neuer Versuch"; sleep $((i * 5))
           done
           exit 1

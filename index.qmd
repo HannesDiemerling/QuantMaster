@@ -60,7 +60,7 @@ Sitzung 01 hat keine Abgabe, dort lädst Du nur Deinen Datensatz hoch. Ab Sitzun
 Im Laufe des Seminars entsteht **ein gemeinsamer Datensatz**, und jeder Schritt dahin ist im Repo nachvollziehbar:
 
 - In Sitzung 01 bekommst Du einen von zehn vorgenerierten Übungsdatensätzen, findest Fehler, bereinigst ihn in JASP, ergänzt eine Zeile für eine **fiktive Person** und lädst die Datei hoch, entweder über GitHub oder per Mail.
-- Ein GitHub-Workflow kombiniert alle Uploads automatisch zu `data/combined/m15-gesamt.csv`. Vor Sitzung 02 wird daraus ein fester Stand für Deine Gruppe. In Sitzung 02 probierst Du das Kombinieren selbst aus.
+- Ein GitHub-Workflow prüft jeden Upload automatisch und zeigt das Ergebnis im Merge-Report. Vor Sitzung 02 wird aus allen Uploads ein fester Stand für Deine Gruppe im Ordner `data/combined/eingefroren/`. In Sitzung 02 probierst Du das Kombinieren selbst aus.
 - Mit diesem Datensatz arbeiten alle in Deiner Gruppe bis Sitzung 10.
 
 Die Datenerhebung ist nur **simuliert**. Du beschreibst darin nicht Dich selbst, sondern eine ausgedachte Person, und echte Namen kommen nirgends vor.

@@ -24,6 +24,7 @@ concurrency:
 jobs:
   accept:
     runs-on: ubuntu-latest
+    timeout-minutes: 10   # Sicherheitsnetz, ein normaler Lauf braucht weit weniger
     steps:
       - name: Checkout (nur main, kein Code aus dem Pull Request)
         uses: actions/checkout@v4
@@ -48,7 +49,7 @@ jobs:
             hinweis=""
             if grep -q '"filename": *"data/student-uploads/' files.json; then
               gh workflow run merge-uploads.yml --repo "$REPO" --ref "$BRANCH"
-              hinweis="In ein paar Minuten steht Dein Upload im [Merge-Report](https://github.com/$REPO/blob/$BRANCH/data/combined/merge-report.md). Such dort nach Deiner Kennziffer. "
+              hinweis="Ein Workflow prüft jetzt Deinen Upload, das Ergebnis steht danach im [Merge-Report](https://github.com/$REPO/blob/$BRANCH/data/combined/merge-report.md). Such dort nach Deiner Kennziffer. "
             fi
             if grep -q '"filename": *"abgaben/' files.json; then
               gh workflow run pruefe-abgaben.yml --repo "$REPO" --ref "$BRANCH"

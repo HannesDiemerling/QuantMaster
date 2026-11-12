@@ -73,7 +73,7 @@ Jeder der zehn Seed-Datensätze steht **genau einmal** drin, auch wenn er mehrfa
 
 ## Schritt 4: Gesamtdatensatz in JASP öffnen
 
-1. Im Repo den Ordner [`data/combined/eingefroren/`]({{< meta kurs.repo >}}/tree/main/data/combined/eingefroren) öffnen und darin den **Ordner Deiner Gruppe**. Den Namen findest Du in der Spalte „Ordner im Repo“ in @sec-lehrperson. Siehst Du den Ordner Deiner Gruppe noch nicht, sag Deiner Lehrperson Bescheid. Nimm keinen fremden Ordner und nicht die Datei direkt unter `data/combined/`. Dieser Stand ändert sich nicht mehr und enthält auch Personen aus anderen Gruppen, das ist so gewollt.
+1. Im Repo den Ordner [`data/combined/eingefroren/`]({{< meta kurs.repo >}}/tree/main/data/combined/eingefroren) öffnen und darin den **Ordner Deiner Gruppe**. Den Namen findest Du in der Spalte „Ordner im Repo“ in @sec-lehrperson. Siehst Du den Ordner Deiner Gruppe noch nicht, sag Deiner Lehrperson Bescheid. Nimm nur die Datei aus dem Ordner Deiner Gruppe. Dieser Stand ändert sich nicht mehr und enthält auch Personen aus anderen Gruppen, das ist so gewollt.
 2. `m15-gesamt.csv` herunterladen (**Download raw file**).
 3. In JASP: **File → Open → Computer → Browse** und die Datei wählen.
 4. Erscheint das Fenster **Data Preview**: Unter **Select Delimiter:** das Komma wählen, prüfen, ob die Vorschau saubere Spalten zeigt, dann **Load**.

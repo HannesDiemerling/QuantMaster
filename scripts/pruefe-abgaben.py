@@ -21,6 +21,7 @@ import os
 import re
 import subprocess
 import sys
+import unicodedata
 import urllib.parse
 from datetime import datetime, timezone
 from decimal import Decimal, InvalidOperation, ROUND_HALF_UP
@@ -518,10 +519,12 @@ def konto_von(name, email):
 
 
 def lese_git(wurzel):
-    """Pfad -> Liste der Commits (alt nach neu) [{zeit, name, email, konto}], Bot-Commits weggelassen."""
+    """Pfad -> Liste der Commits (alt nach neu) [{zeit, name, email, konto}], Bot-Commits weggelassen.
+    Benennt der Bot eine Datei ohne Inhaltsänderung um (R100, scripts/dateinamen.py), wandert ihre
+    Historie zum neuen Namen. Umbenennungen durch Menschen zählen wie bisher als neue Fassung."""
     try:
-        aus = subprocess.run(["git", "-c", "core.quotepath=off", "log", "--no-merges", "--no-renames",
-                              "--format=%x00%H%x1f%at%x1f%an%x1f%ae", "--name-only", "--", "abgaben/"],
+        aus = subprocess.run(["git", "-c", "core.quotepath=off", "log", "--no-merges", "--reverse", "-M",
+                              "--format=%x00%H%x1f%at%x1f%an%x1f%ae", "--name-status", "--", "abgaben/"],
                              cwd=str(wurzel), capture_output=True, encoding="utf-8", errors="replace", check=True).stdout
     except (OSError, subprocess.CalledProcessError) as e:
         log(f"Hinweis: git-Historie nicht lesbar ({e})")
@@ -535,16 +538,17 @@ def lese_git(wurzel):
         if len(teile) < 4:
             continue
         name, email = teile[2], teile[3]
-        if "[bot]" in name or "[bot]" in email:
-            continue
-        konto = konto_von(name, email)
-        c = {"zeit": int(teile[1]), "name": name, "konto": konto}
-        for d in dateien.split("\n"):
-            d = d.strip()
-            if d:
+        bot = "[bot]" in name or "[bot]" in email
+        c = {"zeit": int(teile[1]), "name": name, "konto": konto_von(name, email)}
+        for zeile in dateien.split("\n"):
+            status, *ds = zeile.rstrip("\r").split("\t")
+            ds = [d for d in ds if d]          # nicht strip(): "817.txt " ist eine andere Datei als "817.txt"
+            if bot:
+                if status == "R100" and len(ds) == 2 and ds[0] in pfade:
+                    pfade[ds[1]] = pfade.get(ds[1], []) + pfade.pop(ds[0])
+                continue
+            for d in ds:
                 pfade.setdefault(d, []).append(c)
-    for v in pfade.values():
-        v.reverse()
     return pfade
 
 
@@ -1051,12 +1055,16 @@ def lauf(wurzel):
         gewinner["hinweise"].append("Für Deine Kennziffer gibt es mehrere Dateien: " + ", ".join(md_zelle(x['rel'], 120) for x in liste) + ". Gewertet ist die neueste lesbare Datei.")
         gewinner["kurz_hinweise"].append("mehrere Dateien für diese Kennziffer")
 
-    # Rückmeldungen, je Pfad höchstens eine Datei
+    # Rückmeldungen, je Pfad höchstens eine Datei. Pfade, die sich nur in Groß/Klein unterscheiden
+    # (ABC.txt und abc.md), sind unter Windows derselbe: Auch dann entsteht nur eine Datei, unter dem
+    # nach Zeichencode ersten Namen, damit er nicht vom Eingang abhängt.
     geschrieben_rm = {}
     for a in sorted(eintraege, key=lambda x: (not x.get("zaehlt_nicht", False), not x["problem"], x["zeit"])):
         ziel = a["pfad"].parent / ((f"{a['kz']}" if a["kz"] else re.sub(r"[^\w.-]+", "-", re.sub(r"\.[^.]*$", "", a["name"]))[:60]) + "-rueckmeldung.md")
-        geschrieben_rm[ziel] = a
-    for ziel, a in geschrieben_rm.items():
+        k = unicodedata.normalize("NFC", ziel.as_posix()).casefold()
+        frueher = geschrieben_rm.get(k)
+        geschrieben_rm[k] = (min(frueher[0], ziel, key=lambda x: x.as_posix()) if frueher else ziel, a)
+    for ziel, a in geschrieben_rm.values():
         info = gruppen.get(a["gruppe"], {}) if a["gruppe"] else {}
         if a["gruppe"] and gruppen.get(a["gruppe"], {}).get("status") == "gesperrt":
             bewahrt.add(ziel)

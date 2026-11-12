@@ -19,7 +19,7 @@
 #   4. Nur wenn alles besteht, wird der Ordner geschrieben (erst temporär,
 #      dann umbenennen). Ein vorhandener Ordner wird nie überschrieben.
 #
-# Der Live-Stand in data/combined/ bleibt dabei unberührt.
+# Der Live-Report data/combined/merge-report.md bleibt dabei unberührt.
 #
 # Nur base R. Bereiche und Spalten kommen aus merge-uploads.R.
 
@@ -68,9 +68,10 @@ merge_lauf <- function(arbeit) {
   aus <- tempfile("freeze-merge-")
   dir.create(aus)
   aus <- normalizePath(aus, winslash = "/")
-  Sys.setenv(MERGE_UPLOAD_DIR = up, MERGE_OUT_DIR = aus, MERGE_KONTEN_CSV = file.path(aus, "konten-roh.csv"))
+  # MERGE_NUR_REPORT leer: Auch wenn es gesetzt ist, braucht das Einfrieren den ganzen Merge
+  Sys.setenv(MERGE_UPLOAD_DIR = up, MERGE_OUT_DIR = aus, MERGE_KONTEN_CSV = file.path(aus, "konten-roh.csv"), MERGE_NUR_REPORT = "")
   rc <- system2(file.path(R.home("bin"), "Rscript"), "scripts/merge-uploads.R")
-  Sys.unsetenv(c("MERGE_UPLOAD_DIR", "MERGE_OUT_DIR", "MERGE_KONTEN_CSV"))
+  Sys.unsetenv(c("MERGE_UPLOAD_DIR", "MERGE_OUT_DIR", "MERGE_KONTEN_CSV", "MERGE_NUR_REPORT"))
   if (rc != 0) fail("Merge beendet mit Status ", rc)
   list(ordner = aus, log = log, repariert = repariert, up = up)
 }
@@ -198,16 +199,49 @@ rechen_check <- function(x, meta) {
   }
 
   if (!length(probleme)) {
+    # Rechenbar heißt: Schätzer und Teststatistik sind endliche Zahlen. Beides wird hier selbst
+    # gerechnet, nicht mit cor.test, t.test oder summary(), weil diese nebenbei p-Werte bilden.
     laeuft <- function(name, expr) {
-      p <- tryCatch(suppressWarnings(expr), error = function(e) NA_real_)
-      if (!length(p) || !is.finite(p[1])) nicht_ok(name, " lässt sich nicht berechnen")
+      w <- tryCatch(suppressWarnings(as.numeric(expr)), error = function(e) NA_real_)
+      if (!length(w) || !all(is.finite(w))) nicht_ok(name, " lässt sich nicht berechnen")
     }
-    laeuft("Korrelation", cor.test(sk$E, sk$O)$p.value)
+    korrelation <- function(a, b) {             # r und t = r * sqrt(n - 2) / sqrt(1 - r^2)
+      ok <- !is.na(a) & !is.na(b)
+      n <- sum(ok)
+      if (n < 3) return(NA_real_)
+      r <- cor(a[ok], b[ok])
+      c(r, r * sqrt(n - 2) / sqrt(1 - r^2))
+    }
+    welch <- function(y, g) {                   # Mittelwertsdifferenz und t wie im Welch-Test
+      ok <- !is.na(y) & !is.na(g)
+      y <- y[ok]
+      g <- factor(g[ok])
+      if (nlevels(g) != 2) return(NA_real_)
+      a <- y[g == levels(g)[1]]
+      b <- y[g == levels(g)[2]]
+      se <- sqrt(var(a) / length(a) + var(b) / length(b))
+      # wie t.test: Bei praktisch konstanten Daten gibt es keinen t-Wert
+      if (!is.finite(se) || se < 10 * .Machine$double.eps * max(abs(c(mean(a), mean(b))))) return(NA_real_)
+      c(mean(a) - mean(b), (mean(a) - mean(b)) / se)
+    }
+    steigung <- function(fit, j = 2) {          # Koeffizient j und t = b / SE, aus der QR-Zerlegung von lm
+      p1 <- seq_len(fit$rank)
+      spalten <- fit$qr$pivot[p1]               # ohne Prädiktoren, die sich aus anderen ergeben
+      se <- sqrt(sum(fit$residuals^2) / fit$df.residual * diag(chol2inv(fit$qr$qr[p1, p1, drop = FALSE])))
+      k <- match(j, spalten)
+      c(coef(fit)[j], coef(fit)[j] / se[k])
+    }
+    anova_f <- function(fit) {                  # Quadratsumme zwischen den Gruppen und F, aus lm
+      qs_zw <- sum((fit$fitted.values - mean(fit$fitted.values))^2)
+      qs_in <- sum(fit$residuals^2)
+      c(qs_zw, (qs_zw / (fit$rank - 1)) / (qs_in / fit$df.residual))
+    }
+    laeuft("Korrelation", korrelation(sk$E, sk$O))
     # dieselben Modelle wie in den Abgaben (Sitzungen 03, 04 und 07)
-    laeuft("t-Test Geschlecht", t.test(sk$V[x$geschlecht %in% 1:2] ~ x$geschlecht[x$geschlecht %in% 1:2])$p.value)
-    laeuft("t-Test Bildung", t.test(sk$O ~ bg)$p.value)
-    laeuft("Regression", summary(lm(sk$N ~ sk$E + sk$V + sk$G + sk$O))$coefficients[2, 4])
-    laeuft("ANOVA", summary(aov(sk$O ~ factor(x$bildungsgrad)))[[1]][1, 5])
+    laeuft("t-Test Geschlecht", welch(sk$V[x$geschlecht %in% 1:2], x$geschlecht[x$geschlecht %in% 1:2]))
+    laeuft("t-Test Bildung", welch(sk$O, bg))
+    laeuft("Regression", steigung(lm(sk$N ~ sk$E + sk$V + sk$G + sk$O)))
+    laeuft("ANOVA", anova_f(lm(sk$O ~ factor(x$bildungsgrad))))
   }
 
   if (nrow(meta) != 10) nicht_ok("Meta-Tabelle hat ", nrow(meta), " statt 10 Zeilen")

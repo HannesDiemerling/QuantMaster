@@ -5,6 +5,11 @@ name: Abgaben prüfen
 # Die Prüfung ist zustandslos: Jeder Lauf nimmt den neuesten Stand und arbeitet alle Dateien ab.
 # Darum genügt es, dass nur ein Lauf wartet, auch wenn viele Abgaben gleichzeitig eingehen.
 # Pushes mit GITHUB_TOKEN starten keinen neuen Lauf, es gibt also keine Schleife.
+# Vorher bekommen Abgaben mit Namen, die unter Windows nicht gehen (etwa <> oder nur Groß/Klein
+# verschieden), einen sauberen Namen (scripts/dateinamen.py, nie überschreiben, nie löschen).
+# Ordner unter abgaben/ werden dabei klein geschrieben (Hannes/Sitzung02/ -> hannes/sitzung02/).
+# Vom Prüfer erzeugte Dateien (README.md, UEBERSICHT.md, *-rueckmeldung.md, ...) bleiben dabei
+# unberührt, eine Abgabe, die mit ihnen kollidiert, bekommt die Nummer.
 # Manuell startbar über Actions > "Abgaben prüfen" > "Run workflow".
 on:
   push:
@@ -12,6 +17,7 @@ on:
     paths:
       - 'abgaben/**'
       - 'scripts/pruefe-abgaben.py'
+      - 'scripts/dateinamen.py'
       - '.github/workflows/pruefe-abgaben.yml'
   workflow_dispatch:
 
@@ -39,17 +45,41 @@ jobs:
 
       # Bei einem abgelehnten Push wird nicht rebased, sondern vom neuesten Stand aus neu geprüft.
       # Die Ausgaben lassen sich jederzeit neu erzeugen, und neue Abgaben kommen gleich mit.
-      - name: Prüfen und Rückmeldungen committen
+      # Umbenennungen kommen in einen eigenen Commit vor dem Prüfer, damit er die Datei unter dem
+      # neuen Namen dem Konto zuordnet, das sie eingestellt hat.
+      - name: Dateinamen bereinigen, prüfen und Rückmeldungen committen
+        env:
+          NAMEN_PY: |
+            import os, subprocess, sys
+            sys.path.insert(0, "scripts")
+            from dateinamen import git_dateien, plan
+            # Wie SYSTEMDATEIEN in scripts/pruefe-abgaben.py, hier mit genauer Schreibweise
+            ERZEUGT = {"README.md", "UEBERSICHT.md", "NICHT-ZUGEORDNET.md", "PRUEFUNG-ANGEHALTEN.md", "termine.json", ".gitkeep"}
+            # Rückmeldungen und Übersichten bleiben überall stehen (veraltete löscht der Prüfer). Die
+            # übrigen Namen schreibt der Prüfer nur in klein geschriebene Ordner, anderswo sind es Abgaben.
+            def erzeugt(p):
+                ordner, _, name = p.rpartition("/")
+                return name.endswith("-rueckmeldung.md") or name == "UEBERSICHT.md" or (name in ERZEUGT and ordner == ordner.lower())
+            alle = git_dateien("abgaben/")
+            sys.stdout.reconfigure(errors="backslashreplace")
+            # Ordner klein (Gruppen und sitzungNN sind klein), sonst landen dieselben Kennziffern in
+            # abgaben/Hannes/ und abgaben/hannes/, und ihre Rückmeldungen kollidieren unter Windows.
+            for alt, ziel in plan(alle, "abgaben/", fest=[p for p in alle if erzeugt(p)], ordner_klein=True):
+                print(f"{alt} -> {ziel}", flush=True)
+                os.makedirs(os.path.dirname(ziel), exist_ok=True)
+                subprocess.run(["git", "mv", "--", alt, ziel], check=True)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           for i in 1 2 3 4 5; do
-            git fetch -q origin "$BRANCH"
+            if ! git fetch -q origin "$BRANCH"; then echo "Holen fehlgeschlagen, neuer Versuch"; sleep $((i * 5)); continue; fi
             git reset -q --hard "origin/$BRANCH"
+            python3 -c "$NAMEN_PY" || echo "::warning::Dateinamen unter abgaben/ nicht bereinigt"
+            git diff --cached --quiet || git commit -q -m "chore(abgaben): Dateinamen der Abgaben bereinigt"
             python3 scripts/pruefe-abgaben.py
             git add -A -- abgaben
-            if git diff --cached --quiet; then echo "Keine Änderungen"; exit 0; fi
-            git commit -q -m "chore(abgaben): Rückmeldungen aktualisiert"
+            git diff --cached --quiet || git commit -q -m "chore(abgaben): Rückmeldungen aktualisiert"
+            if [ "$(git rev-parse HEAD)" = "$(git rev-parse "origin/$BRANCH")" ]; then echo "Keine Änderungen"; exit 0; fi
             if git push -q origin "HEAD:$BRANCH"; then echo "gepusht (Versuch $i)"; exit 0; fi
             echo "Push fehlgeschlagen, neuer Versuch"; sleep $((i * 5))
           done

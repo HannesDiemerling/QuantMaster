@@ -3,10 +3,23 @@ name: Deploy to Pages
 on:
   push:
     branches: [main, master]
-    # Uploads und Abgaben ändern die Site nicht, also kein Rebuild pro Datei.
-    paths-ignore:
-      - 'data/**'
-      - 'abgaben/**'
+    # Nur rendern, wenn sich etwas ändert, das Quarto für die Site liest.
+    # Uploads, Abgaben, Skripte und README lösen keinen Lauf aus.
+    # Neuer Ordner mit Site-Inhalt (z. B. Bilder)? Hier ergänzen.
+    # Von Hand neu bauen: Actions → „Deploy to Pages“ → „Run workflow“.
+    paths:
+      - '_*.yml'          # _quarto.yml, ggf. _brand.yml, _variables.yml
+      - '*.qmd'
+      - '*.css'
+      - '*.scss'
+      - '_brand/**'
+      - '_extensions/**'
+      - 'sitzung*/**'
+      - 'anhang/**'
+      - 'materials/**'
+      - 'filters/**'
+      - 'assets/**'
+      - '.github/workflows/publish.yml'
   workflow_dispatch:
 
 permissions:
@@ -21,18 +34,12 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install Python dependencies
-        run: pip install -r requirements.txt
-
+      # Kein Python nötig: Die Kapitel haben keine ausführbaren Code-Zellen.
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
@@ -53,6 +60,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     needs: build
     steps:
       - name: Deploy to GitHub Pages

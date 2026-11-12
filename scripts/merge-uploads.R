@@ -1,9 +1,14 @@
 # scripts/merge-uploads.R
 #
 # Kombiniert alle Studierenden-Uploads zu einem Gesamtdatensatz.
-#   Ausgabe: data/combined/m15-gesamt.csv
-#            data/combined/merge-report.md   (was wurde wie verarbeitet)
-#            data/combined/meta-studien.csv  (ein Effekt je Seed-Datensatz, Sitzung 04)
+#   Ausgabe: m15-gesamt.csv
+#            merge-report.md   (was wurde wie verarbeitet)
+#            meta-studien.csv  (ein Effekt je Seed-Datensatz, Sitzung 04)
+# Zwei Wege:
+#   - Live-Merge (merge-uploads.yml, MERGE_NUR_REPORT=1): schreibt nur
+#     data/combined/merge-report.md. Gerechnet wird mit dem eingefrorenen
+#     Stand der Gruppe, eine Live-Datei gibt es nicht.
+#   - Einfrieren (freeze-dataset.R): alle drei Dateien in einen Arbeitsordner.
 #
 # Fail-safe-Prinzip: Studierende machen beim Upload Fehler (falscher Name,
 # falscher Ordner, Semikolon statt Komma, Zusatzspalten, ...). Das Skript
@@ -31,6 +36,7 @@ OUT_CSV    <- file.path(OUT_DIR, "m15-gesamt.csv")
 OUT_REPORT <- file.path(OUT_DIR, "merge-report.md")
 OUT_META   <- file.path(OUT_DIR, "meta-studien.csv")
 UPLOAD_DIR <- Sys.getenv("MERGE_UPLOAD_DIR", "data/student-uploads")
+NUR_REPORT <- identical(Sys.getenv("MERGE_NUR_REPORT"), "1")   # nur der Live-Workflow setzt das
 MIN_MATCH  <- 19          # so viele BFI-Items müssen übereinstimmen
 # Gültige Kennziffer: jede ganze Zahl ab 10. Gedacht sind die letzten 6 Ziffern der
 # Matrikelnummer, andere Zahlen sind auch ok, wichtig ist nur, bei einer zu bleiben.
@@ -50,6 +56,7 @@ SEED_NAMES <- sprintf("datensatz-%02d.csv", 1:10)
 # Konto-Zuordnung (nur für den Report, sie ändert nie die Daten)
 ORIG_DIR   <- "data/student-uploads"   # immer der echte Ordner, auch wenn der Merge über Kopien läuft
 LEHR_DATEI <- "scripts/lehrpersonen.txt"
+FROZEN_DIR <- "data/combined/eingefroren"   # nur gelesen, im Live-Report
 
 seed_hash <- function(path) {
   x <- read.csv(path, colClasses = "character")
@@ -235,6 +242,8 @@ konten_lesen <- function() {
   praefix <- paste0(ORIG_DIR, "/")
   gesehen <- new.env()
   umzug <- new.env()                                       # alter Pfad -> heutiger Pfad
+  angelegt <- new.env()                                    # heutiger Pfad: jüngstes Anlegen oder Umbenennen gesehen
+  bot_vorher <- new.env()                                  # heutiger Pfad -> Name vor der Umbenennung durch den Workflow
   jetzt <- function(p) { ziel <- umzug[[p]]; if (is.null(ziel)) p else ziel }
   out <- list()
   aktuell <- NULL
@@ -254,9 +263,15 @@ konten_lesen <- function() {
       teile <- strsplit(l, "\t", fixed = TRUE)[[1]]
       if (length(teile) < 2) next
       pfad <- jetzt(teile[length(teile)])
+      if (!startsWith(teile[1], "M") && is.null(angelegt[[pfad]])) {
+        angelegt[[pfad]] <- TRUE                           # nur der jüngste Schritt zählt (neuester Commit zuerst)
+        if (is.null(aktuell) && startsWith(teile[1], "R") && length(teile) == 3) bot_vorher[[pfad]] <- teile[2]
+      }
       if (startsWith(teile[1], "R") && length(teile) == 3) {
         umzug[[teile[2]]] <- pfad
-        if (identical(teile[1], "R100")) next              # reines Verschieben sagt nichts darüber, wer hochgeladen hat
+        # Reines Verschieben sagt nichts darüber, wer hochgeladen hat. Benennt eine Lehrperson um,
+        # auch mit kleiner Änderung (im Browser entsteht dabei oft R092), bleibt die Datei beim Uploader.
+        if (identical(teile[1], "R100") || isTRUE(aktuell$lehr)) next
       }
       if (!is.null(aktuell) && startsWith(pfad, praefix) && is.null(gesehen[[pfad]])) {
         gesehen[[pfad]] <- TRUE                            # der neueste Commit steht zuerst
@@ -264,8 +279,42 @@ konten_lesen <- function() {
       }
     }
   }
-  if (!length(out)) return(leer)
-  do.call(rbind, lapply(out, as.data.frame))
+  erg <- if (length(out)) do.call(rbind, lapply(out, as.data.frame)) else leer
+  # Umbenennungen (alter Pfad -> heutiger Pfad), damit der Live-Report Dateien aus zuordnung.csv wiederfindet
+  alt <- ls(umzug, all.names = TRUE, sorted = FALSE)
+  attr(erg, "umzug") <- setNames(vapply(alt, function(p) umzug[[p]], ""), alt)
+  # Vom Workflow umbenannt (scripts/dateinamen.py, Bot-Commit): heutiger Pfad -> voriger Pfad
+  neu <- ls(bot_vorher, all.names = TRUE, sorted = FALSE)
+  attr(erg, "bot_vorher") <- setNames(vapply(neu, function(p) bot_vorher[[p]], ""), neu)
+  erg
+}
+
+# --- Eingefrorene Stände (nur Live-Report) ------------------------------------------
+# Welche Dateien beim Einfrieren umgewandelt wurden, steht in eingefroren/<gruppe>/zuordnung.csv.
+# Ergebnis: heutiger Pfad -> list(gruppen, kz). Eine Datei zählt nur, wenn ihre Person im Stand ist
+# (eigene id oder dieselbe Kennziffer mit id in einer anderen Datei). Fehlt eine zuordnung.csv oder
+# ist sie nicht lesbar, wird sie übergangen. Der Ordner wird nur gelesen.
+eingefroren_lesen <- function(umzug = NULL) {
+  if (is.null(umzug)) umzug <- character(0)
+  out <- list()
+  for (d in sort(list.dirs(FROZEN_DIR, recursive = FALSE), method = "radix")) {
+    pfad <- file.path(d, "zuordnung.csv")
+    z <- if (file.exists(pfad)) tryCatch(suppressWarnings(read.csv(pfad, colClasses = "character", fileEncoding = "UTF-8-BOM",
+                                                                    check.names = FALSE)), error = function(e) NULL)
+    if (!is.data.frame(z) || !all(c("kennziffer", "id", "datei") %in% names(z))) next
+    z <- z[, c("kennziffer", "id", "datei")]
+    z[is.na(z)] <- ""
+    drin <- unique(z$kennziffer[nzchar(z$id) & nzchar(z$kennziffer)])
+    for (j in seq_len(nrow(z))) {
+      k <- z$kennziffer[j]
+      p <- z$datei[j]
+      if (!nzchar(p) || !(nzchar(z$id[j]) || (nzchar(k) && k %in% drin))) next
+      if (!is.na(umzug[p])) p <- umzug[[p]]                # vom Bot umbenannt (z. B. -2 bei gleichem Namen)
+      alt <- out[[p]]
+      out[[p]] <- list(gruppen = unique(c(alt$gruppen, basename(d))), kz = unique(c(alt$kz, if (nzchar(k)) k)))
+    }
+  }
+  out
 }
 
 # --- Hauptteil ---------------------------------------------------------------
@@ -481,22 +530,29 @@ main <- function() {
                            quelle = character(0), quelle_datensatz = numeric(0), quelle_datei = character(0),
                            check.names = FALSE)
   }
-  dir.create(dirname(OUT_CSV), showWarnings = FALSE, recursive = TRUE)
-  write.csv(combined, OUT_CSV, row.names = FALSE, na = "", fileEncoding = "UTF-8")
-
-  # Für die Metaanalyse (Sitzung 04): jeder Seed-Datensatz samt zugeordneter
-  # eigener Zeilen ist eine "Studie"; Effekt = Korrelation E_mean × O_mean.
-  write.csv(meta_studien(combined), OUT_META, row.names = FALSE, fileEncoding = "UTF-8")
+  dir.create(OUT_DIR, showWarnings = FALSE, recursive = TRUE)
+  if (!NUR_REPORT) {
+    write.csv(combined, OUT_CSV, row.names = FALSE, na = "", fileEncoding = "UTF-8")
+    # Für die Metaanalyse (Sitzung 04): jeder Seed-Datensatz samt zugeordneter
+    # eigener Zeilen ist eine "Studie"; Effekt = Korrelation E_mean × O_mean.
+    write.csv(meta_studien(combined), OUT_META, row.names = FALSE, fileEncoding = "UTF-8")
+  }
 
   # --- Report ------------------------------------------------------------------
   cell <- function(x) if (length(x) == 0 || all(is.na(x))) "–" else paste(x, collapse = "; ")
+  # Live: Nicht-CSV-Dateien, die beim Einfrieren umgewandelt wurden und deren Kennziffer im Stand ist
+  frozen <- if (NUR_REPORT) eingefroren_lesen(attr(konten, "umzug")) else list()
+  orig_pfad <- function(f) file.path(ORIG_DIR, substring(f, nchar(UPLOAD_DIR) + 2))
+  hat_umgewandelt <- any(vapply(other, function(f) !is.null(frozen[[orig_pfad(f)]]), TRUE))
   lines <- c(
     "# Merge-Report",
     "",
     sprintf("Automatisch erzeugt von `scripts/merge-uploads.R` am %s.", format(Sys.time(), "%d.%m.%Y %H:%M", tz = "Europe/Berlin")),
     "",
-    sprintf("**Gesamtdatensatz:** `%s` mit **%d Zeilen** (%d vorgeneriert aus %d Datensätzen, %d fiktive Personen).",
-            OUT_CSV, nrow(combined), NROW(seed_df), length(seed_ids), NROW(own_df)),
+    if (NUR_REPORT) sprintf("**Stand der Uploads:** %d Zeilen (%d vorgeneriert aus %d Datensätzen, %d fiktive Personen). Den Datensatz zum Rechnen findest Du im Ordner Deiner Gruppe unter [`data/combined/eingefroren/`](eingefroren/). Der Ordner entsteht, sobald der Stand Deiner Gruppe eingefroren ist.",
+                            nrow(combined), NROW(seed_df), length(seed_ids), NROW(own_df))
+    else sprintf("**Gesamtdatensatz:** `%s` mit **%d Zeilen** (%d vorgeneriert aus %d Datensätzen, %d fiktive Personen).",
+                 OUT_CSV, nrow(combined), NROW(seed_df), length(seed_ids), NROW(own_df)),
     "",
     if (length(seed_changed)) paste0("> **ACHTUNG (Lehrperson):** Übungsdatensatz verändert: ",
                                      paste0("`", seed_changed, "`", collapse = ", "),
@@ -505,7 +561,9 @@ main <- function() {
     "",
     "## Dateien",
     "",
-    "Suche Deine Datei über Deine **Kennziffer** (die letzten 6 Ziffern Deiner Matrikelnummer; andere Zahlen sind auch ok, wichtig ist, dass Du bei einer bleibst). Handeln musst Du nur bei Status IGNORIERT, PRÜFEN oder DOPPELT oder wenn bei „Fehler gefunden“ nicht 2/2 steht. Hinweise zu Dateiname oder Trennzeichen sind unkritisch.",
+    paste0("Suche Deine Datei über Deine **Kennziffer** (die letzten 6 Ziffern Deiner Matrikelnummer; andere Zahlen sind auch ok, wichtig ist, dass Du bei einer bleibst). Handeln musst Du nur bei Status IGNORIERT, PRÜFEN oder DOPPELT oder wenn bei „Fehler gefunden“ nicht 2/2 steht. ",
+           if (hat_umgewandelt) "Bei Status „umgewandelt“ ist nichts zu tun. " else "",
+           "Hinweise zu Dateiname oder Trennzeichen sind unkritisch."),
     "",
     "| Datei | Kennziffer | Status | Datensatz | fiktive Personen | Fehler gefunden | Abweichungen von Referenz | Hinweise | Konto |",
     "|---|---|---|---|---:|---|---:|---|---|"
@@ -547,9 +605,59 @@ main <- function() {
                               else "Ist das eine Person, bitte bei einer Nummer bleiben und die andere Datei löschen. Hast Du für jemand anderen hochgeladen, ist alles in Ordnung."))
     for (i in gr) report[[i$datei]]$hinweise <- c(report[[i$datei]]$hinweise, "dieses Konto hat mehrere Kennziffern, siehe „Bitte ansehen“")
   }
+  # Live: Hat der Workflow eine Datei umbenannt (etwa <> entfernt oder -2 angehängt), muss eine
+  # Korrektur unter dem neuen Namen kommen, sonst entsteht eine zweite Datei
+  vorher <- attr(konten, "bot_vorher")
+  if (is.null(vorher)) vorher <- character(0)
+  if (NUR_REPORT) for (k in names(report)) {
+    v <- if (is.null(report[[k]]$original)) NA else vorher[report[[k]]$original]
+    if (is.na(v)) next
+    v <- sub(paste0("^", ORIG_DIR, "/"), "", sub("^\"(.*)\"$", "\\1", v))     # Name ohne Ordner, ohne Quoting von git
+    v <- gsub("`", "'", gsub("|", "\\|", v, fixed = TRUE), fixed = TRUE)       # sonst zerfällt die Tabellenzeile
+    report[[k]]$hinweise <- c(report[[k]]$hinweise, sprintf("vom Workflow umbenannt (vorher `%s`). Lade Korrekturen unter diesem neuen Namen hoch", v))
+  }
   for (i in report) {
     lines <- c(lines, sprintf("| `%s` | %s | %s | %s | %d | %s | %s | %s | %s |", i$datei, cell(i$kz), i$status, cell(i$ds),
                               i$eigene, cell(i$gefunden), cell(i$abweichungen), cell(i$hinweise), konto_zelle(i)))
+  }
+  # Live: Dateien, die keine CSV sind, als eigene Zeile, damit sie sich über die Kennziffer finden lassen.
+  # Beim Einfrieren bleibt es bei der Zeile unter „Weitere Hinweise“ (freeze-dataset.R zählt sie dort).
+  # Ob es schon eine CSV-Datei der Person gibt, entscheidet die Kennziffer (aus Inhalt oder Dateiname der
+  # CSV), nicht der Dateistamm: Nach einer Umbenennung heißt die Datei etwa Datensatz-10-261831036-2.xlsx.
+  kz_name <- function(f) {                     # Kennziffer im Dateinamen: längste Zahl ab 3 Ziffern
+    stamm <- sub("\\.[^./]*$", "", basename(f))
+    zahlen <- regmatches(stamm, gregexpr("[0-9]{3,}", stamm))[[1]]
+    if (length(zahlen)) zahlen[which.max(nchar(zahlen))] else NA_character_
+  }
+  als_zahl <- function(k) suppressWarnings(as.numeric(k))
+  if (NUR_REPORT) for (f in sort(other, method = "radix")) {
+    fz <- frozen[[orig_pfad(f)]]
+    if (!is.null(fz)) {                        # beim Einfrieren umgewandelt, die Person ist im Stand
+      lines <- c(lines, sprintf("| `%s` | %s | umgewandelt | – | 0 | – | – | keine CSV-Datei, ist in einem eingefrorenen Stand enthalten und wird beim Einfrieren automatisch umgewandelt. Nichts zu tun | %s |",
+                                f, cell(fz$kz), konto_zelle(herkunft(f))))
+      next
+    }
+    kz <- kz_name(f)
+    csv <- if (is.na(kz)) list() else Filter(function(i) als_zahl(kz) %in% c(i$kz, als_zahl(kz_name(i$datei))), report[files])
+    csv_ok <- Filter(function(i) identical(i$status, "ok"), csv)
+    # Tabellenformate lassen sich als CSV exportieren, alles andere (etwa readme-2.md) ist keine Datendatei.
+    # Ohne Endung (etwa per „Create new file“) ist es meist eine CSV, das Einfrieren übernimmt sie auch.
+    ohne_endung <- !grepl(".", basename(f), fixed = TRUE)
+    tabelle <- ohne_endung || grepl("\\.(jasp|xlsx|xls|ods|numbers)$", f, ignore.case = TRUE)
+    art <- if (ohne_endung) "Dateiname ohne Endung" else "keine CSV-Datei"
+    export <- if (grepl("\\.jasp$", f, ignore.case = TRUE)) "In JASP: File → Export Data als CSV"
+              else if (ohne_endung) "Als CSV mit Komma als Trennzeichen speichern" else "Als CSV mit Komma als Trennzeichen exportieren"
+    # Zielname: ab der ersten Datei-Endung alles weg, dann .csv (datensatz-06-831016.csv.jasp -> datensatz-06-831016.csv)
+    ziel <- paste0(sub("\\.(csv|jasp|xlsx|numbers|xls|ods)(\\..*)?$", "", basename(f), ignore.case = TRUE), ".csv")
+    hinweis <- if (length(csv_ok) && !ohne_endung)
+      sprintf("keine CSV-Datei. Die CSV-Datei `%s` mit dieser Kennziffer ist schon da und in Ordnung, diese Datei kannst Du löschen", csv_ok[[1]]$datei)
+    else if (!tabelle)
+      "keine Datendatei, wird nicht verwendet. Deine Daten gehören als CSV-Datei hierher. Ist diese Datei versehentlich hier gelandet, kannst Du sie löschen"
+    else if (length(csv))
+      sprintf("%s. Zu dieser Kennziffer gibt es schon `%s` (Status %s, Hinweise dort). Soll diese Datei gelten: %s und unter dem Namen `%s` hochladen, das ersetzt die vorhandene",
+              art, csv[[1]]$datei, csv[[1]]$status, export, basename(csv[[1]]$datei))
+    else sprintf("%s. %s und als `%s` hochladen", art, export, ziel)
+    lines <- c(lines, sprintf("| `%s` | %s | IGNORIERT | – | 0 | – | – | %s | %s |", f, if (is.na(kz)) "–" else kz, hinweis, konto_zelle(herkunft(f))))
   }
   if (length(bitte)) lines <- c(lines, "", "## Bitte ansehen", "", bitte)
   missing_ds <- setdiff(1:10, as.integer(names(seeds_used)))
@@ -557,15 +665,15 @@ main <- function() {
     h <- herkunft(p)
     if (nzchar(h$konto)) sprintf(" (Konto: %s)", konto_zelle(h)) else ""
   }
-  lines <- c(lines, "", "## Weitere Hinweise", "",
+  weitere <- c(
              if (length(missing_ds)) sprintf("- Nicht hochgeladene Seed-Datensätze: %s%s", paste(sprintf("%02d", missing_ds), collapse = ", "),
-                                             if (ALLE_SEEDS) " (trotzdem im Gesamtdatensatz enthalten)" else ""),
-             if (length(other)) sprintf("- Ignoriert (kein CSV): `%s`%s", other, vapply(other, konto_ohne, "")),
+                                             if (!ALLE_SEEDS) "" else if (NUR_REPORT) " (sind in jedem eingefrorenen Stand enthalten)"
+                                             else " (trotzdem im Gesamtdatensatz enthalten)"),
+             if (length(other) && !NUR_REPORT) sprintf("- Ignoriert (kein CSV): `%s`%s", other, vapply(other, konto_ohne, "")),
              if (length(dup_notes)) paste0("- ", dup_notes),
              if (!nrow(konten)) "- Konto-Zuordnung nicht verfügbar (keine vollständige Git-Historie), die Spalte Konto bleibt leer.")
-  con <- file(OUT_REPORT, open = "w", encoding = "UTF-8")
-  writeLines(lines, con)
-  close(con)
+  if (length(weitere) || !NUR_REPORT) lines <- c(lines, "", "## Weitere Hinweise", "", weitere)
+  report_schreiben(lines)
   # Nur beim Einfrieren gesetzt: Zuordnung Kennziffer zu Datei und Konto für freeze-dataset.R
   konten_csv <- Sys.getenv("MERGE_KONTEN_CSV")
   if (nzchar(konten_csv)) {
@@ -578,19 +686,31 @@ main <- function() {
                     quelle_datei = vapply(ein, function(i) i$datei, ""))
     write.csv(d, konten_csv, row.names = FALSE, fileEncoding = "UTF-8")
   }
-  message(sprintf("Wrote %s (%d rows) and %s", OUT_CSV, nrow(combined), OUT_REPORT))
+  message(if (NUR_REPORT) sprintf("Wrote %s (%d rows, no dataset)", OUT_REPORT, nrow(combined))
+          else sprintf("Wrote %s (%d rows) and %s", OUT_CSV, nrow(combined), OUT_REPORT))
+}
+
+# Schreibt den Report nur, wenn sich mehr als die Zeile mit dem Zeitstempel ändert.
+# So entsteht kein Bot-Commit, wenn der Merge nur neu gelaufen ist.
+report_schreiben <- function(lines) {
+  inhalt <- function(z) enc2utf8(z[!startsWith(z, "Automatisch erzeugt")])
+  alt <- if (file.exists(OUT_REPORT)) tryCatch(readLines(OUT_REPORT, encoding = "UTF-8", warn = FALSE), error = function(e) NULL)
+  if (!is.null(alt) && identical(inhalt(alt), inhalt(lines))) return(invisible(FALSE))
+  con <- file(OUT_REPORT, open = "w", encoding = "UTF-8")
+  writeLines(lines, con)
+  close(con)
+  invisible(TRUE)
 }
 
 if (sys.nframe() == 0) {
   # Bricht der Merge ab, steht der Grund im Report (statt eines veralteten Reports)
   tryCatch(main(), error = function(e) {
     msg <- conditionMessage(e)
-    con <- file(OUT_REPORT, open = "w", encoding = "UTF-8")
-    writeLines(c("# Merge-Report", "",
-                 sprintf("Automatisch erzeugt am %s.", format(Sys.time(), "%d.%m.%Y %H:%M", tz = "Europe/Berlin")), "",
-                 "**Der Merge ist abgebrochen.** Der Gesamtdatensatz wurde nicht aktualisiert. Bitte der Lehrperson Bescheid geben.",
-                 "", paste("Fehler:", msg)), con)
-    close(con)
+    report_schreiben(c("# Merge-Report", "",
+                       sprintf("Automatisch erzeugt am %s.", format(Sys.time(), "%d.%m.%Y %H:%M", tz = "Europe/Berlin")), "",
+                       paste0("**Der Merge ist abgebrochen.** ", if (NUR_REPORT) "" else "Der Gesamtdatensatz wurde nicht aktualisiert. ",
+                              "Bitte der Lehrperson Bescheid geben."),
+                       "", paste("Fehler:", msg)))
     cat(sprintf("::error::Merge abgebrochen: %s\n", msg))
   })
 }

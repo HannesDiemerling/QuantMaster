@@ -13,7 +13,7 @@
 #
 # Aufruf aus dem Repo-Root:
 #   Rscript scripts/antwortbogen.R <gruppe>   -> Klartext-Bogen und Vorlagen
-#   Rscript scripts/antwortbogen.R            -> Live-Stand, intern/antwortbogen.md
+#   Ohne <gruppe> bricht das Skript ab: Gerechnet wird nur mit eingefrorenen Ständen.
 # Auf GitHub Actions (Workflow "Sollwerte erzeugen"):
 #   Rscript scripts/antwortbogen.R <gruppe> --nur-spec --streng --spec <pfad>
 #   --nur-spec schreibt nichts außer der Spec-Datei, --streng bricht ab, wenn
@@ -38,15 +38,12 @@ if ("--nur-spec" %in% .args) { NUR_SPEC <- TRUE; .args <- setdiff(.args, "--nur-
 if ("--streng" %in% .args) { STRENG <- TRUE; .args <- setdiff(.args, "--streng") }
 if (NUR_SPEC && is.na(SPEC)) stop("--nur-spec braucht --spec <pfad>", call. = FALSE)
 
-GRUPPE <- NA_character_
-DIR <- "data/combined"
-OUT <- "intern/antwortbogen.md"
-if (length(.args) >= 1) {
-  GRUPPE <- .args[1]
-  DIR <- file.path("data/combined/eingefroren", GRUPPE)
-  OUT <- sprintf("intern/antwortbogen-%s.md", GRUPPE)
-  if (!dir.exists(DIR)) stop("Für die Gruppe '", GRUPPE, "' gibt es keinen eingefrorenen Stand (", DIR, "). Erst git pull, Namen prüfen.", call. = FALSE)
-}
+if (length(.args) < 1)
+  stop("Gruppe fehlt, z. B. Rscript scripts/antwortbogen.R hannes. Einen Live-Datensatz gibt es nicht mehr, gerechnet wird mit data/combined/eingefroren/<gruppe>/.", call. = FALSE)
+GRUPPE <- .args[1]
+DIR <- file.path("data/combined/eingefroren", GRUPPE)
+OUT <- sprintf("intern/antwortbogen-%s.md", GRUPPE)
+if (!dir.exists(DIR)) stop("Für die Gruppe '", GRUPPE, "' gibt es keinen eingefrorenen Stand (", DIR, "). Erst git pull, Namen prüfen.", call. = FALSE)
 DATA <- file.path(DIR, "m15-gesamt.csv")
 set.seed(2026)
 
@@ -177,7 +174,7 @@ auc <- function(score, y) { r <- rank(score); n1 <- sum(y == 1); n0 <- sum(y == 
 ganz("kombinieren", "Datenzeilen in Deiner selbst kombinierten Datei (ohne Kopfzeile)", 70, erlaubt = seq(10, 100, by = 10), plausibel = TRUE,
      hinweis = "typisch 70, nur Plausibilität", soll = "10 × Anzahl Dateien",
      tipp = "Jede Datei hat 10 Zeilen. Schau noch einmal, wie viele Dateien Du kombiniert hast.")
-exact("kombinieren", "Zeilen in m15-gesamt.csv", nrow(d), tipp = "Nimm die Datei aus dem Ordner Deiner Gruppe, nicht den Live-Stand.")
+exact("kombinieren", "Zeilen in m15-gesamt.csv", nrow(d), tipp = "Nimm die Datei aus dem Ordner Deiner Gruppe.")
 exact("kombinieren", "Davon Zeilen mit quelle = studierende", sum(d$quelle == "studierende"), tipp = "Frequency table von quelle im Datensatz Deiner Gruppe.")
 a <- na.omit(d$alter)
 exact("deskriptiv", "Anzahl Personen mit geschlecht = 1", sum(d$geschlecht == 1, na.rm = TRUE), tipp = "Frequency table von geschlecht.")

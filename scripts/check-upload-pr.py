@@ -6,8 +6,11 @@ Ausgabe: erste Zeile OK oder ABGELEHNT, danach Gründe. Exit-Code 0 = übernehme
 
 Erlaubt sind nur neue oder geänderte Dateien direkt in data/student-uploads/ mit Endung
 .csv/.txt/.tsv und Abgaben abgaben/<gruppe>/sitzungNN/<Kennziffer>.txt. Eine bestehende Datei
-darf nur überschreiben, wer sie selbst hochgeladen hat.
-Zum Testen ohne GitHub-API: Umgebungsvariable HISTORY_JSON = {"pfad": ["login", ...]}.
+darf nur überschreiben, wer sie selbst hochgeladen hat. Commits von Bots (Login endet auf [bot])
+zählen dabei nicht. Hat der Bot die Datei nur umbenannt (scripts/dateinamen.py, Inhalt
+unverändert), zählt die Historie unter dem alten Namen, denn die API folgt Umbenennungen nicht.
+Zum Testen ohne GitHub-API: Umgebungsvariable HISTORY_JSON = {"pfad": ["login", ...]}; eine
+Bot-Umbenennung als Eintrag {"login": "github-actions[bot]", "von": "alter/pfad"}.
 """
 import json, os, re, subprocess, sys, urllib.parse
 
@@ -15,15 +18,45 @@ ALLOWED = re.compile(r"^data/student-uploads/[^/]+\.(csv|txt|tsv)$", re.IGNORECA
 ABGABE = re.compile(r"^abgaben/[a-z0-9-]+/sitzung\d{2}/\d{1,20}\.txt$")
 MAX_FILES = 5
 MAX_LINES = 500
+MAX_UMBENENNUNGEN = 5
 
 
-def history(path, repo):
-    """GitHub-Logins aller Commits, die die Datei auf main berührt haben."""
+def ist_bot(login):
+    return login.endswith("[bot]")
+
+
+def gh_json(pfad):
+    out = subprocess.run(["gh", "api", "--paginate", "--slurp", pfad], capture_output=True, text=True, check=True).stdout
+    return [x for seite in json.loads(out) for x in (seite if isinstance(seite, list) else [seite])]
+
+
+def commits(path, repo):
+    """[(login, alter Pfad oder None)] je Commit auf main, der die Datei berührt. Der alte Pfad
+    steht nur bei einer Umbenennung durch einen Bot ohne Inhaltsänderung."""
     if "HISTORY_JSON" in os.environ:
-        return json.loads(os.environ["HISTORY_JSON"]).get(path, [])
-    out = subprocess.run(["gh", "api", "--paginate", f"repos/{repo}/commits?path={urllib.parse.quote(path)}&sha=main",
-                          "--jq", ".[].author.login"], capture_output=True, text=True, check=True).stdout
-    return [l for l in out.split("\n") if l]
+        return [(e, None) if isinstance(e, str) else (e["login"], e.get("von"))
+                for e in json.loads(os.environ["HISTORY_JSON"]).get(path, [])]
+    liste = []
+    for c in gh_json(f"repos/{repo}/commits?path={urllib.parse.quote(path)}&sha=main"):
+        login = (c.get("author") or {}).get("login") or "null"
+        von = None
+        if ist_bot(login):
+            for seite in gh_json(f"repos/{repo}/commits/{c['sha']}"):
+                for f in seite.get("files", []):
+                    if f.get("filename") == path and f.get("status") == "renamed" and f.get("changes") == 0:
+                        von = f.get("previous_filename")
+        liste.append((login, von))
+    return liste
+
+
+def history(path, repo, tiefe=0):
+    """GitHub-Logins aller Commits, die die Datei auf main berührt haben, Bot-Umbenennungen zurückverfolgt."""
+    logins = []
+    for login, von in commits(path, repo):
+        logins.append(login)
+        if von and tiefe < MAX_UMBENENNUNGEN:
+            logins += history(von, repo, tiefe + 1)
+    return logins
 
 
 def check(files, author, repo):
@@ -43,7 +76,7 @@ def check(files, author, repo):
         if f.get("additions", 0) > MAX_LINES:
             reasons.append(f"{name}: {f.get('additions')} Zeilen, das ist kein einzelner Upload")
         if status == "modified":
-            owners = history(name, repo)
+            owners = [o for o in history(name, repo) if not ist_bot(o)]
             if not owners or any(o != author for o in owners):
                 reasons.append(f"{name}: Datei existiert schon und stammt nicht von {author}. Bitte unter eigenem Namen hochladen")
     return reasons

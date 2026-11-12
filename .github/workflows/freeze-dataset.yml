@@ -1,10 +1,10 @@
 name: Datensatz einfrieren
 
-# Friert den aktuellen Gesamtdatensatz für eine Gruppe ein: Actions > "Datensatz
+# Friert den aktuellen Stand der Uploads für eine Gruppe ein: Actions > "Datensatz
 # einfrieren" > "Run workflow" > Gruppenname. Der Lauf repariert Kopien aller Uploads
 # (scripts/repair-uploads.py) und führt darüber einen eigenen Merge aus, enthält also
-# alles, was in dem Moment in data/student-uploads/ liegt. Originale und Live-Stand
-# bleiben unberührt.
+# alles, was in dem Moment in data/student-uploads/ liegt. Die Originale und der
+# Live-Report data/combined/merge-report.md bleiben unberührt.
 # Ergebnis: data/combined/eingefroren/<gruppe>/ (samt pruefbericht.md).
 # Ein vorhandener Ordner wird nie überschrieben. Danach startet der Workflow
 # „Sollwerte erzeugen“ von selbst, den man bei Bedarf auch einzeln neu starten kann.
@@ -29,7 +29,10 @@ concurrency:
 
 jobs:
   freeze:
-    runs-on: ubuntu-latest
+    # Runner und R-Version fest wie in sollwerte.yml, damit ein Wechsel der R-Version auf GitHub das
+    # Ergebnis nicht unbemerkt ändert. Der Stand hannes entstand noch ohne diese Festlegung (vermutlich
+    # mit R 4.6.2), nachgerechnet mit 4.6.1 ergab er dieselben Dateien.
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
       TZ: Europe/Berlin
@@ -42,9 +45,29 @@ jobs:
           ref: ${{ github.ref_name }}
           fetch-depth: 0
 
+      # Die Installation von R hängt selten minutenlang. Dann bricht der Schritt nach kurzer Zeit ab
+      # und läuft genau einmal neu.
       - name: Set up R
+        id: setup_r
+        timeout-minutes: 3
+        continue-on-error: true
         uses: r-lib/actions/setup-r@v2
         with:
+          r-version: "4.6.1"
+          use-public-rspm: true
+
+      # Ein abgebrochener erster Versuch kann dpkg halb fertig hinterlassen, das räumt dieser Schritt auf
+      - name: Paketverwaltung aufräumen
+        if: steps.setup_r.outcome != 'success'
+        continue-on-error: true
+        timeout-minutes: 2
+        run: sudo dpkg --configure -a || true
+      - name: Set up R (zweiter Versuch)
+        if: steps.setup_r.outcome != 'success'
+        timeout-minutes: 4
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.6.1"
           use-public-rspm: true
 
       - name: Set up Python
@@ -65,18 +88,35 @@ jobs:
       - name: Einfrieren und prüfen
         run: Rscript scripts/freeze-dataset.R "$GRUPPE" "$RUNNER_TEMP/repariert"
 
-      # Nur der neue Ordner wird committet. Der Live-Stand bleibt Sache des Merge-Workflows.
+      # Nur der neue Ordner wird committet. Der Live-Report bleibt Sache des Merge-Workflows.
+      # Bei einem abgelehnten Push wird nicht rebased: Je Versuch kommt der neueste Stand von
+      # main, und der Ordner wird aus dem eigenen Commit darauf gelegt. Liegt dort inzwischen
+      # schon ein Stand der Gruppe, bleibt er unberührt und der Lauf bricht ab.
       - name: Commit frozen dataset
         env:
           BRANCH: ${{ github.ref_name }}
         run: |
+          ordner="data/combined/eingefroren/$GRUPPE"
+          titel="chore(data): Datensatz für Gruppe $GRUPPE eingefroren"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "data/combined/eingefroren/$GRUPPE"
-          git commit -q -m "chore(data): Datensatz für Gruppe $GRUPPE eingefroren"
+          git add -- "$ordner"
+          git commit -q -m "$titel"
+          stand=$(git rev-parse HEAD)
           for i in 1 2 3 4 5; do
-            if git pull -q --rebase origin "$BRANCH" && git push -q origin "HEAD:$BRANCH"; then echo "gepusht (Versuch $i)"; exit 0; fi
-            echo "Push fehlgeschlagen, neuer Versuch"; sleep $((i * 5))
+            if git fetch -q origin "+refs/heads/$BRANCH:refs/remotes/origin/$BRANCH"; then
+              if git cat-file -e "origin/$BRANCH:$ordner" 2>/dev/null; then
+                echo "::error::Auf $BRANCH gibt es inzwischen schon einen Stand für die Gruppe $GRUPPE. Er bleibt unverändert, dieser Lauf schreibt nichts."; exit 1
+              fi
+              git reset -q --hard "origin/$BRANCH"
+              git checkout -q "$stand" -- "$ordner"
+              git commit -q -m "$titel"
+              if git push -q origin "HEAD:$BRANCH"; then echo "gepusht (Versuch $i)"; exit 0; fi
+              echo "Push fehlgeschlagen, neuer Versuch"
+            else
+              echo "Holen fehlgeschlagen, neuer Versuch"
+            fi
+            sleep $((i * 5))
           done
           exit 1
 

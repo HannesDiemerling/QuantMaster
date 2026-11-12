@@ -3,8 +3,18 @@ name: Generate seed datasets (manual)
 # Wird NUR manuell gestartet (Actions-Tab > "Run workflow"). Kein Auto-Trigger.
 # Zweck: Die 10 vorgenerierten Uebungsdatensaetze fuer Tag 1 deterministisch
 # erzeugen, damit die Lehrperson sie vor dem Workshop ins Repo committen kann.
+#
+# Schutz gegen Fehlklick: Der Lauf startet nur mit der Eingabe "NEU ERZEUGEN" und nur,
+# solange in data/student-uploads/ noch keine Uploads liegen. Neue Uebungsdatensaetze
+# und eine neue Referenz in scripts/referenz/ wuerden sonst die Erkennung der
+# Uebungszeilen in allen vorhandenen Uploads veraendern.
 on:
   workflow_dispatch:
+    inputs:
+      bestaetigung:
+        description: "Zur Bestätigung genau NEU ERZEUGEN eintragen. Bricht ab, sobald Uploads vorliegen."
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -12,9 +22,24 @@ permissions:
 jobs:
   generate:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Sicherheitsabfrage
+        env:
+          BESTAETIGUNG: ${{ inputs.bestaetigung }}
+        run: |
+          if [ "$BESTAETIGUNG" != "NEU ERZEUGEN" ]; then
+            echo "::error::Nichts erzeugt. Zum Bestätigen genau NEU ERZEUGEN eintragen (Großbuchstaben, ein Leerzeichen)."; exit 1
+          fi
+          uploads=$(git ls-files -- data/student-uploads | grep -v -x -F -e 'data/student-uploads/README.md' -e 'data/student-uploads/.gitkeep' || true)
+          if [ -n "$uploads" ]; then
+            echo "::error::Nichts erzeugt. In data/student-uploads/ liegen schon Uploads (Anzahl: $(printf '%s\n' "$uploads" | wc -l)). Neue Übungsdatensätze würden die Erkennung der Übungszeilen in diesen Uploads verändern."
+            exit 1
+          fi
+          echo "Keine Uploads vorhanden, Übungsdatensätze werden neu erzeugt."
 
       - name: Set up R
         uses: r-lib/actions/setup-r@v2

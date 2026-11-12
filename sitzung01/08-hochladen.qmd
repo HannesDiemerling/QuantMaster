@@ -5,12 +5,12 @@ Nach diesem Kapitel hast Du …
 
 - die Zeile Deiner fiktiven Person an den bereinigten Datensatz angehängt,
 - die Datei korrekt benannt im Repo hochgeladen,
-- verstanden, wie aus allen Uploads automatisch der Gesamtdatensatz entsteht.
+- verstanden, wie Dein Upload automatisch geprüft wird und wie aus allen Uploads der Gesamtdatensatz entsteht.
 :::
 
 ## Worum es geht
 
-Letzter Schritt heute: Du hängst die Zeile Deiner fiktiven Person an den bereinigten Datensatz an und lädst die Datei ins Repo hoch. Ein GitHub-Workflow kombiniert danach automatisch alle Uploads zum Gesamtdatensatz. Wie das Kombinieren funktioniert und was dabei schiefgehen kann, probierst Du in Sitzung 02 selbst aus.
+Letzter Schritt heute: Du hängst die Zeile Deiner fiktiven Person an den bereinigten Datensatz an und lädst die Datei ins Repo hoch. Ein GitHub-Workflow prüft danach automatisch Deinen Upload und zeigt das Ergebnis im Merge-Report. Vor Sitzung 02 entsteht aus allen Uploads ein fester Gesamtdatensatz für Deine Gruppe. Wie das Kombinieren funktioniert und was dabei schiefgehen kann, probierst Du in Sitzung 02 selbst aus.
 
 ## Schritt 1: Zeile der fiktiven Person anhängen
 
@@ -78,7 +78,7 @@ Du brauchst nur einen Browser und Deinen GitHub-Account, keine zusätzliche Soft
 |---|---|---|
 | **Add file** fehlt, „Upload files“ ist ausgegraut oder GitHub meldet, dass Du keine Schreibrechte hast | Einladung noch nicht angenommen oder abgelaufen | Einladung annehmen (siehe oben). Klappt es nicht, Weg B per Mail |
 | Nur die Option **Create a new branch for this commit and start a pull request** | Du hast doch keine Schreibrechte | Wie oben: Einladung prüfen |
-| Du hast versehentlich **Create a new branch … pull request** gewählt und landest auf einer Seite „Open a pull request“ | Deine Datei liegt noch nicht im Ordner, sondern wartet als Vorschlag | Auf **Create pull request** klicken. Das Repo übernimmt den Vorschlag nach etwa einer Minute automatisch, Du bekommst dazu einen Kommentar. Schließ die Seite nicht vorher |
+| Du hast versehentlich **Create a new branch … pull request** gewählt und landest auf einer Seite „Open a pull request“ | Deine Datei liegt noch nicht im Ordner, sondern wartet als Vorschlag | Auf **Create pull request** klicken, schließ die Seite nicht vorher. Das Repo übernimmt den Vorschlag dann automatisch, Du bekommst dazu einen Kommentar |
 | „Commit failed“ oder eine Fehlermeldung beim Speichern | Gleichzeitig haben viele hochgeladen | Seite neu laden und die Datei noch einmal hochladen |
 | Es gibt schon eine Datei mit Deinem Namen | Du hast schon einmal hochgeladen | Für eine Korrektur einfach unter **demselben Namen** hochladen, GitHub ersetzt die alte Datei |
 
@@ -109,16 +109,18 @@ Der Upload muss spätestens **zwei Tage vor Sitzung 02 Deiner Gruppe** im Repo l
 2. Klick Deine Datei an. Sie sollte mit 10 Zeilen + Headerzeile angezeigt werden.
 3. Schau kurz, ob Demografie und ein paar BFI-Werte stimmen.
 
-Wenn Du einen Fehler entdeckst: korrigiere lokal und lade die Datei erneut hoch (Weg A: gleicher Name → GitHub überschreibt sie; Weg B: neue Mail mit der korrigierten Datei).
+Wenn Du einen Fehler entdeckst: korrigiere lokal und lade die Datei erneut hoch (Weg A: gleicher Name wie im Ordner → GitHub überschreibt sie; Weg B: neue Mail mit der korrigierten Datei).
 
 ## Was nach dem Upload passiert
 
-Jeder Upload startet im Repo-Reiter **Actions** den Workflow *Merge student uploads*. Er dauert 1–2 Minuten und
+Jeder Upload startet im Repo-Reiter **Actions** den Workflow *Merge student uploads*. Er läuft von selbst und
 
 1. liest alle CSV-Dateien aus `data/student-uploads/`, auch falsch benannte (Dateien in anderen Ordnern werden nicht verwendet und stehen mit einem Hinweis im Report),
 2. erkennt die vorgenerierten Zeilen am Inhalt und übernimmt jeden Seed-Datensatz **genau einmal** (in einer Referenz-Bereinigung),
 3. hängt die Zeilen aller fiktiven Personen an und setzt unmögliche Werte auf fehlend,
-4. schreibt `data/combined/m15-gesamt.csv` und den Bericht `data/combined/merge-report.md`.
+4. schreibt den Bericht `data/combined/merge-report.md`.
+
+Eine Datei zum Rechnen entsteht dabei noch nicht. Vor Sitzung 02 wird aus allen Uploads ein fester Stand für Deine Gruppe im Ordner `data/combined/eingefroren/`, mit dem Du ab dann arbeitest.
 
 Im Merge-Report siehst Du für Deine Datei (über Deine Kennziffer) den Status, wie viele Fehler Du gefunden hast (z. B. `2/2`) und eventuelle Hinweise.
 
@@ -128,7 +130,7 @@ Im Merge-Report siehst Du für Deine Datei (über Deine Kennziffer) den Status, 
 2. Datei korrekt benannt hochladen, über GitHub (Weg A) oder per Mail (Weg B).
 3. Im Repo prüfen, dass Deine Datei dort liegt und die Zeilenzahl stimmt.
 4. Vor dem Upload: Stimmen die Reverse-Items Deiner fiktiven Person? Rechne eins nach (z. B. angekreuzt 2 → eingetragen 4).
-5. Nach ein paar Minuten den [Merge-Report]({{< meta kurs.repo >}}/blob/main/data/combined/merge-report.md) öffnen: Such dort nach Deiner **Kennziffer**. Steht bei Deiner Datei Status „ok“ und bei „Fehler gefunden“ 2/2? Dann ist alles gut. Hinweise zu Dateiname oder Trennzeichen sind unkritisch. Bei IGNORIERT oder PRÜFEN korrigieren und unter **demselben Dateinamen** erneut hochladen. Bei DOPPELT gibt es Deine Kennziffer in zwei Dateien. Sind beide von Dir, lösch die mit dem falschen oder älteren Namen (Datei anklicken → „…“ oben rechts → *Delete file* → *Commit changes*). Ist eine davon nicht von Dir oder hast Du per Mail hochgeladen, sag der Lehrperson Bescheid. Wenn gerade viele gleichzeitig hochladen, kann es etwas länger dauern, bis Deine Datei im Report auftaucht.
+5. Etwas später den [Merge-Report]({{< meta kurs.repo >}}/blob/main/data/combined/merge-report.md) öffnen: Such dort nach Deiner **Kennziffer**. Steht bei Deiner Datei Status „ok“ und bei „Fehler gefunden“ 2/2? Dann ist alles gut, ebenso bei Status „umgewandelt“. Hinweise zu Dateiname oder Trennzeichen sind unkritisch. Bei IGNORIERT oder PRÜFEN folge dem Hinweis in Deiner Zeile. Meist korrigierst Du die Datei und lädst sie unter dem Namen erneut hoch, unter dem sie im Report steht (bei einer .jasp-, .xlsx- oder .numbers-Datei nennt der Hinweis den Namen der .csv). Bei DOPPELT gibt es Deine Kennziffer in zwei Dateien. Sind beide von Dir, lösch die ältere (Datei anklicken → „…“ oben rechts → *Delete file* → *Commit changes*). Ist eine davon nicht von Dir oder hast Du per Mail hochgeladen, sag der Lehrperson Bescheid. Wenn gerade viele gleichzeitig hochladen, kann es etwas länger dauern, bis Deine Datei im Report auftaucht.
 
 ::: {.callout-tip title="Für die nächsten Sitzungen"}
 Notiere Kennziffer, Datensatznummer und Dateinamen. Heute gibt es keine Abgabe, ab Sitzung 02 brauchst Du sie aber wieder.
