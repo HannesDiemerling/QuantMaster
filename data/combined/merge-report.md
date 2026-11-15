@@ -1,6 +1,6 @@
 # Merge-Report
 
-Automatisch erzeugt von `scripts/merge-uploads.R` am 12.11.2026 17:51.
+Automatisch erzeugt von `scripts/merge-uploads.R` am 15.11.2026 20:47.
 
 **Stand der Uploads:** 112 Zeilen (90 vorgeneriert aus 10 Datensätzen, 22 fiktive Personen). Den Datensatz zum Rechnen findest Du im Ordner Deiner Gruppe unter [`data/combined/eingefroren/`](eingefroren/). Der Ordner entsteht, sobald der Stand Deiner Gruppe eingefroren ist.
 
@@ -46,4 +46,5 @@ Suche Deine Datei über Deine **Kennziffer** (die letzten 6 Ziffern Deiner Matri
 | `data/student-uploads/datensatz-07-31014.numbers` | 261831014 | umgewandelt | – | 0 | – | – | keine CSV-Datei, ist in einem eingefrorenen Stand enthalten und wird beim Einfrieren automatisch umgewandelt. Nichts zu tun | la03-m |
 | `data/student-uploads/datensatz-08-817.jasp` | 261831017 | umgewandelt | – | 0 | – | – | keine CSV-Datei, ist in einem eingefrorenen Stand enthalten und wird beim Einfrieren automatisch umgewandelt. Nichts zu tun | svenjaschmidt1312 |
 | `data/student-uploads/datensatz-10-261831036.xlsx` | 261831036 | umgewandelt | – | 0 | – | – | keine CSV-Datei, ist in einem eingefrorenen Stand enthalten und wird beim Einfrieren automatisch umgewandelt. Nichts zu tun | luciamexeses-cyber |
+| `data/student-uploads/datensatz-10-831010.jasp` | 831010 | IGNORIERT | – | 0 | – | – | keine CSV-Datei. In JASP: File → Export Data als CSV und als `datensatz-10-831010.csv` hochladen | disel-hub |
 | `data/student-uploads/datensatz07_261831031.jasp` | 261831031 | umgewandelt | – | 0 | – | – | keine CSV-Datei, ist in einem eingefrorenen Stand enthalten und wird beim Einfrieren automatisch umgewandelt. Nichts zu tun | janinakilian |
