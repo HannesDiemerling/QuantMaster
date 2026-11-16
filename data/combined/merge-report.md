@@ -1,6 +1,6 @@
 # Merge-Report
 
-Automatisch erzeugt von `scripts/merge-uploads.R` am 15.11.2026 20:47.
+Automatisch erzeugt von `scripts/merge-uploads.R` am 16.11.2026 21:54.
 
 **Stand der Uploads:** 112 Zeilen (90 vorgeneriert aus 10 Datensätzen, 22 fiktive Personen). Den Datensatz zum Rechnen findest Du im Ordner Deiner Gruppe unter [`data/combined/eingefroren/`](eingefroren/). Der Ordner entsteht, sobald der Stand Deiner Gruppe eingefroren ist.
 
@@ -18,6 +18,7 @@ Suche Deine Datei über Deine **Kennziffer** (die letzten 6 Ziffern Deiner Matri
 | `data/student-uploads/datensatz-01-831011.csv` | 831011 | ok | 01 | 1 | 2/2 | 0 | – | amelieawhmu |
 | `data/student-uploads/datensatz-02-261831037.csv` | – | PRÜFEN | 02 | 0 | 2/2 | 0 | Trennzeichen ';' statt Komma; nur 7 von 9 Seed-Zeilen; keine Zeile einer fiktiven Person gefunden | lisasophierabe |
 | `data/student-uploads/datensatz-02-31009.csv` | 231831009 | ok | 02 | 1 | 2/2 | 0 | – | HannesDiemerling (für andere hochgeladen) |
+| `data/student-uploads/datensatz-02-831032.csv` | – | IGNORIERT | – | 0 | – | – | CSV konnte nicht gelesen werden | gumkehr |
 | `data/student-uploads/datensatz-03-261831038.csv` | 261831038 | ok | 03 | 1 | 2/2 | 0 | – | b9fcy2z6m8-creator |
 | `data/student-uploads/datensatz-03-31005.csv` | 261831005 | ok | 03 | 1 | 2/2 | 0 | – | claudiabirkle |
 | `data/student-uploads/datensatz-03-831023.csv` | 831023 | ok | 03 | 1 | 2/2 | 0 | – | Lene26 |
