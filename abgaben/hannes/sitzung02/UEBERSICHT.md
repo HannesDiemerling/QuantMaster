@@ -1,12 +1,13 @@
 # Übersicht Gruppe hannes, Sitzung 02
 
-Prüfstand: Version 1 der Sollwerte. Abgaben: 16.
+Prüfstand: Version 1 der Sollwerte. Abgaben: 17.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
 | 1002 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 12:57 | 1 | Clara Rummler | über Konto zugeordnet zu 261831002 |
 | 1003 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 13:03 | 1 | theresaschwanebeck | über Konto zugeordnet zu 261831003 |
 | 261831001 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 12:46 | 3 | NadineRittmeier |   |
+| 261831006 | 10 | 1 | 0 | 0 | 1/1 | 16.11.2026, 14:00 (nach dem Sitzungstag) | 1 | MariaZimara |   |
 | 261831012 | 10 | 1 | 0 | 0 | 1/1 | 16.11.2026, 13:58 (nach dem Sitzungstag) | 1 | kemismudzinski |   |
 | 261831013 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 12:53 | 3 | MiriamLebert |   |
 | 261831018 | 11 | 0 | 0 | 0 | 1/1 | 11.11.2026, 14:35 | 1 | Tommytrn02 |   |
@@ -30,6 +31,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 16.
 | 1002 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 1003 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831001 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 261831006 | ~ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831012 | ~ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831013 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831018 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
@@ -46,17 +48,17 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 16.
 
 | Feld | Frage | Treffer |
 |---|---|---|
-| S02-2 | Zeilen in m15-gesamt.csv | 15 von 16 |
-| S02-3 | Davon Zeilen mit quelle = studierende | 15 von 16 |
-| S02-4 | Anzahl Personen mit geschlecht = 1 | 16 von 16 |
-| S02-5 | Mittelwert alter | 16 von 16 |
-| S02-6 | SD alter | 16 von 16 |
-| S02-7 | Median alter | 16 von 16 |
-| S02-8 | IQR alter | 16 von 16 |
-| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 16 von 16 |
-| S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 16 von 16 |
-| S02-11 | Mittelwert BFI&#95;06 | 16 von 16 |
-| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 16 von 16 |
+| S02-2 | Zeilen in m15-gesamt.csv | 15 von 17 |
+| S02-3 | Davon Zeilen mit quelle = studierende | 16 von 17 |
+| S02-4 | Anzahl Personen mit geschlecht = 1 | 17 von 17 |
+| S02-5 | Mittelwert alter | 17 von 17 |
+| S02-6 | SD alter | 17 von 17 |
+| S02-7 | Median alter | 17 von 17 |
+| S02-8 | IQR alter | 17 von 17 |
+| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 17 von 17 |
+| S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 17 von 17 |
+| S02-11 | Mittelwert BFI&#95;06 | 17 von 17 |
+| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 17 von 17 |
 
 ## Details je Kennziffer
 
@@ -123,6 +125,26 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S02-11 | Mittelwert BFI&#95;06 | 3.02 | ✓ richtig |
 | S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 5 | ✓ richtig |
 | S02-13 | Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/n… | Nein, die Punkte weichen vor allem im oberen Bereich deutlich von der Diagonalen ab. | liest Deine Lehrperson |
+
+</details>
+
+<details><summary><b>261831006</b>: 10 von 11 richtig</summary>
+
+| Feld | Frage | Abgabe | Ergebnis |
+|---|---|---|---|
+| S02-1 | Datenzeilen in Deiner selbst kombinierten Datei (ohne Kopfz… | 120 | ~ unplausibel |
+| S02-2 | Zeilen in m15-gesamt.csv | 121 | ✗ falsch |
+| S02-3 | Davon Zeilen mit quelle = studierende | 30 | ✓ richtig |
+| S02-4 | Anzahl Personen mit geschlecht = 1 | 71 | ✓ richtig |
+| S02-5 | Mittelwert alter | 29.23 | ✓ richtig |
+| S02-6 | SD alter | 8.19 | ✓ richtig |
+| S02-7 | Median alter | 27.00 | ✓ richtig |
+| S02-8 | IQR alter | 10.00 | ✓ richtig |
+| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 1.571 | ✓ richtig |
+| S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 3 | ✓ richtig |
+| S02-11 | Mittelwert BFI&#95;06 | 3.02 | ✓ richtig |
+| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 5 | ✓ richtig |
+| S02-13 | Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/n… | Nein. Es liegen viele auf der Diagonale, aber nicht alle. | liest Deine Lehrperson |
 
 </details>
 
