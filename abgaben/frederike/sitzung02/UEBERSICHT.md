@@ -1,6 +1,6 @@
 # Übersicht Gruppe frederike, Sitzung 02
 
-Prüfstand: Version 1 der Sollwerte. Abgaben: 20.
+Prüfstand: Version 1 der Sollwerte. Abgaben: 21.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
@@ -8,6 +8,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 20.
 | 831010 | 11 | 0 | 0 | 1 | 1/1 | 17.11.2026, 15:53 | 1 | disel-hub |   |
 | 831011 | 11 | 0 | 0 | 0 | 1/1 | 17.11.2026, 15:27 | 1 | amelieawhmu |   |
 | 831016 | 11 | 0 | 0 | 0 | 1/1 | 17.11.2026, 16:01 | 1 | nigrin170 |   |
+| 831019 |   |   |   |   |   | 17.11.2026, 17:07 | 1 | Lehrperson | Kennziffer nicht im Stand; Datei ist kein Text (z. B. Word oder PDF) |
 | 831020 | 11 | 0 | 0 | 0 | 1/1 | 17.11.2026, 15:28 | 1 | michellekhl |   |
 | 831021 | 11 | 0 | 0 | 0 | 1/1 | 17.11.2026, 15:31 | 1 | larapff | über Konto zugeordnet zu 831024 |
 | 831022 | 11 | 0 | 0 | 0 | 1/1 | 17.11.2026, 15:23 | 1 | jakobschmidt7 | Sitzungsordner fehlt; Kennziffer nicht im Stand |
@@ -148,6 +149,11 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S02-11 | Mittelwert BFI&#95;06 | 3.02 | ✓ richtig |
 | S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 5 | ✓ richtig |
 | S02-13 | Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/n… | Ein Teil der Datenpunkte liegt überhalb der Geraden | liest Deine Lehrperson |
+
+</details>
+
+<details><summary><b>831019</b>: 0 von 0 richtig</summary>
+
 
 </details>
 
