@@ -1,6 +1,6 @@
 # Übersicht Gruppe frederike, Sitzung 02
 
-Prüfstand: Version 1 der Sollwerte. Abgaben: 13.
+Prüfstand: Version 1 der Sollwerte. Abgaben: 14.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
@@ -15,6 +15,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 13.
 | 831029 | 9 | 0 | 0 | 3 | 1/1 | 17.11.2026, 15:27 | 1 | melinaahke |   |
 | 831033 | 10 | 1 | 0 | 0 | 1/1 | 17.11.2026, 15:28 | 1 | ampfeil |   |
 | 831034 | 11 | 0 | 0 | 0 | 1/1 | 17.11.2026, 15:25 | 1 | BenjaminKaempfer |   |
+| 831039 | 10 | 1 | 0 | 0 | 1/1 | 17.11.2026, 15:28 | 1 | 831039melina | Kennziffer nicht im Stand |
 | 831040 | 8 | 3 | 0 | 0 | 1/1 | 17.11.2026, 15:28 | 1 | Tobiaseckelmann |   |
 | Abgabe test | 0 | 0 | 5 | 7 | 0/1 | 17.11.2026, 15:23 | 1 | Lehrperson | keine Kennziffer im Dateinamen |
 
@@ -35,23 +36,24 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 13.
 | 831029 | ? | ? | ? | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831033 | ~ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831034 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 831039 | ~ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831040 | ~ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ | T |
 | Abgabe test | ? | ? | ? | ? | ? | ? | ? | – | – | – | – | – | – |
 
 | Feld | Frage | Treffer |
 |---|---|---|
 | S02-1 | Datenzeilen in Deiner selbst kombinierten Datei (ohne Kopfzeile) | 0 von 3 |
-| S02-2 | Zeilen in m15-gesamt.csv | 10 von 13 |
-| S02-3 | Davon Zeilen mit quelle = studierende | 8 von 13 |
-| S02-4 | Anzahl Personen mit geschlecht = 1 | 12 von 13 |
-| S02-5 | Mittelwert alter | 11 von 13 |
-| S02-6 | SD alter | 12 von 13 |
-| S02-7 | Median alter | 11 von 13 |
-| S02-8 | IQR alter | 12 von 13 |
-| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 12 von 13 |
-| S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 12 von 13 |
-| S02-11 | Mittelwert BFI&#95;06 | 11 von 13 |
-| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 11 von 13 |
+| S02-2 | Zeilen in m15-gesamt.csv | 10 von 14 |
+| S02-3 | Davon Zeilen mit quelle = studierende | 9 von 14 |
+| S02-4 | Anzahl Personen mit geschlecht = 1 | 13 von 14 |
+| S02-5 | Mittelwert alter | 12 von 14 |
+| S02-6 | SD alter | 13 von 14 |
+| S02-7 | Median alter | 12 von 14 |
+| S02-8 | IQR alter | 13 von 14 |
+| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 13 von 14 |
+| S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 13 von 14 |
+| S02-11 | Mittelwert BFI&#95;06 | 12 von 14 |
+| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 12 von 14 |
 
 ## Details je Kennziffer
 
@@ -278,6 +280,26 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S02-11 | Mittelwert BFI&#95;06 | 3.03 | ✓ richtig |
 | S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 5 | ✓ richtig |
 | S02-13 | Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/n… | nein, viele der Daten sind links von der Diagonalen, es gibt ein paar eindeutige Ausreißer. | liest Deine Lehrperson |
+
+</details>
+
+<details><summary><b>831039</b>: 10 von 11 richtig</summary>
+
+| Feld | Frage | Abgabe | Ergebnis |
+|---|---|---|---|
+| S02-1 | Datenzeilen in Deiner selbst kombinierten Datei (ohne Kopfz… | 70 | ~ plausibel |
+| S02-2 | Zeilen in m15-gesamt.csv | 123 | ✗ falsch |
+| S02-3 | Davon Zeilen mit quelle = studierende | 32 | ✓ richtig |
+| S02-4 | Anzahl Personen mit geschlecht = 1 | 73 | ✓ richtig |
+| S02-5 | Mittelwert alter | 29.24 | ✓ richtig |
+| S02-6 | SD alter | 8.13 | ✓ richtig |
+| S02-7 | Median alter | 27.00 | ✓ richtig |
+| S02-8 | IQR alter | 9.50 | ✓ richtig |
+| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 1.575 | ✓ richtig |
+| S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 3 | ✓ richtig |
+| S02-11 | Mittelwert BFI&#95;06 | 3.03 | ✓ richtig |
+| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 5 | ✓ richtig |
+| S02-13 | Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/n… | ja, die meisten Daten liegen auf der Diagonalen. Es gibt aber ausreißer, so dass es nicht richtig normalverteilt ist | liest Deine Lehrperson |
 
 </details>
 
