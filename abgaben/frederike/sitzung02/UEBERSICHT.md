@@ -1,12 +1,13 @@
 # Übersicht Gruppe frederike, Sitzung 02
 
-Prüfstand: Version 1 der Sollwerte. Abgaben: 14.
+Prüfstand: Version 1 der Sollwerte. Abgaben: 15.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
 | 831008 | 11 | 0 | 0 | 1 | 1/1 | 17.11.2026, 15:22 | 1 | HB0412 |   |
 | 831011 | 11 | 0 | 0 | 0 | 1/1 | 17.11.2026, 15:27 | 1 | amelieawhmu |   |
 | 831020 | 11 | 0 | 0 | 0 | 1/1 | 17.11.2026, 15:28 | 1 | michellekhl |   |
+| 831021 | 11 | 0 | 0 | 0 | 1/1 | 17.11.2026, 15:31 | 1 | larapff | über Konto zugeordnet zu 831024 |
 | 831022 | 11 | 0 | 0 | 0 | 1/1 | 17.11.2026, 15:23 | 1 | jakobschmidt7 | Sitzungsordner fehlt; Kennziffer nicht im Stand |
 | 831024 | 11 | 0 | 0 | 0 | 1/1 | 17.11.2026, 15:27 | 1 | larapff |   |
 | 831025 | 10 | 1 | 0 | 0 | 1/1 | 17.11.2026, 15:28 | 1 | luise2205 |   |
@@ -28,6 +29,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 14.
 | 831008 | ? | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831011 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831020 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 831021 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831022 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831024 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831025 | ~ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
@@ -43,17 +45,17 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 14.
 | Feld | Frage | Treffer |
 |---|---|---|
 | S02-1 | Datenzeilen in Deiner selbst kombinierten Datei (ohne Kopfzeile) | 0 von 3 |
-| S02-2 | Zeilen in m15-gesamt.csv | 10 von 14 |
-| S02-3 | Davon Zeilen mit quelle = studierende | 9 von 14 |
-| S02-4 | Anzahl Personen mit geschlecht = 1 | 13 von 14 |
-| S02-5 | Mittelwert alter | 12 von 14 |
-| S02-6 | SD alter | 13 von 14 |
-| S02-7 | Median alter | 12 von 14 |
-| S02-8 | IQR alter | 13 von 14 |
-| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 13 von 14 |
-| S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 13 von 14 |
-| S02-11 | Mittelwert BFI&#95;06 | 12 von 14 |
-| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 12 von 14 |
+| S02-2 | Zeilen in m15-gesamt.csv | 11 von 15 |
+| S02-3 | Davon Zeilen mit quelle = studierende | 10 von 15 |
+| S02-4 | Anzahl Personen mit geschlecht = 1 | 14 von 15 |
+| S02-5 | Mittelwert alter | 13 von 15 |
+| S02-6 | SD alter | 14 von 15 |
+| S02-7 | Median alter | 13 von 15 |
+| S02-8 | IQR alter | 14 von 15 |
+| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 14 von 15 |
+| S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 14 von 15 |
+| S02-11 | Mittelwert BFI&#95;06 | 13 von 15 |
+| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 13 von 15 |
 
 ## Details je Kennziffer
 
@@ -116,6 +118,28 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S02-11 | Mittelwert BFI&#95;06 | 3.02 | ✓ richtig |
 | S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 5 | ✓ richtig |
 | S02-13 | Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/n… | nein, ein Teil der Punkte liegt oberhalb der Linie. Statt einer Gerade sieht man eine Kurve, was bedeutet, dass das Alter keiner Normalverteilung folgt. | liest Deine Lehrperson |
+
+</details>
+
+<details><summary><b>831021</b>: 11 von 11 richtig</summary>
+
+| Feld | Frage | Abgabe | Ergebnis |
+|---|---|---|---|
+| S02-1 | Datenzeilen in Deiner selbst kombinierten Datei (ohne Kopfz… | 70 | ~ plausibel |
+| S02-2 | Zeilen in m15-gesamt.csv | 122 | ✓ richtig |
+| S02-3 | Davon Zeilen mit quelle = studierende | 32 | ✓ richtig |
+| S02-4 | Anzahl Personen mit geschlecht = 1 | 73 | ✓ richtig |
+| S02-5 | Mittelwert alter | 29.24 | ✓ richtig |
+| S02-6 | SD alter | 8.13 | ✓ richtig |
+| S02-7 | Median alter | 27.00 | ✓ richtig |
+| S02-8 | IQR alter | 9.50 | ✓ richtig |
+| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 1.575 | ✓ richtig |
+| S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 3 | ✓ richtig |
+| S02-11 | Mittelwert BFI&#95;06 | 3.03 | ✓ richtig |
+| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 5 | ✓ richtig |
+| S02-13 | Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/n… | nein, ein Teil der Datenpunkte liegt oberhalb oder unterhalb der Geraden. Das Alter ist daher nicht normal verteilt. | liest Deine Lehrperson |
+
+- Die Kennziffer im Dateinamen steht nicht im Stand Deiner Gruppe. Über Dein GitHub-Konto gehört zu Dir die Kennziffer 831024, darüber wurde Deine Abgabe zugeordnet. Du kannst bei Deiner Nummer bleiben.
 
 </details>
 
