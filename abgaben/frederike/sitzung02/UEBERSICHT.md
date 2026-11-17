@@ -1,12 +1,13 @@
 # Übersicht Gruppe frederike, Sitzung 02
 
-Prüfstand: Version 1 der Sollwerte. Abgaben: 4.
+Prüfstand: Version 1 der Sollwerte. Abgaben: 5.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
 | 831008 | 11 | 0 | 0 | 1 | 1/1 | 17.11.2026, 15:22 | 1 | HB0412 |   |
 | 831022 | 11 | 0 | 0 | 0 | 1/1 | 17.11.2026, 15:23 | 1 | jakobschmidt7 | Sitzungsordner fehlt; Kennziffer nicht im Stand |
 | 831028 | 9 | 1 | 0 | 1 | 1/1 | 17.11.2026, 15:22 | 1 | PaulinaSchaubert | über Konto zugeordnet zu 10 |
+| 831034 | 11 | 0 | 0 | 0 | 1/1 | 17.11.2026, 15:25 | 1 | BenjaminKaempfer |   |
 | Abgabe test | 0 | 0 | 5 | 7 | 0/1 | 17.11.2026, 15:23 | 1 | Lehrperson | keine Kennziffer im Dateinamen |
 
 ## Felder im Überblick
@@ -18,22 +19,23 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 4.
 | 831008 | ? | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831022 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831028 | ~ | ✓ | ✓ | ✓ | ✗ | ✓ | ? | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 831034 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | Abgabe test | ? | ? | ? | ? | ? | ? | ? | – | – | – | – | – | – |
 
 | Feld | Frage | Treffer |
 |---|---|---|
 | S02-1 | Datenzeilen in Deiner selbst kombinierten Datei (ohne Kopfzeile) | 0 von 2 |
-| S02-2 | Zeilen in m15-gesamt.csv | 3 von 4 |
-| S02-3 | Davon Zeilen mit quelle = studierende | 3 von 4 |
-| S02-4 | Anzahl Personen mit geschlecht = 1 | 3 von 4 |
-| S02-5 | Mittelwert alter | 2 von 4 |
-| S02-6 | SD alter | 3 von 4 |
-| S02-7 | Median alter | 2 von 4 |
-| S02-8 | IQR alter | 3 von 4 |
-| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 3 von 4 |
-| S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 3 von 4 |
-| S02-11 | Mittelwert BFI&#95;06 | 3 von 4 |
-| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 3 von 4 |
+| S02-2 | Zeilen in m15-gesamt.csv | 4 von 5 |
+| S02-3 | Davon Zeilen mit quelle = studierende | 4 von 5 |
+| S02-4 | Anzahl Personen mit geschlecht = 1 | 4 von 5 |
+| S02-5 | Mittelwert alter | 3 von 5 |
+| S02-6 | SD alter | 4 von 5 |
+| S02-7 | Median alter | 3 von 5 |
+| S02-8 | IQR alter | 4 von 5 |
+| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 4 von 5 |
+| S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 4 von 5 |
+| S02-11 | Mittelwert BFI&#95;06 | 4 von 5 |
+| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 4 von 5 |
 
 ## Details je Kennziffer
 
@@ -100,6 +102,26 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S02-13 | Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/n… | nein, die Punkte weichen insbesondere bei höherem Alter deutlich von den Diagonalen ab, was gegen eine Annäherung spricht | liest Deine Lehrperson |
 
 - Die Kennziffer im Dateinamen steht nicht im Stand Deiner Gruppe. Über Dein GitHub-Konto gehört zu Dir die Kennziffer 10, darüber wurde Deine Abgabe zugeordnet. Du kannst bei Deiner Nummer bleiben.
+
+</details>
+
+<details><summary><b>831034</b>: 11 von 11 richtig</summary>
+
+| Feld | Frage | Abgabe | Ergebnis |
+|---|---|---|---|
+| S02-1 | Datenzeilen in Deiner selbst kombinierten Datei (ohne Kopfz… | 69 | ~ unplausibel |
+| S02-2 | Zeilen in m15-gesamt.csv | 122 | ✓ richtig |
+| S02-3 | Davon Zeilen mit quelle = studierende | 32 | ✓ richtig |
+| S02-4 | Anzahl Personen mit geschlecht = 1 | 73 | ✓ richtig |
+| S02-5 | Mittelwert alter | 29.24 | ✓ richtig |
+| S02-6 | SD alter | 8.13 | ✓ richtig |
+| S02-7 | Median alter | 27.00 | ✓ richtig |
+| S02-8 | IQR alter | 9.50 | ✓ richtig |
+| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 1.575 | ✓ richtig |
+| S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 3 | ✓ richtig |
+| S02-11 | Mittelwert BFI&#95;06 | 3.03 | ✓ richtig |
+| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 5 | ✓ richtig |
+| S02-13 | Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/n… | nein, viele der Daten sind links von der Diagonalen, es gibt ein paar eindeutige Ausreißer. | liest Deine Lehrperson |
 
 </details>
 
