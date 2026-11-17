@@ -1,6 +1,6 @@
 # Übersicht Gruppe frederike, Sitzung 02
 
-Prüfstand: Version 1 der Sollwerte. Abgaben: 21.
+Prüfstand: Version 1 der Sollwerte. Abgaben: 22.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
@@ -22,6 +22,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 21.
 | 831032 | 11 | 0 | 0 | 0 | 1/1 | 17.11.2026, 16:02 | 1 | gumkehr |   |
 | 831033 | 10 | 1 | 0 | 0 | 1/1 | 17.11.2026, 15:28 | 1 | ampfeil |   |
 | 831034 | 11 | 0 | 0 | 0 | 1/1 | 17.11.2026, 15:25 | 1 | BenjaminKaempfer |   |
+| 831035 |   |   |   |   |   | 17.11.2026, 17:09 | 1 | Lehrperson | Datei ist kein Text (z. B. Word oder PDF) |
 | 831039 | 10 | 1 | 0 | 0 | 1/1 | 17.11.2026, 15:28 | 1 | 831039melina | Kennziffer nicht im Stand |
 | 831040 | 8 | 3 | 0 | 0 | 1/1 | 17.11.2026, 15:28 | 1 | Tobiaseckelmann |   |
 | Abgabe test | 0 | 0 | 5 | 7 | 0/1 | 17.11.2026, 15:23 | 1 | Lehrperson | keine Kennziffer im Dateinamen |
@@ -422,6 +423,11 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S02-11 | Mittelwert BFI&#95;06 | 3.03 | ✓ richtig |
 | S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 5 | ✓ richtig |
 | S02-13 | Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/n… | nein, viele der Daten sind links von der Diagonalen, es gibt ein paar eindeutige Ausreißer. | liest Deine Lehrperson |
+
+</details>
+
+<details><summary><b>831035</b>: 0 von 0 richtig</summary>
+
 
 </details>
 
