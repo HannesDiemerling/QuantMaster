@@ -1,0 +1,13 @@
+S02-1: 47
+S02-2: 122
+S02-3: 32
+S02-4: 73
+S02-5: 29,24
+S02-6: 8,13
+S02-7: 27
+S02-8: 9,5
+S02-9: 1,575
+S02-10: 3
+S02-11: 3,02
+S02-12: 5
+S02-13: Nein, die Punkte weichen insbesondere bei höheren Alterswerten deutlich von der Diagonalen ab, was gegen eine annähernde Normalverteilung des Alters spricht.
