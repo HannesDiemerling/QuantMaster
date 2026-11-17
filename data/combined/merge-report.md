@@ -1,8 +1,8 @@
 # Merge-Report
 
-Automatisch erzeugt von `scripts/merge-uploads.R` am 16.11.2026 21:54.
+Automatisch erzeugt von `scripts/merge-uploads.R` am 17.11.2026 13:44.
 
-**Stand der Uploads:** 112 Zeilen (90 vorgeneriert aus 10 Datensätzen, 22 fiktive Personen). Den Datensatz zum Rechnen findest Du im Ordner Deiner Gruppe unter [`data/combined/eingefroren/`](eingefroren/). Der Ordner entsteht, sobald der Stand Deiner Gruppe eingefroren ist.
+**Stand der Uploads:** 113 Zeilen (90 vorgeneriert aus 10 Datensätzen, 23 fiktive Personen). Den Datensatz zum Rechnen findest Du im Ordner Deiner Gruppe unter [`data/combined/eingefroren/`](eingefroren/). Der Ordner entsteht, sobald der Stand Deiner Gruppe eingefroren ist.
 
 Vorgenerierte Zeilen gehen in der Referenz-Bereinigung ein (Fehlerzellen leer, doppelte Probandennummer korrigiert), unabhängig davon, wie sie in den Uploads bereinigt wurden.
 
@@ -25,9 +25,10 @@ Suche Deine Datei über Deine **Kennziffer** (die letzten 6 Ziffern Deiner Matri
 | `data/student-uploads/datensatz-03-831033.csv` | 831033 | ok | 03 | 1 | 2/2 | 0 | Zusatzspalten ignoriert: column 26, column 27, column 28, column 29, column 30, column 31, column 32; nur 8 von 9 Seed-Zeilen | ampfeil |
 | `data/student-uploads/datensatz-04-31006.csv` | 261831006 | ok | 04 | 1 | 2/2 | 0 | – | MariaZimara |
 | `data/student-uploads/datensatz-04-831024.csv` | 831024 | ok | 04 | 1 | 2/2 | 0 | – | larapff |
-| `data/student-uploads/datensatz-04-831034.csv` | 831034 | ok | 04 | 1 | 2/2 | 0 | – | BenjaminKaempfer |
+| `data/student-uploads/datensatz-04-831034.csv` | 831034 | ok | 04 | 1 | 2/2 | 0 | dieses Konto hat mehrere Kennziffern, siehe „Bitte ansehen“ | BenjaminKaempfer |
 | `data/student-uploads/datensatz-04-831040.csv` | 831040 | ok | 04 | 1 | 2/2 | 0 | – | Tobiaseckelmann |
 | `data/student-uploads/datensatz-05-831025.csv` | 831025 | ok | 05 | 1 | 2/2 | 0 | nur 8 von 9 Seed-Zeilen | luise2205 |
+| `data/student-uploads/datensatz-05-831035.csv` | 831035 | ok | 05 | 1 | 2/2 | 0 | dieses Konto hat mehrere Kennziffern, siehe „Bitte ansehen“ | BenjaminKaempfer |
 | `data/student-uploads/datensatz-06-31013.csv` | – | IGNORIERT | – | 0 | – | – | Spalten fehlen: probandennummer, geschlecht, alter, bildungsgrad, BFI_01 (Kopfzeile fehlt oder Trennzeichen gemischt? Datei im Texteditor prüfen) | HannesDiemerling (für andere hochgeladen) |
 | `data/student-uploads/datensatz-06-831026.csv` | 1831026 | ok | 06 | 1 | 2/2 | 0 | – | lenemarieweinert |
 | `data/student-uploads/datensatz-07-831007.csv` | 831007 | ok | 07 | 1 | 2/2 | 1 | – | chiaralorenzhmu07 |
@@ -42,10 +43,14 @@ Suche Deine Datei über Deine **Kennziffer** (die letzten 6 Ziffern Deiner Matri
 | `data/student-uploads/datensatz-04-1002.jasp` | 261831002 | umgewandelt | – | 0 | – | – | keine CSV-Datei, ist in einem eingefrorenen Stand enthalten und wird beim Einfrieren automatisch umgewandelt. Nichts zu tun | Clara Rummler |
 | `data/student-uploads/datensatz-05-1003.jasp` | 261831003 | umgewandelt | – | 0 | – | – | keine CSV-Datei, ist in einem eingefrorenen Stand enthalten und wird beim Einfrieren automatisch umgewandelt. Nichts zu tun | theresaschwanebeck |
 | `data/student-uploads/datensatz-05-26183.numbers` | 261831012 | umgewandelt | – | 0 | – | – | keine CSV-Datei, ist in einem eingefrorenen Stand enthalten und wird beim Einfrieren automatisch umgewandelt. Nichts zu tun | kemismudzinski |
-| `data/student-uploads/datensatz-06-831016.csv.jasp` | 831016 | IGNORIERT | – | 0 | – | – | keine CSV-Datei. In JASP: File → Export Data als CSV und als `datensatz-06-831016.csv` hochladen | nigrin170 |
+| `data/student-uploads/datensatz-06-831016.csv.jasp` | 831016 | umgewandelt | – | 0 | – | – | keine CSV-Datei, ist in einem eingefrorenen Stand enthalten und wird beim Einfrieren automatisch umgewandelt. Nichts zu tun | nigrin170 |
 | `data/student-uploads/datensatz-06_1018.numbers` | 261831018 | umgewandelt | – | 0 | – | – | keine CSV-Datei, ist in einem eingefrorenen Stand enthalten und wird beim Einfrieren automatisch umgewandelt. Nichts zu tun | Tommytrn02 |
 | `data/student-uploads/datensatz-07-31014.numbers` | 261831014 | umgewandelt | – | 0 | – | – | keine CSV-Datei, ist in einem eingefrorenen Stand enthalten und wird beim Einfrieren automatisch umgewandelt. Nichts zu tun | la03-m |
 | `data/student-uploads/datensatz-08-817.jasp` | 261831017 | umgewandelt | – | 0 | – | – | keine CSV-Datei, ist in einem eingefrorenen Stand enthalten und wird beim Einfrieren automatisch umgewandelt. Nichts zu tun | svenjaschmidt1312 |
 | `data/student-uploads/datensatz-10-261831036.xlsx` | 261831036 | umgewandelt | – | 0 | – | – | keine CSV-Datei, ist in einem eingefrorenen Stand enthalten und wird beim Einfrieren automatisch umgewandelt. Nichts zu tun | luciamexeses-cyber |
 | `data/student-uploads/datensatz-10-831010.jasp` | 831010 | IGNORIERT | – | 0 | – | – | keine CSV-Datei. In JASP: File → Export Data als CSV und als `datensatz-10-831010.csv` hochladen | disel-hub |
 | `data/student-uploads/datensatz07_261831031.jasp` | 261831031 | umgewandelt | – | 0 | – | – | keine CSV-Datei, ist in einem eingefrorenen Stand enthalten und wird beim Einfrieren automatisch umgewandelt. Nichts zu tun | janinakilian |
+
+## Bitte ansehen
+
+- Konto `BenjaminKaempfer` hat mehrere Kennziffern hochgeladen: 831034 (`data/student-uploads/datensatz-04-831034.csv`), 831035 (`data/student-uploads/datensatz-05-831035.csv`). Ist das eine Person, bitte bei einer Nummer bleiben und die andere Datei löschen. Hast Du für jemand anderen hochgeladen, ist alles in Ordnung.
