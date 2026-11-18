@@ -1,0 +1,16 @@
+S03-1 Anzahl gültiger Werte (Valid) von E_mean: 69
+S03-2 Mittelwert N_mean: 3.03
+S03-3 SD N_mean: 0.93
+S03-4 Skala mit dem höchsten Cronbach's α (Skala + α): 0_mean + 0.77 
+S03-5 Skala mit dem niedrigsten Cronbach's α (Skala + α): N_mean + 0.52
+S03-6 H1: Pearson r (V_mean × N_mean): 0.09
+S03-7 H1: p-Wert: 0.455
+S03-8 Wie viele der Hypothesen H1–H4 sind signifikant (p < .05, zweiseitig getestet)? 0
+S03-9 Eine alternative Erklärung (Drittvariable) für eine der Korrelationen, 1 Satz: Die aktuelle positive Stimmung könnte sowohl die Selbsteinschätzung in BFI_06 als auch in BFI_11 beeinflussen und dadurch zu deren positiver Korrelation beitragen.
+S03-10 t1: t: 0.61
+S03-11 t1: Cohen's d: 0.07
+S03-12 t2 (Welch-Zeile): t: 2.17
+S03-13 t2 (Welch-Zeile): p: 0.034
+S03-14 t2: Cohen's d: 0.56
+S03-15 t3 (Welch-Zeile): p: 0.578
+S03-16 Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und welchen Vorbehalt hast Du?: Der t-Test zeigt einen Unterschied zwischen den Gruppen in V_mean (p= 0.039), allerdings lässt sich daraus nicht schließen, dass die Gruppenzugehörigkeit diesen Unterschied verursacht.
