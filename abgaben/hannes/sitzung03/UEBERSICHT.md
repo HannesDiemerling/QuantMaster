@@ -1,12 +1,13 @@
 # Übersicht Gruppe hannes, Sitzung 03
 
-Prüfstand: Version 1 der Sollwerte. Abgaben: 6.
+Prüfstand: Version 1 der Sollwerte. Abgaben: 7.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
 | 031014 | 12 | 0 | 0 | 2 | 2/2 | 18.11.2026, 12:32 | 1 | la03-m | über Konto zugeordnet zu 261831014 |
 | 1003 | 1 | 12 | 0 | 1 | 2/2 | 18.11.2026, 12:50 | 1 | theresaschwanebeck | über Konto zugeordnet zu 261831003 |
 | 261831001 | 14 | 0 | 0 | 0 | 2/2 | 18.11.2026, 12:37 | 2 | NadineRittmeier |   |
+| 261831002 | 1 | 12 | 0 | 1 | 2/2 | 18.11.2026, 12:52 | 1 | Clara Rummler |   |
 | 261831013 | 13 | 0 | 0 | 1 | 2/2 | 18.11.2026, 12:00 | 1 | MiriamLebert |   |
 | 831007 | 13 | 0 | 0 | 1 | 2/2 | 18.11.2026, 11:59 | 1 | chiaralorenzhmu07 |   |
 | 831015 | 14 | 0 | 0 | 0 | 2/2 | 18.11.2026, 12:04 | 1 | Mrmcmg | über Konto zugeordnet zu 31015 |
@@ -20,26 +21,27 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 6.
 | 031014 | ✓ | ✓ | ✓ | ✓ | ? | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 1003 | ✗ | ✗ | ✓ | ? | ✗ | ✗ | ✗ | ✗ | T | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | T |
 | 261831001 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 261831002 | ✗ | ✗ | ✗ | ? | ✗ | ✗ | ✗ | ✗ | T | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ | T |
 | 261831013 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831007 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831015 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 
 | Feld | Frage | Treffer |
 |---|---|---|
-| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 5 von 6 |
-| S03-2 | Mittelwert N&#95;mean | 5 von 6 |
-| S03-3 | SD N&#95;mean | 6 von 6 |
-| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 5 von 6 |
-| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 4 von 6 |
-| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 5 von 6 |
-| S03-7 | H1: p-Wert | 5 von 6 |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig … | 2 von 6 |
-| S03-10 | t1: t | 5 von 6 |
-| S03-11 | t1: Cohen's d | 5 von 6 |
-| S03-12 | t2 (Welch-Zeile): t | 5 von 6 |
-| S03-13 | t2 (Welch-Zeile): p | 5 von 6 |
-| S03-14 | t2: Cohen's d | 5 von 6 |
-| S03-15 | t3 (Welch-Zeile): p | 5 von 6 |
+| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 5 von 7 |
+| S03-2 | Mittelwert N&#95;mean | 5 von 7 |
+| S03-3 | SD N&#95;mean | 6 von 7 |
+| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 5 von 7 |
+| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 4 von 7 |
+| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 5 von 7 |
+| S03-7 | H1: p-Wert | 5 von 7 |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig … | 2 von 7 ⚠ |
+| S03-10 | t1: t | 5 von 7 |
+| S03-11 | t1: Cohen's d | 6 von 7 |
+| S03-12 | t2 (Welch-Zeile): t | 5 von 7 |
+| S03-13 | t2 (Welch-Zeile): p | 5 von 7 |
+| S03-14 | t2: Cohen's d | 5 von 7 |
+| S03-15 | t3 (Welch-Zeile): p | 5 von 7 |
 
 ## Details je Kennziffer
 
@@ -115,6 +117,29 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S03-14 | t2: Cohen's d | 0.19 | ✓ richtig |
 | S03-15 | t3 (Welch-Zeile): p | 0.642 | ✓ richtig |
 | S03-16 | Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und wel… | Bei t2 zeigt sich kein signifikanter Unterschied im O&#95;mean zwischen den Bildungsgruppen; als Vorbehalt weicht die Gruppe „niedrig“ laut Shapiro-Wilk-Test von der Normalverteilung ab (p = 0,005). | liest Deine Lehrperson |
+
+</details>
+
+<details><summary><b>261831002</b>: 1 von 14 richtig</summary>
+
+| Feld | Frage | Abgabe | Ergebnis |
+|---|---|---|---|
+| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 69 | ✗ falsch |
+| S03-2 | Mittelwert N&#95;mean | 3.03 | ✗ falsch |
+| S03-3 | SD N&#95;mean | 0.93 | ✗ falsch |
+| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 0&#95;mean + 0.77 | ? nicht lesbar |
+| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 0.52 | ✗ falsch |
+| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.09 | ✗ falsch |
+| S03-7 | H1: p-Wert | 0.455 | ✗ falsch |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | 0 | ✗ falsch |
+| S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… | Die aktuelle positive Stimmung könnte sowohl die Selbsteinschätzung in BFI&#95;06 als auch in BFI&#95;11 beeinflussen und dadurch zu deren positiver Korrelation beitragen. | liest Deine Lehrperson |
+| S03-10 | t1: t | 0.61 | ✗ falsch |
+| S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |
+| S03-12 | t2 (Welch-Zeile): t | 2.17 | ✗ falsch |
+| S03-13 | t2 (Welch-Zeile): p | 0.034 | ✗ falsch |
+| S03-14 | t2: Cohen's d | 0.56 | ✗ falsch |
+| S03-15 | t3 (Welch-Zeile): p | 0.578 | ✗ falsch |
+| S03-16 | Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und wel… | Der t-Test zeigt einen Unterschied zwischen den Gruppen in V&#95;mean (p= 0.039), allerdings lässt sich daraus nicht schließen, dass die Gruppenzugehörigkeit diesen Unterschied verursacht. | liest Deine Lehrperson |
 
 </details>
 
