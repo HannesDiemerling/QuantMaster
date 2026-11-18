@@ -3,12 +3,12 @@
 **Gruppe:** hannes  
 **Sitzung:** 03  
 **Kennziffer:** 261831001  
-**Eingegangen:** 18.11.2026, 12:35  
-**Fassung:** 1  
+**Eingegangen:** 18.11.2026, 12:37  
+**Fassung:** 2  
 **Eingestellt von:** NadineRittmeier  
 **Prüfstand:** Version 1
 
-**10 von 14 prüfbaren Feldern sind richtig.** Zum Korrigieren öffnest Du Deine Datei im Ordner, klickst oben rechts auf das Stift-Symbol, änderst die Werte und klickst auf *Commit changes*. Die Rückmeldung wird dann neu erzeugt.
+**14 von 14 prüfbaren Feldern sind richtig.** Sehr schön, alles passt. Zum Korrigieren öffnest Du Deine Datei im Ordner, klickst oben rechts auf das Stift-Symbol, änderst die Werte und klickst auf *Commit changes*. Die Rückmeldung wird dann neu erzeugt.
 
 | Feld | Frage | Deine Antwort (so verstanden) | Ergebnis |
 |---|---|---|---|
@@ -22,10 +22,10 @@
 | S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig getestet)? | 1 | ✓ richtig |
 | S03-10 | t1: t | 0.73 | ✓ richtig |
 | S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |
-| S03-12 | t2 (Welch-Zeile): t | 0.47 | ✗ falsch · Welch-Zeile nehmen, nicht Student. Das Vorzeichen zählt hier nicht. |
-| S03-13 | t2 (Welch-Zeile): p | 0.640 | ✗ falsch · Welch-Zeile nehmen, nicht Student. |
-| S03-14 | t2: Cohen's d | 0.11 | ✗ falsch · Das Vorzeichen zählt hier nicht. |
-| S03-15 | t3 (Welch-Zeile): p | 0.340 | ✗ falsch · Welch-Zeile nehmen, nicht Student. |
+| S03-12 | t2 (Welch-Zeile): t | 0.96 | ✓ richtig |
+| S03-13 | t2 (Welch-Zeile): p | 0.342 | ✓ richtig |
+| S03-14 | t2: Cohen's d | 0.19 | ✓ richtig |
+| S03-15 | t3 (Welch-Zeile): p | 0.642 | ✓ richtig |
 
 ~ zählt nicht in die Trefferzahl, ? heißt, dass ich die Antwort nicht als Zahl lesen konnte.
 
