@@ -1,6 +1,6 @@
 # Übersicht Gruppe hannes, Sitzung 03
 
-Prüfstand: Version 1 der Sollwerte. Abgaben: 9.
+Prüfstand: Version 1 der Sollwerte. Abgaben: 10.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
@@ -9,6 +9,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 9.
 | 261831001 | 14 | 0 | 0 | 0 | 2/2 | 18.11.2026, 12:37 | 2 | NadineRittmeier |   |
 | 261831002 | 1 | 12 | 0 | 1 | 2/2 | 18.11.2026, 12:52 | 1 | Clara Rummler |   |
 | 261831013 | 13 | 0 | 0 | 1 | 2/2 | 18.11.2026, 12:00 | 1 | MiriamLebert |   |
+| 31009 | 13 | 1 | 0 | 0 | 2/2 | 18.11.2026, 13:12 | 1 | mialudwig |   |
 | 31030 | 10 | 2 | 0 | 2 | 2/2 | 18.11.2026, 13:06 | 1 | Siahmardy |   |
 | 817 | 13 | 0 | 0 | 1 | 2/2 | 18.11.2026, 13:06 | 1 | svenjaschmidt1312 | über Konto zugeordnet zu 261831017 |
 | 831007 | 13 | 0 | 0 | 1 | 2/2 | 18.11.2026, 11:59 | 1 | chiaralorenzhmu07 |   |
@@ -25,6 +26,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 9.
 | 261831001 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831002 | ✗ | ✗ | ✗ | ? | ✗ | ✗ | ✗ | ✗ | T | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ | T |
 | 261831013 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 31009 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 31030 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ? | T | ✗ | ✗ | ✓ | ✓ | ✓ | ? | T |
 | 817 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ? | T |
 | 831007 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
@@ -32,20 +34,20 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 9.
 
 | Feld | Frage | Treffer |
 |---|---|---|
-| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 7 von 9 |
-| S03-2 | Mittelwert N&#95;mean | 7 von 9 |
-| S03-3 | SD N&#95;mean | 8 von 9 |
-| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 7 von 9 |
-| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 6 von 9 |
-| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 7 von 9 |
-| S03-7 | H1: p-Wert | 7 von 9 |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig … | 3 von 9 |
-| S03-10 | t1: t | 6 von 9 |
-| S03-11 | t1: Cohen's d | 7 von 9 |
-| S03-12 | t2 (Welch-Zeile): t | 7 von 9 |
-| S03-13 | t2 (Welch-Zeile): p | 7 von 9 |
-| S03-14 | t2: Cohen's d | 7 von 9 |
-| S03-15 | t3 (Welch-Zeile): p | 5 von 9 |
+| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 8 von 10 |
+| S03-2 | Mittelwert N&#95;mean | 8 von 10 |
+| S03-3 | SD N&#95;mean | 9 von 10 |
+| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 8 von 10 |
+| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 7 von 10 |
+| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 8 von 10 |
+| S03-7 | H1: p-Wert | 8 von 10 |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig … | 3 von 10 |
+| S03-10 | t1: t | 7 von 10 |
+| S03-11 | t1: Cohen's d | 8 von 10 |
+| S03-12 | t2 (Welch-Zeile): t | 8 von 10 |
+| S03-13 | t2 (Welch-Zeile): p | 8 von 10 |
+| S03-14 | t2: Cohen's d | 8 von 10 |
+| S03-15 | t3 (Welch-Zeile): p | 6 von 10 |
 
 ## Details je Kennziffer
 
@@ -167,6 +169,29 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S03-14 | t2: Cohen's d | 0.19 | ✓ richtig |
 | S03-15 | t3 (Welch-Zeile): p | 0.642 | ✓ richtig |
 | S03-16 | Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und wel… | Der Unterschied ist nicht signifikant, da das N wahrscheinlich zu klein ist. | liest Deine Lehrperson |
+
+</details>
+
+<details><summary><b>31009</b>: 13 von 14 richtig</summary>
+
+| Feld | Frage | Abgabe | Ergebnis |
+|---|---|---|---|
+| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 117 | ✓ richtig |
+| S03-2 | Mittelwert N&#95;mean | 3.08 | ✓ richtig |
+| S03-3 | SD N&#95;mean | 0.89 | ✓ richtig |
+| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | E 0.73 | ✓ richtig |
+| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 0.59 | ✓ richtig |
+| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.07 | ✓ richtig |
+| S03-7 | H1: p-Wert | 0.443 | ✓ richtig |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | 0.01 | ✗ falsch |
+| S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… | Drittvariable: eine hohe allgemeine soziale Kompetenz könnte sowohl die Extraversion als auch die Verträglichkeit einer Person positiv beeinflussen. | liest Deine Lehrperson |
+| S03-10 | t1: t | 0.73 | ✓ richtig |
+| S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |
+| S03-12 | t2 (Welch-Zeile): t | 0.96 | ✓ richtig |
+| S03-13 | t2 (Welch-Zeile): p | 0.342 | ✓ richtig |
+| S03-14 | t2: Cohen's d | 0.19 | ✓ richtig |
+| S03-15 | t3 (Welch-Zeile): p | 0.642 | ✓ richtig |
+| S03-16 | Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und wel… | Der Unterschied ist im Ergebnis nicht signifikant, was an einem unausgewogenen Geschlechterverhältnis liegen kann | liest Deine Lehrperson |
 
 </details>
 
