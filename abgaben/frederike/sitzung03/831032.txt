@@ -1,0 +1,16 @@
+S03-1 Anzahl gültiger Werte (Valid) von E_mean: 4
+S03-2 Mittelwert N_mean: 12.35
+S03-3 SD N_mean: 3.556
+S03-4 Skala mit dem höchsten Cronbach's α (Skala + α): Extraversion 0.7426
+S03-5 Skala mit dem niedrigsten Cronbach's α (Skala + α): Neurotizismus, 0.5840
+S03-6 H1: Pearson r (V_mean × N_mean): 0.06116
+S03-7 H1: p-Wert: .511
+S03-8 Wie viele der Hypothesen H1–H4 sind signifikant (p < .05, zweiseitig getestet)? H2, H3 
+S03-9 Eine alternative Erklärung (Drittvariable) für eine der Korrelationen, 1 Satz: Ein weitere Variable, (soziale Erwünschtheit) könnte sowohl auf die Extraversion als auch die Verträglichkeit beeinflussen
+S03-10 t1: t: 0.8091 
+S03-11 t1: Cohen's d: 0,074
+S03-12 t2 (Welch-Zeile): t: 0.8079 
+S03-13 t2 (Welch-Zeile): p: .421
+S03-14 t2: Cohen's d: 0.1604
+S03-15 t3 (Welch-Zeile): p: .650
+S03-16 Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und welchen Vorbehalt hast Du? Männer und Frauen unterscheiden sich nicht. Hypothese verwerfen. 
