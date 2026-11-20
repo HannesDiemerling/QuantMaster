@@ -1,6 +1,6 @@
 # Übersicht Gruppe frederike, Sitzung 03
 
-Prüfstand: Version 1 der Sollwerte. Abgaben: 15.
+Prüfstand: Version 1 der Sollwerte. Abgaben: 17.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
@@ -13,8 +13,10 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 15.
 | 831023 | 14 | 0 | 0 | 0 | 2/2 | 20.11.2026, 12:06 | 1 | Lene26 |   |
 | 831024 | 12 | 1 | 0 | 1 | 2/2 | 20.11.2026, 11:03 | 1 | larapff |   |
 | 831025 | 9 | 2 | 0 | 3 | 2/2 | 20.11.2026, 10:48 | 1 | luise2205 |   |
+| 831026 | 10 | 4 | 0 | 0 | 1/2 | 20.11.2026, 12:35 | 1 | lenemarieweinert | über Konto zugeordnet zu 1831026 |
 | 831027 | 9 | 2 | 0 | 3 | 2/2 | 20.11.2026, 10:48 | 1 | annarcw |   |
 | 831028 | 14 | 0 | 0 | 0 | 2/2 | 20.11.2026, 11:19 | 1 | PaulinaSchaubert | über Konto zugeordnet zu 10 |
+| 831032 | 10 | 3 | 0 | 1 | 2/2 | 20.11.2026, 12:35 | 1 | gumkehr |   |
 | 831033 | 10 | 2 | 0 | 2 | 2/2 | 20.11.2026, 10:48 | 1 | ampfeil |   |
 | 831034 | 10 | 3 | 0 | 1 | 2/2 | 20.11.2026, 12:04 | 1 | BenjaminKaempfer |   |
 | 831039 | 10 | 3 | 0 | 1 | 2/2 | 20.11.2026, 11:41 | 1 | 831039melina | Kennziffer nicht im Stand |
@@ -35,8 +37,10 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 15.
 | 831023 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831024 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 831025 | ✗ | ✓ | ✓ | ? | ? | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
+| 831026 | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✗ | – | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831027 | ✗ | ✓ | ✓ | ? | ? | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 831028 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 831032 | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831033 | ✗ | ✓ | ✓ | ? | ? | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 831034 | ✓ | ✓ | ✗ | ✓ | ? | ✓ | ✓ | ✓ | T | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | T |
 | 831039 | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ? | T | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | T |
@@ -44,20 +48,20 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 15.
 
 | Feld | Frage | Treffer |
 |---|---|---|
-| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 11 von 15 |
-| S03-2 | Mittelwert N&#95;mean | 15 von 15 |
-| S03-3 | SD N&#95;mean | 12 von 15 |
-| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 12 von 15 |
-| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 10 von 15 |
-| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 15 von 15 |
-| S03-7 | H1: p-Wert | 15 von 15 |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig … | 7 von 15 |
-| S03-10 | t1: t | 12 von 15 |
-| S03-11 | t1: Cohen's d | 12 von 15 |
-| S03-12 | t2 (Welch-Zeile): t | 15 von 15 |
-| S03-13 | t2 (Welch-Zeile): p | 15 von 15 |
-| S03-14 | t2: Cohen's d | 15 von 15 |
-| S03-15 | t3 (Welch-Zeile): p | 6 von 15 |
+| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 11 von 17 |
+| S03-2 | Mittelwert N&#95;mean | 15 von 17 |
+| S03-3 | SD N&#95;mean | 12 von 17 |
+| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 14 von 17 |
+| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 12 von 17 |
+| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 17 von 17 |
+| S03-7 | H1: p-Wert | 17 von 17 |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig … | 7 von 17 |
+| S03-10 | t1: t | 14 von 17 |
+| S03-11 | t1: Cohen's d | 14 von 17 |
+| S03-12 | t2 (Welch-Zeile): t | 17 von 17 |
+| S03-13 | t2 (Welch-Zeile): p | 17 von 17 |
+| S03-14 | t2: Cohen's d | 17 von 17 |
+| S03-15 | t3 (Welch-Zeile): p | 8 von 17 |
 
 ## Details je Kennziffer
 
@@ -272,6 +276,31 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 
 </details>
 
+<details><summary><b>831026</b>: 10 von 14 richtig</summary>
+
+| Feld | Frage | Abgabe | Ergebnis |
+|---|---|---|---|
+| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 743 | ✗ falsch |
+| S03-2 | Mittelwert N&#95;mean | 12.35 | ✗ falsch |
+| S03-3 | SD N&#95;mean | 3.55 | ✗ falsch |
+| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | E 0.74 | ✓ richtig |
+| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 0.58 | ✓ richtig |
+| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.06 | ✓ richtig |
+| S03-7 | H1: p-Wert | 0.511 | ✓ richtig |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | 0.010 | ✗ falsch |
+| S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… |   | – fehlt |
+| S03-10 | t1: t | 0.81 | ✓ richtig |
+| S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |
+| S03-12 | t2 (Welch-Zeile): t | 0.81 | ✓ richtig |
+| S03-13 | t2 (Welch-Zeile): p | 0.421 | ✓ richtig |
+| S03-14 | t2: Cohen's d | 0.16 | ✓ richtig |
+| S03-15 | t3 (Welch-Zeile): p | 0.650 | ✓ richtig |
+| S03-16 | Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und wel… | Hypo. verwerfen: Frauen &amp; Männer unterscheiden sich nur minimal (mean: 2.975,2.822) | liest Deine Lehrperson |
+
+- Die Kennziffer im Dateinamen steht nicht im Stand Deiner Gruppe. Über Dein GitHub-Konto gehört zu Dir die Kennziffer 1831026, darüber wurde Deine Abgabe zugeordnet. Du kannst bei Deiner Nummer bleiben.
+
+</details>
+
 <details><summary><b>831027</b>: 9 von 14 richtig</summary>
 
 | Feld | Frage | Abgabe | Ergebnis |
@@ -317,6 +346,29 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S03-16 | Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und wel… | kein signifikanter Unterschied in der Verträglichkeit zwischen Frauen und Männern (p = 0,421) | liest Deine Lehrperson |
 
 - Die Kennziffer im Dateinamen steht nicht im Stand Deiner Gruppe. Über Dein GitHub-Konto gehört zu Dir die Kennziffer 10, darüber wurde Deine Abgabe zugeordnet. Du kannst bei Deiner Nummer bleiben.
+
+</details>
+
+<details><summary><b>831032</b>: 10 von 14 richtig</summary>
+
+| Feld | Frage | Abgabe | Ergebnis |
+|---|---|---|---|
+| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 4 | ✗ falsch |
+| S03-2 | Mittelwert N&#95;mean | 12.35 | ✗ falsch |
+| S03-3 | SD N&#95;mean | 3.56 | ✗ falsch |
+| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | E 0.74 | ✓ richtig |
+| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 0.58 | ✓ richtig |
+| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.06 | ✓ richtig |
+| S03-7 | H1: p-Wert | 0.511 | ✓ richtig |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | H2, H3 | ? nicht lesbar |
+| S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… | Ein weitere Variable, (soziale Erwünschtheit) könnte sowohl auf die Extraversion als auch die Verträglichkeit beeinflussen | liest Deine Lehrperson |
+| S03-10 | t1: t | 0.81 | ✓ richtig |
+| S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |
+| S03-12 | t2 (Welch-Zeile): t | 0.81 | ✓ richtig |
+| S03-13 | t2 (Welch-Zeile): p | 0.421 | ✓ richtig |
+| S03-14 | t2: Cohen's d | 0.16 | ✓ richtig |
+| S03-15 | t3 (Welch-Zeile): p | 0.650 | ✓ richtig |
+| S03-16 | Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und wel… | Männer und Frauen unterscheiden sich nicht. Hypothese verwerfen. | liest Deine Lehrperson |
 
 </details>
 
