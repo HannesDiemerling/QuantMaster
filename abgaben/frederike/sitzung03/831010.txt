@@ -1,0 +1,16 @@
+S03-1 Anzahl gültiger Werte (Valid) von E_mean: 4
+S03-2 Mittelwert N_mean: 3.087
+S03-3 SD N_mean: 0.8890
+S03-4 Skala mit dem höchsten Cronbach's α (Skala + α): Extraversion α = 0.7426
+S03-5 Skala mit dem niedrigsten Cronbach's α (Skala + α): Neurotizismus α = 0.5840
+S03-6 H1: Pearson r (V_mean × N_mean): r = .061
+S03-7 H1: p-Wert: .511
+S03-8 Wie viele der Hypothesen H1–H4 sind signifikant (p < .05, zweiseitig getestet)? 
+S03-9 Eine alternative Erklärung (Drittvariable) für eine der Korrelationen, 1 Satz: Drittvariable: Die Korrelation könnte dadurch zustande kommen, dass eine dritte Variable, beispielsweise soziale Kompetenz, sowohl die Extraversion als auch die Verträglichkeit positiv beeinflusst.
+S03-10 t1: t: t(118)= 0.809, p = .420, d= 0.07, 95 %-KI[-0.1125,0.2680], n = 119, Schluss: Das Konfidezintervall schließt den Skalenmittelwert noch ein, deswegen ist der Test nicht signifikant.
+S03-11 t1: Cohen's d: 
+S03-12 t2 (Welch-Zeile): t: t(82.6) = 0.808
+S03-13 t2 (Welch-Zeile): p: p = .42
+S03-14 t2: Cohen's d: d = 0.16, 95 %-KI [−0.24, 0.56]
+S03-15 t3 (Welch-Zeile): p: p = .650
+S03-16 Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und welchen Vorbehalt hast Du? Es konnte kein statistisch signifikanter Unterschied in der Verträglichkeit zwischen Frauen und Männern festgestellt werden, t(82,6) = 0,808, p = ,421. Die Effektstärke fällt mit d = 0,16 gering aus. Das 95%-Konfidenzintervall [−0,24; 0,56] schließt den Wert null ein. Die Alternativhypothese wird somit nicht unterstützt.
