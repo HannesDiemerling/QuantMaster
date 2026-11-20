@@ -1,0 +1,16 @@
+S03-1 Anzahl gültiger Werte (Valid) von E_mean: 74
+S03-2 Mittelwert N_mean: 3.09
+S03-3 SD N_mean: 0.8897
+S03-4 Skala mit dem höchsten Cronbach's α (Skala + α): 0.74
+S03-5 Skala mit dem niedrigsten Cronbach's α (Skala + α): 0.58
+S03-6 H1: Pearson r (V_mean × N_mean): 0.06
+S03-7 H1: p-Wert: 0.511
+S03-8 Wie viele der Hypothesen H1–H4 sind signifikant (p < .05, zweiseitig getestet)? 1
+S03-9 Eine alternative Erklärung (Drittvariable) für eine der Korrelationen, 1 Satz: H4: mögliche Drittvariable: Alter
+S03-10 t1: t: 0.81
+S03-11 t1: Cohen's d: 0.07
+S03-12 t2 (Welch-Zeile): t: 0.81
+S03-13 t2 (Welch-Zeile): p: 0.42
+S03-14 t2: Cohen's d: 0.16
+S03-15 t3 (Welch-Zeile): p: 0.998
+S03-16 Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und welchen Vorbehalt hast Du?: Frauen und Männer unterscheiden sich nicht signifikant in der Verträglichkeit. Gruppe 2 deutlich kleineres n --> kleinere und mittlere Effekte können unentdeckt bleiben.  
