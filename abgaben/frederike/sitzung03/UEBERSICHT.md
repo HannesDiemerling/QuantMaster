@@ -1,11 +1,12 @@
 # Übersicht Gruppe frederike, Sitzung 03
 
-Prüfstand: Version 1 der Sollwerte. Abgaben: 17.
+Prüfstand: Version 1 der Sollwerte. Abgaben: 18.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
 | 813029 | 11 | 2 | 0 | 1 | 2/2 | 20.11.2026, 10:49 | 1 | melinaahke | über Konto zugeordnet zu 831029 |
 | 831008 | 14 | 0 | 0 | 0 | 2/2 | 20.11.2026, 11:25 | 1 | HB0412 |   |
+| 831010 | 11 | 1 | 2 | 0 | 2/2 | 20.11.2026, 12:55 | 1 | disel-hub |   |
 | 831011 | 13 | 1 | 0 | 0 | 2/2 | 20.11.2026, 11:04 | 1 | amelieawhmu |   |
 | 831020 | 12 | 1 | 0 | 1 | 2/2 | 20.11.2026, 11:03 | 1 | michellekhl |   |
 | 831021 | 11 | 2 | 0 | 1 | 2/2 | 20.11.2026, 11:03 | 1 | VL-xyz | Kennziffer nicht im Stand |
@@ -30,6 +31,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 17.
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | 813029 | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 831008 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 831010 | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | – | T | ✓ | – | ✓ | ✓ | ✓ | ✓ | T |
 | 831011 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 831020 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 831021 | ✓ | ✓ | ✓ | ✓ | ✗ | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
@@ -48,20 +50,20 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 17.
 
 | Feld | Frage | Treffer |
 |---|---|---|
-| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 11 von 17 |
-| S03-2 | Mittelwert N&#95;mean | 15 von 17 |
-| S03-3 | SD N&#95;mean | 12 von 17 |
-| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 14 von 17 |
-| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 12 von 17 |
-| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 17 von 17 |
-| S03-7 | H1: p-Wert | 17 von 17 |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig … | 7 von 17 |
-| S03-10 | t1: t | 14 von 17 |
-| S03-11 | t1: Cohen's d | 14 von 17 |
-| S03-12 | t2 (Welch-Zeile): t | 17 von 17 |
-| S03-13 | t2 (Welch-Zeile): p | 17 von 17 |
-| S03-14 | t2: Cohen's d | 17 von 17 |
-| S03-15 | t3 (Welch-Zeile): p | 8 von 17 |
+| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 11 von 18 |
+| S03-2 | Mittelwert N&#95;mean | 16 von 18 |
+| S03-3 | SD N&#95;mean | 13 von 18 |
+| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 15 von 18 |
+| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 13 von 18 |
+| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 18 von 18 |
+| S03-7 | H1: p-Wert | 18 von 18 |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig … | 7 von 18 |
+| S03-10 | t1: t | 15 von 18 |
+| S03-11 | t1: Cohen's d | 14 von 18 |
+| S03-12 | t2 (Welch-Zeile): t | 18 von 18 |
+| S03-13 | t2 (Welch-Zeile): p | 18 von 18 |
+| S03-14 | t2: Cohen's d | 18 von 18 |
+| S03-15 | t3 (Welch-Zeile): p | 9 von 18 |
 
 ## Details je Kennziffer
 
@@ -112,6 +114,29 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S03-14 | t2: Cohen's d | 0.16 | ✓ richtig |
 | S03-15 | t3 (Welch-Zeile): p | 0.650 | ✓ richtig |
 | S03-16 | Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und wel… | Effekt nicht statistisch signifikant -&gt; keine Unterschiede zwischen Geschlechtern, ABER: kein sign. Ergebnis bedeutet nicht, dass kein Effekt existiert | liest Deine Lehrperson |
+
+</details>
+
+<details><summary><b>831010</b>: 11 von 14 richtig</summary>
+
+| Feld | Frage | Abgabe | Ergebnis |
+|---|---|---|---|
+| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 4 | ✗ falsch |
+| S03-2 | Mittelwert N&#95;mean | 3.09 | ✓ richtig |
+| S03-3 | SD N&#95;mean | 0.89 | ✓ richtig |
+| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | E 0.74 | ✓ richtig |
+| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 0.58 | ✓ richtig |
+| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.06 | ✓ richtig |
+| S03-7 | H1: p-Wert | 0.511 | ✓ richtig |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… |   | – fehlt |
+| S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… | Drittvariable: Die Korrelation könnte dadurch zustande kommen, dass eine dritte Variable, beispielsweise soziale Kompetenz, sowohl die Extraversion als auch die Verträglichkeit positiv beeinflusst. | liest Deine Lehrperson |
+| S03-10 | t1: t | 0.81 | ✓ richtig |
+| S03-11 | t1: Cohen's d |   | – fehlt |
+| S03-12 | t2 (Welch-Zeile): t | 0.81 | ✓ richtig |
+| S03-13 | t2 (Welch-Zeile): p | 0.420 | ✓ richtig |
+| S03-14 | t2: Cohen's d | 0.16 | ✓ richtig |
+| S03-15 | t3 (Welch-Zeile): p | 0.650 | ✓ richtig |
+| S03-16 | Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und wel… | Es konnte kein statistisch signifikanter Unterschied in der Verträglichkeit zwischen Frauen und Männern festgestellt werden, t(82,6) = 0,808, p = ,421. Die Effektstärke fällt mit d = 0,16 gering aus.… | liest Deine Lehrperson |
 
 </details>
 
