@@ -1,0 +1,16 @@
+S03-1 Anzahl gültiger Werte (Valid) von E_mean: alle sind Gültig, Alpha-gesamt: 0.743
+S03-2 Mittelwert N_mean: 12.347
+S03-3 SD N_mean: 3.552
+S03-4 Skala mit dem höchsten Cronbach's α (Skala + α):  0.743- Extraversion- akzeptabel 
+S03-5 Skala mit dem niedrigsten Cronbach's α (Skala + α):  0.584- Neurotizismus: niedrig
+S03-6 H1: Pearson r (V_mean × N_mean): 0,061
+S03-7 H1: p-Wert:.511 
+S03-8 Wie viele der Hypothesen H1–H4 sind signifikant (p < .05, zweiseitig getestet)? H2#p = .010,  H3#:p = .387
+S03-9 Eine alternative Erklärung (Drittvariable) für eine der Korrelationen, 1 Satz: 
+S03-10 t1: t:.809
+S03-11 t1: Cohen's d:.074
+S03-12 t2 (Welch-Zeile): t:.808
+S03-13 t2 (Welch-Zeile): p:.421
+S03-14 t2: Cohen's d: .160
+S03-15 t3 (Welch-Zeile): p:.650
+S03-16 Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und welchen Vorbehalt hast Du? Hypo. verwerfen: Frauen & Männer unterscheiden sich nur minimal (mean: 2.975,2.822)
