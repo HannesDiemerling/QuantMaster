@@ -3,12 +3,12 @@
 **Gruppe:** hannes  
 **Sitzung:** 03  
 **Kennziffer:** 261831031  
-**Eingegangen:** 24.11.2026, 22:57  
-**Fassung:** 1  
+**Eingegangen:** 24.11.2026, 22:59  
+**Fassung:** 2  
 **Eingestellt von:** janinakilian  
 **Prüfstand:** Version 1
 
-**12 von 14 prüfbaren Feldern sind richtig.** Zum Korrigieren öffnest Du Deine Datei im Ordner, klickst oben rechts auf das Stift-Symbol, änderst die Werte und klickst auf *Commit changes*. Die Rückmeldung wird dann neu erzeugt.
+**13 von 14 prüfbaren Feldern sind richtig.** Zum Korrigieren öffnest Du Deine Datei im Ordner, klickst oben rechts auf das Stift-Symbol, änderst die Werte und klickst auf *Commit changes*. Die Rückmeldung wird dann neu erzeugt.
 
 | Feld | Frage | Deine Antwort (so verstanden) | Ergebnis |
 |---|---|---|---|
@@ -19,7 +19,7 @@
 | S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 0.59 | ✓ richtig |
 | S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.07 | ✓ richtig |
 | S03-7 | H1: p-Wert | 0.440 | ✓ richtig |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig getestet)? |   | – fehlt |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig getestet)? | 1 | ✓ richtig |
 | S03-10 | t1: t | 0.73 | ✓ richtig |
 | S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |
 | S03-12 | t2 (Welch-Zeile): t | 0.96 | ✓ richtig |
