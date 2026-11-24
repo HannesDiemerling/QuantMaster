@@ -19,7 +19,7 @@
 | S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 0.58 | ✓ richtig |
 | S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.06 | ✓ richtig |
 | S03-7 | H1: p-Wert | 0.511 | ✓ richtig |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig getestet)? | H2, H3 | ? nicht lesbar · Hier fehlt eine Zahl. Achte auf zweiseitige Tests und bei H4 auf Spearman. |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig getestet)? | 2 | ✗ falsch · Achte auf zweiseitige Tests und bei H4 auf Spearman. |
 | S03-10 | t1: t | 0.81 | ✓ richtig |
 | S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |
 | S03-12 | t2 (Welch-Zeile): t | 0.81 | ✓ richtig |

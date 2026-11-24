@@ -1,26 +1,27 @@
 # Übersicht Gruppe frederike, Sitzung 03
 
-Prüfstand: Version 1 der Sollwerte. Abgaben: 18.
+Prüfstand: Version 1 der Sollwerte. Abgaben: 19.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
-| 813029 | 11 | 2 | 0 | 1 | 2/2 | 20.11.2026, 10:49 | 1 | melinaahke | über Konto zugeordnet zu 831029 |
+| 813029 | 12 | 2 | 0 | 0 | 2/2 | 20.11.2026, 10:49 | 1 | melinaahke | über Konto zugeordnet zu 831029 |
 | 831008 | 14 | 0 | 0 | 0 | 2/2 | 20.11.2026, 11:25 | 1 | HB0412 |   |
 | 831010 | 11 | 1 | 2 | 0 | 2/2 | 20.11.2026, 12:55 | 1 | disel-hub |   |
 | 831011 | 13 | 1 | 0 | 0 | 2/2 | 20.11.2026, 11:04 | 1 | amelieawhmu |   |
-| 831020 | 12 | 1 | 0 | 1 | 2/2 | 20.11.2026, 11:03 | 1 | michellekhl |   |
-| 831021 | 11 | 2 | 0 | 1 | 2/2 | 20.11.2026, 11:03 | 1 | VL-xyz | Kennziffer nicht im Stand |
+| 831016 | 10 | 3 | 0 | 1 | 2/2 | 25.11.2026, 00:08 (nach dem Sitzungstag) | 1 | Lehrperson |   |
+| 831020 | 13 | 1 | 0 | 0 | 2/2 | 20.11.2026, 11:03 | 1 | michellekhl |   |
+| 831021 | 12 | 2 | 0 | 0 | 2/2 | 20.11.2026, 11:03 | 1 | VL-xyz | Kennziffer nicht im Stand |
 | 831022 | 13 | 1 | 0 | 0 | 1/2 | 20.11.2026, 11:17 | 1 | jakobschmidt7 | Kennziffer nicht im Stand |
 | 831023 | 14 | 0 | 0 | 0 | 2/2 | 20.11.2026, 12:06 | 1 | Lene26 |   |
-| 831024 | 12 | 1 | 0 | 1 | 2/2 | 20.11.2026, 11:03 | 1 | larapff |   |
-| 831025 | 9 | 2 | 0 | 3 | 2/2 | 20.11.2026, 10:48 | 1 | luise2205 |   |
+| 831024 | 13 | 1 | 0 | 0 | 2/2 | 20.11.2026, 11:03 | 1 | larapff |   |
+| 831025 | 10 | 2 | 0 | 2 | 2/2 | 20.11.2026, 10:48 | 1 | luise2205 |   |
 | 831026 | 10 | 4 | 0 | 0 | 1/2 | 20.11.2026, 12:35 | 1 | lenemarieweinert | über Konto zugeordnet zu 1831026 |
-| 831027 | 9 | 2 | 0 | 3 | 2/2 | 20.11.2026, 10:48 | 1 | annarcw |   |
+| 831027 | 10 | 2 | 0 | 2 | 2/2 | 20.11.2026, 10:48 | 1 | annarcw |   |
 | 831028 | 14 | 0 | 0 | 0 | 2/2 | 20.11.2026, 11:19 | 1 | PaulinaSchaubert | über Konto zugeordnet zu 10 |
-| 831032 | 10 | 3 | 0 | 1 | 2/2 | 20.11.2026, 12:35 | 1 | gumkehr |   |
+| 831032 | 10 | 4 | 0 | 0 | 2/2 | 20.11.2026, 12:35 | 1 | gumkehr |   |
 | 831033 | 10 | 2 | 0 | 2 | 2/2 | 20.11.2026, 10:48 | 1 | ampfeil |   |
 | 831034 | 10 | 3 | 0 | 1 | 2/2 | 20.11.2026, 12:04 | 1 | BenjaminKaempfer |   |
-| 831039 | 10 | 3 | 0 | 1 | 2/2 | 20.11.2026, 11:41 | 1 | 831039melina | Kennziffer nicht im Stand |
+| 831039 | 11 | 3 | 0 | 0 | 2/2 | 20.11.2026, 11:41 | 1 | 831039melina | Kennziffer nicht im Stand |
 | 831040 | 10 | 4 | 0 | 0 | 2/2 | 20.11.2026, 11:48 | 1 | Tobiaseckelmann |   |
 
 ## Felder im Überblick
@@ -29,47 +30,48 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 18.
 
 | Kennziffer | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| 813029 | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
+| 813029 | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 831008 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831010 | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | – | T | ✓ | – | ✓ | ✓ | ✓ | ✓ | T |
 | 831011 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
-| 831020 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
-| 831021 | ✓ | ✓ | ✓ | ✓ | ✗ | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
+| 831016 | ? | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✗ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 831020 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
+| 831021 | ✓ | ✓ | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 831022 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | – | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831023 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
-| 831024 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
-| 831025 | ✗ | ✓ | ✓ | ? | ? | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
+| 831024 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
+| 831025 | ✗ | ✓ | ✓ | ? | ? | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 831026 | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✗ | – | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
-| 831027 | ✗ | ✓ | ✓ | ? | ? | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
+| 831027 | ✗ | ✓ | ✓ | ? | ? | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 831028 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
-| 831032 | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 831032 | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✗ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831033 | ✗ | ✓ | ✓ | ? | ? | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 831034 | ✓ | ✓ | ✗ | ✓ | ? | ✓ | ✓ | ✓ | T | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | T |
-| 831039 | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ? | T | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | T |
+| 831039 | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | T |
 | 831040 | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✗ | ✗ | ✓ | ✓ | ✓ | ✗ | T |
 
 | Feld | Frage | Treffer |
 |---|---|---|
-| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 11 von 18 |
-| S03-2 | Mittelwert N&#95;mean | 16 von 18 |
-| S03-3 | SD N&#95;mean | 13 von 18 |
-| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 15 von 18 |
-| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 13 von 18 |
-| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 18 von 18 |
-| S03-7 | H1: p-Wert | 18 von 18 |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig … | 7 von 18 |
-| S03-10 | t1: t | 15 von 18 |
-| S03-11 | t1: Cohen's d | 14 von 18 |
-| S03-12 | t2 (Welch-Zeile): t | 18 von 18 |
-| S03-13 | t2 (Welch-Zeile): p | 18 von 18 |
-| S03-14 | t2: Cohen's d | 18 von 18 |
-| S03-15 | t3 (Welch-Zeile): p | 9 von 18 |
+| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 11 von 19 |
+| S03-2 | Mittelwert N&#95;mean | 16 von 19 |
+| S03-3 | SD N&#95;mean | 13 von 19 |
+| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 16 von 19 |
+| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 14 von 19 |
+| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 19 von 19 |
+| S03-7 | H1: p-Wert | 19 von 19 |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig … | 14 von 19 |
+| S03-10 | t1: t | 16 von 19 |
+| S03-11 | t1: Cohen's d | 15 von 19 |
+| S03-12 | t2 (Welch-Zeile): t | 19 von 19 |
+| S03-13 | t2 (Welch-Zeile): p | 19 von 19 |
+| S03-14 | t2: Cohen's d | 19 von 19 |
+| S03-15 | t3 (Welch-Zeile): p | 10 von 19 |
 
 ## Details je Kennziffer
 
 Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zeile auf.
 
-<details><summary><b>813029</b>: 11 von 14 richtig</summary>
+<details><summary><b>813029</b>: 12 von 14 richtig</summary>
 
 | Feld | Frage | Abgabe | Ergebnis |
 |---|---|---|---|
@@ -80,7 +82,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 0.58 | ✓ richtig |
 | S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.06 | ✓ richtig |
 | S03-7 | H1: p-Wert | 0.511 | ✓ richtig |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | eine | ? nicht lesbar |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | 1 | ✓ richtig |
 | S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… | H4, mögliche Drittvariable: Alter | liest Deine Lehrperson |
 | S03-10 | t1: t | 0.81 | ✓ richtig |
 | S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |
@@ -163,7 +165,30 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 
 </details>
 
-<details><summary><b>831020</b>: 12 von 14 richtig</summary>
+<details><summary><b>831016</b>: 10 von 14 richtig</summary>
+
+| Feld | Frage | Abgabe | Ergebnis |
+|---|---|---|---|
+| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | alle gültig | ? nicht lesbar |
+| S03-2 | Mittelwert N&#95;mean | 12.35 | ✗ falsch |
+| S03-3 | SD N&#95;mean | 3.56 | ✗ falsch |
+| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | E 0.74 | ✓ richtig |
+| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 0.58 | ✓ richtig |
+| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.06 | ✓ richtig |
+| S03-7 | H1: p-Wert | 0.511 | ✓ richtig |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | 2 | ✗ falsch |
+| S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… | Korrelation kann entstehen weil beide items von einer gemeinsamen drittvariable beeinflusst werden | liest Deine Lehrperson |
+| S03-10 | t1: t | 0.81 | ✓ richtig |
+| S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |
+| S03-12 | t2 (Welch-Zeile): t | 0.81 | ✓ richtig |
+| S03-13 | t2 (Welch-Zeile): p | 0.421 | ✓ richtig |
+| S03-14 | t2: Cohen's d | 0.16 | ✓ richtig |
+| S03-15 | t3 (Welch-Zeile): p | 0.650 | ✓ richtig |
+| S03-16 | Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und wel… | Der Unterschied in Verträglichkeit ist nicht Signifikant | liest Deine Lehrperson |
+
+</details>
+
+<details><summary><b>831020</b>: 13 von 14 richtig</summary>
 
 | Feld | Frage | Abgabe | Ergebnis |
 |---|---|---|---|
@@ -174,7 +199,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 0.58 | ✓ richtig |
 | S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.06 | ✓ richtig |
 | S03-7 | H1: p-Wert | 0.511 | ✓ richtig |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | Eine Hypothese ist signifikant (H2). | ? nicht lesbar |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | 1 | ✓ richtig |
 | S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… | Alter,im gegensatz zur Korrelation und den anderen Big Five, zeigt sich bei der Korrelation von Extraversion und ALter ein leicht negativer Zusammenhang. | liest Deine Lehrperson |
 | S03-10 | t1: t | 0.81 | ✓ richtig |
 | S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |
@@ -186,7 +211,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 
 </details>
 
-<details><summary><b>831021</b>: 11 von 14 richtig</summary>
+<details><summary><b>831021</b>: 12 von 14 richtig</summary>
 
 | Feld | Frage | Abgabe | Ergebnis |
 |---|---|---|---|
@@ -197,7 +222,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 5.58 | ✗ falsch |
 | S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.06 | ✓ richtig |
 | S03-7 | H1: p-Wert | 0.511 | ✓ richtig |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | eine Hypothese ist signifikant H2 | ? nicht lesbar |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | 1 | ✓ richtig |
 | S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… | Alter könnte eine Drittvariable sein, da sich bei der Korrelation von Extraveresion und Alter ein leicht negativer Zusammenhang | liest Deine Lehrperson |
 | S03-10 | t1: t | 0.81 | ✓ richtig |
 | S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |
@@ -255,7 +280,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 
 </details>
 
-<details><summary><b>831024</b>: 12 von 14 richtig</summary>
+<details><summary><b>831024</b>: 13 von 14 richtig</summary>
 
 | Feld | Frage | Abgabe | Ergebnis |
 |---|---|---|---|
@@ -266,7 +291,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 0.58 | ✓ richtig |
 | S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.06 | ✓ richtig |
 | S03-7 | H1: p-Wert | 0.510 | ✓ richtig |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | eine, nur H2 | ? nicht lesbar |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | 1 | ✓ richtig |
 | S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… | Gewissenhaftigkeit könnte eine Drittvariable sein, da diese sowohl mit Extraversion als auch mit Verträglichkeit positiv zusammenhängt. | liest Deine Lehrperson |
 | S03-10 | t1: t | 0.81 | ✓ richtig |
 | S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |
@@ -278,7 +303,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 
 </details>
 
-<details><summary><b>831025</b>: 9 von 14 richtig</summary>
+<details><summary><b>831025</b>: 10 von 14 richtig</summary>
 
 | Feld | Frage | Abgabe | Ergebnis |
 |---|---|---|---|
@@ -289,7 +314,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | .58 | ? nicht lesbar |
 | S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.06 | ✓ richtig |
 | S03-7 | H1: p-Wert | 0.511 | ✓ richtig |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | eine Hypothese ist signifikant | ? nicht lesbar |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | 1 | ✓ richtig |
 | S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… | H4 --&gt; mögliche Drittvariable: Alter | liest Deine Lehrperson |
 | S03-10 | t1: t | 0.81 | ✓ richtig |
 | S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |
@@ -326,7 +351,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 
 </details>
 
-<details><summary><b>831027</b>: 9 von 14 richtig</summary>
+<details><summary><b>831027</b>: 10 von 14 richtig</summary>
 
 | Feld | Frage | Abgabe | Ergebnis |
 |---|---|---|---|
@@ -337,7 +362,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | .58 | ? nicht lesbar |
 | S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.06 | ✓ richtig |
 | S03-7 | H1: p-Wert | 0.511 | ✓ richtig |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | eine | ? nicht lesbar |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | 1 | ✓ richtig |
 | S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… | H4: mögliche Drittvariable Alter | liest Deine Lehrperson |
 | S03-10 | t1: t | 0.81 | ✓ richtig |
 | S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |
@@ -385,7 +410,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 0.58 | ✓ richtig |
 | S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.06 | ✓ richtig |
 | S03-7 | H1: p-Wert | 0.511 | ✓ richtig |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | H2, H3 | ? nicht lesbar |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | 2 | ✗ falsch |
 | S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… | Ein weitere Variable, (soziale Erwünschtheit) könnte sowohl auf die Extraversion als auch die Verträglichkeit beeinflussen | liest Deine Lehrperson |
 | S03-10 | t1: t | 0.81 | ✓ richtig |
 | S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |
@@ -443,7 +468,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 
 </details>
 
-<details><summary><b>831039</b>: 10 von 14 richtig</summary>
+<details><summary><b>831039</b>: 11 von 14 richtig</summary>
 
 | Feld | Frage | Abgabe | Ergebnis |
 |---|---|---|---|
@@ -454,7 +479,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 0.60 | ✓ richtig |
 | S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.06 | ✓ richtig |
 | S03-7 | H1: p-Wert | 0.511 | ✓ richtig |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | nur H2 ist signifikant | ? nicht lesbar |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | 1 | ✓ richtig |
 | S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… | soziale Verträglichkeit | liest Deine Lehrperson |
 | S03-10 | t1: t | 1.08 | ✗ falsch |
 | S03-11 | t1: Cohen's d | 0.10 | ✗ falsch |

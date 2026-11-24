@@ -4,8 +4,8 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 2.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
-| 31005 | 11 | 1 | 0 | 0 | 1/1 | 19.11.2026, 12:49 | 1 | claudiabirkle | über Konto zugeordnet zu 261831005 |
-| 31009 | 11 | 1 | 0 | 0 | 1/1 | 19.11.2026, 12:48 | 1 | mialudwig |   |
+| 31005 | 12 | 0 | 0 | 0 | 1/1 | 19.11.2026, 12:49 | 1 | claudiabirkle | über Konto zugeordnet zu 261831005 |
+| 31009 | 12 | 0 | 0 | 0 | 1/1 | 19.11.2026, 12:48 | 1 | mialudwig |   |
 
 ## Felder im Überblick
 
@@ -13,12 +13,12 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 2.
 
 | Kennziffer | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| 31005 | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
-| 31009 | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 31005 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 31009 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 
 | Feld | Frage | Treffer |
 |---|---|---|
-| S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nachkommastell… | 0 von 2 |
+| S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nachkommastell… | 2 von 2 |
 | S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 2 von 2 |
 | S04-3 | 95 %-KI des gepoolten Effekts &#91;untere, obere&#93; | 2 von 2 |
 | S04-4 | I² (in %) | 2 von 2 |
@@ -35,11 +35,11 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 2.
 
 Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zeile auf.
 
-<details><summary><b>31005</b>: 11 von 12 richtig</summary>
+<details><summary><b>31005</b>: 12 von 12 richtig</summary>
 
 | Feld | Frage | Abgabe | Ergebnis |
 |---|---|---|---|
-| S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nach… | 0.72 | ✗ falsch |
+| S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nach… | 0.72 | ✓ richtig |
 | S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 0.32 | ✓ richtig |
 | S04-3 | 95 %-KI des gepoolten Effekts &#91;untere, obere&#93; | &#91;0.02, 0.61&#93; | ✓ richtig |
 | S04-4 | I² (in %) | 26.9 | ✓ richtig |
@@ -57,11 +57,11 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 
 </details>
 
-<details><summary><b>31009</b>: 11 von 12 richtig</summary>
+<details><summary><b>31009</b>: 12 von 12 richtig</summary>
 
 | Feld | Frage | Abgabe | Ergebnis |
 |---|---|---|---|
-| S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nach… | 0.45 | ✗ falsch |
+| S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nach… | 0.45 | ✓ richtig |
 | S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 0.32 | ✓ richtig |
 | S04-3 | 95 %-KI des gepoolten Effekts &#91;untere, obere&#93; | &#91;0.02, 0.61&#93; | ✓ richtig |
 | S04-4 | I² (in %) | 26.9 | ✓ richtig |

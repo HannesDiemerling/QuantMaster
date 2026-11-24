@@ -1,6 +1,6 @@
 # Übersicht Gruppe frederike, Sitzung 02
 
-Prüfstand: Version 1 der Sollwerte. Abgaben: 22.
+Prüfstand: Version 1 der Sollwerte. Abgaben: 21.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
@@ -11,7 +11,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 22.
 | 831019 |   |   |   |   |   | 17.11.2026, 17:07 | 1 | Lehrperson | Kennziffer nicht im Stand; Datei ist kein Text (z. B. Word oder PDF) |
 | 831020 | 11 | 0 | 0 | 0 | 1/1 | 17.11.2026, 15:28 | 1 | michellekhl |   |
 | 831021 | 11 | 0 | 0 | 0 | 1/1 | 17.11.2026, 15:31 | 1 | larapff | über Konto zugeordnet zu 831024 |
-| 831022 | 11 | 0 | 0 | 0 | 1/1 | 17.11.2026, 15:23 | 1 | jakobschmidt7 | Sitzungsordner fehlt; Kennziffer nicht im Stand |
+| 831022 | 11 | 0 | 0 | 0 | 1/1 | 25.11.2026, 00:08 (nach dem Sitzungstag) | 1 | Lehrperson | Kennziffer nicht im Stand |
 | 831023 | 11 | 0 | 0 | 0 | 1/1 | 17.11.2026, 16:02 | 1 | Lene26 |   |
 | 831024 | 11 | 0 | 0 | 0 | 1/1 | 17.11.2026, 15:27 | 1 | larapff |   |
 | 831025 | 10 | 1 | 0 | 0 | 1/1 | 17.11.2026, 15:28 | 1 | luise2205 |   |
@@ -25,7 +25,6 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 22.
 | 831035 |   |   |   |   |   | 17.11.2026, 17:09 | 1 | Lehrperson | Datei ist kein Text (z. B. Word oder PDF) |
 | 831039 | 10 | 1 | 0 | 0 | 1/1 | 17.11.2026, 15:28 | 1 | 831039melina | Kennziffer nicht im Stand |
 | 831040 | 8 | 3 | 0 | 0 | 1/1 | 17.11.2026, 15:28 | 1 | Tobiaseckelmann |   |
-| Abgabe test | 0 | 0 | 5 | 7 | 0/1 | 17.11.2026, 15:23 | 1 | Lehrperson | keine Kennziffer im Dateinamen |
 
 ## Felder im Überblick
 
@@ -52,22 +51,21 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 22.
 | 831034 | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831039 | ~ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831040 | ~ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ | T |
-| Abgabe test | ? | ? | ? | ? | ? | ? | ? | – | – | – | – | – | – |
 
 | Feld | Frage | Treffer |
 |---|---|---|
-| S02-1 | Datenzeilen in Deiner selbst kombinierten Datei (ohne Kopfzeile) | 0 von 4 ⚠ |
-| S02-2 | Zeilen in m15-gesamt.csv | 16 von 20 |
-| S02-3 | Davon Zeilen mit quelle = studierende | 15 von 20 |
-| S02-4 | Anzahl Personen mit geschlecht = 1 | 19 von 20 |
-| S02-5 | Mittelwert alter | 18 von 20 |
-| S02-6 | SD alter | 19 von 20 |
-| S02-7 | Median alter | 18 von 20 |
-| S02-8 | IQR alter | 19 von 20 |
-| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 19 von 20 |
-| S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 19 von 20 |
-| S02-11 | Mittelwert BFI&#95;06 | 18 von 20 |
-| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 18 von 20 |
+| S02-1 | Datenzeilen in Deiner selbst kombinierten Datei (ohne Kopfzeile) | 0 von 3 |
+| S02-2 | Zeilen in m15-gesamt.csv | 16 von 19 |
+| S02-3 | Davon Zeilen mit quelle = studierende | 15 von 19 |
+| S02-4 | Anzahl Personen mit geschlecht = 1 | 19 von 19 |
+| S02-5 | Mittelwert alter | 18 von 19 |
+| S02-6 | SD alter | 19 von 19 |
+| S02-7 | Median alter | 18 von 19 |
+| S02-8 | IQR alter | 19 von 19 |
+| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) | 19 von 19 |
+| S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) | 19 von 19 |
+| S02-11 | Mittelwert BFI&#95;06 | 18 von 19 |
+| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 18 von 19 |
 
 ## Details je Kennziffer
 
@@ -217,8 +215,6 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S02-11 | Mittelwert BFI&#95;06 | 3.02 | ✓ richtig |
 | S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 5 | ✓ richtig |
 | S02-13 | Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/n… | Nein, die Punkte weichen insbesondere bei höheren Alterswerten deutlich von der Diagonalen ab, was gegen eine annähernde Normalverteilung des Alters spricht. | liest Deine Lehrperson |
-
-- Der Ordner für die Sitzung fehlt. Anhand der Felder wurde Sitzung 02 geprüft. Lege die Datei bitte in `sitzung02`.
 
 </details>
 
@@ -468,27 +464,5 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S02-11 | Mittelwert BFI&#95;06 | 3.00 | ✗ falsch |
 | S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) | 2 | ✗ falsch |
 | S02-13 | Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/n… | ja, aber Linkschiefe erkennbar + Ausreißer | liest Deine Lehrperson |
-
-</details>
-
-<details><summary><b>Abgabe test</b>: 0 von 12 richtig</summary>
-
-| Feld | Frage | Abgabe | Ergebnis |
-|---|---|---|---|
-| S02-1 | Datenzeilen in Deiner selbst kombinierten Datei (ohne Kopfz… | xx | ? nicht lesbar |
-| S02-2 | Zeilen in m15-gesamt.csv | xx | ? nicht lesbar |
-| S02-3 | Davon Zeilen mit quelle = studierende | xx | ? nicht lesbar |
-| S02-4 | Anzahl Personen mit geschlecht = 1 | xx | ? nicht lesbar |
-| S02-5 | Mittelwert alter | xxxx | ? nicht lesbar |
-| S02-6 | SD alter | xx | ? nicht lesbar |
-| S02-7 | Median alter | xxxx | ? nicht lesbar |
-| S02-8 | IQR alter |   | – fehlt |
-| S02-9 | Schiefe (Skewness) alter (3 Nachkommastellen) |   | – fehlt |
-| S02-10 | Anzahl Ausreißer-Punkte im Boxplot alter (abgezählt) |   | – fehlt |
-| S02-11 | Mittelwert BFI&#95;06 |   | – fehlt |
-| S02-12 | Häufigste Stufe von bildungsgrad (aus dem Balkendiagramm) |   | – fehlt |
-| S02-13 | Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/n… |   | – fehlt |
-
-- Der Dateiname Abgabe test enthält keine Kennziffer. Benenne die Datei bitte `<Deine Kennziffer>.txt`, dann wird sie zugeordnet.
 
 </details>

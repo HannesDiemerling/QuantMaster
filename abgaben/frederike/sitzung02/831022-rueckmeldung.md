@@ -3,9 +3,9 @@
 **Gruppe:** frederike  
 **Sitzung:** 02  
 **Kennziffer:** 831022  
-**Eingegangen:** 17.11.2026, 15:23  
+**Eingegangen:** 25.11.2026, 00:08  
 **Fassung:** 1  
-**Eingestellt von:** jakobschmidt7  
+**Eingestellt von:** HannesDiemerling  
 **Prüfstand:** Version 1
 
 **11 von 11 prüfbaren Feldern sind richtig.** Sehr schön, alles passt. Zum Korrigieren öffnest Du Deine Datei im Ordner, klickst oben rechts auf das Stift-Symbol, änderst die Werte und klickst auf *Commit changes*. Die Rückmeldung wird dann neu erzeugt.
@@ -32,7 +32,3 @@
 **S02-13** Q-Q-Plot alter: Liegen die Punkte auf der Diagonalen? (ja/nein + 1 Satz)
 
 > Nein, die Punkte weichen insbesondere bei höheren Alterswerten deutlich von der Diagonalen ab, was gegen eine annähernde Normalverteilung des Alters spricht.
-
-## Hinweise
-
-- Der Ordner für die Sitzung fehlt. Anhand der Felder wurde Sitzung 02 geprüft. Lege die Datei bitte in `sitzung02`.

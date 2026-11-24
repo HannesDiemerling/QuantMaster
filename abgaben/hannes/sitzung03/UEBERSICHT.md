@@ -4,19 +4,19 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 14.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
-| 031014 | 12 | 0 | 0 | 2 | 2/2 | 18.11.2026, 12:32 | 1 | la03-m | über Konto zugeordnet zu 261831014 |
+| 031014 | 13 | 0 | 0 | 1 | 2/2 | 18.11.2026, 12:32 | 1 | la03-m | über Konto zugeordnet zu 261831014 |
 | 1003 | 1 | 12 | 0 | 1 | 2/2 | 18.11.2026, 12:50 | 1 | theresaschwanebeck | über Konto zugeordnet zu 261831003 |
 | 261831001 | 14 | 0 | 0 | 0 | 2/2 | 18.11.2026, 12:37 | 2 | NadineRittmeier |   |
 | 261831002 | 1 | 12 | 0 | 1 | 2/2 | 18.11.2026, 12:52 | 1 | Clara Rummler |   |
 | 261831006 | 13 | 1 | 0 | 0 | 2/2 | 24.11.2026, 16:25 (nach dem Sitzungstag) | 1 | MariaZimara |   |
 | 261831012 | 12 | 2 | 0 | 0 | 2/2 | 24.11.2026, 12:03 (nach dem Sitzungstag) | 2 | kemismudzinski |   |
-| 261831013 | 13 | 0 | 0 | 1 | 2/2 | 18.11.2026, 12:00 | 1 | MiriamLebert |   |
+| 261831013 | 14 | 0 | 0 | 0 | 2/2 | 18.11.2026, 12:00 | 1 | MiriamLebert |   |
 | 261831031 | 13 | 1 | 0 | 0 | 2/2 | 24.11.2026, 22:59 (nach dem Sitzungstag) | 2 | janinakilian |   |
 | 31005 | 11 | 3 | 0 | 0 | 2/2 | 18.11.2026, 13:15 | 1 | claudiabirkle | über Konto zugeordnet zu 261831005 |
 | 31009 | 13 | 1 | 0 | 0 | 2/2 | 18.11.2026, 13:12 | 1 | mialudwig |   |
-| 31030 | 10 | 2 | 0 | 2 | 2/2 | 18.11.2026, 13:06 | 1 | Siahmardy |   |
+| 31030 | 11 | 2 | 0 | 1 | 2/2 | 18.11.2026, 13:06 | 1 | Siahmardy |   |
 | 817 | 13 | 0 | 0 | 1 | 2/2 | 18.11.2026, 13:06 | 1 | svenjaschmidt1312 | über Konto zugeordnet zu 261831017 |
-| 831007 | 13 | 0 | 0 | 1 | 2/2 | 18.11.2026, 11:59 | 1 | chiaralorenzhmu07 |   |
+| 831007 | 14 | 0 | 0 | 0 | 2/2 | 18.11.2026, 11:59 | 1 | chiaralorenzhmu07 |   |
 | 831015 | 14 | 0 | 0 | 0 | 2/2 | 18.11.2026, 12:04 | 1 | Mrmcmg | über Konto zugeordnet zu 31015 |
 
 ## Felder im Überblick
@@ -25,19 +25,19 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 14.
 
 | Kennziffer | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| 031014 | ✓ | ✓ | ✓ | ✓ | ? | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 031014 | ✓ | ✓ | ✓ | ✓ | ? | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 1003 | ✗ | ✗ | ✓ | ? | ✗ | ✗ | ✗ | ✗ | T | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | T |
 | 261831001 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831002 | ✗ | ✗ | ✗ | ? | ✗ | ✗ | ✗ | ✗ | T | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ | T |
 | 261831006 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 261831012 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
-| 261831013 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 261831013 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831031 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 31005 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ | T |
 | 31009 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
-| 31030 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ? | T | ✗ | ✗ | ✓ | ✓ | ✓ | ? | T |
+| 31030 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✗ | ✗ | ✓ | ✓ | ✓ | ? | T |
 | 817 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ? | T |
-| 831007 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 831007 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831015 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 
 | Feld | Frage | Treffer |
@@ -49,7 +49,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 14.
 | S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 11 von 14 |
 | S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 12 von 14 |
 | S03-7 | H1: p-Wert | 12 von 14 |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig … | 5 von 14 |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig … | 9 von 14 |
 | S03-10 | t1: t | 11 von 14 |
 | S03-11 | t1: Cohen's d | 12 von 14 |
 | S03-12 | t2 (Welch-Zeile): t | 12 von 14 |
@@ -61,7 +61,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 14.
 
 Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zeile auf.
 
-<details><summary><b>031014</b>: 12 von 14 richtig</summary>
+<details><summary><b>031014</b>: 13 von 14 richtig</summary>
 
 | Feld | Frage | Abgabe | Ergebnis |
 |---|---|---|---|
@@ -72,7 +72,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | Neurozitismus + 0.5921 | ? nicht lesbar |
 | S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.07 | ✓ richtig |
 | S03-7 | H1: p-Wert | 0.443 | ✓ richtig |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | Nur H2 | ? nicht lesbar |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | 1 | ✓ richtig |
 | S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… | Die Antworten im Fragebogen könnten sozial erwünscht beantwortet worden sein. | liest Deine Lehrperson |
 | S03-10 | t1: t | 0.73 | ✓ richtig |
 | S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |
@@ -203,7 +203,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 
 </details>
 
-<details><summary><b>261831013</b>: 13 von 14 richtig</summary>
+<details><summary><b>261831013</b>: 14 von 14 richtig</summary>
 
 | Feld | Frage | Abgabe | Ergebnis |
 |---|---|---|---|
@@ -214,7 +214,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 0.59 | ✓ richtig |
 | S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.07 | ✓ richtig |
 | S03-7 | H1: p-Wert | 0.443 | ✓ richtig |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | Nur H2 | ? nicht lesbar |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | 1 | ✓ richtig |
 | S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… | Bei H4 kann Z der Sozioökonomische Status sein. | liest Deine Lehrperson |
 | S03-10 | t1: t | 0.73 | ✓ richtig |
 | S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |
@@ -297,7 +297,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 
 </details>
 
-<details><summary><b>31030</b>: 10 von 14 richtig</summary>
+<details><summary><b>31030</b>: 11 von 14 richtig</summary>
 
 | Feld | Frage | Abgabe | Ergebnis |
 |---|---|---|---|
@@ -308,7 +308,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 0.59 | ✓ richtig |
 | S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.07 | ✓ richtig |
 | S03-7 | H1: p-Wert | 0.443 | ✓ richtig |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | nur eine H2 | ? nicht lesbar |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | 1 | ✓ richtig |
 | S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… | Selbstbewusste Schauspielstudenten könnten sowieso selbstbewusster sein. | liest Deine Lehrperson |
 | S03-10 | t1: t | 1.00 | ✗ falsch |
 | S03-11 | t1: Cohen's d | 0.10 | ✗ falsch |
@@ -345,7 +345,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 
 </details>
 
-<details><summary><b>831007</b>: 13 von 14 richtig</summary>
+<details><summary><b>831007</b>: 14 von 14 richtig</summary>
 
 | Feld | Frage | Abgabe | Ergebnis |
 |---|---|---|---|
@@ -356,7 +356,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 0.59 | ✓ richtig |
 | S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.07 | ✓ richtig |
 | S03-7 | H1: p-Wert | 0.443 | ✓ richtig |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | Nur H2 | ? nicht lesbar |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | 1 | ✓ richtig |
 | S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… | Eine alternative Erklärung für H4 könnte der Sozioökonische Status sein, da viele Studierende aus Familien mit einem hohen SES kommen. | liest Deine Lehrperson |
 | S03-10 | t1: t | 0.73 | ✓ richtig |
 | S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |

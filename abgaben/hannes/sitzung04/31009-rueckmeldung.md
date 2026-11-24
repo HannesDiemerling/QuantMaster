@@ -8,11 +8,11 @@
 **Eingestellt von:** mialudwig  
 **Prüfstand:** Version 1
 
-**11 von 12 prüfbaren Feldern sind richtig.** Zum Korrigieren öffnest Du Deine Datei im Ordner, klickst oben rechts auf das Stift-Symbol, änderst die Werte und klickst auf *Commit changes*. Die Rückmeldung wird dann neu erzeugt.
+**12 von 12 prüfbaren Feldern sind richtig.** Sehr schön, alles passt. Zum Korrigieren öffnest Du Deine Datei im Ordner, klickst oben rechts auf das Stift-Symbol, änderst die Werte und klickst auf *Commit changes*. Die Rückmeldung wird dann neu erzeugt.
 
 | Feld | Frage | Deine Antwort (so verstanden) | Ergebnis |
 |---|---|---|---|
-| S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nachkommastellen) | 0.45 | ✗ falsch · Datensatz Deiner Kennziffer, Fehlerzeilen bereinigt. |
+| S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nachkommastellen) | 0.45 | ✓ richtig · Gewertet mit Datensatz 9 (letzte Ziffer Deiner Kennziffer). Laut Deinem Upload ist Dein Datensatz 2, beides zählt. |
 | S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 0.32 | ✓ richtig |
 | S04-3 | 95 %-KI des gepoolten Effekts &#91;untere, obere&#93; | &#91;0.02, 0.61&#93; | ✓ richtig |
 | S04-4 | I² (in %) | 26.9 | ✓ richtig |

@@ -8,7 +8,7 @@
 **Eingestellt von:** Siahmardy  
 **Prüfstand:** Version 1
 
-**10 von 14 prüfbaren Feldern sind richtig.** Zum Korrigieren öffnest Du Deine Datei im Ordner, klickst oben rechts auf das Stift-Symbol, änderst die Werte und klickst auf *Commit changes*. Die Rückmeldung wird dann neu erzeugt.
+**11 von 14 prüfbaren Feldern sind richtig.** Zum Korrigieren öffnest Du Deine Datei im Ordner, klickst oben rechts auf das Stift-Symbol, änderst die Werte und klickst auf *Commit changes*. Die Rückmeldung wird dann neu erzeugt.
 
 | Feld | Frage | Deine Antwort (so verstanden) | Ergebnis |
 |---|---|---|---|
@@ -19,7 +19,7 @@
 | S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 0.59 | ✓ richtig |
 | S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.07 | ✓ richtig |
 | S03-7 | H1: p-Wert | 0.443 | ✓ richtig |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig getestet)? | nur eine H2 | ? nicht lesbar · Hier fehlt eine Zahl. Achte auf zweiseitige Tests und bei H4 auf Spearman. |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig getestet)? | 1 | ✓ richtig |
 | S03-10 | t1: t | 1.00 | ✗ falsch · Testwert 3 im Einstichproben-t-Test. |
 | S03-11 | t1: Cohen's d | 0.10 | ✗ falsch |
 | S03-12 | t2 (Welch-Zeile): t | 0.96 | ✓ richtig |
