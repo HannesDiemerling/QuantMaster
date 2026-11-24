@@ -369,6 +369,24 @@ def _in(gruppe, fid, teil, token, h):
     return hash_wert(gruppe, fid, teil, token) in set(h.get(teil, []))
 
 
+ZAHLWORT = {"null": 0, "keine": 0, "kein": 0, "eine": 1, "ein": 1, "einer": 1, "eins": 1, "einen": 1,
+            "zwei": 2, "drei": 3, "vier": 4, "fünf": 5, "fuenf": 5, "sechs": 6, "sieben": 7, "acht": 8,
+            "neun": 9, "zehn": 10}
+
+
+def ganzzahl_aus_worten(ant, frage=""):
+    """Ganze Zahl aus Wörtern („eine“, „zwei“ …) oder, bei Fragen nach Hypothesen, aus genannten H1, H2 … ."""
+    woerter = re.findall(r"[a-zäöüß]+", _normal(ant).lower())
+    for i, w in enumerate(woerter):
+        if w in ZAHLWORT and (w not in ("kein", "keine") or i == 0):
+            return ZAHLWORT[w]
+    if "hypothese" in (frage or "").lower():
+        hs = set(re.findall(r"(?<![A-Za-z0-9])[Hh]\s?(\d)(?!\d)", ant))
+        if hs:
+            return len(hs)
+    return None
+
+
 def pruefe_feld(gruppe, fid, sf, ant, datensatz=None):
     """Gibt (status, verstanden, notiz) zurück."""
     typ = sf["typ"]
@@ -385,22 +403,34 @@ def pruefe_feld(gruppe, fid, sf, ant, datensatz=None):
     if typ == "zahl":
         hset = None
         teil = "wert"
+        ds_liste = []
         if "pd" in sf:
-            if datensatz is None or str(datensatz) not in sf["pd"]:
+            for d in (datensatz if isinstance(datensatz, (list, tuple)) else [datensatz]):
+                if d is not None and str(d) in sf["pd"] and d not in ds_liste:
+                    ds_liste.append(d)
+            if not ds_liste:
                 return ("ohne_sollwert", ant, "Dein Datensatz ist nicht bekannt.")
-            teil = f"wert.d{int(datensatz)}"
-            hset = set(sf["pd"][str(datensatz)])
         zs = zahlen_in(minus_zusammen(ant))
         if not zs:
             return ("nicht_lesbar", ant, "Hier fehlt eine Zahl.")
         z = abs(zs[0]) if sf.get("abs") else zs[0]
         token = text_token(z, k)
-        treffer = hash_wert(gruppe, fid, teil, token) in (hset if hset is not None else set(h.get("wert", [])))
+        if ds_liste:
+            for i, d in enumerate(ds_liste):
+                if hash_wert(gruppe, fid, f"wert.d{int(d)}", token) in set(sf["pd"][str(d)]):
+                    notiz = "" if i == 0 else (f"Gewertet mit Datensatz {d} (letzte Ziffer Deiner Kennziffer). "
+                                               f"Laut Deinem Upload ist Dein Datensatz {ds_liste[0]}, beides zählt.")
+                    return ("richtig", token, notiz)
+            return ("falsch", token, "")
+        treffer = hash_wert(gruppe, fid, teil, token) in set(h.get("wert", []))
         return ("richtig" if treffer else "falsch", token, "")
     if typ == "ganzzahl":
         zs = zahlen_in(ant, ganz=True)
         if not zs:
-            return ("nicht_lesbar", ant, "Hier fehlt eine Zahl.")
+            w = ganzzahl_aus_worten(ant, sf.get("frage", ""))
+            if w is None:
+                return ("nicht_lesbar", ant, "Hier fehlt eine Zahl.")
+            zs = [Decimal(w)]
         z = zs[0]
         if z != z.to_integral_value():
             return ("falsch", str(z), "Hier ist eine ganze Zahl gefragt.")
@@ -1229,7 +1259,8 @@ def auswerten(a, gruppen, gruppen_namen, lehr, uploads):
     datensatz = datensatz_von(kz_d, zu_datensatz) if kz_d else None
     if datensatz and kz_d not in zu_datensatz and any("pd" in sf for sf in felder_s.values()):
         a["hinweise"].append(f"Deine Kennziffer finde ich nicht im Stand Deiner Gruppe. Für die Aufgabe zu Deinem eigenen Datensatz gehe ich deshalb von Datensatz {datensatz} aus (letzte Ziffer Deiner Kennziffer). Hast Du einen anderen bearbeitet, sag Deiner Lehrperson Bescheid.")
-    a["ergebnis"] = bewerte(antworten, sw, a["gruppe"], felder_s, datensatz)
+    datensaetze = [datensatz] + [datensatz_von(x, {}) for x in (a["kz_int"], kz_d) if x]
+    a["ergebnis"] = bewerte(antworten, sw, a["gruppe"], felder_s, datensaetze)
     unbekannt = [f for f in antworten if re.match(r"S\d+-", f) and f not in felder_s]
     if unbekannt:
         a["hinweise"].append("Diese Zeilen gehören nicht zu dieser Sitzung und wurden nicht gewertet: " + ", ".join(sorted(unbekannt)) + ".")

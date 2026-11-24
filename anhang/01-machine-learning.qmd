@@ -55,7 +55,7 @@ JASP bietet für **Regression** (metrisches Ziel) und **Classification** (katego
 
 Ein **neuronales Netz** ist eine Kette von Rechenschichten. Jede „Neuron“-Einheit bildet eine gewichtete Summe ihrer Eingänge, schickt sie durch eine nicht-lineare **Aktivierungsfunktion** und gibt sie weiter. Durch das Stapeln mehrerer Schichten kann das Netz **beliebig komplexe, nicht-lineare** Zusammenhänge abbilden. Beim Training werden die Gewichte schrittweise so angepasst, dass der Vorhersagefehler sinkt (Backpropagation).
 
-Genau diese Flexibilität ist Stärke **und** Gefahr: Mit genug Neuronen lernt ein Netz **alles**, auch das Rauschen. Bei kleinen Datensätzen (wie unserem mit rund 100 Personen) overfittet ein Netz extrem leicht. Deshalb beurteilst Du es **ausschließlich** auf den Testdaten und hältst es klein (wenige Neuronen, eine Schicht).
+Genau diese Flexibilität ist Stärke **und** Gefahr: Mit genug Neuronen lernt ein Netz **alles**, auch das Rauschen. Bei kleinen Datensätzen (wie unserem mit rund 120 Personen) overfittet ein Netz extrem leicht. Deshalb beurteilst Du es **ausschließlich** auf den Testdaten und hältst es klein (wenige Neuronen, eine Schicht).
 
 ## In JASP rechnen
 

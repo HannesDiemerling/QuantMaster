@@ -69,7 +69,7 @@ Der **Zentrale Grenzwertsatz** sagt etwas Spezifischeres: Die **Summe (bzw. der 
 
 Warum hilft das der Regression? Weil ein Regressionskoeffizient $b$ **selbst so eine Summe ist**, im Kern eine gewichtete Summe der vielen unabhängigen Fehlerbeiträge über alle Fälle. Genau deshalb nähert sich die **Stichprobenverteilung von $b$** mit wachsendem $N$ einer Normalverteilung an, *auch wenn die Residuen schief sind*. Und nur das brauchen ***p*-Werte und Konfidenzintervalle**: Sie setzen voraus, dass der *Schätzer* normalverteilt ist, nicht die Daten oder die Residuen.
 
-Bei **kleinem** $N$ (wie bei uns mit rund 100 Personen, und erst recht darunter) ist diese Annäherung nicht garantiert. Dann schaust Du den Q-Q-Plot genauer an und ziehst ggf. eine Transformation oder ein robustes Verfahren in Betracht.
+Bei **kleinem** $N$ (wie bei uns mit rund 120 Personen, und erst recht darunter) ist diese Annäherung nicht garantiert. Dann schaust Du den Q-Q-Plot genauer an und ziehst ggf. eine Transformation oder ein robustes Verfahren in Betracht.
 :::
 
 ## In JASP rechnen

@@ -31,7 +31,7 @@ Dieses Kapitel ist eine **Landkarte**, kein Trainingslager. Die folgenden Verfah
 **In JASP:** CFA unter **Factor → Confirmatory Factor Analysis**, SEM unter **SEM → Structural Equation Modeling** (Modul über das **„+“** aktivieren; im Hintergrund `lavaan`). Modelle werden in einer kurzen Syntax beschrieben.
 
 ::: {.callout-tip title="Warum CFA mehr verlangt als EFA"}
-SEM und CFA sind hungrig nach Daten. Faustregeln reichen von „≥ 10 Fälle pro geschätztem Parameter“ bis „$N \geq 200$“. Mit unseren rund 100 Personen sind sie nur **demonstrativ** sinnvoll, nicht belastbar. Gut zu wissen, bevor Du sie in einer Arbeit einplanst.
+SEM und CFA sind hungrig nach Daten. Faustregeln reichen von „≥ 10 Fälle pro geschätztem Parameter“ bis „$N \geq 200$“. Mit unseren rund 120 Personen sind sie nur **demonstrativ** sinnvoll, nicht belastbar. Gut zu wissen, bevor Du sie in einer Arbeit einplanst.
 :::
 
 ## Netzwerkanalyse
@@ -88,4 +88,4 @@ Dieses Kapitel hat keine Abgabe.
 1. Was unterscheidet eine explorative von einer konfirmatorischen Faktorenanalyse?
 2. Wofür brauchst Du SEM, das eine einzelne Regression nicht kann?
 3. Welches Verfahren wählst Du, um ohne eigene Erhebung den Stand der Forschung zu einem Effekt zusammenzufassen?
-4. Warum sind CFA/SEM mit rund 100 Personen nur eingeschränkt aussagekräftig?
+4. Warum sind CFA/SEM mit rund 120 Personen nur eingeschränkt aussagekräftig?

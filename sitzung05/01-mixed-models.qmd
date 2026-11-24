@@ -75,7 +75,7 @@ Steckt ein Prädiktor im Modell, ist das streng genommen ein ICC *nach Kontrolle
 
 Unsere Personen sind in **10 Quell-Datensätze** (`quelle_datensatz`) genestet, das ist eine echte Gruppenstruktur. Aber (@sec-tag3-datenhinweis): Alle Datensätze wurden aus **derselben** Verteilung erzeugt. Daraus folgt:
 
-- Die **Varianz zwischen** den Datensätzen sollte gering sein, der **ICC** entsprechend **klein**. Bei nur zehn Gruppen mit je rund zehn Personen kann er durch Zufall trotzdem einmal bei .05 bis .10 landen.
+- Die **Varianz zwischen** den Datensätzen sollte gering sein, der **ICC** entsprechend **klein**. Bei nur zehn Gruppen mit je rund zwölf Personen kann er durch Zufall trotzdem einmal bei .05 bis .10 landen.
 - Der feste Effekt von `E_mean` auf `O_mean` dürfte ungefähr dem aus einer normalen Regression entsprechen.
 
 Das Mixed Model **zeigt Dir** also selbst, wie viel Nestung vorliegt. Es ist damit auch ein Werkzeug, um zu prüfen, ob man es überhaupt braucht. Mit nur 10 Gruppen liegen wir allerdings unter der Faustregel von 20–30 Clustern (siehe unten), die geschätzte Gruppenvarianz ist also selbst recht unsicher. In echten genesteten Daten (Klassen, Behandelnde, Messwiederholungen) wäre der ICC deutlich größer und das Modell unverzichtbar.
