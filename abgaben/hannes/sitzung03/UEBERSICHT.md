@@ -8,7 +8,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 12.
 | 1003 | 1 | 12 | 0 | 1 | 2/2 | 18.11.2026, 12:50 | 1 | theresaschwanebeck | über Konto zugeordnet zu 261831003 |
 | 261831001 | 14 | 0 | 0 | 0 | 2/2 | 18.11.2026, 12:37 | 2 | NadineRittmeier |   |
 | 261831002 | 1 | 12 | 0 | 1 | 2/2 | 18.11.2026, 12:52 | 1 | Clara Rummler |   |
-| 261831012 | 10 | 1 | 0 | 3 | 2/2 | 24.11.2026, 11:30 (nach dem Sitzungstag) | 1 | kemismudzinski |   |
+| 261831012 | 12 | 2 | 0 | 0 | 2/2 | 24.11.2026, 12:03 (nach dem Sitzungstag) | 2 | kemismudzinski |   |
 | 261831013 | 13 | 0 | 0 | 1 | 2/2 | 18.11.2026, 12:00 | 1 | MiriamLebert |   |
 | 31005 | 11 | 3 | 0 | 0 | 2/2 | 18.11.2026, 13:15 | 1 | claudiabirkle | über Konto zugeordnet zu 261831005 |
 | 31009 | 13 | 1 | 0 | 0 | 2/2 | 18.11.2026, 13:12 | 1 | mialudwig |   |
@@ -27,7 +27,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 12.
 | 1003 | ✗ | ✗ | ✓ | ? | ✗ | ✗ | ✗ | ✗ | T | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | T |
 | 261831001 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831002 | ✗ | ✗ | ✗ | ? | ✗ | ✗ | ✗ | ✗ | T | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ | T |
-| 261831012 | ✓ | ✓ | ✓ | ? | ? | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
+| 261831012 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 261831013 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 31005 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ | T |
 | 31009 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
@@ -41,8 +41,8 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 12.
 | S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 10 von 12 |
 | S03-2 | Mittelwert N&#95;mean | 10 von 12 |
 | S03-3 | SD N&#95;mean | 11 von 12 |
-| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 9 von 12 |
-| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 8 von 12 |
+| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 10 von 12 |
+| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 9 von 12 |
 | S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 10 von 12 |
 | S03-7 | H1: p-Wert | 10 von 12 |
 | S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig … | 3 von 12 ⚠ |
@@ -153,25 +153,25 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 
 </details>
 
-<details><summary><b>261831012</b>: 10 von 14 richtig</summary>
+<details><summary><b>261831012</b>: 12 von 14 richtig</summary>
 
 | Feld | Frage | Abgabe | Ergebnis |
 |---|---|---|---|
 | S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 117 | ✓ richtig |
 | S03-2 | Mittelwert N&#95;mean | 3.08 | ✓ richtig |
 | S03-3 | SD N&#95;mean | 0.89 | ✓ richtig |
-| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | Extraversion | ? nicht lesbar |
-| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | Neurotizismus | ? nicht lesbar |
+| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | E 0.74 | ✓ richtig |
+| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 0.59 | ✓ richtig |
 | S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.07 | ✓ richtig |
 | S03-7 | H1: p-Wert | 0.443 | ✓ richtig |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | H2 ist signifikant | ? nicht lesbar |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | 10 | ✗ falsch |
 | S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… | Eine mögliche Drittvariable könnte bei der H2 das Alter sein | liest Deine Lehrperson |
 | S03-10 | t1: t | 0.73 | ✓ richtig |
 | S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |
 | S03-12 | t2 (Welch-Zeile): t | 0.96 | ✓ richtig |
 | S03-13 | t2 (Welch-Zeile): p | 0.342 | ✓ richtig |
 | S03-14 | t2: Cohen's d | 0.19 | ✓ richtig |
-| S03-15 | t3 (Welch-Zeile): p | 0.995 | ✗ falsch |
+| S03-15 | t3 (Welch-Zeile): p | 0.007 | ✗ falsch |
 | S03-16 | Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und wel… | Bei der Hypothese gibt es nur geringe Mittelwertsunterschiede mit insgesamt kleinem Effekt, es gibt keine statistische Signifikanz. | liest Deine Lehrperson |
 
 </details>
