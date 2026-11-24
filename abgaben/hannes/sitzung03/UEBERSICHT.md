@@ -1,6 +1,6 @@
 # Übersicht Gruppe hannes, Sitzung 03
 
-Prüfstand: Version 1 der Sollwerte. Abgaben: 12.
+Prüfstand: Version 1 der Sollwerte. Abgaben: 13.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
@@ -8,6 +8,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 12.
 | 1003 | 1 | 12 | 0 | 1 | 2/2 | 18.11.2026, 12:50 | 1 | theresaschwanebeck | über Konto zugeordnet zu 261831003 |
 | 261831001 | 14 | 0 | 0 | 0 | 2/2 | 18.11.2026, 12:37 | 2 | NadineRittmeier |   |
 | 261831002 | 1 | 12 | 0 | 1 | 2/2 | 18.11.2026, 12:52 | 1 | Clara Rummler |   |
+| 261831006 | 13 | 1 | 0 | 0 | 2/2 | 24.11.2026, 16:25 (nach dem Sitzungstag) | 1 | MariaZimara |   |
 | 261831012 | 12 | 2 | 0 | 0 | 2/2 | 24.11.2026, 12:03 (nach dem Sitzungstag) | 2 | kemismudzinski |   |
 | 261831013 | 13 | 0 | 0 | 1 | 2/2 | 18.11.2026, 12:00 | 1 | MiriamLebert |   |
 | 31005 | 11 | 3 | 0 | 0 | 2/2 | 18.11.2026, 13:15 | 1 | claudiabirkle | über Konto zugeordnet zu 261831005 |
@@ -27,6 +28,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 12.
 | 1003 | ✗ | ✗ | ✓ | ? | ✗ | ✗ | ✗ | ✗ | T | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | T |
 | 261831001 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831002 | ✗ | ✗ | ✗ | ? | ✗ | ✗ | ✗ | ✗ | T | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ | T |
+| 261831006 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 261831012 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 261831013 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ? | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 31005 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ | T |
@@ -38,20 +40,20 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 12.
 
 | Feld | Frage | Treffer |
 |---|---|---|
-| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 10 von 12 |
-| S03-2 | Mittelwert N&#95;mean | 10 von 12 |
-| S03-3 | SD N&#95;mean | 11 von 12 |
-| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 10 von 12 |
-| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 9 von 12 |
-| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 10 von 12 |
-| S03-7 | H1: p-Wert | 10 von 12 |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig … | 3 von 12 ⚠ |
-| S03-10 | t1: t | 9 von 12 |
-| S03-11 | t1: Cohen's d | 10 von 12 |
-| S03-12 | t2 (Welch-Zeile): t | 10 von 12 |
-| S03-13 | t2 (Welch-Zeile): p | 10 von 12 |
-| S03-14 | t2: Cohen's d | 9 von 12 |
-| S03-15 | t3 (Welch-Zeile): p | 6 von 12 |
+| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 11 von 13 |
+| S03-2 | Mittelwert N&#95;mean | 11 von 13 |
+| S03-3 | SD N&#95;mean | 12 von 13 |
+| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 11 von 13 |
+| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 10 von 13 |
+| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 11 von 13 |
+| S03-7 | H1: p-Wert | 11 von 13 |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig … | 4 von 13 |
+| S03-10 | t1: t | 10 von 13 |
+| S03-11 | t1: Cohen's d | 11 von 13 |
+| S03-12 | t2 (Welch-Zeile): t | 11 von 13 |
+| S03-13 | t2 (Welch-Zeile): p | 11 von 13 |
+| S03-14 | t2: Cohen's d | 10 von 13 |
+| S03-15 | t3 (Welch-Zeile): p | 6 von 13 |
 
 ## Details je Kennziffer
 
@@ -150,6 +152,29 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S03-14 | t2: Cohen's d | 0.56 | ✗ falsch |
 | S03-15 | t3 (Welch-Zeile): p | 0.578 | ✗ falsch |
 | S03-16 | Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und wel… | Der t-Test zeigt einen Unterschied zwischen den Gruppen in V&#95;mean (p= 0.039), allerdings lässt sich daraus nicht schließen, dass die Gruppenzugehörigkeit diesen Unterschied verursacht. | liest Deine Lehrperson |
+
+</details>
+
+<details><summary><b>261831006</b>: 13 von 14 richtig</summary>
+
+| Feld | Frage | Abgabe | Ergebnis |
+|---|---|---|---|
+| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 117 | ✓ richtig |
+| S03-2 | Mittelwert N&#95;mean | 3.08 | ✓ richtig |
+| S03-3 | SD N&#95;mean | 0.89 | ✓ richtig |
+| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | E 0.74 | ✓ richtig |
+| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 0.59 | ✓ richtig |
+| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.07 | ✓ richtig |
+| S03-7 | H1: p-Wert | 0.443 | ✓ richtig |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | 1 | ✓ richtig |
+| S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… | Der Befragungszeitraum oder Befragungsort/Kultur könnte eine Möglichkeit sein | liest Deine Lehrperson |
+| S03-10 | t1: t | 0.73 | ✓ richtig |
+| S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |
+| S03-12 | t2 (Welch-Zeile): t | 0.96 | ✓ richtig |
+| S03-13 | t2 (Welch-Zeile): p | 0.342 | ✓ richtig |
+| S03-14 | t2: Cohen's d | 0.19 | ✓ richtig |
+| S03-15 | t3 (Welch-Zeile): p | 0.007 | ✗ falsch |
+| S03-16 | Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und wel… | Bei der Hypothese gibt es keine wirkliche statistische Signifikanz, nur geringe Mittelwertsunterschiede mit insgesamt kleinem Effekt | liest Deine Lehrperson |
 
 </details>
 
