@@ -1,0 +1,13 @@
+S04-1 r in Deinem eigenen Seed-Datensatz (E_mean × O_mean, 2 Nachkommastellen): 0.72
+S04-2 Gepoolter Effekt (Fisher-z, Random Effects): 2.51
+S04-3 95 %-KI des gepoolten Effekts [untere, obere]: 0.32 [0.07,0.57]
+S04-4 I² (in %): 26.93
+S04-5 Modell A: R²: 0.13
+S04-6 Modell A: F: 3.80
+S04-7 Modell A: p: .006
+S04-8 Modell A: stärkster Prädiktor (Variable + β): G_mean + 0.32
+S04-9 Modell A: größter VIF: 1.43
+S04-10 Modell B: R²: 0.02
+S04-11 Moderation: b der Interaktion E_c * G_c: 0.01
+S04-12 Moderation: p der Interaktion: .871
+S04-13 Ein Satz: Warum findet Modell B (fast) nichts? Kein Zusammenhang, da Alter, Bildungsgrad und Geschlecht zusammen nur 2,4% der Varianz erklären und keiner der Prädiktoren signifikant ist. 
