@@ -1,6 +1,6 @@
 # Übersicht Gruppe hannes, Sitzung 04
 
-Prüfstand: Version 1 der Sollwerte. Abgaben: 8.
+Prüfstand: Version 1 der Sollwerte. Abgaben: 9.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
@@ -10,6 +10,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 8.
 | 31005 | 12 | 0 | 0 | 0 | 1/1 | 19.11.2026, 12:49 | 1 | claudiabirkle | über Konto zugeordnet zu 261831005 |
 | 31009 | 12 | 0 | 0 | 0 | 1/1 | 19.11.2026, 12:48 | 1 | mialudwig |   |
 | 31014 | 12 | 0 | 0 | 0 | 1/1 | 25.11.2026, 11:54 | 1 | la03-m | über Konto zugeordnet zu 261831014 |
+| 817 | 10 | 2 | 0 | 0 | 1/1 | 25.11.2026, 12:34 | 1 | svenjaschmidt1312 | über Konto zugeordnet zu 261831017 |
 | 831007 | 12 | 0 | 0 | 0 | 1/1 | 25.11.2026, 12:02 | 1 | chiaralorenzhmu07 |   |
 | 831015 | 12 | 0 | 0 | 0 | 1/1 | 25.11.2026, 12:05 | 1 | Mrmcmg | über Konto zugeordnet zu 31015 |
 
@@ -25,23 +26,24 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 8.
 | 31005 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 31009 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 31014 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 817 | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831007 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 831015 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 
 | Feld | Frage | Treffer |
 |---|---|---|
-| S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nachkommastell… | 8 von 8 |
-| S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 8 von 8 |
-| S04-3 | 95 %-KI des gepoolten Effekts &#91;untere, obere&#93; | 8 von 8 |
-| S04-4 | I² (in %) | 8 von 8 |
-| S04-5 | Modell A: R² | 8 von 8 |
-| S04-6 | Modell A: F | 8 von 8 |
-| S04-7 | Modell A: p | 8 von 8 |
-| S04-8 | Modell A: stärkster Prädiktor (Variable + β) | 8 von 8 |
-| S04-9 | Modell A: größter VIF | 8 von 8 |
-| S04-10 | Modell B: R² | 8 von 8 |
-| S04-11 | Moderation: b der Interaktion E&#95;c &#42; G&#95;c | 8 von 8 |
-| S04-12 | Moderation: p der Interaktion | 8 von 8 |
+| S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nachkommastell… | 8 von 9 |
+| S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 8 von 9 |
+| S04-3 | 95 %-KI des gepoolten Effekts &#91;untere, obere&#93; | 9 von 9 |
+| S04-4 | I² (in %) | 9 von 9 |
+| S04-5 | Modell A: R² | 9 von 9 |
+| S04-6 | Modell A: F | 9 von 9 |
+| S04-7 | Modell A: p | 9 von 9 |
+| S04-8 | Modell A: stärkster Prädiktor (Variable + β) | 9 von 9 |
+| S04-9 | Modell A: größter VIF | 9 von 9 |
+| S04-10 | Modell B: R² | 9 von 9 |
+| S04-11 | Moderation: b der Interaktion E&#95;c &#42; G&#95;c | 9 von 9 |
+| S04-12 | Moderation: p der Interaktion | 9 von 9 |
 
 ## Details je Kennziffer
 
@@ -168,6 +170,28 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S04-13 | Ein Satz: Warum findet Modell B (fast) nichts? | Wahrscheinlich kein bis kleiner linearer Zusammenhang zwischen den Variablen | liest Deine Lehrperson |
 
 - Die Kennziffer im Dateinamen steht nicht im Stand Deiner Gruppe. Über Dein GitHub-Konto gehört zu Dir die Kennziffer 261831014, darüber wurde Deine Abgabe zugeordnet. Du kannst bei Deiner Nummer bleiben.
+
+</details>
+
+<details><summary><b>817</b>: 10 von 12 richtig</summary>
+
+| Feld | Frage | Abgabe | Ergebnis |
+|---|---|---|---|
+| S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nach… | 8.00 | ✗ falsch |
+| S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 2.42 | ✗ falsch |
+| S04-3 | 95 %-KI des gepoolten Effekts &#91;untere, obere&#93; | &#91;0.02, 0.61&#93; | ✓ richtig |
+| S04-4 | I² (in %) | 26.9 | ✓ richtig |
+| S04-5 | Modell A: R² | 0.13 | ✓ richtig |
+| S04-6 | Modell A: F | 3.80 | ✓ richtig |
+| S04-7 | Modell A: p | 0.006 | ✓ richtig |
+| S04-8 | Modell A: stärkster Prädiktor (Variable + β) | G 0.32 | ✓ richtig |
+| S04-9 | Modell A: größter VIF | 1.43 | ✓ richtig |
+| S04-10 | Modell B: R² | 0.02 | ✓ richtig |
+| S04-11 | Moderation: b der Interaktion E&#95;c &#42; G&#95;c | 0.01 | ✓ richtig |
+| S04-12 | Moderation: p der Interaktion | 0.871 | ✓ richtig |
+| S04-13 | Ein Satz: Warum findet Modell B (fast) nichts? | Es besteht kein Zusammenhang zwischen den Skalen (Alter, geschlecht und Bildungsgrad) und N&#95;mean | liest Deine Lehrperson |
+
+- Die Kennziffer im Dateinamen steht nicht im Stand Deiner Gruppe. Über Dein GitHub-Konto gehört zu Dir die Kennziffer 261831017, darüber wurde Deine Abgabe zugeordnet. Du kannst bei Deiner Nummer bleiben.
 
 </details>
 
