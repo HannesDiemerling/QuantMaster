@@ -14,7 +14,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 17.
 | 261831018 | 13 | 1 | 0 | 0 | 2/2 | 25.11.2026, 09:37 (nach dem Sitzungstag) | 1 | Tommytrn02 |   |
 | 261831031 | 13 | 1 | 0 | 0 | 2/2 | 24.11.2026, 22:59 (nach dem Sitzungstag) | 2 | janinakilian |   |
 | 261831037 | 12 | 0 | 0 | 2 | 2/2 | 25.11.2026, 09:19 (nach dem Sitzungstag) | 2 | lisasophierabe |   |
-| 261831038 | 12 | 0 | 0 | 2 | 2/2 | 25.11.2026, 10:44 (nach dem Sitzungstag) | 1 | b9fcy2z6m8-creator |   |
+| 261831038 | 14 | 0 | 0 | 0 | 2/2 | 25.11.2026, 10:47 (nach dem Sitzungstag) | 2 | b9fcy2z6m8-creator |   |
 | 31005 | 11 | 3 | 0 | 0 | 2/2 | 18.11.2026, 13:15 | 1 | claudiabirkle | über Konto zugeordnet zu 261831005 |
 | 31009 | 13 | 1 | 0 | 0 | 2/2 | 18.11.2026, 13:12 | 1 | mialudwig |   |
 | 31030 | 11 | 2 | 0 | 1 | 2/2 | 18.11.2026, 13:06 | 1 | Siahmardy |   |
@@ -38,7 +38,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 17.
 | 261831018 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 261831031 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 261831037 | ✓ | ✓ | ✓ | ? | ? | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
-| 261831038 | ✓ | ✓ | ✓ | ? | ? | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 261831038 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 31005 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ | T |
 | 31009 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 31030 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✗ | ✗ | ✓ | ✓ | ✓ | ? | T |
@@ -51,8 +51,8 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 17.
 | S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 15 von 17 |
 | S03-2 | Mittelwert N&#95;mean | 15 von 17 |
 | S03-3 | SD N&#95;mean | 16 von 17 |
-| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 13 von 17 |
-| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 12 von 17 |
+| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 14 von 17 |
+| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 13 von 17 |
 | S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 15 von 17 |
 | S03-7 | H1: p-Wert | 15 von 17 |
 | S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig … | 12 von 17 |
@@ -301,15 +301,15 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 
 </details>
 
-<details><summary><b>261831038</b>: 12 von 14 richtig</summary>
+<details><summary><b>261831038</b>: 14 von 14 richtig</summary>
 
 | Feld | Frage | Abgabe | Ergebnis |
 |---|---|---|---|
 | S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 117 | ✓ richtig |
 | S03-2 | Mittelwert N&#95;mean | 3.08 | ✓ richtig |
 | S03-3 | SD N&#95;mean | 0.89 | ✓ richtig |
-| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 0,74 | ? nicht lesbar |
-| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 0,59 | ? nicht lesbar |
+| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | E 0.74 | ✓ richtig |
+| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | N 0.59 | ✓ richtig |
 | S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.07 | ✓ richtig |
 | S03-7 | H1: p-Wert | 0.443 | ✓ richtig |
 | S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | 1 | ✓ richtig |
