@@ -1,6 +1,6 @@
 # Übersicht Gruppe hannes, Sitzung 03
 
-Prüfstand: Version 1 der Sollwerte. Abgaben: 16.
+Prüfstand: Version 1 der Sollwerte. Abgaben: 17.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
@@ -14,6 +14,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 16.
 | 261831018 | 13 | 1 | 0 | 0 | 2/2 | 25.11.2026, 09:37 (nach dem Sitzungstag) | 1 | Tommytrn02 |   |
 | 261831031 | 13 | 1 | 0 | 0 | 2/2 | 24.11.2026, 22:59 (nach dem Sitzungstag) | 2 | janinakilian |   |
 | 261831037 | 12 | 0 | 0 | 2 | 2/2 | 25.11.2026, 09:19 (nach dem Sitzungstag) | 2 | lisasophierabe |   |
+| 261831038 | 12 | 0 | 0 | 2 | 2/2 | 25.11.2026, 10:44 (nach dem Sitzungstag) | 1 | b9fcy2z6m8-creator |   |
 | 31005 | 11 | 3 | 0 | 0 | 2/2 | 18.11.2026, 13:15 | 1 | claudiabirkle | über Konto zugeordnet zu 261831005 |
 | 31009 | 13 | 1 | 0 | 0 | 2/2 | 18.11.2026, 13:12 | 1 | mialudwig |   |
 | 31030 | 11 | 2 | 0 | 1 | 2/2 | 18.11.2026, 13:06 | 1 | Siahmardy |   |
@@ -37,6 +38,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 16.
 | 261831018 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 261831031 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 261831037 | ✓ | ✓ | ✓ | ? | ? | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 261831038 | ✓ | ✓ | ✓ | ? | ? | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 31005 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ | T |
 | 31009 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 31030 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✗ | ✗ | ✓ | ✓ | ✓ | ? | T |
@@ -46,20 +48,20 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 16.
 
 | Feld | Frage | Treffer |
 |---|---|---|
-| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 14 von 16 |
-| S03-2 | Mittelwert N&#95;mean | 14 von 16 |
-| S03-3 | SD N&#95;mean | 15 von 16 |
-| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 13 von 16 |
-| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 12 von 16 |
-| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 14 von 16 |
-| S03-7 | H1: p-Wert | 14 von 16 |
-| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig … | 11 von 16 |
-| S03-10 | t1: t | 13 von 16 |
-| S03-11 | t1: Cohen's d | 14 von 16 |
-| S03-12 | t2 (Welch-Zeile): t | 14 von 16 |
-| S03-13 | t2 (Welch-Zeile): p | 14 von 16 |
-| S03-14 | t2: Cohen's d | 13 von 16 |
-| S03-15 | t3 (Welch-Zeile): p | 7 von 16 |
+| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 15 von 17 |
+| S03-2 | Mittelwert N&#95;mean | 15 von 17 |
+| S03-3 | SD N&#95;mean | 16 von 17 |
+| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 13 von 17 |
+| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 12 von 17 |
+| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 15 von 17 |
+| S03-7 | H1: p-Wert | 15 von 17 |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, zweiseitig … | 12 von 17 |
+| S03-10 | t1: t | 14 von 17 |
+| S03-11 | t1: Cohen's d | 15 von 17 |
+| S03-12 | t2 (Welch-Zeile): t | 15 von 17 |
+| S03-13 | t2 (Welch-Zeile): p | 15 von 17 |
+| S03-14 | t2: Cohen's d | 14 von 17 |
+| S03-15 | t3 (Welch-Zeile): p | 8 von 17 |
 
 ## Details je Kennziffer
 
@@ -296,6 +298,29 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S03-14 | t2: Cohen's d | 0.19 | ✓ richtig |
 | S03-15 | t3 (Welch-Zeile): p | 0.642 | ✓ richtig |
 | S03-16 | Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und wel… | Frauen zeigen zwar höhere Werte in Verträglichkeit, jedoch ist das nicht wirklich signifikant. | liest Deine Lehrperson |
+
+</details>
+
+<details><summary><b>261831038</b>: 12 von 14 richtig</summary>
+
+| Feld | Frage | Abgabe | Ergebnis |
+|---|---|---|---|
+| S03-1 | Anzahl gültiger Werte (Valid) von E&#95;mean | 117 | ✓ richtig |
+| S03-2 | Mittelwert N&#95;mean | 3.08 | ✓ richtig |
+| S03-3 | SD N&#95;mean | 0.89 | ✓ richtig |
+| S03-4 | Skala mit dem höchsten Cronbach's α (Skala + α) | 0,74 | ? nicht lesbar |
+| S03-5 | Skala mit dem niedrigsten Cronbach's α (Skala + α) | 0,59 | ? nicht lesbar |
+| S03-6 | H1: Pearson r (V&#95;mean × N&#95;mean) | 0.07 | ✓ richtig |
+| S03-7 | H1: p-Wert | 0.443 | ✓ richtig |
+| S03-8 | Wie viele der Hypothesen H1–H4 sind signifikant (p &lt; .05, z… | 1 | ✓ richtig |
+| S03-9 | Eine alternative Erklärung (Drittvariable) für eine der Kor… | Ein abwechslungsreiches soziales und kulturelles Umfeld könnte sowohl die Offenheit als auch die Extraversion beeinflussen. | liest Deine Lehrperson |
+| S03-10 | t1: t | 0.73 | ✓ richtig |
+| S03-11 | t1: Cohen's d | 0.07 | ✓ richtig |
+| S03-12 | t2 (Welch-Zeile): t | 0.96 | ✓ richtig |
+| S03-13 | t2 (Welch-Zeile): p | 0.342 | ✓ richtig |
+| S03-14 | t2: Cohen's d | 0.19 | ✓ richtig |
+| S03-15 | t3 (Welch-Zeile): p | 0.642 | ✓ richtig |
+| S03-16 | Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und wel… | Frauen weisen im Mittel eine etwas höhere Verträglichkeit auf als Männer, jedoch ist der Unterschied statistisch nicht signifikant und angesichts der kleinen Effektgröße und der Stichprobenunsicherhe… | liest Deine Lehrperson |
 
 </details>
 
