@@ -1,9 +1,10 @@
 # Übersicht Gruppe hannes, Sitzung 04
 
-Prüfstand: Version 1 der Sollwerte. Abgaben: 4.
+Prüfstand: Version 1 der Sollwerte. Abgaben: 5.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
+| 261831013 | 12 | 0 | 0 | 0 | 1/1 | 25.11.2026, 12:01 | 1 | MiriamLebert |   |
 | 261831031 | 12 | 0 | 0 | 0 | 1/1 | 25.11.2026, 11:59 | 6 | janinakilian |   |
 | 31005 | 12 | 0 | 0 | 0 | 1/1 | 19.11.2026, 12:49 | 1 | claudiabirkle | über Konto zugeordnet zu 261831005 |
 | 31009 | 12 | 0 | 0 | 0 | 1/1 | 19.11.2026, 12:48 | 1 | mialudwig |   |
@@ -15,6 +16,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 4.
 
 | Kennziffer | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| 261831013 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831031 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 31005 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 31009 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
@@ -22,22 +24,42 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 4.
 
 | Feld | Frage | Treffer |
 |---|---|---|
-| S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nachkommastell… | 4 von 4 |
-| S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 4 von 4 |
-| S04-3 | 95 %-KI des gepoolten Effekts &#91;untere, obere&#93; | 4 von 4 |
-| S04-4 | I² (in %) | 4 von 4 |
-| S04-5 | Modell A: R² | 4 von 4 |
-| S04-6 | Modell A: F | 4 von 4 |
-| S04-7 | Modell A: p | 4 von 4 |
-| S04-8 | Modell A: stärkster Prädiktor (Variable + β) | 4 von 4 |
-| S04-9 | Modell A: größter VIF | 4 von 4 |
-| S04-10 | Modell B: R² | 4 von 4 |
-| S04-11 | Moderation: b der Interaktion E&#95;c &#42; G&#95;c | 4 von 4 |
-| S04-12 | Moderation: p der Interaktion | 4 von 4 |
+| S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nachkommastell… | 5 von 5 |
+| S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 5 von 5 |
+| S04-3 | 95 %-KI des gepoolten Effekts &#91;untere, obere&#93; | 5 von 5 |
+| S04-4 | I² (in %) | 5 von 5 |
+| S04-5 | Modell A: R² | 5 von 5 |
+| S04-6 | Modell A: F | 5 von 5 |
+| S04-7 | Modell A: p | 5 von 5 |
+| S04-8 | Modell A: stärkster Prädiktor (Variable + β) | 5 von 5 |
+| S04-9 | Modell A: größter VIF | 5 von 5 |
+| S04-10 | Modell B: R² | 5 von 5 |
+| S04-11 | Moderation: b der Interaktion E&#95;c &#42; G&#95;c | 5 von 5 |
+| S04-12 | Moderation: p der Interaktion | 5 von 5 |
 
 ## Details je Kennziffer
 
 Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zeile auf.
+
+<details><summary><b>261831013</b>: 12 von 12 richtig</summary>
+
+| Feld | Frage | Abgabe | Ergebnis |
+|---|---|---|---|
+| S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nach… | 0.53 | ✓ richtig |
+| S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 0.32 | ✓ richtig |
+| S04-3 | 95 %-KI des gepoolten Effekts &#91;untere, obere&#93; | &#91;0.02, 0.61&#93; | ✓ richtig |
+| S04-4 | I² (in %) | 26.9 | ✓ richtig |
+| S04-5 | Modell A: R² | 0.13 | ✓ richtig |
+| S04-6 | Modell A: F | 3.80 | ✓ richtig |
+| S04-7 | Modell A: p | 0.006 | ✓ richtig |
+| S04-8 | Modell A: stärkster Prädiktor (Variable + β) | G 0.32 | ✓ richtig |
+| S04-9 | Modell A: größter VIF | 1.43 | ✓ richtig |
+| S04-10 | Modell B: R² | 0.02 | ✓ richtig |
+| S04-11 | Moderation: b der Interaktion E&#95;c &#42; G&#95;c | 0.01 | ✓ richtig |
+| S04-12 | Moderation: p der Interaktion | 0.871 | ✓ richtig |
+| S04-13 | Ein Satz: Warum findet Modell B (fast) nichts? | Es kann sein, dass N&#95;Mean keinen linearen Zusammenhang zu Geschlecht, Alter und Bildungsgrad hat. | liest Deine Lehrperson |
+
+</details>
 
 <details><summary><b>261831031</b>: 12 von 12 richtig</summary>
 
