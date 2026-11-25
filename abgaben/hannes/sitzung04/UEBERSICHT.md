@@ -4,7 +4,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 3.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
-| 261831031 | 11 | 0 | 0 | 1 | 1/1 | 25.11.2026, 11:51 | 1 | janinakilian |   |
+| 261831031 | 11 | 0 | 0 | 1 | 1/1 | 25.11.2026, 11:53 | 2 | janinakilian |   |
 | 31005 | 12 | 0 | 0 | 0 | 1/1 | 19.11.2026, 12:49 | 1 | claudiabirkle | über Konto zugeordnet zu 261831005 |
 | 31009 | 12 | 0 | 0 | 0 | 1/1 | 19.11.2026, 12:48 | 1 | mialudwig |   |
 
@@ -47,7 +47,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S04-4 | I² (in %) | 26.9 | ✓ richtig |
 | S04-5 | Modell A: R² | 0.13 | ✓ richtig |
 | S04-6 | Modell A: F | 3.80 | ✓ richtig |
-| S04-7 | Modell A: p | &lt; .01 | ? nicht lesbar |
+| S04-7 | Modell A: p | p &lt; .01 | ? nicht lesbar |
 | S04-8 | Modell A: stärkster Prädiktor (Variable + β) | G 0.32 | ✓ richtig |
 | S04-9 | Modell A: größter VIF | 1.43 | ✓ richtig |
 | S04-10 | Modell B: R² | 0.02 | ✓ richtig |
