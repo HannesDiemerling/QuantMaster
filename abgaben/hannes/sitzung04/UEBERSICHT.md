@@ -6,7 +6,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 13.
 |---|---:|---:|---:|---:|---|---|---:|---|---|
 | 1003 | 10 | 2 | 0 | 0 | 1/1 | 25.11.2026, 12:38 | 1 | theresaschwanebeck | über Konto zugeordnet zu 261831003 |
 | 261831001 | 12 | 0 | 0 | 0 | 1/1 | 25.11.2026, 12:20 | 1 | NadineRittmeier |   |
-| 261831002 | 10 | 2 | 0 | 0 | 1/1 | 25.11.2026, 12:37 | 1 | Clara Rummler |   |
+| 261831002 | 11 | 1 | 0 | 0 | 1/1 | 25.11.2026, 12:49 | 2 | Clara Rummler |   |
 | 261831013 | 12 | 0 | 0 | 0 | 1/1 | 25.11.2026, 12:01 | 1 | MiriamLebert |   |
 | 261831031 | 12 | 0 | 0 | 0 | 1/1 | 25.11.2026, 11:59 | 6 | janinakilian |   |
 | 261831037 | 12 | 0 | 0 | 0 | 1/1 | 25.11.2026, 12:43 | 1 | lisasophierabe |   |
@@ -26,7 +26,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 13.
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | 1003 | ✓ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831001 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
-| 261831002 | ✓ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 261831002 | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831013 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831031 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831037 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
@@ -41,7 +41,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 13.
 | Feld | Frage | Treffer |
 |---|---|---|
 | S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nachkommastell… | 12 von 13 |
-| S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 10 von 13 |
+| S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 11 von 13 |
 | S04-3 | 95 %-KI des gepoolten Effekts &#91;untere, obere&#93; | 11 von 13 |
 | S04-4 | I² (in %) | 13 von 13 |
 | S04-5 | Modell A: R² | 13 von 13 |
@@ -99,12 +99,12 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 
 </details>
 
-<details><summary><b>261831002</b>: 10 von 12 richtig</summary>
+<details><summary><b>261831002</b>: 11 von 12 richtig</summary>
 
 | Feld | Frage | Abgabe | Ergebnis |
 |---|---|---|---|
 | S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nach… | 0.48 | ✓ richtig |
-| S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 2.51 | ✗ falsch |
+| S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 0.32 | ✓ richtig |
 | S04-3 | 95 %-KI des gepoolten Effekts &#91;untere, obere&#93; | &#91;0.32, 0.07&#93; | ✗ falsch |
 | S04-4 | I² (in %) | 26.9 | ✓ richtig |
 | S04-5 | Modell A: R² | 0.13 | ✓ richtig |

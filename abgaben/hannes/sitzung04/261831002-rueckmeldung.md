@@ -3,17 +3,17 @@
 **Gruppe:** hannes  
 **Sitzung:** 04  
 **Kennziffer:** 261831002  
-**Eingegangen:** 25.11.2026, 12:37  
-**Fassung:** 1  
+**Eingegangen:** 25.11.2026, 12:49  
+**Fassung:** 2  
 **Eingestellt von:** Clara Rummler  
 **Prüfstand:** Version 1
 
-**10 von 12 prüfbaren Feldern sind richtig.** Zum Korrigieren öffnest Du Deine Datei im Ordner, klickst oben rechts auf das Stift-Symbol, änderst die Werte und klickst auf *Commit changes*. Die Rückmeldung wird dann neu erzeugt.
+**11 von 12 prüfbaren Feldern sind richtig.** Zum Korrigieren öffnest Du Deine Datei im Ordner, klickst oben rechts auf das Stift-Symbol, änderst die Werte und klickst auf *Commit changes*. Die Rückmeldung wird dann neu erzeugt.
 
 | Feld | Frage | Deine Antwort (so verstanden) | Ergebnis |
 |---|---|---|---|
 | S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nachkommastellen) | 0.48 | ✓ richtig |
-| S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 2.51 | ✗ falsch |
+| S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 0.32 | ✓ richtig |
 | S04-3 | 95 %-KI des gepoolten Effekts &#91;untere, obere&#93; | &#91;0.32, 0.07&#93; | ✗ falsch · Beide Grenzen in eckigen Klammern, zum Beispiel &#91;0.10, 0.35&#93;. |
 | S04-4 | I² (in %) | 26.9 | ✓ richtig |
 | S04-5 | Modell A: R² | 0.13 | ✓ richtig |
