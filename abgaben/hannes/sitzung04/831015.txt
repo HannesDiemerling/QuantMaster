@@ -1,0 +1,14 @@
+S04-1 r in Deinem eigenen Seed-Datensatz (E_mean × O_mean, 2 Nachkommastellen): 0.287
+S04-2 Gepoolter Effekt (Fisher-z, Random Effects): 0.3179 
+S04-3 95 %-KI des gepoolten Effekts [untere, obere]: 0.021,0.614
+S04-4 I² (in %): 26.93%
+S04-5 Modell A: R²: 0.125
+S04-6 Modell A: F: 3.8
+S04-7 Modell A: p: .006
+S04-8 Modell A: stärkster Prädiktor (Variable + β): G, 0.3199
+S04-9 Modell A: größter VIF: 1.428
+S04-10 Modell B: R²: 0.024
+S04-11 Moderation: b der Interaktion E_c * G_c: 0.0146
+S04-12 Moderation: p der Interaktion: .871
+S04-13 Ein Satz: Warum findet Modell B (fast) nichts? 
+Modell B findet nichts, da kein linearer Zusammenhang zwischen neurotizismus, dem Alter, Bildungsgrad und Geschlecht in unseren Daten nachgewiesen werden konnte. 
