@@ -4,7 +4,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 4.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
-| 261831031 | 11 | 0 | 0 | 1 | 1/1 | 25.11.2026, 11:55 | 4 | janinakilian |   |
+| 261831031 | 11 | 0 | 0 | 1 | 1/1 | 25.11.2026, 11:56 | 5 | janinakilian |   |
 | 31005 | 12 | 0 | 0 | 0 | 1/1 | 19.11.2026, 12:49 | 1 | claudiabirkle | über Konto zugeordnet zu 261831005 |
 | 31009 | 12 | 0 | 0 | 0 | 1/1 | 19.11.2026, 12:48 | 1 | mialudwig |   |
 | 31014 | 12 | 0 | 0 | 0 | 1/1 | 25.11.2026, 11:54 | 1 | la03-m | über Konto zugeordnet zu 261831014 |

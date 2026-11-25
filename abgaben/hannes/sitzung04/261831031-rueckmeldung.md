@@ -3,8 +3,8 @@
 **Gruppe:** hannes  
 **Sitzung:** 04  
 **Kennziffer:** 261831031  
-**Eingegangen:** 25.11.2026, 11:55  
-**Fassung:** 4  
+**Eingegangen:** 25.11.2026, 11:56  
+**Fassung:** 5  
 **Eingestellt von:** janinakilian  
 **Prüfstand:** Version 1
 
