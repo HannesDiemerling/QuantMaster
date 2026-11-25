@@ -3,8 +3,8 @@
 **Gruppe:** hannes  
 **Sitzung:** 04  
 **Kennziffer:** 261831031  
-**Eingegangen:** 25.11.2026, 11:53  
-**Fassung:** 2  
+**Eingegangen:** 25.11.2026, 11:54  
+**Fassung:** 3  
 **Eingestellt von:** janinakilian  
 **Prüfstand:** Version 1
 
@@ -18,7 +18,7 @@
 | S04-4 | I² (in %) | 26.9 | ✓ richtig |
 | S04-5 | Modell A: R² | 0.13 | ✓ richtig |
 | S04-6 | Modell A: F | 3.80 | ✓ richtig |
-| S04-7 | Modell A: p | p &lt; .01 | ? nicht lesbar · Gib bitte den genauen p-Wert an, zum Beispiel .045. |
+| S04-7 | Modell A: p | &lt;.01 | ? nicht lesbar · Gib bitte den genauen p-Wert an, zum Beispiel .045. |
 | S04-8 | Modell A: stärkster Prädiktor (Variable + β) | G 0.32 | ✓ richtig |
 | S04-9 | Modell A: größter VIF | 1.43 | ✓ richtig |
 | S04-10 | Modell B: R² | 0.02 | ✓ richtig |
