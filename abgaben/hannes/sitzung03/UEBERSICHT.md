@@ -12,7 +12,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 15.
 | 261831012 | 12 | 2 | 0 | 0 | 2/2 | 24.11.2026, 12:03 (nach dem Sitzungstag) | 2 | kemismudzinski |   |
 | 261831013 | 14 | 0 | 0 | 0 | 2/2 | 18.11.2026, 12:00 | 1 | MiriamLebert |   |
 | 261831031 | 13 | 1 | 0 | 0 | 2/2 | 24.11.2026, 22:59 (nach dem Sitzungstag) | 2 | janinakilian |   |
-| 261831037 | 12 | 0 | 0 | 2 | 1/2 | 25.11.2026, 09:15 (nach dem Sitzungstag) | 1 | lisasophierabe |   |
+| 261831037 | 12 | 0 | 0 | 2 | 2/2 | 25.11.2026, 09:19 (nach dem Sitzungstag) | 2 | lisasophierabe |   |
 | 31005 | 11 | 3 | 0 | 0 | 2/2 | 18.11.2026, 13:15 | 1 | claudiabirkle | über Konto zugeordnet zu 261831005 |
 | 31009 | 13 | 1 | 0 | 0 | 2/2 | 18.11.2026, 13:12 | 1 | mialudwig |   |
 | 31030 | 11 | 2 | 0 | 1 | 2/2 | 18.11.2026, 13:06 | 1 | Siahmardy |   |
@@ -34,7 +34,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 15.
 | 261831012 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
 | 261831013 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831031 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T |
-| 261831037 | ✓ | ✓ | ✓ | ? | ? | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | – |
+| 261831037 | ✓ | ✓ | ✓ | ? | ? | ✓ | ✓ | ✓ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 31005 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ | T |
 | 31009 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | T | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 31030 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T | ✗ | ✗ | ✓ | ✓ | ✓ | ? | T |
@@ -270,7 +270,7 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S03-13 | t2 (Welch-Zeile): p | 0.342 | ✓ richtig |
 | S03-14 | t2: Cohen's d | 0.19 | ✓ richtig |
 | S03-15 | t3 (Welch-Zeile): p | 0.642 | ✓ richtig |
-| S03-16 | Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und wel… |   | – fehlt |
+| S03-16 | Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und wel… | Frauen zeigen zwar höhere Werte in Verträglichkeit, jedoch ist das nicht wirklich signifikant. | liest Deine Lehrperson |
 
 </details>
 

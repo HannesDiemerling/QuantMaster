@@ -3,8 +3,8 @@
 **Gruppe:** hannes  
 **Sitzung:** 03  
 **Kennziffer:** 261831037  
-**Eingegangen:** 25.11.2026, 09:15  
-**Fassung:** 1  
+**Eingegangen:** 25.11.2026, 09:19  
+**Fassung:** 2  
 **Eingestellt von:** lisasophierabe  
 **Prüfstand:** Version 1
 
@@ -26,7 +26,6 @@
 | S03-13 | t2 (Welch-Zeile): p | 0.342 | ✓ richtig |
 | S03-14 | t2: Cohen's d | 0.19 | ✓ richtig |
 | S03-15 | t3 (Welch-Zeile): p | 0.642 | ✓ richtig |
-| S03-16 | Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und welchen Vorbehalt hast … |   | – fehlt |
 
 ~ zählt nicht in die Trefferzahl, ? heißt, dass ich die Antwort nicht als Zahl lesen konnte.
 
@@ -36,4 +35,6 @@
 
 > Es könnte eine Dritvariable geben, die bei beiden Skalen zu höheren Werten führt.
 
-Noch offen: S03-16
+**S03-16** Ein Satz: Welche Schlussfolgerung ziehst Du aus t2, und welchen Vorbehalt hast Du?
+
+> Frauen zeigen zwar höhere Werte in Verträglichkeit, jedoch ist das nicht wirklich signifikant.
