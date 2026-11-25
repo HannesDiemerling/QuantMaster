@@ -4,7 +4,7 @@ S04-3 95 %-KI des gepoolten Effekts [untere, obere]: [0.02, 0.61]
 S04-4 I² (in %): 26.93%
 S04-5 Modell A: R²: 0.13
 S04-6 Modell A: F: 3.80
-S04-7 Modell A: p: < .01
+S04-7 Modell A: p < .01
 S04-8 Modell A: stärkster Prädiktor (Variable + β): G 0.32
 S04-9 Modell A: größter VIF: 1.43
 S04-10 Modell B: R²: 0.02
