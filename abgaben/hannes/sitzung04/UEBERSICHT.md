@@ -1,6 +1,6 @@
 # Übersicht Gruppe hannes, Sitzung 04
 
-Prüfstand: Version 1 der Sollwerte. Abgaben: 13.
+Prüfstand: Version 1 der Sollwerte. Abgaben: 14.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
@@ -8,6 +8,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 13.
 | 261831001 | 12 | 0 | 0 | 0 | 1/1 | 25.11.2026, 12:20 | 1 | NadineRittmeier |   |
 | 261831002 | 11 | 1 | 0 | 0 | 1/1 | 25.11.2026, 12:49 | 2 | Clara Rummler |   |
 | 261831013 | 12 | 0 | 0 | 0 | 1/1 | 25.11.2026, 12:01 | 1 | MiriamLebert |   |
+| 261831018 | 11 | 1 | 0 | 0 | 1/1 | 25.11.2026, 13:02 | 1 | Tommytrn02 |   |
 | 261831031 | 12 | 0 | 0 | 0 | 1/1 | 25.11.2026, 11:59 | 6 | janinakilian |   |
 | 261831037 | 12 | 0 | 0 | 0 | 1/1 | 25.11.2026, 12:43 | 1 | lisasophierabe |   |
 | 310 | 11 | 0 | 0 | 1 | 1/1 | 25.11.2026, 12:47 | 1 | Siahmardy | über Konto zugeordnet zu 31030 |
@@ -28,6 +29,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 13.
 | 261831001 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831002 | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831013 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
+| 261831018 | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831031 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831037 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 310 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ? | ✓ | ✓ | ✓ | ✓ | T |
@@ -40,18 +42,18 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 13.
 
 | Feld | Frage | Treffer |
 |---|---|---|
-| S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nachkommastell… | 12 von 13 |
-| S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 11 von 13 |
-| S04-3 | 95 %-KI des gepoolten Effekts &#91;untere, obere&#93; | 11 von 13 |
-| S04-4 | I² (in %) | 13 von 13 |
-| S04-5 | Modell A: R² | 13 von 13 |
-| S04-6 | Modell A: F | 13 von 13 |
-| S04-7 | Modell A: p | 13 von 13 |
-| S04-8 | Modell A: stärkster Prädiktor (Variable + β) | 12 von 13 |
-| S04-9 | Modell A: größter VIF | 13 von 13 |
-| S04-10 | Modell B: R² | 13 von 13 |
-| S04-11 | Moderation: b der Interaktion E&#95;c &#42; G&#95;c | 13 von 13 |
-| S04-12 | Moderation: p der Interaktion | 13 von 13 |
+| S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nachkommastell… | 12 von 14 |
+| S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 12 von 14 |
+| S04-3 | 95 %-KI des gepoolten Effekts &#91;untere, obere&#93; | 12 von 14 |
+| S04-4 | I² (in %) | 14 von 14 |
+| S04-5 | Modell A: R² | 14 von 14 |
+| S04-6 | Modell A: F | 14 von 14 |
+| S04-7 | Modell A: p | 14 von 14 |
+| S04-8 | Modell A: stärkster Prädiktor (Variable + β) | 13 von 14 |
+| S04-9 | Modell A: größter VIF | 14 von 14 |
+| S04-10 | Modell B: R² | 14 von 14 |
+| S04-11 | Moderation: b der Interaktion E&#95;c &#42; G&#95;c | 14 von 14 |
+| S04-12 | Moderation: p der Interaktion | 14 von 14 |
 
 ## Details je Kennziffer
 
@@ -136,6 +138,26 @@ Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zei
 | S04-11 | Moderation: b der Interaktion E&#95;c &#42; G&#95;c | 0.01 | ✓ richtig |
 | S04-12 | Moderation: p der Interaktion | 0.871 | ✓ richtig |
 | S04-13 | Ein Satz: Warum findet Modell B (fast) nichts? | Es kann sein, dass N&#95;Mean keinen linearen Zusammenhang zu Geschlecht, Alter und Bildungsgrad hat. | liest Deine Lehrperson |
+
+</details>
+
+<details><summary><b>261831018</b>: 11 von 12 richtig</summary>
+
+| Feld | Frage | Abgabe | Ergebnis |
+|---|---|---|---|
+| S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nach… | 0.09 | ✗ falsch |
+| S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 0.32 | ✓ richtig |
+| S04-3 | 95 %-KI des gepoolten Effekts &#91;untere, obere&#93; | &#91;0.02, 0.61&#93; | ✓ richtig |
+| S04-4 | I² (in %) | 26.9 | ✓ richtig |
+| S04-5 | Modell A: R² | 0.13 | ✓ richtig |
+| S04-6 | Modell A: F | 3.80 | ✓ richtig |
+| S04-7 | Modell A: p | 0.006 | ✓ richtig |
+| S04-8 | Modell A: stärkster Prädiktor (Variable + β) | G 0.32 | ✓ richtig |
+| S04-9 | Modell A: größter VIF | 1.43 | ✓ richtig |
+| S04-10 | Modell B: R² | 0.02 | ✓ richtig |
+| S04-11 | Moderation: b der Interaktion E&#95;c &#42; G&#95;c | 0.01 | ✓ richtig |
+| S04-12 | Moderation: p der Interaktion | 0.870 | ✓ richtig |
+| S04-13 | Ein Satz: Warum findet Modell B (fast) nichts? | Es wird kein hinweis geliefert dass, Bildung, Alter und Geschlecht die vorhersage unterstützen | liest Deine Lehrperson |
 
 </details>
 
