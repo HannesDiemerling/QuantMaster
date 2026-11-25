@@ -1,9 +1,10 @@
 # Übersicht Gruppe hannes, Sitzung 04
 
-Prüfstand: Version 1 der Sollwerte. Abgaben: 10.
+Prüfstand: Version 1 der Sollwerte. Abgaben: 11.
 
 | Kennziffer | Richtig | Falsch | Fehlt | Nicht lesbar | Freitext | Eingang | Fassung | Konto | Hinweise |
 |---|---:|---:|---:|---:|---|---|---:|---|---|
+| 1003 | 10 | 2 | 0 | 0 | 1/1 | 25.11.2026, 12:38 | 1 | theresaschwanebeck | über Konto zugeordnet zu 261831003 |
 | 261831001 | 12 | 0 | 0 | 0 | 1/1 | 25.11.2026, 12:20 | 1 | NadineRittmeier |   |
 | 261831002 | 10 | 2 | 0 | 0 | 1/1 | 25.11.2026, 12:37 | 1 | Clara Rummler |   |
 | 261831013 | 12 | 0 | 0 | 0 | 1/1 | 25.11.2026, 12:01 | 1 | MiriamLebert |   |
@@ -21,6 +22,7 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 10.
 
 | Kennziffer | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| 1003 | ✓ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831001 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831002 | ✓ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
 | 261831013 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | T |
@@ -34,22 +36,44 @@ Prüfstand: Version 1 der Sollwerte. Abgaben: 10.
 
 | Feld | Frage | Treffer |
 |---|---|---|
-| S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nachkommastell… | 9 von 10 |
-| S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 8 von 10 |
-| S04-3 | 95 %-KI des gepoolten Effekts &#91;untere, obere&#93; | 9 von 10 |
-| S04-4 | I² (in %) | 10 von 10 |
-| S04-5 | Modell A: R² | 10 von 10 |
-| S04-6 | Modell A: F | 10 von 10 |
-| S04-7 | Modell A: p | 10 von 10 |
-| S04-8 | Modell A: stärkster Prädiktor (Variable + β) | 10 von 10 |
-| S04-9 | Modell A: größter VIF | 10 von 10 |
-| S04-10 | Modell B: R² | 10 von 10 |
-| S04-11 | Moderation: b der Interaktion E&#95;c &#42; G&#95;c | 10 von 10 |
-| S04-12 | Moderation: p der Interaktion | 10 von 10 |
+| S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nachkommastell… | 10 von 11 |
+| S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 8 von 11 |
+| S04-3 | 95 %-KI des gepoolten Effekts &#91;untere, obere&#93; | 9 von 11 |
+| S04-4 | I² (in %) | 11 von 11 |
+| S04-5 | Modell A: R² | 11 von 11 |
+| S04-6 | Modell A: F | 11 von 11 |
+| S04-7 | Modell A: p | 11 von 11 |
+| S04-8 | Modell A: stärkster Prädiktor (Variable + β) | 11 von 11 |
+| S04-9 | Modell A: größter VIF | 11 von 11 |
+| S04-10 | Modell B: R² | 11 von 11 |
+| S04-11 | Moderation: b der Interaktion E&#95;c &#42; G&#95;c | 11 von 11 |
+| S04-12 | Moderation: p der Interaktion | 11 von 11 |
 
 ## Details je Kennziffer
 
 Abgegebene Werte je Feld, so wie sie verstanden wurden. Ein Klick klappt die Zeile auf.
+
+<details><summary><b>1003</b>: 10 von 12 richtig</summary>
+
+| Feld | Frage | Abgabe | Ergebnis |
+|---|---|---|---|
+| S04-1 | r in Deinem eigenen Seed-Datensatz (E&#95;mean × O&#95;mean, 2 Nach… | 0.72 | ✓ richtig |
+| S04-2 | Gepoolter Effekt (Fisher-z, Random Effects) | 2.51 | ✗ falsch |
+| S04-3 | 95 %-KI des gepoolten Effekts &#91;untere, obere&#93; | &#91;0.32, 0.07&#93; | ✗ falsch |
+| S04-4 | I² (in %) | 26.9 | ✓ richtig |
+| S04-5 | Modell A: R² | 0.13 | ✓ richtig |
+| S04-6 | Modell A: F | 3.80 | ✓ richtig |
+| S04-7 | Modell A: p | 0.006 | ✓ richtig |
+| S04-8 | Modell A: stärkster Prädiktor (Variable + β) | G 0.32 | ✓ richtig |
+| S04-9 | Modell A: größter VIF | 1.43 | ✓ richtig |
+| S04-10 | Modell B: R² | 0.02 | ✓ richtig |
+| S04-11 | Moderation: b der Interaktion E&#95;c &#42; G&#95;c | 0.01 | ✓ richtig |
+| S04-12 | Moderation: p der Interaktion | 0.871 | ✓ richtig |
+| S04-13 | Ein Satz: Warum findet Modell B (fast) nichts? | Kein Zusammenhang, da Alter, Bildungsgrad und Geschlecht zusammen nur 2,4% der Varianz erklären und keiner der Prädiktoren signifikant ist. | liest Deine Lehrperson |
+
+- Die Kennziffer im Dateinamen steht nicht im Stand Deiner Gruppe. Über Dein GitHub-Konto gehört zu Dir die Kennziffer 261831003, darüber wurde Deine Abgabe zugeordnet. Du kannst bei Deiner Nummer bleiben.
+
+</details>
 
 <details><summary><b>261831001</b>: 12 von 12 richtig</summary>
 
