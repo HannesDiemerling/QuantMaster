@@ -1,8 +1,8 @@
 S03-1 Anzahl gültiger Werte (Valid) von E_mean: 117
 S03-2 Mittelwert N_mean: 3,08
 S03-3 SD N_mean: 0,89
-S03-4 Skala mit dem höchsten Cronbach's α (Skala + α): 0,74
-S03-5 Skala mit dem niedrigsten Cronbach's α (Skala + α): 0,59
+S03-4 Skala mit dem höchsten Cronbach's α (Skala + α): Extraversion (E), α = 0,74
+S03-5 Skala mit dem niedrigsten Cronbach's α (Skala + α): Neurotizismus (N), α = 0,59
 S03-6 H1: Pearson r (V_mean × N_mean): 0,07
 S03-7 H1: p-Wert: 0,443
 S03-8 Wie viele der Hypothesen H1–H4 sind signifikant (p < .05, zweiseitig getestet)? 1
